@@ -34,7 +34,14 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           git rev-parse HEAD > source-commit.txt
-          git archive --format=zip --prefix=solanime/ --output=review-source.zip HEAD
+          python - <<'PY'
+          import subprocess, zipfile
+          names = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', '-z', 'HEAD']).decode().split('\0')
+          with zipfile.ZipFile('review-source.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+            for name in filter(None, names):
+              data = subprocess.check_output(['git', 'cat-file', 'blob', f'HEAD:{name}'])
+              archive.writestr('solanime/' + name, data)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
