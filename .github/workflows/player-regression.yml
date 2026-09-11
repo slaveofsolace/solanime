@@ -31,18 +31,25 @@ jobs:
               (next, options) => updateParamsRef.current(next, options),
               [],
             );'''
-          assert old in s;s=s.replace(old,new).replace('OPENING WATCH ROOM','').replace('Retrieving the title, version, and stored server mappings.','Loading the episode and available servers.')
+          if old in s:s=s.replace(old,new)
+          else:assert 'const updateParamsRef = useRef(updateParams);' in s
+          s=s.replace('OPENING WATCH ROOM','').replace('Retrieving the title, version, and stored server mappings.','Loading the episode and available servers.')
           s=s.replace("{episodeComments.length} comment{episodeComments.length === 1 ? '' : 's'}", "{episodeComments.length} note{episodeComments.length === 1 ? '' : 's'}")
           s=s.replace('<span>Comment</span>','<span>Note</span>').replace('Comments stay in this browser and are not posted publicly.','Notes stay in this browser and are not posted publicly.')
+          s=s.replace('<h2>Select an available server.</h2>', "<h2>{loadingProviders ? 'Loading servers…' : providers.length ? 'Select an available server.' : 'No servers for this episode'}</h2>")
+          s=s.replace('<p>Server availability depends on the provider.</p>', "<p>{providers.length ? 'Server availability depends on the provider.' : 'The episode is in the catalogue, but no sources have been imported for this version.'}</p>")
+          p.write_text(s)
+          p=Path('src/styles.css');s=p.read_text()
+          marker='/* Constrain placeholder geometry as well as the media element on narrow screens. */'
+          if marker not in s:s+='\n'+marker+'\n.player-empty, .player-consent { width: 100%; min-width: 0; }\n.player-empty > *, .player-consent > * { max-width: 100%; }\n'
           p.write_text(s)
           p=Path('tests/e2e/application.spec.ts');s=p.read_text()
-          start=s.index("test('server switching,")
-          body=s.index('  const data = await episode(page);',start)
-          s=s[:body]+"  let providerLists = 0;\n  page.on('request', (request) => { if (/\\/api\\/episodes\\/\\d+\\/providers/.test(request.url())) providerLists++; });\n"+s[body:]
-          needle="  await page\n    .getByRole('group', { name: 'Episode language' })"
-          assert needle in s;s=s.replace(needle,'  expect(providerLists).toBe(1);\n'+needle)
-          start=s.index("  await page.route('**/__fixture/motion.mp4'")
-          end=s.index('\n  await page.goto(',start)
+          if 'let providerLists = 0;' not in s:
+            start=s.index("test('server switching,");body=s.index('  const data = await episode(page);',start)
+            s=s[:body]+"  let providerLists = 0;\n  page.on('request', (request) => { if (/\\/api\\/episodes\\/\\d+\\/providers/.test(request.url())) providerLists++; });\n"+s[body:]
+            needle="  await page\n    .getByRole('group', { name: 'Episode language' })"
+            assert needle in s;s=s.replace(needle,'  expect(providerLists).toBe(1);\n'+needle)
+          start=s.index("  await page.route('**/__fixture/motion.mp4'");end=s.index('\n  await page.goto(',start)
           s=s[:start]+r'''  await page.route('**/__fixture/motion.mp4', (route) => {
             const bytes = readFileSync(resolve('tests/fixtures/motion.mp4'));
             const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers()['range'] ?? '');
@@ -53,20 +60,33 @@ jobs:
             return route.fulfill({ status: 206, contentType: 'video/mp4', headers: { 'accept-ranges': 'bytes', 'content-range': `bytes ${start}-${end}/${bytes.length}`, 'content-length': String(end - start + 1) }, body: bytes.subarray(start, end + 1) });
           });'''+s[end:]
           s=s.replace('element.currentTime = element.duration - 0.3;', 'element.currentTime = 1;')
+          if "test('player messages stay inside" not in s:
+            s+='''
+          test('player messages stay inside the mobile viewport', async ({ page }, testInfo) => {
+            const data = await episode(page);
+            await page.goto(`/watch/paper-lantern/${data.first.id}?language=sub`);
+            await expect(page.getByRole('button', { name: 'Play here', exact: true })).toBeVisible();
+            const bounds = await page.locator('.player-stage').evaluate((stage) => {
+              const container = stage.getBoundingClientRect();
+              return [...stage.querySelectorAll('.player-consent h2, .player-consent p, .player-consent button')].every((child) => { const rect = child.getBoundingClientRect(); return rect.left >= container.left && rect.right <= container.right; });
+            });
+            expect(bounds).toBe(true);
+            await page.screenshot({ path: testInfo.outputPath('watch-consent.png'), fullPage: true });
+          });
+          '''
           p.write_text(s)
           PY
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
           npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
-          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/pages/WatchPage.tsx tests/e2e/application.spec.ts
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/pages/WatchPage.tsx src/styles.css tests/e2e/application.spec.ts
           pnpm check
       - name: Commit regression repair to review branch
         run: |
           git config user.name 'Solanime maintenance'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/pages/WatchPage.tsx tests/e2e/application.spec.ts
-          git commit -m 'Keep server selection stable across URL updates and verify range-aware playback'
-          git push origin HEAD:refs/heads/fix/solanime-quality-pass
+          git add src/pages/WatchPage.tsx src/styles.css tests/e2e/application.spec.ts
+          if ! git diff --cached --quiet; then git commit -m 'Fix source-selection effects and constrain mobile player messages'; git push origin HEAD:refs/heads/fix/solanime-quality-pass; fi
       - run: pnpm exec playwright install --with-deps chromium webkit
       - name: Run complete browser regression suite
         run: |
@@ -81,5 +101,6 @@ jobs:
             playwright-report/
             test-results/
             src/pages/WatchPage.tsx
+            src/styles.css
             tests/e2e/application.spec.ts
           retention-days: 7
