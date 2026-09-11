@@ -70,6 +70,8 @@ export function buildRules(tabIds, options) {
   const ids = [...new Set(tabIds.filter((id) => Number.isInteger(id) && id >= 0))];
   if (!options.enabled || !ids.length) return [];
   const common = { tabIds: ids, initiatorDomains: [PROVIDER] };
+  // Omitting resourceTypes covers every subresource, including stylesheets and fonts.
+  // Top-frame navigation has its own explicit rule below.
   const rules = [
     {
       id: 1,
@@ -78,16 +80,6 @@ export function buildRules(tabIds, options) {
       condition: {
         ...common,
         requestDomains: TRACKERS,
-        resourceTypes: [
-          'script',
-          'image',
-          'xmlhttprequest',
-          'ping',
-          'sub_frame',
-          'media',
-          'websocket',
-          'other',
-        ],
       },
     },
     {
@@ -113,15 +105,6 @@ export function buildRules(tabIds, options) {
         ...common,
         excludedRequestDomains: [PROVIDER, ...validateHosts(options.mediaHosts)],
         domainType: 'thirdParty',
-        resourceTypes: [
-          'script',
-          'image',
-          'xmlhttprequest',
-          'sub_frame',
-          'media',
-          'websocket',
-          'other',
-        ],
       },
     });
   return rules;
