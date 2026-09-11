@@ -1,0 +1,50 @@
+name: Quality
+
+on:
+  push:
+    branches: [fix/solanime-quality-pass]
+    paths: [.github/workflows/quality.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install package manager
+        run: npm install --global pnpm@11.19.0
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check types
+        run: pnpm typecheck
+      - name: Unit and API tests
+        run: pnpm test
+      - name: Build frontend
+        run: pnpm build
+      - name: Package isolated Linux review runtime
+        if: always() && runner.os == 'Linux'
+        run: |
+          mkdir -p /tmp/review-runtime/bin /tmp/review-runtime/lib
+          cp "$(command -v node)" /tmp/review-runtime/bin/node
+          cp -R "$(npm root -g)/pnpm" /tmp/review-runtime/lib/pnpm
+          tar -czf /tmp/solanime-test-environment.tgz node_modules -C /tmp review-runtime
+      - uses: actions/upload-artifact@v4
+        if: always() && runner.os == 'Linux'
+        with:
+          name: solanime-linux-review-runtime
+          path: /tmp/solanime-test-environment.tgz
+          retention-days: 3
+          if-no-files-found: error
