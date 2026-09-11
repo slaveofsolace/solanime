@@ -92,6 +92,10 @@ test('episode search stays paginated and a new title resets its range', async ({
 test('server switching, failed connections and history follow the selected source', async ({
   page,
 }) => {
+  let providerLists = 0;
+  page.on('request', (request) => {
+    if (/\/api\/episodes\/\d+\/providers/.test(request.url())) providerLists++;
+  });
   const data = await episode(page);
   await page.goto(`/watch/paper-lantern/${data.first.id}?language=sub`);
   await expect(page.getByRole('button', { name: 'Play here', exact: true })).toBeVisible();
@@ -126,6 +130,7 @@ test('server switching, failed connections and history follow the selected sourc
     'aria-pressed',
     'true',
   );
+  expect(providerLists).toBe(1);
   await page
     .getByRole('group', { name: 'Episode language' })
     .getByRole('button', { name: 'dub', exact: true })
@@ -206,12 +211,33 @@ test('native media advances and moves to the next episode only after ending', as
       }),
     }),
   );
-  await page.route('**/__fixture/motion.mp4', (route) =>
-    route.fulfill({
+  await page.route('**/__fixture/motion.mp4', (route) => {
+    const bytes = readFileSync(resolve('tests/fixtures/motion.mp4'));
+    const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers()['range'] ?? '');
+    if (!range)
+      return route.fulfill({
+        contentType: 'video/mp4',
+        headers: { 'accept-ranges': 'bytes' },
+        body: bytes,
+      });
+    const start = Number(range[1]);
+    const end = Math.min(range[2] ? Number(range[2]) : bytes.length - 1, bytes.length - 1);
+    if (start >= bytes.length || end < start)
+      return route.fulfill({
+        status: 416,
+        headers: { 'content-range': `bytes */${bytes.length}` },
+      });
+    return route.fulfill({
+      status: 206,
       contentType: 'video/mp4',
-      body: readFileSync(resolve('tests/fixtures/motion.mp4')),
-    }),
-  );
+      headers: {
+        'accept-ranges': 'bytes',
+        'content-range': `bytes ${start}-${end}/${bytes.length}`,
+        'content-length': String(end - start + 1),
+      },
+      body: bytes.subarray(start, end + 1),
+    });
+  });
   await page.goto(`/watch/paper-lantern/${data.first.id}?language=sub`);
   const video = page.locator('video');
   await expect(video).toBeVisible();
@@ -223,7 +249,7 @@ test('native media advances and moves to the next episode only after ending', as
     .poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime))
     .toBeGreaterThan(0.2);
   await video.evaluate((element: HTMLVideoElement) => {
-    element.currentTime = element.duration - 0.3;
+    element.currentTime = 1;
   });
   await expect(page).toHaveURL(new RegExp(`/watch/paper-lantern/${data.second.id}\\?language=sub`));
 });

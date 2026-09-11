@@ -30,7 +30,14 @@ export default function WatchPage() {
 }
 function WatchSession() {
   const { slug = '', episodeId = '' } = useParams();
-  const [params, setParams] = useSearchParams();
+  const [params, updateParams] = useSearchParams();
+  // URL updates must not restart the provider-list request on each server selection.
+  const updateParamsRef = useRef(updateParams);
+  updateParamsRef.current = updateParams;
+  const setParams = useCallback<typeof updateParams>(
+    (next, options) => updateParamsRef.current(next, options),
+    [],
+  );
   const navigate = useNavigate();
   const { history, preferences, watched, comments } = useAppState();
   const [preference] = preferences;
@@ -226,8 +233,8 @@ function WatchSession() {
 
   if (loadingTitle)
     return (
-      <StatusPanel eyebrow="OPENING WATCH ROOM" title="Loading episode…" busy>
-        <p>Retrieving the title, version, and stored server mappings.</p>
+      <StatusPanel eyebrow="" title="Loading episode…" busy>
+        <p>Loading the episode and available servers.</p>
       </StatusPanel>
     );
   if (pageError || !title || !episode)
@@ -479,7 +486,7 @@ function WatchSession() {
             <h2 id="comments-title">Your notes</h2>
           </div>
           <p>
-            {episodeComments.length} comment{episodeComments.length === 1 ? '' : 's'}
+            {episodeComments.length} note{episodeComments.length === 1 ? '' : 's'}
           </p>
         </header>
         <div className="comments-layout">
@@ -501,7 +508,7 @@ function WatchSession() {
               />
             </label>
             <label>
-              <span>Comment</span>
+              <span>Note</span>
               <textarea
                 required
                 value={commentBody}
@@ -511,7 +518,7 @@ function WatchSession() {
               />
             </label>
             <div>
-              <small>Comments stay in this browser and are not posted publicly.</small>
+              <small>Notes stay in this browser and are not posted publicly.</small>
               <button className="button button--primary" type="submit">
                 Save note
               </button>
