@@ -1,0 +1,105 @@
+--- a/src/account/AccountProvider.tsx
++++ b/src/account/AccountProvider.tsx
+@@ -118,7 +118,15 @@
+         clearProfile();
+         return;
+       }
+-      if (old.account?.id === result.account.id && scopeRef.current) return;
++      if (old.account?.id === result.account.id && scopeRef.current) {
++        const current = result.profiles.find((p) => p.id === selectedId(result.account!.id));
++        if (current) setProfile(current);
++        else {
++          clearProfile();
++          rememberProfile(result.account.id, null);
++        }
++        return;
++      }
+       const wanted = selectedId(result.account.id);
+       const found = result.profiles.find((p) => p.id === wanted);
+       if (found) await activate(found, result.account.id);
+@@ -174,8 +182,10 @@
+     accept(result);
+     if (result.account) rememberProfile(result.account.id, null);
+   };
+-  const logout = async () => {
+-    await scopeRef.current?.flush();
++  const logout = async (discardUnsaved = false) => {
++    // Explicit discard is available when a failed sync would otherwise trap the session.
++    if (discardUnsaved) scopeRef.current?.dispose();
++    else await scopeRef.current?.flush();
+     await accountRequest('logout', {});
+     const id = sessionRef.current.account?.id;
+     if (id) rememberProfile(id, null);
+--- a/src/pages/AccountPage.tsx
++++ b/src/pages/AccountPage.tsx
+@@ -110,9 +110,22 @@
+         </button>
+       </header>
+       {auth.syncError && (
+-        <p className="form-error" role="alert">
+-          Some profile changes could not be saved: {auth.syncError}
+-        </p>
++        <div className="form-error" role="alert">
++          <p>Some profile changes could not be saved: {auth.syncError}</p>
++          <button
++            type="button"
++            className="text-button"
++            disabled={busy}
++            onClick={() =>
++              void perform(async () => {
++                await auth.logout(true);
++                navigate('/login', { replace: true });
++              })
++            }
++          >
++            Discard unsaved changes and sign out
++          </button>
++        </div>
+       )}
+       {error && (
+         <p className="form-error" role="alert">
+--- a/tests/e2e/accounts.spec.ts
++++ b/tests/e2e/accounts.spec.ts
+@@ -164,3 +164,42 @@
+   await overflow(page);
+   await page.screenshot({ path: info.outputPath('playback-modes.png'), fullPage: true });
+ });
++
++test('a sync conflict does not trap an authenticated session', async ({ page }) => {
++  await register(page);
++  await choose(page);
++  await page.goto('/catalogue?q=Paper');
++  await expect(
++    page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }),
++  ).toBeVisible();
++  await page.route('**/api/account/profiles/*/data', (route) => {
++    if (route.request().method() === 'POST')
++      return route.fulfill({
++        status: 409,
++        contentType: 'application/json',
++        body: JSON.stringify({
++          error: {
++            code: 'BAD_REQUEST',
++            message: 'This profile changed in another tab. Reload it before saving again.',
++          },
++        }),
++      });
++    return route.continue();
++  });
++  await page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }).click();
++  await expect(
++    page
++      .getByText('This profile changed in another tab. Reload it before saving again.', {
++        exact: false,
++      })
++      .first(),
++  ).toBeVisible();
++  await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
++  await page.getByRole('link', { name: 'Account settings', exact: true }).click();
++  await page
++    .getByRole('button', { name: 'Discard unsaved changes and sign out', exact: true })
++    .click();
++  await expect(page).toHaveURL(/\/login$/);
++  const session = await (await page.request.get('/api/account/session')).json();
++  expect(session.account).toBeNull();
++});
