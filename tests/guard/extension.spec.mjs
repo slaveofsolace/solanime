@@ -101,6 +101,19 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
     { tabId },
   );
   expect(strict.matchedRules.some((rule) => rule.ruleId === 4)).toBe(true);
+  for (const type of ['stylesheet', 'font', 'object']) {
+    const result = await worker.evaluate(
+      async ({ tabId, type }) =>
+        chrome.declarativeNetRequest.testMatchOutcome({
+          url: 'https://unknown.example/resource',
+          initiator: 'https://megaplay.buzz',
+          type,
+          tabId,
+        }),
+      { tabId, type },
+    );
+    expect(result.matchedRules.some((rule) => rule.ruleId === 4)).toBe(true);
+  }
   await page.goto('http://127.0.0.1:18787/__guard-outside');
   await page.close();
   await expect
