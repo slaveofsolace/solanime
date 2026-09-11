@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageIntro, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
+import AppearanceSettings from '../components/AppearanceSettings';
 
 export default function LibraryPage() {
   const { watchlist, history, preferences } = useAppState();
@@ -95,6 +96,13 @@ export default function LibraryPage() {
         )}
       </section>
 
+      <section id="appearance" className="preferences-section" aria-labelledby="appearance-title">
+        <header>
+          <h2 id="appearance-title">Appearance</h2>
+          <p className="appearance-caption">Personalize the interface.</p>
+        </header>
+        <AppearanceSettings />
+      </section>
       <section className="preferences-section" aria-labelledby="preferences-title">
         <header>
           <p className="eyebrow">PLAYBACK PREFERENCES</p>

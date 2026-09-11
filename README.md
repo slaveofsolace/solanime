@@ -1,5 +1,7 @@
 # Sol Anime
 
+Version 0.3 adds a Netflix-informed cinema interface, customizable accent colors, native media controls, restricted provider frames, and an optional Chromium Guard extension. [Research](docs/NETFLIX_DESIGN_RESEARCH.md) · [Deployment](docs/DEPLOY_CINEMA.md) · [Playback boundaries](docs/PLAYBACK_PROTECTION.md).
+
 An independent anime catalogue and watch interface. React handles browsing; a Node.js API reads the imported SQLite catalogue and resolves stored provider mappings on demand. It is not operated by or endorsed by Anikoto.
 
 ## Run locally

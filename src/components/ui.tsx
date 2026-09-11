@@ -1,6 +1,9 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   useEffect,
+  useLayoutEffect,
+  lazy,
+  Suspense,
   useRef,
   useState,
   type CSSProperties,
@@ -10,6 +13,10 @@ import {
 import type { TitleSummary } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
+import { applyTheme } from '../lib/theme';
+import AppearanceSettings from './AppearanceSettings';
+import Dialog from './Dialog';
+const TitlePreview = lazy(() => import('./TitlePreview'));
 
 function Mark() {
   return (
@@ -24,18 +31,18 @@ export function Layout({ children }: PropsWithChildren) {
   const location = useLocation();
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
-  const { watchlist, preferences } = useAppState();
+  const { watchlist, preferences, preview, setPreview } = useAppState();
+  const [appearanceOpen, setAppearanceOpen] = useState(false);
   const [prefs, setPrefs] = preferences;
   const theme = prefs.theme ?? 'dark';
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    return () => {
-      delete document.documentElement.dataset.theme;
-    };
-  }, [theme]);
+  useLayoutEffect(() => {
+    applyTheme(prefs.accent, theme);
+  }, [prefs.accent, theme]);
   useEffect(() => {
     if (previousPath.current === location.pathname) return;
     previousPath.current = location.pathname;
+    setAppearanceOpen(false);
+    setPreview(null);
     main.current?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
@@ -71,6 +78,14 @@ export function Layout({ children }: PropsWithChildren) {
         </nav>
         <div className="masthead-actions">
           <button
+            type="button"
+            className="theme-toggle"
+            aria-label="Customize appearance"
+            onClick={() => setAppearanceOpen(true)}
+          >
+            <Icon name="palette" />
+          </button>
+          <button
             className="theme-toggle"
             type="button"
             aria-label={`Use ${theme === 'dark' ? 'light' : 'dark'} theme`}
@@ -87,6 +102,16 @@ export function Layout({ children }: PropsWithChildren) {
       <main id="main" ref={main} tabIndex={-1}>
         {children}
       </main>
+      {appearanceOpen && (
+        <Dialog title="Make it yours" onClose={() => setAppearanceOpen(false)}>
+          <AppearanceSettings />
+        </Dialog>
+      )}
+      {preview && (
+        <Suspense fallback={null}>
+          <TitlePreview title={preview} onClose={() => setPreview(null)} />
+        </Suspense>
+      )}
       <footer className="site-footer">
         <p>
           <strong>Sol Anime</strong>
@@ -158,7 +183,7 @@ export function CoverArt({ title, eager = false }: { title: TitleSummary; eager?
 }
 
 export function TitleCard({ title, index = 0 }: { title: TitleSummary; index?: number }) {
-  const { watchlist } = useAppState();
+  const { watchlist, setPreview } = useAppState();
   const name = title.name ?? title.title ?? 'Untitled record';
   const genres = displayGenres(title);
   const isSaved = watchlist.has(title.id);
@@ -183,16 +208,26 @@ export function TitleCard({ title, index = 0 }: { title: TitleSummary; index?: n
           <Link to={`/title/${encodeURIComponent(title.slug)}`}>{name}</Link>
         </h2>
         <p>{genres.slice(0, 3).join(' · ') || title.status || 'Catalogue record'}</p>
-        <button
-          className="save-button"
-          type="button"
-          aria-pressed={isSaved}
-          aria-label={`${isSaved ? 'Remove' : 'Save'} ${name}${isSaved ? ' from your list' : ' to your list'}`}
-          onClick={() => watchlist.toggle(title.id, { ...title, name })}
-        >
-          <Icon name={isSaved ? 'check' : 'bookmark'} />
-          {isSaved ? 'Saved' : 'Save'}
-        </button>
+        <div className="title-card__actions">
+          <button
+            className="save-button"
+            type="button"
+            aria-pressed={isSaved}
+            aria-label={`${isSaved ? 'Remove' : 'Save'} ${name}${isSaved ? ' from your list' : ' to your list'}`}
+            onClick={() => watchlist.toggle(title.id, { ...title, name })}
+          >
+            <Icon name={isSaved ? 'check' : 'bookmark'} />
+            {isSaved ? 'Saved' : 'Save'}
+          </button>
+          <button
+            className="card-info"
+            type="button"
+            aria-label={`Quick look at ${name}`}
+            onClick={() => setPreview(title)}
+          >
+            <Icon name="info" />
+          </button>
+        </div>
       </div>
     </article>
   );

@@ -1,32 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Rail from '../components/CatalogueRail';
 import { CoverArt, InlineNotice, TitleCard } from '../components/ui';
 import Icon from '../components/Icon';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
 import type { CatalogueFacets, TitleSummary } from '../types';
-function Rail({ title, to, items }: { title: string; to: string; items: TitleSummary[] }) {
-  if (!items.length) return null;
-  const id = `rail-${title.replace(/\W+/g, '-').toLowerCase()}`;
-  return (
-    <section className="home-rail" aria-labelledby={id}>
-      <header className="rail-heading">
-        <h2 id={id}>{title}</h2>
-        <Link to={to}>
-          View all <Icon name="arrow" />
-        </Link>
-      </header>
-      <div className="rail-track">
-        {items.map((item) => (
-          <TitleCard key={item.id} title={item} />
-        ))}
-      </div>
-    </section>
-  );
-}
 export default function HomePage() {
-  const { history, watchlist } = useAppState();
-  const navigate = useNavigate();
+  const { history, watchlist, setPreview } = useAppState();
   const [latest, setLatest] = useState<TitleSummary[]>([]);
   const [movies, setMovies] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
@@ -51,37 +32,11 @@ export default function HomePage() {
     });
     return () => controller.abort();
   }, [retry]);
-  const featured = latest[0];
+  const featured =
+    latest.find((item) => item.synopsis && (item.imageUrl || item.posterUrl)) ?? latest[0];
   return (
     <div className="home-page">
-      <header className="home-heading">
-        <div>
-          <h1>Explore anime</h1>
-          <p>A new story, or the next episode of a favourite.</p>
-        </div>
-        <form
-          className="home-search"
-          role="search"
-          onSubmit={(event) => {
-            event.preventDefault();
-            const query = new FormData(event.currentTarget).get('q');
-            navigate(`/catalogue?q=${encodeURIComponent(String(query ?? '').trim())}`);
-          }}
-        >
-          <label className="sr-only" htmlFor="home-search">
-            Search titles
-          </label>
-          <Icon name="search" />
-          <input
-            id="home-search"
-            name="q"
-            type="search"
-            maxLength={200}
-            placeholder="Search titles and aliases"
-          />
-          <button type="submit">Search</button>
-        </form>
-      </header>
+      <h1 className="sr-only">Explore anime</h1>
       {error && (
         <InlineNotice tone="error">
           <strong>Catalogue unavailable.</strong> {error}
@@ -102,7 +57,7 @@ export default function HomePage() {
       ) : featured ? (
         <section className="home-feature" aria-labelledby="featured-title">
           <div className="home-feature__copy">
-            <p className="feature-caption">Recently updated</p>
+            <p className="feature-caption">Discover your next story</p>
             <h2 id="featured-title">{featured.name}</h2>
             <p className="feature-meta">
               {[
@@ -118,10 +73,10 @@ export default function HomePage() {
             </p>
             <div className="button-row">
               <Link
-                className="button button--primary"
+                className="button button--play"
                 to={`/title/${encodeURIComponent(featured.slug)}`}
               >
-                View episodes <Icon name="arrow" />
+                <Icon name="play" /> View episodes
               </Link>
               <button
                 className="button button--outline"
@@ -130,7 +85,15 @@ export default function HomePage() {
                 onClick={() => watchlist.toggle(featured.id, featured)}
               >
                 <Icon name={watchlist.has(featured.id) ? 'check' : 'bookmark'} />
-                {watchlist.has(featured.id) ? 'Saved to your list' : 'Save for later'}
+                {watchlist.has(featured.id) ? 'Saved' : 'My list'}
+              </button>
+              <button
+                className="button button--glass"
+                type="button"
+                onClick={() => setPreview(featured)}
+              >
+                <Icon name="info" />
+                More info
               </button>
             </div>
           </div>
@@ -193,7 +156,11 @@ export default function HomePage() {
           </div>
         </section>
       )}
-      <Rail title="Recent updates" to="/catalogue?sort=updated" items={latest.slice(1)} />
+      <Rail
+        title="Recent updates"
+        to="/catalogue?sort=updated"
+        items={latest.filter((item) => item.id !== featured?.id)}
+      />
       <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} />
       {(facets.genres?.length ?? 0) > 0 && (
         <section className="genre-section" aria-labelledby="genres-title">

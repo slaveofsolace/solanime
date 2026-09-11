@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import type { PlaybackResolution } from '../types';
 import { readProgress, writeProgress } from '../lib/storage';
+import { PLAYER_SANDBOX, PLAYER_PERMISSIONS, playbackUrl } from '../lib/playerPolicy';
+import MediaControls from './MediaControls';
+import Icon from './Icon';
 
 type PlayerState = 'loading' | 'ready' | 'playing' | 'error';
 
@@ -22,6 +25,7 @@ export default function PlayerSurface({
   onEnded?: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const callbacks = useRef({ onStateChange, onOpen, onEnded });
   callbacks.current = { onStateChange, onOpen, onEnded };
   const opened = useRef(false);
@@ -35,19 +39,7 @@ export default function PlayerSurface({
   const [detail, setDetail] = useState('Preparing the selected source…');
   const [iframeEnabled, setIframeEnabled] = useState(false);
   const inputUrl = resolution.url ?? resolution.embedUrl ?? '';
-  let sourceUrl = '';
-  try {
-    const parsed = new URL(inputUrl, window.location.origin);
-    if (
-      inputUrl &&
-      !parsed.username &&
-      !parsed.password &&
-      (parsed.protocol === 'https:' || parsed.origin === window.location.origin)
-    )
-      sourceUrl = parsed.href;
-  } catch {
-    /* Invalid URLs are never assigned to media elements. */
-  }
+  const sourceUrl = playbackUrl(inputUrl, resolution.playbackType, window.location.origin) ?? '';
   const progressScope = `${resolution.providerId}:${resolution.playbackType}`;
 
   const update = (next: PlayerState, message: string) => {
@@ -60,7 +52,7 @@ export default function PlayerSurface({
     opened.current = false;
     setIframeEnabled(false);
     setState('loading');
-    setDetail('Ready to load the selected provider inside SolAnime.');
+    setDetail('');
   }, [sourceUrl]);
 
   useEffect(() => {
@@ -182,46 +174,49 @@ export default function PlayerSurface({
             key={sourceUrl}
             src={sourceUrl}
             title="Episode player"
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+            allow={PLAYER_PERMISSIONS}
+            sandbox={PLAYER_SANDBOX}
+            data-solanime-player="true"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
-            onLoad={() =>
-              update(
-                'ready',
-                'Player frame loaded. Playback is controlled by the provider; a loaded frame does not confirm that the video is available.',
-              )
-            }
+            onLoad={() => update('ready', 'Player frame loaded.')}
           />
         ) : (
           <div className="player-consent">
-            <p className="eyebrow">READY TO WATCH</p>
-            <h2>Play this episode in SolAnime</h2>
-            <p>
-              This opens a third-party player. Its cookies, advertising, and playback controls are
-              managed by the provider.
-            </p>
+            <h2>Ready when you are</h2>
             <button
               className="button button--primary"
               type="button"
               onClick={() => {
                 markOpen();
                 setIframeEnabled(true);
-                update('loading', 'Loading the provider player inside SolAnime…');
+                update('loading', 'Loading player…');
               }}
             >
-              Play here
+              <Icon name="play" /> Play here
             </button>
           </div>
         )}
-        <p className={`player-state player-state--${state}`} aria-live="polite">
+        <p
+          className={`player-state player-state--${state}${state === 'error' ? '' : ' sr-only'}`}
+          aria-live="polite"
+        >
           {detail}
         </p>
-        <div className="player-fallback">
-          <span>Player unavailable in this browser?</span>
+        <details className="player-help">
+          <summary>Player options</summary>
+          <p>
+            Pop-ups, downloads and top-page redirects are restricted. If a source will not load,
+            select another server.
+          </p>
+          <p>
+            Some provider pages do not support restricted embedding. Opening one directly leaves
+            these restrictions.
+          </p>
           <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-            Open provider <span aria-hidden="true">↗</span>
+            Open provider in a new tab
           </a>
-        </div>
+        </details>
       </div>
     );
   }
@@ -245,9 +240,13 @@ export default function PlayerSurface({
   }
 
   return (
-    <div className="player-video">
-      <video ref={videoRef} controls playsInline preload="metadata" aria-label="Episode video" />
-      <p className={`player-state player-state--${state}`} aria-live="polite">
+    <div className="player-video" ref={frameRef}>
+      <video ref={videoRef} playsInline preload="metadata" aria-label="Episode video" />
+      <MediaControls videoRef={videoRef} frameRef={frameRef} />
+      <p
+        className={`player-state player-state--${state}${state === 'error' ? '' : ' sr-only'}`}
+        aria-live="polite"
+      >
         {detail}
       </p>
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "solanime",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -31,7 +31,8 @@
     "start": "node --env-file-if-exists=.env --import tsx server/app.ts --serve-static",
     "preview": "vite preview",
     "check": "pnpm typecheck && pnpm test && pnpm build",
-    "doctor": "node --env-file-if-exists=.env --import tsx scripts/doctor.ts"
+    "doctor": "node --env-file-if-exists=.env --import tsx scripts/doctor.ts",
+    "test:guard": "pnpm build && playwright test --config playwright.guard.config.ts"
   },
   "dependencies": {
     "cheerio": "1.2.0",

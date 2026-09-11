@@ -1,4 +1,5 @@
-import { createContext, useContext, type PropsWithChildren } from 'react';
+import { createContext, useContext, useState, type PropsWithChildren } from 'react';
+import type { TitleSummary } from './types';
 import {
   useEpisodeComments,
   useHistory,
@@ -8,6 +9,8 @@ import {
 } from './lib/storage';
 
 type AppStateValue = {
+  preview: TitleSummary | null;
+  setPreview: (title: TitleSummary | null) => void;
   watchlist: ReturnType<typeof useWatchlist>;
   history: ReturnType<typeof useHistory>;
   preferences: ReturnType<typeof usePreferences>;
@@ -18,13 +21,16 @@ type AppStateValue = {
 const AppStateContext = createContext<AppStateValue | null>(null);
 
 export function AppStateProvider({ children }: PropsWithChildren) {
+  const [preview, setPreview] = useState<TitleSummary | null>(null);
   const watchlist = useWatchlist();
   const history = useHistory();
   const preferences = usePreferences();
   const watched = useWatchedEpisodes();
   const comments = useEpisodeComments();
   return (
-    <AppStateContext.Provider value={{ watchlist, history, preferences, watched, comments }}>
+    <AppStateContext.Provider
+      value={{ watchlist, history, preferences, watched, comments, preview, setPreview }}
+    >
       {children}
     </AppStateContext.Provider>
   );

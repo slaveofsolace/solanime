@@ -1,13 +1,11 @@
-# Interface system
+# Cinema interface system
 
-A catalogue, not a promotional landing page: search, a real recent title, episode navigation and server selection take priority. Research controls stay in administration.
+The primary design record is [Netflix-informed research](NETFLIX_DESIGN_RESEARCH.md). The default accent matches Netflix Red #E50914; the neutral scale, light mode and adjustable accent palette are Solanime adaptations, not a private Hawkins export.
 
-Use the shared CSS tokens and components. Dark mode uses neutral charcoal with an orange action color. Light mode uses white surfaces and darker orange for readable controls. Typography uses system fonts; no bundled webfonts are required.
+Core color logic lives in `src/lib/theme.ts`. The chosen fill is preserved, with separately derived foreground, text/focus and dark-player shades. Shared layout lives in `src/styles.css`; the presentation layer is `src/styles/cinematic.css`. Do not reintroduce hardcoded orange controls or tint imported artwork with an accent overlay.
 
-Keep artwork unfiltered with stable poster ratios and explicit missing-image states. Do not add fabricated statistics, decorative badges or repeated oversized headings.
+Reuse CatalogueRail, Dialog, TitlePreview, AppearanceSettings and MediaControls. Preview dialogs are dismissible and restore focus. Server changes and accent changes are independent: an accent update must not restart a player or claim media is playing.
 
-Desktop catalogue grids use six columns, reducing to four, three and two as width narrows. The source selector moves below the player on mobile. Rails scroll independently without widening the page.
+Direct video controls are ours. Foreign iframe controls remain separate unless a provider interface or the installed optional Guard extension supports them. Exact limits are in PLAYBACK_PROTECTION.md.
 
-Controls need visible focus, accurate selected/disabled states, readable contrast and reduced-motion behavior. SVG icons share geometry. Connection evidence is expandable, not dominant chrome.
-
-Acceptance combines screenshots, desktop/mobile interactions, both themes, overflow checks and automated WCAG A/AA checks. Automated checks do not replace visual review.
+Acceptance checks real navigation, actual scroll edges, mobile overflow, both themes, extreme accent colors, focus restoration, intentional playback, native time progression and sandbox behavior. System fonts only; no proprietary Netflix font assets are included.

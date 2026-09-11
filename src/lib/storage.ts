@@ -6,12 +6,14 @@ import type {
   WatchedEpisode,
   WatchHistoryEntry,
 } from '../types';
+import { DEFAULT_ACCENT, normalizeAccent } from './theme';
 const PREFIX = 'sol-anime:';
 export const defaultPreferences: Preferences = {
   preferredLanguage: 'sub',
   autoplayNext: false,
   rememberProgress: true,
   theme: 'dark',
+  accent: DEFAULT_ACCENT,
 };
 type RecordValue = Record<string, unknown>;
 const record = (value: unknown): value is RecordValue =>
@@ -59,6 +61,7 @@ export function decodeStored<T>(key: string, value: unknown, fallback: T): T {
       autoplayNext: typeof data.autoplayNext === 'boolean' ? data.autoplayNext : false,
       rememberProgress: typeof data.rememberProgress === 'boolean' ? data.rememberProgress : true,
       theme: data.theme === 'light' ? 'light' : 'dark',
+      accent: normalizeAccent(data.accent),
     } as T;
   }
   if (key.startsWith('progress:'))

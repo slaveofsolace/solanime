@@ -178,6 +178,7 @@ export interface Preferences {
   autoplayNext: boolean;
   rememberProgress: boolean;
   theme?: 'dark' | 'light';
+  accent?: string;
 }
 
 export interface ImportStatus {

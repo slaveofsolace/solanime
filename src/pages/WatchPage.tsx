@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import Icon from '../components/Icon';
 import { api, errorMessage } from '../lib/api';
 import type { Episode, PlaybackResolution, ProviderChoice, TitleDetail } from '../types';
 import { InlineNotice, StatusPanel } from '../components/ui';
@@ -29,6 +30,7 @@ export default function WatchPage() {
   return <WatchSession key={`${slug}:${episodeId}:${params.get('language') ?? ''}`} />;
 }
 function WatchSession() {
+  const [theater, setTheater] = useState(false);
   const { slug = '', episodeId = '' } = useParams();
   const [params, updateParams] = useSearchParams();
   // URL updates must not restart the provider-list request on each server selection.
@@ -284,7 +286,7 @@ function WatchSession() {
   const episodeWatched = watched.isWatched(episode.id, language);
 
   return (
-    <div className="watch-page">
+    <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
       <header className="watch-heading">
         <div>
           <nav className="crumbs" aria-label="Breadcrumb">

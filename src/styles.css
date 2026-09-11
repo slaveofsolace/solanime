@@ -1,13 +1,15 @@
 :root {
   color-scheme: dark;
-  --bg: #111315;
-  --surface: #191d21;
-  --surface-2: #242a30;
-  --line: #39424b;
-  --text: #f4f5f6;
-  --muted: #b0bac4;
-  --accent: #ffad69;
-  --on-accent: #21160d;
+  --bg: #141414;
+  --surface: #181818;
+  --surface-2: #2b2b2b;
+  --line: #484848;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+  --accent: #e50914;
+  --accent-ink: #ff7880;
+  --player-accent: #ff7880;
+  --on-accent: #ffffff;
   --danger: #ffb0b0;
   --warning: #f2cc8a;
   --gutter: clamp(18px, 4vw, 56px);
@@ -19,12 +21,13 @@
 :root[data-theme='light'] {
   color-scheme: light;
   --bg: #ffffff;
-  --surface: #f4f6f8;
-  --surface-2: #e8edf1;
-  --line: #c6cfd7;
-  --text: #19242d;
-  --muted: #506170;
-  --accent: #a6430c;
+  --surface: #f5f5f5;
+  --surface-2: #e7e7e7;
+  --line: #b8b8b8;
+  --text: #181818;
+  --muted: #5c5c5c;
+  --accent: #e50914;
+  --accent-ink: #c20710;
   --on-accent: #ffffff;
   --danger: #a22424;
   --warning: #80560d;
@@ -72,10 +75,10 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--accent-ink);
   outline-offset: 4px;
 }
 h1,
@@ -134,7 +137,7 @@ textarea::placeholder {
 input[type='checkbox'] {
   width: 20px;
   height: 20px;
-  accent-color: var(--accent);
+  accent-color: var(--accent-ink);
   flex: none;
 }
 button {
@@ -150,8 +153,8 @@ button:hover:not(:disabled) {
   border-color: var(--muted);
 }
 button[aria-pressed='true'] {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-ink);
+  color: var(--accent-ink);
 }
 .icon {
   width: 19px;
@@ -215,7 +218,7 @@ button[aria-pressed='true'] {
 .wordmark em {
   font-style: normal;
   font-weight: 450;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 .brand-mark {
   width: 28px;
@@ -324,7 +327,7 @@ main:focus {
 .button--primary:hover:not(:disabled) {
   background: var(--accent);
   color: var(--on-accent);
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
 }
 .button--outline {
   background: transparent;
@@ -341,7 +344,7 @@ main:focus {
   min-height: 36px;
   border: 0;
   background: transparent;
-  color: var(--accent);
+  color: var(--accent-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -446,7 +449,7 @@ main:focus {
   flex: none;
 }
 .rail-heading a:hover {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 .rail-heading .icon {
   width: 16px;
@@ -494,7 +497,7 @@ main:focus {
   font-size: 14px;
 }
 .home-search button {
-  color: var(--accent);
+  color: var(--accent-ink);
   background: transparent;
   border: 0;
 }
@@ -514,7 +517,7 @@ main:focus {
   max-width: 780px;
 }
 .feature-caption {
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 12px;
@@ -693,7 +696,7 @@ main:focus {
 }
 .save-button:hover:not(:disabled) {
   background: transparent;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 .cover-fallback {
   width: 100%;
@@ -832,7 +835,7 @@ main:focus {
 .search-field button {
   color: var(--on-accent);
   background: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
   padding-inline: 20px;
 }
 .filter-grid {
@@ -901,7 +904,7 @@ main:focus {
 .pager button[aria-current='page'] {
   background: var(--accent);
   color: var(--on-accent);
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
 }
 .crumbs {
   display: flex;
@@ -1042,7 +1045,7 @@ main:focus {
 }
 .episode-number {
   grid-row: 1 / span 2;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: 18px;
   min-width: 27px;
   font-variant-numeric: tabular-nums;
@@ -1166,12 +1169,12 @@ main:focus {
 .player-empty .eyebrow {
   margin: 0;
   font-size: 11px;
-  color: #ffad69;
+  color: var(--player-accent);
 }
 .player-stage .button--primary {
-  background: #ffad69;
-  color: #21160d;
-  border-color: #ffad69;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--player-accent);
 }
 .player-frame iframe,
 .player-video video {
@@ -1203,7 +1206,7 @@ main:focus {
   font-size: 12px;
 }
 .player-fallback a {
-  color: #ffad69;
+  color: var(--player-accent);
 }
 .server-drawer {
   background: var(--surface);
@@ -1251,7 +1254,7 @@ main:focus {
   margin-top: 3px;
 }
 .server-list button[aria-pressed='true'] {
-  border-color: var(--accent);
+  border-color: var(--accent-ink);
 }
 .availability {
   width: 6px;
@@ -1320,8 +1323,8 @@ main:focus {
   font-size: 12px;
 }
 .watch-episode-strip button[aria-current='page'] {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-ink);
+  color: var(--accent-ink);
 }
 .comments-section {
   margin-top: 40px;
