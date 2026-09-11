@@ -18,21 +18,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Verify and apply source patch
+      - name: Apply traced account lifecycle corrections
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = feat/accounts-built-in-player
-          git diff --exit-code ef65bb9a515d3b6030cd95d07e5dcf4f0e3e86a9 HEAD -- src server scripts tests package.json public docs config README.md .env.example .gitignore
           mkdir -p /tmp/accounts-review
+          git apply --check .review/account-conflict.patch
+          git apply .review/account-conflict.patch
           python - <<'PY'
-          import base64, hashlib, lzma, pathlib
-          chunks = [pathlib.Path(f'.review/accounts-patch-{i}.b64').read_text().strip() for i in range(6)]
-          compressed = base64.b64decode(''.join(chunks), validate=True)
-          assert hashlib.sha256(compressed).hexdigest() == '1772fb1e64c20b060e695695e23f9bd812a28e733c538b721716eb573e2dbe46', 'Source patch checksum mismatch'
-          pathlib.Path('/tmp/accounts.patch').write_bytes(lzma.decompress(compressed))
+          from pathlib import Path
+          p=Path('src/App.tsx');s=p.read_text()
+          old='    <PageErrorBoundary>\n      <AccountProvider>\n        <AccountBoundary>\n          <Layout>\n            <Suspense'
+          assert old in s
+          s=s.replace(old,'    <AccountProvider>\n      <AccountBoundary>\n        <Layout>\n          <PageErrorBoundary>\n            <Suspense')
+          s=s.replace('          </Layout>\n        </AccountBoundary>\n      </AccountProvider>\n    </PageErrorBoundary>','          </PageErrorBoundary>\n        </Layout>\n      </AccountBoundary>\n    </AccountProvider>')
+          p.write_text(s)
+          p=Path('tests/e2e/accounts.spec.ts');s=p.read_text()
+          s=s.replace("    await expect(page.locator('main h1')).toBeVisible();", "    await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();\n    await expect(page.locator('.auth-panel form')).toBeVisible();")
+          s=s.replace("  await page.goto('/login');\n  await page.screenshot", "  await page.goto('/login');\n  await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();\n  await page.screenshot")
+          p.write_text(s)
           PY
-          git apply --check /tmp/accounts.patch
-          git apply /tmp/accounts.patch
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
       - name: Typecheck, unit/API regressions and build
@@ -43,11 +48,11 @@ jobs:
         run: |
           git config user.name 'Solanime maintenance'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          rm -f .review/accounts-patch-*.b64
-          git add src server scripts tests config docs package.json public/_worker.js README.md .env.example .gitignore
+          rm -f .review/account-conflict.patch
+          git add src/App.tsx src/account/AccountProvider.tsx src/pages/AccountPage.tsx tests/e2e/accounts.spec.ts
           git add -u .review
           git diff --cached --exit-code -- .github/workflows data
-          git commit -m 'Add secure accounts, five isolated profiles and explicit native/embed playback modes'
+          git commit -m 'Preserve accounts across navigation and allow explicit sign-out after sync conflicts'
           git push origin HEAD:refs/heads/feat/accounts-built-in-player
           git rev-parse HEAD > /tmp/accounts-review/commit.txt
       - run: pnpm exec playwright install --with-deps chromium webkit
