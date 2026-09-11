@@ -10,27 +10,54 @@ export default function PlayerSurface({
   language,
   rememberProgress,
   onStateChange,
+  onOpen,
+  onEnded,
 }: {
   resolution: PlaybackResolution;
   episodeId: string;
   language: string;
   rememberProgress: boolean;
   onStateChange?: (state: PlayerState, detail?: string) => void;
+  onOpen?: () => void;
+  onEnded?: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const callbacks = useRef({ onStateChange, onOpen, onEnded });
+  callbacks.current = { onStateChange, onOpen, onEnded };
+  const opened = useRef(false);
+  const markOpen = () => {
+    if (!opened.current) {
+      opened.current = true;
+      callbacks.current.onOpen?.();
+    }
+  };
   const [state, setState] = useState<PlayerState>('loading');
   const [detail, setDetail] = useState('Preparing the selected source…');
   const [iframeEnabled, setIframeEnabled] = useState(false);
-  const sourceUrl = resolution.url ?? resolution.embedUrl ?? '';
+  const inputUrl = resolution.url ?? resolution.embedUrl ?? '';
+  let sourceUrl = '';
+  try {
+    const parsed = new URL(inputUrl, window.location.origin);
+    if (
+      inputUrl &&
+      !parsed.username &&
+      !parsed.password &&
+      (parsed.protocol === 'https:' || parsed.origin === window.location.origin)
+    )
+      sourceUrl = parsed.href;
+  } catch {
+    /* Invalid URLs are never assigned to media elements. */
+  }
   const progressScope = `${resolution.providerId}:${resolution.playbackType}`;
 
   const update = (next: PlayerState, message: string) => {
     setState(next);
     setDetail(message);
-    onStateChange?.(next, message);
+    callbacks.current.onStateChange?.(next, message);
   };
 
   useEffect(() => {
+    opened.current = false;
     setIframeEnabled(false);
     setState('loading');
     setDetail('Ready to load the selected provider inside SolAnime.');
@@ -38,7 +65,13 @@ export default function PlayerSurface({
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !sourceUrl || resolution.playbackType === 'iframe' || resolution.playbackType === 'external') return;
+    if (
+      !video ||
+      !sourceUrl ||
+      resolution.playbackType === 'iframe' ||
+      !['hls', 'dash', 'direct'].includes(resolution.playbackType)
+    )
+      return;
 
     let hls: { destroy(): void } | null = null;
     let dash: { reset(): void } | null = null;
@@ -50,9 +83,17 @@ export default function PlayerSurface({
       const seconds = readProgress(episodeId, language, progressScope);
       if (seconds > 5 && seconds < video.duration - 15) video.currentTime = seconds;
     };
-    const playing = () => update('playing', 'Playback started.');
+    const playing = () => {
+      markOpen();
+      update('playing', 'Playback started.');
+    };
+    const ended = () => {
+      if (rememberProgress) writeProgress(episodeId, language, progressScope, 0);
+      callbacks.current.onEnded?.();
+    };
     const ready = () => update('ready', 'Source loaded and ready to play.');
-    const failed = () => update('error', 'The browser could not play this source. Try another server.');
+    const failed = () =>
+      update('error', 'The browser could not play this source. Try another server.');
     const remember = () => {
       if (!rememberProgress || Date.now() - lastProgressWrite < 5000) return;
       lastProgressWrite = Date.now();
@@ -63,6 +104,7 @@ export default function PlayerSurface({
     video.addEventListener('playing', playing);
     video.addEventListener('error', failed);
     video.addEventListener('timeupdate', remember);
+    video.addEventListener('ended', ended);
 
     const attachSource = async () => {
       if (resolution.playbackType === 'hls') {
@@ -71,13 +113,17 @@ export default function PlayerSurface({
         } else {
           const { default: Hls } = await import('hls.js');
           if (cancelled) return;
-          if (!Hls.isSupported()) { update('error', 'HLS playback is not supported in this browser.'); return; }
+          if (!Hls.isSupported()) {
+            update('error', 'HLS playback is not supported in this browser.');
+            return;
+          }
           const instance = new Hls({ enableWorker: true, lowLatencyMode: true });
           hls = instance;
           instance.loadSource(sourceUrl);
           instance.attachMedia(video);
           instance.on(Hls.Events.ERROR, (_event, data) => {
-            if (data.fatal) update('error', `HLS playback failed (${data.type}). Try another server.`);
+            if (data.fatal)
+              update('error', `HLS playback failed (${data.type}). Try another server.`);
           });
         }
       } else if (resolution.playbackType === 'dash') {
@@ -86,7 +132,9 @@ export default function PlayerSurface({
         const instance = dashjs.MediaPlayer().create();
         dash = instance;
         instance.initialize(video, sourceUrl, false);
-        instance.on(dashjs.MediaPlayer.events.ERROR, () => update('error', 'DASH playback failed. Try another server.'));
+        instance.on(dashjs.MediaPlayer.events.ERROR, () =>
+          update('error', 'DASH playback failed. Try another server.'),
+        );
       } else {
         video.src = sourceUrl;
       }
@@ -102,7 +150,9 @@ export default function PlayerSurface({
       video.removeEventListener('playing', playing);
       video.removeEventListener('error', failed);
       video.removeEventListener('timeupdate', remember);
-      if (rememberProgress && video.currentTime > 0) writeProgress(episodeId, language, progressScope, video.currentTime);
+      video.removeEventListener('ended', ended);
+      if (rememberProgress && !video.ended && video.currentTime > 0)
+        writeProgress(episodeId, language, progressScope, video.currentTime);
       hls?.destroy();
       dash?.reset();
       video.pause();
@@ -111,12 +161,15 @@ export default function PlayerSurface({
     };
   }, [sourceUrl, resolution.playbackType, episodeId, language, rememberProgress, progressScope]);
 
-  if (!sourceUrl) {
+  if (
+    !sourceUrl ||
+    !['iframe', 'external', 'hls', 'dash', 'direct'].includes(resolution.playbackType)
+  ) {
     return (
       <div className="player-empty" role="alert">
         <p className="eyebrow">NO PLAYABLE RESOURCE</p>
         <h2>The provider did not return a player URL.</h2>
-        <p>Select another server. No substitute media will be shown under this provider’s label.</p>
+        <p>Select another server. This source does not have a supported playback address.</p>
       </div>
     );
   }
@@ -132,17 +185,26 @@ export default function PlayerSurface({
             allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
-            onLoad={() => update('ready', 'Provider player loaded inside SolAnime. Start playback to verify the media.')}
+            onLoad={() =>
+              update(
+                'ready',
+                'Player frame loaded. Playback is controlled by the provider; a loaded frame does not confirm that the video is available.',
+              )
+            }
           />
         ) : (
           <div className="player-consent">
             <p className="eyebrow">READY TO WATCH</p>
             <h2>Play this episode in SolAnime</h2>
-            <p>This provider requires its normal unsandboxed embed. It will load only after you choose Play here.</p>
+            <p>
+              This opens a third-party player. Its cookies, advertising, and playback controls are
+              managed by the provider.
+            </p>
             <button
               className="button button--primary"
               type="button"
               onClick={() => {
+                markOpen();
                 setIframeEnabled(true);
                 update('loading', 'Loading the provider player inside SolAnime…');
               }}
@@ -151,8 +213,15 @@ export default function PlayerSurface({
             </button>
           </div>
         )}
-        <p className={`player-state player-state--${state}`} aria-live="polite">{detail}</p>
-        <div className="player-fallback"><span>Player unavailable in this browser?</span><a href={sourceUrl} target="_blank" rel="noopener noreferrer">Open provider <span aria-hidden="true">↗</span></a></div>
+        <p className={`player-state player-state--${state}`} aria-live="polite">
+          {detail}
+        </p>
+        <div className="player-fallback">
+          <span>Player unavailable in this browser?</span>
+          <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+            Open provider <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     );
   }
@@ -163,7 +232,14 @@ export default function PlayerSurface({
         <p className="eyebrow">EXTERNAL PLAYER</p>
         <h2>This source opens on its provider.</h2>
         <p>The provider does not expose an embeddable player for this mapping.</p>
-        <a className="button button--primary" href={sourceUrl} target="_blank" rel="noopener noreferrer">Open provider <span aria-hidden="true">↗</span></a>
+        <a
+          className="button button--primary"
+          href={sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open provider <span aria-hidden="true">↗</span>
+        </a>
       </div>
     );
   }
@@ -171,7 +247,9 @@ export default function PlayerSurface({
   return (
     <div className="player-video">
       <video ref={videoRef} controls playsInline preload="metadata" aria-label="Episode video" />
-      <p className={`player-state player-state--${state}`} aria-live="polite">{detail}</p>
+      <p className={`player-state player-state--${state}`} aria-live="polite">
+        {detail}
+      </p>
     </div>
   );
 }

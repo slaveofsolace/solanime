@@ -1,6 +1,11 @@
 import { existsSync, mkdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { adminStatus, exportCatalogue, exportCatalogueCsv, exportCoverageCsv } from '../server/catalogue.ts';
+import {
+  adminStatus,
+  exportCatalogue,
+  exportCatalogueCsv,
+  exportCoverageCsv,
+} from '../server/catalogue.ts';
 import { currentSchemaVersion, migrate, openDatabase } from '../server/db.ts';
 
 const outputDirectory = resolve(process.argv[2] ?? 'data/exports');
@@ -42,5 +47,13 @@ try {
   writeAtomic(coveragePath, coverageCsv);
   writeAtomic(catalogueCsvPath, catalogueCsv);
   writeAtomic(manifestPath, manifestJson);
-  console.log(JSON.stringify({ outputDirectory, cataloguePath, catalogueCsvPath, coveragePath, manifestPath }, null, 2));
-} finally { db.close(); }
+  console.log(
+    JSON.stringify(
+      { outputDirectory, cataloguePath, catalogueCsvPath, coveragePath, manifestPath },
+      null,
+      2,
+    ),
+  );
+} finally {
+  db.close();
+}

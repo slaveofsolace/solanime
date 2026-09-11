@@ -1,5 +1,11 @@
 import { createContext, useContext, type PropsWithChildren } from 'react';
-import { useEpisodeComments, useHistory, usePreferences, useWatchedEpisodes, useWatchlist } from './lib/storage';
+import {
+  useEpisodeComments,
+  useHistory,
+  usePreferences,
+  useWatchedEpisodes,
+  useWatchlist,
+} from './lib/storage';
 
 type AppStateValue = {
   watchlist: ReturnType<typeof useWatchlist>;

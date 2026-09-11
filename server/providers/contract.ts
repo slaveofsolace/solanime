@@ -40,7 +40,10 @@ export interface ProviderAdapter {
   readonly playbackType: PlaybackType;
   readonly capabilities: ProviderCapabilities;
   readonly compatibleLanguages: readonly string[] | 'all';
-  mapResource(mapping: StoredProviderMapping): { resourceId: string | null; embedUrl: string | null };
+  mapResource(mapping: StoredProviderMapping): {
+    resourceId: string | null;
+    embedUrl: string | null;
+  };
   resolve(mapping: StoredProviderMapping, signal?: AbortSignal): Promise<ProviderResolution>;
 }
 

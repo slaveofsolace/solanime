@@ -1,6 +1,17 @@
-export type AvailabilityState = 'observed' | 'available' | 'unavailable' | 'blocked' | 'stale' | 'unknown';
+export type AvailabilityState =
+  | 'observed'
+  | 'available'
+  | 'unavailable'
+  | 'blocked'
+  | 'stale'
+  | 'unknown';
 export type PlaybackType = 'iframe' | 'hls' | 'dash' | 'direct' | 'download' | 'unknown';
-export type EvidenceClass = 'direct_observation' | 'public_response' | 'third_party_code' | 'inference' | 'unknown';
+export type EvidenceClass =
+  | 'direct_observation'
+  | 'public_response'
+  | 'third_party_code'
+  | 'inference'
+  | 'unknown';
 
 export type ApiErrorCode =
   | 'BAD_REQUEST'
@@ -65,7 +76,12 @@ export interface SnapshotTitle {
   availability?: AvailabilityState;
   aliases?: Array<{ name: string; language?: string | null; type?: string }>;
   genres?: string[];
-  related?: Array<{ sourceId: string; relationshipType: string; label?: string | null; sourceUrl?: string | null }>;
+  related?: Array<{
+    sourceId: string;
+    relationshipType: string;
+    label?: string | null;
+    sourceUrl?: string | null;
+  }>;
   episodes: SnapshotEpisode[];
 }
 

@@ -8,7 +8,14 @@ export type AvailabilityStatus =
 
 export type ResolutionStatus = 'resolved' | 'unavailable' | 'blocked';
 
-export type PlaybackType = 'iframe' | 'hls' | 'dash' | 'direct' | 'external' | 'download' | 'unknown';
+export type PlaybackType =
+  | 'iframe'
+  | 'hls'
+  | 'dash'
+  | 'direct'
+  | 'external'
+  | 'download'
+  | 'unknown';
 
 export interface TitleSummary {
   id: string;
@@ -174,10 +181,48 @@ export interface Preferences {
 }
 
 export interface ImportStatus {
-  latestRun: null | { id: number; mode: string; status: string; tasks_discovered: number; tasks_completed: number; tasks_failed: number; checkpoint_json: string; started_at?: string | null; updated_at: string };
+  latestRun: null | {
+    id: number;
+    mode: string;
+    status: string;
+    tasks_discovered: number;
+    tasks_completed: number;
+    tasks_failed: number;
+    checkpoint_json: string;
+    started_at?: string | null;
+    updated_at: string;
+  };
   coverage: null | Record<string, string | number | null>;
-  counts: { titles: number; episodes: number; versions: number; mappings: number; pendingTasks: number };
-  taskStages: Array<{ taskType: string; completed: number; pending: number; failed: number; total: number }>;
-  recentErrors: Array<{ id: number; runId: number; taskKey: string; code: string; message: string; updatedAt: string }>;
-  providers: Array<{ id: string; label: string; adapterState: string; identityState: string; playbackType: string; mappingCount: number; lastSuccessfulResolution?: string | null; lastPlaybackVerification?: string | null }>;
+  counts: {
+    titles: number;
+    episodes: number;
+    versions: number;
+    mappings: number;
+    pendingTasks: number;
+  };
+  taskStages: Array<{
+    taskType: string;
+    completed: number;
+    pending: number;
+    failed: number;
+    total: number;
+  }>;
+  recentErrors: Array<{
+    id: number;
+    runId: number;
+    taskKey: string;
+    code: string;
+    message: string;
+    updatedAt: string;
+  }>;
+  providers: Array<{
+    id: string;
+    label: string;
+    adapterState: string;
+    identityState: string;
+    playbackType: string;
+    mappingCount: number;
+    lastSuccessfulResolution?: string | null;
+    lastPlaybackVerification?: string | null;
+  }>;
 }

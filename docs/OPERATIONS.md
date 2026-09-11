@@ -43,3 +43,9 @@ A smoke restore can target an alternate database via `SOLANIME_DB_PATH`; run `pn
 ## Coverage interpretation
 
 The catalogue denominator is scoped to the dated union of watch routes found through complete `/filter` pagination and all successfully expanded public sitemap children. It is not a claim about private or hidden records. `discovered_titles` can temporarily exceed `imported_titles` while sitemap-only pages are being validated. Episode/provider denominators are counts discovered from successfully enriched title/episode tasks. During a run, pending counts can grow because completed title tasks enqueue per-episode server tasks.
+
+## Maintenance runtime update (September 2026)
+
+The README supersedes earlier platform-specific startup commands: Node 24.10+, pnpm 11.19.0, `pnpm doctor`, `pnpm dev` for development and `pnpm build && pnpm start` for the complete production runtime. `.env` is loaded by the Node entrypoints. Detached import and browser-test commands are cross-platform.
+
+Bulk HTTP exports now require the admin token. The optional Pages gateway exposes only read APIs and mapping resolution; it still requires a running persistent Node backend. Browser tests use an isolated in-memory database and do not contact live streaming providers.

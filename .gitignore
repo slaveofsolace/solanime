@@ -1,7 +1,6 @@
 node_modules/
 dist/
 .cache/
-.cache/
 evidence/playwright-results/
 evidence/playwright-report/
 playwright-report/
@@ -16,3 +15,10 @@ data/backups/
 data/logs/
 evidence/traces/
 *.log
+
+# Local machine and Cloudflare configuration
+.DS_Store
+.wrangler/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
