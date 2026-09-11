@@ -105,8 +105,7 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
   enqueue(async () => {
     const popup =
       sender.id === chrome.runtime.id &&
-      sender.url === chrome.runtime.getURL('popup.html') &&
-      !sender.tab;
+      sender.url === chrome.runtime.getURL('popup.html');
     if (popup) {
       if (message?.type === 'get-options')
         return { options: await currentOptions(), tabs: (await projectTabs()).length };
