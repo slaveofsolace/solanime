@@ -27,7 +27,7 @@ cd solanime-cinema
 git lfs pull
 pnpm install --frozen-lockfile
 [ -f .env ] || cp .env.example .env
-pnpm doctor
+pnpm run doctor
 pnpm check
 pnpm dev
 ```

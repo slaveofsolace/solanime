@@ -11,7 +11,7 @@ Requirements: **Node.js 24.10 or newer** (24 LTS recommended) and **pnpm 11.19.0
 ```sh
 pnpm install --frozen-lockfile
 cp -n .env.example .env
-pnpm doctor
+pnpm run doctor
 pnpm dev
 ```
 

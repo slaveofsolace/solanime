@@ -46,6 +46,6 @@ The catalogue denominator is scoped to the dated union of watch routes found thr
 
 ## Maintenance runtime update (September 2026)
 
-The README supersedes earlier platform-specific startup commands: Node 24.10+, pnpm 11.19.0, `pnpm doctor`, `pnpm dev` for development and `pnpm build && pnpm start` for the complete production runtime. `.env` is loaded by the Node entrypoints. Detached import and browser-test commands are cross-platform.
+The README supersedes earlier platform-specific startup commands: Node 24.10+, pnpm 11.19.0, `pnpm run doctor`, `pnpm dev` for development and `pnpm build && pnpm start` for the complete production runtime. `.env` is loaded by the Node entrypoints. Detached import and browser-test commands are cross-platform.
 
 Bulk HTTP exports now require the admin token. The optional Pages gateway exposes only read APIs and mapping resolution; it still requires a running persistent Node backend. Browser tests use an isolated in-memory database and do not contact live streaming providers.
