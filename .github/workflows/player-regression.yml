@@ -5,14 +5,15 @@ on:
     paths: [.github/workflows/player-regression.yml]
 permissions:
   contents: write
+concurrency:
+  group: player-regression-repair
+  cancel-in-progress: true
 jobs:
   repair:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -21,37 +22,36 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           p=Path('src/pages/WatchPage.tsx');s=p.read_text()
-          old="  const [params, setParams] = useSearchParams();"
-          new="""  const [params, updateParams] = useSearchParams();
-            // Router setters change identity when the query changes. Keep URL writes
-            // current without restarting the provider-list effect on a server switch.
+          old='  const [params, setParams] = useSearchParams();'
+          new='''  const [params, updateParams] = useSearchParams();
+            // URL updates must not restart the provider-list request on each server selection.
             const updateParamsRef = useRef(updateParams);
             updateParamsRef.current = updateParams;
             const setParams = useCallback<typeof updateParams>(
               (next, options) => updateParamsRef.current(next, options),
               [],
-            );"""
-          assert old in s;s=s.replace(old,new)
-          s=s.replace('OPENING WATCH ROOM','').replace('Retrieving the title, version, and stored server mappings.','Loading the episode and available servers.')
+            );'''
+          assert old in s;s=s.replace(old,new).replace('OPENING WATCH ROOM','').replace('Retrieving the title, version, and stored server mappings.','Loading the episode and available servers.')
           s=s.replace("{episodeComments.length} comment{episodeComments.length === 1 ? '' : 's'}", "{episodeComments.length} note{episodeComments.length === 1 ? '' : 's'}")
           s=s.replace('<span>Comment</span>','<span>Note</span>').replace('Comments stay in this browser and are not posted publicly.','Notes stay in this browser and are not posted publicly.')
           p.write_text(s)
           p=Path('tests/e2e/application.spec.ts');s=p.read_text()
-          needle="test('server switching, failed connections and history follow the selected source', async ({ page }) => {"
-          assert needle in s;s=s.replace(needle,needle+"\n  let providerLists = 0;\n  page.on('request', (request) => { if (/\\/api\\/episodes\\/\\d+\\/providers/.test(request.url())) providerLists++; });")
-          needle="  await page.getByRole('group', { name: 'Episode language' })"
-          assert needle in s;s=s.replace(needle,"  expect(providerLists).toBe(1);\n"+needle)
+          start=s.index("test('server switching,")
+          body=s.index('  const data = await episode(page);',start)
+          s=s[:body]+"  let providerLists = 0;\n  page.on('request', (request) => { if (/\\/api\\/episodes\\/\\d+\\/providers/.test(request.url())) providerLists++; });\n"+s[body:]
+          needle="  await page\n    .getByRole('group', { name: 'Episode language' })"
+          assert needle in s;s=s.replace(needle,'  expect(providerLists).toBe(1);\n'+needle)
           start=s.index("  await page.route('**/__fixture/motion.mp4'")
           end=s.index('\n  await page.goto(',start)
-          s=s[:start]+"""  await page.route('**/__fixture/motion.mp4', (route) => {
+          s=s[:start]+r'''  await page.route('**/__fixture/motion.mp4', (route) => {
             const bytes = readFileSync(resolve('tests/fixtures/motion.mp4'));
-            const range = /^bytes=(\\d+)-(\\d*)$/.exec(route.request().headers()['range'] ?? '');
+            const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers()['range'] ?? '');
             if (!range) return route.fulfill({ contentType: 'video/mp4', headers: { 'accept-ranges': 'bytes' }, body: bytes });
             const start = Number(range[1]);
             const end = Math.min(range[2] ? Number(range[2]) : bytes.length - 1, bytes.length - 1);
             if (start >= bytes.length || end < start) return route.fulfill({ status: 416, headers: { 'content-range': `bytes */${bytes.length}` } });
             return route.fulfill({ status: 206, contentType: 'video/mp4', headers: { 'accept-ranges': 'bytes', 'content-range': `bytes ${start}-${end}/${bytes.length}`, 'content-length': String(end - start + 1) }, body: bytes.subarray(start, end + 1) });
-          });"""+s[end:]
+          });'''+s[end:]
           s=s.replace('element.currentTime = element.duration - 0.3;', 'element.currentTime = 1;')
           p.write_text(s)
           PY
