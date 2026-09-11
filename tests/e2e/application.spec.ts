@@ -283,3 +283,20 @@ test('theme, layout and accessibility remain usable', async ({ page }, testInfo)
   await expect(page.locator('.home-feature')).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath('home-dark.png'), fullPage: true });
 });
+
+test('player messages stay inside the mobile viewport', async ({ page }, testInfo) => {
+  const data = await episode(page);
+  await page.goto(`/watch/paper-lantern/${data.first.id}?language=sub`);
+  await expect(page.getByRole('button', { name: 'Play here', exact: true })).toBeVisible();
+  const bounds = await page.locator('.player-stage').evaluate((stage) => {
+    const container = stage.getBoundingClientRect();
+    return [
+      ...stage.querySelectorAll('.player-consent h2, .player-consent p, .player-consent button'),
+    ].every((child) => {
+      const rect = child.getBoundingClientRect();
+      return rect.left >= container.left && rect.right <= container.right;
+    });
+  });
+  expect(bounds).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath('watch-consent.png'), fullPage: true });
+});

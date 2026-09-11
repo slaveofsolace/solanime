@@ -2051,3 +2051,14 @@ td {
     scroll-behavior: auto !important;
   }
 }
+
+/* Constrain placeholder geometry as well as the media element on narrow screens. */
+.player-empty,
+.player-consent {
+  width: 100%;
+  min-width: 0;
+}
+.player-empty > *,
+.player-consent > * {
+  max-width: 100%;
+}

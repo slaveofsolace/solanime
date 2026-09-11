@@ -348,8 +348,18 @@ function WatchSession() {
           ) : (
             <div className="player-empty">
               <p className="eyebrow">NO ACTIVE SOURCE</p>
-              <h2>Select an available server.</h2>
-              <p>Server availability depends on the provider.</p>
+              <h2>
+                {loadingProviders
+                  ? 'Loading servers…'
+                  : providers.length
+                    ? 'Select an available server.'
+                    : 'No servers for this episode'}
+              </h2>
+              <p>
+                {providers.length
+                  ? 'Server availability depends on the provider.'
+                  : 'The episode is in the catalogue, but no sources have been imported for this version.'}
+              </p>
             </div>
           )}
         </section>
