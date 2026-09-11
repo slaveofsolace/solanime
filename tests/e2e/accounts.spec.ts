@@ -53,6 +53,9 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   }
   await expect(page.locator('.profile-tile')).toHaveCount(5);
   await expect(page.getByRole('button', { name: /Add profile/ })).toHaveCount(0);
+  await expect(page.locator('.skip-link')).not.toBeFocused();
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await expect(page.getByRole('heading', { name: 'Who’s watching?' })).toBeInViewport();
   await overflow(page);
   await page.screenshot({ path: info.outputPath('five-profiles.png'), fullPage: true });
   await choose(page);
@@ -103,6 +106,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   await expect(page.getByRole('heading', { name: 'Save your new recovery code' })).toBeVisible();
   await page.getByLabel('I have saved my recovery code').check();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect(page).toHaveURL(/\/login$/);
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill('Our changed sample passphrase 2026');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();

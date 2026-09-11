@@ -2707,3 +2707,11 @@ td {
     padding: 8px;
   }
 }
+
+/* Keep dialog-return headings below the sticky navigation. */
+[data-dialog-fallback-focus] {
+  scroll-margin-top: 150px;
+}
+[data-dialog-fallback-focus]:focus:not(:focus-visible) {
+  outline: none;
+}

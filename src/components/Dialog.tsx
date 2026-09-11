@@ -19,7 +19,14 @@ export default function Dialog({
     return () => {
       element.close();
       document.body.style.overflow = overflow;
-      previousFocus?.focus({ preventScroll: true });
+      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+      else {
+        // The opening control can disappear when the fifth profile replaces Add profile.
+        const fallback =
+          document.querySelector<HTMLElement>('[data-dialog-fallback-focus]') ??
+          document.querySelector<HTMLElement>('main');
+        fallback?.focus();
+      }
     };
   }, []);
   return (

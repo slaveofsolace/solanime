@@ -71,7 +71,9 @@ export default function ProfilesPage() {
   return (
     <section className="profiles-page">
       <header>
-        <h1>{manage ? 'Make each space yours.' : 'Who’s watching?'}</h1>
+        <h1 tabIndex={-1} data-dialog-fallback-focus>
+          {manage ? 'Make each space yours.' : 'Who’s watching?'}
+        </h1>
         <p>
           {manage
             ? 'Change a name, pick a color, or add someone new.'

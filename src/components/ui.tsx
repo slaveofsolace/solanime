@@ -120,12 +120,14 @@ export function Layout({ children }: PropsWithChildren) {
           </button>
         </div>
       )}
-      {account.account && !account.profile && (
-        <div className="account-service-notice">
-          Choose a profile to save your list and progress to this account.{' '}
-          <Link to="/profiles">Choose profile</Link>
-        </div>
-      )}
+      {account.account &&
+        !account.profile &&
+        !['/profiles', '/account', '/account/recovery-code'].includes(location.pathname) && (
+          <div className="account-service-notice">
+            Choose a profile to save your list and progress to this account.{' '}
+            <Link to="/profiles">Choose profile</Link>
+          </div>
+        )}
       {account.syncError && (
         <div className="account-service-notice" role="alert">
           Profile changes are not synced: {account.syncError}

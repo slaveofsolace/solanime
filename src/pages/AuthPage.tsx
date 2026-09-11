@@ -50,7 +50,6 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
       <RecoveryCard
         code={replacement}
         onDone={() => {
-          setReplacement(null);
           navigate('/login', { replace: true });
         }}
         replacement
