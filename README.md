@@ -1,55 +1,57 @@
 # Sol Anime 0.4
 
-Version 0.3 adds a Netflix-informed cinema interface, customizable accent colors, native media controls, restricted provider frames, and an optional Chromium Guard extension. [Research](docs/NETFLIX_DESIGN_RESEARCH.md) · [Deployment](docs/DEPLOY_CINEMA.md) · [Playback boundaries](docs/PLAYBACK_PROTECTION.md).
+An independent anime catalogue with a cinema-style interface, custom accents, email/password login, and up to five profiles per account. React handles the interface; a Node API serves the catalogue and private account data from separate SQLite databases.
 
-An independent anime catalogue and watch interface. React handles browsing; a Node.js API reads the imported SQLite catalogue and resolves stored provider mappings on demand. It is not operated by or endorsed by Anikoto.
+This branch includes the earlier quality and cinema revisions. Main and production are not updated by the review package.
 
+## Run on your Mac
 
-## Accounts and playback in this revision
-
-Email/password login now supports up to **five profiles per account**, isolated saved lists/history/preferences, private recovery codes, session revocation and account security controls. Private accounts live in `data/private/accounts.sqlite`, separate from the distributable catalogue. Email ownership verification and outgoing reset emails are **not configured**; save the recovery code shown on registration.
-
-The website includes explicit **Restricted embed / Provider compatibility** choices and operator-registered native media support. Compatibility removes the iframe sandbox; it does not promise popup or tracker blocking. Native playback uses our own controls without loading the provider page, but the shipped native registry is empty. No extension installation is required and no hidden-player spoof is used. Universal cross-origin filtering/styling is not claimed.
-
-Read [Accounts and playback](docs/ACCOUNTS_AND_PLAYBACK.md) and [Mac/deployment instructions](docs/DEPLOY_ACCOUNTS.md) before public deployment. Preserve the private account database across upgrades; never include it in public downloads. The earlier cinema/Guard documents describe optional legacy tooling, not a new mandatory install.
-
-## Run locally
-
-Requirements: **Node.js 24.10 or newer** (24 LTS recommended) and **pnpm 11.19.0**.
-
-```sh
-pnpm install --frozen-lockfile
-cp -n .env.example .env
-pnpm run doctor
-pnpm dev
-```
-
-Open **http://127.0.0.1:5173**. The API listens on `127.0.0.1:8787`. Both processes load `.env`; existing shell environment variables take precedence. No secret is required for browsing.
-
-The complete review ZIP includes the database. For a Git clone, fetch the large files first:
-
-```sh
-git lfs install
-git lfs pull
-```
-
-`doctor` checks the runtime, database integrity, and record counts. A Git LFS pointer is not a SQLite database: startup detects it and gives a recovery command instead of silently creating a replacement.
-
-### Mac prerequisites
-
-With Homebrew already installed:
+Requirements: Node.js **24.10+** (24 LTS recommended), pnpm **11.19.0**, and the actual catalogue database. With Homebrew already installed:
 
 ```sh
 brew install node@24 git-lfs
 export PATH="$(brew --prefix node@24)/bin:$PATH"
 npm install --global pnpm@11.19.0
-node --version
-pnpm --version
 ```
 
-The `export` affects this Terminal session. Add it to your shell configuration to use Node 24 in new sessions.
+Extract the complete source ZIP into a new directory and enter its `solanime` folder. A Git clone additionally needs `git lfs install && git lfs pull`; the complete ZIP already includes the original catalogue.
 
-## Check a change
+```sh
+pnpm install --frozen-lockfile
+[ -f .env ] || cp .env.example .env
+pnpm run doctor
+pnpm check
+pnpm build
+pnpm start
+```
+
+Open **http://127.0.0.1:8787**. This serves the complete interface and API. `pnpm dev` instead starts the development interface on port 5173 and its API on port 8787.
+
+Use **`pnpm run doctor`**, not plain `pnpm doctor`: the latter invokes the package manager's own diagnostic. The project check detects Git LFS pointers, checks catalogue integrity and reports counts. Local HTTP sessions are for development, not production.
+
+## Accounts and profiles
+
+Open `/register`, save the private recovery code, and choose a profile. `/profiles` provides creation, editing and switching; `/account` provides password changes, recovery-code rotation, session revocation, export and account deletion.
+
+Each of the five profiles has its own list, history, watched status, notes, appearance and supported native-player progress. Profiles share one login; they are not separate passwords, PINs or parental controls. Guest browsing remains available and does not silently migrate its browser-local records into an account.
+
+Private data lives in `data/private/accounts.sqlite`, separately from the distributable catalogue. Passwords are salted and hashed with asynchronous scrypt; sessions use HttpOnly cookies, server-side expiry and CSRF checks. Profile writes enforce ownership and revisions. A conflicting tab displays a warning rather than overwriting newer records; account settings also permit explicit discard-and-sign-out.
+
+**Email ownership verification and outgoing reset emails are not implemented.** Email is the sign-in identifier. Recovery uses the private code shown once at registration and rotates that code after use. Do not deploy an unconfigured email workflow or claim an email was sent. Preserve the private account database across upgrades and never put it in a public ZIP or static asset directory.
+
+## Playback status
+
+No browser extension installation is required to run the site. The current choices are explicit:
+
+- **Restricted embed** retains sandbox restrictions. A provider that rejects sandboxing may refuse playback.
+- **Provider compatibility** recreates the selected provider frame without the sandbox. This may address its rejection, but it does **not** provide popup or tracker blocking.
+- **Native media** loads an operator-registered MP4/HLS/DASH source in Solanime's own theme-aware controls without the provider webpage or its advertising scripts. The registry is empty by default: the existing library has not been converted into native streams.
+
+A hidden iframe with an overlay would not remove its network activity. This release does not claim a universal extension-free blocker, arbitrary cross-origin player styling, or verified live playback for every mapping. Earlier Guard files remain optional legacy tooling, not a new required installation. See [the account and playback architecture](docs/ACCOUNTS_AND_PLAYBACK.md) for exact boundaries and native-source registration.
+
+The original catalogue checkpoint remains unchanged: **8,949 titles, 134,825 episodes, 183,769 language versions and 121,116 provider mappings**. Those are stored-record counts, not complete playable coverage. Only 38,015 episodes have a stored mapping. No full upstream recrawl is part of this release.
+
+## Verify a change
 
 ```sh
 pnpm check
@@ -57,74 +59,30 @@ pnpm exec playwright install chromium webkit
 pnpm test:e2e
 ```
 
-Unit/API tests use temporary databases. Browser tests use an **in-memory fictional catalogue on port 18787**, controlled iframe responses, and an original motion clip. They do not modify the imported database or contact live streaming providers. The four browser projects cover desktop/mobile Chromium and WebKit; WebKit emulation is not physical iPhone or macOS Safari certification.
+Tests use temporary/in-memory account and catalogue databases, fictional titles, original test footage and controlled iframe responses. They do not modify your production database or certify live providers. Chromium and WebKit cover desktop/mobile layouts; browser emulation is not physical iPhone certification. Logs and screenshots are written to ignored test directories.
 
-`test-results/` and `playwright-report/` contain ignored browser evidence. Fixture playback is not proof that an external provider permits playback from your deployment origin.
+## Deploy and back up
 
-## Serve the complete application
+Use a persistent Node host behind HTTPS. In production, set `NODE_ENV=production` and an HTTPS `SOLANIME_APP_ORIGIN`, and keep both database paths on persistent storage. Set `SOLANIME_REGISTRATION=closed` during review; change it to `open` deliberately. Add email verification, delivery and operational anti-abuse support before treating unverified identifiers as verified identities.
 
-```sh
-pnpm build
-pnpm start
-```
-
-Open **http://127.0.0.1:8787**. This serves both the built frontend and SQLite API, including title/watch deep links. `pnpm preview` requires the separate API; `pnpm start` is the complete runtime.
-
-For hosting, run this Node process behind HTTPS, configure `HOST`/`PORT`, and keep `data/` on persistent storage. A static-only deployment cannot run Node SQLite. Never publish `.env`, raw databases, backups, or private provider references as static assets.
-
-### Optional Cloudflare Pages frontend
-
-`public/_worker.js` is a same-origin gateway. It forwards catalogue reads and stored-mapping resolution to **one configured backend origin**. It does not host SQLite, transcode media, forward arbitrary URLs, or expose administration/exports.
-
-1. Host the Node API on a reachable HTTPS origin.
-2. Set the Pages runtime binding `SOLANIME_API_ORIGIN` to that origin, without an API path.
-3. Set `SOLANIME_ALLOWED_ORIGINS` on the Node API to exact Pages/custom frontend origins, comma separated.
-4. Build and deploy `dist/`. Test health, search, and deep links before promoting a deployment.
-
-Without the binding, API requests return a JSON configuration error rather than an HTML page that crashes the interface. After configuring the backend and binding, deployment is a separate deliberate command:
+Cloudflare Pages can host the interface and fixed-origin gateway, **not the SQLite API by itself**. Configure `SOLANIME_API_ORIGIN` in Pages and the exact `SOLANIME_APP_ORIGIN` / `SOLANIME_ALLOWED_ORIGINS` on Node. The gateway now relays the application session cookie. Optional trusted client-IP forwarding requires the same server-only `SOLANIME_GATEWAY_TOKEN` on both sides.
 
 ```sh
-pnpm build
-pnpm exec wrangler pages deploy dist --project-name solanime --branch review
+pnpm run backup
+pnpm run backup:accounts
 ```
 
-Review the preview before promoting it. This maintenance pass does not deploy or merge automatically.
+The account backup is private and contains sensitive hashes and profile data. Keep it separate from source packages. Stop application writers before a deliberate restore. Do not overwrite `data/private/` while upgrading code.
 
-## Data and providers
-
-The imported checkpoint contains **8,949 titles, 134,825 episodes, 183,769 language versions, and 121,116 provider mappings**. These are local record counts, not proof of complete upstream coverage or that every source plays. Five provider records remain, including unavailable/download-only entries.
-
-Stable source identifiers, language groups, and provider mappings stay separate. Temporary player references are resolved on selection, not retained as permanent public URLs. Resolution, player-document load, and verified playback are distinct. History records a player the user opened, not an episode silently marked watched on resolution.
-
-The application includes no episode media, copied upstream bundles, advertising scripts, or access-control bypasses. Third-party players can change or restrict embedding. Failures remain visible instead of being disguised with replacement content.
-
-## Administration and ingestion
-
-Generate an admin token with `node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"`, put it in `.env` as `SOLANIME_ADMIN_TOKEN`, restart the API, and open `/admin`. An empty token disables administration. The browser uses session storage; bulk exports also require authentication. Keep administration off the public gateway.
-
-Existing paced, resumable import commands remain available:
-
-```sh
-pnpm import:status
-pnpm import:anikoto --mode=slice --title-limit=3
-pnpm import:anikoto --mode=full --run-id=YOUR_RUN_ID
-pnpm import:detached YOUR_RUN_ID
-```
-
-Only run live imports deliberately. The detached launcher invokes Node directly on macOS/Linux/Windows, retains process checks, and does not use a Windows shell. Respect source limits and access conditions. Failed requests do not establish deletion.
-
-```sh
-pnpm verify:database
-pnpm export:data
-pnpm backup
-# Stop API/import writers before restoring. Review the backup path first.
-pnpm restore -- /absolute/path/to/backup.sqlite --replace
-```
-
-`verify:providers` is an opt-in live resolution check, not part of CI or a video-playback guarantee.
+See [Mac and hosting instructions](docs/DEPLOY_ACCOUNTS.md) for the review deployment command, HTTPS settings, cookie checks, private-volume requirements and backup guidance. No merge or public deployment is performed automatically.
 
 ## Repository map
 
-`src/` contains the UI, routes, player and local preferences. `server/` owns API/query/provider logic; `server/ingestion/` owns parsing and the durable queue. `migrations/` contains additive schema updates; `scripts/` contains operations commands. `tests/` contains isolated regressions. `public/` contains assets and the optional gateway; `docs/` preserves architecture, operations and source research.
+- `src/account/`, `src/pages/`: sessions, profile synchronization and interface.
+- `server/accounts/`: private account persistence, validation and security.
+- `server/providers/`: existing provider adapters and registered native sources.
+- `server/ingestion/`, `scripts/`, `migrations/`: catalogue import and operations.
+- `tests/`: API, state, native-resource, gateway and browser regressions.
+- `docs/`: [architecture](docs/ACCOUNTS_AND_PLAYBACK.md), [deployment](docs/DEPLOY_ACCOUNTS.md), [design research](docs/NETFLIX_DESIGN_RESEARCH.md), and historical source investigations.
 
-Start with [Operations](docs/OPERATIONS.md), [Architecture](docs/ARCHITECTURE.md), and [Provider inventory](docs/PROVIDER_INVENTORY.md). Earlier observations and screenshots are historical evidence, not current playback certification.
+The site is independently implemented and is not operated or endorsed by Anikoto or Netflix. Earlier observations and screenshots are historical evidence, not current playback certification.
