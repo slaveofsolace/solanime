@@ -1,0 +1,117 @@
+name: Apply maintenance review
+on:
+  push:
+    branches: [fix/solanime-quality-pass]
+    paths: [.github/workflows/apply-review.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Apply reviewed source changes
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'fix/solanime-quality-pass'
+          git diff --exit-code 5f9147bdbe8a7652115eb995b94bbb8026e7e787 HEAD -- src server scripts tests package.json
+          mkdir -p /tmp/review-evidence
+          python .review/apply-core.py
+          for patch in .review/0*.py; do python "$patch"; done
+          if ! command -v ffmpeg >/dev/null; then sudo apt-get update && sudo apt-get install -y ffmpeg; fi
+          ffmpeg -loglevel error -f lavfi -i 'testsrc2=size=160x90:rate=10' -t 4 -c:v libx264 -crf 40 -preset veryslow -pix_fmt yuv420p -movflags +faststart tests/fixtures/motion.mp4
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+          npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write 'src/**/*.{ts,tsx,css}' 'server/**/*.{ts,tsx}' 'scripts/*.ts' 'tests/**/*.{ts,tsx}' '*.{ts,json,html}' public/_worker.js > /tmp/review-evidence/format.log
+      - name: Typecheck, regressions and production build
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee /tmp/review-evidence/check.log
+      - name: Commit reviewed application changes without touching main or catalogue data
+        run: |
+          rm -rf .review
+          rm -f .github/workflows/source-review.yml .github/workflows/browser-review.yml .github/workflows/apply-review.yml
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src server scripts tests migrations public docs README.md package.json index.html vite.config.ts playwright.config.ts .env.example .gitignore .nvmrc .editorconfig .prettierrc.json .prettierignore .github/workflows
+          git add -u .review
+          git commit -m 'Repair catalogue UX, player state, runtime portability and regression coverage'
+          git push origin HEAD:refs/heads/fix/solanime-quality-pass
+          git rev-parse HEAD > /tmp/review-evidence/commit.txt
+      - name: Install isolated browser engines
+        run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Browser acceptance
+        id: acceptance
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm test:e2e 2>&1 | tee /tmp/review-evidence/browser.log
+      - name: Real catalogue visual smoke
+        if: always()
+        run: |
+          test -f dist/index.html || exit 0
+          cp data/solanime.sqlite /tmp/solanime-review.sqlite
+          PORT=18788 SOLANIME_DB_PATH=/tmp/solanime-review.sqlite node --import tsx server/app.ts --serve-static > /tmp/review-evidence/real-runtime.log 2>&1 &
+          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:18788/api/health && break || sleep 1; done
+          cat > .visual-review.mjs <<'JS'
+          import { chromium } from '@playwright/test';
+          import fs from 'node:fs';
+          const browser = await chromium.launch();
+          const evidence = [];
+          for (const [name, viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+            const page = await browser.newPage({viewport});
+            const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+            await page.route('**/api/providers/*/resolve',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'REVIEW_ONLY',message:'Live provider playback was not tested in this review.'}})}));
+            for (const [label,path] of [['home','/'],['catalogue','/catalogue?q=naruto']]) {
+              await page.goto('http://127.0.0.1:18788'+path);
+              await page.waitForTimeout(2000);
+              await page.screenshot({path:`/tmp/review-evidence/${label}-${name}.png`,fullPage:true});
+              evidence.push({name,label,title:await page.title(),url:page.url(),overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),errors:[...errors]});
+            }
+            const list=await (await page.request.get('http://127.0.0.1:18788/api/titles?q=naruto&pageSize=1')).json();
+            if(list.items?.[0]) {
+              const item=list.items[0]; const detail=await(await page.request.get(`http://127.0.0.1:18788/api/titles/${encodeURIComponent(item.slug)}`)).json();
+              for(const [label,path] of [['title',`/title/${encodeURIComponent(item.slug)}`],['watch',`/watch/${encodeURIComponent(item.slug)}/${detail.episodes[0]?.id}?language=sub`]]) {
+                await page.goto('http://127.0.0.1:18788'+path); await page.waitForTimeout(1500); await page.screenshot({path:`/tmp/review-evidence/${label}-${name}.png`,fullPage:true});
+                evidence.push({name,label,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),errors:[...errors]});
+              }
+            }
+            await page.close();
+          }
+          fs.writeFileSync('/tmp/review-evidence/visual.json',JSON.stringify(evidence,null,2));
+          await browser.close();
+          JS
+          node .visual-review.mjs
+      - name: Package review source
+        if: always()
+        run: |
+          mkdir -p /tmp/review-evidence
+          python - <<'PY'
+          import pathlib, subprocess, zipfile
+          root=pathlib.Path.cwd()
+          with zipfile.ZipFile('/tmp/review-evidence/repaired-source.zip','w',zipfile.ZIP_DEFLATED) as archive:
+              for name in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
+                  if name and (root/name).is_file() and not name.startswith('.review/'):
+                      archive.write(root/name,'solanime/'+name)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maintenance-review
+          path: |
+            /tmp/review-evidence/
+            test-results/
+            playwright-report/
+          retention-days: 7
+      - name: Require passing browser acceptance
+        if: steps.acceptance.outcome == 'failure'
+        run: exit 1
