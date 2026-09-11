@@ -1,3 +1,4 @@
+import { useStorageScope } from '../account/storageScope';
 import { useEffect, useRef, useState } from 'react';
 import type { PlaybackResolution } from '../types';
 import { readProgress, writeProgress } from '../lib/storage';
@@ -24,6 +25,7 @@ export default function PlayerSurface({
   onOpen?: () => void;
   onEnded?: () => void;
 }) {
+  const scope = useStorageScope();
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const callbacks = useRef({ onStateChange, onOpen, onEnded });
@@ -38,9 +40,12 @@ export default function PlayerSurface({
   const [state, setState] = useState<PlayerState>('loading');
   const [detail, setDetail] = useState('Preparing the selected source…');
   const [iframeEnabled, setIframeEnabled] = useState(false);
+  const [embedMode, setEmbedMode] = useState<'restricted' | 'compatible'>('restricted');
   const inputUrl = resolution.url ?? resolution.embedUrl ?? '';
   const sourceUrl = playbackUrl(inputUrl, resolution.playbackType, window.location.origin) ?? '';
   const progressScope = `${resolution.providerId}:${resolution.playbackType}`;
+  const progressKey = `progress:${episodeId}:${language}:${progressScope}`;
+  const allowedHostsKey = (resolution.allowedMediaHosts ?? []).join(',');
 
   const update = (next: PlayerState, message: string) => {
     setState(next);
@@ -69,10 +74,28 @@ export default function PlayerSurface({
     let dash: { reset(): void } | null = null;
     let cancelled = false;
     let lastProgressWrite = 0;
+    const saveProgress = (seconds: number) => {
+      if (scope) scope.write(progressKey, seconds);
+      else writeProgress(episodeId, language, progressScope, seconds);
+    };
+    const validResource = (raw: string) => {
+      try {
+        const url = new URL(raw, sourceUrl);
+        return (
+          !allowedHostsKey ||
+          (url.protocol === 'https:' && allowedHostsKey.split(',').includes(url.hostname))
+        );
+      } catch {
+        return false;
+      }
+    };
 
     const restore = () => {
       if (!rememberProgress || !Number.isFinite(video.duration)) return;
-      const seconds = readProgress(episodeId, language, progressScope);
+      const saved = scope
+        ? scope.read(progressKey)
+        : readProgress(episodeId, language, progressScope);
+      const seconds = typeof saved === 'number' && Number.isFinite(saved) && saved >= 0 ? saved : 0;
       if (seconds > 5 && seconds < video.duration - 15) video.currentTime = seconds;
     };
     const playing = () => {
@@ -80,7 +103,7 @@ export default function PlayerSurface({
       update('playing', 'Playback started.');
     };
     const ended = () => {
-      if (rememberProgress) writeProgress(episodeId, language, progressScope, 0);
+      if (rememberProgress) saveProgress(0);
       callbacks.current.onEnded?.();
     };
     const ready = () => update('ready', 'Source loaded and ready to play.');
@@ -89,7 +112,7 @@ export default function PlayerSurface({
     const remember = () => {
       if (!rememberProgress || Date.now() - lastProgressWrite < 5000) return;
       lastProgressWrite = Date.now();
-      writeProgress(episodeId, language, progressScope, video.currentTime);
+      saveProgress(video.currentTime);
     };
     video.addEventListener('loadedmetadata', restore);
     video.addEventListener('canplay', ready);
@@ -109,7 +132,14 @@ export default function PlayerSurface({
             update('error', 'HLS playback is not supported in this browser.');
             return;
           }
-          const instance = new Hls({ enableWorker: true, lowLatencyMode: true });
+          const instance = new Hls({
+            enableWorker: true,
+            lowLatencyMode: true,
+            xhrSetup: (xhr, url) => {
+              xhr.withCredentials = false;
+              if (!validResource(url)) throw Error('Media host is not permitted for this source.');
+            },
+          });
           hls = instance;
           instance.loadSource(sourceUrl);
           instance.attachMedia(video);
@@ -144,14 +174,24 @@ export default function PlayerSurface({
       video.removeEventListener('timeupdate', remember);
       video.removeEventListener('ended', ended);
       if (rememberProgress && !video.ended && video.currentTime > 0)
-        writeProgress(episodeId, language, progressScope, video.currentTime);
+        saveProgress(video.currentTime);
       hls?.destroy();
       dash?.reset();
       video.pause();
       video.removeAttribute('src');
       video.load();
     };
-  }, [sourceUrl, resolution.playbackType, episodeId, language, rememberProgress, progressScope]);
+  }, [
+    sourceUrl,
+    resolution.playbackType,
+    episodeId,
+    language,
+    rememberProgress,
+    progressScope,
+    progressKey,
+    scope,
+    allowedHostsKey,
+  ]);
 
   if (
     !sourceUrl ||
@@ -169,13 +209,29 @@ export default function PlayerSurface({
   if (resolution.playbackType === 'iframe') {
     return (
       <div className="player-frame">
+        <div className="embed-mode" role="group" aria-label="Provider compatibility">
+          <button
+            type="button"
+            aria-pressed={embedMode === 'restricted'}
+            onClick={() => setEmbedMode('restricted')}
+          >
+            Restricted embed
+          </button>
+          <button
+            type="button"
+            aria-pressed={embedMode === 'compatible'}
+            onClick={() => setEmbedMode('compatible')}
+          >
+            Provider compatibility
+          </button>
+        </div>
         {iframeEnabled ? (
           <iframe
-            key={sourceUrl}
+            key={`${sourceUrl}:${embedMode}`}
             src={sourceUrl}
             title="Episode player"
             allow={PLAYER_PERMISSIONS}
-            sandbox={PLAYER_SANDBOX}
+            sandbox={embedMode === 'restricted' ? PLAYER_SANDBOX : undefined}
             data-solanime-player="true"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
@@ -197,6 +253,11 @@ export default function PlayerSurface({
             </button>
           </div>
         )}
+        {embedMode === 'compatible' && (
+          <p className="compatibility-status" role="status">
+            Provider compatibility active · popup and tracking protection is limited.
+          </p>
+        )}
         <p
           className={`player-state player-state--${state}${state === 'error' ? '' : ' sr-only'}`}
           aria-live="polite"
@@ -206,12 +267,9 @@ export default function PlayerSurface({
         <details className="player-help">
           <summary>Player options</summary>
           <p>
-            Pop-ups, downloads and top-page redirects are restricted. If a source will not load,
-            select another server.
-          </p>
-          <p>
-            Some provider pages do not support restricted embedding. Opening one directly leaves
-            these restrictions.
+            {embedMode === 'restricted'
+              ? 'A sandbox error means this provider refuses restricted embedding. Provider compatibility removes the sandbox for this source; it also removes its popup and navigation protections.'
+              : 'Compatibility mode is a normal provider embed. Solanime cannot block its internal requests or restyle its controls from this page. Use restricted mode or a native source for stronger isolation.'}
           </p>
           <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
             Open provider in a new tab
@@ -241,7 +299,13 @@ export default function PlayerSurface({
 
   return (
     <div className="player-video" ref={frameRef}>
-      <video ref={videoRef} playsInline preload="metadata" aria-label="Episode video" />
+      <video
+        ref={videoRef}
+        playsInline
+        crossOrigin="anonymous"
+        preload="metadata"
+        aria-label="Episode video"
+      />
       <MediaControls videoRef={videoRef} frameRef={frameRef} />
       <p
         className={`player-state player-state--${state}${state === 'error' ? '' : ' sr-only'}`}

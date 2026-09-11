@@ -1,3 +1,6 @@
+import { createAccounts, type AccountsService } from './accounts/service.ts';
+import { openAccountsDatabase } from './accounts/database.ts';
+import { nativeSourceResolver } from './providers/nativeSources.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { backup, type DatabaseSync } from 'node:sqlite';
 import { resolve } from 'node:path';
@@ -29,6 +32,8 @@ const DEFAULT_RESOLUTION_COOLDOWN_MS = 3_000;
 const MAX_COOLDOWN_ENTRIES = 256;
 
 interface AppOptions {
+  accounts?: AccountsService;
+  nativeSources?: ReturnType<typeof nativeSourceResolver>;
   backupDirectory?: string;
   staticDirectory?: string;
   maxPendingResolutions?: number;
@@ -139,6 +144,8 @@ function requireAdmin(request: IncomingMessage): void {
 }
 
 export function createApp(db: DatabaseSync, options: AppOptions = {}) {
+  const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'));
+  const nativeSources = options.nativeSources ?? nativeSourceResolver();
   const pendingResolutions = new Map<number, PendingResolution>();
   const resolutionCooldowns = new Map<
     number,
@@ -156,7 +163,9 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
   const executeResolution =
     options.resolveProvider ??
     ((mapping: StoredProviderMapping, signal: AbortSignal) =>
-      getProviderAdapter(mapping.providerId).resolve(mapping, signal));
+      Promise.resolve(
+        nativeSources(mapping) ?? getProviderAdapter(mapping.providerId).resolve(mapping, signal),
+      ));
 
   const recordResolution = (
     mapping: StoredProviderMapping,
@@ -274,7 +283,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     return awaitPendingResolution(entry, signal);
   };
 
-  return createServer(async (request, response) => {
+  const server = createServer(async (request, response) => {
     const abort = new AbortController();
     request.on('aborted', () => abort.abort());
     response.on('close', () => {
@@ -283,6 +292,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     try {
       const url = new URL(request.url ?? '/', 'http://127.0.0.1');
       const method = request.method ?? 'GET';
+      if (await accounts.handle(request, response, url)) return;
       if (method === 'GET' && url.pathname === '/api/health')
         return json(response, 200, {
           status: 'ok',
@@ -409,6 +419,8 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         );
     }
   });
+  server.once('close', () => accounts.close());
+  return server;
 }
 
 export function startServer() {
@@ -421,7 +433,8 @@ export function startServer() {
   migrate(db);
   const port = integer(process.env.PORT ?? null, 'PORT', 8787, 1, 65535);
   const host = process.env.HOST || '127.0.0.1';
-  const server = createApp(db, { staticDirectory });
+  const accounts = createAccounts(openAccountsDatabase());
+  const server = createApp(db, { staticDirectory, accounts });
   server.requestTimeout = 30_000;
   server.headersTimeout = 15_000;
   server.keepAliveTimeout = 5_000;

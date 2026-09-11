@@ -1,3 +1,5 @@
+import { useAccount } from '../account/AccountProvider';
+import Avatar from '../account/Avatar';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   useEffect,
@@ -28,6 +30,7 @@ function Mark() {
 }
 
 export function Layout({ children }: PropsWithChildren) {
+  const account = useAccount();
   const location = useLocation();
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
@@ -77,6 +80,16 @@ export function Layout({ children }: PropsWithChildren) {
           </NavLink>
         </nav>
         <div className="masthead-actions">
+          {account.account ? (
+            <Link className="account-jump" to="/profiles" aria-label="Switch profile">
+              <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'ruby' }} small />
+              <span>{account.profile?.name ?? 'Choose profile'}</span>
+            </Link>
+          ) : (
+            <Link className="account-jump" to="/login">
+              Sign in
+            </Link>
+          )}
           <button
             type="button"
             className="theme-toggle"
@@ -99,6 +112,25 @@ export function Layout({ children }: PropsWithChildren) {
           </Link>
         </div>
       </header>
+      {account.loadError && (
+        <div className="account-service-notice" role="status">
+          Account service unavailable. Browsing remains available.{' '}
+          <button className="text-button" onClick={() => void account.refresh()}>
+            Reconnect
+          </button>
+        </div>
+      )}
+      {account.account && !account.profile && (
+        <div className="account-service-notice">
+          Choose a profile to save your list and progress to this account.{' '}
+          <Link to="/profiles">Choose profile</Link>
+        </div>
+      )}
+      {account.syncError && (
+        <div className="account-service-notice" role="alert">
+          Profile changes are not synced: {account.syncError}
+        </div>
+      )}
       <main id="main" ref={main} tabIndex={-1}>
         {children}
       </main>

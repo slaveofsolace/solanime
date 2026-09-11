@@ -1,7 +1,10 @@
 /** Optional Cloudflare Pages gateway. SQLite remains on the Node host. */
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
-const limit = 16 * 1024;
+const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/data)$/;
+const accountWrite =
+  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete))?)?)$/;
+const limit = 256 * 1024;
 function problem(status, code, message) {
   return Response.json(
     { error: { code, message } },
@@ -41,8 +44,17 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
-    const mutation = request.method === 'POST' && resolvePath.test(url.pathname);
-    if (!(request.method === 'GET' && publicRead.test(url.pathname)) && !mutation)
+    const accountRoute = accountRead.test(url.pathname) || accountWrite.test(url.pathname);
+    const mutation =
+      request.method === 'POST' &&
+      (resolvePath.test(url.pathname) || accountWrite.test(url.pathname));
+    if (
+      !(
+        request.method === 'GET' &&
+        (publicRead.test(url.pathname) || accountRead.test(url.pathname))
+      ) &&
+      !mutation
+    )
       return problem(404, 'NOT_FOUND', 'This API route is not exposed by the public gateway.');
     let origin;
     try {
@@ -55,15 +67,36 @@ export default {
       );
     }
     const headers = new Headers({ accept: 'application/json' });
+    if (accountRoute) {
+      const cookies = (request.headers.get('cookie') ?? '')
+        .split(';')
+        .map((value) => value.trim())
+        .filter((value) => /^(?:__Host-)?solanime_session=[\w-]{43}$/.test(value));
+      if (cookies.length === 1) headers.set('cookie', cookies[0]);
+      for (const name of ['x-csrf-token', 'x-solanime-intent']) {
+        const value = request.headers.get(name);
+        if (value && value.length <= 256) headers.set(name, value);
+      }
+      // Never trust a caller-supplied forwarding secret or IP header.
+      if (env.SOLANIME_GATEWAY_TOKEN) {
+        headers.set('x-solanime-gateway', env.SOLANIME_GATEWAY_TOKEN);
+        headers.set('x-solanime-client-ip', request.headers.get('cf-connecting-ip') ?? '');
+      }
+    }
+    const bodyLimit = accountRoute ? limit : 16 * 1024;
     let body;
     if (mutation) {
       const caller = request.headers.get('origin');
       const site = request.headers.get('sec-fetch-site');
-      if ((caller && caller !== url.origin) || (site && site !== 'same-origin'))
+      if (
+        (accountRoute && !caller) ||
+        (caller && caller !== url.origin) ||
+        (site && site !== 'same-origin')
+      )
         return problem(403, 'UNAUTHORIZED', 'Cross-origin playback requests are not accepted.');
       if (!/^application\/json(?:\s*;|$)/i.test(request.headers.get('content-type') ?? ''))
         return problem(415, 'BAD_REQUEST', 'Use an application/json request body.');
-      if (Number(request.headers.get('content-length') ?? 0) > limit)
+      if (Number(request.headers.get('content-length') ?? 0) > bodyLimit)
         return problem(413, 'BAD_REQUEST', 'Request body is too large.');
       const reader = request.body?.getReader();
       const chunks = [];
@@ -74,7 +107,7 @@ export default {
             const { done, value } = await reader.read();
             if (done) break;
             size += value.byteLength;
-            if (size > limit) {
+            if (size > bodyLimit) {
               await reader.cancel();
               return problem(413, 'BAD_REQUEST', 'Request body is too large.');
             }
@@ -116,6 +149,16 @@ export default {
         'x-content-type-options': 'nosniff',
         'referrer-policy': 'no-referrer',
       });
+      if (accountRoute) {
+        const cookies =
+          upstream.headers.getSetCookie?.() ??
+          (upstream.headers.get('set-cookie') ? [upstream.headers.get('set-cookie')] : []);
+        for (const cookie of cookies)
+          if (/^__Host-solanime_session=[\w-]*;/.test(cookie) && !/;\s*Domain=/i.test(cookie))
+            responseHeaders.append('set-cookie', cookie);
+        const disposition = upstream.headers.get('content-disposition');
+        if (disposition) responseHeaders.set('content-disposition', disposition);
+      }
       const retry = upstream.headers.get('retry-after');
       if (retry) responseHeaders.set('retry-after', retry);
       return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });

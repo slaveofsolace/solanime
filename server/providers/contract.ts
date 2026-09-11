@@ -22,6 +22,8 @@ export interface ProviderCapabilities {
 }
 
 export interface ProviderResolution {
+  delivery?: 'native' | 'provider';
+  allowedMediaHosts?: string[];
   mappingId: number;
   providerId: string;
   playbackType: PlaybackType;

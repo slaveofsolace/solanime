@@ -1,8 +1,17 @@
-# Sol Anime
+# Sol Anime 0.4
 
 Version 0.3 adds a Netflix-informed cinema interface, customizable accent colors, native media controls, restricted provider frames, and an optional Chromium Guard extension. [Research](docs/NETFLIX_DESIGN_RESEARCH.md) · [Deployment](docs/DEPLOY_CINEMA.md) · [Playback boundaries](docs/PLAYBACK_PROTECTION.md).
 
 An independent anime catalogue and watch interface. React handles browsing; a Node.js API reads the imported SQLite catalogue and resolves stored provider mappings on demand. It is not operated by or endorsed by Anikoto.
+
+
+## Accounts and playback in this revision
+
+Email/password login now supports up to **five profiles per account**, isolated saved lists/history/preferences, private recovery codes, session revocation and account security controls. Private accounts live in `data/private/accounts.sqlite`, separate from the distributable catalogue. Email ownership verification and outgoing reset emails are **not configured**; save the recovery code shown on registration.
+
+The website includes explicit **Restricted embed / Provider compatibility** choices and operator-registered native media support. Compatibility removes the iframe sandbox; it does not promise popup or tracker blocking. Native playback uses our own controls without loading the provider page, but the shipped native registry is empty. No extension installation is required and no hidden-player spoof is used. Universal cross-origin filtering/styling is not claimed.
+
+Read [Accounts and playback](docs/ACCOUNTS_AND_PLAYBACK.md) and [Mac/deployment instructions](docs/DEPLOY_ACCOUNTS.md) before public deployment. Preserve the private account database across upgrades; never include it in public downloads. The earlier cinema/Guard documents describe optional legacy tooling, not a new mandatory install.
 
 ## Run locally
 

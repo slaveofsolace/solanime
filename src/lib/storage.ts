@@ -7,6 +7,7 @@ import type {
   WatchHistoryEntry,
 } from '../types';
 import { DEFAULT_ACCENT, normalizeAccent } from './theme';
+import { useStorageScope } from '../account/storageScope';
 const PREFIX = 'sol-anime:';
 export const defaultPreferences: Preferences = {
   preferredLanguage: 'sub',
@@ -126,15 +127,23 @@ function writeStored<T>(key: string, value: T): void {
   }
 }
 export function usePersistentState<T>(key: string, fallback: T) {
-  const [value, setValue] = useState<T>(() => readStored(key, fallback));
-  useEffect(() => writeStored(key, value), [key, value]);
+  const scope = useStorageScope();
+  const [value, setValue] = useState<T>(() =>
+    scope ? decodeStored(key, scope.read(key), fallback) : readStored(key, fallback),
+  );
   useEffect(() => {
+    if (scope) scope.write(key, value);
+    else writeStored(key, value);
+  }, [key, value, scope]);
+  useEffect(() => {
+    if (scope)
+      return scope.subscribe(key, () => setValue(decodeStored(key, scope.read(key), fallback)));
     const onStorage = (event: StorageEvent) => {
       if (event.key === PREFIX + key || event.key === null) setValue(readStored(key, fallback));
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
-  }, [key]);
+  }, [key, scope]);
   return [value, setValue] as const;
 }
 export function useWatchlist() {

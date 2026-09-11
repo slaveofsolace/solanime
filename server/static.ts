@@ -49,7 +49,9 @@ export async function serveStatic(
   let file = resolve(root, `.${pathname}`);
   if (!inside(root, file)) return false;
   const appRoute =
-    /^\/(?:catalogue|search|library|admin|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(pathname);
+    /^\/(?:catalogue|search|library|admin|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
+      pathname,
+    );
   if (appRoute) file = resolve(root, 'index.html');
   try {
     file = await realpath(file);

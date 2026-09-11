@@ -22,3 +22,8 @@ evidence/traces/
 .dev.vars
 .dev.vars.*
 !.dev.vars.example
+
+# Account credentials, recovery hashes and sessions must never enter source packages.
+data/private/
+config/native-sources.json
+review-runtime/

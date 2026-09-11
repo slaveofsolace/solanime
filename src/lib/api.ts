@@ -58,7 +58,7 @@ export async function readResponse<T>(response: Response): Promise<T> {
   return body as T;
 }
 
-async function request<T>(
+export async function request<T>(
   path: string,
   options: RequestInit & { signal?: AbortSignal } = {},
 ): Promise<T> {

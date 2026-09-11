@@ -107,6 +107,8 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
+  delivery?: 'native' | 'provider';
+  allowedMediaHosts?: string[];
   mappingId: string;
   providerId: string;
   playbackType: PlaybackType;

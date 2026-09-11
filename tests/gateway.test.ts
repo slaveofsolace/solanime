@@ -92,3 +92,62 @@ describe('optional Pages gateway', () => {
     ).toBe(502);
   });
 });
+
+describe('account gateway', () => {
+  it('forwards only the application session cookie and approved CSRF headers', async () => {
+    const token = 'a'.repeat(43);
+    const spy = vi
+      .fn()
+      .mockResolvedValue(
+        Response.json(
+          { ok: true },
+          {
+            headers: {
+              'set-cookie': `__Host-solanime_session=${token}; Path=/; HttpOnly; Secure; SameSite=Strict`,
+            },
+          },
+        ),
+      );
+    vi.stubGlobal('fetch', spy);
+    const response = await worker.fetch(
+      new Request('https://solanime.example/api/account/profiles', {
+        method: 'POST',
+        headers: {
+          origin: 'https://solanime.example',
+          'content-type': 'application/json',
+          cookie: `analytics=secret; __Host-solanime_session=${token}`,
+          'x-csrf-token': 'csrf',
+          'x-solanime-intent': 'account',
+          'x-admin-token': 'do-not-forward',
+        },
+        body: '{}',
+      }),
+      env,
+    );
+    expect(response.status).toBe(200);
+    const headers = spy.mock.calls[0][1].headers;
+    expect(headers.get('cookie')).toBe(`__Host-solanime_session=${token}`);
+    expect(headers.get('x-csrf-token')).toBe('csrf');
+    expect(headers.has('x-admin-token')).toBe(false);
+    expect(response.headers.get('set-cookie')).toContain('__Host-solanime_session=');
+  });
+  it('does not expose admin endpoints or forward insecure backend cookies', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi
+        .fn()
+        .mockResolvedValue(
+          Response.json(
+            { ok: true },
+            { headers: { 'set-cookie': 'other_session=secret; Domain=example.com' } },
+          ),
+        ),
+    );
+    const response = await worker.fetch(
+      new Request('https://solanime.example/api/account/session'),
+      env,
+    );
+    expect(response.headers.get('set-cookie')).toBeNull();
+    expect(response.headers.get('cache-control')).toBe('no-store');
+  });
+});
