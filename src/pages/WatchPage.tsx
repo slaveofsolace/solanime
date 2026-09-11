@@ -303,6 +303,16 @@ function WatchSession() {
         <div className="episode-nav" aria-label="Episode navigation">
           <button
             type="button"
+            className="theater-toggle"
+            aria-label={theater ? 'Exit theater mode' : 'Theater mode'}
+            title={theater ? 'Exit theater mode' : 'Theater mode'}
+            aria-pressed={theater}
+            onClick={() => setTheater((value) => !value)}
+          >
+            <Icon name="theater" />
+          </button>
+          <button
+            type="button"
             disabled={!previous}
             onClick={() => previous && goToEpisode(previous)}
           >

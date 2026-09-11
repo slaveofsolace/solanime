@@ -148,21 +148,6 @@ export default function LibraryPage() {
               onChange={(event) => setPrefs({ ...prefs, autoplayNext: event.target.checked })}
             />
           </label>
-          <label>
-            <span>
-              <strong>Interface theme</strong>
-              <small>Stored only in this browser.</small>
-            </span>
-            <select
-              value={prefs.theme ?? 'dark'}
-              onChange={(event) =>
-                setPrefs({ ...prefs, theme: event.target.value as 'dark' | 'light' })
-              }
-            >
-              <option value="dark">Dark</option>
-              <option value="light">Light</option>
-            </select>
-          </label>
         </div>
       </section>
     </div>

@@ -110,6 +110,9 @@ test('iframe cannot open a popup or navigate its parent, and accent changes keep
   await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
   await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
   await page.screenshot({ path: info.outputPath('protected-watch.png'), fullPage: true });
+  await page.getByRole('button', { name: 'Exit theater mode', exact: true }).click();
+  await expect(page.locator('.watch-page')).not.toHaveClass(/watch-page--theater/);
+  expect(await handle!.evaluate((el) => el.isConnected)).toBe(true);
   await noOverflow(page);
 });
 test('native controls drive actual playback, speed, mute, and theme without resetting time', async ({
