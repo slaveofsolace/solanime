@@ -1,0 +1,123 @@
+name: Cinema review
+on:
+  push:
+    branches: [feat/solanime-cinema]
+    paths: [.github/workflows/cinema-review.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Apply checksummed source patch
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feat/solanime-cinema'
+          git diff --exit-code 29dee18d59859e51c6fbe63c789b0d02aa4eaa98 HEAD -- src server tests public extensions docs scripts package.json
+          mkdir -p /tmp/cinema-evidence
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, lzma, subprocess
+          parts = sorted(Path('.review').glob('cinema-*.b64'))
+          assert len(parts) == 4
+          data = lzma.decompress(base64.b64decode(''.join(p.read_text().strip() for p in parts), validate=True))
+          assert hashlib.sha256(data).hexdigest() == '05df927a2d39cf86697f53d7d856512ef66edc6f625c86a5cb7b661a157ba645'
+          Path('/tmp/cinema.patch').write_bytes(data)
+          subprocess.run(['git','apply','--check','/tmp/cinema.patch'],check=True)
+          subprocess.run(['git','apply','/tmp/cinema.patch'],check=True)
+          PY
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+      - name: Types, unit regressions and production build
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee /tmp/cinema-evidence/check.log
+      - name: Commit source to review branch only
+        run: |
+          rm -rf .review
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src server tests public extensions docs README.md scripts package.json index.html playwright.guard.config.ts
+          git add -u .review
+          git diff --cached --exit-code -- .github/workflows data
+          git commit -m 'Add cinema browsing, accessible custom accents and scoped player protection'
+          git push origin HEAD:refs/heads/feat/solanime-cinema
+          git rev-parse HEAD > /tmp/cinema-evidence/commit.txt
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Website browser acceptance
+        id: website
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --retries=0 2>&1 | tee /tmp/cinema-evidence/browser.log
+          cp -R test-results /tmp/cinema-evidence/website-test-results
+      - name: Preserve website failure evidence
+        if: always()
+        run: |
+          if [ -d test-results ] && [ ! -d /tmp/cinema-evidence/website-test-results ]; then cp -R test-results /tmp/cinema-evidence/website-test-results; fi
+          if [ -d playwright-report ]; then cp -R playwright-report /tmp/cinema-evidence/website-report; fi
+      - name: Chromium extension integration
+        id: guard
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --config playwright.guard.config.ts 2>&1 | tee /tmp/cinema-evidence/guard.log
+      - name: Preserve Guard evidence
+        if: always()
+        run: |
+          if [ -d test-results ]; then cp -R test-results /tmp/cinema-evidence/guard-test-results; fi
+          if [ -d guard-test-results ]; then cp -R guard-test-results /tmp/cinema-evidence/guard-results; fi
+      - name: Snapshot real catalogue without connecting to live players
+        if: always()
+        run: |
+          test -f dist/index.html || exit 0
+          cp data/solanime.sqlite /tmp/cinema-catalogue.sqlite
+          PORT=18788 SOLANIME_DB_PATH=/tmp/cinema-catalogue.sqlite node --import tsx server/app.ts --serve-static > /tmp/cinema-evidence/runtime.log 2>&1 &
+          for i in $(seq 1 25); do curl -fsS http://127.0.0.1:18788/api/health && break || sleep 1; done
+          cat > .cinema-visual.mjs <<'JS'
+          import { chromium } from '@playwright/test';
+          import fs from 'node:fs';
+          const browser = await chromium.launch(); const evidence=[];
+          for (const [name,viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+            const page = await browser.newPage({viewport}); const errors=[];
+            page.on('pageerror',error=>errors.push(error.message));
+            await page.route('**/api/providers/*/resolve',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'REVIEW_ONLY',message:'Live provider playback is outside this isolated visual review.'}})}));
+            for (const [label,path] of [['home','/'],['catalogue','/catalogue?q=naruto'],['settings','/library']]) {
+              await page.goto('http://127.0.0.1:18788'+path); await page.waitForTimeout(2000);
+              await page.screenshot({path:`/tmp/cinema-evidence/${label}-${name}.png`,fullPage:true});
+              evidence.push({name,label,url:page.url(),errors:[...errors],overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)});
+            }
+            await page.close();
+          }
+          fs.writeFileSync('/tmp/cinema-evidence/visual.json',JSON.stringify(evidence,null,2)); await browser.close();
+          JS
+          node .cinema-visual.mjs
+      - name: Package source checkpoint
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess, zipfile
+          with zipfile.ZipFile('/tmp/cinema-evidence/cinema-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for name in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
+                  if name and Path(name).is_file() and not name.startswith('.review/'):
+                      z.write(name,'solanime/'+name)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cinema-review
+          path: /tmp/cinema-evidence
+          retention-days: 7
+      - name: Require both browser suites
+        if: steps.website.outcome == 'failure' || steps.guard.outcome == 'failure'
+        run: exit 1
