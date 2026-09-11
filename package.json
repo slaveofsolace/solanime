@@ -1,0 +1,59 @@
+{
+  "name": "solanime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"pnpm api:dev\" \"pnpm web:dev\"",
+    "api": "tsx server/app.ts",
+    "api:dev": "tsx watch server/app.ts",
+    "web:dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "set PLAYWRIGHT_BROWSERS_PATH=.cache\\ms-playwright&& playwright test",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "import:anikoto": "tsx scripts/import-anikoto.ts",
+    "import:detached": "tsx scripts/start-full-import.ts",
+    "import:status": "tsx scripts/import-status.ts",
+    "export:data": "tsx scripts/export-data.ts",
+    "backup": "tsx scripts/backup.ts",
+    "restore": "tsx scripts/restore.ts",
+    "verify:database": "tsx scripts/verify-database.ts",
+    "verify:providers": "tsx scripts/verify-providers.ts",
+    "audit:provider-failures": "tsx scripts/audit-provider-task-failures.ts",
+    "audit:empty-episodes": "tsx scripts/audit-empty-episode-lists.ts",
+    "repair:freshness": "tsx scripts/repair-ancestor-freshness.ts"
+  },
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "dashjs": "5.2.1",
+    "hls.js": "1.7.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router-dom": "7.18.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@types/node": "22.20.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "concurrently": "10.0.5",
+    "jsdom": "30.0.1",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.2.2",
+    "vitest": "5.0.0",
+    "wrangler": "^4.130.0"
+  },
+  "packageManager": "pnpm@11.19.0"
+}

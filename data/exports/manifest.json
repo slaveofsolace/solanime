@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 5,
+  "exportedAt": "2026-09-11T12:53:32.432Z",
+  "files": [
+    "catalogue.json",
+    "catalogue.csv",
+    "coverage.csv"
+  ],
+  "status": {
+    "latestRun": {
+      "id": 2,
+      "source": "anikoto",
+      "mode": "full",
+      "status": "running",
+      "budget": null,
+      "tasks_discovered": 144367,
+      "tasks_completed": 48028,
+      "tasks_failed": 0,
+      "checkpoint_json": "{\"catalogueLastPageObserved\":298,\"cataloguePageLimit\":298,\"lastCataloguePageImported\":298,\"lastTitleImported\":\"9012\",\"lastEpisodeProvidersImported\":\"106544\",\"sitemapChildrenDiscovered\":293,\"lastSitemapPageImported\":\"https://anikototv.to/sitemap/episodes-270.xml\",\"lastSitemapOnlyRoutesQueued\":0,\"lastTitleStaleEpisodesMarked\":0,\"lastTitleStaleVersionsMarked\":0,\"lastSitemapTitleImported\":\"9012\",\"lastEpisodeStaleMappingsMarked\":0,\"visibleFilterRecordDenominator\":8913,\"denominatorBasis\":\"distinct title identifiers from the complete validated /filter page task set\",\"staleTitlesMarked\":0,\"discoveryReconciledAt\":\"2026-09-11T12:31:24.164Z\"}",
+      "started_at": "2026-09-10T13:09:04.212Z",
+      "finished_at": null,
+      "created_at": "2026-09-10T13:09:04.211Z",
+      "updated_at": "2026-09-11T12:53:07.921Z",
+      "worker_id": "ac8ae23c-5c27-4d35-b0a1-e390145e3635",
+      "worker_heartbeat_at": "2026-09-11T12:53:07.921Z"
+    },
+    "coverage": {
+      "id": 2025,
+      "run_id": 2,
+      "discovered_titles": 8949,
+      "imported_titles": 8949,
+      "discovered_episodes": 134825,
+      "imported_episodes": 134825,
+      "imported_versions": 183769,
+      "discovered_mappings": 121084,
+      "imported_mappings": 121084,
+      "duplicates": 0,
+      "failures": 0,
+      "blocked": 0,
+      "pending": 96347,
+      "denominator_scope": "Complete public discovery union: 8,949 distinct watch routes from 8,913 /filter records plus 36 sitemap-only routes across 293 child maps; current snapshot denominator, not a private database claim",
+      "captured_at": "2026-09-11T12:52:58.496Z"
+    },
+    "counts": {
+      "titles": 8949,
+      "episodes": 134825,
+      "versions": 183769,
+      "mappings": 121116,
+      "pendingTasks": 96339
+    },
+    "taskStages": [
+      {
+        "taskType": "catalogue_page",
+        "completed": 298,
+        "pending": 0,
+        "failed": 0,
+        "total": 298
+      },
+      {
+        "taskType": "catalogue_reconcile",
+        "completed": 1,
+        "pending": 0,
+        "failed": 0,
+        "total": 1
+      },
+      {
+        "taskType": "episode_servers",
+        "completed": 38486,
+        "pending": 96339,
+        "failed": 0,
+        "total": 134825
+      },
+      {
+        "taskType": "sitemap_index",
+        "completed": 1,
+        "pending": 0,
+        "failed": 0,
+        "total": 1
+      },
+      {
+        "taskType": "sitemap_page",
+        "completed": 293,
+        "pending": 0,
+        "failed": 0,
+        "total": 293
+      },
+      {
+        "taskType": "sitemap_title",
+        "completed": 36,
+        "pending": 0,
+        "failed": 0,
+        "total": 36
+      },
+      {
+        "taskType": "title_detail",
+        "completed": 8913,
+        "pending": 0,
+        "failed": 0,
+        "total": 8913
+      }
+    ],
+    "recentErrors": [],
+    "providers": [
+      {
+        "id": "hd-1",
+        "label": "HD-1",
+        "adapterState": "implemented",
+        "identityState": "confirmed",
+        "playbackType": "iframe",
+        "mappingCount": 48477,
+        "lastSuccessfulResolution": "2026-09-11T12:51:02.562Z",
+        "lastPlaybackVerification": null
+      },
+      {
+        "id": "hd-2",
+        "label": "HD-2",
+        "adapterState": "implemented",
+        "identityState": "confirmed",
+        "playbackType": "iframe",
+        "mappingCount": 23783,
+        "lastSuccessfulResolution": "2026-09-11T12:49:06.530Z",
+        "lastPlaybackVerification": null
+      },
+      {
+        "id": "kiwi",
+        "label": "Kiwi",
+        "adapterState": "unavailable",
+        "identityState": "confirmed",
+        "playbackType": "download",
+        "mappingCount": 0,
+        "lastSuccessfulResolution": null,
+        "lastPlaybackVerification": null
+      },
+      {
+        "id": "vidplay-1",
+        "label": "VidPlay-1",
+        "adapterState": "unavailable",
+        "identityState": "corroborated",
+        "playbackType": "unknown",
+        "mappingCount": 0,
+        "lastSuccessfulResolution": null,
+        "lastPlaybackVerification": null
+      },
+      {
+        "id": "vidstream-2",
+        "label": "Vidstream-2",
+        "adapterState": "implemented",
+        "identityState": "confirmed",
+        "playbackType": "iframe",
+        "mappingCount": 48856,
+        "lastSuccessfulResolution": "2026-09-11T12:45:53.838Z",
+        "lastPlaybackVerification": null
+      }
+    ]
+  }
+}
