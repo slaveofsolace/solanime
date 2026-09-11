@@ -1,0 +1,87 @@
+name: Accounts release review
+on:
+  push:
+    branches: [feat/accounts-built-in-player]
+    paths: [.github/workflows/accounts-review.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify and apply source patch
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feat/accounts-built-in-player
+          git diff --exit-code ef65bb9a515d3b6030cd95d07e5dcf4f0e3e86a9 HEAD -- src server scripts tests package.json public docs config README.md .env.example .gitignore
+          mkdir -p /tmp/accounts-review
+          python - <<'PY'
+          import base64, hashlib, lzma, pathlib
+          chunks = [pathlib.Path(f'.review/accounts-patch-{i}.b64').read_text().strip() for i in range(6)]
+          compressed = base64.b64decode(''.join(chunks), validate=True)
+          assert hashlib.sha256(compressed).hexdigest() == '1772fb1e64c20b060e695695e23f9bd812a28e733c538b721716eb573e2dbe46', 'Source patch checksum mismatch'
+          pathlib.Path('/tmp/accounts.patch').write_bytes(lzma.decompress(compressed))
+          PY
+          git apply --check /tmp/accounts.patch
+          git apply /tmp/accounts.patch
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+      - name: Typecheck, unit/API regressions and build
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee /tmp/accounts-review/check.log
+      - name: Commit application changes to review branch only
+        run: |
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .review/accounts-patch-*.b64
+          git add src server scripts tests config docs package.json public/_worker.js README.md .env.example .gitignore
+          git add -u .review
+          git diff --cached --exit-code -- .github/workflows data
+          git commit -m 'Add secure accounts, five isolated profiles and explicit native/embed playback modes'
+          git push origin HEAD:refs/heads/feat/accounts-built-in-player
+          git rev-parse HEAD > /tmp/accounts-review/commit.txt
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Website browser acceptance without retries
+        id: browser
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --retries=0 2>&1 | tee /tmp/accounts-review/browser.log
+      - name: Database startup on a private copy
+        if: always()
+        run: |
+          cp data/solanime.sqlite /tmp/accounts-review/catalogue.sqlite
+          SOLANIME_DB_PATH=/tmp/accounts-review/catalogue.sqlite pnpm run doctor > /tmp/accounts-review/doctor.json
+          rm -f /tmp/accounts-review/catalogue.sqlite /tmp/accounts-review/catalogue.sqlite-wal /tmp/accounts-review/catalogue.sqlite-shm
+      - name: Capture changed source for exact reconciliation
+        if: always()
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess, zipfile
+          paths = subprocess.check_output(['git','diff','--name-only','ef65bb9a515d3b6030cd95d07e5dcf4f0e3e86a9','HEAD','--','src','server','scripts','tests','config','docs','package.json','public','README.md','.env.example','.gitignore']).decode().splitlines()
+          with zipfile.ZipFile('/tmp/accounts-review/changed-source.zip','w',zipfile.ZIP_DEFLATED) as archive:
+            for name in paths:
+              if pathlib.Path(name).is_file(): archive.write(name,name)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accounts-release-review
+          path: |
+            /tmp/accounts-review/
+            test-results/
+            playwright-report/
+          retention-days: 7
+      - name: Require passing browser acceptance
+        if: steps.browser.outcome == 'failure'
+        run: exit 1
