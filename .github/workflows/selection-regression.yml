@@ -1,0 +1,169 @@
+name: Selection regression repair
+on:
+  push:
+    branches: [fix/solanime-quality-pass]
+    paths: [.github/workflows/selection-regression.yml]
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Apply traced regression fixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('src/pages/WatchPage.tsx');s=p.read_text();s=s.replace('  const autoAttemptKey = useRef<string | null>(null);', '  const [resolutionRetry, setResolutionRetry] = useState(0);')
+          s=s.replace('    autoAttemptKey.current = null;\n','')
+          a=s.index('  const selectProvider = useCallback(');b=s.index('\n  useEffect(() => () => resolveController.current?.abort(), []);',a)
+          s=s[:a]+'''  // The URL is the sole selection authority. A click requests navigation; only
+            // the committed route resolves a source. A fast failure cannot select the old URL.
+            const selectProvider = useCallback(
+              (provider: ProviderChoice, replaceHistory = false) => {
+                resolveController.current?.abort();
+                requestSequence.current += 1;
+                setResolution(null);
+                setActiveMapping(null);
+                setProviderError(null);
+                if (serverFromUrl === provider.mappingId) {
+                  setResolutionRetry((value) => value + 1);
+                } else {
+                  setPendingMapping(provider.mappingId);
+                  setParams((current) => {
+                    const next = new URLSearchParams(current);
+                    next.set('language', language);
+                    next.set('server', provider.mappingId);
+                    return next;
+                  }, { replace: replaceHistory });
+                }
+              }, [serverFromUrl, language, setParams],
+            );
+            useEffect(() => {
+              if (loadingTitle || loadingProviders || !episode || !language || !providers.length) return;
+              const requested = providers.find((provider) => provider.mappingId === serverFromUrl);
+              const candidate = requested ?? providers.find((provider) => provider.status !== 'blocked' && provider.status !== 'unavailable');
+              if (!candidate) return;
+              if (serverFromUrl !== candidate.mappingId) {
+                setParams((current) => {
+                  const next = new URLSearchParams(current);
+                  next.set('language', language);
+                  next.set('server', candidate.mappingId);
+                  return next;
+                }, { replace: true });
+                return;
+              }
+              setResolution(null);
+              setActiveMapping(null);
+              setProviderError(null);
+              if (candidate.status === 'blocked' || candidate.status === 'unavailable') {
+                setPendingMapping(null);
+                setProviderError(candidate.reason ?? 'The requested provider mapping is unavailable.');
+                return;
+              }
+              resolveController.current?.abort();
+              const controller = new AbortController();
+              resolveController.current = controller;
+              const sequence = ++requestSequence.current;
+              setPendingMapping(candidate.mappingId);
+              void api.resolve(candidate.mappingId, language, controller.signal).then((result) => {
+                if (controller.signal.aborted || sequence !== requestSequence.current) return;
+                if (result.status === 'unavailable' || result.status === 'blocked' || (!result.url && !result.embedUrl)) {
+                  const issue = typeof result.error === 'string' ? result.error : result.error?.message;
+                  throw new Error(issue ?? 'This provider did not return a playable resource.');
+                }
+                setResolution(result);
+                setActiveMapping(candidate.mappingId);
+                setPendingMapping(null);
+              }).catch((cause) => {
+                if (controller.signal.aborted || sequence !== requestSequence.current) return;
+                setPendingMapping(null);
+                setProviderError(errorMessage(cause));
+              });
+              return () => controller.abort();
+            }, [episode, language, providers, loadingTitle, loadingProviders, serverFromUrl, resolutionRetry, setParams]);
+          '''+s[b:];p.write_text(s)
+          p=Path('tests/e2e/server.ts');s=p.read_text().replace("import { resolve } from 'node:path';", "import { resolve } from 'node:path';\nimport { readFileSync } from 'node:fs';")
+          pos=s.index('server.listen(18787')
+          s=s[:pos]+'''// Deliver the original test clip over actual HTTP so range and seek behavior
+          // exercise real media transport rather than browser-intercepted responses.
+          const clip = readFileSync(resolve('tests/fixtures/motion.mp4'));
+          const applicationHandlers = server.listeners('request');
+          server.removeAllListeners('request');
+          server.on('request', (request, response) => {
+            if (request.url !== '/__fixture/motion.mp4') {
+              for (const handler of applicationHandlers) handler.call(server, request, response);
+              return;
+            }
+            if (request.method !== 'GET' && request.method !== 'HEAD') { response.writeHead(405); response.end(); return; }
+            const match = /^bytes=(\\d+)-(\\d*)$/.exec(request.headers.range ?? '');
+            const start = match ? Number(match[1]) : 0;
+            const end = match && match[2] ? Math.min(Number(match[2]), clip.length - 1) : clip.length - 1;
+            if (!Number.isSafeInteger(start) || start > end || start >= clip.length) {
+              response.writeHead(416, { 'Content-Range': `bytes */${clip.length}` }); response.end(); return;
+            }
+            response.writeHead(match ? 206 : 200, {
+              'Content-Type': 'video/mp4', 'Accept-Ranges': 'bytes', 'Content-Length': end - start + 1,
+              'Cache-Control': 'no-store', ...(match ? { 'Content-Range': `bytes ${start}-${end}/${clip.length}` } : {}),
+            });
+            response.end(request.method === 'HEAD' ? undefined : clip.subarray(start, end + 1));
+          });
+          '''+s[pos:];p.write_text(s)
+          p=Path('tests/e2e/application.spec.ts');s=p.read_text().replace("import { readFileSync } from 'node:fs';\n",'').replace("import { resolve } from 'node:path';\n",'')
+          a=s.index("  await page.route('**/__fixture/motion.mp4'");b=s.index('\n  await page.goto(',a)
+          s=s[:a]+'''  const range = await page.request.get('/__fixture/motion.mp4', { headers: { range: 'bytes=0-99' } });
+            expect(range.status()).toBe(206);
+            expect((await range.body()).byteLength).toBe(100);
+            expect(range.headers()['content-range']).toMatch(/^bytes 0-99\\/\\d+$/);
+          '''+s[b:]
+          s=s.replace("test('native media advances and moves to the next episode only after ending', async ({ page }) => {", "test('native media advances and moves to the next episode only after ending', async ({ page }, testInfo) => {")
+          needle="  await expect(page).toHaveURL(new RegExp(`/watch/paper-lantern/${data.second.id}\\\\?language=sub`));"
+          assert needle in s
+          s=s.replace(needle,'''  try {
+            await expect(page).toHaveURL(new RegExp(`/watch/paper-lantern/${data.second.id}\\\\?language=sub`));
+          } catch (error) {
+            await testInfo.attach('media-state', { contentType: 'application/json', body: JSON.stringify(await video.evaluate((element: HTMLVideoElement) => ({ time: element.currentTime, duration: element.duration, paused: element.paused, ended: element.ended, ready: element.readyState, network: element.networkState, error: element.error?.message, buffered: Array.from({ length: element.buffered.length }, (_, index) => [element.buffered.start(index), element.buffered.end(index)]) }))) });
+            throw error;
+          }''')
+          p.write_text(s)
+          PY
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+          npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/pages/WatchPage.tsx tests/e2e/server.ts tests/e2e/application.spec.ts
+          pnpm check
+      - name: Commit source changes to review branch only
+        run: |
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/pages/WatchPage.tsx tests/e2e/server.ts tests/e2e/application.spec.ts
+          git commit -m 'Resolve playback only from committed route state and test real media transport'
+          git push origin HEAD:refs/heads/fix/solanime-quality-pass
+          git rev-parse HEAD > commit.txt
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Repeat previously intermittent cases without retries
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --grep 'server switching|native media' --repeat-each=3 --retries=0 2>&1 | tee stress.log
+      - name: Complete browser acceptance without retries
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --retries=0 2>&1 | tee browser.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-regression-evidence
+          path: |
+            commit.txt
+            stress.log
+            browser.log
+            playwright-report/
+            test-results/
+            src/pages/WatchPage.tsx
+            tests/e2e/server.ts
+            tests/e2e/application.spec.ts
+          retention-days: 7
