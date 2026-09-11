@@ -121,7 +121,8 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
 }, info) => {
   for (const path of ['/login', '/register', '/recover']) {
     await page.goto(path);
-    await expect(page.locator('main h1')).toBeVisible();
+    await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();
+    await expect(page.locator('.auth-panel form')).toBeVisible();
     await overflow(page);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
@@ -131,6 +132,7 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
     ).toEqual([]);
   }
   await page.goto('/login');
+  await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
   await page.getByRole('button', { name: 'Use light theme' }).click();
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
@@ -163,4 +165,43 @@ test('provider compatibility is an explicit mode and recreates only the provider
   );
   await overflow(page);
   await page.screenshot({ path: info.outputPath('playback-modes.png'), fullPage: true });
+});
+
+test('a sync conflict does not trap an authenticated session', async ({ page }) => {
+  await register(page);
+  await choose(page);
+  await page.goto('/catalogue?q=Paper');
+  await expect(
+    page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }),
+  ).toBeVisible();
+  await page.route('**/api/account/profiles/*/data', (route) => {
+    if (route.request().method() === 'POST')
+      return route.fulfill({
+        status: 409,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: {
+            code: 'BAD_REQUEST',
+            message: 'This profile changed in another tab. Reload it before saving again.',
+          },
+        }),
+      });
+    return route.continue();
+  });
+  await page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }).click();
+  await expect(
+    page
+      .getByText('This profile changed in another tab. Reload it before saving again.', {
+        exact: false,
+      })
+      .first(),
+  ).toBeVisible();
+  await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
+  await page.getByRole('link', { name: 'Account settings', exact: true }).click();
+  await page
+    .getByRole('button', { name: 'Discard unsaved changes and sign out', exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/login$/);
+  const session = await (await page.request.get('/api/account/session')).json();
+  expect(session.account).toBeNull();
 });

@@ -118,7 +118,15 @@ function useAccountController() {
         clearProfile();
         return;
       }
-      if (old.account?.id === result.account.id && scopeRef.current) return;
+      if (old.account?.id === result.account.id && scopeRef.current) {
+        const current = result.profiles.find((p) => p.id === selectedId(result.account!.id));
+        if (current) setProfile(current);
+        else {
+          clearProfile();
+          rememberProfile(result.account.id, null);
+        }
+        return;
+      }
       const wanted = selectedId(result.account.id);
       const found = result.profiles.find((p) => p.id === wanted);
       if (found) await activate(found, result.account.id);
@@ -174,8 +182,10 @@ function useAccountController() {
     accept(result);
     if (result.account) rememberProfile(result.account.id, null);
   };
-  const logout = async () => {
-    await scopeRef.current?.flush();
+  const logout = async (discardUnsaved = false) => {
+    // Explicit discard is available when a failed sync would otherwise trap the session.
+    if (discardUnsaved) scopeRef.current?.dispose();
+    else await scopeRef.current?.flush();
     await accountRequest('logout', {});
     const id = sessionRef.current.account?.id;
     if (id) rememberProfile(id, null);

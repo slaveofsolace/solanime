@@ -110,9 +110,22 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
         </button>
       </header>
       {auth.syncError && (
-        <p className="form-error" role="alert">
-          Some profile changes could not be saved: {auth.syncError}
-        </p>
+        <div className="form-error" role="alert">
+          <p>Some profile changes could not be saved: {auth.syncError}</p>
+          <button
+            type="button"
+            className="text-button"
+            disabled={busy}
+            onClick={() =>
+              void perform(async () => {
+                await auth.logout(true);
+                navigate('/login', { replace: true });
+              })
+            }
+          >
+            Discard unsaved changes and sign out
+          </button>
+        </div>
       )}
       {error && (
         <p className="form-error" role="alert">

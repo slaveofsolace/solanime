@@ -30,10 +30,10 @@ function NotFound() {
 }
 export default function App() {
   return (
-    <PageErrorBoundary>
-      <AccountProvider>
-        <AccountBoundary>
-          <Layout>
+    <AccountProvider>
+      <AccountBoundary>
+        <Layout>
+          <PageErrorBoundary>
             <Suspense fallback={<StatusPanel eyebrow="" title="Loading…" busy />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -52,9 +52,9 @@ export default function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-          </Layout>
-        </AccountBoundary>
-      </AccountProvider>
-    </PageErrorBoundary>
+          </PageErrorBoundary>
+        </Layout>
+      </AccountBoundary>
+    </AccountProvider>
   );
 }
