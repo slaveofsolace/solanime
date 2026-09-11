@@ -1,86 +1,100 @@
-name: Cinema review
+name: Cinema release review
 on:
   push:
     branches: [feat/solanime-cinema]
     paths: [.github/workflows/cinema-review.yml]
-  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           lfs: true
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Apply checksummed source patch
+      - name: Complete traced interface regressions
         run: |
-          set -euo pipefail
-          test "$GITHUB_REF_NAME" = 'feat/solanime-cinema'
-          git diff --exit-code 29dee18d59859e51c6fbe63c789b0d02aa4eaa98 HEAD -- src server tests public extensions docs scripts package.json
-          mkdir -p /tmp/cinema-evidence
           python - <<'PY'
           from pathlib import Path
-          import base64, hashlib, lzma, subprocess
-          parts = sorted(Path('.review').glob('cinema-*.b64'))
-          assert len(parts) == 4
-          data = lzma.decompress(base64.b64decode(''.join(p.read_text().strip() for p in parts), validate=True))
-          assert hashlib.sha256(data).hexdigest() == '05df927a2d39cf86697f53d7d856512ef66edc6f625c86a5cb7b661a157ba645'
-          Path('/tmp/cinema.patch').write_bytes(data)
-          subprocess.run(['git','apply','--check','/tmp/cinema.patch'],check=True)
-          subprocess.run(['git','apply','/tmp/cinema.patch'],check=True)
+          p=Path('src/pages/WatchPage.tsx');s=p.read_text()
+          old='        <div className="episode-nav" aria-label="Episode navigation">'
+          new=old+'''
+                    <button
+                      type="button"
+                      className="theater-toggle"
+                      aria-label={theater ? 'Exit theater mode' : 'Theater mode'}
+                      title={theater ? 'Exit theater mode' : 'Theater mode'}
+                      aria-pressed={theater}
+                      onClick={() => setTheater((value) => !value)}
+                    >
+                      <Icon name="theater" />
+                    </button>'''
+          assert old in s and 'className="theater-toggle"' not in s
+          p.write_text(s.replace(old,new,1))
+          p=Path('src/pages/LibraryPage.tsx');s=p.read_text()
+          label=s.index('              <strong>Interface theme</strong>')
+          start=s.rfind('          <label>',0,label)
+          end=s.index('          </label>',label)+len('          </label>\n')
+          assert start >= 0
+          p.write_text(s[:start]+s[end:])
+          p=Path('tests/e2e/cinema.spec.ts');s=p.read_text()
+          old="  await page.screenshot({ path: info.outputPath('protected-watch.png'), fullPage: true });"
+          new=old+'''
+            await page.getByRole('button', { name: 'Exit theater mode', exact: true }).click();
+            await expect(page.locator('.watch-page')).not.toHaveClass(/watch-page--theater/);
+            expect(await handle!.evaluate((el) => el.isConnected)).toBe(true);'''
+          assert old in s;p.write_text(s.replace(old,new))
           PY
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
-      - name: Types, unit regressions and production build
-        run: |
+          npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/pages/WatchPage.tsx src/pages/LibraryPage.tsx tests/e2e/cinema.spec.ts
+          mkdir -p /tmp/cinema-evidence
           set -o pipefail
           pnpm check 2>&1 | tee /tmp/cinema-evidence/check.log
-      - name: Commit source to review branch only
+      - name: Commit source only on the review branch
         run: |
-          rm -rf .review
+          test "$GITHUB_REF_NAME" = 'feat/solanime-cinema'
           git config user.name 'Solanime maintenance'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src server tests public extensions docs README.md scripts package.json index.html playwright.guard.config.ts
-          git add -u .review
+          git add src/pages/WatchPage.tsx src/pages/LibraryPage.tsx tests/e2e/cinema.spec.ts
           git diff --cached --exit-code -- .github/workflows data
-          git commit -m 'Add cinema browsing, accessible custom accents and scoped player protection'
+          git commit -m 'Complete theater-mode controls and simplify appearance settings'
           git push origin HEAD:refs/heads/feat/solanime-cinema
           git rev-parse HEAD > /tmp/cinema-evidence/commit.txt
       - run: pnpm exec playwright install --with-deps chromium webkit
-      - name: Website browser acceptance
+      - name: Website acceptance without retries
         id: website
         continue-on-error: true
         run: |
           set -o pipefail
           pnpm exec playwright test --retries=0 2>&1 | tee /tmp/cinema-evidence/browser.log
-          cp -R test-results /tmp/cinema-evidence/website-test-results
-      - name: Preserve website failure evidence
+      - name: Preserve website evidence
         if: always()
         run: |
-          if [ -d test-results ] && [ ! -d /tmp/cinema-evidence/website-test-results ]; then cp -R test-results /tmp/cinema-evidence/website-test-results; fi
+          if [ -d test-results ]; then cp -R test-results /tmp/cinema-evidence/website-test-results; fi
           if [ -d playwright-report ]; then cp -R playwright-report /tmp/cinema-evidence/website-report; fi
-      - name: Chromium extension integration
+      - name: Guard integration without retries
         id: guard
         continue-on-error: true
         run: |
           set -o pipefail
-          pnpm exec playwright test --config playwright.guard.config.ts 2>&1 | tee /tmp/cinema-evidence/guard.log
+          pnpm exec playwright test --config playwright.guard.config.ts --retries=0 2>&1 | tee /tmp/cinema-evidence/guard.log
       - name: Preserve Guard evidence
         if: always()
         run: |
-          if [ -d test-results ]; then cp -R test-results /tmp/cinema-evidence/guard-test-results; fi
-          if [ -d guard-test-results ]; then cp -R guard-test-results /tmp/cinema-evidence/guard-results; fi
-      - name: Snapshot real catalogue without connecting to live players
+          if [ -d test-results/guard ]; then cp -R test-results/guard /tmp/cinema-evidence/guard-test-results; fi
+      - name: Real catalogue screenshots and integrity
         if: always()
         run: |
           test -f dist/index.html || exit 0
+          sha256sum data/solanime.sqlite > /tmp/cinema-evidence/database.sha256
           cp data/solanime.sqlite /tmp/cinema-catalogue.sqlite
+          SOLANIME_DB_PATH=/tmp/cinema-catalogue.sqlite pnpm doctor > /tmp/cinema-evidence/doctor.log
           PORT=18788 SOLANIME_DB_PATH=/tmp/cinema-catalogue.sqlite node --import tsx server/app.ts --serve-static > /tmp/cinema-evidence/runtime.log 2>&1 &
           for i in $(seq 1 25); do curl -fsS http://127.0.0.1:18788/api/health && break || sleep 1; done
           cat > .cinema-visual.mjs <<'JS'
@@ -101,21 +115,21 @@ jobs:
           fs.writeFileSync('/tmp/cinema-evidence/visual.json',JSON.stringify(evidence,null,2)); await browser.close();
           JS
           node .cinema-visual.mjs
-      - name: Package source checkpoint
+      - name: Package reviewable source with original catalogue
         if: always()
         run: |
           python - <<'PY'
           from pathlib import Path
           import subprocess, zipfile
-          with zipfile.ZipFile('/tmp/cinema-evidence/cinema-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+          with zipfile.ZipFile('/tmp/cinema-evidence/solanime-cinema-v0.3.zip','w',zipfile.ZIP_DEFLATED) as z:
               for name in subprocess.check_output(['git','ls-files','-z']).decode().split('\0'):
-                  if name and Path(name).is_file() and not name.startswith('.review/'):
+                  if name and Path(name).is_file() and name != '.github/workflows/cinema-review.yml' and not name.startswith('.review/'):
                       z.write(name,'solanime/'+name)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cinema-review
+          name: cinema-release-review
           path: /tmp/cinema-evidence
           retention-days: 7
       - name: Require both browser suites
