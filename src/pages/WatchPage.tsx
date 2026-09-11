@@ -57,14 +57,13 @@ function WatchSession() {
   const [commentBody, setCommentBody] = useState('');
   const resolveController = useRef<AbortController | null>(null);
   const requestSequence = useRef(0);
-  const autoAttemptKey = useRef<string | null>(null);
+  const [resolutionRetry, setResolutionRetry] = useState(0);
   const requestedLanguage = params.get('language') ?? '';
   const serverFromUrl = params.get('server') ?? '';
 
   useEffect(() => {
     resolveController.current?.abort();
     requestSequence.current += 1;
-    autoAttemptKey.current = null;
     const controller = new AbortController();
     setLoadingTitle(true);
     setPageError(null);
@@ -102,7 +101,6 @@ function WatchSession() {
   useEffect(() => {
     resolveController.current?.abort();
     requestSequence.current += 1;
-    autoAttemptKey.current = null;
     setPendingMapping(null);
     if (!episode || !language) return;
     if (requestedLanguage !== language) {
@@ -138,28 +136,69 @@ function WatchSession() {
     return () => controller.abort();
   }, [episode, language, requestedLanguage, setParams, providerRetry]);
 
+  // The URL is the sole selection authority. A click requests navigation; only
+  // the committed route resolves a source. A fast failure cannot select the old URL.
   const selectProvider = useCallback(
-    async (provider: ProviderChoice, replaceHistory = false) => {
+    (provider: ProviderChoice, replaceHistory = false) => {
       resolveController.current?.abort();
-      const controller = new AbortController();
-      resolveController.current = controller;
-      const sequence = ++requestSequence.current;
-      autoAttemptKey.current = `${episode?.id ?? episodeId}:${language}:${provider.mappingId}`;
+      requestSequence.current += 1;
+      setResolution(null);
+      setActiveMapping(null);
+      setProviderError(null);
+      if (serverFromUrl === provider.mappingId) {
+        setResolutionRetry((value) => value + 1);
+      } else {
+        setPendingMapping(provider.mappingId);
+        setParams(
+          (current) => {
+            const next = new URLSearchParams(current);
+            next.set('language', language);
+            next.set('server', provider.mappingId);
+            return next;
+          },
+          { replace: replaceHistory },
+        );
+      }
+    },
+    [serverFromUrl, language, setParams],
+  );
+  useEffect(() => {
+    if (loadingTitle || loadingProviders || !episode || !language || !providers.length) return;
+    const requested = providers.find((provider) => provider.mappingId === serverFromUrl);
+    const candidate =
+      requested ??
+      providers.find(
+        (provider) => provider.status !== 'blocked' && provider.status !== 'unavailable',
+      );
+    if (!candidate) return;
+    if (serverFromUrl !== candidate.mappingId) {
       setParams(
         (current) => {
           const next = new URLSearchParams(current);
           next.set('language', language);
-          next.set('server', provider.mappingId);
+          next.set('server', candidate.mappingId);
           return next;
         },
-        { replace: replaceHistory },
+        { replace: true },
       );
-      setPendingMapping(provider.mappingId);
-      setResolution(null);
-      setActiveMapping(null);
-      setProviderError(null);
-      try {
-        const result = await api.resolve(provider.mappingId, language, controller.signal);
+      return;
+    }
+    setResolution(null);
+    setActiveMapping(null);
+    setProviderError(null);
+    if (candidate.status === 'blocked' || candidate.status === 'unavailable') {
+      setPendingMapping(null);
+      setProviderError(candidate.reason ?? 'The requested provider mapping is unavailable.');
+      return;
+    }
+    resolveController.current?.abort();
+    const controller = new AbortController();
+    resolveController.current = controller;
+    const sequence = ++requestSequence.current;
+    setPendingMapping(candidate.mappingId);
+    void api
+      .resolve(candidate.mappingId, language, controller.signal)
+      .then((result) => {
         if (controller.signal.aborted || sequence !== requestSequence.current) return;
         if (
           result.status === 'unavailable' ||
@@ -170,48 +209,24 @@ function WatchSession() {
           throw new Error(issue ?? 'This provider did not return a playable resource.');
         }
         setResolution(result);
-        setActiveMapping(provider.mappingId);
+        setActiveMapping(candidate.mappingId);
         setPendingMapping(null);
-      } catch (cause) {
+      })
+      .catch((cause) => {
         if (controller.signal.aborted || sequence !== requestSequence.current) return;
         setPendingMapping(null);
         setProviderError(errorMessage(cause));
-      }
-    },
-    [episode, episodeId, language, setParams],
-  );
-
-  useEffect(() => {
-    if (loadingTitle || loadingProviders || providers.length === 0 || pendingMapping) return;
-    const requested = providers.find((provider) => provider.mappingId === serverFromUrl);
-    const candidate =
-      requested ??
-      providers.find(
-        (provider) => provider.status !== 'blocked' && provider.status !== 'unavailable',
-      );
-    if (!candidate) return;
-    if (activeMapping === candidate.mappingId && resolution?.mappingId === candidate.mappingId)
-      return;
-    const attemptKey = `${episode?.id ?? episodeId}:${language}:${candidate.mappingId}`;
-    if (autoAttemptKey.current === attemptKey) return;
-    autoAttemptKey.current = attemptKey;
-    if (candidate.status === 'blocked' || candidate.status === 'unavailable') {
-      setProviderError(candidate.reason ?? 'The requested provider mapping is unavailable.');
-      return;
-    }
-    void selectProvider(candidate, true);
+      });
+    return () => controller.abort();
   }, [
+    episode,
+    language,
     providers,
     loadingTitle,
     loadingProviders,
-    pendingMapping,
-    activeMapping,
-    resolution?.mappingId,
     serverFromUrl,
-    selectProvider,
-    episode?.id,
-    episodeId,
-    language,
+    resolutionRetry,
+    setParams,
   ]);
 
   useEffect(() => () => resolveController.current?.abort(), []);

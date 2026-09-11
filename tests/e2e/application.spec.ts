@@ -1,7 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 const image =
   '<svg xmlns="http://www.w3.org/2000/svg" width="360" height="510" viewBox="0 0 360 510"><rect width="360" height="510" fill="#203747"/><circle cx="180" cy="185" r="80" fill="#edb17e"/><path d="M0 430 140 275 240 360 360 210V510H0Z" fill="#425c68"/></svg>';
 test.beforeEach(async ({ page }) => {
@@ -186,7 +184,9 @@ test('a late response cannot overwrite a newer selection', async ({ page }) => {
     'true',
   );
 });
-test('native media advances and moves to the next episode only after ending', async ({ page }) => {
+test('native media advances and moves to the next episode only after ending', async ({
+  page,
+}, testInfo) => {
   await page.addInitScript(() =>
     localStorage.setItem(
       'sol-anime:preferences',
@@ -211,33 +211,13 @@ test('native media advances and moves to the next episode only after ending', as
       }),
     }),
   );
-  await page.route('**/__fixture/motion.mp4', (route) => {
-    const bytes = readFileSync(resolve('tests/fixtures/motion.mp4'));
-    const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers()['range'] ?? '');
-    if (!range)
-      return route.fulfill({
-        contentType: 'video/mp4',
-        headers: { 'accept-ranges': 'bytes' },
-        body: bytes,
-      });
-    const start = Number(range[1]);
-    const end = Math.min(range[2] ? Number(range[2]) : bytes.length - 1, bytes.length - 1);
-    if (start >= bytes.length || end < start)
-      return route.fulfill({
-        status: 416,
-        headers: { 'content-range': `bytes */${bytes.length}` },
-      });
-    return route.fulfill({
-      status: 206,
-      contentType: 'video/mp4',
-      headers: {
-        'accept-ranges': 'bytes',
-        'content-range': `bytes ${start}-${end}/${bytes.length}`,
-        'content-length': String(end - start + 1),
-      },
-      body: bytes.subarray(start, end + 1),
-    });
+  const range = await page.request.get('/__fixture/motion.mp4', {
+    headers: { range: 'bytes=0-99' },
   });
+  expect(range.status()).toBe(206);
+  expect((await range.body()).byteLength).toBe(100);
+  expect(range.headers()['content-range']).toMatch(/^bytes 0-99\/\d+$/);
+
   await page.goto(`/watch/paper-lantern/${data.first.id}?language=sub`);
   const video = page.locator('video');
   await expect(video).toBeVisible();
@@ -251,7 +231,31 @@ test('native media advances and moves to the next episode only after ending', as
   await video.evaluate((element: HTMLVideoElement) => {
     element.currentTime = 1;
   });
-  await expect(page).toHaveURL(new RegExp(`/watch/paper-lantern/${data.second.id}\\?language=sub`));
+  try {
+    await expect(page).toHaveURL(
+      new RegExp(`/watch/paper-lantern/${data.second.id}\\?language=sub`),
+    );
+  } catch (error) {
+    await testInfo.attach('media-state', {
+      contentType: 'application/json',
+      body: JSON.stringify(
+        await video.evaluate((element: HTMLVideoElement) => ({
+          time: element.currentTime,
+          duration: element.duration,
+          paused: element.paused,
+          ended: element.ended,
+          ready: element.readyState,
+          network: element.networkState,
+          error: element.error?.message,
+          buffered: Array.from({ length: element.buffered.length }, (_, index) => [
+            element.buffered.start(index),
+            element.buffered.end(index),
+          ]),
+        })),
+      ),
+    });
+    throw error;
+  }
 });
 test('theme, layout and accessibility remain usable', async ({ page }, testInfo) => {
   await page.goto('/');

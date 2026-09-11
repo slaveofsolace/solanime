@@ -1,4 +1,5 @@
 import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app';
 import { openDatabase, migrate } from '../../server/db';
 import { importSnapshot } from '../../server/ingestion/snapshot';
@@ -71,6 +72,38 @@ const server = createApp(db, {
     status: 'resolved',
     embedUrl: `https://megaplay.buzz/stream/s-2/fixture-${mapping.mappingId}`,
   }),
+});
+// Deliver the original test clip over actual HTTP so range and seek behavior
+// exercise real media transport rather than browser-intercepted responses.
+const clip = readFileSync(resolve('tests/fixtures/motion.mp4'));
+const applicationHandlers = server.listeners('request');
+server.removeAllListeners('request');
+server.on('request', (request, response) => {
+  if (request.url !== '/__fixture/motion.mp4') {
+    for (const handler of applicationHandlers) handler.call(server, request, response);
+    return;
+  }
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    response.writeHead(405);
+    response.end();
+    return;
+  }
+  const match = /^bytes=(\d+)-(\d*)$/.exec(request.headers.range ?? '');
+  const start = match ? Number(match[1]) : 0;
+  const end = match && match[2] ? Math.min(Number(match[2]), clip.length - 1) : clip.length - 1;
+  if (!Number.isSafeInteger(start) || start > end || start >= clip.length) {
+    response.writeHead(416, { 'Content-Range': `bytes */${clip.length}` });
+    response.end();
+    return;
+  }
+  response.writeHead(match ? 206 : 200, {
+    'Content-Type': 'video/mp4',
+    'Accept-Ranges': 'bytes',
+    'Content-Length': end - start + 1,
+    'Cache-Control': 'no-store',
+    ...(match ? { 'Content-Range': `bytes ${start}-${end}/${clip.length}` } : {}),
+  });
+  response.end(request.method === 'HEAD' ? undefined : clip.subarray(start, end + 1));
 });
 server.listen(18787, '127.0.0.1', () =>
   console.log('Isolated browser fixture API on 127.0.0.1:18787'),
