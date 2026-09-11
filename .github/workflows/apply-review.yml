@@ -26,7 +26,8 @@ jobs:
           mkdir -p /tmp/review-evidence
           python .review/apply-core.py
           for patch in .review/0*.py; do python "$patch"; done
-          if ! command -v ffmpeg >/dev/null; then sudo apt-get update && sudo apt-get install -y ffmpeg; fi
+          git restore --source=HEAD -- .github/workflows
+          if ! command -v ffmpeg >/dev/null; then sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; fi
           ffmpeg -loglevel error -f lavfi -i 'testsrc2=size=160x90:rate=10' -t 4 -c:v libx264 -crf 40 -preset veryslow -pix_fmt yuv420p -movflags +faststart tests/fixtures/motion.mp4
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
@@ -36,14 +37,14 @@ jobs:
         run: |
           set -o pipefail
           pnpm check 2>&1 | tee /tmp/review-evidence/check.log
-      - name: Commit reviewed application changes without touching main or catalogue data
+      - name: Commit application changes only to the review branch
         run: |
           rm -rf .review
-          rm -f .github/workflows/source-review.yml .github/workflows/browser-review.yml .github/workflows/apply-review.yml
           git config user.name 'Solanime maintenance'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src server scripts tests migrations public docs README.md package.json index.html vite.config.ts playwright.config.ts .env.example .gitignore .nvmrc .editorconfig .prettierrc.json .prettierignore .github/workflows
+          git add src server scripts tests migrations public docs README.md package.json index.html vite.config.ts playwright.config.ts .env.example .gitignore .nvmrc .editorconfig .prettierrc.json .prettierignore
           git add -u .review
+          git diff --cached --exit-code -- .github/workflows
           git commit -m 'Repair catalogue UX, player state, runtime portability and regression coverage'
           git push origin HEAD:refs/heads/fix/solanime-quality-pass
           git rev-parse HEAD > /tmp/review-evidence/commit.txt
@@ -80,7 +81,9 @@ jobs:
             const list=await (await page.request.get('http://127.0.0.1:18788/api/titles?q=naruto&pageSize=1')).json();
             if(list.items?.[0]) {
               const item=list.items[0]; const detail=await(await page.request.get(`http://127.0.0.1:18788/api/titles/${encodeURIComponent(item.slug)}`)).json();
-              for(const [label,path] of [['title',`/title/${encodeURIComponent(item.slug)}`],['watch',`/watch/${encodeURIComponent(item.slug)}/${detail.episodes[0]?.id}?language=sub`]]) {
+              const routes=[['title',`/title/${encodeURIComponent(item.slug)}`]];
+              if(detail.episodes?.[0]) routes.push(['watch',`/watch/${encodeURIComponent(item.slug)}/${detail.episodes[0].id}?language=sub`]);
+              for(const [label,path] of routes) {
                 await page.goto('http://127.0.0.1:18788'+path); await page.waitForTimeout(1500); await page.screenshot({path:`/tmp/review-evidence/${label}-${name}.png`,fullPage:true});
                 evidence.push({name,label,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),errors:[...errors]});
               }
