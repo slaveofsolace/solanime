@@ -1,0 +1,37 @@
+name: Source review snapshot
+
+on:
+  push:
+    branches: [fix/solanime-quality-pass]
+    paths: [.github/workflows/source-review.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - name: Package tracked working tree
+        run: |
+          python3 - <<'PY'
+          import pathlib, subprocess, zipfile
+          root = pathlib.Path.cwd()
+          paths = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          with zipfile.ZipFile('/tmp/solanime-source.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+              for name in paths:
+                  if name and (root / name).is_file():
+                      archive.write(root / name, 'solanime/' + name)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: solanime-review-source
+          path: /tmp/solanime-source.zip
+          retention-days: 3
+          if-no-files-found: error
