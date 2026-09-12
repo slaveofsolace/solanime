@@ -1,0 +1,49 @@
+name: FMHY Video public research
+on:
+  push:
+    branches: [data-dump/fmhy-video]
+    paths: [data-dump/tools/**, data-dump/tests/**, data-dump/requirements.txt, .github/workflows/fmhy-video-research.yml]
+permissions:
+  contents: write
+concurrency:
+  group: fmhy-video-public-research
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data-dump/fmhy-video
+          fetch-depth: 2
+          sparse-checkout: data-dump
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install research dependencies
+        run: python -m pip install -r data-dump/requirements.txt
+      - name: Collector regression tests
+        run: python -m unittest discover -s data-dump/tests -v
+      - name: Collect public inventory and infrastructure
+        run: |
+          mkdir -p data-dump/reports
+          python data-dump/tools/collect.py --seconds 600 --workers 8 --max-js 2 | tee data-dump/reports/collection.log
+          python -m pip freeze > data-dump/sources/python-environment.txt
+      - name: Commit dataset only to research branch
+        run: |
+          test "$(git branch --show-current)" = data-dump/fmhy-video
+          git add -- data-dump/
+          if ! git diff --cached --quiet; then
+            git -c user.name='Solanime research' -c user.email='research@users.noreply.github.com' commit -m 'data-dump: collect FMHY Video public ecosystem snapshot'
+            git push origin HEAD:refs/heads/data-dump/fmhy-video
+          fi
+          git rev-parse HEAD >> "$GITHUB_STEP_SUMMARY"
+          cat data-dump/SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fmhy-video-research-snapshot
+          path: data-dump/
+          retention-days: 14
