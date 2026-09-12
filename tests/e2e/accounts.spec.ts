@@ -28,6 +28,9 @@ async function choose(page: Page, name = 'You') {
     .filter({ has: page.getByText(name, { exact: true }) })
     .click();
   await expect(page).toHaveURL(/\/$/);
+  // A committed route is not yet a rendered/settled homepage. Wait for the UI
+  // before a hard navigation, which otherwise tears down in-flight WebKit fetches.
+  await expect(page.locator('#featured-title')).toBeVisible();
 }
 async function overflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(

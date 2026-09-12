@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type {
   EpisodeComment,
   Preferences,
@@ -135,13 +135,23 @@ export function usePersistentState<T>(key: string, fallback: T) {
   const [value, setValue] = useState<T>(() =>
     scope ? decodeStored(key, scope.read(key), fallback) : readStored(key, fallback),
   );
+  // Reading a profile must not enqueue writes of untouched defaults. Apart from
+  // needless traffic, those writes could still be running when the user navigates.
+  const persistedValue = useRef(JSON.stringify(value));
   useEffect(() => {
+    const serialized = JSON.stringify(value);
+    if (serialized === persistedValue.current) return;
+    persistedValue.current = serialized;
     if (scope) scope.write(key, value);
     else writeStored(key, value);
   }, [key, value, scope]);
   useEffect(() => {
     if (scope)
-      return scope.subscribe(key, () => setValue(decodeStored(key, scope.read(key), fallback)));
+      return scope.subscribe(key, () => {
+        const incoming = decodeStored(key, scope.read(key), fallback);
+        persistedValue.current = JSON.stringify(incoming);
+        setValue(incoming);
+      });
     const onStorage = (event: StorageEvent) => {
       if (event.key === PREFIX + key || event.key === null) setValue(readStored(key, fallback));
     };

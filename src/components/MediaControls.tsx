@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type RefObject, type KeyboardEvent } from 'react';
 import Icon from './Icon';
+import { createMediaSeeker } from '../lib/mediaSeek';
 export function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
   const whole = Math.floor(seconds),
@@ -25,6 +26,19 @@ export default function MediaControls({
     [tracks, setTracks] = useState<TextTrack[]>([]),
     [caption, setCaption] = useState(-1);
   const lastVolume = useRef(1);
+  const seeker = useRef<ReturnType<typeof createMediaSeeker> | null>(null);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const instance = createMediaSeeker(video, () =>
+      setMessage('Seek complete. Press Play to resume.'),
+    );
+    seeker.current = instance;
+    return () => {
+      instance.dispose();
+      if (seeker.current === instance) seeker.current = null;
+    };
+  }, [videoRef]);
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -73,6 +87,7 @@ export default function MediaControls({
     const video = videoRef.current;
     if (!video) return;
     setMessage('');
+    seeker.current?.cancel();
     try {
       if (video.paused) await video.play();
       else video.pause();
@@ -83,7 +98,7 @@ export default function MediaControls({
   const seek = (value: number) => {
     const video = videoRef.current;
     if (video && Number.isFinite(video.duration) && video.duration > 0) {
-      video.currentTime = Math.max(0, Math.min(video.duration, value));
+      seeker.current?.seek(value);
       setTime(video.currentTime);
     }
   };

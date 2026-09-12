@@ -228,9 +228,12 @@ test('native media advances and moves to the next episode only after ending', as
   await expect
     .poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime))
     .toBeGreaterThan(0.2);
-  await video.evaluate((element: HTMLVideoElement) => {
-    element.currentTime = 1;
-  });
+  // Exercise the actual user control, not a direct assignment that bypasses its
+  // pause/seek/resume lifecycle. Native time and ended assertions remain below.
+  const seekBar = page.getByRole('slider', { name: 'Seek video', exact: true });
+  const bounds = await seekBar.boundingBox();
+  if (!bounds) throw new Error('Seek control has no rendered bounds.');
+  await seekBar.click({ position: { x: bounds.width / 4, y: bounds.height / 2 } });
   try {
     await expect(page).toHaveURL(
       new RegExp(`/watch/paper-lantern/${data.second.id}\\?language=sub`),
