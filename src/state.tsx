@@ -9,6 +9,8 @@ import {
 } from './lib/storage';
 
 type AppStateValue = {
+  theater: boolean;
+  setTheater: (value: boolean | ((current: boolean) => boolean)) => void;
   preview: TitleSummary | null;
   setPreview: (title: TitleSummary | null) => void;
   watchlist: ReturnType<typeof useWatchlist>;
@@ -21,6 +23,7 @@ type AppStateValue = {
 const AppStateContext = createContext<AppStateValue | null>(null);
 
 export function AppStateProvider({ children }: PropsWithChildren) {
+  const [theater, setTheater] = useState(false);
   const [preview, setPreview] = useState<TitleSummary | null>(null);
   const watchlist = useWatchlist();
   const history = useHistory();
@@ -29,7 +32,17 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   const comments = useEpisodeComments();
   return (
     <AppStateContext.Provider
-      value={{ watchlist, history, preferences, watched, comments, preview, setPreview }}
+      value={{
+        watchlist,
+        history,
+        preferences,
+        watched,
+        comments,
+        preview,
+        setPreview,
+        theater,
+        setTheater,
+      }}
     >
       {children}
     </AppStateContext.Provider>

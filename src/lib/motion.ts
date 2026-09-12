@@ -12,10 +12,7 @@ export function useRouteMotion(ref: RefObject<HTMLElement | null>, path: string)
     const element = ref.current;
     if (!element || path.startsWith('/watch/') || motionReduced() || !element.animate) return;
     const transition = element.animate(
-      [
-        { opacity: 0.75, transform: 'translateY(8px)' },
-        { opacity: 1, transform: 'translateY(0)' },
-      ],
+      [{ transform: 'translateY(8px)' }, { transform: 'translateY(0)' }],
       { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' },
     );
     const stop = () => {

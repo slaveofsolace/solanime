@@ -22,6 +22,7 @@ test('compatibility is the initial mode and survives episode, language, source a
   await expect(page.frameLocator('iframe').locator('#loaded')).toBeVisible();
   await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
   await page.getByRole('button', { name: /^Next/ }).click();
+  await expect(page.getByRole('button', { name: 'Play here', exact: true })).toBeVisible();
   await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
   await page.getByRole('button', { name: 'Play here', exact: true }).click();
   await expect(page.locator('iframe')).not.toHaveAttribute('sandbox', /.*/);

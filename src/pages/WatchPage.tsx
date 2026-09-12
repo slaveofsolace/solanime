@@ -27,7 +27,7 @@ function capabilityList(provider: ProviderChoice): string[] {
 export default function WatchPage() {
   const { slug = '', episodeId = '' } = useParams();
   const [params] = useSearchParams();
-  const [theater, setTheater] = useState(false);
+  const { theater, setTheater } = useAppState();
   return (
     <WatchSession
       key={`${slug}:${episodeId}:${params.get('language') ?? ''}`}

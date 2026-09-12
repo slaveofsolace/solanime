@@ -38,6 +38,8 @@ async function overflow(page: Page) {
 test('five profiles keep appearance and saved lists separate across reloads', async ({
   page,
 }, info) => {
+  // This full five-profile journey includes password hashing and many database writes.
+  test.setTimeout(60_000);
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await register(page);

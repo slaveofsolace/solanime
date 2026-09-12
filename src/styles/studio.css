@@ -480,12 +480,25 @@ textarea {
   }
   :root:not([data-motion='reduced']) .title-grid > .title-card {
     animation: tile-enter 360ms var(--motion-ease) both;
-    animation-delay: calc(var(--index, 0) * 22ms);
+    animation-delay: calc(min(var(--index, 0), 8) * 22ms);
+  }
+}
+@keyframes artwork-enter {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) .title-grid > .title-card .title-card__art {
+    animation: artwork-enter 320ms var(--motion-ease) both;
+    animation-delay: calc(min(var(--index, 0), 8) * 22ms);
   }
 }
 @keyframes spotlight-enter {
   from {
-    opacity: 0.2;
     transform: translateY(7px);
   }
   to {
@@ -495,7 +508,6 @@ textarea {
 }
 @keyframes tile-enter {
   from {
-    opacity: 0;
     transform: translateY(12px);
   }
   to {
@@ -628,7 +640,7 @@ textarea {
 }
 @media (max-width: 480px) {
   .spotlight-scene {
-    min-height: 365px;
+    min-height: 295px;
   }
   .home-feature__copy {
     width: calc(100% - 142px);
