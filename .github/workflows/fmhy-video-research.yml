@@ -1,17 +1,17 @@
-name: FMHY Video public research
+name: FMHY Video research final audit
 on:
   push:
     branches: [data-dump/fmhy-video]
-    paths: [data-dump/tools/**, data-dump/tests/**, data-dump/requirements.txt, .github/workflows/fmhy-video-research.yml]
+    paths: [data-dump/tools/**, data-dump/tests/**, .github/workflows/fmhy-video-research.yml]
 permissions:
   contents: write
 concurrency:
   group: fmhy-video-public-research
   cancel-in-progress: false
 jobs:
-  collect:
+  finalize:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,34 +23,40 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install research dependencies
-        run: |
-          python -m pip install -r data-dump/requirements.txt
-          python -m playwright install --with-deps chromium
-      - name: Collector regression tests
+        run: python -m pip install -r data-dump/requirements.txt
+      - name: Regression and evidence-quality tests
         run: |
           python -m unittest discover -s data-dump/tests -v
-          python -m py_compile data-dump/tools/collect.py data-dump/tools/enrich.py
-      - name: Resume public research and map relationships
+          python -m py_compile data-dump/tools/*.py
+      - name: Targeted depth and final data audit
         run: |
-          mkdir -p data-dump/reports
-          if [ ! -f data-dump/SUMMARY.json ]; then
-            python data-dump/tools/collect.py --seconds 600 --workers 8 --max-js 2 | tee data-dump/reports/collection.log
-          fi
-          python data-dump/tools/enrich.py --seconds 600 --repositories 35 --browser-sites 16 | tee data-dump/reports/enrichment.log
+          python data-dump/tools/deepen.py --seconds 180 --modules 8 | tee data-dump/reports/deepening.log
+          python data-dump/tools/enrich.py --offline | tee data-dump/reports/final-indexing.log
+          python data-dump/tools/audit.py | tee data-dump/reports/audit.log
           python -m pip freeze > data-dump/sources/python-environment.txt
-      - name: Commit dataset only to research branch
+      - name: Preserve reviewed architecture reports
+        run: |
+          git show HEAD:data-dump/reports/architecture-map.md > data-dump/reports/architecture-map.md
+          git show HEAD:data-dump/reports/findings.md > data-dump/reports/findings.md
+      - name: Finalize dataset-only tree
         run: |
           test "$(git branch --show-current)" = data-dump/fmhy-video
+          git rm -f --sparse -- .github/workflows/fmhy-video-research.yml
           git add -- data-dump/
-          if ! git diff --cached --quiet; then
-            git -c user.name='Solanime research' -c user.email='research@users.noreply.github.com' commit -m 'data-dump: enrich FMHY coverage, repositories and public network observations'
-            git push origin HEAD:refs/heads/data-dump/fmhy-video
-          fi
+          git ls-files data-dump/ > data-dump/FILE_MANIFEST.txt
+          git add -- data-dump/FILE_MANIFEST.txt
+          git ls-files data-dump/ > data-dump/FILE_MANIFEST.txt
+          git add -- data-dump/FILE_MANIFEST.txt
+          git -c user.name='Solanime research' -c user.email='research@users.noreply.github.com' commit -m 'data-dump: finalize audited dataset, architecture reports and implementation handoff'
+          git push origin HEAD:refs/heads/data-dump/fmhy-video
+          git archive --format=zip --output=/tmp/fmhy-video-data-dump.zip HEAD:data-dump
+          sha256sum /tmp/fmhy-video-data-dump.zip > /tmp/fmhy-video-data-dump.zip.sha256
           git rev-parse HEAD >> "$GITHUB_STEP_SUMMARY"
           cat data-dump/SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: fmhy-video-research-snapshot
-          path: data-dump/
+          name: fmhy-video-data-dump-final
+          path: |
+            /tmp/fmhy-video-data-dump.zip
+            /tmp/fmhy-video-data-dump.zip.sha256
           retention-days: 14
