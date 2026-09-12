@@ -12,9 +12,17 @@ export function formatTime(seconds: number): string {
 export default function MediaControls({
   videoRef,
   frameRef,
+  onPrevious,
+  onNext,
+  theater = false,
+  onTheater,
 }: {
   videoRef: RefObject<HTMLVideoElement | null>;
   frameRef: RefObject<HTMLDivElement | null>;
+  onPrevious?: () => void;
+  onNext?: () => void;
+  theater?: boolean;
+  onTheater?: () => void;
 }) {
   const [playing, setPlaying] = useState(false),
     [time, setTime] = useState(0),
@@ -25,6 +33,9 @@ export default function MediaControls({
   const [message, setMessage] = useState(''),
     [tracks, setTracks] = useState<TextTrack[]>([]),
     [caption, setCaption] = useState(-1);
+  const [remaining, setRemaining] = useState(false);
+  const [speed, setSpeed] = useState(1);
+  const [buffering, setBuffering] = useState(false);
   const lastVolume = useRef(1);
   const seeker = useRef<ReturnType<typeof createMediaSeeker> | null>(null);
   useEffect(() => {
@@ -48,6 +59,7 @@ export default function MediaControls({
       setDuration(Number.isFinite(video.duration) ? video.duration : 0);
       setVolume(video.volume);
       setMuted(video.muted);
+      setSpeed(video.playbackRate);
     };
     const syncTracks = () => {
       const list = Array.from(video.textTracks).filter((track) =>
@@ -67,12 +79,18 @@ export default function MediaControls({
       'volumechange',
       'seeked',
       'emptied',
+      'ratechange',
     ];
     events.forEach((event) => video.addEventListener(event, sync));
     video.textTracks.addEventListener('addtrack', syncTracks);
     video.textTracks.addEventListener('removetrack', syncTracks);
     video.textTracks.addEventListener('change', syncTracks);
     document.addEventListener('fullscreenchange', syncFullscreen);
+    const waiting = () => setBuffering(!video.paused);
+    const resumed = () => setBuffering(false);
+    video.addEventListener('waiting', waiting);
+    video.addEventListener('playing', resumed);
+    video.addEventListener('pause', resumed);
     sync();
     syncTracks();
     return () => {
@@ -81,6 +99,9 @@ export default function MediaControls({
       video.textTracks.removeEventListener('removetrack', syncTracks);
       video.textTracks.removeEventListener('change', syncTracks);
       document.removeEventListener('fullscreenchange', syncFullscreen);
+      video.removeEventListener('waiting', waiting);
+      video.removeEventListener('playing', resumed);
+      video.removeEventListener('pause', resumed);
     };
   }, [videoRef, frameRef]);
   const play = async () => {
@@ -149,24 +170,45 @@ export default function MediaControls({
       k: () => void play(),
       f: () => void toggleFullscreen(),
       m: toggleMute,
+      t: () => onTheater?.(),
+      n: () => onNext?.(),
+      p: () => onPrevious?.(),
       ArrowLeft: () => seek(time - 10),
       ArrowRight: () => seek(time + 10),
       ArrowUp: () => changeVolume(volume + 0.1),
       ArrowDown: () => changeVolume(volume - 0.1),
     };
-    if (action[event.key]) {
+    const pressed = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+    if (action[pressed]) {
       event.preventDefault();
-      action[event.key]();
+      action[pressed]();
     }
   };
   return (
     <div
-      className="media-controls"
+      className={`media-controls${playing ? ' is-playing' : ''}`}
       role="group"
       aria-label="Playback controls"
+      aria-describedby="player-shortcuts"
       tabIndex={0}
       onKeyDown={key}
     >
+      {!playing && duration > 0 && (
+        <button
+          type="button"
+          className="media-center-play"
+          aria-label="Start playback"
+          onClick={() => void play()}
+        >
+          <Icon name="play" />
+        </button>
+      )}
+      {buffering && (
+        <span className="media-buffering" role="status">
+          <span className="loading-spinner" />
+          Buffering…
+        </span>
+      )}
       <input
         className="media-seek"
         type="range"
@@ -224,10 +266,47 @@ export default function MediaControls({
           value={muted ? 0 : volume}
           onChange={(event) => changeVolume(Number(event.target.value))}
         />
-        <span className="media-time">
-          {formatTime(time)} <span>/ {formatTime(duration)}</span>
-        </span>
+        <button
+          type="button"
+          className="media-time"
+          aria-label={remaining ? 'Show elapsed time' : 'Show remaining time'}
+          onClick={() => setRemaining((value) => !value)}
+        >
+          {remaining ? `−${formatTime(Math.max(0, duration - time))}` : formatTime(time)}{' '}
+          <span>/ {formatTime(duration)}</span>
+        </button>
         <div className="media-controls__extras">
+          {onPrevious && (
+            <button
+              type="button"
+              className="media-button"
+              aria-label="Previous episode"
+              onClick={onPrevious}
+            >
+              <Icon name="left" />
+            </button>
+          )}
+          {onNext && (
+            <button
+              type="button"
+              className="media-button"
+              aria-label="Next episode"
+              onClick={onNext}
+            >
+              <Icon name="right" />
+            </button>
+          )}
+          {onTheater && (
+            <button
+              type="button"
+              className="media-button"
+              aria-label={theater ? 'Exit theater mode' : 'Theater mode'}
+              aria-pressed={theater}
+              onClick={onTheater}
+            >
+              <Icon name="theater" />
+            </button>
+          )}
           {tracks.length > 0 && (
             <select
               aria-label="Captions"
@@ -250,7 +329,7 @@ export default function MediaControls({
           )}
           <select
             aria-label="Playback speed"
-            defaultValue="1"
+            value={speed}
             onChange={(event) => {
               if (videoRef.current) videoRef.current.playbackRate = Number(event.target.value);
             }}
@@ -271,6 +350,10 @@ export default function MediaControls({
           </button>
         </div>
       </div>
+      <span className="sr-only" id="player-shortcuts">
+        Space or K to play or pause. Left and right arrows to seek. M to mute. F for fullscreen. T
+        for theater. N and P for episodes.
+      </span>
       {message && (
         <p className="media-error" role="alert">
           {message}

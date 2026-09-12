@@ -30,6 +30,7 @@ export async function inspectDeployment(address, fetcher = fetch) {
   const csp = page.headers.get('content-security-policy') ?? '';
   const checks = {
     page: page.ok,
+    framesBlocked: /(?:^|;)\s*frame-src\s+'none'\s*(?:;|$)/i.test(csp),
     frontendCurrent: frontend === release,
     apiCurrent: api.ok && json?.status === 'ok' && json?.release === release,
     noParentSandboxPolicy: !/(?:^|;)\s*sandbox(?:\s|;|$)/i.test(csp),
@@ -41,7 +42,7 @@ export async function inspectDeployment(address, fetcher = fetch) {
     backend: json?.release ?? null,
     checks,
     passed: Object.values(checks).every(Boolean),
-    note: 'This checks the deployed application version and its headers; it does not certify provider playback. Open the site in a standalone browser tab.',
+    note: 'This checks the deployed application version and its headers; it does not certify media availability or playbacks. Webpage players must remain disabled.',
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

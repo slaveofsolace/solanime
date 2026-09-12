@@ -1,6 +1,6 @@
-export const DEFAULT_ACCENT = '#E50914';
+export const DEFAULT_ACCENT = '#AE9CFF';
 export const ACCENT_PRESETS = [
-  { name: 'Cinema red', value: DEFAULT_ACCENT },
+  { name: 'Sol iris', value: DEFAULT_ACCENT },
   { name: 'Amber', value: '#F5A524' },
   { name: 'Jade', value: '#24BFA5' },
   { name: 'Sky', value: '#409CFF' },
@@ -45,7 +45,7 @@ function mix(color: string, target: string, amount: number): string {
 export function themeTokens(accent: unknown, mode: 'dark' | 'light') {
   const fill = normalizeAccent(accent);
   const surfaces =
-    mode === 'dark' ? ['#141414', '#181818', '#2B2B2B'] : ['#FFFFFF', '#F5F5F5', '#E7E7E7'];
+    mode === 'dark' ? ['#0C0D10', '#15161C', '#22242D'] : ['#FFFFFF', '#F5F6F9', '#E9EBF1'];
   let ink = fill;
   for (let step = 0; step <= 100; step++) {
     ink = mix(fill, mode === 'dark' ? '#FFFFFF' : '#000000', step / 100);

@@ -4,9 +4,10 @@ export type AvailabilityStatus =
   | 'unavailable'
   | 'blocked'
   | 'stale'
-  | 'unknown';
+  | 'unknown'
+  | 'unsupported';
 
-export type ResolutionStatus = 'resolved' | 'unavailable' | 'blocked';
+export type ResolutionStatus = 'resolved' | 'unavailable' | 'blocked' | 'unsupported';
 
 export type PlaybackType =
   | 'iframe'
@@ -15,7 +16,8 @@ export type PlaybackType =
   | 'direct'
   | 'external'
   | 'download'
-  | 'unknown';
+  | 'unknown'
+  | 'unsupported';
 
 export interface TitleSummary {
   id: string;
@@ -88,6 +90,7 @@ export interface TitleDetailResponse {
 }
 
 export interface ProviderChoice {
+  supported?: boolean;
   mappingId: string;
   providerId: string;
   label: string;
@@ -107,6 +110,7 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
+  captions?: import('../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
   allowedMediaHosts?: string[];
   mappingId: string;

@@ -1,3 +1,5 @@
+import Icon from '../components/Icon';
+import EpisodeBrowser from '../components/EpisodeBrowser';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
@@ -37,8 +39,7 @@ function TitleSession() {
   >([]);
   const [related, setRelated] = useState<RelatedTitle[]>([]);
   const [language, setLanguage] = useState('');
-  const [episodeQuery, setEpisodeQuery] = useState('');
-  const [episodeRange, setEpisodeRange] = useState(0);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -97,36 +98,18 @@ function TitleSession() {
       ),
     [episodes, language],
   );
-  const matchingEpisodes = useMemo(() => {
-    const query = episodeQuery.trim().toLocaleLowerCase();
-    return languageEpisodes.filter((episode) =>
-      `${episode.number ?? ''} ${episode.label ?? ''} ${episode.title ?? ''}`
-        .toLocaleLowerCase()
-        .includes(query),
-    );
-  }, [languageEpisodes, episodeQuery]);
-  const episodeRanges = useMemo(
-    () =>
-      Array.from({ length: Math.ceil(matchingEpisodes.length / 50) }, (_, index) => ({
-        index,
-        start: index * 50,
-        end: Math.min(matchingEpisodes.length, (index + 1) * 50),
-      })),
-    [matchingEpisodes.length],
-  );
-  const visibleEpisodes = matchingEpisodes.slice(episodeRange * 50, (episodeRange + 1) * 50);
 
   if (loading)
     return (
-      <StatusPanel eyebrow="OPENING RECORD" title="Loading title…" busy>
+      <StatusPanel eyebrow="" title="Loading title…" busy>
         <p>Retrieving episodes and language versions.</p>
       </StatusPanel>
     );
   if (error || !title)
     return (
       <StatusPanel
-        eyebrow="TITLE UNAVAILABLE"
-        title="This record could not be opened."
+        eyebrow=""
+        title="Title unavailable"
         action={
           <Link className="button button--primary" to="/catalogue">
             Return to catalogue
@@ -188,14 +171,14 @@ function TitleSession() {
                 className="button button--primary"
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(recent.episodeId)}?language=${encodeURIComponent(recent.language)}`}
               >
-                Continue {recent.episodeLabel} <span aria-hidden="true">▶</span>
+                Continue {recent.episodeLabel} <Icon name="play" />
               </Link>
             ) : firstEpisode ? (
               <Link
                 className="button button--primary"
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(firstEpisode.id)}?language=${encodeURIComponent(language)}`}
               >
-                Start watching <span aria-hidden="true">▶</span>
+                Open first episode <Icon name="play" />
               </Link>
             ) : null}
             <button
@@ -236,12 +219,9 @@ function TitleSession() {
       <section className="episode-section" aria-labelledby="episodes-title">
         <header className="section-heading">
           <div>
-            <p className="eyebrow">EPISODE DIRECTORY</p>
             <h2 id="episodes-title">Episodes</h2>
           </div>
-          <p>
-            {visibleEpisodes.length} of {languageEpisodes.length} episodes
-          </p>
+          <p>{languageEpisodes.length} episodes</p>
         </header>
         {languages.length > 0 && (
           <div className="language-tabs" role="group" aria-label="Language version">
@@ -252,7 +232,6 @@ function TitleSession() {
                 aria-pressed={item === language}
                 onClick={() => {
                   setLanguage(item);
-                  setEpisodeRange(0);
                 }}
               >
                 {item}
@@ -260,81 +239,13 @@ function TitleSession() {
             ))}
           </div>
         )}
-        {episodeRanges.length > 1 && (
-          <div className="episode-ranges" role="group" aria-label="Episode range">
-            {episodeRanges.map((range) => (
-              <button
-                type="button"
-                key={range.index}
-                aria-pressed={range.index === episodeRange}
-                onClick={() => setEpisodeRange(range.index)}
-              >
-                {range.start + 1}–{range.end}
-              </button>
-            ))}
-          </div>
-        )}
-        {episodes.length > 16 && (
-          <label className="episode-search">
-            <span>Find an episode</span>
-            <input
-              type="search"
-              value={episodeQuery}
-              onChange={(event) => {
-                setEpisodeQuery(event.target.value);
-                setEpisodeRange(0);
-              }}
-              placeholder="Number or title"
-            />
-          </label>
-        )}
-        {episodes.length === 0 ? (
-          <InlineNotice tone="warning">
-            No episodes have been imported for this title yet. The catalogue record remains
-            available while synchronization catches up.
-          </InlineNotice>
-        ) : visibleEpisodes.length === 0 ? (
-          <InlineNotice>No episodes match this language and search combination.</InlineNotice>
-        ) : (
-          <ol className="episode-grid">
-            {visibleEpisodes.map((episode) => {
-              const version = episode.versions.find((item) => item.language === language);
-              const isWatched = watched.isWatched(episode.id, language);
-              return (
-                <li key={episode.id}>
-                  <Link
-                    to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(episode.id)}?language=${encodeURIComponent(language)}`}
-                  >
-                    <span className="episode-number">{episode.number ?? 'SP'}</span>
-                    <strong>{episodeName(episode)}</strong>
-                    <small>
-                      {version?.providerCount ?? 0} server{version?.providerCount === 1 ? '' : 's'}{' '}
-                      · {language}
-                    </small>
-                    <span className="episode-play" aria-hidden="true">
-                      ▶
-                    </span>
-                  </Link>
-                  <button
-                    className="watched-toggle"
-                    type="button"
-                    aria-pressed={isWatched}
-                    onClick={() => watched.toggle(episode.id, language)}
-                  >
-                    {isWatched ? '✓ Watched' : 'Mark watched'}
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
-        )}
+        <EpisodeBrowser episodes={episodes} slug={slug} language={language} />
       </section>
 
       {related.length > 0 && (
         <section className="related-section" aria-labelledby="related-title">
           <header className="section-heading">
             <div>
-              <p className="eyebrow">RELATED RECORDS</p>
               <h2 id="related-title">Related titles</h2>
             </div>
           </header>

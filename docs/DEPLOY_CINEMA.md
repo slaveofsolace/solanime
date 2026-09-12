@@ -1,3 +1,5 @@
+> Historical documentation. Native-player candidate 0.6 removes provider webpage playback. Follow [NATIVE_PLAYBACK.md](NATIVE_PLAYBACK.md) and [DEPLOY_NATIVE.md](DEPLOY_NATIVE.md), not the iframe/compatibility instructions below.
+
 # Review and deploy the cinema version from macOS
 
 This version is based on the prior quality-pass branch. Main and production are not automatically merged or deployed. Use a new clone or the complete download; do not overwrite a running catalogue directory or an existing `.env`.

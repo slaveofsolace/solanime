@@ -1,3 +1,5 @@
+> Historical documentation. Native-player candidate 0.6 removes provider webpage playback. Follow [NATIVE_PLAYBACK.md](NATIVE_PLAYBACK.md) and [DEPLOY_NATIVE.md](DEPLOY_NATIVE.md), not the iframe/compatibility instructions below.
+
 # Provider inventory
 
 States below are dated 2026-09-11 and intentionally separate identity, mapping import, source resolution, provider-document response, and playback.

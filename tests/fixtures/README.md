@@ -14,3 +14,14 @@ ffmpeg -f lavfi -i 'testsrc2=size=160x90:rate=10' \
 ```
 
 Browser tests use fresh in-memory account and catalogue databases. They cannot modify the imported catalogue or private production accounts and do not resolve live provider streams.
+
+## Segmented native fixtures (0.6)
+
+`hls/` and `dash/` contain segmented versions of the same original four-second clip. They are used only by browser tests and are not placed in `public/` or `dist/`.
+
+```sh
+ffmpeg -i motion.mp4 -c copy -hls_time 1 -hls_segment_type fmp4 -hls_list_size 0 -hls_segment_filename hls/part%02d.m4s hls/index.m3u8
+ffmpeg -i motion.mp4 -c copy -seg_duration 1 -use_template 1 -use_timeline 1 -f dash dash/index.mpd
+```
+
+Native tests inspect actual decoded media progress and controls. No provider webpage is substituted for these media resources. A fictional title/fixture mapping is not a real imported anime episode.

@@ -1,4 +1,5 @@
-import { resolve } from 'node:path';
+import { resolve, extname } from 'node:path';
+import { readdirSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app';
 import { openDatabase, migrate } from '../../server/db';
@@ -62,23 +63,62 @@ importSnapshot(db, {
   observedAt: '2026-09-11T00:00:00.000Z',
   titles,
 });
+const resolveTestSource = (
+  mapping: import('../../server/providers/contract').StoredProviderMapping,
+): import('../../server/providers/contract').ProviderResolution | null => {
+  if (mapping.providerId === 'kiwi' || mapping.providerResourceId?.includes('qa-title-2-'))
+    return null;
+  return {
+    mappingId: mapping.mappingId,
+    providerId: mapping.providerId,
+    delivery: 'native',
+    playbackType: 'direct',
+    status: 'resolved',
+    url: '/__fixture/motion.mp4',
+    captions: [{ url: '/__fixture/captions.vtt', label: 'English', language: 'en' }],
+  };
+};
 const server = createApp(db, {
   staticDirectory: resolve('dist'),
   resolutionCooldownMs: 0,
-  resolveProvider: async (mapping) => ({
-    mappingId: mapping.mappingId,
-    providerId: mapping.providerId,
-    playbackType: 'iframe',
-    status: 'resolved',
-    embedUrl: `https://megaplay.buzz/stream/s-2/fixture-${mapping.mappingId}`,
-  }),
+  nativeSources: resolveTestSource,
 });
 // Deliver the original test clip over actual HTTP so range and seek behavior
 // exercise real media transport rather than browser-intercepted responses.
 const clip = readFileSync(resolve('tests/fixtures/motion.mp4'));
+const segments = new Map<string, Buffer>();
+for (const format of ['hls', 'dash'])
+  for (const name of readdirSync(resolve('tests/fixtures', format)))
+    segments.set(
+      `/__fixture/${format}/${name}`,
+      readFileSync(resolve('tests/fixtures', format, name)),
+    );
 const applicationHandlers = server.listeners('request');
 server.removeAllListeners('request');
 server.on('request', (request, response) => {
+  const resource = segments.get(request.url ?? '');
+  if (resource) {
+    response.writeHead(200, {
+      'Content-Type':
+        (
+          {
+            '.m3u8': 'application/vnd.apple.mpegurl',
+            '.ts': 'video/mp2t',
+            '.mpd': 'application/dash+xml',
+            '.m4s': 'video/mp4',
+          } as Record<string, string>
+        )[extname(request.url ?? '')] ?? 'video/mp4',
+      'Cache-Control': 'no-store',
+    });
+    response.end(resource);
+    return;
+  }
+
+  if (request.url === '/__fixture/captions.vtt') {
+    response.writeHead(200, { 'Content-Type': 'text/vtt', 'Cache-Control': 'no-store' });
+    response.end('WEBVTT\n\n00:00:00.000 --> 00:00:04.000\nOriginal test footage.\n');
+    return;
+  }
   if (request.url !== '/__fixture/motion.mp4') {
     for (const handler of applicationHandlers) handler.call(server, request, response);
     return;

@@ -1,3 +1,5 @@
+> Historical documentation. Native-player candidate 0.6 removes provider webpage playback. Follow [NATIVE_PLAYBACK.md](NATIVE_PLAYBACK.md) and [DEPLOY_NATIVE.md](DEPLOY_NATIVE.md), not the iframe/compatibility instructions below.
+
 # Solanime 0.5: browsing, motion and playback repair
 
 This release builds on the account/profile branch. It does not replace private account data or require a browser extension. Review before merging or deploying.

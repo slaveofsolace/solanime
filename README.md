@@ -1,22 +1,18 @@
-# Sol Anime 0.5
+# Solanime — native-player redesign candidate (0.6.0)
 
-**0.5 update:** persistent provider-compatibility mode fixes the per-video sandbox reset; refreshed browsing and motion preserve account data. See [the release and deployment guide](docs/RELEASE_05.md).
+A media catalogue with an independently styled native player, email/password accounts and five profiles. This candidate continues `feat/studio-v05` / PR #4 from `4fd60a177f06afd2e43a79e1521c4888b4eda545`. It is not an acceptance of the previous v0.5 player or design.
 
-An independent anime catalogue with a cinema-style interface, custom accents, email/password login, and up to five profiles per account. React handles the interface; a Node API serves the catalogue and private account data from separate SQLite databases.
+## Important playback change
 
-This branch includes the earlier quality and cinema revisions. Main and production are not updated by the review package.
+**Third-party webpage players are no longer loaded.** There is no Provider Compatibility mode, iframe fallback, hidden frame or extension requirement. The server refuses webpage-only resolutions, the client independently refuses them, and the site sends `frame-src 'none'`.
 
-## Run on your Mac
+MP4, HLS and DASH resources registered by the operator with an ownership/license/permission reference use Solanime's own `<video>` controls. The distributed registry is intentionally empty. Existing catalogue mappings are retained, but unregistered or unsafe sources display **Unsupported source**. This does not turn the entire imported library into playable native video.
 
-Requirements: Node.js **24.10+** (24 LTS recommended), pnpm **11.19.0**, and the actual catalogue database. With Homebrew already installed:
+See [native playback and provider findings](docs/NATIVE_PLAYBACK.md). A configuration attestation is not independent verification of media rights. Native media hosts still receive delivery requests; this is not a claim of universal tracking protection.
 
-```sh
-brew install node@24 git-lfs
-export PATH="$(brew --prefix node@24)/bin:$PATH"
-npm install --global pnpm@11.19.0
-```
+## Run locally
 
-Extract the complete source ZIP into a new directory and enter its `solanime` folder. A Git clone additionally needs `git lfs install && git lfs pull`; the complete ZIP already includes the original catalogue.
+Use Node.js **24.10+** (24 LTS recommended) and **pnpm 11.19.0**. The complete source ZIP contains the catalogue. A Git clone needs hydrated Git LFS objects.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -27,33 +23,36 @@ pnpm build
 pnpm start
 ```
 
-Open **http://127.0.0.1:8787**. This serves the complete interface and API. `pnpm dev` instead starts the development interface on port 5173 and its API on port 8787.
+Open `http://127.0.0.1:8787`. This runs both the application and catalogue/account APIs. In another terminal, run:
 
-Use **`pnpm run doctor`**, not plain `pnpm doctor`: the latter invokes the package manager's own diagnostic. The project check detects Git LFS pointers, checks catalogue integrity and reports counts. Local HTTP sessions are for development, not production.
+```sh
+pnpm run verify:deployment -- http://127.0.0.1:8787
+```
 
-## Accounts and profiles
+Both sides should report **0.6.0** and the checker should confirm that frames are blocked. `pnpm dev` starts Vite on port 5173 with its separate API. `pnpm preview` alone is not a database backend.
 
-Open `/register`, save the private recovery code, and choose a profile. `/profiles` provides creation, editing and switching; `/account` provides password changes, recovery-code rotation, session revocation, export and account deletion.
+## Design and controls
 
-Each of the five profiles has its own list, history, watched status, notes, appearance and supported native-player progress. Profiles share one login; they are not separate passwords, PINs or parental controls. Guest browsing remains available and does not silently migrate its browser-local records into an account.
+The old layered cinema/studio styles are replaced by six cohesive modules: tokens, shell, components, catalogue, player and accounts. Desktop browsing uses a sidebar and open editorial sections; mobile uses a compact header and bottom navigation. Watch and identity screens use a focused layout. Borders distinguish form inputs and row separators, not a card around every group.
 
-Private data lives in `data/private/accounts.sqlite`, separately from the distributable catalogue. Passwords are salted and hashed with asynchronous scrypt; sessions use HttpOnly cookies, server-side expiry and CSRF checks. Profile writes enforce ownership and revisions. A conflicting tab displays a warning rather than overwriting newer records; account settings also permit explicit discard-and-sign-out.
+A pale iris accent is the default. Existing user accents, custom colors, dark/light themes and reduced-motion settings remain configurable. Presentation changes do not recreate active media. Profile data and credentials stay separate from the catalogue.
 
-**Email ownership verification and outgoing reset emails are not implemented.** Email is the sign-in identifier. Recovery uses the private code shown once at registration and rotates that code after use. Do not deploy an unconfigured email workflow or claim an email was sent. Preserve the private account database across upgrades and never put it in a public ZIP or static asset directory.
+The native player provides play/pause, seeking, elapsed/remaining time, volume/mute, speed, available captions, fullscreen, theater, episode navigation, loading/errors and keyboard controls. Its buttons interact with the media element, not another website. Format/codec/CORS support still depends on the supplied resource and browser.
 
-## Playback status
+## Accounts and private data
 
-No browser extension installation is required to run the site. The current choices are explicit:
+Email/password sign-in and up to five server-persisted profiles are preserved. Passwords use salted asynchronous scrypt. Sessions use HttpOnly cookies, CSRF/origin checks and rate limits. Lists, history, notes, watched state and supported playback progress are profile-specific.
 
-- **Restricted embed** retains sandbox restrictions. A provider that rejects sandboxing may refuse playback.
-- **Provider compatibility (default)** persists per profile or guest browser and recreates the selected provider frame without the sandbox. This may address its rejection, but it does **not** provide popup or tracker blocking.
-- **Native media** loads an operator-registered MP4/HLS/DASH source in Solanime's own theme-aware controls without the provider webpage or its advertising scripts. The registry is empty by default: the existing library has not been converted into native streams.
+**Email verification and outgoing reset emails remain unimplemented.** Recovery uses the private code shown during registration; keep it securely. Profiles share the account password and are not parental-control boundaries.
 
-A hidden iframe with an overlay would not remove its network activity. This release does not claim a universal extension-free blocker, arbitrary cross-origin player styling, or verified live playback for every mapping. Earlier Guard files remain optional legacy tooling, not a new required installation. See [the account and playback architecture](docs/ACCOUNTS_AND_PLAYBACK.md) for exact boundaries and native-source registration.
+Private accounts live in `data/private/accounts.sqlite` unless configured otherwise. Never overwrite or distribute that directory. The catalogue in the download is an old checkpoint and must not replace a newer production import.
 
-The original catalogue checkpoint remains unchanged: **8,949 titles, 134,825 episodes, 183,769 language versions and 121,116 provider mappings**. Those are stored-record counts, not complete playable coverage. Only 38,015 episodes have a stored mapping. No full upstream recrawl is part of this release.
+```sh
+pnpm run backup
+pnpm run backup:accounts
+```
 
-## Verify a change
+## Tests
 
 ```sh
 pnpm check
@@ -61,30 +60,12 @@ pnpm exec playwright install chromium webkit
 pnpm test:e2e
 ```
 
-Tests use temporary/in-memory account and catalogue databases, fictional titles, original test footage and controlled iframe responses. They do not modify your production database or certify live providers. Chromium and WebKit cover desktop/mobile layouts; browser emulation is not physical iPhone certification. Logs and screenshots are written to ignored test directories.
+Unit/API tests use temporary databases. Auth, navigation, native MP4/HLS/DASH, malicious legacy response, popup/network and screenshot tests are in `tests/e2e/`. Their media fixtures are original synthetic footage, not anime episodes; fixtures are not included in the production build.
 
-## Deploy and back up
+For this candidate, local typecheck, 189 unit/API tests and build were executed. Self-contained Chromium component review exercised actual media decoding and controls with controlled fixture responses. The available browser environment denied top-level navigation, so full deployed/HTTP browser E2E, WebKit and current GitHub CI were **not run**. The current GitHub connector offered reads but no writes: the distributed patch has not been pushed by this session. Do not reuse earlier v0.5 CI results as evidence for this candidate.
 
-Use a persistent Node host behind HTTPS. In production, set `NODE_ENV=production` and an HTTPS `SOLANIME_APP_ORIGIN`, and keep both database paths on persistent storage. Set `SOLANIME_REGISTRATION=closed` during review; change it to `open` deliberately. Add email verification, delivery and operational anti-abuse support before treating unverified identifiers as verified identities.
+## Deploy
 
-Cloudflare Pages can host the interface and fixed-origin gateway, **not the SQLite API by itself**. Configure `SOLANIME_API_ORIGIN` in Pages and the exact `SOLANIME_APP_ORIGIN` / `SOLANIME_ALLOWED_ORIGINS` on Node. The gateway now relays the application session cookie. Optional trusted client-IP forwarding requires the same server-only `SOLANIME_GATEWAY_TOKEN` on both sides.
+Use a persistent Node host behind HTTPS, with separate persistent catalogue and private-account paths. Cloudflare Pages may host the frontend and fixed-origin API gateway, but does not replace the Node/SQLite backend. See [deployment and exact-branch application](docs/DEPLOY_NATIVE.md).
 
-```sh
-pnpm run backup
-pnpm run backup:accounts
-```
-
-The account backup is private and contains sensitive hashes and profile data. Keep it separate from source packages. Stop application writers before a deliberate restore. Do not overwrite `data/private/` while upgrading code.
-
-See [Mac and hosting instructions](docs/DEPLOY_ACCOUNTS.md) for the review deployment command, HTTPS settings, cookie checks, private-volume requirements and backup guidance. No merge or public deployment is performed automatically.
-
-## Repository map
-
-- `src/account/`, `src/pages/`: sessions, profile synchronization and interface.
-- `server/accounts/`: private account persistence, validation and security.
-- `server/providers/`: existing provider adapters and registered native sources.
-- `server/ingestion/`, `scripts/`, `migrations/`: catalogue import and operations.
-- `tests/`: API, state, native-resource, gateway and browser regressions.
-- `docs/`: [architecture](docs/ACCOUNTS_AND_PLAYBACK.md), [deployment](docs/DEPLOY_ACCOUNTS.md), [design research](docs/NETFLIX_DESIGN_RESEARCH.md), and historical source investigations.
-
-The site is independently implemented and is not operated or endorsed by Anikoto or Netflix. Earlier observations and screenshots are historical evidence, not current playback certification.
+Deploy only after applying the patch, running the full checks and reviewing its supported-source behavior. No merge or public deployment is automatic. Existing research and earlier release notes remain historical; this README and the native-playback guide supersede instructions that enable provider iframe playback.

@@ -245,9 +245,10 @@ describe('application HTTP API', () => {
         return {
           mappingId: mapping.mappingId,
           providerId: mapping.providerId,
-          playbackType: 'iframe',
+          playbackType: 'direct',
           status: 'resolved',
-          embedUrl: 'https://megaplay.buzz/stream/s-2/test',
+          delivery: 'native',
+          url: 'https://media.example.test/owned.mp4',
         };
       },
     });
@@ -294,9 +295,10 @@ describe('application HTTP API', () => {
             resolveResolution({
               mappingId: mapping.mappingId,
               providerId: mapping.providerId,
-              playbackType: 'iframe',
+              playbackType: 'direct',
               status: 'resolved',
-              embedUrl: 'https://megaplay.buzz/stream/s-2/test',
+              delivery: 'native',
+              url: 'https://media.example.test/owned.mp4',
             }),
           );
         }),
@@ -306,15 +308,13 @@ describe('application HTTP API', () => {
         .prepare('SELECT id FROM episode_provider_mappings ORDER BY id LIMIT 3')
         .all() as Array<{ id: number }>
     ).map((row) => row.id);
-    const pending = mappingIds
-      .slice(0, 2)
-      .map((id) =>
-        fetch(`${capacityApp.origin}/api/providers/${id}/resolve`, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: '{}',
-        }),
-      );
+    const pending = mappingIds.slice(0, 2).map((id) =>
+      fetch(`${capacityApp.origin}/api/providers/${id}/resolve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: '{}',
+      }),
+    );
     await vi.waitFor(() => expect(capacityCalls).toBe(2));
     const limited = await fetch(`${capacityApp.origin}/api/providers/${mappingIds[2]}/resolve`, {
       method: 'POST',
@@ -350,7 +350,8 @@ describe('application HTTP API', () => {
 
     expect(response.status).toBe(422);
     await expect(response.json()).resolves.toMatchObject({
-      status: 'unavailable',
+      status: 'unsupported',
+      error: { code: 'UNSUPPORTED_SOURCE' },
       mappingId: String(mappingId),
     });
     expect(
@@ -359,6 +360,97 @@ describe('application HTTP API', () => {
           "SELECT stage,result FROM verification_observations WHERE entity_type='mapping' AND entity_id=? ORDER BY id DESC LIMIT 1",
         )
         .get(String(mappingId)),
-    ).toMatchObject({ stage: 'failed', result: 'unavailable' });
+    ).toMatchObject({ stage: 'failed', result: 'unsupported' });
+  });
+  it('keeps unregistered source records but never resolves their webpages', async () => {
+    const { origin, db } = await app();
+    const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
+    const result = await (
+      await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)
+    ).json();
+    expect(result.providers).toHaveLength(3);
+    for (const p of result.providers)
+      expect(p).toMatchObject({ supported: false, status: 'unsupported', playbackType: 'unknown' });
+    const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{"language":"sub"}',
+    });
+    expect(res.status).toBe(422);
+    const body = await res.json();
+    expect(body.error.code).toBe('UNSUPPORTED_SOURCE');
+    expect(body).not.toHaveProperty('embedUrl');
+    expect(body).not.toHaveProperty('url');
+    expect(
+      (
+        db.prepare('SELECT COUNT(*) AS count FROM episode_provider_mappings').get() as {
+          count: number;
+        }
+      ).count,
+    ).toBe(3);
+  });
+  it('does not accept a legacy iframe even when an adapter labels it resolved', async () => {
+    const { origin, db } = await app({
+      resolveProvider: async (m) => ({
+        mappingId: m.mappingId,
+        providerId: m.providerId,
+        playbackType: 'iframe',
+        status: 'resolved',
+        embedUrl: 'https://unwanted.example/player',
+      }),
+    });
+    const id = (
+      db.prepare('SELECT id FROM episode_provider_mappings LIMIT 1').get() as { id: number }
+    ).id;
+    const res = await fetch(`${origin}/api/providers/${id}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
+    expect(res.status).toBe(422);
+    const body = await res.json();
+    expect(body.status).toBe('unsupported');
+    expect(body).not.toHaveProperty('embedUrl');
+    expect(
+      (
+        db
+          .prepare(
+            "SELECT COUNT(*) AS count FROM verification_observations WHERE stage='source_resolved' AND evidence_class='local_runtime'",
+          )
+          .get() as { count: number }
+      ).count,
+    ).toBe(0);
+  });
+  it('advertises and resolves a registered native resource without exposing an embed', async () => {
+    const { origin, db } = await app({
+      nativeSources: (m) =>
+        m.providerId === 'hd-1'
+          ? {
+              mappingId: m.mappingId,
+              providerId: m.providerId,
+              status: 'resolved',
+              delivery: 'native',
+              playbackType: 'direct',
+              url: 'https://media.example.test/owned.mp4',
+              captions: [
+                { url: 'https://media.example.test/en.vtt', label: 'English', language: 'en' },
+              ],
+            }
+          : null,
+    });
+    const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
+    const list = await (await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)).json();
+    const supported = list.providers.filter((p: { supported: boolean }) => p.supported);
+    expect(supported).toHaveLength(1);
+    expect(supported[0].capabilities.subtitles).toBe(true);
+    const res = await fetch(`${origin}/api/providers/${supported[0].mappingId}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body).toMatchObject({ delivery: 'native', playbackType: 'direct', status: 'resolved' });
+    expect(body).not.toHaveProperty('embedUrl');
   });
 });

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ACCENT_PRESETS, contrast, normalizeAccent, themeTokens } from '../src/lib/theme';
 import { decodeStored } from '../src/lib/storage';
-import { PLAYER_SANDBOX, PLAYER_PERMISSIONS, playbackUrl } from '../src/lib/playerPolicy';
+import { mediaIsSupported, playbackUrl } from '../src/lib/playerPolicy';
 import { formatTime } from '../src/components/MediaControls';
 import {
   buildRules,
@@ -15,7 +15,7 @@ import { readFileSync } from 'node:fs';
 describe('cinema accent tokens', () => {
   it.each([undefined, null, {}, '#fff', 'red', '#12ABCD;display:none', '#ZZZZZZ'])(
     'rejects unsafe stored accent: %j',
-    (value) => expect(normalizeAccent(value)).toBe('#E50914'),
+    (value) => expect(normalizeAccent(value)).toBe('#AE9CFF'),
   );
   it('migrates preferences while preserving unrelated choices', () =>
     expect(
@@ -32,7 +32,7 @@ describe('cinema accent tokens', () => {
       for (let i = 0; i < 256; i++)
         colors.push('#' + ((i * 65793 * 71) % 16777216).toString(16).padStart(6, '0'));
       const surfaces =
-        mode === 'dark' ? ['#141414', '#181818', '#2B2B2B'] : ['#FFFFFF', '#F5F5F5', '#E7E7E7'];
+        mode === 'dark' ? ['#0C0D10', '#15161C', '#22242D'] : ['#FFFFFF', '#F5F6F9', '#E9EBF1'];
       for (const color of colors) {
         const t = themeTokens(color, mode);
         expect(t.accent).toBe(color.toUpperCase());
@@ -45,17 +45,29 @@ describe('cinema accent tokens', () => {
   );
 });
 describe('player boundary', () => {
-  it('keeps only playback permissions in the iframe', () => {
-    expect(PLAYER_SANDBOX.split(' ').sort()).toEqual(['allow-same-origin', 'allow-scripts']);
-    for (const item of [
-      'allow-popups',
-      'allow-top-navigation',
-      'allow-downloads',
-      'allow-forms',
-      'allow-popups-to-escape-sandbox',
-    ])
-      expect(PLAYER_SANDBOX).not.toContain(item);
-    expect(PLAYER_PERMISSIONS).toContain("camera 'none'");
+  it('refuses iframe/provider resolutions even with plausible approved hostnames', () => {
+    expect(
+      mediaIsSupported(
+        {
+          delivery: 'provider',
+          playbackType: 'iframe',
+          url: 'https://megaplay.buzz/stream/s-2/valid',
+        },
+        'https://solanime.example',
+      ),
+    ).toBe(false);
+    expect(
+      mediaIsSupported(
+        { delivery: 'provider', playbackType: 'direct', url: 'https://media.example/a.mp4' },
+        'https://solanime.example',
+      ),
+    ).toBe(false);
+    expect(
+      mediaIsSupported(
+        { delivery: 'native', playbackType: 'direct', url: 'https://media.example/a.mp4' },
+        'https://solanime.example',
+      ),
+    ).toBe(true);
   });
   it.each([
     'javascript:alert(1)',
@@ -69,10 +81,10 @@ describe('player boundary', () => {
   ])('does not embed untrusted address %s', (url) =>
     expect(playbackUrl(url, 'iframe', 'http://127.0.0.1:5173')).toBeNull(),
   );
-  it('accepts exact provider embeds and same-origin test media', () => {
+  it('rejects all embeds but permits same-origin test media', () => {
     expect(
       playbackUrl('https://megaplay.buzz/stream/s-2/id', 'iframe', 'http://127.0.0.1:5173'),
-    ).toBeTruthy();
+    ).toBeNull();
     expect(playbackUrl('/test.mp4', 'direct', 'http://127.0.0.1:5173')).toBe(
       'http://127.0.0.1:5173/test.mp4',
     );

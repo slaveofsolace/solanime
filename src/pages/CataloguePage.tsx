@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
 import { PageIntro, Pager, StatusPanel, TitleCard } from '../components/ui';
@@ -41,6 +41,7 @@ function FilterSelect({
 
 export default function CataloguePage() {
   const [params, setParams] = useSearchParams();
+  const searchView = useLocation().pathname === '/search';
   const queryKey = params.toString();
   const searchInput = useRef<HTMLInputElement>(null);
   const [draftQuery, setDraftQuery] = useState(params.get('q') ?? '');
@@ -67,7 +68,7 @@ export default function CataloguePage() {
   );
 
   useEffect(() => {
-    if (params.get('focus') === 'search') searchInput.current?.focus();
+    if (searchView || params.get('focus') === 'search') searchInput.current?.focus();
   }, [params]);
 
   useEffect(() => {
@@ -133,9 +134,13 @@ export default function CataloguePage() {
   return (
     <div className="catalogue-page">
       <PageIntro
-        code="BROWSE"
-        title="All anime"
-        copy="Find a title, explore a genre, or pick up a new series."
+        code=""
+        title={searchView ? 'Search' : 'Browse anime'}
+        copy={
+          searchView
+            ? 'A title, a memory, a new beginning.'
+            : 'Explore the collection at your own pace.'
+        }
         aside={
           <>
             <strong>{loading ? '—' : catalogue.total.toLocaleString()}</strong>
@@ -162,9 +167,7 @@ export default function CataloguePage() {
             placeholder="Search titles and aliases"
             autoComplete="off"
           />
-          <button type="submit">
-            Search <span aria-hidden="true">↗</span>
-          </button>
+          <button type="submit">Search</button>
         </label>
         <div className="filter-grid">
           <FilterSelect

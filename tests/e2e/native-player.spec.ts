@@ -1,0 +1,206 @@
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { fixtureArt, episode, watch, noOverflow } from './helpers';
+test.beforeEach(async ({ page }) => fixtureArt(page));
+test('actual native controls change media state without provider requests or popups', async ({
+  page,
+  context,
+}, info) => {
+  const external: string[] = [];
+  const popups: string[] = [];
+  page.on('popup', (p) => popups.push(p.url()));
+  page.on('request', (r) => {
+    if (/megaplay|unwanted\.example|advert/.test(r.url())) external.push(r.url());
+  });
+  await watch(page);
+  const initialUrl = page.url(),
+    pages = context.pages().length,
+    video = page.locator('video');
+  await expect(page.locator('iframe')).toHaveCount(0);
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.duration)).toBeGreaterThan(2);
+  await page.getByRole('button', { name: 'Mute video', exact: true }).click();
+  await page.getByRole('button', { name: 'Play video', exact: true }).click();
+  await expect
+    .poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime))
+    .toBeGreaterThan(0.2);
+  await page.getByRole('button', { name: 'Pause video', exact: true }).click();
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await page.getByRole('combobox', { name: 'Playback speed' }).selectOption('1.5');
+  expect(await video.evaluate((v: HTMLVideoElement) => v.playbackRate)).toBe(1.5);
+  const slider = page.getByRole('slider', { name: 'Seek video' });
+  await slider.focus();
+  await slider.press('Home');
+  await slider.press('ArrowRight');
+  await expect
+    .poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime))
+    .toBeCloseTo(0.1, 1);
+  await page.getByRole('button', { name: 'Show remaining time' }).click();
+  await expect(page.getByRole('button', { name: 'Show elapsed time' })).toBeVisible();
+  await page.getByRole('combobox', { name: 'Captions', exact: true }).selectOption('0');
+  await expect
+    .poll(() => video.evaluate((v: HTMLVideoElement) => v.textTracks[0]?.mode))
+    .toBe('showing');
+  const h = await video.elementHandle();
+  await page.getByRole('button', { name: 'Customize appearance' }).click();
+  await page.getByRole('button', { name: 'Sky', exact: true }).click();
+  await page.keyboard.press('Escape');
+  expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
+  await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
+  await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
+  expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
+  const controls = page.getByRole('group', { name: 'Playback controls' });
+  await controls.focus();
+  await controls.press('m');
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted)).toBe(false);
+  await controls.press('k');
+  await expect(page.getByRole('button', { name: 'Pause video', exact: true })).toBeVisible();
+  await controls.press('k');
+  await expect(page.getByRole('button', { name: 'Play video', exact: true })).toBeVisible();
+  expect(context.pages().length).toBe(pages);
+  expect(popups).toEqual([]);
+  expect(external).toEqual([]);
+  expect(page.url()).toBe(initialUrl);
+  await noOverflow(page);
+  await page.screenshot({ path: info.outputPath('native-controls.png'), fullPage: true });
+  const a11y = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+  expect(a11y.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) }))).toEqual(
+    [],
+  );
+});
+test('legacy iframe responses are refused without loading their document', async ({
+  page,
+  context,
+}, info) => {
+  let requested = 0,
+    popups = 0;
+  page.on('popup', () => popups++);
+  await page.route('https://unwanted.example/**', (r) => {
+    requested++;
+    return r.fulfill({
+      contentType: 'text/html',
+      body: '<script>window.open("https://unwanted.example/ad");top.location="https://unwanted.example/redirect"</script>',
+    });
+  });
+  await page.route('**/api/providers/*/resolve', (r) =>
+    r.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify({
+        mappingId: r.request().url().split('/').at(-2),
+        providerId: 'hd-1',
+        status: 'resolved',
+        playbackType: 'iframe',
+        embedUrl: 'https://unwanted.example/player',
+      }),
+    }),
+  );
+  const e = await episode(page);
+  await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
+  await expect(
+    page.getByRole('heading', { name: 'Unsupported source', exact: true }),
+  ).toBeVisible();
+  await page.getByRole('heading', { name: 'Unsupported source', exact: true }).click();
+  await page.getByRole('button', { name: 'Save series', exact: true }).click();
+  await expect(page.locator('iframe,video')).toHaveCount(0);
+  expect(requested).toBe(0);
+  expect(popups).toBe(0);
+  expect(context.pages()).toHaveLength(1);
+  expect(
+    await page.evaluate(() => JSON.parse(localStorage.getItem('sol-anime:history') ?? '[]')),
+  ).toEqual([]);
+  await noOverflow(page);
+  await page.screenshot({ path: info.outputPath('unsupported-source.png'), fullPage: true });
+});
+test('unregistered catalogue sources stay unsupported despite legacy compatibility settings', async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
+    localStorage.setItem('sol-anime:preferences', '{"embedMode":"compatible"}'),
+  );
+  const e = await episode(page, 'fixture-title-2');
+  let resolutions = 0;
+  page.on('request', (r) => {
+    if (r.url().includes('/resolve')) resolutions++;
+  });
+  await page.goto(`/watch/fixture-title-2/${e.id}?language=sub`);
+  await expect(
+    page.getByRole('heading', { name: 'Unsupported source', exact: true }),
+  ).toBeVisible();
+  await expect(page.locator('iframe,video')).toHaveCount(0);
+  expect(resolutions).toBe(0);
+  await expect(
+    page.getByRole('button', { name: 'Provider compatibility', exact: true }),
+  ).toHaveCount(0);
+  expect((await page.request.get('/')).headers()['content-security-policy']).toContain(
+    "frame-src 'none'",
+  );
+});
+test('native ended events update watched state and navigate when autoplay-next is enabled', async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
+    localStorage.setItem('sol-anime:preferences', '{"autoplayNext":true}'),
+  );
+  const e = await watch(page);
+  const video = page.locator('video');
+  await page.getByRole('button', { name: 'Mute video', exact: true }).click();
+  const slider = page.getByRole('slider', { name: 'Seek video' });
+  await slider.focus();
+  await slider.press('Home');
+  // Seek via the actual control, but do not first seek to duration: that can itself end media.
+  for (let step = 0; step < 30; step++) await slider.press('ArrowRight');
+  await page.getByRole('button', { name: 'Play video', exact: true }).click();
+  await expect(page).not.toHaveURL(new RegExp(`/watch/paper-lantern/${e.id}\\?`));
+  await expect(page.locator('video')).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        JSON.parse(localStorage.getItem('sol-anime:watched-episodes') ?? '[]').some(
+          (x: any) => x.episodeId,
+        ),
+      ),
+    )
+    .toBe(true);
+});
+test('failed media load offers a real retry with no iframe fallback', async ({ page }) => {
+  let failures = 1;
+  await page.route('**/__fixture/motion.mp4', (r) =>
+    failures-- > 0 ? r.fulfill({ status: 404, body: 'Missing' }) : r.continue(),
+  );
+  const e = await episode(page);
+  await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
+  await expect(page.getByRole('heading', { name: 'Video unavailable', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect
+    .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
+    .toBeGreaterThan(1);
+  await expect(page.locator('iframe')).toHaveCount(0);
+});
+
+for (const format of ['hls', 'dash'] as const)
+  test(`native ${format} renders moving media without a webpage player`, async ({ page }) => {
+    const e = await episode(page);
+    await page.route('**/api/providers/*/resolve', (r) =>
+      r.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({
+          mappingId: r.request().url().split('/').at(-2),
+          providerId: 'hd-1',
+          delivery: 'native',
+          playbackType: format,
+          status: 'resolved',
+          url: `/__fixture/${format}/index.${format === 'hls' ? 'm3u8' : 'mpd'}`,
+        }),
+      }),
+    );
+    await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
+    const video = page.locator('video');
+    await expect
+      .poll(() => video.evaluate((v: HTMLVideoElement) => v.readyState), { timeout: 20000 })
+      .toBeGreaterThan(1);
+    await page.getByRole('button', { name: 'Mute video', exact: true }).click();
+    await page.getByRole('button', { name: 'Play video', exact: true }).click();
+    await expect
+      .poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime))
+      .toBeGreaterThan(0.2);
+    await expect(page.locator('iframe')).toHaveCount(0);
+  });

@@ -7,9 +7,9 @@ import { RELEASE } from '../shared/release';
 // @ts-expect-error Production deployment command uses standard JS and Web APIs.
 import { inspectDeployment } from '../scripts/verify-deployment.mjs';
 afterEach(() => vi.unstubAllGlobals());
-describe('persistent playback policy', () => {
+describe('legacy preference migration (no longer controls playback access)', () => {
   it.each([undefined, null, {}, { theme: 'light', accent: '#00AA88' }])(
-    'uses compatible embeds for old or missing settings: %j',
+    'preserves old preference shape without enabling provider embeds: %j',
     (value) => {
       expect(decodeStored('preferences', value, defaultPreferences)).toMatchObject({
         embedMode: 'compatible',
@@ -17,12 +17,12 @@ describe('persistent playback policy', () => {
       });
     },
   );
-  it('retains explicit restrictions through both client and server validation', () => {
+  it('retains unrelated settings while accepting legacy profile records', () => {
     const value = { embedMode: 'restricted', motion: 'reduced', theme: 'light', accent: '#00AA88' };
     const server = validateData('preferences', value);
     expect(decodeStored('preferences', server, defaultPreferences)).toMatchObject(value);
   });
-  it('does not turn unknown stored values into a restrictive reset', () => {
+  it('normalizes unknown legacy records', () => {
     expect(validateData('preferences', { embedMode: 'legacy', motion: [] })).toMatchObject({
       embedMode: 'compatible',
       motion: 'system',
@@ -47,7 +47,11 @@ describe('motion and release diagnostics', () => {
     );
   });
   const response =
-    (backend = RELEASE, frontend = RELEASE, csp = "default-src 'self'; frame-ancestors 'none'") =>
+    (
+      backend = RELEASE,
+      frontend = RELEASE,
+      csp = "default-src 'self'; frame-src 'none'; frame-ancestors 'none'",
+    ) =>
     async (url: string) =>
       url.includes('/api/')
         ? Response.json({ status: 'ok', release: backend })

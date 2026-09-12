@@ -6,6 +6,7 @@ import {
 } from '../server/providers/nativeSources';
 import type { StoredProviderMapping } from '../server/providers/contract';
 const item: NativeSource = {
+  authorization: { basis: 'owned', reference: 'Original test footage by the project' },
   mappingId: 1,
   language: 'sub',
   type: 'hls',
@@ -23,6 +24,29 @@ const mapping: StoredProviderMapping = {
   unavailableReason: null,
 };
 describe('built-in native source registration', () => {
+  it('requires documented authorization rather than inferring rights from a public URL', () => {
+    expect(() => validateNativeSources([{ ...item, authorization: undefined }])).toThrow(
+      /permission/,
+    );
+    expect(() =>
+      validateNativeSources([
+        { ...item, authorization: { basis: 'public', reference: 'Found online' } },
+      ]),
+    ).toThrow();
+  });
+  it('validates caption hosts and emits no private authorization reference', () => {
+    const captions = [
+      { url: 'https://media.example.com/en.vtt', language: 'en', label: 'English' },
+    ];
+    const result = nativeSourceResolver([{ ...item, captions }])(mapping);
+    expect(result?.captions).toEqual([{ ...captions[0], default: false }]);
+    expect(result).not.toHaveProperty('authorization');
+    expect(() =>
+      validateNativeSources([
+        { ...item, captions: [{ ...captions[0], url: 'https://tracking.test/en.vtt' }] },
+      ]),
+    ).toThrow();
+  });
   it('chooses a registered resource without loading a third-party player document', () => {
     const result = nativeSourceResolver([item])(mapping);
     expect(result).toMatchObject({

@@ -22,6 +22,7 @@ export interface ProviderCapabilities {
 }
 
 export interface ProviderResolution {
+  captions?: import('../../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
   allowedMediaHosts?: string[];
   mappingId: number;
@@ -31,7 +32,7 @@ export interface ProviderResolution {
   embedUrl?: string;
   headers?: Record<string, string>;
   expiresAt?: string;
-  status: 'resolved' | 'unavailable' | 'blocked';
+  status: 'resolved' | 'unavailable' | 'blocked' | 'unsupported';
   error?: { code: string; message: string };
 }
 

@@ -1,24 +1,29 @@
-export const PLAYER_SANDBOX = 'allow-scripts allow-same-origin';
-export const PLAYER_PERMISSIONS =
-  "autoplay; fullscreen; encrypted-media; picture-in-picture; camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'";
-/** Only reviewed cross-origin embed URLs are accepted. Sandbox mode is an explicit preference. */
+import { isMediaKind } from '../../shared/playback';
+/** Only media returned through the native contract may reach the video element. */
 export function playbackUrl(input: string, kind: string, base: string): string | null {
-  if (!input) return null;
+  if (!input || !isMediaKind(kind)) return null;
   try {
-    const url = new URL(input, base);
-    if (url.username || url.password) return null;
-    if (kind === 'iframe')
-      return url.protocol === 'https:' &&
-        url.hostname === 'megaplay.buzz' &&
-        url.port === '' &&
-        /^\/stream\//.test(url.pathname)
-        ? url.href
-        : null;
+    let url: URL;
+    try {
+      url = new URL(input);
+    } catch {
+      url = new URL(input, base);
+    }
+    if (url.username || url.password || url.hash) return null;
     return url.protocol === 'https:' ||
-      (['http:', 'https:'].includes(url.protocol) && url.origin === new URL(base).origin)
+      (url.protocol === 'http:' && url.origin === new URL(base).origin)
       ? url.href
       : null;
   } catch {
     return null;
   }
+}
+export function mediaIsSupported(
+  resolution: { delivery?: string; playbackType: string; url?: string | null },
+  base: string,
+): boolean {
+  return (
+    resolution.delivery === 'native' &&
+    !!playbackUrl(resolution.url ?? '', resolution.playbackType, base)
+  );
 }

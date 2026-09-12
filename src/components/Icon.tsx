@@ -17,8 +17,16 @@ type Name =
   | 'muted'
   | 'expand'
   | 'theater'
-  | 'shield';
+  | 'unavailable'
+  | 'shield'
+  | 'home'
+  | 'browse'
+  | 'person';
 const paths: Record<Name, string> = {
+  unavailable: 'M3 3l18 18M5 9v10h14M9 5h10v10M3 5h2m14 0h2v4',
+  home: 'm3 10 9-7 9 7v11H3V10Zm6 11v-8h6v8',
+  browse: 'M3 3h7v7H3V3Zm11 0h7v7h-7V3ZM3 14h7v7H3v-7Zm11 0h7v7h-7v-7',
+  person: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-3a8 8 0 0 1 16 0v3',
   palette:
     'M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1-3.7 1.5 1.5 0 0 1 1-2.8h2a4 4 0 0 0 4-4C21 6 17 3 12 3ZM7 10h.01M10 6.5h.01M15 7h.01M17.5 10.5h.01',
   close: 'm6 6 12 12M6 18 18 6',

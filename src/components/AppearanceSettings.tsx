@@ -90,7 +90,7 @@ export default function AppearanceSettings() {
               setDraft(event.target.value);
               setError(false);
             }}
-            placeholder="#E50914"
+            placeholder="#AE9CFF"
             maxLength={7}
             spellCheck={false}
             autoComplete="off"

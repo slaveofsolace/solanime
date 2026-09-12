@@ -1,6 +1,6 @@
 import { useAccount } from '../account/AccountProvider';
 import Avatar from '../account/Avatar';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   useEffect,
   useLayoutEffect,
@@ -25,8 +25,7 @@ const TitlePreview = lazy(() => import('./TitlePreview'));
 function Mark() {
   return (
     <svg className="brand-mark" viewBox="0 0 42 42" aria-hidden="true">
-      <path d="M6 20.8 21 6l15 14.8L21 36Z" />
-      <path d="m13 21 8-8 8 8-8 8Z" />
+      <path d="M6 27a15 15 0 0 1 30 0M6 33h30M21 5v4M7 10l3 4M35 10l-3 4" />
     </svg>
   );
 }
@@ -34,6 +33,7 @@ function Mark() {
 export function Layout({ children }: PropsWithChildren) {
   const account = useAccount();
   const location = useLocation();
+  const navigate = useNavigate();
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
   const { watchlist, preferences, preview, setPreview } = useAppState();
@@ -55,10 +55,18 @@ export function Layout({ children }: PropsWithChildren) {
     main.current?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
-  const catalogueActive =
-    location.pathname.startsWith('/catalogue') || location.pathname.startsWith('/search');
+  const focused = [
+    '/login',
+    '/register',
+    '/recover',
+    '/profiles',
+    '/account/recovery-code',
+  ].includes(location.pathname);
+  const watching = location.pathname.startsWith('/watch/');
   return (
-    <div className="site-shell">
+    <div
+      className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}`}
+    >
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -72,76 +80,120 @@ export function Layout({ children }: PropsWithChildren) {
         </Link>
         <nav className="main-nav" aria-label="Primary navigation">
           <NavLink to="/" end>
-            Home
+            <Icon name="home" />
+            <span>Home</span>
           </NavLink>
-          <NavLink
-            to="/catalogue"
-            className={catalogueActive ? 'active' : undefined}
-            aria-current={catalogueActive ? 'page' : undefined}
-          >
-            Catalogue
+          <NavLink to="/catalogue">
+            <Icon name="browse" />
+            <span>Browse</span>
+          </NavLink>
+          <NavLink to="/search">
+            <Icon name="search" />
+            <span>Search</span>
           </NavLink>
           <NavLink to="/library">
-            My list <small>{watchlist.ids.length}</small>
+            <Icon name="bookmark" />
+            <span>My list</span>
+            <small>{watchlist.ids.length}</small>
           </NavLink>
         </nav>
         <div className="masthead-actions">
-          {account.account ? (
-            <Link className="account-jump" to="/profiles" aria-label="Switch profile">
-              <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'ruby' }} small />
-              <span>{account.profile?.name ?? 'Choose profile'}</span>
-            </Link>
-          ) : (
-            <Link className="account-jump" to="/login">
-              Sign in
-            </Link>
-          )}
           <button
             type="button"
-            className="theme-toggle"
+            className="theme-toggle appearance-jump"
             aria-label="Customize appearance"
             onClick={() => setAppearanceOpen(true)}
           >
             <Icon name="palette" />
+            <span>Appearance</span>
           </button>
           <button
             className="theme-toggle"
             type="button"
             aria-label={`Use ${theme === 'dark' ? 'light' : 'dark'} theme`}
-            onClick={() => setPrefs({ ...prefs, theme: theme === 'dark' ? 'light' : 'dark' })}
+            onClick={() =>
+              setPrefs((p) => ({ ...p, theme: p.theme === 'light' ? 'dark' : 'light' }))
+            }
           >
             <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
           </button>
-          <Link className="search-jump" to="/catalogue?focus=search" aria-label="Search catalogue">
-            <Icon name="search" />
-            <span>Search</span>
-          </Link>
+          {account.account ? (
+            <Link className="account-jump" to="/profiles" aria-label="Switch profile">
+              <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'violet' }} small />
+              <span>{account.profile?.name ?? 'Choose profile'}</span>
+              <Icon name="right" />
+            </Link>
+          ) : (
+            <Link className="account-jump" to="/login" aria-label="Sign in">
+              <Icon name="person" />
+              <span>Sign in</span>
+            </Link>
+          )}
         </div>
       </header>
-      {account.loadError && (
-        <div className="account-service-notice" role="status">
-          Account service unavailable. Browsing remains available.{' '}
-          <button className="text-button" onClick={() => void account.refresh()}>
-            Reconnect
-          </button>
-        </div>
-      )}
-      {account.account &&
-        !account.profile &&
-        !['/profiles', '/account', '/account/recovery-code'].includes(location.pathname) && (
+      <div className="content-shell">
+        {!focused && !watching && (
+          <div className="utility-bar">
+            <p>Find your next story.</p>
+            <form
+              role="search"
+              aria-label="Search all anime"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const value = new FormData(event.currentTarget).get('q');
+                navigate(`/search?q=${encodeURIComponent(String(value ?? '').trim())}`);
+              }}
+            >
+              <Icon name="search" />
+              <input
+                aria-label="Find anime"
+                name="q"
+                type="search"
+                maxLength={200}
+                placeholder="Find your next story"
+              />
+              <button type="submit" aria-label="Search all titles">
+                <Icon name="arrow" />
+              </button>
+            </form>
+          </div>
+        )}
+        {account.loadError && (
+          <div className="account-service-notice" role="status">
+            Account service unavailable. Browsing remains available.{' '}
+            <button className="text-button" onClick={() => void account.refresh()}>
+              Reconnect
+            </button>
+          </div>
+        )}
+        {account.account && !account.profile && !focused && location.pathname !== '/account' && (
           <div className="account-service-notice">
-            Choose a profile to save your list and progress to this account.{' '}
+            Choose a profile to save your list and progress.{' '}
             <Link to="/profiles">Choose profile</Link>
           </div>
         )}
-      {account.syncError && (
-        <div className="account-service-notice" role="alert">
-          Profile changes are not synced: {account.syncError}
-        </div>
-      )}
-      <main id="main" ref={main} tabIndex={-1}>
-        {children}
-      </main>
+        {account.syncError && (
+          <div className="account-service-notice" role="alert">
+            Profile changes are not synced: {account.syncError}
+          </div>
+        )}
+        <main id="main" ref={main} tabIndex={-1}>
+          {children}
+        </main>
+        <footer className="site-footer">
+          <p>
+            Solanime{' '}
+            <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
+              v{RELEASE}
+            </span>
+          </p>
+          <nav aria-label="Footer navigation">
+            <Link to="/catalogue">Browse</Link>
+            <Link to="/library">Your list</Link>
+            <Link to="/admin">Administration</Link>
+          </nav>
+        </footer>
+      </div>
       {appearanceOpen && (
         <Dialog title="Make it yours" onClose={() => setAppearanceOpen(false)}>
           <AppearanceSettings />
@@ -152,20 +204,6 @@ export function Layout({ children }: PropsWithChildren) {
           <TitlePreview title={preview} onClose={() => setPreview(null)} />
         </Suspense>
       )}
-      <footer className="site-footer">
-        <p>
-          <strong>Sol Anime</strong>
-          <span>Independent catalogue.</span>
-          <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
-            v{RELEASE}
-          </span>
-        </p>
-        <nav aria-label="Footer navigation">
-          <Link to="/catalogue">Browse</Link>
-          <Link to="/library">Your list</Link>
-          <Link to="/admin">Administration</Link>
-        </nav>
-      </footer>
     </div>
   );
 }

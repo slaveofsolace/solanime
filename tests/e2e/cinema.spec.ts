@@ -6,12 +6,6 @@ test.beforeEach(async ({ page }) => {
   await page.route('https://images.example.test/**', (route) =>
     route.fulfill({ contentType: 'image/svg+xml', body: image }),
   );
-  await page.route('https://megaplay.buzz/**', (route) =>
-    route.fulfill({
-      contentType: 'text/html',
-      body: '<!doctype html><html lang="en"><title>Test player</title><body><h1>Controlled player</h1><button id="popup" onclick="window.open(\'https://unwanted.example/\',\'_blank\')">Open unwanted popup</button><button id="navigate" onclick="top.location.href=\'https://unwanted.example/\'">Navigate top</button><p id="marker">Player active</p></body></html>',
-    }),
-  );
 });
 async function getEpisode(page: Page) {
   return (await (await page.request.get('/api/titles/paper-lantern')).json()).episodes[0];
@@ -52,7 +46,7 @@ test('preset and custom accents persist, validate input, and restore focus', asy
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await appearance(page);
   await page.getByRole('dialog').getByRole('button', { name: 'Reset accent' }).click();
-  await expect(page.locator('html')).toHaveAttribute('data-accent', '#E50914');
+  await expect(page.locator('html')).toHaveAttribute('data-accent', '#AE9CFF');
   await noOverflow(page);
 });
 test('quick-look details preserve catalogue position and saved state', async ({ page }, info) => {
@@ -80,75 +74,5 @@ test('rails expose keyboard-accessible scrolling without expanding the page', as
   await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBeGreaterThan(before);
   await region.getByRole('button', { name: 'Previous Recent updates' }).click();
   await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBe(0);
-  await noOverflow(page);
-});
-test('iframe cannot open a popup or navigate its parent, and accent changes keep it mounted', async ({
-  page,
-  context,
-}, info) => {
-  await page.addInitScript(() =>
-    localStorage.setItem('sol-anime:preferences', JSON.stringify({ embedMode: 'restricted' })),
-  );
-  const episode = await getEpisode(page);
-  await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
-  await expect(page.getByText('This opens a third-party player.', { exact: false })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Play here', exact: true }).click();
-  const iframe = page.locator('iframe');
-  await expect(iframe).toHaveAttribute('sandbox', 'allow-scripts allow-same-origin');
-  const frame = page.frameLocator('iframe');
-  await expect(frame.locator('#marker')).toHaveText('Player active');
-  const initialUrl = page.url();
-  const initialPages = context.pages().length;
-  const handle = await iframe.elementHandle();
-  await frame.locator('#popup').click();
-  await frame.locator('#navigate').click();
-  await page.waitForTimeout(250);
-  expect(context.pages().length).toBe(initialPages);
-  expect(page.url()).toBe(initialUrl);
-  const dialog = await appearance(page);
-  await dialog.getByRole('button', { name: 'Jade', exact: true }).click();
-  await dialog.getByRole('button', { name: 'Close dialog' }).click();
-  expect(await handle!.evaluate((el) => el.isConnected)).toBe(true);
-  await expect(frame.locator('#marker')).toHaveText('Player active');
-  await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
-  await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
-  await page.screenshot({ path: info.outputPath('protected-watch.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Exit theater mode', exact: true }).click();
-  await expect(page.locator('.watch-page')).not.toHaveClass(/watch-page--theater/);
-  expect(await handle!.evaluate((el) => el.isConnected)).toBe(true);
-  await noOverflow(page);
-});
-test('native controls drive actual playback, speed, mute, and theme without resetting time', async ({
-  page,
-}, info) => {
-  const episode = await getEpisode(page);
-  await page.route('**/api/providers/*/resolve', (route) =>
-    route.fulfill({
-      contentType: 'application/json',
-      body: JSON.stringify({
-        mappingId: route.request().url().split('/').at(-2),
-        providerId: 'hd-1',
-        status: 'resolved',
-        playbackType: 'direct',
-        url: '/__fixture/motion.mp4',
-      }),
-    }),
-  );
-  await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
-  await page.getByRole('button', { name: 'Mute video', exact: true }).click();
-  await page.getByRole('button', { name: 'Play video', exact: true }).click();
-  const video = page.locator('video');
-  await expect
-    .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime))
-    .toBeGreaterThan(0.15);
-  await page.getByRole('button', { name: 'Pause video', exact: true }).click();
-  const time = await video.evaluate((el: HTMLVideoElement) => el.currentTime);
-  await page.getByRole('combobox', { name: 'Playback speed' }).selectOption('1.5');
-  expect(await video.evaluate((el: HTMLVideoElement) => el.playbackRate)).toBe(1.5);
-  const dialog = await appearance(page);
-  await dialog.getByRole('button', { name: 'Sky', exact: true }).click();
-  await dialog.getByRole('button', { name: 'Close dialog' }).click();
-  expect(await video.evaluate((el: HTMLVideoElement) => el.currentTime)).toBeCloseTo(time, 1);
-  await page.screenshot({ path: info.outputPath('native-player.png'), fullPage: true });
   await noOverflow(page);
 });

@@ -1,17 +1,23 @@
+import { useAccount } from '../account/AccountProvider';
 import { Link } from 'react-router-dom';
 import { PageIntro, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
 import AppearanceSettings from '../components/AppearanceSettings';
 
 export default function LibraryPage() {
+  const { profile } = useAccount();
   const { watchlist, history, preferences } = useAppState();
   const [prefs, setPrefs] = preferences;
   return (
     <div className="library-page">
       <PageIntro
-        code="MY LIST"
-        title="Watchlist & history"
-        copy="Saved only in this browser."
+        code=""
+        title="Your collection"
+        copy={
+          profile
+            ? `Saved for ${profile.name}. Ready for the next chapter.`
+            : 'Saved on this device. Sign in to keep your profiles in sync.'
+        }
         aside={
           <>
             <strong>{watchlist.items.length}</strong>
@@ -23,7 +29,6 @@ export default function LibraryPage() {
       <section className="library-section" aria-labelledby="watchlist-title">
         <header className="section-heading">
           <div>
-            <p className="eyebrow">WATCHLIST</p>
             <h2 id="watchlist-title">Saved for later</h2>
           </div>
         </header>
@@ -46,7 +51,6 @@ export default function LibraryPage() {
       <section className="library-section" aria-labelledby="history-title">
         <header className="section-heading">
           <div>
-            <p className="eyebrow">RECENTLY OPENED</p>
             <h2 id="history-title">Recently opened</h2>
           </div>
           {history.entries.length > 0 && (
@@ -105,7 +109,6 @@ export default function LibraryPage() {
       </section>
       <section className="preferences-section" aria-labelledby="preferences-title">
         <header>
-          <p className="eyebrow">PLAYBACK PREFERENCES</p>
           <h2 id="preferences-title">Defaults</h2>
         </header>
         <div className="preference-list">
@@ -137,10 +140,7 @@ export default function LibraryPage() {
           <label>
             <span>
               <strong>Autoplay next</strong>
-              <small>
-                Moves to the next episode when a supported direct player finishes. Third-party
-                frames cannot report completion.
-              </small>
+              <small>Moves to the next episode when this video finishes.</small>
             </span>
             <input
               type="checkbox"

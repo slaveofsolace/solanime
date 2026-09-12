@@ -6,7 +6,7 @@ export function motionReduced(): boolean {
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
 }
-/** Animate the existing DOM: never key/remount account state or a playing iframe. */
+/** Animate the existing DOM: never key/remount account state or playing media. */
 export function useRouteMotion(ref: RefObject<HTMLElement | null>, path: string) {
   useEffect(() => {
     const element = ref.current;

@@ -10,6 +10,8 @@ export type NativeSource = {
   allowedHosts: string[];
   expiresAt?: string;
   attribution?: string;
+  authorization: { basis: 'owned' | 'licensed' | 'provider-permission'; reference: string };
+  captions?: import('../../shared/playback').CaptionSource[];
 };
 /** Operator-registered media resources, not an arbitrary URL fetcher or embed extractor. */
 export function validateNativeSources(value: unknown): NativeSource[] {
@@ -27,6 +29,14 @@ export function validateNativeSources(value: unknown): NativeSource[] {
       !/^[a-z-]{2,20}$/.test(s.language)
     )
       throw Error('Invalid or duplicate native mapping.');
+    if (
+      !s.authorization ||
+      !['owned', 'licensed', 'provider-permission'].includes(s.authorization.basis) ||
+      typeof s.authorization.reference !== 'string' ||
+      s.authorization.reference.trim().length < 4 ||
+      s.authorization.reference.length > 2000
+    )
+      throw Error('Native sources require documented ownership, license or provider permission.');
     const url = new URL(s.url);
     if (
       url.protocol !== 'https:' ||
@@ -53,8 +63,42 @@ export function validateNativeSources(value: unknown): NativeSource[] {
       );
     if (s.expiresAt && !Number.isFinite(Date.parse(s.expiresAt)))
       throw Error('Invalid media expiry.');
+    if (s.captions && (!Array.isArray(s.captions) || s.captions.length > 30))
+      throw Error('Invalid caption list.');
+    const captions = (s.captions ?? []).map((track) => {
+      const trackUrl = new URL(track.url);
+      if (
+        trackUrl.protocol !== 'https:' ||
+        trackUrl.username ||
+        trackUrl.password ||
+        trackUrl.port ||
+        trackUrl.hash ||
+        !s.allowedHosts.includes(trackUrl.hostname) ||
+        typeof track.label !== 'string' ||
+        !track.label.trim() ||
+        track.label.length > 80 ||
+        !/^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$/.test(track.language)
+      )
+        throw Error('Caption resources must use an approved host and a language label.');
+      return {
+        url: trackUrl.href,
+        label: track.label,
+        language: track.language,
+        default: track.default === true,
+      };
+    });
     ids.add(s.mappingId);
-    return { ...s, url: url.href, allowedHosts: [...new Set(s.allowedHosts)] };
+    return {
+      mappingId: s.mappingId,
+      language: s.language,
+      type: s.type,
+      url: url.href,
+      allowedHosts: [...new Set(s.allowedHosts)],
+      expiresAt: s.expiresAt,
+      attribution: s.attribution,
+      authorization: { basis: s.authorization.basis, reference: s.authorization.reference.trim() },
+      captions,
+    };
   });
 }
 export function nativeSourceResolver(input?: NativeSource[]) {
@@ -94,6 +138,7 @@ export function nativeSourceResolver(input?: NativeSource[]) {
       expiresAt: source.expiresAt,
       allowedMediaHosts: source.allowedHosts,
       delivery: 'native',
+      captions: source.captions,
     };
   };
 }

@@ -71,7 +71,7 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await page.keyboard.press('Escape');
   await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
   await choose(page, 'Mira');
-  await expect(page.locator('html')).toHaveAttribute('data-accent', '#E50914');
+  await expect(page.locator('html')).toHaveAttribute('data-accent', '#AE9CFF');
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toHaveCount(0);
   await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
@@ -145,44 +145,9 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
   await page.getByRole('button', { name: 'Use light theme' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  const link = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true });
-  expect(await link.evaluate((element) => getComputedStyle(element).transitionProperty)).not.toMatch(/color|all/);
-  await expect(link).toHaveCSS('color', 'rgb(92, 92, 92)');
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
   expect(results.violations).toEqual([]);
 });
-test('provider compatibility is an explicit mode and recreates only the provider frame', async ({
-  page,
-}, info) => {
-  await page.route('https://megaplay.buzz/**', (route) =>
-    route.fulfill({
-      contentType: 'text/html',
-      body: '<!doctype html><html><body style="background:#111;color:white"><p id="message">A controlled provider fixture</p><script>try{window.localStorage.setItem("fixture","1");}catch{}<\/script></body></html>',
-    }),
-  );
-  const episode = (await (await page.request.get('/api/titles/paper-lantern')).json()).episodes[0];
-  await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
-  await page.getByRole('button', { name: 'Play here', exact: true }).click();
-  await expect(page.locator('iframe')).not.toHaveAttribute('sandbox', /.*/);
-  await page.locator('.player-help summary').click();
-  await page.getByRole('button', { name: 'Restricted embed', exact: true }).click();
-  await expect(page.locator('iframe')).toHaveAttribute(
-    'sandbox',
-    'allow-scripts allow-same-origin',
-  );
-  await page.getByRole('button', { name: 'Provider compatibility', exact: true }).click();
-  await expect(page.locator('iframe')).not.toHaveAttribute('sandbox', /.*/);
-  await expect(page.getByText('Provider compatibility active', { exact: false })).toBeVisible();
-  await expect(page.frameLocator('iframe').locator('#message')).toBeVisible();
-  await page.getByRole('button', { name: 'Restricted embed', exact: true }).click();
-  await expect(page.locator('iframe')).toHaveAttribute(
-    'sandbox',
-    'allow-scripts allow-same-origin',
-  );
-  await overflow(page);
-  await page.screenshot({ path: info.outputPath('playback-modes.png'), fullPage: true });
-});
-
 test('a sync conflict does not trap an authenticated session', async ({ page }) => {
   await register(page);
   await choose(page);

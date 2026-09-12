@@ -1,5 +1,4 @@
 import type { Profile } from './types';
-/** Original geometric avatar, shared by the picker and compact account navigation. */
 export default function Avatar({
   profile,
   small = false,
@@ -7,19 +6,29 @@ export default function Avatar({
   profile: Pick<Profile, 'avatar' | 'name'>;
   small?: boolean;
 }) {
+  const initials = profile.name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toLocaleUpperCase();
   return (
     <span
       className={`profile-avatar profile-avatar--${profile.avatar}${small ? ' profile-avatar--small' : ''}`}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 100 100" fill="none">
-        <path
-          d="M28 56c8 16 35 16 44 0"
+      <span>{initials || 'S'}</span>
+      <svg viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r="44"
+          fill="none"
           stroke="currentColor"
-          strokeWidth="5"
-          strokeLinecap="round"
+          strokeWidth="1"
+          strokeDasharray="64 30"
         />
-        <path d="M30 34v5m40-5v5" stroke="currentColor" strokeWidth="7" strokeLinecap="round" />
       </svg>
     </span>
   );

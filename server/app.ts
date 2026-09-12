@@ -22,7 +22,7 @@ import {
   getTitle,
 } from './catalogue.ts';
 import { AppError, asAppError } from './errors.ts';
-import { getProviderAdapter } from './providers/adapters.ts';
+import { unsupportedSource, enforceNativeResolution } from './providers/playbackPolicy.ts';
 import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.ts';
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
@@ -164,9 +164,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
   const executeResolution =
     options.resolveProvider ??
     ((mapping: StoredProviderMapping, signal: AbortSignal) =>
-      Promise.resolve(
-        nativeSources(mapping) ?? getProviderAdapter(mapping.providerId).resolve(mapping, signal),
-      ));
+      Promise.resolve(nativeSources(mapping) ?? unsupportedSource(mapping)));
 
   const recordResolution = (
     mapping: StoredProviderMapping,
@@ -229,7 +227,12 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     signal: AbortSignal,
   ): Promise<ProviderResolution> => {
     const cached = resolutionCooldowns.get(mapping.mappingId);
-    if (cached && cached.expiresAt > Date.now()) return Promise.resolve(cached.resolution);
+    if (
+      cached &&
+      cached.expiresAt > Date.now() &&
+      (!cached.resolution.expiresAt || Date.parse(cached.resolution.expiresAt) > Date.now())
+    )
+      return Promise.resolve(cached.resolution);
     if (cached) resolutionCooldowns.delete(mapping.mappingId);
 
     let entry = pendingResolutions.get(mapping.mappingId);
@@ -259,7 +262,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         .then((resolution) => {
           if (controller.signal.aborted)
             throw new DOMException('Resolution cancelled', 'AbortError');
-          const recorded = recordResolution(mapping, resolution);
+          const recorded = recordResolution(mapping, enforceNativeResolution(mapping, resolution));
           if (resolutionCooldownMs > 0) {
             resolutionCooldowns.set(mapping.mappingId, {
               expiresAt: Date.now() + resolutionCooldownMs,
@@ -325,16 +328,44 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
       if (method === 'GET' && titleMatch)
         return json(response, 200, getTitle(db, decodedSlug(titleMatch[1])));
       const episodeMatch = /^\/api\/episodes\/(\d+)\/providers$/.exec(url.pathname);
-      if (method === 'GET' && episodeMatch)
-        return json(
-          response,
-          200,
-          getEpisodeProviders(
-            db,
-            pathIdentifier(episodeMatch[1], 'episode ID'),
-            url.searchParams.get('language') || undefined,
-          ),
+      if (method === 'GET' && episodeMatch) {
+        const result = getEpisodeProviders(
+          db,
+          pathIdentifier(episodeMatch[1], 'episode ID'),
+          url.searchParams.get('language') || undefined,
         );
+        return json(response, 200, {
+          ...result,
+          providers: result.providers.map((provider) => {
+            const mapping = getMapping(db, Number((provider as Record<string, unknown>).mappingId));
+            const registered = nativeSources(mapping);
+            const source = registered ? enforceNativeResolution(mapping, registered) : null;
+            return {
+              ...provider,
+              supported: source?.status === 'resolved',
+              playbackType: source?.playbackType ?? 'unknown',
+              status: source
+                ? source.status === 'resolved'
+                  ? 'available'
+                  : 'unavailable'
+                : 'unsupported',
+              reason:
+                source?.error?.message ??
+                (source ? null : 'No authorized native integration is configured for this source.'),
+              capabilities:
+                source?.status === 'resolved'
+                  ? {
+                      seek: true,
+                      volume: true,
+                      fullscreen: true,
+                      progressEvents: true,
+                      subtitles: !!source.captions?.length,
+                    }
+                  : {},
+            };
+          }),
+        });
+      }
       const resolveMatch = /^\/api\/providers\/(\d+)\/resolve$/.exec(url.pathname);
       if (method === 'POST' && resolveMatch) {
         requireSafeMutation(request.headers, { requireJson: true });
