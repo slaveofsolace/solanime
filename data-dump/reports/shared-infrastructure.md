@@ -1,22 +1,21 @@
-# Shared infrastructure findings
+# Shared infrastructure
 
-Counts below are distinct resource records, not certified independent sites or active playback integrations.
+One record per canonical provider. Counts are distinct research resources referencing it, not the number of independent services playing video through it.
 
-| Provider / infrastructure | Referencing resources | Category |
+| Provider | Resources | Category |
 |---|---:|---|
 | Cloudflare edge | 890 | edge-cdn |
 | Cloudflare Insights | 415 | analytics |
-| Google Analytics/Tag Manager | 358 | analytics |
-| Google Fonts | 310 | fonts |
+| Google Analytics/Tag Manager | 365 | analytics |
+| Google Fonts | 313 | fonts |
 | YouTube | 237 | video-platform |
-| TMDB | 145 | metadata |
+| TMDB | 149 | metadata |
+| jsDelivr | 97 | asset-cdn |
 | Google advertising | 96 | advertising |
-| jsDelivr | 94 | asset-cdn |
-| AniList | 52 | metadata |
+| AniList | 53 | metadata |
 | Vimeo | 42 | video-platform |
-| www.googletagmanager.com | 37 | embed-origin-unidentified |
 | MyAnimeList | 31 | metadata |
-| Cloudflare challenge/Turnstile | 29 | anti-bot |
+| Cloudflare challenge/Turnstile | 30 | anti-bot |
 | Internet Archive | 26 | archive |
 | GitHub Pages | 20 | hosting-platform |
 | Cloudflare Pages | 20 | hosting-platform |
@@ -24,24 +23,21 @@ Counts below are distinct resource records, not certified independent sites or a
 | Vercel | 16 | hosting-platform |
 | Dailymotion | 12 | video-platform |
 | Kitsu | 12 | metadata |
-| www.youtube.com | 11 | embed-origin-unidentified |
-| OpenSubtitles | 10 | subtitles |
+| OpenSubtitles | 11 | subtitles |
 | Videasy | 9 | embed-provider |
+| VidLink | 9 | embed-provider |
 | accounts.google.com | 9 | embed-origin-unidentified |
 | UNPKG | 9 | asset-cdn |
 | Sentry | 8 | observability |
-| VidLink | 7 | embed-provider |
-| VidFast | 6 | embed-provider |
+| VidFast | 7 | embed-provider |
 | Jikan | 6 | metadata-api |
-| player.vimeo.com | 5 | embed-origin-unidentified |
-| ad.a-ads.com | 3 | embed-origin-unidentified |
 | Firebase | 3 | backend-platform |
-| www.youtube-nocookie.com | 2 | embed-origin-unidentified |
+| ad.a-ads.com | 3 | embed-origin-unidentified |
+| Streamtape | 3 | video-host |
 | MultiEmbed | 2 | embed-provider |
 | Clerk | 2 | authentication |
-| VOE | 2 | video-host |
 | Filemoon | 2 | video-host |
-| Streamtape | 2 | video-host |
+| VOE | 2 | video-host |
 | Cloudflare Workers | 2 | hosting-platform |
 | donorbox.org | 2 | embed-origin-unidentified |
 | www.facebook.com | 2 | embed-origin-unidentified |
@@ -54,7 +50,52 @@ Counts below are distinct resource records, not certified independent sites or a
 | atvideo.at.sfsu.edu | 1 | embed-origin-unidentified |
 | docs.google.com | 1 | embed-origin-unidentified |
 | wheresthejump.com | 1 | embed-origin-unidentified |
+| www.defenceimagery.mod.uk | 1 | embed-origin-unidentified |
+| freetvgarden.com | 1 | embed-origin-unidentified |
+| twcclassics.com | 1 | embed-origin-unidentified |
+| Auth0 | 1 | authentication |
+| Embed.su | 1 | embed-provider |
+| videa.hu | 1 | embed-origin-unidentified |
+| episodecalendar.com | 1 | embed-origin-unidentified |
+| stellar.rip | 1 | embed-origin-unidentified |
+| acceptable.a-ads.com | 1 | embed-origin-unidentified |
+| trailers.flixhouse.com | 1 | embed-origin-unidentified |
+| streamic.st | 1 | embed-origin-unidentified |
+| www.classreal.com | 1 | embed-origin-unidentified |
+| nblmoviess.blogspot.com | 1 | embed-origin-unidentified |
+| discord.com | 1 | embed-origin-unidentified |
 
-## Other clusters
+## Shared API-host references
 
-50 shared API-host reference groups; 98 identical JavaScript hash groups; 293 shared resolved-IP groups. Exact membership and caveats are in indexes/clusters.json. Shared hosting or identical libraries are not evidence of a common operator or backend.
+- api.github.com: 165 resource records.
+- api.githubcopilot.com: 160 resource records.
+- api.w.org: 81 resource records.
+- api.themoviedb.org: 50 resource records.
+- graphql.anilist.co: 22 resource records.
+- developer.mozilla.org: 18 resource records.
+- api.trakt.tv: 13 resource records.
+- api.simkl.com: 11 resource records.
+- api.tmdb.org: 10 resource records.
+- api.theintrodb.org: 9 resource records.
+- api.ppv.st: 9 resource records.
+- api.real-debrid.com: 8 resource records.
+- skips.pstream.mov: 8 resource records.
+- ipapi.co: 8 resource records.
+- ipinfo.io: 8 resource records.
+- www.themoviedb.org: 8 resource records.
+- api.introdb.app: 7 resource records.
+- fubuki-umami.space: 6 resource records.
+- github.com: 6 resource records.
+- api.ppv.cx: 6 resource records.
+- api.iconify.design: 5 resource records.
+- api.simplesvg.com: 5 resource records.
+- api.unisvg.com: 5 resource records.
+- api.balloonerismm.workers.dev: 5 resource records.
+- api.allorigins.win: 5 resource records.
+- player.vimeo.com: 5 resource records.
+- api.star-history.com: 5 resource records.
+- anilist.co: 4 resource records.
+- api.ani.zip: 4 resource records.
+- fed-api.pstream.mov: 3 resource records.
+
+See indexes/clusters.json for memberships, identical JavaScript bytes and shared DNS addresses. Identical libraries, CDN addresses and co-listed aliases do not establish a common backend or operator.

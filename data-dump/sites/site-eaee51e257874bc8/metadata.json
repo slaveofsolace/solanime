@@ -75,10 +75,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "WordPress",
-      "source_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098"
+      "source_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-eaee51e257874bc8",
@@ -153,10 +155,10 @@
   ],
   "observed_at": "2026-09-12T07:33:21.298001+00:00",
   "provider_ids": [
-    "provider-google-analytics",
-    "provider-cloudflare-insights",
     "provider-cloudflare-edge",
-    "provider-embed-host-f4baab954579c421"
+    "provider-cloudflare-insights",
+    "provider-embed-host-f4baab954579c421",
+    "provider-google-analytics"
   ],
   "references": [
     {
@@ -165,6 +167,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-RD8QT079CF",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +177,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +187,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +197,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +207,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +217,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.wp.com/e-202637.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +227,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +237,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/06/watch-wrestling-logo-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +247,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/12/Watch-UFC-Fight-Night-Full-Show-online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +257,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/09/WWE-Smackdown-2024-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +267,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-NOAH-Pro-wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +277,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-TJPW-Wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +287,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2026/09/Untold-Mr-T-I-Pity-the-Fool-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +297,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/01/Wrestle-TNA-Wrestling-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +307,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2025/01/ROH-Wrestling-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +317,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/10/Watch-NJPW-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +327,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/03/AEW-Dynamite.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +337,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-DDT-Pro-wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +347,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/09/Watch-WWE-NxT-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +357,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/home-15/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +367,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +377,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +387,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-nxt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +397,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe/wwe-raw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +407,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-smackdown/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +417,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +427,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/aew/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +437,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/rampage/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +447,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dynamite/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +457,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/puroresu/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +467,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +477,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dragon-gate/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +487,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ajpw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +497,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ddt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +507,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noah/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +517,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/indy-shows-100/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +527,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/gcw-200/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +537,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/womens-wrestling-09/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +547,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/tjpw-100/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +557,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/stardom-91/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +567,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/mma-156/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +577,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ufc-78/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +587,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/roh-69/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +597,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/impact-wrestling-500/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +607,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/collections/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +617,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noche-ufc-silva-vs-delgado-9-12-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +627,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-smackdown-may-23k-live/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +637,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noah-line-yahoo-presents-n-1victory-2026%e3%80%90english-commentary%e3%80%91-9-12-2026/bfb0ec82db52b4c4aad9978f8a7a56b8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +647,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/tjpw-fall-tour-2026%ef%bd%9eray-of-hope%ef%bd%9ein-shinkiba-9-12-2026/dd039e33cdb0821a37bb1d8eee909ca3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +657,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/untold-mr-t-i-pity-the-fool-2026/df8829b13352afe6abceb428c5253095",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +667,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/watch-tna-wrestling-000/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +677,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/roh-honorclub-tv-9-10-2026/515ea1b20b91988a109174c4b0f5cdae",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +687,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw-road-to-destruction-tokyo-korakuen-hall-9-10-2026/cfd57b5573bdcabc392e653c13349604",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +697,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/aew-dynamite-9-9-2026/65adf863b8f03e83056216ae2d65538f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +707,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ddt-ring-no-akibasho-2026-9-9-2026/e1bafb95d4c70fef2c2fcff70f9ffbf7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +717,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw-road-to-destruction-tokyo-korakuen-hall-9-9-2026/63c779e9daf817edd08a0224e48c1e49",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -669,6 +727,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-nxt-live-1k/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -678,6 +737,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/about/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -687,6 +747,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/contact/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -696,6 +757,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/embed-api-for-developers/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -705,6 +767,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dmca/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -714,6 +777,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/terms-conditions/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -723,6 +787,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -732,6 +797,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.whatsapp.com/send?text=Watch-Wrestling.eu+https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -741,6 +807,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/intent/tweet?text=Watch-Wrestling.eu&url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -750,6 +817,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://telegram.me/share/url?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -759,6 +827,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lineit.line.me/share/ui?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -768,6 +837,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://buffer.com/add?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -777,6 +847,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/cdn-cgi/l/email-protection",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -786,6 +857,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://share.flipboard.com/bookmarklet/popout?v=2&url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -795,6 +867,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwatch-wrestling.eu&t=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -804,6 +877,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/shareArticle?title=Watch-Wrestling.eu&url=https%3A%2F%2Fwatch-wrestling.eu&mini=true",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -813,6 +887,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mix.com/add?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -822,6 +897,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://getpocket.com/edit?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -831,6 +907,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.reddit.com/submit?url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -840,6 +917,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -849,6 +927,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vk.com/share.php?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -858,6 +937,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.xing.com/spi/shares/new?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -867,6 +947,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.yummly.com/urb/verify?url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu&image=&yumtype=button",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -876,6 +957,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/home-15/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -885,6 +967,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -894,6 +977,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -903,6 +987,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/comments/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -912,6 +997,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/css/components/widget-areas.min.css?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -921,6 +1007,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/css/main.min.css?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -930,6 +1017,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -939,6 +1027,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/xmlrpc.php?rsd=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -948,6 +1037,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/06/watch-wrestling-fav.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -957,6 +1047,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "form-action-not-requested",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -966,6 +1057,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yoast.com/wordpress/plugins/seo/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -975,6 +1067,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/home-15/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -984,6 +1077,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -993,6 +1087,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1002,6 +1097,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/06/watch-wrestling-logo-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1011,6 +1107,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1020,6 +1117,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/comments/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1029,6 +1127,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/css/components/widget-areas.min.css?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1038,6 +1137,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/css/main.min.css?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1047,6 +1147,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.w.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1056,6 +1157,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1065,6 +1167,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/xmlrpc.php?rsd=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1074,6 +1177,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-RD8QT079CF",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1083,6 +1187,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/06/watch-wrestling-fav.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1092,6 +1197,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/Blog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1101,6 +1207,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/WPHeader",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1110,6 +1217,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1119,6 +1227,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/SiteNavigationElement",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1128,6 +1237,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1137,6 +1247,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-nxt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1146,6 +1257,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe/wwe-raw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1155,6 +1267,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-smackdown/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1164,6 +1277,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1173,6 +1287,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/aew/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1182,6 +1297,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/rampage/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1191,6 +1307,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dynamite/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1200,6 +1317,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/puroresu/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1209,6 +1327,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1218,6 +1337,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dragon-gate/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1227,6 +1347,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ajpw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1236,6 +1357,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ddt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1245,6 +1367,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noah/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1254,6 +1377,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/indy-shows-100/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1263,6 +1387,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/gcw-200/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1272,6 +1397,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/womens-wrestling-09/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1281,6 +1407,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/tjpw-100/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1290,6 +1417,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/stardom-91/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1299,6 +1427,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/mma-156/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1308,6 +1437,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ufc-78/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1317,6 +1447,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/roh-69/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1326,6 +1457,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/impact-wrestling-500/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1335,6 +1467,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/collections/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1344,6 +1477,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/CreativeWork",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1353,6 +1487,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noche-ufc-silva-vs-delgado-9-12-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1362,6 +1497,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/12/Watch-UFC-Fight-Night-Full-Show-online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1371,6 +1507,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/12/Watch-UFC-Fight-Night-Full-Show-online-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1380,6 +1517,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-smackdown-may-23k-live/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1389,6 +1527,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/09/WWE-Smackdown-2024-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1398,6 +1537,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/09/WWE-Smackdown-2024-Full-Show-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1407,6 +1547,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/noah-line-yahoo-presents-n-1victory-2026%e3%80%90english-commentary%e3%80%91-9-12-2026/bfb0ec82db52b4c4aad9978f8a7a56b8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1416,6 +1557,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-NOAH-Pro-wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1425,6 +1567,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-NOAH-Pro-wrestling-Full-Show-Online-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1434,6 +1577,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/tjpw-fall-tour-2026%ef%bd%9eray-of-hope%ef%bd%9ein-shinkiba-9-12-2026/dd039e33cdb0821a37bb1d8eee909ca3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1443,6 +1587,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-TJPW-Wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1452,6 +1597,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-TJPW-Wrestling-Full-Show-Online-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1461,6 +1607,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/untold-mr-t-i-pity-the-fool-2026/df8829b13352afe6abceb428c5253095",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1470,6 +1617,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2026/09/Untold-Mr-T-I-Pity-the-Fool-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1479,6 +1627,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2026/09/Untold-Mr-T-I-Pity-the-Fool-2026-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1488,6 +1637,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/watch-tna-wrestling-000/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1497,6 +1647,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/01/Wrestle-TNA-Wrestling-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1506,6 +1657,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/01/Wrestle-TNA-Wrestling-Full-Show-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1515,6 +1667,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/roh-honorclub-tv-9-10-2026/515ea1b20b91988a109174c4b0f5cdae",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1524,6 +1677,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2025/01/ROH-Wrestling-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1533,6 +1687,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2025/01/ROH-Wrestling-Full-Show-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1542,6 +1697,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw-road-to-destruction-tokyo-korakuen-hall-9-10-2026/cfd57b5573bdcabc392e653c13349604",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1551,6 +1707,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/10/Watch-NJPW-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1560,6 +1717,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/10/Watch-NJPW-Full-Show-Online-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1569,6 +1727,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/aew-dynamite-9-9-2026/65adf863b8f03e83056216ae2d65538f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1578,6 +1737,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/03/AEW-Dynamite.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1587,6 +1747,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2024/03/AEW-Dynamite-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1596,6 +1757,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/ddt-ring-no-akibasho-2026-9-9-2026/e1bafb95d4c70fef2c2fcff70f9ffbf7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1605,6 +1767,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-DDT-Pro-wrestling-Full-Show-Online.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1614,6 +1777,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/04/Watch-DDT-Pro-wrestling-Full-Show-Online-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1623,6 +1787,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/njpw-road-to-destruction-tokyo-korakuen-hall-9-9-2026/63c779e9daf817edd08a0224e48c1e49",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1632,6 +1797,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wwe-nxt-live-1k/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1641,6 +1807,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/09/Watch-WWE-NxT-Full-Show.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1650,6 +1817,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/uploads/2023/09/Watch-WWE-NxT-Full-Show-300x168.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1659,6 +1827,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/WPFooter",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1668,6 +1837,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/about/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1677,6 +1847,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/contact/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1686,6 +1857,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/embed-api-for-developers/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1695,6 +1867,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/dmca/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1704,6 +1877,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/terms-conditions/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1713,6 +1887,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1722,6 +1897,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/classList.min.js?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1731,6 +1907,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1740,6 +1917,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.3.098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1749,6 +1927,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1758,6 +1937,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.whatsapp.com/send?text=Watch-Wrestling.eu+https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1767,6 +1947,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/intent/tweet?text=Watch-Wrestling.eu&url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1776,6 +1957,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://telegram.me/share/url?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1785,6 +1967,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lineit.line.me/share/ui?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1794,6 +1977,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://buffer.com/add?url=https%3A%2F%2Fwatch-wrestling.eu&text=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1803,6 +1987,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://share.flipboard.com/bookmarklet/popout?v=2&url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1812,6 +1997,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwatch-wrestling.eu&t=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1821,6 +2007,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/shareArticle?title=Watch-Wrestling.eu&url=https%3A%2F%2Fwatch-wrestling.eu&mini=true",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1830,6 +2017,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mix.com/add?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1839,6 +2027,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://getpocket.com/edit?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1848,6 +2037,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.reddit.com/submit?url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1857,6 +2047,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1866,6 +2057,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vk.com/share.php?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1875,6 +2067,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.xing.com/spi/shares/new?url=https%3A%2F%2Fwatch-wrestling.eu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1884,6 +2077,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.yummly.com/urb/verify?url=https%3A%2F%2Fwatch-wrestling.eu&title=Watch-Wrestling.eu&image=&yumtype=button",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1893,6 +2087,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.wp.com/e-202637.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1902,6 +2097,7 @@
       "evidence_url": "https://watch-wrestling.eu/home-15/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:21.298001+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1911,6 +2107,7 @@
       "evidence_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "kind": "embed",
       "observed_at": "2026-09-12T07:33:22.081691+00:00",
+      "reference_class": "url-template",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/{replace_url}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1920,6 +2117,7 @@
       "evidence_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:22.081691+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/loading.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1929,6 +2127,7 @@
       "evidence_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:22.081691+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dailywrestling.cc/embed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1938,6 +2137,7 @@
       "evidence_url": "https://watch-wrestling.eu/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.3.098",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:22.081691+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

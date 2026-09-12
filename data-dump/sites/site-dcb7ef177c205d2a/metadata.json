@@ -25,6 +25,51 @@
       "Drama Streaming"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 1,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:58:51.525116+00:00",
+    "public_detail_pages_selected": 0,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/manifest.json"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/2e3a845b-4202a7c39dffe10c.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/3123-adb6938b8b3641b4.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/chunks/pages/kdrama-ff7c042fb23338b7.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://www.rivestream.app/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_buildManifest.js"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 2,
     "linked_scripts_discovered": 11,
@@ -40,18 +85,89 @@
     "domain-3aeb002460381c6f",
     "domain-ca978112ca1bbdca",
     "domain-1e605e225d009579",
-    "domain-2d711642b726b044"
+    "domain-2d711642b726b044",
+    "domain-53d35cc2cf4ddee2",
+    "domain-6b218b009a97f7ab",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-3a0784cc7e6fc2ed",
+    "domain-0e948a9c9e86a4f0",
+    "domain-7c9d00dd8e26882c",
+    "domain-4d5be849297ef769",
+    "domain-0f2588619dae9248",
+    "domain-5cef907bd9084b08",
+    "domain-194958edd2369b1b",
+    "domain-bb96e2f87fd37ebc",
+    "domain-4d98cc36180cbf04",
+    "domain-4123326d44c500cd",
+    "domain-d756ed7f474d712a",
+    "domain-e6d73091bd6a37ae",
+    "domain-db662b75deddc1f9",
+    "domain-5e7bdb85377a14bd",
+    "domain-2f7c6842d06aff26",
+    "domain-b6f0e40405d2ddd5",
+    "domain-a9085541866a6b5e",
+    "domain-35b49d4da297fbd9",
+    "domain-89907b560680a221",
+    "domain-84500298bfb6d5ef",
+    "domain-795810d82229a076",
+    "domain-586cd02d4ba33a38",
+    "domain-06058273a347ed1a",
+    "domain-85c564c9bcfc1bc4",
+    "domain-5cd8097278cc3005",
+    "domain-37bc9cd0c5947119",
+    "domain-a1cf8b50236fcb11",
+    "domain-103b40de60c0b362",
+    "domain-d94fcf5105ee9ed8",
+    "domain-edf7dcad352dc8cb",
+    "domain-d37cf06efefae3c0",
+    "domain-49960de5880e8c68",
+    "domain-2a78828725a4c989",
+    "domain-85c1ffcc297b05e0",
+    "domain-55c9ca004a5fee8c",
+    "domain-1a0caaa1ee973060",
+    "domain-191347bfe55d0ca9",
+    "domain-ecbb2ec5112e3173",
+    "domain-505bd18b6650e44b",
+    "domain-1a7d7b45412e4f31",
+    "domain-01d6e1237397752f",
+    "domain-1b16b1df538ba12d",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-ec3e766bb1cf7c11",
+    "domain-252f10c83610ebca"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-9d06bb572e9ec7a6",
+    "endpoint-2fdc11bbcb80f2d6",
+    "endpoint-cdf188d01271fe65",
+    "endpoint-b8c99819dc534430",
+    "endpoint-9b595265eb7ffd88",
+    "endpoint-7969ff877d13f6ec",
+    "endpoint-498a3397c6598298",
+    "endpoint-b51ce67bf9d561bf",
+    "endpoint-4bf65f8d8d542b50",
+    "endpoint-a44f75d3c7e49775",
+    "endpoint-85df2289b093eef4"
+  ],
   "entry_ids": [
     "entry-39c2fe81ebd1d860"
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://www.rivestream.app/_next/static/chunks/webpack-18dc309a063420a4.js"
+      "source_url": "https://www.rivestream.app/_next/static/chunks/webpack-18dc309a063420a4.js",
+      "verification_scope": "signature_present_only"
+    },
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-dcb7ef177c205d2a",
@@ -117,12 +233,187 @@
       "status": "reachable",
       "truncated": false,
       "url": "https://www.rivestream.app/_next/static/chunks/webpack-18dc309a063420a4.js"
+    },
+    {
+      "bytes_read": 685,
+      "content_type": "application/json; charset=utf-8",
+      "final_url": "https://www.rivestream.app/manifest.json",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/json; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:43.518854+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "af636697b7d45fe99924ec5f82f2a193fc12501fdebab63707d44b71d0bf4579",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/manifest.json"
+    },
+    {
+      "bytes_read": 896725,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "f433d7a0c3bb0fedc82fb65287a40cc6067d589f531b8ba461a792b59770da02",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js"
+    },
+    {
+      "bytes_read": 140001,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "b051674b20e716839ceb594ff84b53cd3c9ffb3180efc7a30f23203c5303c364",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js"
+    },
+    {
+      "bytes_read": 123222,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "9ee603f92fb0aa8615a091aff1d06fe31f607a203684d23d06bd55187dbbf535",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js"
+    },
+    {
+      "bytes_read": 945,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/2e3a845b-4202a7c39dffe10c.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:47.528205+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "e1dadf963ec23f3d3e00120916498fe83092da9e5d75576519e5cbf52e788309",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/2e3a845b-4202a7c39dffe10c.js"
+    },
+    {
+      "bytes_read": 18386,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:48.530703+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "a92ed235a467e4e4cc6c42b20843b0fc33a53ffcc9745372946215f14f0071f9",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js"
+    },
+    {
+      "bytes_read": 16380,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/3123-adb6938b8b3641b4.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:49.539612+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "acef2bde50ec5f4bc5500b02230e29a5d2b0213051db0680496542d5102ed015",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/3123-adb6938b8b3641b4.js"
+    },
+    {
+      "bytes_read": 406,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/chunks/pages/kdrama-ff7c042fb23338b7.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:50.541408+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "c2253da12f28057806b1cdc479e0e730b1167a3d3df3da01f2346c9c6af82819",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/chunks/pages/kdrama-ff7c042fb23338b7.js"
+    },
+    {
+      "bytes_read": 5780,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.rivestream.app/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_buildManifest.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:51.524362+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "205584eeb4ceab2672abb0bc0a2b52aab94466b39f35259c92732ee60057fa75",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.rivestream.app/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_buildManifest.js"
     }
   ],
   "observed_at": "2026-09-12T07:34:37.355555+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-cloudflare-edge"
+    "provider-google-analytics",
+    "provider-google-fonts",
+    "provider-jsdelivr",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -131,6 +422,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -140,6 +432,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/webpack-18dc309a063420a4.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -149,6 +442,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -158,6 +452,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -167,6 +462,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -176,6 +472,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/2e3a845b-4202a7c39dffe10c.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -185,6 +482,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -194,6 +492,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/3123-adb6938b8b3641b4.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -203,6 +502,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/chunks/pages/kdrama-ff7c042fb23338b7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -212,6 +512,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_buildManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -221,6 +522,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_ssgManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -230,6 +532,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "script",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -239,6 +542,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -248,6 +552,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -257,6 +562,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/discover",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -266,6 +572,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/ai",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -275,6 +582,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/movie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -284,6 +592,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -293,6 +602,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/livesports",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -302,6 +612,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/iptv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -311,6 +622,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/radio",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -320,6 +632,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/manga",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -329,6 +642,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -338,6 +652,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/kdrama",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -347,6 +662,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/collections",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -356,6 +672,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/library",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -365,6 +682,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/settings",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -374,6 +692,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -383,6 +702,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/icons/icon-192x192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -392,6 +712,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/images/logo512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -401,6 +722,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/images/logo512.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -410,6 +732,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/css/e8250ed4d8b45b38.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -419,6 +742,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/_next/static/css/2fcf46b671ec326e.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -428,6 +752,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/images/MetaImage.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -437,6 +762,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.rivestream.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -446,6 +772,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -455,6 +782,7 @@
       "evidence_url": "https://www.rivestream.app/kdrama",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:37.355555+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -464,6 +792,7 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -473,6 +802,7 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -482,6 +812,7 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -491,6 +822,7 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/c%20d?a=1&c=3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -500,6 +832,7 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://xn--e1aybc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -509,12 +842,797 @@
       "evidence_url": "https://www.rivestream.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:34:39.970519+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://x/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "url-template",
+      "url": "https://securetoken.google.com/${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://firebase.google.com/docs/studio/preview-apps",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "url-template",
+      "url": "https://www.googletagmanager.com/gtag/js?id=%24%7Bt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "url-template",
+      "url": "https://www.googletagmanager.com/gtm.js?id=%24%7Bt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/next-dynamic-api-wrong-context",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://llvpn.com/tag.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://bff.rivestream.app/api/v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.themoviedb.org/3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://scrapper.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://recommendation.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://streamed.pk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://backend.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.cdn-live.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://de2.api.radio-browser.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://subs.1shows.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.mangadex.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://torrents.corsflix.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://proxy.valhallastream.com/?destination=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tranco-list.eu/api/ranks/domain/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://dami-tv.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://consumet.valhallastream.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://prod.radio-api.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://log-api.newrelic.com/log/v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://proxy.valhallastream.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.gravatar.com/avatar/?s=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.gravatar.com/avatar/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://wtfismyip.com/json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.themoviedb.org/3/account/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://jellyfin.domain.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://jellyfin.example.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://messaging.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/6xJmJja8fV",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://proxy.corsflix.net/cors-anywhere/?destination=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://uploads.mangadex.org/covers/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://image.tmdb.org/t/p/w185",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.rivestream.app/images/MetaImage.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/disable-devtool",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${e.config.authdomain/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${e.authdomain/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://${l/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://apis.google.com/js/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.google.com/recaptcha/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.google.com/recaptcha/enterprise.js?render=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${s/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://analytics.google.com/analytics/web/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://developers.google.com/maps/documentation/embed/get-started",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.google.com/maps/embed/v1/place",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/paulirish/lite-youtube-embed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/gh/paulirish/lite-youtube-embed@master/src/lite-yt-embed.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/gh/paulirish/lite-youtube-embed@master/src/lite-yt-embed.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://wtfismyip.com/json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.themoviedb.org/3/account/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://api.trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.rivestream.app/data/announcements.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:44.551036+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.rivestream.app/__cookies__",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:45.544560+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/client-side-exception-occurred",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://n/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/next-router-not-mounted",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://use.typekit.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://f/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/public-next-folder-conflict",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/404-get-initial-props",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/gssp-export",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/gssp-component-member",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/non-standard-node-env",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/ssg-fallback-true-export",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/main-39e50773f699b0d5.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:46.537880+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.530703+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/2751-11dbb3731c0eb357.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.530703+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://reactjs.org/docs/forms.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://www.rivestream.app/_next/static/chunks/3123-adb6938b8b3641b4.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:49.539612+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://image.tmdb.org/t/p/original",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],
   "repository_ids": [
-    "repo-5f232b5abac171d4"
+    "repo-5f232b5abac171d4",
+    "repo-f4574b932c785f5a"
   ],
   "research_status": "infrastructure_partially_mapped",
   "roles": [

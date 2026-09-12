@@ -1,7 +1,23 @@
 # Vimeo
 
-URL: https://vimeo.com/watch
+Listed URL: https://vimeo.com/watch
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://vimeo.com/watch
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:33:18.492030+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: Cloudflare edge, Vimeo
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+| Reference | Evidence type | Source |
+|---|---|---|
+| https://player.vimeo.com/api/player.js | source-literal | https://vimeo.com/watch |
+
+Additional references and exact timestamps/hashes are retained in metadata.json.
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

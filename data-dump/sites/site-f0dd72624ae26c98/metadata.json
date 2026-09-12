@@ -45,10 +45,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://tv.jest.one/main.js"
+      "source_url": "https://tv.jest.one/main.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-f0dd72624ae26c98",
@@ -105,6 +107,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -114,6 +117,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -123,6 +127,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -132,6 +137,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -141,6 +147,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tv.jest.one/main.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -150,6 +157,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umami.jest.one/my-umami.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -159,6 +167,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvdata.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -168,6 +177,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umami.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -177,6 +187,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -186,6 +197,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video-js.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -195,6 +207,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -204,6 +217,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tv.jest.one/style.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -213,6 +227,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvdata.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -222,6 +237,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umami.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -231,6 +247,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -240,6 +257,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video-js.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -249,6 +267,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -258,6 +277,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -267,6 +287,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -276,6 +297,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -285,6 +307,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -294,6 +317,7 @@
       "evidence_url": "https://tv.jest.one/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umami.jest.one/my-umami.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -303,6 +327,7 @@
       "evidence_url": "https://tv.jest.one/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:08.820751+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvdata.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -312,6 +337,7 @@
       "evidence_url": "https://tv.jest.one/main.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:33:08.820751+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvdata.jest.one/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

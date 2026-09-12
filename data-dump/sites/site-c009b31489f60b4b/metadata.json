@@ -24,6 +24,19 @@
       "Stream Aggregators"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 0,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:58:43.886772+00:00",
+    "public_detail_pages_selected": 0,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://flixer.gd/manifest.webmanifest"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 1,
     "linked_scripts_discovered": 1,
@@ -103,13 +116,32 @@
       "status": "reachable",
       "truncated": false,
       "url": "https://flixer.gd/assets/js/index-15527206.js"
+    },
+    {
+      "bytes_read": 689,
+      "content_type": "text/plain; charset=utf-8",
+      "final_url": "https://flixer.gd/manifest.webmanifest",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:43.886501+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "24b211b5efd2625405c79d3ad92e4b7609f0c8cc681ab670f04262511e6c1a96",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://flixer.gd/manifest.webmanifest"
     }
   ],
   "observed_at": "2026-09-12T07:29:38.575709+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-tmdb",
-    "provider-cloudflare-edge"
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -118,6 +150,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/js/index-15527206.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -127,6 +160,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -136,6 +170,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -145,6 +180,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -154,6 +190,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/shows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -163,6 +200,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -172,6 +210,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/icons/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -181,6 +220,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/icons/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -190,6 +230,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/icons/mask-icon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -199,6 +240,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/manifest.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -208,6 +250,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/sitemaps/sitemap.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -217,6 +260,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -226,6 +270,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/es",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -235,6 +280,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/fr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -244,6 +290,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/de",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -253,6 +300,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/it",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -262,6 +310,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -271,6 +320,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/nl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -280,6 +330,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ru",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -289,6 +340,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ja",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -298,6 +350,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ko",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -307,6 +360,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/zh",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -316,6 +370,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ar",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -325,6 +380,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/bn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -334,6 +390,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/hi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -343,6 +400,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/jv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -352,6 +410,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pa",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -361,6 +420,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -370,6 +430,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/te",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -379,6 +440,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/tr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -388,6 +450,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/vi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -397,6 +460,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -406,6 +470,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/css/index-15527206.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -415,6 +480,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -424,6 +490,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/icons/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -433,6 +500,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -442,6 +510,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -451,6 +520,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "url-template",
       "url": "https://flixer.gd/search?q=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -460,6 +530,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -469,6 +540,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/es",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -478,6 +550,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/fr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -487,6 +560,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/de",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -496,6 +570,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/it",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -505,6 +580,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -514,6 +590,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/nl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -523,6 +600,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ru",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -532,6 +610,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ja",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -541,6 +620,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ko",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -550,6 +630,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/zh",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -559,6 +640,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/ar",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -568,6 +650,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/bn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -577,6 +660,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/hi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -586,6 +670,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/jv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -595,6 +680,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pa",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -604,6 +690,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/pl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -613,6 +700,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/te",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -622,6 +710,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/tr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -631,6 +720,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/vi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -640,6 +730,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -649,6 +740,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://1414.hexa.su/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -658,6 +750,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://www/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -667,6 +760,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://www/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -676,6 +770,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://llvpn.com/tag.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -685,6 +780,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -694,6 +790,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -703,6 +800,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/shows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -712,6 +810,7 @@
       "evidence_url": "https://flixer.gd/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:38.575709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -721,6 +820,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -730,6 +830,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -739,6 +840,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -748,6 +850,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -757,6 +860,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -766,6 +870,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -775,6 +880,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -784,6 +890,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -793,6 +900,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${t/?%3F%28typeof=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -802,6 +910,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://www/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -811,6 +920,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${s/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -820,6 +930,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://www/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -829,6 +940,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://${s/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -838,6 +950,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${jd(zx(/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -847,6 +960,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${zd(zx(/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -856,6 +970,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gsap.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -865,6 +980,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://fb.me/use-check-prop-types",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -874,6 +990,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${lv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -883,6 +1000,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/backup-domains",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -892,6 +1010,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/assets/docs/CHANGELOG.md",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -901,6 +1020,7 @@
       "evidence_url": "https://flixer.gd/assets/js/index-15527206.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:39.296606+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flixer.gd/version.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

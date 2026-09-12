@@ -116,10 +116,10 @@
   ],
   "observed_at": "2026-09-12T07:29:42.857245+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
-    "provider-tmdb",
     "provider-anilist",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -128,6 +128,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -137,6 +138,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/disable-devtool.min.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -146,6 +148,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/devtools-guard.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -155,6 +158,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/turnstile.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -164,6 +168,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/config.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -173,6 +178,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/discord-widget.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +188,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/lazyload.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +198,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/tmdb.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +208,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/source.js?v=flypremium-sync-20260910",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +218,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/userData.js?fix=20260910incognito1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +228,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/push.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +238,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-sync-external-watchlists-v1.js?fix=20260910incognito1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +248,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/external-sync.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +258,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-components-mylist-v1.js?fix=20260910partypage1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +268,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/hoverPreview.js?fix=20260905v",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -263,6 +278,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/search.js?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -272,6 +288,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-pages-download-v2.js?fix=20260911viewparam2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -281,6 +298,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/party.js?fix=20260910joinbarrier1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -290,6 +308,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-party-ui-live-v4?fix=20260911lobbyA3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -299,6 +318,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/vendor/lenis.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -308,6 +328,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-scroll-hotfix-20260905.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -317,6 +338,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/js/app-routes.js?fix=20260910partypage1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -326,6 +348,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -335,6 +358,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/img/logo-transparent.png?v=497b3b5d5c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -344,6 +368,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/flystream",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -353,6 +378,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -362,6 +388,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/browse/movie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -371,6 +398,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/browse/tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -380,6 +408,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/browse/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -389,6 +418,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/leaks",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -398,6 +428,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/party?mode=create",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -407,6 +438,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/party?mode=join",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -416,6 +448,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/watchlist?view=connections",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -425,6 +458,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/history",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -434,6 +468,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/random-horror",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -443,6 +478,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/people",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -452,6 +488,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/calendar",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -461,6 +498,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/notifications",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -470,6 +508,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/settings",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -479,6 +518,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/faq",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -488,6 +528,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/watchlist",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -497,6 +538,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/providers",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -506,6 +548,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.com/invite/eSuEZPNs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -515,6 +558,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/legal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -524,6 +568,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -533,6 +578,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/transparency",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -542,6 +588,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/cdn-cgi/l/email-protection",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -551,6 +598,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -560,6 +608,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -569,6 +618,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -578,6 +628,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/favicon.ico?v=20260825-transparent",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -587,6 +638,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/favicon-32.png?v=20260825-transparent",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -596,6 +648,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/favicon-16.png?v=20260825-transparent",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -605,6 +658,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -614,6 +668,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/site.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -623,6 +678,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/client-styles-mobile-settings-v4?fix=20260912armed1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -632,6 +688,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/css/mobile-homebar.css?fix=20260908tabbar3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -641,6 +698,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -650,6 +708,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/og-image.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -659,6 +718,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -668,6 +728,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/icon-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -677,6 +738,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/flystream",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -686,6 +748,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.com/invite/eSuEZPNs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -695,6 +758,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -704,6 +768,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -713,6 +778,7 @@
       "evidence_url": "https://flystream.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:42.857245+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -722,6 +788,7 @@
       "evidence_url": "https://flystream.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:43.831450+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flystream.net/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -731,6 +798,7 @@
       "evidence_url": "https://flystream.net/js/disable-devtool.min.js?v=497b3b5d5c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:44.981596+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://theajack.github.io/disable-devtool/404.html?h=",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

@@ -24,6 +24,23 @@
       "Stream Aggregators"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 0,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:58:55.519404+00:00",
+    "public_detail_pages_selected": 0,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://hexa.su/manifest.webmanifest"
+      },
+      {
+        "status": "reachable",
+        "url": "https://hexa.su/registerSW.js"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 1,
     "linked_scripts_discovered": 2,
@@ -64,10 +81,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://hexa.su/assets/js/index-01931007.js"
+      "source_url": "https://hexa.su/assets/js/index-01931007.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-80f56e05b70d54c8",
@@ -113,14 +132,52 @@
       "status": "reachable",
       "truncated": true,
       "url": "https://hexa.su/assets/js/index-01931007.js"
+    },
+    {
+      "bytes_read": 866,
+      "content_type": "text/plain; charset=utf-8",
+      "final_url": "https://hexa.su/manifest.webmanifest",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:54.706999+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "914673a0231e200b9d55f092bf6a09ed493c92050a33393a360156e275b8d106",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://hexa.su/manifest.webmanifest"
+    },
+    {
+      "bytes_read": 134,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://hexa.su/registerSW.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:55.519318+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "9742073ef7fc795e7673d98f272992843298426a0ffd8cb3507784df5143608b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://hexa.su/registerSW.js"
     }
   ],
   "observed_at": "2026-09-12T07:43:47.386220+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-tmdb",
-    "provider-youtube",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -129,6 +186,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://1414.hexa.su/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -138,6 +196,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/assets/js/index-01931007.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +206,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/registerSW.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +216,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +226,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +236,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +246,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/icon-192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +256,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +266,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/masked-icon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +276,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/splash.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +286,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +296,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +306,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/assets/css/index-01931007.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +316,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/manifest.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +326,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/icon-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +336,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +346,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://1414.hexa.su/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +356,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +366,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +376,7 @@
       "evidence_url": "https://hexa.su/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:47.386220+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +386,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +396,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +406,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +416,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +426,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +436,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +446,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +456,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.hexa.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +466,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.hexa.su/api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +476,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://theemoviedb.hexa.su/api/tmdb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +486,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +496,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/pwa/icon-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +506,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +516,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/rqbCbjB19amtJSivtKtYv2L0UKm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +526,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/yF1eOkaYvwiORauRCPWznV9xVvi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +536,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +546,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +556,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +566,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +576,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/vn45FepHFHvVbaSaQeWyFb5OYwo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +586,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/8RKBHHRqOMOLh5qW3sS6TSFTd8h.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +596,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/628Dep6AxEtDxjZoGP78TsOxYbK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +606,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +616,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +626,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://media.themoviedb.org/t/p/h50_filter(negate,000,666",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +636,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +646,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://theemoviedb.hexa.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +656,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://radix-ui.com/primitives/docs/components/${e.docsSlug",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +666,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://hexa.su/details/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +676,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube.com/embed/${v",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +686,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/settings",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +696,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://api.dicebear.com/7.x/avataaars/svg?seed=%24%7BD.username",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +706,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=%24%7Bg.username",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +716,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/collections",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +726,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "url-template",
       "url": "https://hexa.su/collection/${t",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +736,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://radix-ui.com/primitives/docs/components/alert-dialog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +746,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hexa.su/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +756,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://socket.io/docs/v3/migrating-from-2-x-to-3-0/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +766,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.hexa.su/api/discord/webhook",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +776,7 @@
       "evidence_url": "https://hexa.su/assets/js/index-01931007.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:48.257735+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aomedia.org/emsg/ID3",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

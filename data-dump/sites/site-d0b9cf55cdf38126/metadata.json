@@ -25,6 +25,55 @@
       "Multi-Server"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 5,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:59:01.800678+00:00",
+    "public_detail_pages_selected": 1,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/watch/movie/1108427-moana"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/manifest.json"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/main-app-5eb0d9c55a395822.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/1770a7a7-bb7e4349ef3d8bef.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/2619-3c9e02e22d10480a.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 2,
     "linked_scripts_discovered": 15,
@@ -43,18 +92,42 @@
     "domain-16391d3665ca7477",
     "domain-1a2e36cc692d119d",
     "domain-3dc86e6666d7a5f2",
-    "domain-3a0784cc7e6fc2ed"
+    "domain-3a0784cc7e6fc2ed",
+    "domain-ec3314822f268459",
+    "domain-55c9ca004a5fee8c",
+    "domain-49960de5880e8c68",
+    "domain-2a78828725a4c989",
+    "domain-85c1ffcc297b05e0",
+    "domain-516ac443ddbc732f",
+    "domain-1a0caaa1ee973060",
+    "domain-191347bfe55d0ca9",
+    "domain-53d35cc2cf4ddee2",
+    "domain-dad28aa6e939e395",
+    "domain-9baad27eab20fb98",
+    "domain-5fd8c0e55e3a8edf"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-851e7aeaa1675d81"
+  ],
   "entry_ids": [
     "entry-e922843ccc4a706d"
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js"
+      "source_url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
+      "verification_scope": "signature_present_only"
+    },
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-d0b9cf55cdf38126",
@@ -122,14 +195,214 @@
       "status": "reachable",
       "truncated": false,
       "url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js"
+    },
+    {
+      "bytes_read": 52837,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "396f8d85016aa29f77aa6dd3c44e607fbfa2b3d180a3ccba3833768923e697ce",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/watch/movie/1108427-moana"
+    },
+    {
+      "bytes_read": 1799,
+      "content_type": "application/json; charset=utf-8",
+      "final_url": "https://anicine.xyz/manifest.json",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/json; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:53.763108+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "08dde880acc268bd042335da2b385746f1f963ee63ed11c3bb5338ec0fb36ec1",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/manifest.json"
+    },
+    {
+      "bytes_read": 560,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/main-app-5eb0d9c55a395822.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:54.771737+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "5a8fc9dcee2210a2ae8a58d003e331f1771e1584eb346296806cc6e9a4d82043",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/main-app-5eb0d9c55a395822.js"
+    },
+    {
+      "bytes_read": 226647,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:55.777545+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "28e2cc4dcb50b70adf176c9d955f23255b685d7beb99601fcab7077d3f760b9e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js"
+    },
+    {
+      "bytes_read": 87435,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "2b03bad542893eeae43e016055ada877bc3d392b343d3bf971d8665c5c1a4bc7",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js"
+    },
+    {
+      "bytes_read": 156841,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/1770a7a7-bb7e4349ef3d8bef.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:57.785334+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "8bb9df4294772260e855a9eea45ab22a5e7937c3585fd631269c847f4b680334",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/1770a7a7-bb7e4349ef3d8bef.js"
+    },
+    {
+      "bytes_read": 8538,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/2619-3c9e02e22d10480a.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:58.760852+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "7fe044bde88179fcddab68e119ff3f40e55f3a0ecd8cec7fc420b14c9f350f9b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/2619-3c9e02e22d10480a.js"
+    },
+    {
+      "bytes_read": 113838,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:59.785598+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "8d8de7db07016032d6f0491090e1a92355aedb117240ac5d1a0782af3e27891e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js"
+    },
+    {
+      "bytes_read": 16115,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:59:00.765939+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "227ab6fecc7433bc3f3ca416d1bc8b9ffd756cc002d031fe1ecd5e6a003cbea7",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js"
+    },
+    {
+      "bytes_read": 21355,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:59:01.798469+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "f9869354f8a8dac44d4de10670f21436734fb28ae2c9f43e19fa8b324a2b23c8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js"
     }
   ],
   "observed_at": "2026-09-12T07:28:36.990017+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-tmdb",
     "provider-google-analytics",
-    "provider-cloudflare-edge"
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -138,6 +411,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +421,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +431,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/main-app-5eb0d9c55a395822.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +441,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +451,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +461,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/1770a7a7-bb7e4349ef3d8bef.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +471,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/2619-3c9e02e22d10480a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +481,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +491,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +501,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +511,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/5239-6e880675ae21a0d0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +521,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/1880-138ad13491840dd0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +531,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/app/page-3438e8ea7264d056.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +541,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +551,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/webpack-d282787ed3063711.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +561,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +571,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +581,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/4gyx49ibwQslyrwuUS1c58PJEEd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +591,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +601,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/qeQJx07rK2xm8SD2sJxFKhE7gs0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +611,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/jzBWExXacS33rMQ2zLBrqIVweyG.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +621,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/bpll0oy6gHwLvypfFNfT2QI4VkT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +631,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +641,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +651,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +661,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +671,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +681,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +691,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +701,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +711,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/pu2VxGlpGwffOx292w18b1tv96j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +721,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +731,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +741,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +751,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +761,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +771,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +781,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +791,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +801,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6UqflU8Qqkz7Dq4swJPqs0ZJjY4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +811,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/p4SvSFIkjCs4y0C7yAcYP9XNmP2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +821,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +831,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +841,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +851,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +861,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +871,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +881,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +891,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +901,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +911,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +921,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +931,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +941,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +951,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +961,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +971,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +981,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +991,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/wP0GdqwVu2g1y3q1KzBXuSrdTvX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -669,6 +1001,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -678,6 +1011,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -687,6 +1021,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/aXetUcD4wfalCj90QmT6kSvwO6D.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -696,6 +1031,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -705,6 +1041,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tHhxWxge06goXU6ZQH1hj7vK8Hd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -714,6 +1051,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/j0CIVzeR7hRAPBPGR54qDZoOQpp.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -723,6 +1061,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -732,6 +1071,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -741,6 +1081,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -750,6 +1091,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -759,6 +1101,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dueFqKLvjftnELZaGYwY7xinfaI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -768,6 +1111,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -777,6 +1121,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sSuQTCZwqKrNBNIsksO9IAUoWP9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -786,6 +1131,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/zhG3vKWyDRaZYoaww1UVAi29T9h.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -795,6 +1141,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -804,6 +1151,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/iGCtYxfuvXfy0BD5m6p7vKuPOxS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -813,6 +1161,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/pHyxb2RV5wLlboAwm9ZJ9qTVEDw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -822,6 +1171,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -831,6 +1181,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -840,6 +1191,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -849,6 +1201,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -858,6 +1211,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/lfRkUr7DYdHldAqi3PwdQGBRBPM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -867,6 +1221,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -876,6 +1231,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fMECSPrTmRClSViMsXFYmiYIcWP.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -885,6 +1241,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/xsiecCxd8lkcAluw0wWwbW5CwSv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -894,6 +1251,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ocXkHSslrSWMz2ZJGl5MjF6dQr3.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -903,6 +1261,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -912,6 +1271,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tcPc5ZMBO4y2BtCJMe3o2nwZb2B.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -921,6 +1281,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/q5wfakAtbiO4dMss2N21vY1i128.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -930,6 +1291,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5hrBpjFzIqmN9k7QxEC610gwZGw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -939,6 +1301,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/xPXDVhVKt0XM34ihoUVMHtLYTw8.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -948,6 +1311,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dqZENchTd7lp5zht7BdlqM7RBhD.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -957,6 +1321,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/Afrz3QAcQcsT6w4S5wrKUxmYPWM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -966,6 +1331,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -975,6 +1341,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yaGt4GIutpbXHsv48tWceWg6s56.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -984,6 +1351,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5U3WiAz67fJn5gnvFk4zOJAx9Sc.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -993,6 +1361,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/655MownSWwplhvVlXERRJ4OSOG2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1002,6 +1371,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1011,6 +1381,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1020,6 +1391,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1029,6 +1401,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1038,6 +1411,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1047,6 +1421,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/hUzeosd33nzE5MCNsZxCGEKTXaQ.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1056,6 +1431,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1065,6 +1441,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1074,6 +1451,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1083,6 +1461,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1092,6 +1471,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/3BPX5VGBov8SDqTV7wC1L1xShAS.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1101,6 +1481,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/jay6WcMgagAklUt7i9Euwj1pzTF.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1110,6 +1491,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1119,6 +1501,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/nM2MfoMqzJQRiSynsDabOtFKetD.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1128,6 +1511,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1137,6 +1521,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/iY2ujEY2m68OTTlPFTiHub9joHS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1146,6 +1531,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/4gV0rKUjB1nLUdZB4zIltLvNZZr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1155,6 +1541,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1164,6 +1551,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/2UNUv4NJdC36E5myDHACBJ99EwL.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1173,6 +1561,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/rI8zOWkRQJdlAyQ6WJOSlYK6JxZ.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1182,6 +1571,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1191,6 +1581,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/vA5xMglyZv7yzDTj1qUTU4OvelV.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1200,6 +1591,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/lhsd1zCsq5UquvcNalmhuddV3tI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1209,6 +1601,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1218,6 +1611,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1227,6 +1621,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/browse",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1236,6 +1631,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1245,6 +1641,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1254,6 +1651,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1263,6 +1661,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watchlist",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1272,6 +1671,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/history",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1281,6 +1681,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/legal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1290,6 +1691,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/account",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1299,6 +1701,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/2GYMjGuh3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1308,6 +1711,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aniwish.vercel.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1317,6 +1721,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1326,6 +1731,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/KrwX22amb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1335,6 +1741,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1108427-moana",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1344,6 +1751,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1137844-mayday",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1353,6 +1761,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1368337-the-odyssey",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1362,6 +1771,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/969681-spider-man-brand-new-day",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1371,6 +1781,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1386315-the-runner",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1380,6 +1791,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1433367-one-night-only",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1389,6 +1801,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1302904-practical-magic-2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1398,6 +1811,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1339713-obsession",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1407,6 +1821,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1288445-mutiny",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1416,6 +1831,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1204680-coyote-vs-acme",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1425,6 +1841,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1440098-drawn-together",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1434,6 +1851,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1423191-resident-evil",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1443,6 +1861,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1083381-backrooms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1452,6 +1871,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1081003-supergirl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1461,6 +1881,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1185806-paw-patrol-the-dino-movie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1470,6 +1891,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1084244-toy-story-5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1479,6 +1901,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1101412-fall-2-deadpoint",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1488,6 +1911,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/860508-the-whisper-man",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1497,6 +1921,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1365884-call-my-agent-the-movie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1506,6 +1931,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1377237-runner",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1515,6 +1941,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/125988-silo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1524,6 +1951,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/95350-lanterns",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1533,6 +1961,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/108978-reacher",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1542,6 +1971,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/236235-the-gentlemen",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1551,6 +1981,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/30984-bleach",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1560,6 +1991,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/196322-dark-matter",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1569,6 +2001,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/37854-one-piece",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1578,6 +2011,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/258230-last-seen",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1587,6 +2021,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/97546-ted-lasso",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1596,6 +2031,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/300507-crew-girl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1605,6 +2041,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/329471-the-grand-tour",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1614,6 +2051,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/299952-the-early-spring",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1623,6 +2061,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/113962-lioness",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1632,6 +2071,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/615-futurama",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1641,6 +2081,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/246473-made-in-korea",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1650,6 +2091,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/69557-fauda",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1659,6 +2101,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/298168-the-shards",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1668,6 +2111,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/65942-re-zero-starting-life-in-another-world",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1677,6 +2121,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/253941-the-paper",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1686,6 +2131,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/247168-chad-powers",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1695,6 +2141,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/980431-avatar-aang-the-last-airbender",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1704,6 +2151,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1007757-swapped",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1713,6 +2161,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1632181-accidental-partners",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1722,6 +2171,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1621552-facing-el-chapo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1731,6 +2181,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1311031-demon-slayer-kimetsu-no-yaiba-infinity-castle",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1740,6 +2191,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/278-the-shawshank-redemption",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1749,6 +2201,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/238-the-godfather",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1758,6 +2211,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/936075-michael",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1767,6 +2221,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/687163-project-hail-mary",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1776,6 +2231,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/240-the-godfather-part-ii",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1785,6 +2241,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/389-12-angry-men",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1794,6 +2251,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/424-schindler-s-list",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1803,6 +2261,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1232449-young-hearts",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1812,6 +2271,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/1218925-chainsaw-man-the-movie-reze-arc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1821,6 +2281,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/155-the-dark-knight",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1830,6 +2291,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/129-spirited-away",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1839,6 +2301,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/497-the-green-mile",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1848,6 +2311,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/122-the-lord-of-the-rings-the-return-of-the-king",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1857,6 +2321,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/19404-dilwale-dulhania-le-jayenge",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1866,6 +2331,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/movie/496243-parasite",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1875,6 +2341,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/276161-teach-you-a-lesson",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1884,6 +2351,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/299167-dutton-ranch",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1893,6 +2361,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/278573-perfect-crown",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1902,6 +2371,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/1396-breaking-bad",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1911,6 +2381,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/273240-off-campus",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1920,6 +2391,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/259837-the-wonderfools",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1929,6 +2401,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/245026-wizards-beyond-waverly-place",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1938,6 +2411,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/284445-takopi-s-original-sin",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1947,6 +2421,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/209867-frieren-beyond-journey-s-end",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1956,6 +2431,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/219246-when-life-gives-you-tangerines",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1965,6 +2441,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/85077-the-chosen",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1974,6 +2451,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/246-avatar-the-last-airbender",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1983,6 +2461,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/259666-no-one-will-miss-us",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1992,6 +2471,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/64010-reply-1988",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2001,6 +2481,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/94605-arcane",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2010,6 +2491,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/301507-heated-rivalry",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2019,6 +2501,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/250307-the-pitt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2028,6 +2511,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/87108-chernobyl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2037,6 +2521,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/watch/tv/60059-better-call-saul",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2046,6 +2531,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/420",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2055,6 +2541,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2064,6 +2551,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2073,6 +2561,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/174",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2082,6 +2571,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/33",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2091,6 +2581,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/521",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2100,6 +2591,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2109,6 +2601,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2118,6 +2611,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/25",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2127,6 +2621,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/studios/923",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2136,6 +2631,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/10",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2145,6 +2641,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/1241",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2154,6 +2651,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/119",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2163,6 +2661,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/86311",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2172,6 +2671,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/131292",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2181,6 +2681,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/9485",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2190,6 +2691,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/31562",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2199,6 +2701,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/collections/2150",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2208,6 +2711,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2217,6 +2721,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/css/4375fb4148709509.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2226,6 +2731,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/_next/static/chunks/webpack-d282787ed3063711.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2235,6 +2741,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-HFWQ0MNCSN",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2244,6 +2751,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2253,6 +2761,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2262,6 +2771,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2271,6 +2781,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2280,6 +2791,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/icons/icon-192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2289,6 +2801,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/icons/icon-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2298,6 +2811,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2307,6 +2821,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-HFWQ0MNCSN",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2316,6 +2831,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2325,6 +2841,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2334,6 +2851,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "url-template",
       "url": "https://anicine.xyz/search?q=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2343,6 +2861,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anicine.xyz/icons/icon-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2352,6 +2871,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2361,6 +2881,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/2GYMjGuh3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2370,6 +2891,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aniwish.vercel.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2379,6 +2901,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/KrwX22amb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2388,6 +2911,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/4gyx49ibwQslyrwuUS1c58PJEEd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2397,6 +2921,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2406,6 +2931,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/qeQJx07rK2xm8SD2sJxFKhE7gs0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2415,6 +2941,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/jzBWExXacS33rMQ2zLBrqIVweyG.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2424,6 +2951,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/bpll0oy6gHwLvypfFNfT2QI4VkT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2433,6 +2961,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2442,6 +2971,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2451,6 +2981,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2460,6 +2991,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2469,6 +3001,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2478,6 +3011,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2487,6 +3021,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2496,6 +3031,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2505,6 +3041,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/pu2VxGlpGwffOx292w18b1tv96j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2514,6 +3051,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2523,6 +3061,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2532,6 +3071,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2541,6 +3081,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2550,6 +3091,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2559,6 +3101,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2568,6 +3111,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2577,6 +3121,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2586,6 +3131,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6UqflU8Qqkz7Dq4swJPqs0ZJjY4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2595,6 +3141,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/p4SvSFIkjCs4y0C7yAcYP9XNmP2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2604,6 +3151,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2613,6 +3161,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2622,6 +3171,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2631,6 +3181,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2640,6 +3191,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2649,6 +3201,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2658,6 +3211,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2667,6 +3221,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2676,6 +3231,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2685,6 +3241,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2694,6 +3251,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2703,6 +3261,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2712,6 +3271,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2721,6 +3281,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2730,6 +3291,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2739,6 +3301,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2748,6 +3311,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2757,6 +3321,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/wP0GdqwVu2g1y3q1KzBXuSrdTvX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2766,6 +3331,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2775,6 +3341,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2784,6 +3351,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/aXetUcD4wfalCj90QmT6kSvwO6D.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2793,6 +3361,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2802,6 +3371,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tHhxWxge06goXU6ZQH1hj7vK8Hd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2811,6 +3381,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/j0CIVzeR7hRAPBPGR54qDZoOQpp.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2820,6 +3391,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2829,6 +3401,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2838,6 +3411,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2847,6 +3421,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2856,6 +3431,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dueFqKLvjftnELZaGYwY7xinfaI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2865,6 +3441,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2874,6 +3451,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sSuQTCZwqKrNBNIsksO9IAUoWP9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2883,6 +3461,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/zhG3vKWyDRaZYoaww1UVAi29T9h.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2892,6 +3471,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2901,6 +3481,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/iGCtYxfuvXfy0BD5m6p7vKuPOxS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2910,6 +3491,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/pHyxb2RV5wLlboAwm9ZJ9qTVEDw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2919,6 +3501,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2928,6 +3511,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2937,6 +3521,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2946,6 +3531,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2955,6 +3541,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/lfRkUr7DYdHldAqi3PwdQGBRBPM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2964,6 +3551,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2973,6 +3561,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fMECSPrTmRClSViMsXFYmiYIcWP.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2982,6 +3571,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/xsiecCxd8lkcAluw0wWwbW5CwSv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2991,6 +3581,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ocXkHSslrSWMz2ZJGl5MjF6dQr3.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3000,6 +3591,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3009,6 +3601,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tcPc5ZMBO4y2BtCJMe3o2nwZb2B.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3018,6 +3611,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/q5wfakAtbiO4dMss2N21vY1i128.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3027,6 +3621,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5hrBpjFzIqmN9k7QxEC610gwZGw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3036,6 +3631,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/xPXDVhVKt0XM34ihoUVMHtLYTw8.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3045,6 +3641,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dqZENchTd7lp5zht7BdlqM7RBhD.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3054,6 +3651,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/Afrz3QAcQcsT6w4S5wrKUxmYPWM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3063,6 +3661,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3072,6 +3671,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/yaGt4GIutpbXHsv48tWceWg6s56.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3081,6 +3681,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5U3WiAz67fJn5gnvFk4zOJAx9Sc.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3090,6 +3691,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/655MownSWwplhvVlXERRJ4OSOG2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3099,6 +3701,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3108,6 +3711,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3117,6 +3721,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/kvFSpESyBZMjaeOJDx7RS3P1jey.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3126,6 +3731,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3135,6 +3741,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3144,6 +3751,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/hUzeosd33nzE5MCNsZxCGEKTXaQ.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3153,6 +3761,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3162,6 +3771,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3171,6 +3781,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3180,6 +3791,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3189,6 +3801,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/3BPX5VGBov8SDqTV7wC1L1xShAS.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3198,6 +3811,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/jay6WcMgagAklUt7i9Euwj1pzTF.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3207,6 +3821,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3216,6 +3831,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/nM2MfoMqzJQRiSynsDabOtFKetD.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3225,6 +3841,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3234,6 +3851,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/iY2ujEY2m68OTTlPFTiHub9joHS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3243,6 +3861,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/4gV0rKUjB1nLUdZB4zIltLvNZZr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3252,6 +3871,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3261,6 +3881,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/2UNUv4NJdC36E5myDHACBJ99EwL.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3270,6 +3891,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/rI8zOWkRQJdlAyQ6WJOSlYK6JxZ.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3279,6 +3901,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3288,6 +3911,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/vA5xMglyZv7yzDTj1qUTU4OvelV.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3297,6 +3921,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/lhsd1zCsq5UquvcNalmhuddV3tI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3306,6 +3931,7 @@
       "evidence_url": "https://anicine.xyz/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:36.990017+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3315,6 +3941,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:37.951395+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3324,6 +3951,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:37.951395+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3333,6 +3961,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:37.951395+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3342,6 +3971,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:37.951395+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3351,6 +3981,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:37.951395+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3360,6 +3991,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:38.956383+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/failed-to-find-server-action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3369,6 +4001,7 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:38.956383+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3378,7 +4011,647 @@
       "evidence_url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:38.956383+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/1255-5c680abb9db89955.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/main-app-5eb0d9c55a395822.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/1770a7a7-bb7e4349ef3d8bef.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/2619-3c9e02e22d10480a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/webpack-d282787ed3063711.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/5239-6e880675ae21a0d0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/1880-138ad13491840dd0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/8567-3345fe8ae19cd90f.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/app/watch/movie/%5Bid%5D/page-55c6e263f3630233.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/browse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/anime",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/watchlist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/history",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/legal",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/account",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/2GYMjGuh3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://aniwish.vercel.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/collections",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/KrwX22amb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/css/4375fb4148709509.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/_next/static/chunks/webpack-d282787ed3063711.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-HFWQ0MNCSN",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/icons/icon-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/icons/icon-512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-HFWQ0MNCSN",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "url-template",
+      "url": "https://anicine.xyz/search?q=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/icons/icon-512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/2GYMjGuh3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://aniwish.vercel.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/KrwX22amb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://vidsrc.me/embed/movie?tmdb=1108427",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/watch/movie/1108427-moana",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.785594+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/cc44e60b-6dc63e6aada55586.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:55.777545+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${l/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${e.config.authdomain/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${e.authdomain/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://${a/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://apis.google.com/js/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.google.com/recaptcha/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.google.com/recaptcha/enterprise.js?render=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/a36bde72-96a8c75927c029db.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:58:56.769903+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://anicine.xyz/__cookies__",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:59.785598+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/6866-32a9a2a636ce9d06.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:59.785598+00:00",
+      "reference_class": "url-template",
+      "url": "https://securetoken.google.com/${r",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:00.765939+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtm.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:00.765939+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js?id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:00.765939+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://va.vercel-scripts.com/v1/script.debug.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/1983-bfc39402674363f1.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:00.765939+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://vercel.com/docs/analytics/quickstart",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:01.798469+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://al5sm.com/tag.min.js?_t=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:01.798469+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/2GYMjGuh3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://anicine.xyz/_next/static/chunks/app/layout-e5175ea40f585b17.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:59:01.798469+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://aniwish.vercel.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],

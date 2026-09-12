@@ -60,10 +60,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://atlantic.st/assets/index-Z19LpSW2.js"
+      "source_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-efc1ef903a58e1c0",
@@ -113,11 +115,11 @@
   ],
   "observed_at": "2026-09-12T07:28:50.970496+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-google-fonts",
-    "provider-tmdb",
     "provider-opensubtitles",
-    "provider-cloudflare-edge"
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -126,6 +128,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -135,6 +138,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -144,6 +148,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -153,6 +158,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -162,6 +168,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -171,6 +178,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://atlantic.st/assets/index-BeTktrxh.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -180,6 +188,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -189,6 +198,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -198,6 +208,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +218,7 @@
       "evidence_url": "https://atlantic.st/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +228,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +238,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +248,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +258,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +268,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +278,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +288,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://jedwatson.github.io/classnames",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +298,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +308,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +318,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w780${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +328,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +338,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${s.file_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +348,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w185${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +358,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +368,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/pmndrs/zustand/discussions/1937",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +378,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.atlantic.st/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +388,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w780/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +398,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w92${X.logo_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +408,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.maybeoneday.ch/content",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +418,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stellar.maybeoneday.ch/resolve",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +428,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://sub.vdrk.site/v1/tv/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +438,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://sub.vdrk.site/v1/movie/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +448,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://natsuki.maybeoneday.ch/subs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +458,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "url-template",
       "url": "https://rest.opensubtitles.org/search/${e&&t",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +468,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aomedia.org/emsg/ID3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +478,7 @@
       "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/ns/ttml",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

@@ -52,10 +52,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js"
+      "source_url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-07a0abb7d5dc3aa0",
@@ -125,11 +127,11 @@
   ],
   "observed_at": "2026-09-12T07:35:14.745141+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
     "provider-cloudflare-challenge",
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights",
     "provider-google-analytics",
-    "provider-google-fonts",
-    "provider-cloudflare-edge"
+    "provider-google-fonts"
   ],
   "references": [
     {
@@ -138,6 +140,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +150,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +160,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/main-app-05a5fe279f4f6e20.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +170,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/2201-06ceedf8ae88cf85.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +180,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/1356-5b3cfc621c551510.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +190,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/2619-38012e79151e370a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +200,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/2332-943145602a91a69d.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +210,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/547-0bedd7713e28c7f7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +220,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/4938-c633e92af8e4ed52.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +230,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/8192-032caaf3472de901.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +240,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/app/layout-5c9b37472e12319a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +250,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/7321-b2f3902f50fd51b0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +260,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/app/page-3f27a40d40e517d7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +270,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +280,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/webpack-7157ff5c0f828555.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +290,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +300,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +310,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/seasonal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +320,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/schedule",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +330,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/watchlist",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +340,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/xmV8sEtFN5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +350,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +360,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/top",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +370,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +380,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Adventure",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +390,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Comedy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +400,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Drama",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +410,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Fantasy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +420,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Horror",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +430,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Mystery",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +440,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Romance",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +450,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Sci-Fi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +460,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Slice+of+Life",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +470,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Sports",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +480,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Supernatural",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +490,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Thriller",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +500,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Psychological",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +510,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Mecha",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +520,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Historical",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +530,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Ecchi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +540,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?genre=Isekai",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +550,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?sort=TRENDING_DESC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +560,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?sort=SCORE_DESC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +570,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?sort=START_DATE_DESC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +580,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?format=TV",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +590,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?format=MOVIE",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +600,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?format=OVA",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +610,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/browse?format=ONA",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +620,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/css/a7807d4fe4d9ed73.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +630,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/_next/static/chunks/webpack-7157ff5c0f828555.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +640,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +650,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-CKWGRZ83N5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +660,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +670,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +680,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +690,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/site.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +700,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +710,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +720,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -669,6 +730,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -678,6 +740,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-CKWGRZ83N5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -687,6 +750,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -696,6 +760,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -705,6 +770,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -714,6 +780,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://yomi.to/og-image.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -723,6 +790,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -732,6 +800,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "url-template",
       "url": "https://yomi.to/search?q=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -741,6 +810,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -750,6 +820,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/xmV8sEtFN5",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -759,6 +830,7 @@
       "evidence_url": "https://yomi.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:14.745141+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -768,6 +840,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:15.622880+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -777,6 +850,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:15.622880+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -786,6 +860,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:15.622880+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -795,6 +870,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:15.622880+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -804,6 +880,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:15.622880+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -813,6 +890,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:16.614052+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/failed-to-find-server-action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -822,6 +900,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:16.614052+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -831,6 +910,7 @@
       "evidence_url": "https://yomi.to/_next/static/chunks/1255-5fe68596fe147850.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:16.614052+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

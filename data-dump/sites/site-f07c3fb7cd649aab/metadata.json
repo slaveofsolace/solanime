@@ -51,10 +51,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js"
+      "source_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-f07c3fb7cd649aab",
@@ -127,10 +129,10 @@
   ],
   "observed_at": "2026-09-12T07:31:24.703035+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
     "provider-cloudflare-challenge",
-    "provider-jsdelivr",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights",
+    "provider-jsdelivr"
   ],
   "references": [
     {
@@ -139,6 +141,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -148,6 +151,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -157,6 +161,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/main-app-8fadc8baa1860d4a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -166,6 +171,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/44530001-fa4e007628c008b5.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -175,6 +181,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/0e5ce63c-bff04fcc45a9252d.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -184,6 +191,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/8721-ab213d600266be61.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -193,6 +201,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/8500-01a63dafd809e317.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -202,6 +211,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/5772-9619e03b94c0f896.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -211,6 +221,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/6609-80e42c74e2ed6b14.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -220,6 +231,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/3953-4d968283a85b1e79.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -229,6 +241,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/2574-2b400937dae355bc.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -238,6 +251,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/7411-275fb82189121d71.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -247,6 +261,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/766-931f326ae2fc4570.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -256,6 +271,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/9854-56193332c77a4c00.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -265,6 +281,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/6765-99f9e03093780329.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -274,6 +291,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/5522-d88f08a302d08aba.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -283,6 +301,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/1781-8459a458a298054a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -292,6 +311,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/9279-2f2e1b1ee2521dd7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -301,6 +321,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/app/layout-5cdad89b4d34153f.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -310,6 +331,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/app/not-found-30bf3eafba5ae18a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -319,6 +341,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/app/page-518137b333aebeb8.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -328,6 +351,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -337,6 +361,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/webpack-027d74ceca0430e7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -346,6 +371,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -355,6 +381,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -364,6 +391,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/customize",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -373,6 +401,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/discover",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -382,6 +411,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/collection",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -391,6 +421,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/settings",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -400,6 +431,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/media/65a3aad2c29aef3e-s.p.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -409,6 +441,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/css/b880385b89d1f29a.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -418,6 +451,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/css/c0e290030ad96fcc.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -427,6 +461,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/css/3fbc89ff9713e905.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -436,6 +471,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/_next/static/chunks/webpack-027d74ceca0430e7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -445,6 +481,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.spidersense.xyz/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -454,6 +491,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -463,6 +501,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/disable-devtool",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -472,6 +511,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/assets/favicon-32x32.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -481,6 +521,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/assets/hivex-logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -490,6 +531,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.spidersense.xyz/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -499,6 +541,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -508,6 +551,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/disable-devtool",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -517,6 +561,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hivex.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -526,6 +571,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://wsrv.nl/?url=https%3A%2F%2Fgpjm2cpwg1.ufs.sh%2Ff%2FauAH2i4QoMbxW2nNjfThbk0r73eBuTxdq4SL6tP2og9MGy5U",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -535,6 +581,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -544,6 +591,7 @@
       "evidence_url": "https://hivex.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:24.703035+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -553,6 +601,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:25.628669+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -562,6 +611,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:25.628669+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -571,6 +621,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:25.628669+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -580,6 +631,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:25.628669+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -589,6 +641,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/4bd1b696-8a4ab4fdf0ae305a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:25.628669+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -598,6 +651,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/public-next-folder-conflict",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -607,6 +661,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/404-get-initial-props",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -616,6 +671,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/gssp-export",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -625,6 +681,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/gssp-component-member",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -634,6 +691,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/non-standard-node-env",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -643,6 +701,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/ssg-fallback-true-export",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -652,6 +711,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -661,6 +721,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/instant-unrendered-segment",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -670,6 +731,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/instant-link-prefetch-partial",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -679,6 +741,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/failed-to-find-server-action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -688,6 +751,7 @@
       "evidence_url": "https://hivex.stream/_next/static/chunks/3794-d7cddff008311ab3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.612789+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

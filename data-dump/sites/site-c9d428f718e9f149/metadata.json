@@ -111,13 +111,15 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "WordPress",
-      "source_url": "https://cinemata.org/"
+      "source_url": "https://cinemata.org/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     },
     {
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://cinemata.org/"
+      "source_url": "https://cinemata.org/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-c9d428f718e9f149",
@@ -187,9 +189,9 @@
   ],
   "observed_at": "2026-09-12T07:29:03.736734+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-youtube",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -198,6 +200,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/index-revamp-BBpBOzhY.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +210,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +220,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +230,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Yoshinao/5c0b934694134b1eb2681f50e66a6727_IM44jVC.PAPERSenglishsubtitles.mov.jpg?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +240,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +250,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/favicon-32x32.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +260,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/favicon-16x16.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +270,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/site.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +280,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/safari-pinned-tab.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +290,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/favicons/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +300,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +310,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/lib/material-icons/material-icons.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +320,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/lib/Inter/inter.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +330,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/lib/BarlowSemiCondensed/barlow-semi-condensed.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +340,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/styles-C_T-arq2.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +350,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/tailwinds-D_QwVWfU.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +360,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/_helpers-C0Xj99d1.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +370,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/VideoPlayer-Dtq9TVbQ.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +380,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/index-revamp-B__1lOap.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +390,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/rolldown-runtime-hePW80VL.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +400,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/modern-track-vendor-J3rf3TDK.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +410,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/_helpers-CcIOoZwR.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +420,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/Avatar-mwO22bsP.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +430,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/VideoPlayer-lNJVylod.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +440,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/Badge-BSxjgQGc.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +450,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/MovieItem-CkreghOw.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +460,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/mediaList-Ohtt0b0Q.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +470,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/purify.es-BKQOAcDz.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -450,6 +480,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/assets/Card-B9P1SHt4.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -459,6 +490,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/userlogos/cinemata_share_banner-01.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -468,6 +500,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -477,6 +510,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Yoshinao/5c0b934694134b1eb2681f50e66a6727_IM44jVC.PAPERSenglishsubtitles.mov.jpg?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -486,6 +520,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=3uIB3JtHL",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -495,6 +530,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/3uIB3JtHL",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -504,6 +540,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Yoshinao/5c0b934694134b1eb2681f50e66a6727_ZO83Rfc.PAPERSenglishsubtitles.mov.jpg?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -513,6 +550,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/Yoshinao/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -522,6 +560,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Yoshinao/5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.movsprites.jpg?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -531,6 +570,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/22/Yoshinao/5c0b934694134b1eb2681f50e66a6727.tmp4btcpue_.gif?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +580,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/7/Yoshinao/5c0b934694134b1eb2681f50e66a6727.5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.mov.mp4?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +590,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/10/Yoshinao/5c0b934694134b1eb2681f50e66a6727.5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.mov.mp4?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +600,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/13/Yoshinao/5c0b934694134b1eb2681f50e66a6727.5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.mov.mp4?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +610,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/16/Yoshinao/5c0b934694134b1eb2681f50e66a6727.5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.mov.mp4?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +620,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/encoded/19/Yoshinao/5c0b934694134b1eb2681f50e66a6727.5c0b934694134b1eb2681f50e66a6727.PAPERSenglishsubtitles.mov.mp4?v=1788226745055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +630,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/master.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -594,6 +640,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-1/iframes.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -603,6 +650,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-2/iframes.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -612,6 +660,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-3/iframes.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -621,6 +670,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-4/iframes.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -630,6 +680,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-5/iframes.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -639,6 +690,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-1/stream.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -648,6 +700,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-2/stream.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -657,6 +710,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-3/stream.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -666,6 +720,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-4/stream.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -675,6 +730,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/hls/5c0b934694134b1eb2681f50e66a6727/XqUEo6onK/media-5/stream.m3u8?v=XqUEo6onK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -684,6 +740,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=ms6NPFDuV",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -693,6 +750,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/ms6NPFDuV",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -702,6 +760,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/CCPFBNMD/videoframe_138622_PrSVOmk.jpg?v=1786834461115",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -711,6 +770,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/CCPFBNMD/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -720,6 +780,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=LHgAMzGXa",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -729,6 +790,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/LHgAMzGXa",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -738,6 +800,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/CCPFBNMD/Screen_Shot_2022-08-29_at_11.22.29_AM_hhR9d6t.jpg?v=1788757269665",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -747,6 +810,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=bMOcIxMiC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -756,6 +820,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/bMOcIxMiC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -765,6 +830,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/kieth/IMG_4084_lHvwJD4.jpeg?v=1783401249153",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -774,6 +840,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/kieth/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -783,6 +850,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=PRFoOaw7M",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -792,6 +860,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/PRFoOaw7M",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -801,6 +870,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/narcissan/maqloubeh_thumbnail_kafBa4i.jpg?v=1788415034435",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -810,6 +880,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/narcissan/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -819,6 +890,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=FWFjIj398",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -828,6 +900,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/FWFjIj398",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -837,6 +910,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/rolandc/image-w1280_VChwUWL.jpg?v=1788226991127",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -846,6 +920,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/rolandc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -855,6 +930,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=phZgpkNx9",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -864,6 +940,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/phZgpkNx9",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -873,6 +950,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ccclfilmfest/Avocado_on_Pancakes_Still_03_Q4hU0od.jpg?v=1783887146509",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -882,6 +960,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/ccclfilmfest/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -891,6 +970,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=sfY2tZasA",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -900,6 +980,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/sfY2tZasA",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -909,6 +990,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/xanthebaldonado/Screen_Shot_2025-12-07_at_6_VzITEci.26.06_PM.jpg?v=1783412339349",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -918,6 +1000,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/xanthebaldonado/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -927,6 +1010,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=N6umK9c4X",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -936,6 +1020,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/N6umK9c4X",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -945,6 +1030,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ccclfilmfest/vlcsnap-2024-12-16-23h17m34s454_lYW7wiB.jpg?v=1783797986384",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -954,6 +1040,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=yBO5rce3s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -963,6 +1050,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/yBO5rce3s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -972,6 +1060,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/SunflowerFilmOrganization/Screenshot_4472_vqReCt5.jpg?v=1783414323878",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -981,6 +1070,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/SunflowerFilmOrganization/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -990,6 +1080,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=vxbQEJQHm",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -999,6 +1090,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/vxbQEJQHm",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1008,6 +1100,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/rolandc/abc9c3e83a6f4b9293ddc2be41babe49_kICGasV.TheTruth_eng_subs.mp4.jpg?v=1788230131462",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1017,6 +1110,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=IgVVvWCo1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1026,6 +1120,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/IgVVvWCo1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1035,6 +1130,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ccclfilmfest/Screenshot_2566-12-19_at_11_mpPQZH7.52.09.jpg?v=1783797182134",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1044,6 +1140,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=90RXjQKBr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1053,6 +1150,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/90RXjQKBr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1062,6 +1160,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/SunflowerFilmOrganization/Screenshot_4486_an8Ezk2.jpg?v=1783414256876",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1071,6 +1170,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=g1KHD9ELQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1080,6 +1180,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/g1KHD9ELQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1089,6 +1190,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ccclfilmfest/Pad_Thai_VgMqMfV.jpg?v=1783797214109",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1098,6 +1200,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=R38jmilqp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1107,6 +1210,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/R38jmilqp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1116,6 +1220,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/KritiFilmClub/Hum_Chitra_Banate_Hai_GUBHImh.jpg?v=1783414878689",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1125,6 +1230,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/KritiFilmClub/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1134,6 +1240,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=uEhfGQUtJ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1143,6 +1250,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/uEhfGQUtJ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1152,6 +1260,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/KritiFilmClub/62521db2e9dd499d9e3ab16172d567e4_C1MW50R.the_mall_on_top_of_my_house.avi.jpg?v=1783415635704",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1161,6 +1270,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=j4F0NYSXC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1170,6 +1280,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/j4F0NYSXC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1179,6 +1290,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/KritiFilmClub/Screenshot_4415_LM2mmEv.jpg?v=1784019063211",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1188,6 +1300,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=gMhTF1S8C",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1197,6 +1310,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/gMhTF1S8C",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1206,6 +1320,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.dirtydata.earth/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1215,6 +1330,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ercinvestigates/INDIA_GOOGLE_THUMBNAIL_LPLv0wa.jpg?v=1783404614991",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1224,6 +1340,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/ercinvestigates/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1233,6 +1350,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=UxLrS0iO7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1242,6 +1360,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/UxLrS0iO7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1251,6 +1370,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/KritiFilmClub/6b7eb389dc0d412dabb99af8af938368_DItplmR.LAKMINI_Vimeo_Full_HD.mp4.jpg?v=1783416346337",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1260,6 +1380,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=M342UeYpB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1269,6 +1390,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/M342UeYpB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1278,6 +1400,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://greedofgreen.earth/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1287,6 +1410,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/ercinvestigates/greed_of_green_thumbnail_z2ho1CA.jpg?v=1783404753489",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1296,6 +1420,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=vceTZuvtB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1305,6 +1430,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/vceTZuvtB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1314,6 +1440,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/emnews/e74e01794c194cf9b171051c5078_Te4e0yE.mov_XFE5c0n.jpg?v=1621501707966",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1323,6 +1450,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/emnews/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1332,6 +1460,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=OODYtm9W4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1341,6 +1470,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/OODYtm9W4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1350,6 +1480,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://engagemedia.org/2022/martial-law-films-playlist/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1359,6 +1490,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/EngageMedia/Arrogance_of_Power-Cinemata_JtXABxh_9z2FxxX.jpg?v=1741755928172",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1368,6 +1500,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/rosemarieroque/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1377,6 +1510,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=fhm0KLlNd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1386,6 +1520,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/fhm0KLlNd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1395,6 +1530,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/EngageMedia/Edjop_XEVtZFU.jpg?v=1698066958332",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1404,6 +1540,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=X7zw1FZ1S",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1413,6 +1550,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/X7zw1FZ1S",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1422,6 +1560,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/CCPFBNMD/Cinemata_Features_Thumbnail_t3vBPMY.jpg?v=1767684408050",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1431,6 +1570,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=rSNsnlGJQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1440,6 +1580,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/rSNsnlGJQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1449,6 +1590,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/anotherdom/Screen_Shot_2022-05-03_at_10.15.19_AM_NUAxVlR.jpg?v=1651544178528",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1458,6 +1600,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/anotherdom/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1467,6 +1610,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=w52OlnETP",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1476,6 +1620,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/w52OlnETP",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1485,6 +1630,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/CCPFBNMD/MY_BOY_SUPERMAN_9jw3opO.jpg?v=1725857450252",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1494,6 +1640,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=yOLov7ohB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1503,6 +1650,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/yOLov7ohB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1512,6 +1660,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/focuspuller/8fed6ca94915481bb61395a_EXv48Zd.mp4_1Bn7Wgy.jpg?v=1621501987939",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1521,6 +1670,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/focuspuller/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1530,6 +1680,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=NsCTCD39A",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1539,6 +1690,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/NsCTCD39A",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1548,6 +1700,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://crisis-in-common.blogspot.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1557,6 +1710,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.youtube.com/watch?v=sloVuTk9k1s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1566,6 +1720,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.engagemedia.org/Members/kareneliot/videos/taring-padi-artist-kollective-2/view",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1575,6 +1730,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.flickr.com/photos/kareneliot/sets/72157623587654385/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1584,6 +1740,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.flickr.com/photos/kareneliot/sets/72157623587899453/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1593,6 +1750,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/kareneliot/e8a695f583a64a3587a71f3_ZYs6ot4.divx_tT05sXD.jpg?v=1621501951174",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1602,6 +1760,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/kareneliot/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1611,6 +1770,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=nKtaUusWY",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1620,6 +1780,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/nKtaUusWY",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1629,6 +1790,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.miroguide.com/feeds/2854",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1638,6 +1800,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://feeds.feedburner.com/fPcN_interCultural_tribal_films",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1647,6 +1810,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://feeds2.feedburner.com/fPcN_interCultural_tribal_films",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1656,6 +1820,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/fPcN_interCultural/ffdbb8200cf049be_rxl45xc.avi_zkxtjLT.jpg?v=1621502013059",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1665,6 +1830,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/fPcN_interCultural/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1674,6 +1840,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=NWlRvXqCe",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1683,6 +1850,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/NWlRvXqCe",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1692,6 +1860,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/papuanvoicesmerauke/ad53a890bb76483_RFD5XF7.mp4_Vj1u0T9.jpg?v=1621501926347",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1701,6 +1870,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/papuanvoicesmerauke/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1710,6 +1880,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=kJdmYjQht",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1719,6 +1890,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/kJdmYjQht",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1728,6 +1900,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Kontras/Screen_Shot_2025-03-21_at_16_y5CC5eD.07.25.jpg?v=1742551847379",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1737,6 +1910,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/Kontras/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1746,6 +1920,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=MmBx6sKj7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1755,6 +1930,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/MmBx6sKj7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1764,6 +1940,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/EngageMedia/Sabangan-Cinemata_b48l4xv_fLef9nv.jpg?v=1698067255924",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1773,6 +1950,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=44noMxyYD",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1782,6 +1960,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/44noMxyYD",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1791,6 +1970,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/chamot/8a91eb42ad164808a89189b367a3_k1AiL3K.m4v_I6HzyfJ.jpg?v=1621501933866",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1800,6 +1980,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/chamot/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1809,6 +1990,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=MSgdNLRoT",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1818,6 +2000,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/MSgdNLRoT",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1827,6 +2010,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.abc.net.au/4corners/stories/s39706.htm",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1836,6 +2020,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Michelle/5da405e64db5431f9dd26381e3_VWTyLxe.avi_Sw1LRJj.jpg?v=1621502002262",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1845,6 +2030,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/Michelle/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1854,6 +2040,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=2KfMf5fdd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1863,6 +2050,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/2KfMf5fdd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1872,6 +2060,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.hrw.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1881,6 +2070,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/dewanadatpapua/im_pX1AiNE.jpg?v=1621501968007",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1890,6 +2080,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/dewanadatpapua/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1899,6 +2090,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=7XJq2Xs5S",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1908,6 +2100,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/7XJq2Xs5S",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1917,6 +2110,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/emnews/videoframe_51710_ncPgwRj.jpg?v=1780841885920",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1926,6 +2120,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/noni_abao/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1935,6 +2130,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=6qvCsLbOX",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1944,6 +2140,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/6qvCsLbOX",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1953,6 +2150,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://video4change.org/engagemedia-video-for-change-impact-case-study/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1962,6 +2160,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.papuanvoices.net/wp-content/uploads/2012/08/english_love2.pdf",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1971,6 +2170,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/emnews/80ca8b6138854a7f947418b92725_27VfY7o.mp4_OcfYmCu.jpg?v=1621501860394",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1980,6 +2180,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=JNqzQioOt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1989,6 +2190,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/JNqzQioOt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1998,6 +2200,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/Altermidya/SNT_thumb_ypxWs96.jpeg?v=1637153527900",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2007,6 +2210,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/Altermidya/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2016,6 +2220,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=3temwTKaz",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2025,6 +2230,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/3temwTKaz",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2034,6 +2240,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://https//www.eco-business.com/videos/documentary-film-sexy-killers-probes-indonesian-candidates-ties-to-big-coal/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2043,6 +2250,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://https//youtu.be/qlB7vg4I-To",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2052,6 +2260,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/watchdoc/2a218e0cb6a442d8aeefa32894_qJ02BSF.mp4_oFnJ9Hk.jpg?v=1621501720156",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2061,6 +2270,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/watchdoc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2070,6 +2280,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/view?m=qrgbPhqcq",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2079,6 +2290,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1/media/qrgbPhqcq",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2088,6 +2300,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/media/original/thumbnails/user/InformezVous/8a6f5c790f1c4132bb3f4f_rROck6q.mp4_w9H3skH.jpg?v=1621501949055",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2097,6 +2310,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/user/InformezVous/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2106,6 +2320,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2115,6 +2330,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/latest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2124,6 +2340,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/featured",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2133,6 +2350,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/recommended",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2142,6 +2360,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/members",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2151,6 +2370,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/error",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2160,6 +2380,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/tags",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2169,6 +2390,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/categories",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2178,6 +2400,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/topics",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2187,6 +2410,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/languages",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2196,6 +2420,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/countries",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2205,6 +2430,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/liked",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2214,6 +2440,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/history",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2223,6 +2450,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/upload",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2232,6 +2460,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/accounts/login/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2241,6 +2470,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/accounts/signup/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2250,6 +2480,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://engagemedia.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2259,6 +2490,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/EngageMedia-Tech/cinematacms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2268,6 +2500,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2277,6 +2510,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mailer.cinemata.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2286,6 +2520,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/cinematavideo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2295,6 +2530,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/cinemata.apac?igsh=MWp6OWUxYjZpNGFwZg%3D%3D",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2304,6 +2540,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://twitter.com/cinemata",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2313,6 +2550,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://engagemedia.org/privacy/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2322,6 +2560,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/api/v1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2331,6 +2570,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/blog-cinemata-recut&quot",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2340,6 +2580,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/images/logos/cinemata_logo-darkbg.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2349,6 +2590,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/images/logos/cinemata_logo-darkbg.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2358,6 +2600,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/images/logos/cinemata_logo-fullcolor.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2367,6 +2610,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinemata.org/static/images/logos/cinemata_logo-fullcolor.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2376,6 +2620,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://matomo.engagemedia.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2385,6 +2630,7 @@
       "evidence_url": "https://cinemata.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:03.736734+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2394,6 +2640,7 @@
       "evidence_url": "https://cinemata.org/static/assets/index-revamp-BBpBOzhY.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:04.421229+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2403,6 +2650,7 @@
       "evidence_url": "https://cinemata.org/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:05.281650+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

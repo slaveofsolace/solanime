@@ -85,8 +85,8 @@
   ],
   "observed_at": "2026-09-12T07:31:59.935005+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
   ],
   "references": [
     {
@@ -95,6 +95,7 @@
       "evidence_url": "https://noxx.gg/verify",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:59.935005+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -104,6 +105,7 @@
       "evidence_url": "https://noxx.gg/verify",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:59.935005+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

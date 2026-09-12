@@ -51,10 +51,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js"
+      "source_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-89016e2d9690e621",
@@ -123,10 +125,10 @@
   ],
   "observed_at": "2026-09-12T07:32:20.994403+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-google-analytics",
-    "provider-jsdelivr",
-    "provider-cloudflare-edge"
+    "provider-jsdelivr"
   ],
   "references": [
     {
@@ -135,6 +137,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -144,6 +147,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -153,6 +157,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/main-app-a5191a69e835ebf9.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -162,6 +167,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/972-1729b22b704afac9.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -171,6 +177,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/718-2cf961f9f20691fc.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -180,6 +187,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/61-92ca8a818c9e389b.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -189,6 +197,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/611-22e13535948bf206.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -198,6 +207,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/276-4d1a823cc5692631.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +217,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/app/page-5df666f15fe1509a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +227,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/500-c232b13c36158398.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +237,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/app/layout-5f046c2dfe3c9b93.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +247,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/app/error-79587dea321c1b3d.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +257,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/app/not-found-0b697414e7b9cf3e.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +267,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +277,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/webpack-cb256472253dc27a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +287,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +297,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +307,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +317,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/multiview",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +327,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/vod",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +337,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.link/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +347,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/fGfgxcnXUv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +357,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bingebox.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +367,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +377,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/840cb75c0e703c06.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +387,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/2c673e196dbe75df.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +397,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/a2520b707b20c778.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +407,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/c610e5331c107277.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +417,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/ebe48f6878d4cc24.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +427,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/css/8a220c59bf84762d.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +437,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.watch/_next/static/chunks/webpack-cb256472253dc27a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +447,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-1LLX3T93LK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +457,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +467,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-1LLX3T93LK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +477,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -450,6 +487,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reedstreams.link/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -459,6 +497,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/fGfgxcnXUv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -468,6 +507,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bingebox.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -477,6 +517,7 @@
       "evidence_url": "https://reedstreams.watch/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:20.994403+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -486,6 +527,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:21.484230+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -495,6 +537,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:21.484230+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -504,6 +547,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:21.484230+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -513,6 +557,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:21.484230+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -522,6 +567,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/fd9d1056-34c764692cc286ae.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:21.484230+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -531,6 +577,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://n/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +587,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +597,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/next-dynamic-api-wrong-context",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +607,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +617,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/dynamic-server-error",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +627,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/unstable_cache",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +637,7 @@
       "evidence_url": "https://reedstreams.watch/_next/static/chunks/117-b74cadbd29051722.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:22.486070+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/ppr-caught-error",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

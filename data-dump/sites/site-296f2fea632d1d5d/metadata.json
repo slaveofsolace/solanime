@@ -107,10 +107,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://aether.cx/assets/index-gqQMq2Lq.js"
+      "source_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-296f2fea632d1d5d",
@@ -185,12 +187,12 @@
   ],
   "observed_at": "2026-09-12T07:35:32.738506+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-google-fonts",
-    "provider-youtube",
     "provider-tmdb",
     "provider-vimeo",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -199,6 +201,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/config.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -208,6 +211,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -217,6 +221,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -226,6 +231,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/favicon.ico?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -235,6 +241,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/manifest-D6ZPoVba.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -244,6 +251,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/apple-touch-icon.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -253,6 +261,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/favicon-32x32.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -262,6 +271,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/favicon-16x16.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -271,6 +281,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/safari-pinned-tab.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -280,6 +291,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -289,6 +301,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -298,6 +311,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -307,6 +321,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -316,6 +331,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -325,6 +341,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -334,6 +351,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_11__iPhone_XR_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -343,6 +361,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -352,6 +371,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -361,6 +381,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -370,6 +391,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/12.9__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -379,6 +401,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -388,6 +411,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.9__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -397,6 +421,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.5__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -406,6 +431,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.2__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -415,6 +441,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -424,6 +451,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/8.3__iPad_Mini_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -433,6 +461,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -442,6 +471,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -451,6 +481,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -460,6 +491,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -469,6 +501,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -478,6 +511,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -487,6 +521,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_11__iPhone_XR_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -496,6 +531,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -505,6 +541,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -514,6 +551,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -523,6 +561,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/12.9__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -532,6 +571,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -541,6 +581,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.9__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -550,6 +591,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.5__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -559,6 +601,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/10.2__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -568,6 +611,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -577,6 +621,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/splash_screens/8.3__iPad_Mini_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -586,6 +631,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -595,6 +641,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -604,6 +651,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -613,6 +661,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/auth-BXStSppl.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -622,6 +671,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/caption-parsing-KjrObU33.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -631,6 +681,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/vendor-Cfen1q4F.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -640,6 +691,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/locales-7xY_oabk.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -649,6 +701,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/language-db-Dx_3hCzW.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -658,6 +711,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/Icons-C6Pgslu3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -667,6 +721,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/react-dom-Bi1uPMZj.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -676,6 +731,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/hls-xeo-W7rp.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -685,6 +741,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/Icons-ybeVSQkp.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -694,6 +751,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/assets/index-D5b0lTW7.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -703,6 +761,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ--",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -712,6 +771,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -721,6 +781,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -730,6 +791,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -739,6 +801,7 @@
       "evidence_url": "https://aether.cx/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:32.738506+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -748,6 +811,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://apis.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -757,6 +821,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -766,6 +831,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/MadMF7xb5q",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -775,6 +841,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://backend.aether.cx/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -784,6 +851,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://wp.aether.cx/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -793,6 +861,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://addons.mozilla.org/en-US/firefox/addon/aether-extension/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -802,6 +871,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://t1.aether.cx,https//t2.aether.cx,https://t3.aether.cx",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -811,6 +881,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://t1.aether.cx,https//t2.aether.cx,https://t3.aether.cx,https://rem.aether.cx,https://jbam.aether.cx,https://bifice.aether.cx,https://wood.aether.cx,https://aviv.aether.cx,https://r1.aether.cx,https://r2.aether.cx",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -820,6 +891,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rentry.co/aetherdomains",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -829,6 +901,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.pstream.mov/extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -838,6 +911,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -847,6 +921,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.tmdb.org/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -856,6 +931,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -865,6 +941,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -874,6 +951,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${m.file_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -883,6 +961,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w185/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -892,6 +971,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&oe=UTF-8&sl=auto",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -901,6 +981,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate-pa.googleapis.com/v1/translateHtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -910,6 +991,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://pay.oxapay.com/14012909",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -919,6 +1001,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/feed.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -928,6 +1011,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/movie-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -937,6 +1021,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/tv-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -946,6 +1031,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.filmjabber.com/rss/rss-dvd-reviews.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -955,6 +1041,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://screenrant.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -964,6 +1051,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.darkhorizons.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -973,6 +1061,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://simkl.com/oauth/authorize",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -982,6 +1071,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.simkl.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -991,6 +1081,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.trakt.tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1000,6 +1091,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fed-airdate.pstream.mov/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1009,6 +1101,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1018,6 +1111,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.rottentomatoes.com/search?search=%24%7BencodeURIComponent%28e.trim%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1027,6 +1121,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://www.rottentomatoes.com${f.url/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1036,6 +1131,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${X.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1045,6 +1141,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${o.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1054,6 +1151,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${l.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1063,6 +1161,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/${n===",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1072,6 +1171,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${r",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1081,6 +1181,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube.com/embed/${q.key",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1090,6 +1191,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://llvpn.com/tag.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1099,6 +1201,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://postman-echo.com/get",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1108,6 +1211,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://hls-downloader.aether.cx/?url=%24%7BencodeURIComponent%28r%3F%3F",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1117,6 +1221,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hls-downloader.aether.cx/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1126,6 +1231,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://www.watchparty.me/create?video=%24%7BencodeURIComponent%28r",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1135,6 +1241,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${e.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1144,6 +1251,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1153,6 +1261,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1162,6 +1271,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1171,6 +1281,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sub.wyzie.io/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1180,6 +1291,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1189,6 +1301,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342//4BMG9hk9NvSBeQvC82sVmVRK140.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1198,6 +1311,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://alpha-charlott.github.io/video-openh264/Sintel_master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1207,6 +1321,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1216,6 +1331,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${V.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1225,6 +1341,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${p.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1234,6 +1351,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${ie.backdrop_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1243,6 +1361,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${E.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1252,6 +1371,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/jipfr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1261,6 +1381,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://fembox.aether.cx/movie/557?ui=%24%7Be",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1270,6 +1391,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.real-debrid.com/rest/1.0/user",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1279,6 +1401,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1288,6 +1411,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1297,6 +1421,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.pstream.mov/proxy/deploy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1306,6 +1431,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.pstream.mov/backend/deploy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1315,6 +1441,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://fembox.aether.cx/quota?ui=%24%7Be",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1324,6 +1451,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.vimeo.com/video/1059834885?h=c3ab398d42&badge=0&autopause=0&player_id=0&app_id=58479",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1333,6 +1461,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://febbox.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1342,6 +1471,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://real-debrid.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1351,6 +1481,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://store.wyzie.io/redeem",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1360,6 +1491,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "url-template",
       "url": "https://trakt.tv/oauth/authorize?%24%7Bd.toString%28=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1369,6 +1501,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/AykhanUV/extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1378,6 +1511,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aether.cx/ping.txt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1387,6 +1521,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1396,6 +1531,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1405,6 +1541,7 @@
       "evidence_url": "https://aether.cx/assets/index-gqQMq2Lq.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:34.757889+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

@@ -1,7 +1,18 @@
 # Docs
 
-URL: https://tbeezy.github.io/ynotvdoc/
+Listed URL: https://tbeezy.github.io/ynotvdoc/
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://tbeezy.github.io/ynotvdoc/
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:42:50.760216+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: GitHub Pages
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

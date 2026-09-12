@@ -54,10 +54,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js"
+      "source_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-07fff8afbfa81ea9",
@@ -107,9 +109,9 @@
   ],
   "observed_at": "2026-09-12T07:42:49.209359+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-sentry",
-    "provider-youtube",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -118,6 +120,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -127,6 +130,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/worker.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -136,6 +140,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -145,6 +150,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -154,6 +160,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.stremio.com/favicons/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -163,6 +170,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.stremio.com/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -172,6 +180,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/styles/main.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -181,6 +190,7 @@
       "evidence_url": "https://web.stremio.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -190,6 +200,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -199,6 +210,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://spotlightjs.com/sidecar/npx/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -208,6 +220,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.sentry.io/platforms/javascript/best-practices/browser-extensions/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -217,6 +230,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://browser.sentry-cdn.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -226,6 +240,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://dogs.are.great${t/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -235,6 +250,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://dogs.are.great/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -244,6 +260,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.example.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -253,6 +270,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -262,6 +280,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sentry.io/welcome/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -271,6 +290,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/iframe_api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -280,6 +300,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/narsenico/a-color-picker",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -289,6 +310,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aomedia.org/emsg/ID3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -298,6 +320,7 @@
       "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/ns/ttml",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

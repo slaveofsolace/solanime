@@ -105,9 +105,9 @@
   ],
   "observed_at": "2026-09-12T07:33:16.899901+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-tmdb",
-    "provider-cloudflare-edge"
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -116,6 +116,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -125,6 +126,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -134,6 +136,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://embeda.vercel.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -143,6 +146,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidplay.to/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -152,6 +156,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidplay.to/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -161,6 +166,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://embeda.vercel.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -170,6 +176,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -179,6 +186,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "url-template",
       "url": "https://embeda.vercel.app/search?query=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -188,6 +196,7 @@
       "evidence_url": "https://vidplay.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:16.899901+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -197,6 +206,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/static-configuration",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -206,6 +216,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/navigation-actions",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -215,6 +226,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/navigating-without-navigation-prop",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -224,6 +236,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/nesting-navigators",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -233,6 +246,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/getting-started",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -242,6 +256,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/configuring-links",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -251,6 +266,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactnavigation.org/docs/use-focus-effect",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -260,6 +276,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/gre/bezier-easing",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -269,6 +286,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/react-native-community/cli/blob/master/docs/autolinking.md",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -278,6 +296,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -287,6 +306,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -296,6 +316,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -305,6 +326,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -314,6 +336,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -323,6 +346,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://u.expo.dev/398e6419-70a8-4542-9092-48cd51167ddb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -332,6 +356,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://hostname/${c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -341,6 +366,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://phony.example/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -350,6 +376,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://placeholder.base/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -359,6 +386,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/original/3GQKYh6Trm8pxd2AypovoYQf4Ay.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -368,6 +396,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "url-template",
       "url": "https://classic-assets.eascdn.net/~assets/${encodeURIComponent(f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -377,6 +406,7 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://expo.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -386,13 +416,14 @@
       "evidence_url": "https://vidplay.to/_expo/static/js/web/entry-cf6240fcb19b822cb90128dd8f6f3c40.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:17.901153+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://e/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],
   "repository_ids": [
-    "repo-f6e0078f615df112",
-    "repo-43426b8df5da3af0"
+    "repo-43426b8df5da3af0",
+    "repo-f6e0078f615df112"
   ],
   "research_status": "infrastructure_partially_mapped",
   "roles": [

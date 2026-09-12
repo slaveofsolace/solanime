@@ -60,7 +60,8 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://nuviosync.com/"
+      "source_url": "https://nuviosync.com/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-69ef5cb294131cfb",
@@ -110,9 +111,9 @@
   ],
   "observed_at": "2026-09-12T07:43:23.055083+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-google-analytics",
-    "provider-cloudflare-edge"
+    "provider-google-analytics"
   ],
   "references": [
     {
@@ -121,6 +122,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -130,6 +132,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/1255-a390e12b70b4a9fb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -139,6 +142,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/main-app-23362513a7a66417.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -148,6 +152,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/2619-3c9e02e22d10480a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -157,6 +162,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/6585-32cc4f4886e65210.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -166,6 +172,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/3649-3642ee89426a21d0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -175,6 +182,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/app/layout-257db112a1c4a735.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -184,6 +192,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/app/page-c3519a19fc1775e5.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -193,6 +202,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -202,6 +212,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/webpack-ebbb748194ed6dec.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -211,6 +222,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -220,6 +232,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/image?url=%2Fnuvio_logo.png&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -229,6 +242,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/vpn/expressvpn-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -238,6 +252,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/nvidia-shield-tv-pro.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -247,6 +262,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/amazon-fire-tv-stick-4k-max.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -256,6 +272,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/onn-4k-pro.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -265,6 +282,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/google-tv-streamer.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -274,6 +292,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -283,6 +302,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/vpn-offers",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -292,6 +312,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/start-here",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -301,6 +322,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -310,6 +332,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/about",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -319,6 +342,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ko-fi.com/nuviosync",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -328,6 +352,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/stremio-to-nuvio",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -337,6 +362,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio-backup-restore",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -346,6 +372,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio-clone-profile",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -355,6 +382,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.jdoqocy.com/click-101802523-17288954",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -364,6 +392,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://go.nordvpn.net/aff_c?aff_id=2495&offer_id=314&url_id=7264",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -373,6 +402,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://go.expressvpn.com/c/7500267/1462856/16063",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -382,6 +412,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/best-vpn-nuvio-stremio",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -391,6 +422,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/affiliate-disclosure",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -400,6 +432,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/install-nuvio-any-device-2026",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -409,6 +442,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/NVIDIA-Shield-Android-Streaming-Performance/dp/B07YP9FBMM?th=1&linkCode=ll2&tag=nuviosync-20&linkId=63a30caa95da3ad59427be121e988237&language=en_US&ref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -418,6 +452,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/all-new-amazon-fire-tv-stick-4k-max/dp/B0BP9SNVH9?th=1&linkCode=ll2&tag=nuviosync-20&linkId=ee88f8b735a6d18602e62c0ae3bedec2&language=en_US&ref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -427,6 +462,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0GGNGVZQT?linkCode=ll2&tag=nuviosync-20&linkId=cfeab90a0f751e1785ecf195439897e0&language=en_US&ref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -436,6 +472,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0D8WJYSF9?th=1&linkCode=ll2&tag=nuviosync-20&linkId=884c99fc774aed1815ddaf1a6c8929b1&language=en_US&ref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -445,6 +482,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/is-nuvio-safe-legal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -454,6 +492,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/nuvio-vs-stremio",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -463,6 +502,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/nuvio-catalog-addon-setup",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -472,6 +512,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/aiometadata-nuvio-setup",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -481,6 +522,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/sideload-nuvio-iphone",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -490,6 +532,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/nuvio-new-device-transfer",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -499,6 +542,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/nuvio-chromebook",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -508,6 +552,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/nuvio-not-opening",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -517,6 +562,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/faq",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -526,6 +572,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/glossary",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -535,6 +582,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/stremio-to-simkl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -544,6 +592,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/install-nuvio-firestick",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -553,6 +602,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/install-nuvio-onn-google-tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -562,6 +612,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/install-nuvio-nvidia-shield",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -571,6 +622,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio-latest-version",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -580,6 +632,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -589,6 +642,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -598,6 +652,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/stremio-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -607,6 +662,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/debrid-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -616,6 +672,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/streaming-addons-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -625,6 +682,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/aiostreams-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -634,6 +692,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/metadata-catalog-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -643,6 +702,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/aiometadata-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -652,6 +712,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/subtitle-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -661,6 +722,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/media-server-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -670,6 +732,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/compare",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -679,6 +742,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/blog/vpn-with-real-debrid",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -688,6 +752,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/privacy-policy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -697,6 +762,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -706,6 +772,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/editorial-policy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -715,6 +782,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -724,6 +792,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/media/22a5144ee8d83bca-s.p.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -733,6 +802,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/media/7d4881bb7e1bf84d-s.p.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -742,6 +812,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/css/aacddc9e51f7aa1c.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -751,6 +822,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/_next/static/chunks/webpack-ebbb748194ed6dec.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -760,6 +832,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-NT78C2HEE9",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -769,6 +842,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -778,6 +852,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio_logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -787,6 +862,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-NT78C2HEE9",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -796,6 +872,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -805,6 +882,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/og-image.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -814,6 +892,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -823,6 +902,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/nuvio_logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -832,6 +912,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ko-fi.com/nuviosync",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -841,6 +922,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nuviosync.com/author/alex-rowan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -850,6 +932,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -859,6 +942,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.jdoqocy.com/click-101802523-17288954",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -868,6 +952,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://go.nordvpn.net/aff_c?aff_id=2495&amp%3Boffer_id=314&amp%3Burl_id=7264",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -877,6 +962,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/vpn/expressvpn-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -886,6 +972,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://go.expressvpn.com/c/7500267/1462856/16063",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -895,6 +982,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/NVIDIA-Shield-Android-Streaming-Performance/dp/B07YP9FBMM?th=1&amp%3BlinkCode=ll2&amp%3Btag=nuviosync-20&amp%3BlinkId=63a30caa95da3ad59427be121e988237&amp%3Blanguage=en_US&amp%3Bref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -904,6 +992,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/nvidia-shield-tv-pro.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -913,6 +1002,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/all-new-amazon-fire-tv-stick-4k-max/dp/B0BP9SNVH9?th=1&amp%3BlinkCode=ll2&amp%3Btag=nuviosync-20&amp%3BlinkId=ee88f8b735a6d18602e62c0ae3bedec2&amp%3Blanguage=en_US&amp%3Bref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -922,6 +1012,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/amazon-fire-tv-stick-4k-max.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -931,6 +1022,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0GGNGVZQT?amp%3BlinkCode=ll2&amp%3Btag=nuviosync-20&amp%3BlinkId=cfeab90a0f751e1785ecf195439897e0&amp%3Blanguage=en_US&amp%3Bref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -940,6 +1032,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/onn-4k-pro.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -949,6 +1042,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0D8WJYSF9?th=1&amp%3BlinkCode=ll2&amp%3Btag=nuviosync-20&amp%3BlinkId=884c99fc774aed1815ddaf1a6c8929b1&amp%3Blanguage=en_US&amp%3Bref_=as_li_ss_tl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -958,6 +1052,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.nuviosync.com/blog/item/google-tv-streamer.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -967,6 +1062,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://utt.impactcdn.com/P-A7500267-6b3b-4e4e-bd2a-8a37064643e21.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -976,6 +1072,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/NVIDIA-Shield-Android-Streaming-Performance/dp/B07YP9FBMM?th=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -985,6 +1082,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/all-new-amazon-fire-tv-stick-4k-max/dp/B0BP9SNVH9?th=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -994,6 +1092,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0GGNGVZQT",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1003,6 +1102,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.amazon.com/dp/B0D8WJYSF9?th=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1012,6 +1112,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://go.nordvpn.net/aff_c?aff_id=2495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1021,6 +1122,7 @@
       "evidence_url": "https://nuviosync.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.055083+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1030,6 +1132,7 @@
       "evidence_url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.696665+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1039,6 +1142,7 @@
       "evidence_url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.696665+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1048,6 +1152,7 @@
       "evidence_url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.696665+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1057,6 +1162,7 @@
       "evidence_url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.696665+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1066,6 +1172,7 @@
       "evidence_url": "https://nuviosync.com/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:43:23.696665+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

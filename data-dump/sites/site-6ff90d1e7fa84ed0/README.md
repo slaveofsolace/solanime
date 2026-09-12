@@ -1,7 +1,18 @@
 # HKMDB
 
-URL: https://hkmdb.com/db/index.php
+Listed URL: https://hkmdb.com/db/index.php
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://hkmdb.com/chal.html
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:31:27.486118+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: None identified in inspected material.
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

@@ -50,7 +50,8 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "SvelteKit",
-      "source_url": "https://releases.moe/about/"
+      "source_url": "https://releases.moe/about/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-71c801ef94718415",
@@ -82,9 +83,9 @@
   ],
   "observed_at": "2026-09-12T07:42:58.116238+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
     "provider-anilist",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
   ],
   "references": [
     {
@@ -93,6 +94,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://um.theindex.moe/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -102,6 +104,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "script",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -111,6 +114,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -120,6 +124,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://releases.moe/favicon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -129,6 +134,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://releases.moe/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -138,6 +144,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +154,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://um.theindex.moe/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +164,7 @@
       "evidence_url": "https://releases.moe/about/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:42:58.116238+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

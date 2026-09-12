@@ -30,6 +30,51 @@
       "Multi-Server"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 5,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:59:00.540105+00:00",
+    "public_detail_pages_selected": 0,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/manifest.json"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/turbopack-9b29b95e219eacda.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/0722ef7418573492.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/ff1a16fafef87110.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/b756988b580aabcc.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://fireflix3.pages.dev/_next/static/chunks/b62cf842cec71531.js"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 2,
     "linked_scripts_discovered": 15,
@@ -47,7 +92,9 @@
     "domain-16391d3665ca7477",
     "domain-1a2e36cc692d119d",
     "domain-3dc86e6666d7a5f2",
-    "domain-3a0784cc7e6fc2ed"
+    "domain-3a0784cc7e6fc2ed",
+    "domain-1b16b1df538ba12d",
+    "domain-37bc9cd0c5947119"
   ],
   "endpoint_ids": [
     "endpoint-e4ee33eb5c338799"
@@ -60,7 +107,24 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://fireflix3.pages.dev/"
+      "source_url": "https://fireflix3.pages.dev/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
+    },
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "verification_scope": "signature_present_only"
+    },
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://fireflix3.pages.dev/_next/static/chunks/turbopack-9b29b95e219eacda.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-38be832b2881c53a",
@@ -131,14 +195,185 @@
       "status": "reachable",
       "truncated": false,
       "url": "https://fireflix3.pages.dev/_next/static/chunks/4ab7b103bc1a7111.js"
+    },
+    {
+      "bytes_read": 756,
+      "content_type": "application/json",
+      "final_url": "https://fireflix3.pages.dev/manifest.json",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/json",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:44.546933+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "b8cddc6102b6ec69b8c528cd13b0e9bd72154c63aecf32d4596d37e7f66515fe",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/manifest.json"
+    },
+    {
+      "bytes_read": 223452,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "14aea58ce76262664d1b33c5ab40c7d745f68ed39bcc0e41c768876f3772bebc",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js"
+    },
+    {
+      "bytes_read": 10232,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/turbopack-9b29b95e219eacda.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:48.559808+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "3441113ed3e2ae7ecf5a6d7f867bfef25e8c9771d23b78fe21094f95677040e0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/turbopack-9b29b95e219eacda.js"
+    },
+    {
+      "bytes_read": 66047,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:50.548361+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "788ef1429ce6c40850203b1b254c535d6fd7da2a5d61b5e85fe6c097d8f33e6e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js"
+    },
+    {
+      "bytes_read": 135718,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/0722ef7418573492.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:52.553977+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "2ac7920197195bf89e08732dbcef36b8c59421e54f9428ad688c16f5046ed5ac",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/0722ef7418573492.js"
+    },
+    {
+      "bytes_read": 282,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/ff1a16fafef87110.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:54.567333+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "e9786b1305894e4119bb9811a816dac9cf576755596dd989ee15b455749fc35e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/ff1a16fafef87110.js"
+    },
+    {
+      "bytes_read": 30681,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:56.572808+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "a6248517cd3ee53a8186b51c59e1e764e3dc0c512f4acbd50e818f9884663e21",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js"
+    },
+    {
+      "bytes_read": 14386,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/b756988b580aabcc.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:58.557336+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "ba050a0f29f30a81b7afc6eb54b97f0cff0dd4e74a0c560a212175bbbaf6c261",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/b756988b580aabcc.js"
+    },
+    {
+      "bytes_read": 20682,
+      "content_type": "application/javascript",
+      "final_url": "https://fireflix3.pages.dev/_next/static/chunks/b62cf842cec71531.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:59:00.538417+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "2b06bced801c880f234f6c7fc563604433f1c0fd52ad9f478209f9fcaf1cd3c9",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fireflix3.pages.dev/_next/static/chunks/b62cf842cec71531.js"
     }
   ],
   "observed_at": "2026-09-12T07:29:37.592247+00:00",
   "provider_ids": [
-    "provider-google-analytics",
-    "provider-tmdb",
+    "provider-cloudflare-edge",
     "provider-cloudflare-pages",
-    "provider-cloudflare-edge"
+    "provider-google-analytics",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -147,6 +382,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +392,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/4ab7b103bc1a7111.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +402,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +412,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/turbopack-9b29b95e219eacda.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +422,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +432,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/0722ef7418573492.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +442,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/ff1a16fafef87110.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +452,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +462,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/b756988b580aabcc.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +472,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/b62cf842cec71531.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +482,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/439676e4d769a8e1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +492,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/638255387062dd65.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +502,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/a825a2cb09127dcf.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +512,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/a6dad97d9634a72d.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +522,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/3c272650d82471ba.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +532,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +542,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +552,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +562,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +572,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/media/fabcf92ba1ccea36-s.p.19f28380.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +582,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +592,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/1976f167da56c3c8.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +602,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/05abd0f033240d2a.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +612,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/_next/static/chunks/3c272650d82471ba.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +622,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-W835B3VNL7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +632,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +642,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +652,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +662,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +672,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-W835B3VNL7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +682,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +692,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +702,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +712,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fireflix3.pages.dev/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +722,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +732,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "url-template",
       "url": "https://fireflix3.pages.dev/search?q=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +742,7 @@
       "evidence_url": "https://fireflix3.pages.dev/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:37.592247+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +752,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +762,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +772,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/next-dynamic-api-wrong-context",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +782,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +792,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/dynamic-server-error",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +802,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/ppr-caught-error",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +812,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/blocking-route",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +822,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/next-prerender-dynamic-metadata",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +832,7 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/652cd53c27924d50.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:39.586694+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/next-prerender-dynamic-viewport",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,7 +842,116 @@
       "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/4ab7b103bc1a7111.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:41.709645+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/failed-to-find-server-action",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/6ce13646bc1f68c3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.569006+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://n/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:50.548361+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/12ec03b8da242e48.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:50.548361+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://discord.gg/pszHD6GWTF",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/0722ef7418573492.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:52.553977+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.572808+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.572808+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/next-request-in-use-cache",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://fireflix3.pages.dev/_next/static/chunks/d2be314c3ece3fbe.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:56.572808+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://nextjs.org/docs/messages/sync-dynamic-apis",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],

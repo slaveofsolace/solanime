@@ -1,7 +1,18 @@
 # 4
 
-URL: https://cse.google.com/cse?cx=0199ade0b25835f2e
+Listed URL: https://cse.google.com/cse?cx=0199ade0b25835f2e
 
-Status: blocked
+HTTP observation: blocked; final URL: https://cse.google.com/cse?cx=0199ade0b25835f2e
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:35:50.623642+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: None identified in inspected material.
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

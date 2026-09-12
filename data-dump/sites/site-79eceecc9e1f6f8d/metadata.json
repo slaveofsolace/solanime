@@ -1131,7 +1131,7 @@
     "linked_scripts_discovered": 2,
     "playback_chain_verified": false,
     "repositories_checked": false,
-    "runtime_network_checked": false,
+    "runtime_network_checked": true,
     "script_limit": 2
   },
   "domain_ids": [
@@ -1306,10 +1306,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://icefy.top/assets/index-CbavNkCx.js"
+      "source_url": "https://icefy.top/assets/index-CbavNkCx.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-79eceecc9e1f6f8d",
@@ -1384,13 +1386,13 @@
   ],
   "observed_at": "2026-09-12T07:31:26.479355+00:00",
   "provider_ids": [
+    "provider-cloudflare-challenge",
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-google-fonts",
-    "provider-youtube",
     "provider-tmdb",
-    "provider-cloudflare-challenge",
     "provider-vimeo",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -1399,6 +1401,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/config.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1408,6 +1411,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/index-CbavNkCx.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1417,6 +1421,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1426,6 +1431,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/favicon.ico?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1435,6 +1441,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/manifest-DkBgX0UX.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1444,6 +1451,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/apple-touch-icon.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1453,6 +1461,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/favicon-32x32.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1462,6 +1471,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/favicon-16x16.png?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1471,6 +1481,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/safari-pinned-tab.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1480,6 +1491,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1489,6 +1501,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1498,6 +1511,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1507,6 +1521,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1516,6 +1531,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1525,6 +1541,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1534,6 +1551,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_11__iPhone_XR_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1543,6 +1561,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1552,6 +1571,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1561,6 +1581,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1570,6 +1591,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/12.9__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1579,6 +1601,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1588,6 +1611,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.9__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1597,6 +1621,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.5__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1606,6 +1631,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.2__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1615,6 +1641,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1624,6 +1651,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/8.3__iPad_Mini_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1633,6 +1661,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1642,6 +1671,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1651,6 +1681,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1660,6 +1691,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1669,6 +1701,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1678,6 +1711,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1687,6 +1721,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_11__iPhone_XR_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1696,6 +1731,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1705,6 +1741,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1714,6 +1751,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1723,6 +1761,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/12.9__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1732,6 +1771,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1741,6 +1781,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.9__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1750,6 +1791,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.5__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1759,6 +1801,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/10.2__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1768,6 +1811,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1777,6 +1821,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/splash_screens/8.3__iPad_Mini_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1786,6 +1831,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1795,6 +1841,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1804,6 +1851,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1813,6 +1861,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/auth-Lmk0qDJT.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1822,6 +1871,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/caption-parsing-DmFQyNSi.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1831,6 +1881,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/vendor-C7XKliOI.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1840,6 +1891,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/locales-lrgTPrr1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1849,6 +1901,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/language-db-yKtZsZ71.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1858,6 +1911,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/Icons-DOJX0fv7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1867,6 +1921,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/react-dom-DvnLjdwA.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1876,6 +1931,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/hls-CFAKT3zC.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1885,6 +1941,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/Icons-ybeVSQkp.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1894,6 +1951,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/assets/index-CHr8Wku2.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1903,6 +1961,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ--",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1912,6 +1971,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1921,6 +1981,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1930,6 +1991,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1939,6 +2001,7 @@
       "evidence_url": "https://icefy.top/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:26.479355+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1948,6 +2011,7 @@
       "evidence_url": "https://icefy.top/config.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:27.482140+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://server1.com,https//server2.com",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1957,6 +2021,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Icefy/Icefy-desktop/releases",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1966,6 +2031,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://apis.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1975,6 +2041,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1984,6 +2051,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fluxer.gg/VLEQLVSM",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1993,6 +2061,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Icefy/Icefy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2002,6 +2071,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.github.io/docs/extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2011,6 +2081,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2020,6 +2091,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.tmdb.org/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2029,6 +2101,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2038,6 +2111,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2047,6 +2121,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${l.file_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2056,6 +2131,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w185/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2065,6 +2141,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&oe=UTF-8&sl=auto",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2074,6 +2151,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate-pa.googleapis.com/v1/translateHtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2083,6 +2161,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rentry.co/nnqtas3e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2092,6 +2171,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/feed.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2101,6 +2181,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/movie-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2110,6 +2191,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/tv-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2119,6 +2201,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.filmjabber.com/rss/rss-dvd-reviews.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2128,6 +2211,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://screenrant.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2137,6 +2221,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.darkhorizons.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2146,6 +2231,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2155,6 +2241,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://fed-trailers.pstream.mov/${r===",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2164,6 +2251,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2173,6 +2261,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.rottentomatoes.com/search?search=%24%7BencodeURIComponent%28e.trim%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2182,6 +2271,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://www.rottentomatoes.com${f.url/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2191,6 +2281,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${G.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2200,6 +2291,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${o.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2209,6 +2301,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${c.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2218,6 +2311,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://fed-similar.up.railway.app/tv/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2227,6 +2321,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://fed-similar.up.railway.app/movie/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2236,6 +2331,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${l.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2245,6 +2341,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://img.youtube.com/vi/${d.key",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2254,6 +2351,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/${n===",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2263,6 +2361,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${a",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2272,6 +2371,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube.com/embed/${A",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2281,6 +2381,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.trakt.tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2290,6 +2391,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://postman-echo.com/get",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2299,6 +2401,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2308,6 +2411,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.introdb.app/intro",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2317,6 +2421,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://hls-downloader.pstream.mov/?url=%24%7BencodeURIComponent%28r%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2326,6 +2431,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hls-downloader.pstream.mov/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2335,6 +2441,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v1/submit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2344,6 +2451,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://www.watchparty.me/create?video=%24%7BencodeURIComponent%28a",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2353,6 +2461,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${e.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2362,6 +2471,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2371,6 +2481,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2380,6 +2491,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2389,6 +2501,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342//4BMG9hk9NvSBeQvC82sVmVRK140.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2398,6 +2511,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://alpha-charlott.github.io/video-openh264/Sintel_master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2407,6 +2521,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2416,6 +2531,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${de.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2425,6 +2541,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${p.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2434,6 +2551,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${Ne.backdrop_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2443,6 +2561,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2452,6 +2571,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${A.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2461,6 +2581,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/mcjnJK98Gd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2470,6 +2591,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/jipfr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2479,6 +2601,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://${f/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2488,6 +2611,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fed-api.pstream.mov/quota",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2497,6 +2621,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fed-api.pstream.mov/movie/tt0325980",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2506,6 +2631,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.real-debrid.com/rest/1.0/user",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2515,6 +2641,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2524,6 +2651,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2533,6 +2661,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.github.io/docs/proxy/deploy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2542,6 +2671,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.github.io/docs/backend/deploy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2551,6 +2681,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.vimeo.com/video/1059834885?h=c3ab398d42&badge=0&autopause=0&player_id=0&app_id=58479",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2560,6 +2691,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://febbox.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2569,6 +2701,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://real-debrid.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2578,6 +2711,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://torbox.app/subscription?referral=3f665ece-0405-4012-9db7-c6f90e8567e1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2587,6 +2721,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://theintrodb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2596,6 +2731,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "url-template",
       "url": "https://trakt.tv/oauth/authorize?%24%7Bh.toString%28=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2605,6 +2741,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.com/invite/7z6znYgrTG",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2614,6 +2751,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Icefy/Userscript/main/Icefy.user.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2623,6 +2761,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Icefy/extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2632,6 +2771,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Pasithea0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2641,6 +2781,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://icefy.top/ping.txt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2650,6 +2791,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v1/submit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2659,6 +2801,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2668,6 +2811,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fed-api.pstream.mov/quota",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2677,6 +2821,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2686,6 +2831,7 @@
       "evidence_url": "https://icefy.top/assets/index-CbavNkCx.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:28.495591+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2696,6 +2842,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "document",
       "url": "https://icefy.top/",
       "verification_scope": "browser-request-sent"
@@ -2707,6 +2854,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "browser-request-sent"
@@ -2718,6 +2866,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/config.js",
       "verification_scope": "browser-request-sent"
@@ -2729,6 +2878,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/index-CbavNkCx.js",
       "verification_scope": "browser-request-sent"
@@ -2740,6 +2890,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/auth-Lmk0qDJT.js",
       "verification_scope": "browser-request-sent"
@@ -2751,6 +2902,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/caption-parsing-DmFQyNSi.js",
       "verification_scope": "browser-request-sent"
@@ -2762,6 +2914,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/language-db-yKtZsZ71.js",
       "verification_scope": "browser-request-sent"
@@ -2773,6 +2926,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/vendor-C7XKliOI.js",
       "verification_scope": "browser-request-sent"
@@ -2784,6 +2938,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/locales-lrgTPrr1.js",
       "verification_scope": "browser-request-sent"
@@ -2795,6 +2950,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/react-dom-DvnLjdwA.js",
       "verification_scope": "browser-request-sent"
@@ -2806,6 +2962,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/Icons-DOJX0fv7.js",
       "verification_scope": "browser-request-sent"
@@ -2817,6 +2974,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/hls-CFAKT3zC.js",
       "verification_scope": "browser-request-sent"
@@ -2828,6 +2986,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "robots_disallow_or_unavailable",
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2839,6 +2998,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://icefy.top/assets/index-CHr8Wku2.css",
       "verification_scope": "browser-request-sent"
@@ -2850,6 +3010,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://fonts.googleapis.com/css2?family=Lato%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C700%3B1%2C900&family=PT+Serif%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400%3B1%2C700&display=swap",
       "verification_scope": "browser-request-sent"
@@ -2861,6 +3022,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://icefy.top/assets/Icons-ybeVSQkp.css",
       "verification_scope": "browser-request-sent"
@@ -2872,6 +3034,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVew8.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2883,6 +3046,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHvxk.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2894,6 +3058,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "browser-request-sent"
@@ -2905,6 +3070,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://ipapi.co/json/",
       "verification_scope": "browser-request-sent"
@@ -2916,6 +3082,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2927,6 +3094,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/tv/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2938,6 +3106,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2949,6 +3118,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/329?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2960,6 +3130,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/405774?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2971,6 +3142,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/11527?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2982,6 +3154,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/762?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2993,6 +3166,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/13187?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3004,6 +3178,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/976893?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3015,6 +3190,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/9342?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3026,6 +3202,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/370172?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3037,6 +3214,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/16859?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3048,6 +3226,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/1268?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3059,6 +3238,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/106646?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3070,6 +3250,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/152601?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3081,6 +3262,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/207?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3092,6 +3274,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/120?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3103,6 +3286,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/78?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3114,6 +3298,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/378785?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3125,6 +3310,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/661374?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3136,6 +3322,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/157336?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3147,6 +3334,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/92591?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3158,6 +3346,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/279?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3169,6 +3358,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/tv/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3180,6 +3370,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/71912?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3191,6 +3382,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/110948?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3202,6 +3394,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/456?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3213,6 +3406,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/42009?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3224,6 +3418,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/1434?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3235,6 +3430,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/513?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3246,6 +3442,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/60625?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3257,6 +3454,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/1695?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3268,6 +3466,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/1396?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3279,6 +3478,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/87917?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3290,6 +3490,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://icefy.top/lightbar-images/cat.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3301,6 +3502,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/61222?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3312,6 +3514,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/87108?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3323,6 +3526,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/615?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3334,6 +3538,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "credential_or_opaque_url_redacted",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/82738?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3345,6 +3550,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/1408?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3356,6 +3562,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/125988?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3367,6 +3574,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/110492?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3378,6 +3586,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/44217?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3389,6 +3598,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/93405?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3400,6 +3610,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/261579?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3411,6 +3622,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/popular?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3422,6 +3634,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/tv/on_the_air?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3433,6 +3646,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3444,6 +3658,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/tv/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3455,6 +3670,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3466,6 +3682,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/329?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3477,6 +3694,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/405774?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3488,6 +3706,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/11527?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3499,6 +3718,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/762?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3510,6 +3730,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/13187?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3521,6 +3742,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/976893?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3532,6 +3754,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/9342?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3543,6 +3766,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/370172?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3554,6 +3778,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/16859?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3565,6 +3790,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/1268?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3576,6 +3802,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/106646?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3587,6 +3814,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/152601?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3598,6 +3826,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/207?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3609,6 +3838,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/120?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3620,6 +3850,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/78?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3631,6 +3862,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/378785?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3642,6 +3874,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/661374?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3653,6 +3886,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/157336?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3664,6 +3898,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/92591?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3675,6 +3910,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/279?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3686,6 +3922,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/tv/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3697,6 +3934,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/71912?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3708,6 +3946,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/110948?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3719,6 +3958,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/456?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3730,6 +3970,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/42009?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3741,6 +3982,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/1434?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3752,6 +3994,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "robots_disallow_or_unavailable",
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://te.domineehexer.com/slGj6958PLF/138977",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3763,6 +4006,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/513?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3774,6 +4018,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/60625?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3785,6 +4030,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/1695?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3796,6 +4042,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/1396?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3807,6 +4054,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/87917?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3818,6 +4066,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/61222?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3829,6 +4078,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/87108?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3840,6 +4090,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/615?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3851,6 +4102,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/82738?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3862,6 +4114,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/1408?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3873,6 +4126,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/125988?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3884,6 +4138,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/110492?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3895,6 +4150,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/44217?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3906,6 +4162,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/93405?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3917,6 +4174,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/261579?api_key=%5BREDACTED%5D&language=en-US&append_to_response=videos%2Cimages",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3928,6 +4186,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/popular?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3939,6 +4198,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/tv/on_the_air?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3950,6 +4210,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3961,6 +4222,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/now_playing?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3972,6 +4234,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/Settings-DZkZG9gI.js",
       "verification_scope": "browser-request-sent"
@@ -3983,6 +4246,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -3994,6 +4258,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/now_playing?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4005,6 +4270,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4016,6 +4282,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/top_rated?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4027,6 +4294,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4038,6 +4306,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/movie/top_rated?api_key=%5BREDACTED%5D&language=en-US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4049,6 +4318,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4060,6 +4330,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/discover/movie?api_key=%5BREDACTED%5D&language=en-US&with_watch_providers=8&watch_region=US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4071,6 +4342,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4082,6 +4354,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/discover/movie?api_key=%5BREDACTED%5D&language=en-US&with_watch_providers=8&watch_region=US&page=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4093,6 +4366,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "robots_disallow_or_unavailable",
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://gg.inkblotst.com/rYtEQvNQyjNFDC/131425",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4104,6 +4378,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4115,6 +4390,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": "bounded_request_budget",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.tmdb.org/3/genre/movie/list?api_key=%5BREDACTED%5D&language=en-US",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -4126,6 +4402,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://icefy.top/assets/PlayerView-vhYD7hOC.js",
       "verification_scope": "browser-request-sent"
@@ -4137,15 +4414,16 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:35.772802+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://icefy.top/notifications.xml",
       "verification_scope": "browser-request-sent"
     }
   ],
   "repository_ids": [
-    "repo-c783281af4e97435",
     "repo-705fa709d0c4b0e4",
-    "repo-c62af9f1c6598c4c"
+    "repo-c62af9f1c6598c4c",
+    "repo-c783281af4e97435"
   ],
   "research_status": "infrastructure_partially_mapped",
   "roles": [

@@ -1,7 +1,24 @@
 # Flicker
 
-URL: https://flicker-mini.pages.dev/
+Listed URL: https://flicker-mini.pages.dev/
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://flicker-mini.pages.dev/
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:29:35.740425+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: Cloudflare edge, Cloudflare Pages, TMDB, YouTube
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+| Reference | Evidence type | Source |
+|---|---|---|
+| https://api.themoviedb.org/ | asset-link | https://flicker-mini.pages.dev/ |
+| https://api.themoviedb.org/ | source-literal | https://flicker-mini.pages.dev/ |
+
+Additional references and exact timestamps/hashes are retained in metadata.json.
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

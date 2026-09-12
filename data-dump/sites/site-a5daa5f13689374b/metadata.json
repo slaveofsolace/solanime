@@ -84,10 +84,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js"
+      "source_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-a5daa5f13689374b",
@@ -159,10 +161,10 @@
   ],
   "observed_at": "2026-09-12T07:29:34.123824+00:00",
   "provider_ids": [
+    "provider-firebase",
     "provider-google-ads",
     "provider-google-analytics",
     "provider-google-fonts",
-    "provider-firebase",
     "provider-sentry",
     "provider-youtube"
   ],
@@ -173,6 +175,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +185,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fundingchoicesmessages.google.com/i/pub-3746210130720712?ers=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +195,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://imasdk.googleapis.com/js/sdkloader/ima3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +205,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.nuload.net/filmzie/ad.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +215,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +225,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +235,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/home",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +245,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googleadservices.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +255,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.google-analytics.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +265,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://connect.facebook.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -263,6 +275,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.hotjar.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -272,6 +285,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://script.hotjar.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -281,6 +295,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -290,6 +305,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -299,6 +315,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/assets/styles/app-f90be0b1.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -308,6 +325,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -317,6 +335,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -326,6 +345,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.com/assets/images/common/favicon-a3ea3628.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -335,6 +355,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Roboto%3Awght%40400%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -344,6 +365,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -353,6 +375,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fundingchoicesmessages.google.com/i/pub-3746210130720712?ers=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -362,6 +385,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googleadservices.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -371,6 +395,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.google-analytics.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -380,6 +405,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://connect.facebook.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -389,6 +415,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.hotjar.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -398,6 +425,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://script.hotjar.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -407,6 +435,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -416,6 +445,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -425,6 +455,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://filmzie.com/assets/images/common/filmzie-og-9164a85c.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -434,6 +465,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Roboto%3Awght%40400%3B700&amp%3Bdisplay=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -443,6 +475,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/firebasejs/7.24.0/firebase-performance-standalone.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -452,6 +485,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://treeti-production.firebaseio.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -461,6 +495,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtm.js?id=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -470,6 +505,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.nuload.net/filmzie/ad.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -479,6 +515,7 @@
       "evidence_url": "https://filmzie.com/home",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:34.123824+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.hotjar.com/c/hotjar-",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -488,6 +525,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.example.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -497,6 +535,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -506,6 +545,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -515,6 +555,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -524,6 +565,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -533,6 +575,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -542,6 +585,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.sentry.io/platforms/javascript/best-practices/browser-extensions/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -551,6 +595,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -560,6 +605,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactrouter.com/en/main/routers/picking-a-router.",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -569,6 +615,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactrouter.com/how-to/error-boundary",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -578,6 +625,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactrouter.com/start/framework/route-module",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -587,6 +635,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://remix.run/route/meta",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -596,6 +645,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/ungap/url-search-params.",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -605,6 +655,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/remix-run/react-router/issues/new/choose",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -614,6 +665,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactrouter.com/explanation/sessions-and-cookies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -623,6 +675,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.apache.org/licenses/LICENSE-2.0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -632,6 +685,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://fb.me/use-check-prop-types",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -641,6 +695,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "http://example.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -650,6 +705,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vjs.zencdn.net/vttjs/0.14.1/vtt.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -659,6 +715,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/videojs/video.js/issues/2617",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -668,6 +725,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-09",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -677,6 +735,7 @@
       "evidence_url": "https://filmzie.com/js/vendor-c3f055a2763193bf0888.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:35.880088+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tools.ietf.org/html/draft-pantos-http-live-streaming-23",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -686,6 +745,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/intent/tweet?text=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -695,6 +755,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/sharer/sharer.php?u=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -704,6 +765,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/filmzieofficial/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -713,6 +775,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/filmzieofficial/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -722,6 +785,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/FilmzieOfficial/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -731,6 +795,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/company/filmzie/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -740,6 +805,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/channel/UC8DSkwCo68LFgzV2J4DRyXw",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -749,6 +815,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blog.filmzie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -758,6 +825,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://filmzie.zendesk.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -767,6 +835,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://play.google.com/store/apps/details?id=com.filmzie.platform&hl=en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -776,6 +845,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://itunes.apple.com/app/apple-store/id1494303592",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -785,6 +855,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corp.filmzie.com/how-to-watch/amazon-fire-tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -794,6 +865,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corp.filmzie.com/how-to-watch/lg/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -803,6 +875,7 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corp.filmzie.com/how-to-watch/android-tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -812,14 +885,15 @@
       "evidence_url": "https://filmzie.com/js/home-5562e97f7939b05b23ca.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:36.946803+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corp.filmzie.com/how-to-watch/samsung-smart-tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],
   "repository_ids": [
-    "repo-ae9b3aae8aa8fa4f",
     "repo-31ff6e314f2a5cf3",
-    "repo-48669023b91e83bf"
+    "repo-48669023b91e83bf",
+    "repo-ae9b3aae8aa8fa4f"
   ],
   "research_status": "infrastructure_partially_mapped",
   "roles": [

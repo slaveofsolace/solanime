@@ -84,22 +84,28 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js"
+      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
+      "verification_scope": "signature_present_only"
     },
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "dash.js",
-      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js"
+      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
+      "verification_scope": "signature_present_only"
     },
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js"
+      "source_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-fb605efbb77efe3d",
@@ -147,13 +153,13 @@
   ],
   "observed_at": "2026-09-12T07:32:56.369334+00:00",
   "provider_ids": [
+    "provider-dailymotion",
+    "provider-embed-host-b769126b5ae66231",
     "provider-google-analytics",
     "provider-google-fonts",
-    "provider-youtube",
-    "provider-dailymotion",
     "provider-jsdelivr",
     "provider-vimeo",
-    "provider-embed-host-b769126b5ae66231"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -162,6 +168,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chimpstatic.com/mcjs-connected/js/users/141d486eef7a04ce83876ba1b/43fd6684555e8bd167a108919.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -171,6 +178,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-HECN5V9MDM&l=dataLayer&cx=c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -180,6 +188,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -189,6 +198,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/sites/default/files/favicon_0.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -198,6 +208,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +218,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css?family=Muli%3A500%2C900&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +228,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +238,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/logo192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +248,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +258,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/index.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +268,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/static/css/main.11556c21.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +278,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chimpstatic.com/mcjs-connected/js/users/141d486eef7a04ce83876ba1b/43fd6684555e8bd167a108919.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +288,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-HECN5V9MDM&amp%3Bl=dataLayer&amp%3Bcx=c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +298,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +308,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +318,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "url-template",
       "url": "https://texasarchive.org/search/?fulltext=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +328,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.hotjar.com/c/hotjar-",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +338,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +348,7 @@
       "evidence_url": "https://texasarchive.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.369334+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css?family=Muli%3A500%2C900&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +358,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "embed",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/glifosrichmedia/build?id=%27.concat%28t%2C%27_480x360&embed=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +368,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +378,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.us14.list-manage.com/subscribe?u=141d486eef7a04ce83876ba1b&id=0e8bd4a854",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +388,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/glifosrichmedia/build?id=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +398,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.facebook.com/sharer.php?u=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +408,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://twitter.com/intent/tweet?text=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +418,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.pinterest.com/pin/create/button/?url=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +428,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/shareArticle?mini=true&url=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +438,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://web.whatsapp.com/send?text=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +448,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/texasarchive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +458,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/texasarchive/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +468,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.tiktok.com/@texasarchive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +478,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/texasarchive?lang=en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -450,6 +488,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/user/texasarchive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -459,6 +498,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://giphy.com/texasarchive/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -468,6 +508,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gov.texas.gov/film/page/moving_image_archive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -477,6 +518,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive.org/sites/default/files/images_end/test/TFCLogo_forWeb.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -486,6 +528,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://media.giphy.com/media/39hp8Szpv5cuxqSPR2/giphy.gif",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -495,6 +538,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://texasarchive-flash.streamguys1.com/vod/mp4:2016_05795_480x360/manifest.mpd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -504,6 +548,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://maps.googleapis.com/maps/api/js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -513,6 +558,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bit.ly/3cXEKWf",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -522,6 +568,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://redux.js.org/Errors?code=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -531,6 +578,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://fb.me/use-check-prop-types",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +588,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +598,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +608,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +618,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +628,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +638,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -594,6 +648,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.dmcdn.net/all.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -603,6 +658,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://connect.facebook.net/en_US/sdk.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -612,6 +668,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/hls.js@VERSION/dist/hls.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -621,6 +678,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "url-template",
       "url": "https://videodelivery.net/{id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -630,6 +688,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/dashjs/VERSION/dash.all.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -639,6 +698,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/flv.js@VERSION/dist/flv.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -648,6 +708,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.embed.ly/player-0.1.0.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -657,6 +718,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://widget.mixcloud.com/media/js/widgetApi.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -666,6 +728,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.mixcloud.com/widget/iframe/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -675,6 +738,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://w.soundcloud.com/player/api.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -684,6 +748,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://w.soundcloud.com/player/?url=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -693,6 +758,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://streamable.com/o/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -702,6 +768,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.twitch.tv/js/embed/v1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -711,6 +778,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://play.vidyard.com/embed/v4.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -720,6 +788,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.vimeo.com/api/player.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -729,6 +798,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fast.wistia.com/assets/external/E-v1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -738,6 +808,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/iframe_api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -747,6 +818,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -756,6 +828,7 @@
       "evidence_url": "https://texasarchive.org/static/js/main.3abf18c3.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.386302+00:00",
+      "reference_class": "url-template",
       "url": "https://noembed.com/embed?url=%7Burl",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

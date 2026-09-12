@@ -88,16 +88,20 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js"
+      "source_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
+      "verification_scope": "signature_present_only"
     },
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js"
+      "source_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-70de7f4292b3fd70",
@@ -146,10 +150,10 @@
   ],
   "observed_at": "2026-09-12T07:31:30.595368+00:00",
   "provider_ids": [
-    "provider-youtube",
     "provider-clerk",
     "provider-google-analytics",
-    "provider-vimeo"
+    "provider-vimeo",
+    "provider-youtube"
   ],
   "references": [
     {
@@ -158,6 +162,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dcbbwymp1bhlf.cloudfront.net/?wbbcd=1719373",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -167,6 +172,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://analytics.ahrefs.com/analytics.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -176,6 +182,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -185,6 +192,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/vi/xCLlILvLLdk/hqdefault.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -194,6 +202,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -203,6 +212,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/free-iptv-tools",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -212,6 +222,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/public-iptv-playlist",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -221,6 +232,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-hls-player-faq",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -230,6 +242,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-hls-player-features",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -239,6 +252,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/M3U",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -248,6 +262,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -257,6 +272,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/xtream-codes-to-m3u-converter",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -266,6 +282,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u8-stream-checker",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -275,6 +292,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-playlist-editor-online",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -284,6 +302,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-playlist-creator",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -293,6 +312,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-playlist-merger",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -302,6 +322,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/hls-stream-analyzer",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -311,6 +332,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/free-m3u8-hls-test-streams-urls",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -320,6 +342,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/blog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -329,6 +352,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/m3u-hls-player-playlist-sharing",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -338,6 +362,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/hls-player-free-browser-extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -347,6 +372,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -356,6 +382,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -365,6 +392,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://clerk.iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -374,6 +402,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.clerk.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -383,6 +412,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://accounts.clerk.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -392,6 +422,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -401,6 +432,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -410,6 +442,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -419,6 +452,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -428,6 +462,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/favicon-32x32.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -437,6 +472,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/favicon-16x16.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -446,6 +482,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/blog/feed.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -455,6 +492,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/llms.txt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -464,6 +502,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/vendor-react-DLW-rFSd.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -473,6 +512,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/vendor-firebase-CHGP2uy1.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -482,6 +522,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/vendor-ui-D91qCIQR.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -491,6 +532,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/vendor-clerk-Cb2z-hUW.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -500,6 +542,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/js/vendor-player-BApx1k8d.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -509,6 +552,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/assets/css/index.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -518,6 +562,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -527,6 +572,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://clerk.iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -536,6 +582,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.clerk.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -545,6 +592,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://accounts.clerk.dev/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -554,6 +602,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -563,6 +612,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -572,6 +622,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/blog/feed.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -581,6 +632,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/llms.txt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -590,6 +642,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://analytics.ahrefs.com/analytics.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -599,6 +652,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -608,6 +662,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/images/main-interface.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -617,6 +672,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -626,6 +682,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -635,6 +692,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/vi/xCLlILvLLdk/maxresdefault.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -644,6 +702,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/watch?v=xCLlILvLLdk",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -653,6 +712,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/embed/xCLlILvLLdk",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -662,6 +722,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -671,6 +732,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/FAQPage",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -680,6 +742,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/Question",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -689,6 +752,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/Answer",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -698,6 +762,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/M3U",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -707,6 +772,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/vi/xCLlILvLLdk/hqdefault.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -716,6 +782,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/playlist.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -725,6 +792,7 @@
       "evidence_url": "https://iptvplayer.stream/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:30.595368+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -734,6 +802,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.apache.org/licenses/LICENSE-2.0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -743,6 +812,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://firebaseinstallations.googleapis.com/v1/projects/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -752,6 +822,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -761,6 +832,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://firebase.googleapis.com/v1alpha/projects/-/apps/{app-id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -770,6 +842,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -779,6 +852,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -788,6 +862,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://app.iptvplayer.stream/?url=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -797,6 +872,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://twitter.com/intent/tweet?url=%24%7Bi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -806,6 +882,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://www.facebook.com/sharer/sharer.php?u=%24%7Bi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -815,6 +892,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://t.me/share/url?url=%24%7Bi",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -824,6 +902,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://wa.me/?text=%24%7Bs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -833,6 +912,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -842,6 +922,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://proxy.iptvplayer.stream/fbcc45bd8383c833",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -851,6 +932,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/playlist.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -860,6 +942,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -869,6 +952,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -878,6 +962,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -887,6 +972,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/syntax-tree/hast-util-to-jsx-runtime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -896,6 +982,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -905,6 +992,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -914,6 +1002,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -923,6 +1012,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -932,6 +1022,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/xmlns/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -941,6 +1032,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -950,6 +1042,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/index.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -959,6 +1052,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Free-TV/IPTV/raw/master/playlists/playlist_clean.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -968,6 +1062,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/amer.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -977,6 +1072,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/eur.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -986,6 +1082,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/asia.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -995,6 +1092,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/afr.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1004,6 +1102,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/oce.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1013,6 +1112,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/us.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1022,6 +1122,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/de.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1031,6 +1132,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/fr.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1040,6 +1142,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/uk.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1049,6 +1152,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ca.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1058,6 +1162,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/es.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1067,6 +1172,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/it.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1076,6 +1182,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/br.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1085,6 +1192,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/tr.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1094,6 +1202,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ru.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1103,6 +1212,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/in.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1112,6 +1222,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/id.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1121,6 +1232,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/mx.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1130,6 +1242,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/nl.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1139,6 +1252,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/pl.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1148,6 +1262,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/pt.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1157,6 +1272,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/jp.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1166,6 +1282,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/kr.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1175,6 +1292,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/cn.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1184,6 +1302,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ar.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1193,6 +1312,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/gr.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1202,6 +1322,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/il.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1211,6 +1332,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/sa.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1220,6 +1342,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ae.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1229,6 +1352,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/eg.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1238,6 +1362,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ma.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1247,6 +1372,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/ng.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1256,6 +1382,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries/za.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1265,6 +1392,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/arab.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1274,6 +1402,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/latam.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1283,6 +1412,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/nord.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1292,6 +1422,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/apac.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1301,6 +1432,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/mena.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1310,6 +1442,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/mideast.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1319,6 +1452,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/eu.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1328,6 +1462,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/noram.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1337,6 +1472,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/southam.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1346,6 +1482,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/sea.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1355,6 +1492,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/sas.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1364,6 +1502,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/eas.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1373,6 +1512,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/carib.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1382,6 +1522,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/cenamer.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1391,6 +1532,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/balkan.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1400,6 +1542,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/benelux.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1409,6 +1552,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/maghreb.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1418,6 +1562,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/gcc.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1427,6 +1572,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/hispam.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1436,6 +1582,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/regions/cis.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1445,6 +1592,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/animation.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1454,6 +1602,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/auto.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1463,6 +1612,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/business.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1472,6 +1622,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/classic.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1481,6 +1632,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/comedy.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1490,6 +1642,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/cooking.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1499,6 +1652,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/culture.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1508,6 +1662,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/documentary.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1517,6 +1672,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/education.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1526,6 +1682,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/entertainment.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1535,6 +1692,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/family.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1544,6 +1702,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/general.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1553,6 +1712,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/kids.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1562,6 +1722,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/legislative.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1571,6 +1732,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/lifestyle.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1580,6 +1742,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/movies.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1589,6 +1752,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/music.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1598,6 +1762,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/news.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1607,6 +1772,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/outdoor.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1616,6 +1782,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/public.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1625,6 +1792,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/relax.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1634,6 +1802,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/religious.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1643,6 +1812,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/science.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1652,6 +1822,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/series.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1661,6 +1832,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/shop.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1670,6 +1842,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1679,6 +1852,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/travel.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1688,6 +1862,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/weather.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1697,6 +1872,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/categories/undefined.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1706,6 +1882,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://iptv-org.github.io/iptv/languages/${e.code",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1715,6 +1892,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1724,6 +1902,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_albania.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1733,6 +1912,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_andorra.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1742,6 +1922,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_argentina.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1751,6 +1932,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_armenia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1760,6 +1942,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_australia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1769,6 +1952,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_austria.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1778,6 +1962,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_azerbaijan.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1787,6 +1972,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_belarus.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1796,6 +1982,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_belgium.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1805,6 +1992,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_bosnia_and_herzegovina.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1814,6 +2002,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_brazil.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1823,6 +2012,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_bulgaria.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1832,6 +2022,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_canada.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1841,6 +2032,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_chad.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1850,6 +2042,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_chile.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1859,6 +2052,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_china.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1868,6 +2062,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_costa_rica.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1877,6 +2072,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_croatia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1886,6 +2082,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_cyprus.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1895,6 +2092,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_czech_republic.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1904,6 +2102,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_denmark.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1913,6 +2112,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_dominican_republic.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1922,6 +2122,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_egypt.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1931,6 +2132,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_estonia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1940,6 +2142,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_faroe_islands.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1949,6 +2152,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_finland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1958,6 +2162,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_france.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1967,6 +2172,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_georgia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1976,6 +2182,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_germany.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1985,6 +2192,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_greece.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1994,6 +2202,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_greenland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2003,6 +2212,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_hong_kong.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2012,6 +2222,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_hongkong.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2021,6 +2232,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_hungary.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2030,6 +2242,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_iceland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2039,6 +2252,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_india.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2048,6 +2262,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_indonesia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2057,6 +2272,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_iran.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2066,6 +2282,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_iraq.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2075,6 +2292,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_ireland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2084,6 +2302,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_israel.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2093,6 +2312,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_italy.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2102,6 +2322,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_japan.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2111,6 +2332,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_korea.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2120,6 +2342,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_kosovo.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2129,6 +2352,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_latvia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2138,6 +2362,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_lithuania.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2147,6 +2372,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_luxembourg.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2156,6 +2382,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_macau.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2165,6 +2392,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_malta.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2174,6 +2402,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_mexico.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2183,6 +2412,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_moldova.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2192,6 +2422,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_monaco.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2201,6 +2432,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_montenegro.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2210,6 +2442,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_netherlands.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2219,6 +2452,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_north_korea.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2228,6 +2462,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_north_macedonia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2237,6 +2472,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_norway.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2246,6 +2482,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_paraguay.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2255,6 +2492,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_peru.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2264,6 +2502,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_poland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2273,6 +2512,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_portugal.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2282,6 +2522,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_qatar.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2291,6 +2532,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_romania.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2300,6 +2542,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_russia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2309,6 +2552,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_san_marino.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2318,6 +2562,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_saudi_arabia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2327,6 +2572,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_serbia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2336,6 +2582,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_slovakia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2345,6 +2592,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_slovenia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2354,6 +2602,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_somalia.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2363,6 +2612,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_spain.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2372,6 +2622,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_spain_vod.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2381,6 +2632,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_sweden.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2390,6 +2642,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_switzerland.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2399,6 +2652,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_taiwan.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2408,6 +2662,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_trinidad.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2417,6 +2672,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_turkey.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2426,6 +2682,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_uk.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2435,6 +2692,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_ukraine.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2444,6 +2702,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_united_arab_emirates.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2453,6 +2712,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_usa.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2462,6 +2722,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_usa_vod.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2471,6 +2732,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_venezuela.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2480,6 +2742,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_documentaries_ar.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2489,6 +2752,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_documentaries_en.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2498,6 +2762,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_movies.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2507,6 +2772,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_news_ar.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2516,6 +2782,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_news_en.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2525,6 +2792,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_news_es.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2534,6 +2802,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_zz_vod_it.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2543,6 +2812,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/iptv-org/iptv/blob/master/index.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2552,6 +2822,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Free-TV/IPTV/blob/master/index.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2561,6 +2832,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/iptv-org/iptv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2570,6 +2842,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Free-TV/IPTV",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2579,6 +2852,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/images/main-interface.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2588,6 +2862,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chromewebstore.google.com/detail/hls-player-m3u8-streaming/lljjhhjbbppcbfbhmflgjhloagchmijo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2597,6 +2872,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://i.ytimg.com/vi/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2606,6 +2882,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube-nocookie.com/embed/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2615,6 +2892,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/hls-player-free-browser-extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2624,6 +2902,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.ytimg.com/vi/xCLlILvLLdk/maxresdefault.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2633,6 +2912,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/watch?v=xCLlILvLLdk",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2642,6 +2922,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/embed/xCLlILvLLdk",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2651,6 +2932,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chromewebstore.google.com/detail/iptv-player-player-for-hl/lljjhhjbbppcbfbhmflgjhloagchmijo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2660,6 +2942,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://microsoftedge.microsoft.com/addons/detail/iptv-player-play-hls-m/hpjofgdodgbgelploffffpacpdpbnljg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2669,6 +2952,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2678,6 +2962,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2687,6 +2972,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_adv_example_hevc/master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2696,6 +2982,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2705,6 +2992,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://moctobpltc-i.akamaihd.net/hls/live/571329/eight/playlist.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2714,6 +3002,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dolbyreference.blob.core.windows.net/public/AtmosDemoClips/dolby-atmos-and-vision-multichannel-audio.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2723,6 +3012,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dolbyreference.blob.core.windows.net/public/AtmosDemoClips/dolby-vision-and-atmos-multichannel-audio-multilanguage.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2732,6 +3022,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://amssamples.streaming.mediaservices.windows.net/3b970ae0-39d5-44bd-b3a3-3136143d6435/AzureMediaServicesPromo.ism/manifest(format=m3u8-aapl-v4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2741,6 +3032,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://amssamples.streaming.mediaservices.windows.net/11196e3d-2f40-4835-9a4d-fc52751b0323/TearsOfSteel.ism/manifest(format=m3u8-aapl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2750,6 +3042,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://amssamples.streaming.mediaservices.windows.net/3b970ae0-39d5-44bd-b3a3-3136143d6435/AzurePromo.ism/manifest(format=m3u8-aapl",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2759,6 +3052,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2768,6 +3062,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2777,6 +3072,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2786,6 +3082,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2795,6 +3092,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2804,6 +3102,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jwplayer.com/manifests/pZxWPRg4.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2813,6 +3112,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2822,6 +3122,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://customer-f33zs165nr7gyfy4.cloudflarestream.com/2ba59c34f2e3a5aa8c9523e7e59a02cd/manifest/video.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2831,6 +3132,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.vimeo.com/external/352879359.m3u8?s=c2e0eda7f6c75fa6a6e3fae0cb013b22f3c8799e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2840,6 +3142,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rmp-streaming.s3.amazonaws.com/media-files/big-buck-bunny.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2849,6 +3152,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2858,6 +3162,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/free-m3u8-hls-test-streams-urls",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2867,6 +3172,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/images/m3u8-test-urls-header.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2876,6 +3182,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/Question",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2885,6 +3192,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/Answer",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2894,6 +3202,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://x.com/iptvPlayrStream",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2903,6 +3212,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://t.me/IPTVPlayerStream",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2912,6 +3222,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2921,6 +3232,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2930,6 +3242,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m3uplayer.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2939,6 +3252,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2948,6 +3262,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/FAQPage",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2957,6 +3272,7 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/M3U",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2966,13 +3282,14 @@
       "evidence_url": "https://iptvplayer.stream/assets/js/index-D2rq2f_1.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:31:32.220207+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptvplayer.stream/content/blog/index.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],
   "repository_ids": [
-    "repo-4ad236a0c441fb79",
     "repo-214b56d1f5039dab",
+    "repo-4ad236a0c441fb79",
     "repo-7cee059b5393d0da"
   ],
   "research_status": "infrastructure_partially_mapped",

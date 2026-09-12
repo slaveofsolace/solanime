@@ -1,7 +1,18 @@
 # ScriptSlug
 
-URL: https://www.scriptslug.com/
+Listed URL: https://www.scriptslug.com/
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://www.scriptslug.com/
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:42:17.827739+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: Cloudflare edge, Cloudflare Insights, Google Analytics/Tag Manager, Google Fonts, Sentry, TMDB, YouTube
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

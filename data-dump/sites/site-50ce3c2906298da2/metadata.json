@@ -48,10 +48,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://kool.ws/assets/index-Bn_iz2lX.js"
+      "source_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-50ce3c2906298da2",
@@ -110,6 +112,7 @@
       "evidence_url": "https://kool.ws/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -119,6 +122,7 @@
       "evidence_url": "https://kool.ws/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://kool.ws/assets/favicon-DFLhnyu-.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -128,6 +132,7 @@
       "evidence_url": "https://kool.ws/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://kool.ws/assets/index-in684hpW.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -137,6 +142,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${t}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -146,6 +152,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${n}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -155,6 +162,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${e.logo}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -164,6 +172,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${i}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -173,6 +182,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${e.icon}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +192,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${yt(n,300)}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +202,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${e}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +212,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${e.url}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +222,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
       "url": "https://kool.ws/assets/${e.url||e.src}",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +232,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +242,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +252,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +262,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aomedia.org/emsg/ID3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +272,7 @@
       "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/ns/ttml",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

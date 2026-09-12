@@ -91,7 +91,8 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://zerostream.alwaysdata.net/"
+      "source_url": "https://zerostream.alwaysdata.net/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-de0a50b7a247b053",
@@ -123,12 +124,12 @@
   ],
   "observed_at": "2026-09-12T07:35:19.964381+00:00",
   "provider_ids": [
-    "provider-jsdelivr",
     "provider-google-fonts",
-    "provider-tmdb",
     "provider-jikan",
+    "provider-jsdelivr",
     "provider-kitsu",
-    "provider-supabase"
+    "provider-supabase",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -137,6 +138,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/hls.js@latest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -146,6 +148,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -155,6 +158,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -164,6 +168,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Audiowide&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -173,6 +178,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +188,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +198,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Audiowide&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +208,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/hls.js@latest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +218,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +228,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://c.wallhere.com/photos/0f/27/landscape_anime_digital_art_fantasy_art_night_stars_sunset-52613.png!d",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +238,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.allorigins.win/raw?url=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +248,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +258,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://api.allorigins.win/raw?url=%24%7Benc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +268,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://animeschedule.net/api/v3/anime?anilist-ids=%24%7Bid",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -263,6 +278,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://api.jikan.moe/v4/anime/${a.idMal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -272,6 +288,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://kitsu.io/api/edge/mappings?filter%5BexternalSite=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -281,6 +298,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://kitsu.io/api/edge/episodes?filter%5BmediaId=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -290,6 +308,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://cdn.4animo.xyz/api/embed/hd-1/ani/${anilistId",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -299,6 +318,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://cdn.4animo.xyz/api/embed/hd-2/ani/${anilistId",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -308,6 +328,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://tryembed.us.cc/embed/anime/${anilistId",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -317,6 +338,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://animeschedule.net/api/v3/anime?%24%7Bparams=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -326,6 +348,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w780${data.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -335,6 +358,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${data.backdrop_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -344,6 +368,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${e.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -353,6 +378,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ygcqturagjspycwfxfwv.supabase.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -362,6 +388,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvpass.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -371,6 +398,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://phcorner-streams.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -380,6 +408,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://api.themoviedb.org/3/tv/${currentID",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -389,6 +418,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://animeschedule.net/api/v3/anime?anilist-ids=%24%7Bids",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -398,6 +428,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://megaplay.buzz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -407,6 +438,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://animeplay.cfd/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -416,6 +448,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gist.githubusercontent.com/AbsoluteXYZero/699e65fe9fadaa684a54301fe53cb55a/raw/playlist.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -425,6 +458,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://anym3u8player.com/tv/p.php?url=%24%7BencodeURIComponent%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -434,6 +468,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cors.globetv.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -443,6 +478,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://anym3u8player.com/tv/player.php?url=%24%7BencodeURIComponent%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -452,6 +488,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://cors.globetv.app/${url",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -461,6 +498,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://anym3u8player.com/tv/p.php?url=%24%7BencodeURIComponent%28url",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -470,6 +508,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://anym3u8player.com/tv/player.php?url=%24%7BencodeURIComponent%28url",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -479,6 +518,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://sportsembed.su.getsugatensho.sbs/slingtv?channel=%24%7Bm%5B1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -488,6 +528,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://sportsembed.su.getsugatensho.sbs/?p=%24%7Bp%5B1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -497,6 +538,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "url-template",
       "url": "https://animeschedule.net/api/v3/anime?anilist-ids=%24%7Bx.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -506,6 +548,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zerostream.alwaysdata.net/api/anilist",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -515,6 +558,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tvpass.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -524,6 +568,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://phcorner-streams.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -533,6 +578,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zerostream.alwaysdata.net/api/source-status",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -542,6 +588,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zerostream.alwaysdata.net/api/stream-token",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -551,6 +598,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zerostream.alwaysdata.net/api/channels",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -560,6 +608,7 @@
       "evidence_url": "https://zerostream.alwaysdata.net/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:35:19.964381+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zerostream.alwaysdata.net/api/source-names",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

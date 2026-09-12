@@ -51,10 +51,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://vuflix.co/assets/js/bot-shield.js?v=20260830-sg1"
+      "source_url": "https://vuflix.co/assets/js/bot-shield.js?v=20260830-sg1",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-c7b8df71988b7712",
@@ -124,12 +126,12 @@
   "observed_at": "2026-09-12T07:33:19.934572+00:00",
   "provider_ids": [
     "provider-cloudflare-challenge",
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-tmdb",
-    "provider-jsdelivr",
-    "provider-google-fonts",
     "provider-google-analytics",
-    "provider-cloudflare-edge"
+    "provider-google-fonts",
+    "provider-jsdelivr",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -138,6 +140,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +150,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +160,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/bot-shield.js?v=20260830-sg1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +170,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/lazysizes.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +180,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/ls.bgset.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +190,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/bootstrap.bundle.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +200,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/tooltipster.bundle.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +210,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/swiper.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +220,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/continue-party.js?v=20260816-party-theme2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +230,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/inbox.js?v=20260814-inbox6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +240,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/home-personalize.js?v=20260816-rail-sync1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +250,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/person-popup.js?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +260,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/card-hover-preview.js?v=20260823-ghost1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +270,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/card-poster-lifecycle.js?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +280,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/hero-quality.js?v=20260826-heroq1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +290,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/app.docksearch-1240.js?v=20260830-smooth1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +300,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +310,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/img/logo-vuflix.webp?v=20260803-vuflix1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +320,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +330,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/pRHIM8liJBYy1Z4wNgAizqCOuOU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +340,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/AbFVWXxZ76enpA1GHCq13CN8xGu.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +350,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/kK7hIYNupIRjP6cYKN2P2gzYHLU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +360,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/2y6qVk9YIPxTzO43anxUQ9iTuh4.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +370,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/r3Njjs8PeIH5MlUKxBPRRJemWJz.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +380,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/home",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +390,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +400,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/users",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +410,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/sources",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +420,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/inbox",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +430,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/proxy-guard",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +440,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +450,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +460,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv-series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +470,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/top-imdb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +480,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/favorites",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +490,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/filters",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +500,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/moana/1108427",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +510,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/drawn-together/1440098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +520,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/practical-magic-2/1302904",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +530,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/obsession/1339713",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +540,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/call-my-agent-the-movie/1365884",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +550,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/one-night-only/1433367",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +560,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-runner/1386315",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +570,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/mayday/1137844",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +580,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/spider-man-brand-new-day/969681",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +590,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-odyssey/1368337",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +600,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/resident-evil/1423191",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +610,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/silo/125988",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +620,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lanterns/95350",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +630,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reacher/108978",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +640,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-gentlemen/236235",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +650,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/made-in-korea/246473",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +660,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-grand-tour/329471",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +670,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/last-seen/258230",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +680,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/fauda/69557",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +690,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/bleach/30984",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +700,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/one-piece/37854",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +710,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reacher/108978?s=4&e=7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +720,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lioness/113962?s=3&e=6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -669,6 +730,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/watch-what-happens-live-with-andy-cohen/22980?s=23&e=141",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -678,6 +740,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ted-lasso/97546?s=4&e=6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -687,6 +750,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tomorrow-is-ours/72879?s=3&e=10",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -696,6 +760,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lanterns/95350?s=1&e=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -705,6 +770,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/gute-zeiten-schlechte-zeiten/13945?s=35&e=177",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -714,6 +780,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-tonight-show-starring-jimmy-fallon/59941?s=13&e=151",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -723,6 +790,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/kamen-rider/2661?s=37&e=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -732,6 +800,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/binnelanders/206559?s=22&e=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -741,6 +810,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/coronation-street/291?s=67&e=169",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -750,6 +820,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/gran-hermano/37528?s=13&e=170",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -759,6 +830,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/coyote-vs-acme/1204680",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -768,6 +840,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/mutiny/1288445",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -777,6 +850,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/colony/1375646",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -786,6 +860,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/ghost-in-the-cell/1393326",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -795,6 +870,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/toy-story-5/1084244",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -804,6 +880,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-last-sunrise/1516698",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -813,6 +890,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reborn/45857",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -822,6 +900,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-mentalist/5920",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -831,6 +910,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lioness/113962",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -840,6 +920,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tagesschau/94722",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -849,6 +930,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ted-lasso/97546",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -858,6 +940,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/law-order-special-victims-unit/2734",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -867,6 +950,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-rookie/79744",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -876,6 +960,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tomorrow-is-ours/72879",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -885,6 +970,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/clash-of-the-thundermans/1506560",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -894,6 +980,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/lego-star-wars-the-mandalorian/1731694",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -903,6 +990,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/fall-2-deadpoint/1101412",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -912,6 +1000,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-secret-woman/1631807",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -921,6 +1010,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/just-play-dead/1480574",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -930,6 +1020,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/barreda/1471168",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -939,6 +1030,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/buddy/1514026",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -948,6 +1040,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-whisper-man/860508",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -957,6 +1050,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/you-maniac/306630",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -966,6 +1060,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/mousetrap/290193",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -975,6 +1070,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/death-of-the-pastor-s-wife/331616",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -984,6 +1080,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/my-name-is-gutierrez/275224",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -993,6 +1090,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/blood-sacrifice/303351",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1002,6 +1100,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/moria/322428",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1011,6 +1110,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/my-brilliant-career/309798",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1020,6 +1120,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/mourinho/329274",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1029,6 +1130,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ricky-gervais-alley-cats/300480",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1038,6 +1140,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/our-sticky-love/291496",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1047,6 +1150,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-shards/298168",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1056,6 +1160,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/go-team/1558568",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1065,6 +1170,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1074,6 +1180,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/live",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1083,6 +1190,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/games",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1092,6 +1200,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1101,6 +1210,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/img/logo-vuflix.webp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1110,6 +1220,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1119,6 +1230,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1128,6 +1240,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit%3Awght%40400%3B500%3B600%3B700%3B800&family=Poppins%3Awght%40400%3B500%3B600%3B700&family=Syne%3Awght%40600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1137,6 +1250,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/style.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1146,6 +1260,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/views.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1155,6 +1270,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/continue-watching.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1164,6 +1280,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/site-notice.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1173,6 +1290,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1182,6 +1300,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/tooltipster.bundle.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1191,6 +1310,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/swiper.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1200,6 +1320,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/episode-carousel.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1209,6 +1330,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/app-docksearch-1248.css?v=20260821-sidebar-read1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1218,6 +1340,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/soft-nav-transitions.css?v=20260830-smooth1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1227,6 +1350,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/card-hover-preview.css?v=20260813-touch-expand2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1236,6 +1360,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/perf-mode.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1245,6 +1370,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/card-poster-lifecycle.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1254,6 +1380,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/continue-party.css?v=20260816-party-theme2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1263,6 +1390,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/home-personalize.css?v=20260816-rail-sync1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1272,6 +1400,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/inbox.css?v=20260814-inbox6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1281,6 +1410,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/person-popup.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1290,6 +1420,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "form-action-not-requested",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1299,6 +1430,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1308,6 +1440,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1317,6 +1450,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/img/logo-vuflix.webp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1326,6 +1460,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1335,6 +1470,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1344,6 +1480,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit%3Awght%40400%3B500%3B600%3B700%3B800&family=Poppins%3Awght%40400%3B500%3B600%3B700&family=Syne%3Awght%40600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1353,6 +1490,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/style.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1362,6 +1500,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/views.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1371,6 +1510,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/continue-watching.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1380,6 +1520,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/site-notice.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1389,6 +1530,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1398,6 +1540,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/tooltipster.bundle.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1407,6 +1550,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/swiper.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1416,6 +1560,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/episode-carousel.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1425,6 +1570,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/app-docksearch-1248.css?v=20260821-sidebar-read1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1434,6 +1580,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/soft-nav-transitions.css?v=20260830-smooth1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1443,6 +1590,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/card-hover-preview.css?v=20260813-touch-expand2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1452,6 +1600,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/perf-mode.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1461,6 +1610,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/card-poster-lifecycle.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1470,6 +1620,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/jquery.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1479,6 +1630,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1488,6 +1640,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1497,6 +1650,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/api/party",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1506,6 +1660,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1515,6 +1670,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "url-template",
       "url": "https://vuflix.co/search?keyword=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1524,6 +1680,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/data/i18n-packs.json?v=1228",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1533,6 +1690,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/bot-shield.js?v=20260830-sg1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1542,6 +1700,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/home",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1551,6 +1710,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/img/logo-vuflix.webp?v=20260803-vuflix1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1560,6 +1720,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1569,6 +1730,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/users",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1578,6 +1740,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/sources",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1587,6 +1750,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/inbox",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1596,6 +1760,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/admin/proxy-guard",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1605,6 +1770,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1614,6 +1780,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv-series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1623,6 +1790,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/top-imdb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1632,6 +1800,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/favorites",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1641,6 +1810,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1650,6 +1820,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/filters",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1659,6 +1830,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1920/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1668,6 +1840,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1677,6 +1850,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/pRHIM8liJBYy1Z4wNgAizqCOuOU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1686,6 +1860,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/moana/1108427",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1695,6 +1870,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1920/i65y7cMae36K0giN0GRaMjAHUru.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1704,6 +1880,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/i65y7cMae36K0giN0GRaMjAHUru.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1713,6 +1890,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/AbFVWXxZ76enpA1GHCq13CN8xGu.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1722,6 +1900,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/drawn-together/1440098",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1731,6 +1910,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1920/nUcauJ000dFBYkgGpxyxJ5aWEH2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1740,6 +1920,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/nUcauJ000dFBYkgGpxyxJ5aWEH2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1749,6 +1930,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/kK7hIYNupIRjP6cYKN2P2gzYHLU.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1758,6 +1940,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/practical-magic-2/1302904",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1767,6 +1950,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1920/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1776,6 +1960,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1785,6 +1970,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/2y6qVk9YIPxTzO43anxUQ9iTuh4.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1794,6 +1980,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/obsession/1339713",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1803,6 +1990,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1920/4v8XgcmtUFVXUzGb7noltdjg2Ou.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1812,6 +2000,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w1280/4v8XgcmtUFVXUzGb7noltdjg2Ou.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1821,6 +2010,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/r3Njjs8PeIH5MlUKxBPRRJemWJz.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1830,6 +2020,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/call-my-agent-the-movie/1365884",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1839,6 +2030,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1848,6 +2040,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1857,6 +2050,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/one-night-only/1433367",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1866,6 +2060,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1875,6 +2070,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-runner/1386315",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1884,6 +2080,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1893,6 +2090,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1902,6 +2100,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1911,6 +2110,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/mayday/1137844",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1920,6 +2120,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1929,6 +2130,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/spider-man-brand-new-day/969681",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1938,6 +2140,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1947,6 +2150,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1956,6 +2160,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-odyssey/1368337",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1965,6 +2170,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1974,6 +2180,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/resident-evil/1423191",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1983,6 +2190,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1992,6 +2200,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/silo/125988",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2001,6 +2210,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2010,6 +2220,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lanterns/95350",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2019,6 +2230,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2028,6 +2240,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reacher/108978",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2037,6 +2250,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2046,6 +2260,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-gentlemen/236235",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2055,6 +2270,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2l0gBLpjcWo4ivmbHUhFIw3KGDn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2064,6 +2280,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/made-in-korea/246473",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2073,6 +2290,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2082,6 +2300,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-grand-tour/329471",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2091,6 +2310,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2100,6 +2320,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/last-seen/258230",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2109,6 +2330,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2118,6 +2340,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/fauda/69557",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2127,6 +2350,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2136,6 +2360,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/bleach/30984",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2145,6 +2370,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2154,6 +2380,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/one-piece/37854",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2163,6 +2390,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2172,6 +2400,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reacher/108978?s=4&amp%3Be=7",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2181,6 +2410,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/szPCuR79q4iapjkZi7bWVJUMtRt.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2190,6 +2420,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lioness/113962?s=3&amp%3Be=6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2199,6 +2430,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/7pxgTkuQcZBB90zcak2XPvjgMUv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2208,6 +2440,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/watch-what-happens-live-with-andy-cohen/22980?s=23&amp%3Be=141",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2217,6 +2450,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2226,6 +2460,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ted-lasso/97546?s=4&amp%3Be=6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2235,6 +2470,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/jlPiWkgBJfeKRc7Nrv8qDrjfKyS.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2244,6 +2480,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tomorrow-is-ours/72879?s=3&amp%3Be=10",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2253,6 +2490,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/u3ADX10opteAVZPhfki7sXjeu6x.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2262,6 +2500,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lanterns/95350?s=1&amp%3Be=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2271,6 +2510,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/i6Wz0LHsnqke3Bw0ZKmVjFfd1du.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2280,6 +2520,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/gute-zeiten-schlechte-zeiten/13945?s=35&amp%3Be=177",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2289,6 +2530,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2298,6 +2540,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-tonight-show-starring-jimmy-fallon/59941?s=13&amp%3Be=151",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2307,6 +2550,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/7VO04TtL1jIT6XOPs9u4jdB8KaB.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2316,6 +2560,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/kamen-rider/2661?s=37&amp%3Be=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2325,6 +2570,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/3CdSsBtTAwAICDgdlhXJggQ4rn4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2334,6 +2580,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/binnelanders/206559?s=22&amp%3Be=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2343,6 +2590,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2352,6 +2600,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/coronation-street/291?s=67&amp%3Be=169",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2361,6 +2610,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/5APjn4LnV5wWk5DXq7ZewT6zzP1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2370,6 +2620,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/gran-hermano/37528?s=13&amp%3Be=170",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2379,6 +2630,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/1E8PabwfDIaxREyfe9fxfINqauu.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2388,6 +2640,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/qeQJx07rK2xm8SD2sJxFKhE7gs0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2397,6 +2650,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/coyote-vs-acme/1204680",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2406,6 +2660,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/l9mFW9HQnAZ4r1ChZJHoOT3jaal.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2415,6 +2670,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2424,6 +2680,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/mutiny/1288445",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2433,6 +2690,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/e2QAGrEmbpmZpMymDRkDisJkvg9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2442,6 +2700,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/colony/1375646",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2451,6 +2710,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/hpBGCnzOvdtQoMyE48gvwp2y5yx.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2460,6 +2720,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2469,6 +2730,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/4gyx49ibwQslyrwuUS1c58PJEEd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2478,6 +2740,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/jzBWExXacS33rMQ2zLBrqIVweyG.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2487,6 +2750,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/ghost-in-the-cell/1393326",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2496,6 +2760,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/tK3QdOOrX4qEkmSlvrmc8cK7iOU.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2505,6 +2770,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2514,6 +2780,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/toy-story-5/1084244",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2523,6 +2790,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/qjTqY5coNiz6sVtPng40IzltsoN.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2532,6 +2800,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-last-sunrise/1516698",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2541,6 +2810,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/zFCWfU2ViMIm38G1W8UsnSpqmWn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2550,6 +2820,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/pF0qkRsrHkdYadPWY9AMeFZfcwk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2559,6 +2830,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/reborn/45857",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2568,6 +2840,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/3wztM15Bq7TX3Kc8IzApqsOQQjK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2577,6 +2850,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-mentalist/5920",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2586,6 +2860,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/rJFqKcmMSttdNP58l0dVzY2NcTA.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2595,6 +2870,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/lioness/113962",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2604,6 +2880,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/4NBYDOnEjAzyuP7CMkD5s7fs44K.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2613,6 +2890,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2622,6 +2900,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tagesschau/94722",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2631,6 +2910,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/jWXrQstj7p3Wl5MfYWY6IHqRpDb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2640,6 +2920,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ted-lasso/97546",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2649,6 +2930,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/nE94ejEbzNCU48bW1oju0dqBONz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2658,6 +2940,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/law-order-special-victims-unit/2734",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2667,6 +2950,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2676,6 +2960,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-rookie/79744",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2685,6 +2970,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2694,6 +2980,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/tomorrow-is-ours/72879",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2703,6 +2990,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/g4qh9J4Z7d1kSTJN4ZorQr5JinH.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2712,6 +3000,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/yG1wltFmkX5c5ocACKfpX0tp3SY.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2721,6 +3010,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/6gqezQJ2mkm4jreWwLyOZy2Vf6i.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2730,6 +3020,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/clash-of-the-thundermans/1506560",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2739,6 +3030,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2748,6 +3040,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/lego-star-wars-the-mandalorian/1731694",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2757,6 +3050,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/x3HEvYXWOW6WHqsHmg2MUVy3SLm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2766,6 +3060,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/fall-2-deadpoint/1101412",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2775,6 +3070,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2784,6 +3080,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-secret-woman/1631807",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2793,6 +3090,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/5FC5vUHFz0fbJOd0bhyzJpCSLrc.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2802,6 +3100,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/just-play-dead/1480574",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2811,6 +3110,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/glALx6QaIgw1u4joXsnfHTjWi6D.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2820,6 +3120,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/barreda/1471168",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2829,6 +3130,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/hnr0QkZSDLlrJTvU2ecco65wcHo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2838,6 +3140,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/buddy/1514026",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2847,6 +3150,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6Lh4ZlsAISFQFVfLZ90sE9ycVnN.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2856,6 +3160,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/the-whisper-man/860508",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2865,6 +3170,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/6UqflU8Qqkz7Dq4swJPqs0ZJjY4.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2874,6 +3180,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/you-maniac/306630",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2883,6 +3190,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/gTvfipRjEdRzbn09CbI7XRj6cmg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2892,6 +3200,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/mousetrap/290193",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2901,6 +3210,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/2mwgHfOyrFrmvozjFoEXHRdfGhv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2910,6 +3220,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/death-of-the-pastor-s-wife/331616",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2919,6 +3230,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/o8H6HmQNt2qx5bIfmvuI6VJn13A.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2928,6 +3240,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/my-name-is-gutierrez/275224",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2937,6 +3250,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/7zT7FbS0mwJdjKoPPX7xOhySlNN.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2946,6 +3260,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/blood-sacrifice/303351",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2955,6 +3270,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/8iFUWLKBAWDrJ9rOunscgIDrGQ1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2964,6 +3280,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/moria/322428",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2973,6 +3290,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/96vBblVKQfYn24zh1kaC27sPs2H.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2982,6 +3300,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/my-brilliant-career/309798",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2991,6 +3310,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/fhpa8B6USatHybK04XBbPAB6Mlz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3000,6 +3320,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/mourinho/329274",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3009,6 +3330,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/uUgrxU3Gjl7HeaAlYa4glHWFbO5.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3018,6 +3340,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/ricky-gervais-alley-cats/300480",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3027,6 +3350,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/jhee1jS4AGZ7C5mZoN2czLt4BKk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3036,6 +3360,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/our-sticky-love/291496",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3045,6 +3370,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/tSZ4aFpTGc8Oj52SuzPUUZ7WKL0.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3054,6 +3380,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/tv/the-shards/298168",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3063,6 +3390,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w342/wP0GdqwVu2g1y3q1KzBXuSrdTvX.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3072,6 +3400,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3081,6 +3410,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/movie/go-team/1558568",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3090,6 +3420,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/jM8LRvzYIqZqw6Si5xNECiHFDgM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3099,6 +3430,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/p4SvSFIkjCs4y0C7yAcYP9XNmP2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3108,6 +3440,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3117,6 +3450,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3126,6 +3460,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3135,6 +3470,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3144,6 +3480,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3153,6 +3490,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3162,6 +3500,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3171,6 +3510,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/pu2VxGlpGwffOx292w18b1tv96j.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3180,6 +3520,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3189,6 +3530,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3198,6 +3540,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w185/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3207,6 +3550,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3216,6 +3560,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/live",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3225,6 +3570,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/games",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3234,6 +3580,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/lazysizes.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3243,6 +3590,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/ls.bgset.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3252,6 +3600,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/bootstrap.bundle.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3261,6 +3610,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/tooltipster.bundle.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3270,6 +3620,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/vendor/swiper.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3279,6 +3630,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/continue-party.css?v=20260816-party-theme2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3288,6 +3640,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/home-personalize.css?v=20260816-rail-sync1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3297,6 +3650,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/continue-party.js?v=20260816-party-theme2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3306,6 +3660,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/inbox.css?v=20260814-inbox6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3315,6 +3670,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/inbox.js?v=20260814-inbox6",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3324,6 +3680,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/home-personalize.js?v=20260816-rail-sync1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3333,6 +3690,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/css/person-popup.css?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3342,6 +3700,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/person-popup.js?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3351,6 +3710,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/card-hover-preview.js?v=20260823-ghost1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3360,6 +3720,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/card-poster-lifecycle.js?v=20260813-teal-default1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3369,6 +3730,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/hero-quality.js?v=20260826-heroq1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3378,6 +3740,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vuflix.co/assets/js/app.docksearch-1240.js?v=20260830-smooth1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3387,6 +3750,7 @@
       "evidence_url": "https://vuflix.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:19.934572+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

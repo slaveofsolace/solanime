@@ -1,7 +1,23 @@
 # Austrian Film Museum
 
-URL: https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en
+Listed URL: https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:34:01.964959+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: Vimeo, YouTube
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+| Reference | Evidence type | Source |
+|---|---|---|
+| https://player.vimeo.com/video/1223975359?quality=540p | embed | https://www.filmmuseum.at/jart/prj3/filmmuseum/main.jart?rel=en |
+
+Additional references and exact timestamps/hashes are retained in metadata.json.
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

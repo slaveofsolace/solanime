@@ -70,10 +70,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://livepush.io/hlsplayer.691fad61.js"
+      "source_url": "https://livepush.io/hlsplayer.691fad61.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-d0c0b4686d73afb7",
@@ -123,12 +125,11 @@
   ],
   "observed_at": "2026-09-12T07:31:38.847172+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-google-analytics",
     "provider-google-fonts",
     "provider-unpkg",
-    "provider-youtube",
-    "provider-cloudflare-edge",
-    "provider-embed-host-a599aeb3c7c1dfa5"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -137,6 +138,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-CPE8GFJWC1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -146,6 +148,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -155,6 +158,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hlsplayer.691fad61.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -164,6 +168,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "embed",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/ns.html?id=GTM-MCFWXS3G",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -173,6 +178,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/brand-logo.98085d9e.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +188,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/menu-alt.d5a495c3.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +198,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/multistreaming-alt.png.9cadf984.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +208,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/pre-recorded-live.61bfe91f.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +218,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/livestreaming-cdn-player.615767df.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +228,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/caret.d996167c.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +238,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/game-solution-icon.6d79597a.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +248,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/church-streaming-solution-icon.eeec591e.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +258,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/live-tv-solution-icon.c6d58db3.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +268,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/icons8-media-96.114a71ee.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -263,6 +278,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/thunder.336fc78e.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -272,6 +288,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/eplayer.cd2fb0bf.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -281,6 +298,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/abr.12864be9.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -290,6 +308,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/realtime-stats.ff7898d3.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -299,6 +318,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/teams-support.7adb74a7.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -308,6 +328,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/video.71b50f70.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -317,6 +338,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/sync-facebook-streaming-alt.5ab93163.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -326,6 +348,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/multichat-overlay-alt.f4501851.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -335,6 +358,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/stream-recording-alt.c11da1dc.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -344,6 +368,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/realtime-stats-alt.f83f2f05.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -353,6 +378,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/eplayer-alt.23c1e577.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -362,6 +388,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/video-alt.8a4083f5.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -371,6 +398,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/live-scheduling-alt.5cf96572.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -380,6 +408,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/titles-alt.d6bd0ba4.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -389,6 +418,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/RTMP-alt.f3bce256.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -398,6 +428,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/unlimited-alt.d0b6777f.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -407,6 +438,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/teams-support-alt.82f21818.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -416,6 +448,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/dev-api-alt.2cc203d9.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -425,6 +458,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/lightbulb.62d3a6e6.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -434,6 +468,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/link-signup.4bb96f95.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -443,6 +478,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blobs.livepush.io/webcontent/images/db16f0a0-be8c-4794-84bc-f6f94fd6b54a.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -452,6 +488,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/wiva-wrestling-italy.46414954.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -461,6 +498,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/colleen.d08d6eea.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -470,6 +508,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/austin.6229c84b.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -479,6 +518,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/author-default.a8534cff.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -488,6 +528,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/marco.c4847656.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -497,6 +538,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/instagram.605f67a0.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -506,6 +548,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "image",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/linkedin.d41ed445.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -515,6 +558,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -524,6 +568,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/products/multistreaming/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -533,6 +578,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/prerecorded-live-scheduler/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -542,6 +588,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/livestreaming-cdn/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -551,6 +598,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/products/live-event-hosting/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -560,6 +608,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hls-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -569,6 +618,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/solutions/game-streaming/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -578,6 +628,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/solutions/church-streaming/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -587,6 +638,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/solutions/live-tv-streaming/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -596,6 +648,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/hls-live-streaming.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -605,6 +658,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/live-stream-chat.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -614,6 +668,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/multistreaming.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -623,6 +678,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-scheduling.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -632,6 +688,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-mp4-videos.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -641,6 +698,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/connect-social-media-accounts.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -650,6 +708,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-recordings.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -659,6 +718,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/multi-chat.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -668,6 +728,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-titles.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -677,6 +738,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/real-time-stream-monitoring.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -686,6 +748,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/saved-streams-reports.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -695,6 +758,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/teams-account.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -704,6 +768,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dev.livepush.io/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -713,6 +778,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/pricing/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -722,6 +788,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signin/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -731,6 +798,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -740,6 +808,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/dash-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -749,6 +818,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/mp4-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -758,6 +828,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html?redirect=https%3A%2F%2Fapp.livepush.io%2Fsettings%2Fupgrade%2Fplan_ppizswGC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -767,6 +838,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html?redirect=https%3A%2F%2Fapp.livepush.io%2Fsettings%2Fupgrade%2Fplan_ep7xn83z7t",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -776,6 +848,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html?redirect=https%3A%2F%2Fapp.livepush.io%2Fsettings%2Fupgrade%2Fplan_cp8q996ihb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -785,6 +858,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html?redirect=https%3A%2F%2Fapp.livepush.io%2Fsettings%2Fupgrade%2Fplan_bp5lp25jex",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -794,6 +868,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/pricing/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -803,6 +878,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.capterra.com/p/238997/Livepush/reviews/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -812,6 +888,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/collections/2764091-faqs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -821,6 +898,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/6082793-how-long-can-i-stream-with-the-free-plan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -830,6 +908,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/4883425-pricing-plans-explained",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -839,6 +918,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/5065323-how-to-stream-live-from-obs-to-livepush",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -848,6 +928,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/livepushHQ/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -857,6 +938,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/LivepushHQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -866,6 +948,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/livepushhq/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -875,6 +958,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/company/livepush",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -884,6 +968,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/promotion/blackfriday/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -893,6 +978,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/m3u8-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -902,6 +988,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hlsplayer/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -911,6 +998,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/bandwidth-calculator/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -920,6 +1008,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/blog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -929,6 +1018,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -938,6 +1028,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/careers/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -947,6 +1038,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/contact/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -956,6 +1048,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/dacast-alternative/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -965,6 +1058,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/restream-alternative/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -974,6 +1068,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/terms-of-service/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -983,6 +1078,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/privacypolicy/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -992,6 +1088,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/gdpr/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1001,6 +1098,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/favicon.279aee5f.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1010,6 +1108,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hls-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1019,6 +1118,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/tools.74b9ddae.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1028,6 +1128,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1037,6 +1138,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1046,6 +1148,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.cdnfonts.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1055,6 +1158,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40300%3B400%3B500%3B600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1064,6 +1168,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/owl.carousel-bundled.min.8f56778c.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1073,6 +1178,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hlsplayer.noplayer.46faa882.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1082,6 +1188,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://unpkg.com/video.js@7/dist/video-js.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1091,6 +1198,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://unpkg.com/@videojs/themes@1/dist/city/index.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1100,6 +1208,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blobs.livepush.io/embeds/player.vod.videojs.latest.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1109,6 +1218,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "form-action-not-requested",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/signup/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1118,6 +1228,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hls-player/index.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1127,6 +1238,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1136,6 +1248,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1145,6 +1258,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.cdnfonts.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1154,6 +1268,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40300%3B400%3B500%3B600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1163,6 +1278,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtm.js?id=GTM-MCFWXS3G",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1172,6 +1288,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1181,6 +1298,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1190,6 +1308,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blobs.livepush.io/webcontent/images/livepush-logo-512.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1199,6 +1318,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/in/wahaj-dar/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1208,6 +1328,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/help",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1217,6 +1338,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1226,6 +1348,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/livepushHQ/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1235,6 +1358,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://x.com/LivepushHQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1244,6 +1368,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.linkedin.com/company/livepush",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1253,6 +1378,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/livepush",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1262,6 +1388,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/@LivepushHQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1271,6 +1398,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/ns.html?id=GTM-MCFWXS3G",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1280,6 +1408,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1289,6 +1418,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1298,6 +1428,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dev.livepush.io/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1307,6 +1438,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://live-hls-abr-cdn.livepush.io/live/bigbuckbunnyclip/index.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1316,6 +1448,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://app.livepush.io/settings/upgrade/plan_ppizswGC",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1325,6 +1458,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://app.livepush.io/settings/upgrade/plan_ep7xn83z7t",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1334,6 +1468,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://app.livepush.io/settings/upgrade/plan_cp8q996ihb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1343,6 +1478,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://app.livepush.io/settings/upgrade/plan_bp5lp25jex",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1352,6 +1488,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.capterra.com/p/238997/Livepush/reviews/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1361,6 +1498,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blobs.livepush.io/webcontent/images/db16f0a0-be8c-4794-84bc-f6f94fd6b54a.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1370,6 +1508,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/6082793-how-long-can-i-stream-with-the-free-plan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1379,6 +1518,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-mp4-videos.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1388,6 +1528,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/features/livestream-scheduling.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1397,6 +1538,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/4883425-pricing-plans-explained",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1406,6 +1548,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://docs.livepush.io/en/articles/5065323-how-to-stream-live-from-obs-to-livepush",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1415,6 +1558,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/LivepushHQ",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1424,6 +1568,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/livepushhq/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1433,6 +1578,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=AW-10780691895",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1442,6 +1588,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-CPE8GFJWC1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1451,6 +1598,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://unpkg.com/video.js@7/dist/video-js.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1460,6 +1608,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://unpkg.com/@videojs/themes@1/dist/city/index.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1469,6 +1618,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://blobs.livepush.io/embeds/player.vod.videojs.latest.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1478,6 +1628,7 @@
       "evidence_url": "https://livepush.io/hls-player/index.html",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:38.847172+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1487,6 +1638,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://livepush.io/hlsplayer.691fad61.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1496,6 +1648,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "http://example.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1505,6 +1658,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1514,6 +1668,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1523,6 +1678,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1532,6 +1688,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/xmlns/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1541,6 +1698,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vjs.zencdn.net/vttjs/0.14.1/vtt.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1550,6 +1708,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/videojs/video.js/issues/2617",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1559,6 +1718,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-09",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1568,6 +1728,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tools.ietf.org/html/draft-pantos-http-live-streaming-23",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1577,6 +1738,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://git.io/vMpjB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1586,6 +1748,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/axios/axios.git",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1595,6 +1758,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/axios/axios/issues",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1604,6 +1768,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://axios-http.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1613,6 +1778,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.segment.com/analytics.js/v1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1622,6 +1788,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://connect.facebook.net/en_US/fbevents.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1631,6 +1798,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/tr?id=1019460525483085&ev=PageView&noscript=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1640,6 +1808,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://live-hls-abr-cdn.livepush.io/live/bigbuckbunnyclip/index.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1649,6 +1818,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://live-hls-abr-cdn.livepush.io/live/bigbuckbunnyclip/index.mpd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1658,6 +1828,7 @@
       "evidence_url": "https://livepush.io/hlsplayer.691fad61.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:39.654104+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://live-hls-abr-cdn.livepush.io/vod/bigbuckbunnyclip.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

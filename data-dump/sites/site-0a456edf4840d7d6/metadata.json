@@ -25,6 +25,51 @@
       "Stream Aggregators"
     ]
   ],
+  "deeper_inspection": {
+    "available_linked_modules_not_inspected": 0,
+    "media_playback_attempted": false,
+    "module_limit": 8,
+    "observed_at": "2026-09-12T07:58:52.090663+00:00",
+    "public_detail_pages_selected": 0,
+    "requests": [
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/manifest.json"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/entry/start.DyXVTGFN.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/BHL3aMHr.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/entry/app.AdUoLDuo.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/1ZehjhV_.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/DsnmJJEf.js"
+      },
+      {
+        "status": "reachable",
+        "url": "https://cinejoy.to/_app/immutable/chunks/cfFcwhEI.js"
+      }
+    ]
+  },
   "depth": {
     "followups_http_reachable": 0,
     "linked_scripts_discovered": 0,
@@ -38,7 +83,10 @@
     "domain-f03f837a40d40a05",
     "domain-d15afad5fd0ce8bf",
     "domain-2d0f3c337e640d3a",
-    "domain-7df7caa0a5579e01"
+    "domain-7df7caa0a5579e01",
+    "domain-a379a6f6eeafb9a5",
+    "domain-68168b2e6fb3fd41",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -49,7 +97,16 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "SvelteKit",
-      "source_url": "https://cinejoy.to/"
+      "source_url": "https://cinejoy.to/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
+    },
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-0a456edf4840d7d6",
@@ -77,13 +134,193 @@
       "status": "reachable",
       "truncated": false,
       "url": "https://cinejoy.to/"
+    },
+    {
+      "bytes_read": 667,
+      "content_type": "application/json",
+      "final_url": "https://cinejoy.to/manifest.json",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "application/json",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:44.200869+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "ed78068a69c1e77911be32be96768bbd8bc72799f3697c133e645281a3630c84",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/manifest.json"
+    },
+    {
+      "bytes_read": 83,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/entry/start.DyXVTGFN.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:45.084225+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "01656165083e650c14fe04bcf146400cb320eeaaf92e951a0e23e2d9996d829a",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/entry/start.DyXVTGFN.js"
+    },
+    {
+      "bytes_read": 29763,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:46.105924+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "bc31ec5db3cb991e963033a1ad8045a0e0d7f27f4403bf72185f3747e487ebae",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js"
+    },
+    {
+      "bytes_read": 1463,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/BHL3aMHr.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:47.087137+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "c084f23ac41f3fc8d9b4a8ca557aa48e0fad134f1d1ceb26e4d6cfac81d3cc09",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/BHL3aMHr.js"
+    },
+    {
+      "bytes_read": 53052,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "492fcfa6509e94f356aa9aba35ba05ae68494ab7cdd22d1ff45f6d9f9104d413",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js"
+    },
+    {
+      "bytes_read": 11002,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/entry/app.AdUoLDuo.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:49.085758+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "411aba7dc40ba1e452aa00c8a05d61f8beaa55b8bf717aa14238adff2016d95e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/entry/app.AdUoLDuo.js"
+    },
+    {
+      "bytes_read": 6257,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/1ZehjhV_.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:50.114270+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "a41e87b8b9283d8c1bafcb5d41fb883f74f904b0f78a19d83d7dd11816e8bfa9",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/1ZehjhV_.js"
+    },
+    {
+      "bytes_read": 96,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/DsnmJJEf.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:51.084274+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "142f5c6bc7079bc94f88bf573789113cf7e9c93dfdf67724d847638a4276b520",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/DsnmJJEf.js"
+    },
+    {
+      "bytes_read": 4753,
+      "content_type": "application/javascript",
+      "final_url": "https://cinejoy.to/_app/immutable/chunks/cfFcwhEI.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:58:52.089992+00:00",
+      "redirects": [],
+      "request_kind": "linked_module_or_public_detail_page",
+      "sha256": "1ebd2ca45cbba881777159bd582596337b9dac4cffe97a0b3607d49de9846de5",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cinejoy.to/_app/immutable/chunks/cfFcwhEI.js"
     }
   ],
   "observed_at": "2026-09-12T07:29:02.260445+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-google-fonts",
-    "provider-cloudflare-edge"
+    "provider-google-fonts"
   ],
   "references": [
     {
@@ -92,6 +329,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://a.shegu.st/js/pa-HmG5tkpmPVmGVQhafXwqY.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -101,6 +339,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -110,6 +349,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -119,6 +359,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -128,6 +369,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -137,6 +379,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/favicon-48.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -146,6 +389,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/favicon-32.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -155,6 +399,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/favicon-16.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -164,6 +409,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -173,6 +419,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -182,6 +429,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -191,6 +439,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40100..900&family=Montserrat%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -200,6 +449,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/entry/start.DyXVTGFN.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -209,6 +459,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -218,6 +469,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/BHL3aMHr.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -227,6 +479,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -236,6 +489,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/entry/app.AdUoLDuo.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -245,6 +499,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/1ZehjhV_.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -254,6 +509,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/DsnmJJEf.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -263,6 +519,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinejoy.to/_app/immutable/chunks/cfFcwhEI.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -272,6 +529,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -281,6 +539,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -290,6 +549,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40100..900&family=Montserrat%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -299,6 +559,7 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://a.shegu.st/js/pa-HmG5tkpmPVmGVQhafXwqY.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -308,7 +569,413 @@
       "evidence_url": "https://cinejoy.to/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:02.260445+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BSYKIS4N.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:46.105924+00:00",
+      "reference_class": "documentation-placeholder",
+      "url": "https://example.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/experimental_async_required",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/invalid_default_snippet",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/invalid_snippet_arguments",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/lifecycle_outside_component",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/missing_context",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/snippet_without_render_tag",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/store_invalid_shape",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/svelte_element_invalid_this_value",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/async_derived_orphan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/component_api_changed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/component_api_invalid_new",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/each_key_duplicate",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/effect_in_teardown",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/effect_in_unowned_derived",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/effect_orphan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/effect_pending_outside_reaction",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/effect_update_depth_exceeded",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/fork_discarded",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/fork_timing",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/get_abort_signal_outside_reaction",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/hydration_failed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/lifecycle_legacy_only",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/props_invalid_value",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/state_descriptors_fixed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/state_prototype_fixed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/state_unsafe_mutation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/svelte_boundary_reset_onerror",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/assignment_value_stale",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/binding_property_non_reactive",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/console_log_state",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/event_handler_invalid",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/hydratable_missing_but_expected",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/hydration_mismatch",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/ownership_invalid_binding",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/ownership_invalid_mutation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/select_multiple_invalid_value",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/state_proxy_equality_mismatch",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/svelte_boundary_reset_noop",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/dynamic_void_element_content",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_url": "https://cinejoy.to/_app/immutable/chunks/BBXW7Mf7.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:58:48.114352+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://svelte.dev/e/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],

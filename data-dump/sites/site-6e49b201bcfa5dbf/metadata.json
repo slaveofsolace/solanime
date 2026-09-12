@@ -52,16 +52,19 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://famelack.com/assets/index-C1l3jrp8.js"
+      "source_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "verification_scope": "signature_present_only"
     },
     {
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://famelack.com/"
+      "source_url": "https://famelack.com/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-6e49b201bcfa5dbf",
@@ -132,9 +135,9 @@
   ],
   "observed_at": "2026-09-12T07:29:27.380050+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-youtube",
-    "provider-cloudflare-edge"
+    "provider-youtube"
   ],
   "references": [
     {
@@ -143,6 +146,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -152,6 +156,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -161,6 +166,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -170,6 +176,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/iptv-org/iptv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -179,6 +186,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/cdn-cgi/l/email-protection",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -188,6 +196,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://threejs.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -197,6 +206,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://videojs.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -206,6 +216,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/video-dev/hls.js/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -215,6 +226,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://moment.github.io/luxon/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -224,6 +236,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -233,6 +246,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -242,6 +256,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -251,6 +266,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/assets/fonts/Roboto-Regular.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -260,6 +276,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -269,6 +286,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/favicon-192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -278,6 +296,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -287,6 +306,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -296,6 +316,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/assets/index-BZ5TNyLO.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -305,6 +326,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -314,6 +336,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -323,6 +346,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -332,6 +356,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -341,6 +366,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/favicon-192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -350,6 +376,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -359,6 +386,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/iptv-org/iptv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -368,6 +396,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://threejs.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -377,6 +406,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://videojs.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -386,6 +416,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/video-dev/hls.js/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -395,6 +426,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://moment.github.io/luxon/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -404,6 +436,7 @@
       "evidence_url": "https://famelack.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -413,6 +446,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -422,6 +456,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/tv/compressed/countries_metadata.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -431,6 +466,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/radio/compressed/countries_metadata.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -440,6 +476,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/webcams/compressed/countries_metadata.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -449,6 +486,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -458,6 +496,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/iframe_api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -467,6 +506,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -476,6 +516,7 @@
       "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -485,13 +526,14 @@
       "evidence_url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:29.328395+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
   ],
   "repository_ids": [
-    "repo-7cee059b5393d0da",
-    "repo-1301d9b056cc52e9"
+    "repo-1301d9b056cc52e9",
+    "repo-7cee059b5393d0da"
   ],
   "research_status": "infrastructure_partially_mapped",
   "roles": [

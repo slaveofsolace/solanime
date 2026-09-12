@@ -79,10 +79,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://tastedive.com/read/api"
+      "source_url": "https://tastedive.com/read/api",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-db7baf70883ede3b",
@@ -178,9 +180,9 @@
   ],
   "observed_at": "2026-09-12T07:32:56.243997+00:00",
   "provider_ids": [
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-google-fonts",
-    "provider-cloudflare-edge"
+    "provider-google-fonts"
   ],
   "references": [
     {
@@ -189,6 +191,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -198,6 +201,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +211,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/3322.ab428a522026210e.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +221,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/6151.cf337bf965f878c9.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +231,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/4019.6a03105291c1e914.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +241,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/401.5140e2e7319079da.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +251,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/276.342d9bd0b8f3cb98.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +261,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/webpack-f4514d14e86dc7cb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +271,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/framework-19452732df254d67.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +281,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/main-c3c608157cd57f0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +291,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/pages/_app-52ae3f35303e0672.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +301,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/5589-09554db9cfceed30.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +311,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/2528-5b04e95d81aee367.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +321,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/4720-e88a35fdb31473ac.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +331,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/8838-c7aa8f9c410a7051.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +341,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/3800-e6ad206293433e5b.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +351,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/3194-b80451427b77c2ca.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +361,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/9838-530eb0309874f9c0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +371,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/4800-0144c710d17f9bbf.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +381,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/8755-409e6a3f4391d129.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +391,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/pages/index-855460c8cab79595.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +401,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/hqIRCnP575TvF7zJNGnAc/_buildManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +411,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/hqIRCnP575TvF7zJNGnAc/_ssgManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +421,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +431,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Fced-bg-img.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +441,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-seinfeld.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +451,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-morgan.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +461,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-ronson.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +471,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-lennon.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -450,6 +481,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-john.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -459,6 +491,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-fleiss.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -468,6 +501,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-kemp.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -477,6 +511,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-kirke.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -486,6 +521,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-mcbride.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -495,6 +531,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-minkoff.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -504,6 +541,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-roker.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -513,6 +551,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-vernhes.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -522,6 +561,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-williamson.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -531,6 +571,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-zeff.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +581,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Ftd-tv%2Fpromo-ziff.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +591,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/image?url=%2Fassets%2Fhero-bg.jpg&w=3840&q=75",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +601,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/facebook.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +611,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/twitter.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +621,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/instagram.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +631,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -594,6 +641,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/music",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -603,6 +651,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -612,6 +661,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/shows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -621,6 +671,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/books",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -630,6 +681,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/games",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -639,6 +691,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/podcasts",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -648,6 +701,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/people",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -657,6 +711,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/places",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -666,6 +721,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/brands",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -675,6 +731,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/lists",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -684,6 +741,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/tastebuds",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -693,6 +751,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -702,6 +761,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/jerry-seinfeld",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -711,6 +771,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/tracy-morgan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -720,6 +781,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/mark-ronson",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -729,6 +791,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/sean-lennon",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -738,6 +801,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/daymond-john",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -747,6 +811,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/jenny-fleiss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -756,6 +821,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/courtney-kemp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -765,6 +831,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/jemima-kirke",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -774,6 +841,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/christian-mcbride",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -783,6 +851,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/rebecca-minkoff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -792,6 +861,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/al-roker",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -801,6 +871,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/laurent-vernhes",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -810,6 +881,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/marc-williamson",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -819,6 +891,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/mark-zeff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -828,6 +901,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv/sara-ziff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -837,6 +911,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/about",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -846,6 +921,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/do/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -855,6 +931,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -864,6 +941,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -873,6 +951,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api-terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -882,6 +961,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -891,6 +971,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/ai-governance",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -900,6 +981,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -909,6 +991,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -918,6 +1001,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -927,6 +1011,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/favicon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -936,6 +1021,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/site.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -945,6 +1031,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -954,6 +1041,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/webmention",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -963,6 +1051,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/xmlrpc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -972,6 +1061,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -981,6 +1071,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -990,6 +1081,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/fonts/inter-v11-latin-regular.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -999,6 +1091,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/fonts/plus-jakarta-sans-v2-latin-700.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1008,6 +1101,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1017,6 +1111,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1026,6 +1121,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/css/5985c994e11995ca.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1035,6 +1131,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans%3Awght%40800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1044,6 +1141,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/webmention",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1053,6 +1151,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/xmlrpc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1062,6 +1161,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1071,6 +1171,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1080,6 +1181,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/td-cover.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1089,6 +1191,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1098,6 +1201,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1107,6 +1211,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans%3Awght%40800&amp%3Bdisplay=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1116,6 +1221,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1125,6 +1231,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1134,6 +1241,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1143,6 +1251,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1152,6 +1261,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1161,6 +1271,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/a/ad/Project_Hail_Mary%2C_First_Edition_Cover_%282021%29.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1170,6 +1281,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Project_Hail_Mary",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1179,6 +1291,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Zootopia_%28movie_poster%29.jpg/135px-Zootopia_%28movie_poster%29.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1188,6 +1301,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Zootopia",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1197,6 +1311,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Baby_Driver_poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1206,6 +1321,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Baby_Driver",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1215,6 +1331,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/0/0a/Looper_poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1224,6 +1341,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Looper_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1233,6 +1351,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTAxMjA2NDcwNDNeQTJeQWpwZ15BbWU3MDc0NTMxNTE@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1242,6 +1361,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/f/ff/The_Batman_%28film%29_poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1251,6 +1371,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Batman_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1260,6 +1381,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWJlNThmNWMtZWE5Zi00YWJiLWJiOTQtZWY1Y2I3ZmNhMDYwXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1269,6 +1391,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Spider-Man:_Across_the_Spider-Verse",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1278,6 +1401,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/2/2d/The_Running_Man_%281987%29_poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1287,6 +1411,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Running_Man_(1987_film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1296,6 +1421,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/0/7e9373b66160595dbc906a2e29a6c0d9-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1305,6 +1431,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Mass_Effect",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1314,6 +1441,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Taskmaster_logo.jpg/320px-Taskmaster_logo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1323,6 +1451,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Taskmaster_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1332,6 +1461,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMzdkNzFhMDAtNWVhNC00MDM5LTllYzktMWFkN2Q0ZWFlYWZkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1341,6 +1471,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Thunderbolts_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1350,6 +1481,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Superliminal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1359,6 +1491,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Interview_with_the_Vampire_%28TV_series%29_title_card_%282022%29.png/200px-Interview_with_the_Vampire_%28TV_series%29_title_card_%282022%29.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1368,6 +1501,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Interview_with_the_Vampire_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1377,6 +1511,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/B%C3%B4a",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1386,6 +1521,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/58e8e895e8e788397d461f5a73187a03.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1395,6 +1531,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Queen_(band",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1404,6 +1541,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/6aad3e380060d2171f5e9bfa7d9567ff.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1413,6 +1551,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Beatles",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1422,6 +1561,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/d6ffcffa7a9686f1405aac088905a104.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1431,6 +1571,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Ted_Ed_Fred",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1440,6 +1581,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/07fd14edcd2a763f1f7470b825bd939f.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1449,6 +1591,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Radiohead",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1458,6 +1601,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/ec607a2794aa4b21a05f76b1702e4f16.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1467,6 +1611,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Pink_Floyd",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1476,6 +1621,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/b785b1b319a737a610e6a6a298f931b7.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1485,6 +1631,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Arctic_Monkeys_(band",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1494,6 +1641,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/b2c33437c1e842fa9b29d0c7caa09eb1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1503,6 +1651,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Red_Hot_Chili_Peppers_(band",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1512,6 +1661,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/9fd718d4c80e4ac89107c6c0bb908440.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1521,6 +1671,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Daft_Punk",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1530,6 +1681,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/b51126b92d06d711b9c6641fff9fef92.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1539,6 +1691,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Gorillaz",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1548,6 +1701,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/66a96b19a11e27e2a57d9b2843e582bd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1557,6 +1711,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/David_Bowie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1566,6 +1721,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/8b238225c5f341dfc10a1695a9cdf00c.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1575,6 +1731,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Led_Zeppelin_(band",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1584,6 +1741,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lastfm.freetls.fastly.net/i/u/770x0/fd3dc6d95c663dd05adfe976dc276053.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1593,6 +1751,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Coldplay_(band",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1602,6 +1761,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1611,6 +1771,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Fight_Club_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1620,6 +1781,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1629,6 +1791,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Inception",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1638,6 +1801,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1647,6 +1811,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Shawshank_Redemption",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1656,6 +1821,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1665,6 +1831,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Pulp_Fiction",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1674,6 +1841,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1683,6 +1851,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Matrix",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1692,6 +1861,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1701,6 +1871,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1710,6 +1881,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Truman_Show",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1719,6 +1891,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1728,6 +1901,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Dark_Knight_(film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1737,6 +1911,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWYwNWY0ZjMtYzUxZS00ODI3LTllNzctODNiNjhlNjcyNWM0XkEyXkFqcGdeQXVyMjcwMzM0OTI@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1746,6 +1921,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Forrest_Gump",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1755,6 +1931,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Catch_Me_if_You_Can",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1764,6 +1941,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Seven_(1995_film",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1773,6 +1951,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOTU1ZDI4NTYtMTgwZi00NTU5LWIwYTktYjg3N2UzZGExYWYwXkEyXkFqcGdeQXVyMTgxOTIzNzk@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1782,6 +1961,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1791,6 +1971,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1800,6 +1981,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Game_of_Thrones",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1809,6 +1991,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Breaking_Bad",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1818,6 +2001,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Sherlock_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1827,6 +2011,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2ZmYjg1YmItNWQ4OC00YWM0LWE0ZDktYThjOTZiZjhhN2Q2XkEyXkFqcGdeQXVyNjgxNTQ3Mjk@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1836,6 +2021,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Stranger_Things_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1845,6 +2031,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjg1MDQ5MjQ2N15BMl5BanBnXkFtZTYwNjI5NjA3._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1854,6 +2041,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/How_I_Met_Your_Mother",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1863,6 +2051,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZWRkY2VlZjAtNGI2My00ODBjLWJkODMtMTkwZGNkNmIzZDhmXkEyXkFqcGdeQXVyNjcwMzEzMTU@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1872,6 +2061,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Simpsons",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1881,6 +2071,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1890,6 +2081,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Office_(U.S._TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1899,6 +2091,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjkzMmU5MjMtODllZS00OTA5LTk2ZTEtNjdhYjZhMDA5ZTRhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1908,6 +2101,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Dexter_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1917,6 +2111,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTEwYzNiMGUtNzRlYS00MTMzLTliNzgtOGUxZGZiNThlNWYwXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1926,6 +2121,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Black_Mirror_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1935,6 +2131,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDA4NjQzN2ItZDhhNC00ZjVlLWFjNTgtMTEyNDQyOGNjMDE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1944,6 +2141,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/House_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1953,6 +2151,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOGE2YWUzMDItNTg2Ny00NTUzLTlmZGYtNWMyNzVjMjQ3MThkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1962,6 +2161,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/South_Park",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1971,6 +2171,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZmU5NTcwNjktODIwMi00ZmZkLTk4ZWUtYzVjZWQ5ZTZjN2RlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1980,6 +2181,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1989,6 +2191,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1998,6 +2201,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2007,6 +2211,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/1984first.jpg/134px-1984first.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2016,6 +2221,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2025,6 +2231,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1322913171l/372299.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2034,6 +2241,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://de.wikipedia.org/wiki/Per_Anhalter_durch_die_Galaxis_(Romanreihe",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2043,6 +2251,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/TheHobbit_FirstEdition.jpg/160px-TheHobbit_FirstEdition.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2052,6 +2261,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Hobbit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2061,6 +2271,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2070,6 +2281,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Lord_of_the_Rings",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2079,6 +2291,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2088,6 +2301,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Hunger_Games",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2097,6 +2311,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630547330l/5._SY475_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2106,6 +2321,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Harry_Potter_and_the_Prisoner_of_Azkaban",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2115,6 +2331,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1424037542l/7613.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2124,6 +2341,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Animal_Farm",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2133,6 +2351,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881._SY475_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2142,6 +2361,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2151,6 +2371,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474171184l/136251._SY475_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2160,6 +2381,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Harry_potter_and_the_deathly_hallows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2169,6 +2391,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511288703l/4327066._SY475_.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2178,6 +2401,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Perks_of_Being_a_Wallflower",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2187,6 +2411,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1333577589l/8694.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2196,6 +2421,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Life,_the_Universe_and_Everything",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2205,6 +2431,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/7/ed6cef600ce7386aeb5734178cae0e16-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2214,6 +2441,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Portal_(video_game",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2223,6 +2451,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/8/8ebc9aa5758d569f33e543d9fb629545-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2232,6 +2461,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Portal_2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2241,6 +2471,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/2/0ec49754f864a372073dcc684094385d-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2250,6 +2481,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Minecraft",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2259,6 +2491,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/7/5988ee04196a686e107b46174f94a3ae-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2268,6 +2501,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_V:_Skyrim",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2277,6 +2511,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/1/7f10462040718b3054c52f7791cf1c77-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2286,6 +2521,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Grand_Theft_Auto_V",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2295,6 +2531,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/en/2/22/The_Sims_Coverart.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2304,6 +2541,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Sims_(video_game",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2313,6 +2551,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/9/b0e29872db264f3793559037aed1527b-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2322,6 +2561,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/BioShock",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2331,6 +2571,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/0/529b1f0d432ab4fdefe5d99cfe3583d9-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2340,6 +2581,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Fallout:_New_Vegas",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2349,6 +2591,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/7/2592a146ce29b1d4bc818d4e6a58bbf8-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2358,6 +2601,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/Fallout_3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2367,6 +2611,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/2/d9b67bd82254b00f41dea77ee55660b9-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2376,6 +2621,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2385,6 +2631,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/2/9163b068da45f70379f184bac6130d17-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2394,6 +2641,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Mass_Effect_(video_game",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2403,6 +2651,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://static.metacritic.com/images/products/games/3/5b1d21cf510c633b26d1fbeb2133ae43-98.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2412,6 +2661,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Assassin%27s_Creed",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2421,6 +2671,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is4-ssl.mzstatic.com/image/thumb/Podcasts71/v4/1f/e2/f1/1fe2f1ba-ad01-9cfd-1ead-6e6ab8141e90/mza_7376161682559521022.png/60x60bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2430,6 +2681,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Serial_(podcast",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2439,6 +2691,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is4-ssl.mzstatic.com/image/thumb/Podcasts128/v4/a3/fa/4b/a3fa4bfe-e758-d866-9790-864092583711/mza_6843030553312139418.png/60x60bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2448,6 +2701,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Radiolab",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2457,6 +2711,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is2-ssl.mzstatic.com/image/thumb/Podcasts117/v4/72/83/f9/7283f9a0-fb7b-6ea4-9ebb-71f92df6504d/mza_3561215191246223866.png/60x60bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2466,6 +2721,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/99%25_Invisible",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2475,6 +2731,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is4-ssl.mzstatic.com/image/thumb/Podcasts118/v4/f2/d4/37/f2d437d3-cae6-d8d5-264e-4bb7cda6f2db/mza_2598658890724642866.png/60x60bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2484,6 +2741,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/This_American_Life",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2493,6 +2751,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is2-ssl.mzstatic.com/image/thumb/Podcasts128/v4/d4/cc/76/d4cc76cb-e916-c1ef-d53d-4213e0ab7661/mza_5710333873989215.jpg/55x55bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2502,6 +2761,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Welcome_to_Night_Vale",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2511,6 +2771,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts122/v4/6b/50/2c/6b502cf3-2050-2b61-1887-56e2db6fc057/mza_1346285540996568450.jpg/60x60bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2520,6 +2781,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/S-Town",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2529,6 +2791,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts115/v4/02/5b/f5/025bf54b-f69d-0b1e-f949-fa83d9c4db0c/mza_9984391460940916762.jpeg/1200x600wp.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2538,6 +2801,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Stuff_You_Should_Know",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2547,6 +2811,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts118/v4/d9/a5/8e/d9a58e6c-7336-28ed-63e0-890940c5ea61/mza_3706210869627311511.png/55x55bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2556,6 +2821,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Reply_All_(podcast",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2565,6 +2831,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is2-ssl.mzstatic.com/image/thumb/Podcasts62/v4/67/1a/29/671a2909-234d-e0ec-e953-7bc9d4a9f82c/mza_140825735029781455.jpg/170x170bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2574,6 +2841,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/My_Brother,_My_Brother_and_Me",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2583,6 +2851,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is4-ssl.mzstatic.com/image/thumb/Podcasts115/v4/0d/06/91/0d069167-b387-6453-6ea6-1117cfaa3bc9/mza_524910943278826245.jpg/170x170bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2592,6 +2861,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/The_Magnus_Archives",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2601,6 +2871,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is4-ssl.mzstatic.com/image/thumb/Podcasts118/v4/bd/a8/1c/bda81c61-2976-7d2e-3dcc-00a2bce8015d/mza_5362316088972990607.jpg/170x170bb-85.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2610,6 +2881,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Shankar_Vedantam",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2619,6 +2891,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts115/v4/f7/0c/c5/f70cc540-ce36-d96f-b111-c970aad5505c/mza_17703422762227531425.jpg/1200x600wp.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2628,6 +2901,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://en.wikipedia.org/wiki/Freakonomics_Radio",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2637,6 +2911,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/James_Baldwin_37_Allan_Warren_%28cropped%29.jpg/200px-James_Baldwin_37_Allan_Warren_%28cropped%29.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2646,6 +2921,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://en.wikipedia.org/wiki/James_Baldwin",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2655,6 +2931,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FDonald+Glover+TIFF+2015.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2664,6 +2941,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FAmanda+Seyfried+%282019",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2673,6 +2951,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FNick+Offerman+2013+Headshot+%28cropped",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2682,6 +2961,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FTom+Hiddleston+%2848468962561",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2691,6 +2971,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FAnna+Kendrick+VMA+2018.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2700,6 +2981,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FAnne+Hathaway+%28cropped",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2709,6 +2991,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FColton+Haynes+PaleyFest+2015+%28cropped",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2718,6 +3001,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FWoody+Harrelson+October+2016.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2727,6 +3011,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FAubrey+Plaza+by+Gage+Skidmore+2.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2736,6 +3021,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FBetty+White+1988+Emmy+Awards+%28cropped+2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2745,6 +3031,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FRyan+Reynolds%2C+2010+Buried+Premiere.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2754,6 +3041,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lh5.googleusercontent.com/p/AF1QipNzPB6NoEEoU7m2NPUSIJJQyxG8y0uDM9KLEjH2=w3984-h2988-k-no",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2763,6 +3051,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lh5.googleusercontent.com/p/AF1QipMFNM8ZY28bnekJIOTQPK8_YBoe3CAqhpTLWJZp=w4000-h6000-k-no",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2772,6 +3061,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lh5.googleusercontent.com/p/AF1QipPZ81mR8tZ9Rr3v_V7RztKBMV03BD4MOG86ElMp=w4032-h3024-k-no",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2781,6 +3071,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://lh5.googleusercontent.com/p/AF1QipPDhQmqm5tqs1lvGur3FI_qx5QH1eINVi3fYpUK=w3024-h4032-k-no",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2790,6 +3081,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FSpotify",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2799,6 +3091,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.spotify.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2808,6 +3101,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FNintendo",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2817,6 +3111,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.nintendo.com/countryselector/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2826,6 +3121,7 @@
       "evidence_url": "https://tastedive.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:56.243997+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2835,6 +3131,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2844,6 +3141,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2853,6 +3151,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2862,6 +3161,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/c%20d?a=1&c=3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2871,6 +3171,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://xn--e1aybc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2880,6 +3181,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:57.170328+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://x/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2889,6 +3191,7 @@
       "evidence_url": "https://tastedive.com/_next/static/chunks/3322.ab428a522026210e.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:58.168273+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2898,6 +3201,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2907,6 +3211,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2916,6 +3221,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/3322.ab428a522026210e.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2925,6 +3231,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/6151.cf337bf965f878c9.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2934,6 +3241,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/4019.6a03105291c1e914.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2943,6 +3251,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/webpack-f4514d14e86dc7cb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2952,6 +3261,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/framework-19452732df254d67.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2961,6 +3271,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/main-c3c608157cd57f0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2970,6 +3281,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/pages/_app-52ae3f35303e0672.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2979,6 +3291,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/5589-09554db9cfceed30.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2988,6 +3301,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/2528-5b04e95d81aee367.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2997,6 +3311,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/3194-b80451427b77c2ca.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3006,6 +3321,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/chunks/pages/read/api-3230db009fdc5826.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3015,6 +3331,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/hqIRCnP575TvF7zJNGnAc/_buildManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3024,6 +3341,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/hqIRCnP575TvF7zJNGnAc/_ssgManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3033,6 +3351,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "script",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3042,6 +3361,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/facebook.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3051,6 +3371,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/twitter.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3060,6 +3381,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "image",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/icons/instagram.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3069,6 +3391,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3078,6 +3401,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/music",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3087,6 +3411,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3096,6 +3421,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/shows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3105,6 +3431,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/books",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3114,6 +3441,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/games",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3123,6 +3451,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/podcasts",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3132,6 +3461,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/people",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3141,6 +3471,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/places",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3150,6 +3481,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/brands",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3159,6 +3491,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/lists",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3168,6 +3501,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/tastebuds",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3177,6 +3511,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/td-tv",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3186,6 +3521,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://qloo.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3195,6 +3531,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/account/api_access",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3204,6 +3541,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction&type=music",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3213,6 +3551,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/do/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3222,6 +3561,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/about",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3231,6 +3571,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3240,6 +3581,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3249,6 +3591,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api-terms",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3258,6 +3601,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3267,6 +3611,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/ai-governance",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3276,6 +3621,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3285,6 +3631,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3294,6 +3641,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3303,6 +3651,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/favicon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3312,6 +3661,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/site.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3321,6 +3671,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3330,6 +3681,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/webmention",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3339,6 +3691,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/xmlrpc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3348,6 +3701,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3357,6 +3711,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3366,6 +3721,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/fonts/inter-v11-latin-regular.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3375,6 +3731,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/fonts/plus-jakarta-sans-v2-latin-700.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3384,6 +3741,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3393,6 +3751,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3402,6 +3761,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/_next/static/css/5985c994e11995ca.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3411,6 +3771,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans%3Awght%40800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3420,6 +3781,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/webmention",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3429,6 +3791,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://webmention.io/tastedive.com/xmlrpc",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3438,6 +3801,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3447,6 +3811,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/read/api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3456,6 +3821,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/assets/td-cover.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3465,6 +3831,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3474,6 +3841,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3483,6 +3851,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans%3Awght%40800&amp%3Bdisplay=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3492,6 +3861,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3501,6 +3871,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3510,6 +3881,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://qloo.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3519,6 +3891,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/account/api_access",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3528,6 +3901,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction&amp%3Btype=music",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3537,6 +3911,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/do/contact",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3546,6 +3921,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.facebook.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3555,6 +3931,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.twitter.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3564,6 +3941,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.instagram.com/tastedive",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3573,6 +3951,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://tastedive.com/api/similar?q=red+hot+chili+peppers%2C+pulp+fiction",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3582,6 +3961,7 @@
       "evidence_url": "https://tastedive.com/read/api",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:32:59.195969+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

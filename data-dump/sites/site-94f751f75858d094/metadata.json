@@ -72,16 +72,20 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "HLS.js",
-      "source_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js"
+      "source_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
+      "verification_scope": "signature_present_only"
     },
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "JW Player",
-      "source_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js"
+      "source_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-94f751f75858d094",
@@ -131,11 +135,11 @@
   ],
   "observed_at": "2026-09-12T07:31:45.460785+00:00",
   "provider_ids": [
+    "provider-anilist",
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
     "provider-google-fonts",
-    "provider-tmdb",
-    "provider-anilist",
-    "provider-cloudflare-edge"
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -144,6 +148,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -153,6 +158,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umommy.cyou/api/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -162,6 +168,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://layla.wtf/embed/s_s2HkRM_BydRFKGPM.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -171,6 +178,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "script",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -180,6 +188,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/favicon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -189,6 +198,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/manifest.webmanifest",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -198,6 +208,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/icon-192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -207,6 +218,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -216,6 +228,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -225,6 +238,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -234,6 +248,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -243,6 +258,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&family=Bricolage+Grotesque%3Awght%40600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -252,6 +268,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/assets/s-core-YDNVegqF.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -261,6 +278,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/assets/index-BVy76yL3.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -270,6 +288,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -279,6 +298,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/og-image.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -288,6 +308,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -297,6 +318,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "url-template",
       "url": "https://meowtv.ru/browse?q=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -306,6 +328,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -315,6 +338,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -324,6 +348,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -333,6 +358,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&family=Bricolage+Grotesque%3Awght%40600%3B700%3B800&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -342,6 +368,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://umommy.cyou/api/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -351,6 +378,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://layla.wtf/embed/s_s2HkRM_BydRFKGPM.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -360,6 +388,7 @@
       "evidence_url": "https://meowtv.ru/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:45.460785+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -369,6 +398,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -378,6 +408,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -387,6 +418,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -396,6 +428,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -405,6 +438,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -414,6 +448,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -423,6 +458,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.meowtv.ru/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -432,6 +468,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mid.vidzee.wtf/tmdb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -441,6 +478,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -450,6 +488,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/6898a8357b824710c262b697192bc8240eb9280b5c2e2d86ed1f8401bd78cee9.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -459,6 +498,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/c63fef5bf0e775acdf282856277d09f8992e2ac812a61abeca218d5164dad09d.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -468,6 +508,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/media/v1/collectibles-shop/c05f8668d881c19b4013d38003acdbf209528eec6f6cea67d5122476aa4d00b4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -477,6 +518,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/media/v1/collectibles-shop/05d9543720cb0294728155de219d9bb440d72331e88de3dbc1dced6bd270e6fb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -486,6 +528,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/11dbba8e43117d6955a3c9b3691cf2c1d145f785b51ff1bf84e83ce13719f58d.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -495,6 +538,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/18d82e7e40d7f6aa542cd3842a3ed76c79cc3c8ee4f33a8ea8d7b32a3dbad5fb.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -504,6 +548,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/7514708725de5a972eb437bdc5811db019c3b4e471eb1e25c565cd31824ee61c.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -513,6 +558,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/c08673b0105f52a8a3ec1689e97dbaad1bea83fc782c7df053246596f38abc3d.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -522,6 +568,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/ce3d4868a0f5ad3b61040eccdc0bc18951e51391d488a718a654fe93e0683c73.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -531,6 +578,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/6093a8e844ec5bc6b796ad5f31063fdbd321dc525c49ff980fb123f4ff603244.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +588,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/e306e4ac3b1fa6bd141077675f38a4e587b06b7cacf1c1f6df9ab903aa2738e8.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +598,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/d8b2d19b35f02d107903a02b2cf28e37d69c664927f542559877cea6fafebe72.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +608,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/assets/content/46fbdfd57cdc5ccc55d43678c41505e9955241281a79aed563cc3cc5079829ab.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +618,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +628,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "url-template",
       "url": "https://i6.meowtv.ru/?destination=%24%7BencodeURIComponent%28qH",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +638,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -594,6 +648,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "url-template",
       "url": "https://radix-ui.com/primitives/docs/components/${e.docsSlug",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -603,6 +658,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://streamed.pk/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -612,6 +668,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://meowtv.ru/febbox/tutorial.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -621,6 +678,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://content.jwplatform.com/libraries/KB5zFt7A.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -630,6 +688,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.simplesvg.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -639,6 +698,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.unisvg.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -648,6 +708,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.iconify.design/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -657,6 +718,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://radix-ui.com/primitives/docs/components/alert-dialog",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -666,6 +728,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w154${H.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -675,6 +738,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://febbox.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -684,6 +748,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.discordapp.com/icons/1081114597819433010/40dc99c747eb44e391c23ab6e87d3701.webp",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -693,6 +758,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/the-raven",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -702,6 +768,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://aomedia.org/emsg/ID3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -711,6 +778,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/ns/ttml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -720,6 +788,7 @@
       "evidence_url": "https://meowtv.ru/assets/index-CEc8xZJ2.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:31:46.214107+00:00",
+      "reference_class": "url-template",
       "url": "https://flagcdn.com/w${{24:40,32:40,48:80,64:80",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

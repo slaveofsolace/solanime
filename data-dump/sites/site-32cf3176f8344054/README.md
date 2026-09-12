@@ -1,7 +1,23 @@
 # BFIPlayer
 
-URL: https://player.bfi.org.uk/free
+Listed URL: https://player.bfi.org.uk/free
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://player.bfi.org.uk/free
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:32:10.621553+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: Cloudflare edge, Google Analytics/Tag Manager
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+| Reference | Evidence type | Source |
+|---|---|---|
+| https://www.googletagmanager.com/ns.html?id=GTM-MFLFHWM | embed | https://player.bfi.org.uk/free |
+
+Additional references and exact timestamps/hashes are retained in metadata.json.
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

@@ -112,8 +112,8 @@
   ],
   "observed_at": "2026-09-12T07:28:28.607228+00:00",
   "provider_ids": [
-    "provider-google-analytics",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-google-analytics"
   ],
   "references": [
     {
@@ -122,6 +122,7 @@
       "evidence_url": "https://35mm.online/en",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:28.607228+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -131,6 +132,7 @@
       "evidence_url": "https://35mm.online/en",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:28.607228+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://35mm.online/en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -140,6 +142,7 @@
       "evidence_url": "https://35mm.online/en",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:28.607228+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://35mm.online/css/app.a65c9e32.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -149,6 +152,7 @@
       "evidence_url": "https://35mm.online/en",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:28.607228+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://35mm.online/en",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -158,6 +162,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.google-analytics.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -167,6 +172,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://a/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -176,6 +182,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://a/c%20d?a=1&c=3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -185,6 +192,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://xn--e1aybc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -194,6 +202,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://x/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -203,6 +212,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtm.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -212,6 +222,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/linusborg/portal-vue",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -221,6 +232,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/User/Token",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -230,6 +242,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://35mm.online/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -239,6 +252,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/authorize",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -248,6 +262,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/atdremotelogin",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -257,6 +272,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/User/register",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -266,6 +282,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/registerext",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -275,6 +292,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/profile",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -284,6 +302,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/User/Forgotpassword",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -293,6 +312,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/User/resetpassword",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -302,6 +322,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/changepassword",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -311,6 +332,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/changeemail",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -320,6 +342,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sso.35mm.online/connect/deleteaccount",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -329,6 +352,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -338,6 +362,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/content",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -347,6 +372,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://redgalaxy-fo.35mm.online/widget/smarttv/redgalaxy-smarttv-iframe-remote-1.0.0.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -356,6 +382,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://consent.cookiebot.com/uc.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -365,6 +392,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://consent.cookiebot.com/2932fcb4-9f6a-4617-a383-62a410dbd88d/cd.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -374,6 +402,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bootstrap-vue.org/docs",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -383,6 +412,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -392,6 +422,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/frontError",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -401,6 +432,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/pro-form",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -410,6 +442,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cms.35mm.online/umbraco/api/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -419,6 +452,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://redgalaxy-fo.35mm.online/widget/web/css/cps-fo-widget-web-1.0.0.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -428,6 +462,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://redgalaxy-fo.35mm.online/widget/web/js/cps-fo-widget-web-1.0.0.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -437,6 +472,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -446,6 +482,7 @@
       "evidence_url": "https://35mm.online/js/app.d46b60d65c2a67b02af4.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:29.209182+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

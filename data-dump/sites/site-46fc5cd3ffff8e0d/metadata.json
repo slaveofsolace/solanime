@@ -56,10 +56,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js"
+      "source_url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-46fc5cd3ffff8e0d",
@@ -129,8 +131,8 @@
   ],
   "observed_at": "2026-09-12T07:29:06.861361+00:00",
   "provider_ids": [
-    "provider-tmdb",
-    "provider-google-analytics"
+    "provider-google-analytics",
+    "provider-tmdb"
   ],
   "references": [
     {
@@ -139,6 +141,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -148,6 +151,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -157,6 +161,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/main-app-05a5fe279f4f6e20.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -166,6 +171,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/6856-4bcbb9c143e24c93.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -175,6 +181,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/7470-63d4fea4c9b6c78b.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -184,6 +191,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/1746-f5ad489381f79515.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -193,6 +201,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/app/page-d94fa827eaa2ef93.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -202,6 +211,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/app/layout-53ae08746e2d7f84.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -211,6 +221,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/app/error-df45b23fb7904beb.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -220,6 +231,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -229,6 +241,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/webpack-efc177733661b86e.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -238,6 +251,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -247,6 +261,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -256,6 +271,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/1QU7HKgsQbGpzsJbJK4pAVQV9F5.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -265,6 +281,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/ls6zswrOZVhCXQBh96DlbnLBajM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -274,6 +291,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "image",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -283,6 +301,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -292,6 +311,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/sign-in",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -301,6 +321,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -310,6 +331,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -319,6 +341,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/1QU7HKgsQbGpzsJbJK4pAVQV9F5.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -328,6 +351,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/ls6zswrOZVhCXQBh96DlbnLBajM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -337,6 +361,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -346,6 +371,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/css/6ac76f74fc8af066.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -355,6 +381,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/css/ca03ede3a2911e52.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -364,6 +391,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/_next/static/chunks/webpack-efc177733661b86e.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -373,6 +401,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-YLJGBJ8XFN",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -382,6 +411,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -391,6 +421,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/icon.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -400,6 +431,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -409,6 +441,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -418,6 +451,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/k3waqVXSnvCZWfJYNtdamTgTtTA.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -427,6 +461,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -436,6 +471,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/1QU7HKgsQbGpzsJbJK4pAVQV9F5.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -445,6 +481,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/ls6zswrOZVhCXQBh96DlbnLBajM.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -454,6 +491,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -463,6 +501,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-YLJGBJ8XFN",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -472,6 +511,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cinevibe.cc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -481,6 +521,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -490,6 +531,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -499,6 +541,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -508,6 +551,7 @@
       "evidence_url": "https://cinevibe.cc/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:06.861361+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -517,6 +561,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:08.036375+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -526,6 +571,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:08.036375+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -535,6 +581,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:08.036375+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -544,6 +591,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:08.036375+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -553,6 +601,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/4bd1b696-f785427dddbba9fb.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:08.036375+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -562,6 +611,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:09.095317+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/messages/failed-to-find-server-action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -571,6 +621,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:09.095317+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -580,6 +631,7 @@
       "evidence_url": "https://cinevibe.cc/_next/static/chunks/1255-aadf393aa3a56bfa.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:09.095317+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

@@ -412,7 +412,7 @@
     "linked_scripts_discovered": 1,
     "playback_chain_verified": false,
     "repositories_checked": false,
-    "runtime_network_checked": false,
+    "runtime_network_checked": true,
     "script_limit": 2
   },
   "domain_ids": [
@@ -515,14 +515,14 @@
   ],
   "observed_at": "2026-09-12T07:35:18.635625+00:00",
   "provider_ids": [
-    "provider-google-analytics",
-    "provider-tmdb",
     "provider-anilist",
-    "provider-vidlink",
-    "provider-vidfast",
+    "provider-google-analytics",
+    "provider-google-fonts",
+    "provider-tmdb",
     "provider-videasy",
-    "provider-youtube",
-    "provider-google-fonts"
+    "provider-vidfast",
+    "provider-vidlink",
+    "provider-youtube"
   ],
   "references": [
     {
@@ -531,6 +531,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cloud.umami.is/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -540,6 +541,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-71RENY1DY4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -549,6 +551,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mn.browpotware.com/rVrqg8VMZnRI/WWevB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -558,6 +561,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -567,6 +571,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://instant.page/5.2.0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -576,6 +581,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/favcion.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -585,6 +591,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -594,6 +601,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/assets/index-5mikfwuX.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -603,6 +611,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -612,6 +621,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://zencine.org/site.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -621,6 +631,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cloud.umami.is/script.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -630,6 +641,7 @@
       "evidence_url": "https://zencine.org/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:18.635625+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-71RENY1DY4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -639,6 +651,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://react.dev/errors/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -648,6 +661,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -657,6 +671,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1998/Math/MathML",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -666,6 +681,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -675,6 +691,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/XML/1998/namespace",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -684,6 +701,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "http://localhost/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -693,6 +711,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://reactrouter.com/en/main/routers/picking-a-router.",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -702,6 +721,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/ungap/url-search-params.",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -711,6 +731,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/hgoebl/mobile-detect.js*/(function(s,r",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -720,6 +741,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.themoviedb.org/3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -729,6 +751,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/t/p/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -738,6 +761,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -747,6 +771,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://tryembed.us.cc/embed/anime/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -756,6 +781,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/beWuUrKhHP",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -765,6 +791,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.themoviedb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -774,6 +801,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -783,6 +811,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w780${G.backdrop_path||",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -792,6 +821,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w780${G.poster_path||",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -801,6 +831,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://placehold.co/185x278/141414/fff/?text=%24%7BencodeURIComponent%28G.title%7C%7CG.name%7C%7C",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -810,6 +841,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://api.themoviedb.org/3/${h",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -819,6 +851,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w500${P.file_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -828,6 +861,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w500${n.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -837,6 +871,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidlink.pro/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -846,6 +881,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidsrc.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -855,6 +891,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidora.su/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -864,6 +901,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vidfast.pro/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -873,6 +911,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://player.videasy.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -882,6 +921,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://player.videasy.net/tv/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -891,6 +931,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://player.videasy.net/movie/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -900,6 +941,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vsembed.ru/embed/tv/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -909,6 +951,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vsembed.ru/embed/movie/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -918,6 +961,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vidfast.vc/tv/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -927,6 +971,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vidfast.vc/movie/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -936,6 +981,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://rozgarlelo.modiplay.xyz/embed/tmdb/tv?id=%24%7Bn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -945,6 +991,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://rozgarlelo.modiplay.xyz/embed/tmdb/movie?id=%24%7Bn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -954,6 +1001,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://screenscape.me/embed?tmdb=%24%7Bn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -963,6 +1011,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vidrock.ru/tv/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -972,6 +1021,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://vidrock.ru/movie/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -981,6 +1031,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube.com/embed/${S.key",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -990,6 +1041,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube-nocookie.com/embed/${j[0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -999,6 +1051,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/name/${s.external_ids.imdb_id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1008,6 +1061,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://www.instagram.com/${s.external_ids.instagram_id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1017,6 +1071,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "url-template",
       "url": "https://twitter.com/${s.external_ids.twitter_id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1026,6 +1081,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fontawesome.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1035,6 +1091,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fontawesome.com/license/free",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1044,6 +1101,7 @@
       "evidence_url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:19.643398+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://fb.me/use-check-prop-types",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1054,6 +1112,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "document",
       "url": "https://zencine.org/",
       "verification_scope": "browser-request-sent"
@@ -1065,6 +1124,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-71RENY1DY4",
       "verification_scope": "browser-request-sent"
@@ -1076,6 +1136,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://instant.page/5.2.0",
       "verification_scope": "browser-request-sent"
@@ -1087,6 +1148,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://cloud.umami.is/script.js",
       "verification_scope": "browser-request-sent"
@@ -1098,6 +1160,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-71RENY1DY4&gtm=45je6992v9259373562za200zd9259373562&_p=1789199150156&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1226236947.1789199150&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=1280x800&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120420416~120469145~120469153&sid=1789199150&sct=1&seg=0&dl=https%3A%2F%2Fzencine.org%2F&dt=Zencine+-+Watch+Movies+%26+TV+Shows+Online&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1093",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1109,6 +1172,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://www.google.com/g/collect?v=2&tid=G-71RENY1DY4&gtm=45je6992v9259373562za200zd9259373562&_p=1789199150156&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1226236947.1789199150&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=1280x800&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120420416~120469145~120469153&sid=1789199150&sct=1&seg=0&dl=https%3A%2F%2Fzencine.org%2F&dt=Zencine+-+Watch+Movies+%26+TV+Shows+Online&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1093&gaf=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1120,6 +1184,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "robots_disallow_or_unavailable",
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://mn.browpotware.com/rVrqg8VMZnRI/WWevB",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1131,6 +1196,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://zencine.org/assets/index-BzEoIlBO.js",
       "verification_scope": "browser-request-sent"
@@ -1142,6 +1208,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://zencine.org/assets/index-5mikfwuX.css",
       "verification_scope": "browser-request-sent"
@@ -1153,6 +1220,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://fonts.googleapis.com/css2?family=Instrument+Serif%3Aital%400%3B1&family=Inter%3Aital%2Copsz%2Cwght%400%2C14..32%2C100..900%3B1%2C14..32%2C100..900&display=swap",
       "verification_scope": "browser-request-sent"
@@ -1164,6 +1232,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://gateway.umami.is/api/send",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1175,6 +1244,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://zencine.org/site.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1186,6 +1256,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1197,6 +1268,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1208,6 +1280,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1219,6 +1292,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1230,6 +1304,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1241,6 +1316,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1252,6 +1328,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1263,6 +1340,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYMZg.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1274,6 +1352,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/watch/providers/movie?language=en-US&watch_region=US",
       "verification_scope": "browser-request-sent"
@@ -1285,6 +1364,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/watch/providers/tv?language=en-US&watch_region=US",
       "verification_scope": "browser-request-sent"
@@ -1296,6 +1376,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://image.tmdb.org/t/p/w185/skypuy7SXuugIQeYg0IglmzoKaS.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1307,6 +1388,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/trending/tv/week?language=en-US&append_to_response=images%2Ccontent_ratings&include_image_language=en",
       "verification_scope": "browser-request-sent"
@@ -1318,6 +1400,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-71RENY1DY4&gtm=45je6992v9259373562za200zd9259373562&_p=1789199150156&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=1226236947.1789199150&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=1280x800&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&_s=2&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120420416~120469145~120469153&sid=1789199150&sct=1&seg=0&dl=https%3A%2F%2Fzencine.org%2F&dt=Zencine+-+Watch+Movies+%26+TV+Shows+Online&en=scroll&epn.percent_scrolled=90&_et=10&tfd=6112",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1329,6 +1412,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://www.google.com/g/collect?v=2&tid=G-71RENY1DY4&gtm=45je6992v9259373562za200zd9259373562&_p=1789199150156&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=1226236947.1789199150&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=1280x800&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=&uaw=0&ul=en-us&_s=2&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120420416~120469145~120469153&sid=1789199150&sct=1&seg=0&dl=https%3A%2F%2Fzencine.org%2F&dt=Zencine+-+Watch+Movies+%26+TV+Shows+Online&en=scroll&epn.percent_scrolled=90&_et=10&tfd=6112&gaf=1",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1340,6 +1424,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:45:49.153004+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&append_to_response=images%2Ccontent_ratings&include_image_language=en",
       "verification_scope": "browser-request-sent"

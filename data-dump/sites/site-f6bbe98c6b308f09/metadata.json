@@ -62,10 +62,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "WordPress",
-      "source_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c"
+      "source_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-f6bbe98c6b308f09",
@@ -115,13 +117,11 @@
   ],
   "observed_at": "2026-09-12T07:28:23.884093+00:00",
   "provider_ids": [
-    "provider-google-analytics",
-    "provider-cloudflare-insights",
-    "provider-youtube",
-    "provider-vimeo",
     "provider-cloudflare-edge",
-    "provider-embed-host-6860776e5611f69c",
-    "provider-embed-host-b5339297cd75d2e6"
+    "provider-cloudflare-insights",
+    "provider-google-analytics",
+    "provider-vimeo",
+    "provider-youtube"
   ],
   "references": [
     {
@@ -130,6 +130,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-BFZBG0LPQL",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -139,6 +140,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.wp.com/e-202637.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -148,6 +150,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -157,6 +160,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -166,6 +170,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/02/123Wrestling-logo-2023.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -175,6 +180,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2020/06/ufc-fight-night.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -184,6 +190,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/05/wwe_smackdown.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -193,6 +200,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/AAA-Triplemania-34.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -202,6 +210,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/01/tna-impact.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -211,6 +220,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/03/roh-wrestling-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -220,6 +230,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/03/aew-dynamite.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -229,6 +240,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/10/wwe-nxt-24.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -238,6 +250,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/01/wwe-monday-night-raw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -247,6 +260,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/wwe-sunday-night-main-event.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -256,6 +270,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/05/aew-collision.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -265,6 +280,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -274,6 +290,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -283,6 +300,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-ppv-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -292,6 +310,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-nxt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -301,6 +320,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-raw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -310,6 +330,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/lucha-libre/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -319,6 +340,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-smackdown/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -328,6 +350,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -337,6 +360,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -346,6 +370,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-dynamite/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -355,6 +380,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-collision/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -364,6 +390,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -373,6 +400,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -382,6 +410,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-fight-night/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -391,6 +420,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/tna-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -400,6 +430,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/tna-wrestling-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -409,6 +440,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-roh-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -418,6 +450,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/roh-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -427,6 +460,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-njpw-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -436,6 +470,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/gcw-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -445,6 +480,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-nwa-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -454,6 +490,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/wwe-network-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -463,6 +500,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/disclaimer/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -472,6 +510,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-ufc-fight-night-288-silva-vs-delgado/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -481,6 +520,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-smackdown-9-11-26-september-11-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -490,6 +530,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aaa-triplemania-34-september-11th-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -499,6 +540,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-other-wrestling-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -508,6 +550,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-tna-impact-9-10-26-september-10-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -517,6 +560,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-roh-wrestling-9-10-26-september-10-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -526,6 +570,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aew-dynamite-9-9-26-september-9-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -535,6 +580,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-nxt-9-8-26-september-8th-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -544,6 +590,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-raw-9-7-26-september-7-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -553,6 +600,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-sunday-nights-main-event-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -562,6 +610,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-ufc-fight-night-287-hooker-vs-parnasse/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -571,6 +620,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aew-collision-9-5-26-full-show/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -580,6 +630,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-smackdown-9-4-26-september-4-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -589,6 +640,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -598,6 +650,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -607,6 +660,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/257/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -616,6 +670,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/xmlrpc.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -625,6 +680,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gmpg.org/xfn/11",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -634,6 +690,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/themes/vlog/assets/fonts/font-vlog.woff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -643,6 +700,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/plugins/meks-easy-social-share/assets/fonts/socicon.woff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -652,6 +710,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/themes/vlog/assets/fonts/fontawesome-webfont.woff2?v=4.7.0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -661,6 +720,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -670,6 +730,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -679,6 +740,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -688,6 +750,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://connect.facebook.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -697,6 +760,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -706,6 +770,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/css/f4eae44a3c26025b82b78c7a2c520aa8.css?ver=c9e8c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -715,6 +780,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -724,6 +790,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/xmlrpc.php?rsd=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -733,6 +800,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2022/04/cropped-479-4794656_groups-fan-pages-boxing-ring-vector-clipart-150x150.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -742,6 +810,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2022/04/cropped-479-4794656_groups-fan-pages-boxing-ring-vector-clipart-300x300.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -751,6 +820,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "form-action-not-requested",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -760,6 +830,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ogp.me/ns",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -769,6 +840,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/xmlrpc.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -778,6 +850,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gmpg.org/xfn/11",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -787,6 +860,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/themes/vlog/assets/fonts/font-vlog.woff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -796,6 +870,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/plugins/meks-easy-social-share/assets/fonts/socicon.woff",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -805,6 +880,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/themes/vlog/assets/fonts/fontawesome-webfont.woff2?v=4.7.0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -814,6 +890,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -823,6 +900,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -832,6 +910,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "https://schema.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -841,6 +920,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2020/06/Logo-new-123.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -850,6 +930,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "url-template",
       "url": "https://123wrestling.com/?s=%7Bsearch_term_string",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -859,6 +940,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -868,6 +950,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/css/f4eae44a3c26025b82b78c7a2c520aa8.css?ver=c9e8c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -877,6 +960,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=G-BFZBG0LPQL",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -886,6 +970,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.w.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -895,6 +980,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -904,6 +990,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/xmlrpc.php?rsd=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -913,6 +1000,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2022/04/cropped-479-4794656_groups-fan-pages-boxing-ring-vector-clipart-150x150.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -922,6 +1010,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2022/04/cropped-479-4794656_groups-fan-pages-boxing-ring-vector-clipart-300x300.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -931,6 +1020,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/02/123Wrestling-logo-2023.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -940,6 +1030,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -949,6 +1040,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-ppv-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -958,6 +1050,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-nxt/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -967,6 +1060,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-raw/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -976,6 +1070,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/lucha-libre/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -985,6 +1080,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-wwe-smackdown/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -994,6 +1090,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1003,6 +1100,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1012,6 +1110,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-dynamite/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1021,6 +1120,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-aew-collision/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1030,6 +1130,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1039,6 +1140,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1048,6 +1150,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-ufc-fight-night/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1057,6 +1160,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/tna-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1066,6 +1170,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/tna-wrestling-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1075,6 +1180,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-roh-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1084,6 +1190,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/roh-ppv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1093,6 +1200,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-njpw-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1102,6 +1210,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/gcw-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1111,6 +1220,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-nwa-wrestling/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1120,6 +1230,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/wwe-network-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1129,6 +1240,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/disclaimer/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1138,6 +1250,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-ufc-fight-night-288-silva-vs-delgado/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1147,6 +1260,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2020/06/ufc-fight-night.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1156,6 +1270,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2020/06/ufc-fight-night-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1165,6 +1280,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-smackdown-9-11-26-september-11-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1174,6 +1290,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/05/wwe_smackdown.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1183,6 +1300,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/05/wwe_smackdown-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1192,6 +1310,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aaa-triplemania-34-september-11th-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1201,6 +1320,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/AAA-Triplemania-34.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1210,6 +1330,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/AAA-Triplemania-34-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1219,6 +1340,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/category/watch-other-wrestling-shows/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1228,6 +1350,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-tna-impact-9-10-26-september-10-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1237,6 +1360,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/01/tna-impact.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1246,6 +1370,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/01/tna-impact-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1255,6 +1380,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-roh-wrestling-9-10-26-september-10-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1264,6 +1390,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/03/roh-wrestling-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1273,6 +1400,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/03/roh-wrestling-1-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1282,6 +1410,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aew-dynamite-9-9-26-september-9-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1291,6 +1420,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/03/aew-dynamite.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1300,6 +1430,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/03/aew-dynamite-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1309,6 +1440,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-nxt-9-8-26-september-8th-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1318,6 +1450,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/10/wwe-nxt-24.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1327,6 +1460,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2024/10/wwe-nxt-24-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1336,6 +1470,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-raw-9-7-26-september-7-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1345,6 +1480,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/01/wwe-monday-night-raw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1354,6 +1490,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/01/wwe-monday-night-raw-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1363,6 +1500,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-sunday-nights-main-event-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1372,6 +1510,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/wwe-sunday-night-main-event.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1381,6 +1520,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2026/09/wwe-sunday-night-main-event-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1390,6 +1530,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-ufc-fight-night-287-hooker-vs-parnasse/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1399,6 +1540,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-aew-collision-9-5-26-full-show/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1408,6 +1550,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/05/aew-collision.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1417,6 +1560,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2025/05/aew-collision-300x170.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1426,6 +1570,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/watch-wwe-smackdown-9-4-26-september-4-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1435,6 +1580,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1444,6 +1590,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/page/257/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1453,6 +1600,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://stats.wp.com/e-202637.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1462,6 +1610,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1471,6 +1620,7 @@
       "evidence_url": "https://123wrestling.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:23.884093+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1480,6 +1630,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "embed",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.youtube.com/embed/'+g.id+",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1489,6 +1640,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "embed",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://player.vimeo.com/video/'+g.id+'?autoplay=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1498,6 +1650,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "image",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/js/'+value+'",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1507,6 +1660,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/js/%url%",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1516,6 +1670,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "link",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1525,6 +1680,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://dimsemenov.com/plugins/magnific-popup/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1534,6 +1690,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://css-tricks.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1543,6 +1700,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://daverupert.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1552,6 +1710,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1561,6 +1720,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://sam.zoy.org/wtfpl/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1570,6 +1730,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://leafo.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1579,6 +1740,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://img.youtube.com/vi/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1588,6 +1750,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://vimeo.com/api/v2/video/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1597,6 +1760,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://www.youtube.com/embed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1606,6 +1770,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://player.vimeo.com/video/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1615,6 +1780,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-admin/admin-ajax.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1624,6 +1790,7 @@
       "evidence_url": "https://123wrestling.com/wp-content/litespeed/js/87ea35318234982265d59364f88ad673.js?ver=c9e8c",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:28:24.550610+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://123wrestling.com/wp-content/uploads/2023/02/123Wrestling-logo-2023.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

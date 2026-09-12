@@ -70,10 +70,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Video.js",
-      "source_url": "https://fsharetv.co/js/disk.js?t=1589873325354"
+      "source_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-0d6210116d368861",
@@ -142,12 +144,12 @@
   ],
   "observed_at": "2026-09-12T07:30:02.325917+00:00",
   "provider_ids": [
-    "provider-jsdelivr",
-    "provider-google-analytics",
+    "provider-cloudflare-edge",
     "provider-cloudflare-insights",
-    "provider-youtube",
     "provider-google-ads",
-    "provider-cloudflare-edge"
+    "provider-google-analytics",
+    "provider-jsdelivr",
+    "provider-youtube"
   ],
   "references": [
     {
@@ -156,6 +158,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +168,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdn.jsdelivr.net/npm/sweetalert2@11",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +178,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +188,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=UA-135929476-2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +198,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +208,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://acscdn.com/script/aclib.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +218,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "script",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +228,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/img/fsharetv.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +238,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjA0MTM4MTQtNzY5MC00NzY3LWI1ZTgtYzcxMjkyMzU4MDZiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +248,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmViOTQ3OGQtNDgwMi00NmI4LWFkZjUtMTQ1NjkzZGM5ZDk4XkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +258,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTI5MDM1Mjc0M15BMl5BanBnXkFtZTYwOTI4Mjk5._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +268,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZmYwNGMzZWEtMjkxOC00MjJmLThmMDgtNjNmZTRiMWI3MWNlXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +278,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjE1YjBlNTItYjM0YS00ZTBjLWI0Y2EtNDg2NGZlOTZlMDk2XkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +288,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTVhNDE0NzAtOGI1Zi00OTA3LThjZDMtMjA0MGQ2OGE3MDdmXkEyXkFqcGdeQXVyMzgzMjc3OTQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +298,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +308,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDg4OGM2YjYtM2EyNy00MDVkLThjODUtYjA4NTE5NmNmMjYwXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +318,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzJhNDE1YzMtNjA4YS00YTc2LWEwZTktMmY3MjAxYTRlMTk5XkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +328,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTUyMTM1NjQ5NV5BMl5BanBnXkFtZTgwNTA1MjUwNzE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +338,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjA0ODEzMTc1Nl5BMl5BanBnXkFtZTcwODM2MjAxNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +348,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYTkwZWUyOTYtNDFhMC00MjM3LWEwODctYzU0OTQ1MTZjYWRmXkEyXkFqcGdeQXVyNDYzMDMxOTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +358,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjU3ZTgzMjQtZDBhMS00ZmRlLTliM2ItOTE1MmEzOWRkZTIzXkEyXkFqcGdeQXVyNzY1NDgwNjQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +368,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWM3Y2RkMTUtZTQzYi00MDI3LThmMmUtNDMzZTAzZGViMmQxXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +378,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BY2QwYmFmZTEtNzY2Mi00ZWMyLWEwY2YtMGIyNGZjMWExOWEyXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +388,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDUwYzc1NDQtY2QzZi00YzI2LWEyMzUtOWYzNDJkMzQ5MjRjXkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +398,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDljMDg4ZjEtNmIwMi00ZDQ0LTgyNGMtZmE1NDc4ZmQzMTZkXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +408,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjAxOTE1OTMxOV5BMl5BanBnXkFtZTgwNDMwMTkwMzE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +418,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTE5ZmExYzQtNTM3ZS00MzMxLWExNzgtNmU5NDc4YzFmM2MxXkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +428,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2M3ZTY0ODYtYmMxZi00ZmQ0LTg4MDAtOGM0MzUzMjZhOWJlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +438,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmM1ODExNjctMTg4YS00NTg1LWI5OGEtZjExMjFlMWZmN2VhXkEyXkFqcGdeQXVyNjU1MDM2NjY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +448,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjEzODExMjI1NF5BMl5BanBnXkFtZTcwMTc0MzMzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +458,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODQ3MjE5NDgtNzFhNS00Zjc1LWFhYmEtNjVjNWQ3YjZjYTZmXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +468,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMzk2ZjNjYTAtZDcwNC00ZDk1LWFlZWYtYjE3NzIxZDFhYWM2XkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +478,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZTJjZTI0ODAtNjNjMC00NDhmLTgwMDQtOGY3N2ViMjI3MDAzXkEyXkFqcGdeQXVyMTQ2MjQyNDc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +488,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjc0MTU0MDY1OV5BMl5BanBnXkFtZTcwMDI2OTY2NA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +498,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzZlMWNlNDAtYTRlOC00OWExLWJkZGItNjc1ZDg5OTYxODc3XkEyXkFqcGdeQXVyMjQzMzQzODY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +508,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +518,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTYwNDg1NDYzOF5BMl5BanBnXkFtZTcwMDIwMzg4NA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +528,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTI1NTgyMDAyOV5BMl5BanBnXkFtZTcwMTE0MTgyMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -498,6 +538,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjlmOWUwMmYtMjE1My00N2U2LWE1MmUtNDM2MDc5NTNmOWI0XkEyXkFqcGdeQXVyNDUxNjc5NjY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -507,6 +548,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZmI5NzFiODgtN2ZiOC00NTY0LTk3NmEtNmJlYWFjMzIyOWZhXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -516,6 +558,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjA5OTk3OTQzOF5BMl5BanBnXkFtZTcwNDcyODkyMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -525,6 +568,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODk0NjBmZTYtMTBmMi00MDkzLTg2ZjYtMDVkOWY1NjYxMWY0XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -534,6 +578,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BM2I3MWNjZjYtMDAxNC00NDhmLTg3MWUtOWU3MjEwNDI2YWE0XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -543,6 +588,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDcwYjEyNWItMGI1Mi00MjI1LWIyMDEtMTQ4YjhkNjM4NDU3XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -552,6 +598,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDU4OThmMWUtMDgyYS00ZDMxLWIzNjctNGZkOGQxNjcwNjFhXkEyXkFqcGdeQXVyNjUzMjMzNTY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -561,6 +608,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMGE3ZTkyNzctOGNlYi00NDcwLWI2NmYtYWZmNzFkNGFiOTRhXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -570,6 +618,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzI3NTkwNDItMGI5MC00MzAwLThmMTktODA0ZTBjYzA4ZGIxXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -579,6 +628,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2I4ZmFiNjMtN2UxZi00MjAwLThiYTktYTIwN2VlMzNhYTYyXkEyXkFqcGdeQXVyMjAwMzU2MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -588,6 +638,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -597,6 +648,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTcyNDMyNjQtMWJkYy00YjI4LThkODctOWViNTU5Mzk5NGY1XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -606,6 +658,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjM3NGE0YzEtYWUyOS00ZTFmLTgwOWQtMmFkMzc3OTI3YWJlXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -615,6 +668,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzgzOTdjNmQtNmQ3Yy00NmQyLWJjOGMtNThjM2FjNTcwMmViXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -624,6 +678,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYmU1ZmQ1ODgtMmNhYy00ODE2LTgxZWQtZjA2ZjI1OTllMDlmXkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -633,6 +688,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjQ3N2ExZGUtYTk4YS00M2Y5LWE5YTMtYTViZDRmZjQ4MWU0XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -642,6 +698,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BM2Q3MDJmZDktZTBhZi00N2QxLWJkMjQtM2QxNmQ5MTAzOTBjXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -651,6 +708,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzU0NWYzNmEtYzc3Ni00ZDY1LTliY2YtNTc1ODRiNjY1ZDQyXkEyXkFqcGdeQXVyMjIwNjIxNjc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -660,6 +718,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDNiYWM3NjUtYzEyZS00Y2ZmLTk3NzktMDYzNDUxMWY2MDg2XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -669,6 +728,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -678,6 +738,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODJlNmRlZDMtNWRiMC00MmI3LWJmMjMtNmEyMTBhMmY4ZGY2XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -687,6 +748,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2UwMzFmZjktODY0Zi00ZTNjLWE0NTctM2ZhMmIxYzM1NTBlXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -696,6 +758,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -705,6 +768,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDI1MzM0Y2YtYmIyMS00ODE3LTlhZjEtZTUyNmEzMTNhZWU5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -714,6 +778,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTU4Mzk3ODIyOF5BMl5BanBnXkFtZTgwODgyNzk2NjE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -723,6 +788,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -732,6 +798,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -741,6 +808,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -750,6 +818,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTQxNjI2NjU4MV5BMl5BanBnXkFtZTcwNjQ2NjUwNw@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -759,6 +828,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTU1MzM0MjcxMF5BMl5BanBnXkFtZTgwODQ0MzcxMTE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -768,6 +838,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -777,6 +848,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -786,6 +858,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjQ3YTNkNDQtY2IwMy00ZjI4LWJiOGYtMzcxOTRkYzAzZmZkXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -795,6 +868,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTQ3NzQ1MDc0Ml5BMl5BanBnXkFtZTcwNzg4MjQ0MQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -804,6 +878,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjVmZThhZGMtNzQwNS00ZDAyLTk3NjgtYjJlYjQ3YmExYjRhXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -813,6 +888,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDRiMDhmMzAtMGIyMS00YWJiLWIyYWUtZjFhODZlMzRkNzdlXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -822,6 +898,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOTI4NDczOTI5N15BMl5BanBnXkFtZTcwMTAyOTAzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -831,6 +908,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmUxM2IyMTMtZGMwMy00NTUwLTlmNjktMjNmN2UxMmE2NDc1XkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -840,6 +918,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWEzYWE5MzQtNTFlYi00MTBiLTg0NWMtMDczYjFlZWM1ZWZmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -849,6 +928,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjcxMWY2NjYtMjkwOS00ODFhLWFlNDItNTk1YjAxNGUzZmU1XkEyXkFqcGdeQXVyMTg1MjM0NQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -858,6 +938,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOWNjOTA5MjktZmZlMi00NGRlLThkNTktZDkxOTc5ZDQyNjlmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -867,6 +948,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYjk2Y2UwNWEtOGNjNS00YTg0LWE5ZGEtYWFjZTUxZWJmNzI5XkEyXkFqcGdeQXVyMDQwNzMzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -876,6 +958,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOThjMjUxNjItYWEyYy00NWVmLWFkOWYtYWU0MmIwMmU1MjhkXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -885,6 +968,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDQwMjI1ODktN2NkZC00NjY2LWI1YWUtNjFiZWFjN2ZiYTU5XkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -894,6 +978,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMWUxMjI0YmQtNGZkNy00ODE3LTliM2UtMGI5NmU3MTYxNDk5XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -903,6 +988,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOTEzMDliZTEtMGJjZS00ZjJjLTllMGEtNWRiMTYyMWNlMzYyXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -912,6 +998,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZWFlMDJlZjgtMTFiZC00YzFlLWI3MmItMDFkM2RjMTZlZDJmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -921,6 +1008,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "image",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjM5NjA2NDY0MV5BMl5BanBnXkFtZTgwMDI4NzQ0MjE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -930,6 +1018,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -939,6 +1028,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/page/dmca",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -948,6 +1038,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/page/privacy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -957,6 +1048,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/page/about",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -966,6 +1058,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sublearning.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -975,6 +1068,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chromewebstore.google.com/detail/sublearning/plkbhckkhldnagjknmgjandapjdnjeoh",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -984,6 +1078,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/cdn-cgi/l/email-protection",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -993,6 +1088,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2018",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1002,6 +1098,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2017",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1011,6 +1108,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2016",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1020,6 +1118,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2015",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1029,6 +1128,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2014",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1038,6 +1138,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2013",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1047,6 +1148,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new?year=2012",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1056,6 +1158,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Action",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1065,6 +1168,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Adventure",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1074,6 +1178,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Animation",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1083,6 +1188,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Comedy",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1092,6 +1198,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Crime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1101,6 +1208,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Documentary",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1110,6 +1218,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Drama",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1119,6 +1228,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Family",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1128,6 +1238,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/History",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1137,6 +1248,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Horror",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1146,6 +1258,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Music",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1155,6 +1268,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Mystery",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1164,6 +1278,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Romance",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1173,6 +1288,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Science Fiction",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1182,6 +1298,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/TV Movie",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1191,6 +1308,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Thriller",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1200,6 +1318,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/War",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1209,6 +1328,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Western",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1218,6 +1338,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/USA",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1227,6 +1348,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/South Korea",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1236,6 +1358,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Japan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1245,6 +1368,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/China",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1254,6 +1378,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Hong Kong",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1263,6 +1388,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Taiwan",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1272,6 +1398,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/UK",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1281,6 +1408,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Australia",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1290,6 +1418,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/France",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1299,6 +1428,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/Thailand",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1308,6 +1438,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/India",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1317,6 +1448,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/old",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1326,6 +1458,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gdplayer.vip/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1335,6 +1468,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://subpanda.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1344,6 +1478,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/filter?genre=&country=&year=&sort_by=imdb_votes&sub=&year_range=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1353,6 +1488,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/american-history-x-episode-1-tt0120586",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1362,6 +1498,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-other-side-of-underneath-episode-1-tt0201820",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1371,6 +1508,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/bella-mafia-episode-1-tt0120602",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1380,6 +1518,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-housemaid-episode-1-tt0150980",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1389,6 +1528,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-king-of-comedy-episode-1-tt0085794",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1398,6 +1538,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/harry-and-the-hendersons-episode-1-tt0093148",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1407,6 +1548,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-karate-kid-episode-1-tt0087538",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1416,6 +1558,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/mean-johnny-barrows-episode-1-tt0074885",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1425,6 +1568,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/from-noon-till-three-episode-1-tt0074553",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1434,6 +1578,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-candidate-episode-1-tt0080983",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1443,6 +1588,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/raiders-of-the-lost-ark-episode-1-tt0082971",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1452,6 +1598,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/police-destination-oasis-episode-1-tt0082833",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1461,6 +1608,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/song-of-the-south-episode-1-tt0038969",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1470,6 +1618,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/la-plus-longue-nuit-du-diable-episode-1-tt0067592",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1479,6 +1628,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/predator-episode-1-tt0093773",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1488,6 +1638,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/moments-without-proper-names-episode-1-tt0270518",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1497,6 +1648,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/go-fish-episode-1-tt0109913",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1506,6 +1658,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/cartouche-episode-1-tt0055832",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1515,6 +1668,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/in-society-episode-1-tt0036953",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1524,6 +1678,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/dynasty-episode-1-tt0165742",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1533,6 +1688,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/pushing-hands-episode-1-tt0105652",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1542,6 +1698,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/amo-tu-cama-rica-episode-1-tt0101332",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1551,6 +1708,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/love-thy-neighbour-episode-1-tt0191255",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1560,6 +1718,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/where-the-spies-are-episode-1-tt0059905",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1569,6 +1728,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/demonia-episode-1-tt0094997",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1578,6 +1738,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/rosencrantz-&-guildenstern-are-dead-episode-1-tt0100519",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1587,6 +1748,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/inspecteur-lavardin-episode-1-tt0091270",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1596,6 +1758,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-big-boss-episode-1-tt0052567",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1605,6 +1768,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/radio-days-episode-1-tt0093818",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1614,6 +1778,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/legend-of-the-wolf-episode-1-tt0172711",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1623,6 +1788,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/animation",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1632,6 +1798,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/delta-space-mission-episode-1-tt2457504",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1641,6 +1808,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/donald's-golf-game-episode-1-tt0030069",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1650,6 +1818,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/pinocchio's-christmas-episode-1-tt0081340",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1659,6 +1828,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/pluto's-purchase-episode-1-tt0040698",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1668,6 +1838,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/théâtre-de-monsieur-&-madame-kabal-episode-1-tt0062366",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1677,6 +1848,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/hercules-episode-1-tt0119282",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1686,6 +1858,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/treasure-island-part-ii:-captain-flint's-treasure-episode-1-tt0122227",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1695,6 +1868,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/x-episode-1-tt0118200",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1704,6 +1878,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/dizzy-dishes-episode-1-tt0020829",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1713,6 +1888,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/lupin-iii:-farewell-to-nostradamus-episode-1-tt0170181",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1722,6 +1898,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/dragon-ball:-the-path-to-power-episode-1-tt0142250",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1731,6 +1908,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-small-one-episode-1-tt0078281",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1740,6 +1918,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/diabolique-episode-1-tt0046911",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1749,6 +1928,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-police-murderer-episode-1-tt0110860",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1758,6 +1938,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/winter's-flower-episode-1-tt0499480",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1767,6 +1948,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/mobsters-episode-1-tt0102460",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1776,6 +1958,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/heroes-shed-no-tears-episode-1-tt0092264",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1785,6 +1968,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/brink!-episode-1-tt0162212",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1794,6 +1978,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/out-of-the-blue-episode-1-tt0081291",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1803,6 +1988,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/le-dernier-milliardaire-episode-1-tt0025043",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1812,6 +1998,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/belle-of-the-nineties-episode-1-tt0024873",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1821,6 +2008,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/sweet-sweetback's-baadasssss-song-episode-1-tt0067810",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1830,6 +2018,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-song-of-styrene-episode-1-tt0051471",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1839,6 +2028,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-smiling-lieutenant-episode-1-tt0022074",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1848,6 +2038,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/edu",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1857,6 +2048,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/to-kill-a-mockingbird-episode-1-tt0056592",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1866,6 +2058,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/home-alone-2:-lost-in-new-york-episode-1-tt0104431",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1875,6 +2068,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/pinocchio-episode-1-tt0032910",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1884,6 +2078,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-lion-king-episode-1-tt0110357",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1893,6 +2088,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-matrix-episode-1-tt0133093",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1902,6 +2098,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/home-alone-episode-1-tt0099785",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1911,6 +2108,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-untouchables-episode-1-tt0094226",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1920,6 +2118,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/forrest-gump-episode-1-tt0109830",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1929,6 +2128,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/beauty-and-the-beast:-the-enchanted-christmas-episode-1-tt0118692",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1938,6 +2138,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-aristocats-episode-1-tt0065421",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1947,6 +2148,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/american-beauty-episode-1-tt0169547",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1956,6 +2158,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/toy-story-episode-1-tt0114709",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1965,6 +2168,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/category/new",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1974,6 +2178,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/mimi-episode-1-tt0079077",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1983,6 +2188,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/white-star-episode-1-tt0086578",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1992,6 +2198,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/three-men-to-kill-episode-1-tt0081658",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2001,6 +2208,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/joe-hill-episode-1-tt0067276",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2010,6 +2218,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-alphabet-murders-episode-1-tt0060094",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2019,6 +2228,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/a-caribbean-mystery-episode-1-tt0085296",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2028,6 +2238,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/a-ay-episode-1-tt0429489",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2037,6 +2248,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/a-season-in-hakkari-episode-1-tt0084045",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2046,6 +2258,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/will-episode-1-tt0232951",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2055,6 +2268,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/meiji-kyokyakuden---sandaime-shumei-episode-1-tt0122607",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2064,6 +2278,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-ringer-episode-1-tt0045092",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2073,6 +2288,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/the-student-of-prague-episode-1-tt0017438",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2082,6 +2298,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/siralardaki-heyecan-episode-1-tt0281199",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2091,6 +2308,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/seasons-of-the-heart-episode-1-tt0136523",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2100,6 +2318,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/hidden-pleasures-episode-1-tt0075069",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2109,6 +2328,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/hyperspace-episode-1-tt0141270",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2118,6 +2338,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/movie/20,000-years-in-sing-sing-episode-1-tt0023731",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2127,6 +2348,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/img/fsharetv.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2136,6 +2358,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2145,6 +2368,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/css/disk.css?t=1589873325354",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2154,6 +2378,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2163,6 +2388,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sublearning.app/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2172,6 +2398,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://chromewebstore.google.com/detail/sublearning/plkbhckkhldnagjknmgjandapjdnjeoh",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2181,6 +2408,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gdplayer.vip/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2190,6 +2418,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://subpanda.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2199,6 +2428,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjA0MTM4MTQtNzY5MC00NzY3LWI1ZTgtYzcxMjkyMzU4MDZiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2208,6 +2438,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/vpcazvyqcd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2217,6 +2448,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmViOTQ3OGQtNDgwMi00NmI4LWFkZjUtMTQ1NjkzZGM5ZDk4XkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2226,6 +2458,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/izexbiuvxn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2235,6 +2468,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTI5MDM1Mjc0M15BMl5BanBnXkFtZTYwOTI4Mjk5._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2244,6 +2478,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mqazhjrniv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2253,6 +2488,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZmYwNGMzZWEtMjkxOC00MjJmLThmMDgtNjNmZTRiMWI3MWNlXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2262,6 +2498,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ylwhmbmxnn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2271,6 +2508,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjE1YjBlNTItYjM0YS00ZTBjLWI0Y2EtNDg2NGZlOTZlMDk2XkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2280,6 +2518,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/kxtbbeqsfg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2289,6 +2528,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTVhNDE0NzAtOGI1Zi00OTA3LThjZDMtMjA0MGQ2OGE3MDdmXkEyXkFqcGdeQXVyMzgzMjc3OTQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2298,6 +2538,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/nvqtadulgh.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2307,6 +2548,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2316,6 +2558,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/lzknzovfrw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2325,6 +2568,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDg4OGM2YjYtM2EyNy00MDVkLThjODUtYjA4NTE5NmNmMjYwXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2334,6 +2578,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzJhNDE1YzMtNjA4YS00YTc2LWEwZTktMmY3MjAxYTRlMTk5XkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2343,6 +2588,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/fwxtptbxuy.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2352,6 +2598,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTUyMTM1NjQ5NV5BMl5BanBnXkFtZTgwNTA1MjUwNzE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2361,6 +2608,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/diilvtqjyc.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2370,6 +2618,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjA0ODEzMTc1Nl5BMl5BanBnXkFtZTcwODM2MjAxNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2379,6 +2628,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/khuvcnqdji.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2388,6 +2638,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYTkwZWUyOTYtNDFhMC00MjM3LWEwODctYzU0OTQ1MTZjYWRmXkEyXkFqcGdeQXVyNDYzMDMxOTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2397,6 +2648,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ljisxnpozl.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2406,6 +2658,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjU3ZTgzMjQtZDBhMS00ZmRlLTliM2ItOTE1MmEzOWRkZTIzXkEyXkFqcGdeQXVyNzY1NDgwNjQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2415,6 +2668,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/fhiwoeoqfi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2424,6 +2678,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWM3Y2RkMTUtZTQzYi00MDI3LThmMmUtNDMzZTAzZGViMmQxXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2433,6 +2688,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/bwlqjlzzkm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2442,6 +2698,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BY2QwYmFmZTEtNzY2Mi00ZWMyLWEwY2YtMGIyNGZjMWExOWEyXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2451,6 +2708,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zqrlhvyigb.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2460,6 +2718,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDUwYzc1NDQtY2QzZi00YzI2LWEyMzUtOWYzNDJkMzQ5MjRjXkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2469,6 +2728,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/iaaqnsceuz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2478,6 +2738,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDljMDg4ZjEtNmIwMi00ZDQ0LTgyNGMtZmE1NDc4ZmQzMTZkXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2487,6 +2748,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mlahvawfpo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2496,6 +2758,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjAxOTE1OTMxOV5BMl5BanBnXkFtZTgwNDMwMTkwMzE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2505,6 +2768,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mzjshzoroz.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2514,6 +2778,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTE5ZmExYzQtNTM3ZS00MzMxLWExNzgtNmU5NDc4YzFmM2MxXkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2523,6 +2788,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/pjwzkrtnfk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2532,6 +2798,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2M3ZTY0ODYtYmMxZi00ZmQ0LTg4MDAtOGM0MzUzMjZhOWJlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2541,6 +2808,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/rlspgdweln.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2550,6 +2818,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmM1ODExNjctMTg4YS00NTg1LWI5OGEtZjExMjFlMWZmN2VhXkEyXkFqcGdeQXVyNjU1MDM2NjY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2559,6 +2828,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/tscpymqcgn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2568,6 +2838,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjEzODExMjI1NF5BMl5BanBnXkFtZTcwMTc0MzMzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2577,6 +2848,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/jviktydygr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2586,6 +2858,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODQ3MjE5NDgtNzFhNS00Zjc1LWFhYmEtNjVjNWQ3YjZjYTZmXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2595,6 +2868,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ukdtusbije.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2604,6 +2878,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMzk2ZjNjYTAtZDcwNC00ZDk1LWFlZWYtYjE3NzIxZDFhYWM2XkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2613,6 +2888,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/xpvgfydutk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2622,6 +2898,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZTJjZTI0ODAtNjNjMC00NDhmLTgwMDQtOGY3N2ViMjI3MDAzXkEyXkFqcGdeQXVyMTQ2MjQyNDc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2631,6 +2908,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/osiqwusjdn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2640,6 +2918,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjc0MTU0MDY1OV5BMl5BanBnXkFtZTcwMDI2OTY2NA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2649,6 +2928,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/qhizulehux.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2658,6 +2938,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzZlMWNlNDAtYTRlOC00OWExLWJkZGItNjc1ZDg5OTYxODc3XkEyXkFqcGdeQXVyMjQzMzQzODY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2667,6 +2948,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/adcoyguchi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2676,6 +2958,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2685,6 +2968,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/klumlzgbft.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2694,6 +2978,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTYwNDg1NDYzOF5BMl5BanBnXkFtZTcwMDIwMzg4NA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2703,6 +2988,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ejoobuwvqe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2712,6 +2998,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTI1NTgyMDAyOV5BMl5BanBnXkFtZTcwMTE0MTgyMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2721,6 +3008,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ftkxgqcgje.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2730,6 +3018,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjlmOWUwMmYtMjE1My00N2U2LWE1MmUtNDM2MDc5NTNmOWI0XkEyXkFqcGdeQXVyNDUxNjc5NjY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2739,6 +3028,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/xwmeyeyluo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2748,6 +3038,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZmI5NzFiODgtN2ZiOC00NTY0LTk3NmEtNmJlYWFjMzIyOWZhXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2757,6 +3048,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/brvtyntznq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2766,6 +3058,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjA5OTk3OTQzOF5BMl5BanBnXkFtZTcwNDcyODkyMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2775,6 +3068,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zswbfhxscv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2784,6 +3078,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODk0NjBmZTYtMTBmMi00MDkzLTg2ZjYtMDVkOWY1NjYxMWY0XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2793,6 +3088,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/myhjkmlzkv.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2802,6 +3098,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BM2I3MWNjZjYtMDAxNC00NDhmLTg3MWUtOWU3MjEwNDI2YWE0XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2811,6 +3108,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ciekenddsr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2820,6 +3118,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDcwYjEyNWItMGI1Mi00MjI1LWIyMDEtMTQ4YjhkNjM4NDU3XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2829,6 +3128,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/cbxludarmi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2838,6 +3138,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZDU4OThmMWUtMDgyYS00ZDMxLWIzNjctNGZkOGQxNjcwNjFhXkEyXkFqcGdeQXVyNjUzMjMzNTY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2847,6 +3148,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/qpewmflsfm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2856,6 +3158,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMGE3ZTkyNzctOGNlYi00NDcwLWI2NmYtYWZmNzFkNGFiOTRhXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2865,6 +3168,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/hcagylzzds.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2874,6 +3178,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzI3NTkwNDItMGI5MC00MzAwLThmMTktODA0ZTBjYzA4ZGIxXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2883,6 +3188,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/sxsjocfoxe.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2892,6 +3198,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2I4ZmFiNjMtN2UxZi00MjAwLThiYTktYTIwN2VlMzNhYTYyXkEyXkFqcGdeQXVyMjAwMzU2MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2901,6 +3208,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ummhqjlrfy.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2910,6 +3218,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2919,6 +3228,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/iwbxvaljmr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2928,6 +3238,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTcyNDMyNjQtMWJkYy00YjI4LThkODctOWViNTU5Mzk5NGY1XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2937,6 +3248,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zpdayklvrd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2946,6 +3258,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjM3NGE0YzEtYWUyOS00ZTFmLTgwOWQtMmFkMzc3OTI3YWJlXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2955,6 +3268,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/belmtnfnnu.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2964,6 +3278,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzgzOTdjNmQtNmQ3Yy00NmQyLWJjOGMtNThjM2FjNTcwMmViXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2973,6 +3288,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/sfhsipcmbm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2982,6 +3298,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mztumukhyt.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -2991,6 +3308,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYmU1ZmQ1ODgtMmNhYy00ODE2LTgxZWQtZjA2ZjI1OTllMDlmXkEyXkFqcGdeQXVyNjMwMjk0MTQ@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3000,6 +3318,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zuhzljxgbd.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3009,6 +3328,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjQ3N2ExZGUtYTk4YS00M2Y5LWE5YTMtYTViZDRmZjQ4MWU0XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3018,6 +3338,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/dbvcfqbiks.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3027,6 +3348,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mqhvnnztjs.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3036,6 +3358,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BM2Q3MDJmZDktZTBhZi00N2QxLWJkMjQtM2QxNmQ5MTAzOTBjXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3045,6 +3368,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/gvhlorszxi.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3054,6 +3378,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYzU0NWYzNmEtYzc3Ni00ZDY1LTliY2YtNTc1ODRiNjY1ZDQyXkEyXkFqcGdeQXVyMjIwNjIxNjc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3063,6 +3388,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/vsazjtoved.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3072,6 +3398,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDNiYWM3NjUtYzEyZS00Y2ZmLTk3NzktMDYzNDUxMWY2MDg2XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3081,6 +3408,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/kructtdauk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3090,6 +3418,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/[REDACTED-OPAQUE]@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3099,6 +3428,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/qlswpotull.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3108,6 +3438,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BODJlNmRlZDMtNWRiMC00MmI3LWJmMjMtNmEyMTBhMmY4ZGY2XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3117,6 +3448,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BN2UwMzFmZjktODY0Zi00ZTNjLWE0NTctM2ZhMmIxYzM1NTBlXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3126,6 +3458,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ayizxnodxo.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3135,6 +3468,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://bit.ly/3LHtnWa",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3144,6 +3478,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3153,6 +3488,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/dqsepenlgf.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3162,6 +3498,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDI1MzM0Y2YtYmIyMS00ODE3LTlhZjEtZTUyNmEzMTNhZWU5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3171,6 +3508,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/yfwkmyetqw.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3180,6 +3518,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTU4Mzk3ODIyOF5BMl5BanBnXkFtZTgwODgyNzk2NjE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3189,6 +3528,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/qfcyzyocqp.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3198,6 +3538,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3207,6 +3548,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/xzgbqwqnzf.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3216,6 +3558,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ecwrximpdr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3225,6 +3568,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3234,6 +3578,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/oaddhynnwf.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3243,6 +3588,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zorvfxtadr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3252,6 +3598,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3261,6 +3608,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/etqyubbgfm.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3270,6 +3618,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTQxNjI2NjU4MV5BMl5BanBnXkFtZTcwNjQ2NjUwNw@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3279,6 +3628,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/adpvzuqjws.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3288,6 +3638,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTU1MzM0MjcxMF5BMl5BanBnXkFtZTgwODQ0MzcxMTE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3297,6 +3648,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ibemluawsg.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3306,6 +3658,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3315,6 +3668,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/rsfbjvmeds.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3324,6 +3678,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3333,6 +3688,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/mzqsdvvvgn.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3342,6 +3698,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://jsc.adskeeper.co.uk/f/s/fsharetv.co.975583.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3351,6 +3708,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://flashnetic.com/t.js?i=ovdnmlpyhp0xp8km5c766&cb=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3360,6 +3718,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://platform.pubfuture.com/v1/unit/62f2049945e62500288f5ffd.js?v=2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3369,6 +3728,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjQ3YTNkNDQtY2IwMy00ZjI4LWJiOGYtMzcxOTRkYzAzZmZkXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3378,6 +3738,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMTQ3NzQ1MDc0Ml5BMl5BanBnXkFtZTcwNzg4MjQ0MQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3387,6 +3748,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZjVmZThhZGMtNzQwNS00ZDAyLTk3NjgtYjJlYjQ3YmExYjRhXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3396,6 +3758,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNDRiMDhmMzAtMGIyMS00YWJiLWIyYWUtZjFhODZlMzRkNzdlXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3405,6 +3768,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOTI4NDczOTI5N15BMl5BanBnXkFtZTcwMTAyOTAzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3414,6 +3778,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMmUxM2IyMTMtZGMwMy00NTUwLTlmNjktMjNmN2UxMmE2NDc1XkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3423,6 +3788,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYWEzYWE5MzQtNTFlYi00MTBiLTg0NWMtMDczYjFlZWM1ZWZmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3432,6 +3798,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BNjcxMWY2NjYtMjkwOS00ODFhLWFlNDItNTk1YjAxNGUzZmU1XkEyXkFqcGdeQXVyMTg1MjM0NQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3441,6 +3808,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/veztmxvoej.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3450,6 +3818,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOWNjOTA5MjktZmZlMi00NGRlLThkNTktZDkxOTc5ZDQyNjlmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3459,6 +3828,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/hdtyikngjl.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3468,6 +3838,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BYjk2Y2UwNWEtOGNjNS00YTg0LWE5ZGEtYWFjZTUxZWJmNzI5XkEyXkFqcGdeQXVyMDQwNzMzMQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3477,6 +3848,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/cixcteasjk.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3486,6 +3858,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOThjMjUxNjItYWEyYy00NWVmLWFkOWYtYWU0MmIwMmU1MjhkXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3495,6 +3868,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zkgyyuagnq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3504,6 +3878,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMDQwMjI1ODktN2NkZC00NjY2LWI1YWUtNjFiZWFjN2ZiYTU5XkEyXkFqcGdeQXVyMjExNjgyMTc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3513,6 +3888,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/zqmktuylyt.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3522,6 +3898,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMWUxMjI0YmQtNGZkNy00ODE3LTliM2UtMGI5NmU3MTYxNDk5XkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3531,6 +3908,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/ycwqzfvreq.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3540,6 +3918,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BOTEzMDliZTEtMGJjZS00ZjJjLTllMGEtNWRiMTYyMWNlMzYyXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3549,6 +3928,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/tykpskxuun.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3558,6 +3938,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BZWFlMDJlZjgtMTFiZC00YzFlLWI3MmItMDFkM2RjMTZlZDJmXkEyXkFqcGc@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3567,6 +3948,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/onogibzanr.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3576,6 +3958,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://m.media-amazon.com/images/M/MV5BMjM5NjA2NDY0MV5BMl5BanBnXkFtZTgwMDI4NzQ0MjE@._V1_SX300.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3585,6 +3968,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.fsharetv.co/vurnlczlpc.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3594,6 +3978,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.googletagmanager.com/gtag/js?id=UA-135929476-2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3603,6 +3988,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3612,6 +3998,7 @@
       "evidence_url": "https://fsharetv.co/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:02.325917+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3621,6 +4008,7 @@
       "evidence_url": "https://fsharetv.co/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
       "kind": "link",
       "observed_at": "2026-09-12T07:30:03.045294+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3630,6 +4018,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://handlebarsjs.com/api-reference/runtime-options.html",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3639,6 +4028,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3648,6 +4038,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xlink",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3657,6 +4048,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vjs.zencdn.net/vttjs/0.14.1/vtt.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3666,6 +4058,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/videojs/video.js/issues/2617",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3675,6 +4068,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://git.io/vMpjB",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3684,6 +4078,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Pong420/videojs-plus",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3693,6 +4088,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube-nocookie.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3702,6 +4098,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://img.youtube.com/vi/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3711,6 +4108,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/iframe_api",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3720,6 +4118,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://securepubads.g.doubleclick.net/gampad/ads",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3729,6 +4128,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://platform-api.sharethis.com/js/sharethis.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3738,6 +4138,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/embed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3747,6 +4148,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://megacdn.icu/sub-translate/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3756,6 +4158,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://megacdn.icu/translate/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3765,6 +4168,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://joy2g.net/assets/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3774,6 +4178,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fsharetv.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3783,6 +4188,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://joy2g.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -3792,6 +4198,7 @@
       "evidence_url": "https://fsharetv.co/js/disk.js?t=1589873325354",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:30:04.300365+00:00",
+      "reference_class": "url-template",
       "url": "https://subpanda.com/api/movie/${$(",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

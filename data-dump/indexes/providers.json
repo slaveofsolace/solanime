@@ -124,6 +124,18 @@
     "name": "jsDelivr"
   },
   {
+    "category": "backend-platform",
+    "hostname_patterns": [
+      "firebaseio.com",
+      "firebaseapp.com",
+      "firebasestorage.googleapis.com",
+      "firestore.googleapis.com"
+    ],
+    "id": "provider-firebase",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Firebase"
+  },
+  {
     "category": "archive",
     "hostname_patterns": [
       "archive.org"
@@ -153,6 +165,16 @@
     "name": "Sentry"
   },
   {
+    "category": "subtitles",
+    "hostname_patterns": [
+      "opensubtitles.com",
+      "opensubtitles.org"
+    ],
+    "id": "provider-opensubtitles",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "OpenSubtitles"
+  },
+  {
     "category": "backend-platform",
     "hostname_patterns": [
       "supabase.co",
@@ -171,18 +193,6 @@
     "id": "provider-dailymotion",
     "identity_scope": "domain_label_not_common_ownership_claim",
     "name": "Dailymotion"
-  },
-  {
-    "category": "backend-platform",
-    "hostname_patterns": [
-      "firebaseio.com",
-      "firebaseapp.com",
-      "firebasestorage.googleapis.com",
-      "firestore.googleapis.com"
-    ],
-    "id": "provider-firebase",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Firebase"
   },
   {
     "category": "embed-provider",
@@ -211,16 +221,6 @@
     "id": "provider-unpkg",
     "identity_scope": "domain_label_not_common_ownership_claim",
     "name": "UNPKG"
-  },
-  {
-    "category": "subtitles",
-    "hostname_patterns": [
-      "opensubtitles.com",
-      "opensubtitles.org"
-    ],
-    "id": "provider-opensubtitles",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "OpenSubtitles"
   },
   {
     "category": "metadata",
@@ -280,16 +280,19 @@
     "name": "Auth0"
   },
   {
+    "category": "embed-provider",
+    "hostname_patterns": [
+      "embed.su"
+    ],
+    "id": "provider-embed-su",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Embed.su"
+  },
+  {
     "category": "edge-cdn",
     "id": "provider-cloudflare-edge",
     "identity_scope": "domain_or_header_indicator_not_operator_identity",
     "name": "Cloudflare edge"
-  },
-  {
-    "category": "embed-origin-unidentified",
-    "id": "provider-embed-host-a599aeb3c7c1dfa5",
-    "identity_scope": "domain_or_header_indicator_not_operator_identity",
-    "name": "www.googletagmanager.com"
   },
   {
     "category": "embed-origin-unidentified",
@@ -329,21 +332,9 @@
   },
   {
     "category": "embed-origin-unidentified",
-    "id": "provider-embed-host-b5339297cd75d2e6",
-    "identity_scope": "domain_or_header_indicator_not_operator_identity",
-    "name": "player.vimeo.com"
-  },
-  {
-    "category": "embed-origin-unidentified",
     "id": "provider-embed-host-f4baab954579c421",
     "identity_scope": "domain_or_header_indicator_not_operator_identity",
     "name": "watch-wrestling.eu"
-  },
-  {
-    "category": "embed-origin-unidentified",
-    "id": "provider-embed-host-c33dbf71b02bd328",
-    "identity_scope": "domain_or_header_indicator_not_operator_identity",
-    "name": "www.youtube-nocookie.com"
   },
   {
     "category": "hosting-platform",
@@ -374,12 +365,6 @@
     "id": "provider-embed-host-97692e14df23bd64",
     "identity_scope": "domain_or_header_indicator_not_operator_identity",
     "name": "accounts.google.com"
-  },
-  {
-    "category": "embed-origin-unidentified",
-    "id": "provider-embed-host-6860776e5611f69c",
-    "identity_scope": "domain_or_header_indicator_not_operator_identity",
-    "name": "www.youtube.com"
   },
   {
     "category": "embed-origin-unidentified",

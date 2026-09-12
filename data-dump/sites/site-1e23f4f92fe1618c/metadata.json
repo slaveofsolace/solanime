@@ -53,10 +53,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://corsflix.net/_next/static/chunks/webpack-2df7a8d27de1794c.js"
+      "source_url": "https://corsflix.net/_next/static/chunks/webpack-2df7a8d27de1794c.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-1e23f4f92fe1618c",
@@ -128,8 +130,8 @@
   ],
   "observed_at": "2026-09-12T07:35:49.730392+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
   ],
   "references": [
     {
@@ -138,6 +140,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -147,6 +150,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/webpack-2df7a8d27de1794c.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -156,6 +160,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/framework-0cbe3b56a5f66701.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -165,6 +170,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/main-89ec5ca9ca2be8a3.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -174,6 +180,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/pages/_app-1365ec1d27786a99.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -183,6 +190,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/858-dd9dd476b68e8d37.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -192,6 +200,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/575-d6d2c34e06bda91c.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -201,6 +210,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/243-a15aa28792509080.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -210,6 +220,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/chunks/pages/index-bfa76c2ca98824ce.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -219,6 +230,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/Nap-ToDCGgt3gq1mtMw-H/_buildManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -228,6 +240,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/Nap-ToDCGgt3gq1mtMw-H/_ssgManifest.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -237,6 +250,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -246,6 +260,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "script",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -255,6 +270,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "image",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -264,6 +280,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -273,6 +290,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/movies",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -282,6 +300,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/tv-shows",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -291,6 +310,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/anime",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -300,6 +320,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/list",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -309,6 +330,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rentry.co/corsflix",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -318,6 +340,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/favicon.ico",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -327,6 +350,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -336,6 +360,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/apple-touch-icon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -345,6 +370,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/manifest.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -354,6 +380,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -363,6 +390,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/media/a34f9d1faa5f3315-s.p.woff2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -372,6 +400,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/css/69495a3f19a19eae.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -381,6 +410,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/_next/static/css/e3f23e111b874094.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -390,6 +420,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Developabile",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -399,6 +430,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -408,6 +440,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://corsflix.net/icons/icon-192x192.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -417,6 +450,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -426,6 +460,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rentry.co/corsflix",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -435,6 +470,7 @@
       "evidence_url": "https://corsflix.net/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:49.730392+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -444,6 +480,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -453,6 +490,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/zloirock/core-js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -462,6 +500,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -471,6 +510,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://a/c%20d?a=1&c=3",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -480,6 +520,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://xn--e1aybc/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -489,6 +530,7 @@
       "evidence_url": "https://corsflix.net/_next/static/chunks/polyfills-42372ed130431b0a.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:35:50.781900+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://x/",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

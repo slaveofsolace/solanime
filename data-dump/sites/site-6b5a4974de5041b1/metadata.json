@@ -280,7 +280,7 @@
     "linked_scripts_discovered": 0,
     "playback_chain_verified": false,
     "repositories_checked": false,
-    "runtime_network_checked": false,
+    "runtime_network_checked": true,
     "script_limit": 2
   },
   "domain_ids": [
@@ -303,7 +303,8 @@
       "confidence": "strongly_inferred",
       "evidence_type": "source_signature",
       "name": "WordPress",
-      "source_url": "https://dramanice.boo/"
+      "source_url": "https://dramanice.boo/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
     }
   ],
   "id": "site-6b5a4974de5041b1",
@@ -334,8 +335,8 @@
   ],
   "observed_at": "2026-09-12T07:29:19.805426+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
   ],
   "references": [
     {
@@ -344,6 +345,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -353,6 +355,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -362,6 +365,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/list-all-drama/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -371,6 +375,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/most-popular-drama/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -380,6 +385,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/most-popular-star/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -389,6 +395,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/hold-on-harutora-kun-episode-3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -398,6 +405,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/to-love-cherish-episode-8/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -407,6 +415,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/love-u-lots-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -416,6 +425,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/the-awake-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -425,6 +435,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/dating-alys-perez-episode-12/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -434,6 +445,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/summertime-k-drama-episode-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -443,6 +455,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/unlucky-bae-episode-4/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -452,6 +465,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/ok-lets-get-divorced-episode-4/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -461,6 +475,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/my-ladys-bodyguard-episode-20/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -470,6 +485,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/be-my-player-two-episode-7/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -479,6 +495,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/boy-hood-season-2-episode-28/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -488,6 +505,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/cang-feng-episode-17/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -497,6 +515,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/the-trembling-of-cicada-episode-18/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -506,6 +525,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/my-years-as-the-dragon-seeking-master-episode-21/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -515,6 +535,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/echoes-of-love-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -524,6 +545,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/my-only-sunshine-uncut-episode-1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -533,6 +555,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/money-my-love-episode-7/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -542,6 +565,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/our-universe-episode-7/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -551,6 +575,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/marie-and-her-three-daddies-episode-98/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -560,6 +585,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/whenever-possible-season-4-episode-10/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -569,6 +595,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/battle-of-fates-episode-9/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -578,6 +605,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/pearl-in-red-episode-3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -587,6 +615,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/first-man-episode-52/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -596,6 +625,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/love-story-in-the-1970s-episode-11/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -605,6 +635,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/fan-service-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -614,6 +645,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/tide-of-love-season-2-episode-4/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -623,6 +655,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/the-genius-paik-season-3-episode-3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -632,6 +665,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/generation-to-generation-episode-11/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -641,6 +675,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/our-dazzling-days-episode-14/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -650,6 +685,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/bloody-flower-episode-8/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -659,6 +695,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/a-summer-meant-for-us-episode-26/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -668,6 +705,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/twirl-of-the-uniform-skirt-episode-8/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -677,6 +715,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/kamen-no-ninja-akakage-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -686,6 +725,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/the-manipulated-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -695,6 +735,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/clairebell-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -704,6 +745,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/pearl-in-red-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -713,6 +755,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/dear-x-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -722,6 +765,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/running-man/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -731,6 +775,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/typhoon-family-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -740,6 +785,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/moon-river-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -749,6 +795,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/me-and-thee-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -758,6 +805,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/the-wicked-game-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -767,6 +815,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/last-summer-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -776,6 +825,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/the-judge-returns-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -785,6 +835,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/dangerous-queen-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -794,6 +845,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/head-2-head-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -803,6 +855,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/taxi-driver-season-3-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -812,6 +865,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/singles-inferno-season-5-2026/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -821,6 +875,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/chosen-home-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -830,6 +885,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/gu-jin-nan-qiu-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -839,6 +895,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/the-dream-life-of-mr-kim-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -848,6 +905,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/drama/our-golden-days-2025/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -857,6 +915,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/hold-on-harutora-kun-episode-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -866,6 +925,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/hold-on-harutora-kun-episode-1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -875,6 +935,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/to-love-cherish-episode-7/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -884,6 +945,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/to-love-cherish-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -893,6 +955,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/to-love-cherish-episode-5/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -902,6 +965,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/love-u-lots-episode-5/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -911,6 +975,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/the-awake-episode-5/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -920,6 +985,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/dating-alys-perez-episode-11/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -929,6 +995,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/dating-alys-perez-episode-10/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -938,6 +1005,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/summertime-k-drama-episode-1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -947,6 +1015,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/unlucky-bae-episode-3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -956,6 +1025,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/unlucky-bae-episode-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -965,6 +1035,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/unlucky-bae-episode-1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -974,6 +1045,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/ok-lets-get-divorced-episode-3/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -983,6 +1055,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/ok-lets-get-divorced-episode-2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -992,6 +1065,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/ok-lets-get-divorced-episode-1/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1001,6 +1075,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/my-ladys-bodyguard-episode-19/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1010,6 +1085,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/be-my-player-two-episode-6/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1019,6 +1095,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/be-my-player-two-episode-5/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1028,6 +1105,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/boy-hood-season-2-episode-27/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1037,6 +1115,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gmpg.org/xfn/11",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1046,6 +1125,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/favicon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1055,6 +1135,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1064,6 +1145,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/page/2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1073,6 +1155,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://code.jquery.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1082,6 +1165,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/litespeed/css/d76df1a54e4074dae9ebd08cecb8d400.css?ver=e9c9f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1091,6 +1175,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "form-action-not-requested",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1100,6 +1185,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/1999/xhtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1109,6 +1195,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://schema.org/WebPage",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1118,6 +1205,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://ogp.me/ns",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1127,6 +1215,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://ogp.me/ns/fb",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1136,6 +1225,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "http://ogp.me/ns/article",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1145,6 +1235,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://gmpg.org/xfn/11",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1154,6 +1245,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/favicon.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1163,6 +1255,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/js/jquery.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1172,6 +1265,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1181,6 +1275,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/page/2/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1190,6 +1285,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/litespeed/css/d76df1a54e4074dae9ebd08cecb8d400.css?ver=e9c9f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1199,6 +1295,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/list-all-drama/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1208,6 +1305,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/most-popular-drama/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1217,6 +1315,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/most-popular-star/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1226,6 +1325,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Hold-on-Harutora-kun-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1235,6 +1335,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/To-Love-Cherish-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1244,6 +1345,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Love-U-Lots-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1253,6 +1355,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/The-Awake-2026-poster-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1262,6 +1365,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Dating-Alys-Perez-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1271,6 +1375,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Summertime-K-Drama-2026-poster-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1280,6 +1385,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Unlucky-Bae-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1289,6 +1395,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/OK-Lets-Get-Divorced-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1298,6 +1405,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/My-Ladys-Bodyguard-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1307,6 +1415,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Be-My-Player-Two-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1316,6 +1425,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Boy-Hood-Season-2-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1325,6 +1435,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Sharp-Turns-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1334,6 +1445,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/The-Trembling-of-Cicada-2026-poster.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1343,6 +1455,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/My-Years-as-the-Dragon-Seeking-Master-2026-poster-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1352,6 +1465,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Echoes-of-Love-2026-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1361,6 +1475,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/My-Only-Sunshine-Uncut-2026-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1370,6 +1485,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/zBqPbz_4c.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1379,6 +1495,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Our-Universe-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1388,6 +1505,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Marie-and-Her-Three-Daddies-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1397,6 +1515,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Whenever-Possible-Season-4-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1406,6 +1525,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Battle-of-Fates-2026-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1415,6 +1535,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/KpkwqR_4c-3.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1424,6 +1545,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/b3yQp6_4c.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1433,6 +1555,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/81jQed_4c-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1442,6 +1565,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Fan-Service-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1451,6 +1575,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Tide-of-Love-Season-2-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1460,6 +1585,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/The-Genius-Paik-Season-3-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1469,6 +1595,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/5vWQ4V_4c.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1478,6 +1605,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/5vZDmy_4c-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1487,6 +1615,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Bloody-Flower-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1496,6 +1625,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/A-Summer-Meant-for-Us-2026-3.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1505,6 +1635,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Lw55Eb_4c-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1514,6 +1645,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Kamen-no-Ninja-Akakage-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1523,6 +1655,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/The-Manipulated-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1532,6 +1665,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/ClaireBell-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1541,6 +1675,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/dear-x.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1550,6 +1685,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/running-man-2010.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1559,6 +1695,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Typhoon-Family-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1568,6 +1705,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Moon-River-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1577,6 +1715,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Me-and-Thee-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1586,6 +1725,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/The-Wicked-Game-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1595,6 +1735,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Last-Summer-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1604,6 +1745,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/The-Judge-Returns-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1613,6 +1755,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Dangerous-Queen-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1622,6 +1765,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Head-2-Head-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1631,6 +1775,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Taxi-Driver-Season-3-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1640,6 +1785,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Singles-Inferno-Season-5-2026.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1649,6 +1795,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Chosen-Home-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1658,6 +1805,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Gu-Jin-Nan-Qiu-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1667,6 +1815,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/The-Dream-Life-of-Mr.-Kim-2025.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1676,6 +1825,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/uploads/2025/11/Our-Golden-Days-2025-1.jpg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1685,6 +1835,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-admin/admin-ajax.php?action=lscaan&lscaan=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1694,6 +1845,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/img/load/loading2.gif",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1703,6 +1855,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://code.jquery.com/jquery-3.7.1.min.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1712,6 +1865,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/litespeed/js/4ac4ec3fcc0ac5a869eb323554ed565d.js?ver=e9c9f",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1721,6 +1875,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1730,6 +1885,7 @@
       "evidence_url": "https://dramanice.boo/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:19.805426+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dramanice.boo/wp-content/plugins/litespeed-cache/guest.vary.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1740,6 +1896,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "document",
       "url": "https://dramanice.boo/",
       "verification_scope": "browser-request-sent"
@@ -1751,6 +1908,7 @@
       "kind": "browser-request-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": null,
+      "reference_class": "concrete-url-reference",
       "resource_type": "stylesheet",
       "url": "https://dramanice.boo/wp-content/litespeed/css/d76df1a54e4074dae9ebd08cecb8d400.css?ver=e9c9f",
       "verification_scope": "browser-request-sent"
@@ -1762,6 +1920,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "robots_disallow_or_unavailable",
+      "reference_class": "concrete-url-reference",
       "resource_type": "script",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1773,6 +1932,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "non_get_not_sent",
+      "reference_class": "concrete-url-reference",
       "resource_type": "fetch",
       "url": "https://dramanice.boo/wp-content/plugins/litespeed-cache/guest.vary.php",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1784,6 +1944,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/img/bg/bg-menu.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1795,6 +1956,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/img/bg/icon-search.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1806,6 +1968,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/img/bg/icon-nav-slide.png",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1817,6 +1980,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/fonts/xiomara-script-webfont.woff",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1828,6 +1992,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/fonts/fontawesome-webfont.woff2?v=4.5.0",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1839,6 +2004,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/fonts/xiomara-script-webfont.ttf",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1850,6 +2016,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/fonts/fontawesome-webfont.woff?v=4.5.0",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1861,6 +2028,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "font",
       "url": "https://dramanice.boo/wp-content/themes/dramanice/fonts/fontawesome-webfont.ttf?v=4.5.0",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1872,6 +2040,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Hold-on-Harutora-kun-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1883,6 +2052,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/To-Love-Cherish-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1894,6 +2064,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Love-U-Lots-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1905,6 +2076,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/The-Awake-2026-poster-1.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1916,6 +2088,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Dating-Alys-Perez-2026.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1927,6 +2100,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Summertime-K-Drama-2026-poster-1.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1938,6 +2112,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Unlucky-Bae-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1949,6 +2124,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/OK-Lets-Get-Divorced-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1960,6 +2136,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/My-Ladys-Bodyguard-2026.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1971,6 +2148,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Be-My-Player-Two-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1982,6 +2160,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Boy-Hood-Season-2-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -1993,6 +2172,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/Sharp-Turns-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2004,6 +2184,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/The-Trembling-of-Cicada-2026-poster.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2015,6 +2196,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/08/My-Years-as-the-Dragon-Seeking-Master-2026-poster-1.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2026,6 +2208,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/Echoes-of-Love-2026-1.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2037,6 +2220,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/wp-content/uploads/2026/02/My-Only-Sunshine-Uncut-2026-1.jpg",
       "verification_scope": "browser-request-attempted-not-sent"
@@ -2048,6 +2232,7 @@
       "kind": "browser-request-attempted-not-sent",
       "observed_at": "2026-09-12T07:46:29.154036+00:00",
       "policy_reason": "binary_resource_not_downloaded",
+      "reference_class": "concrete-url-reference",
       "resource_type": "image",
       "url": "https://dramanice.boo/img/bg/croll.png",
       "verification_scope": "browser-request-attempted-not-sent"

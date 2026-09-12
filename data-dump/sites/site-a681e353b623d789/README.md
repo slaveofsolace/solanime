@@ -1,7 +1,32 @@
 # Bypass Blocks
 
-URL: https://streamsports99.su/vpns
+Listed URL: https://streamsports99.su/vpns
 
-Status: infrastructure_partially_mapped
+HTTP observation: reachable; final URL: https://streamsports99.su/vpns
 
-See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.
+Observed: 2026-09-12T07:43:35.456131+00:00
+
+## Architecture evidence
+
+Provider/infrastructure references: None identified in inspected material.
+
+These are source declarations or bounded homepage observations, not verified playback integrations. No end-to-end playable-media chain is certified.
+
+| Reference | Evidence type | Source |
+|---|---|---|
+| https://api.cdnlivetv.is/ | asset-link | https://streamsports99.su/vpns |
+| https://api.cdnlivetv.is/ | source-literal | https://streamsports99.su/vpns |
+| https://api.cdnlivetv.is/api/v1 | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://cdnlivetv.is/api/v1 | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://cdnlivetv.is/api/v1/channels/player/?name=nfl+network&code=us&user=streamsports99&plan=vip | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://api.cdnlivetv.is/api/v1/channels/images6318/united-states/nfl-network.svg | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://cdnlivetv.is/api/v1/channels/player/?name=nba+tv&code=us&user=streamsports99&plan=vip | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://api.cdnlivetv.is/api/v1/channels/images6318/united-states/nba-tv.svg | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://cdnlivetv.is/api/v1/channels/player/?name=nhl+network&code=us&user=streamsports99&plan=vip | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+| https://api.cdnlivetv.is/api/v1/channels/images6318/united-states/nhl-network.svg | source-literal | https://streamsports99.su/assets/index.BBdOOGAT.js |
+
+Additional references and exact timestamps/hashes are retained in metadata.json.
+
+## Unresolved
+
+Live server/provider selections, downstream media/CDN delivery, authorization, and any unvisited dependencies remain unknown unless a separate explicit claim establishes them. HTTP errors and blockers are not proof of service death.

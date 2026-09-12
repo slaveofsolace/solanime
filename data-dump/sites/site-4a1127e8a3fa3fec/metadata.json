@@ -132,10 +132,12 @@
   ],
   "frameworks": [
     {
-      "confidence": "strongly_inferred",
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
       "evidence_type": "source_signature",
       "name": "Next.js",
-      "source_url": "https://fmfau.com/assets/index-Cg4RjmCn.js"
+      "source_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
+      "verification_scope": "signature_present_only"
     }
   ],
   "id": "site-4a1127e8a3fa3fec",
@@ -204,16 +206,16 @@
   ],
   "observed_at": "2026-09-12T07:29:43.231618+00:00",
   "provider_ids": [
-    "provider-cloudflare-insights",
-    "provider-tmdb",
     "provider-anilist",
-    "provider-google-fonts",
-    "provider-youtube",
-    "provider-supabase",
     "provider-cloudflare-challenge",
-    "provider-myanimelist",
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
     "provider-internet-archive",
-    "provider-cloudflare-edge"
+    "provider-myanimelist",
+    "provider-supabase",
+    "provider-tmdb",
+    "provider-youtube"
   ],
   "references": [
     {
@@ -222,6 +224,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/config.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -231,6 +234,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -240,6 +244,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "script",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -249,6 +254,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -258,6 +264,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://s4.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -267,6 +274,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/favicon.ico?v=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -276,6 +284,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "manifest",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/manifest-DFb8HQBc.json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -285,6 +294,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/apple-touch-icon.png?v=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -294,6 +304,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/favicon-32x32.png?v=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -303,6 +314,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/favicon-16x16.png?v=4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -312,6 +324,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/safari-pinned-tab.svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -321,6 +334,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -330,6 +344,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -339,6 +354,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -348,6 +364,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -357,6 +374,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -366,6 +384,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -375,6 +394,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_11__iPhone_XR_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -384,6 +404,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -393,6 +414,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -402,6 +424,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -411,6 +434,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/12.9__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -420,6 +444,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -429,6 +454,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.9__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -438,6 +464,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.5__iPad_Air_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -447,6 +474,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.2__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -456,6 +484,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -465,6 +494,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/8.3__iPad_Mini_landscape.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -474,6 +504,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -483,6 +514,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -492,6 +524,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -501,6 +534,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -510,6 +544,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -519,6 +554,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -528,6 +564,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_11__iPhone_XR_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -537,6 +574,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -546,6 +584,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -555,6 +594,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -564,6 +604,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/12.9__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -573,6 +614,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -582,6 +624,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.9__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -591,6 +634,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.5__iPad_Air_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -600,6 +644,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/10.2__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -609,6 +654,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -618,6 +664,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/splash_screens/8.3__iPad_Mini_portrait.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -627,6 +674,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -636,6 +684,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -645,6 +694,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -654,6 +704,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/auth-Dik3SRWZ.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -663,6 +714,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/vendor-Doawu7tF.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -672,6 +724,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/locales-CEqV2weY.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -681,6 +734,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/language-db-DRbDEVDT.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -690,6 +744,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/react-dom-C-9AhiXA.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -699,6 +754,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/Icons-DbubMpfj.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -708,6 +764,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/caption-parsing-4iV58tGr.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -717,6 +774,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/hls-ClnrNXY6.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -726,6 +784,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/Icons-DBu1L659.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -735,6 +794,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "asset-link",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/assets/index-D6XCoK1B.css",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -744,6 +804,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ--",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -753,6 +814,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://image.tmdb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -762,6 +824,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://s4.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -771,6 +834,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -780,6 +844,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.gstatic.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -789,6 +854,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -798,6 +864,7 @@
       "evidence_url": "https://fmfau.com/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:43.231618+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -807,6 +874,7 @@
       "evidence_url": "https://fmfau.com/config.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:44.244892+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://server1.com,https//server2.com",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -816,6 +884,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://jktbyijwigvgjhehoitg.supabase.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -825,6 +894,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://apis.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -834,6 +904,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://images.justwatch.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -843,6 +914,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://graphql.anilist.co/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -852,6 +924,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://anilist.co/api/v2/oauth/authorize",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -861,6 +934,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://mangadex.org/title/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -870,6 +944,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://weebcentral.com/series/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -879,6 +954,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://comix.to/comic/${encodeURIComponent(e.slug||e.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -888,6 +964,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://mangakatana.com/manga/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -897,6 +974,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.zazamanga.com/manga/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -906,6 +984,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.mangahere.cc/manga/${s",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -915,6 +994,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://mangadex.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -924,6 +1004,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.mistral.ai/v1/chat/completions",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -933,6 +1014,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&oe=UTF-8&sl=auto",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -942,6 +1024,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://translate-pa.googleapis.com/v1/translateHtml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -951,6 +1034,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/feed.xml",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -960,6 +1044,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/movie-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -969,6 +1054,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.moviefone.com/feeds/tv-news.rss",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -978,6 +1064,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.filmjabber.com/rss/rss-dvd-reviews.php",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -987,6 +1074,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://screenrant.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -996,6 +1084,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.darkhorizons.com/feed/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1005,6 +1094,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/safal312/xray-collector/refs/heads/main/images/logo.png",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1014,6 +1104,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://fed-trailers.pstream.mov/${r===",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1023,6 +1114,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1032,6 +1124,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.rottentomatoes.com/search?search=%24%7BencodeURIComponent%28e.trim%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1041,6 +1134,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "unresolved-host-expression",
       "url": "https://www.rottentomatoes.com${h.url/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1050,6 +1144,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${W.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1059,6 +1154,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${o.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1068,6 +1164,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/person/${c.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1077,6 +1174,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${m.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1086,6 +1184,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://img.youtube.com/vi/${u.key",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1095,6 +1194,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1104,6 +1204,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.themoviedb.org/${n===",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1113,6 +1214,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.imdb.com/title/${a",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1122,6 +1224,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.youtube.com/embed/${Ae",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1131,6 +1234,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://rentry.co/nnqtas3e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1140,6 +1244,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.trakt.tv/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1149,6 +1254,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://myanimelist.net/v1/oauth2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1158,6 +1264,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.myanimelist.net/v2",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1167,6 +1274,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://postman-echo.com/get",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1176,6 +1284,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.introdb.app/intro",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1185,6 +1294,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://hls-downloader.pstream.mov/?url=%24%7BencodeURIComponent%28r%28",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1194,6 +1304,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://hls-downloader.pstream.mov/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1203,6 +1314,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v3/submit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1212,6 +1324,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.watchparty.me/create?video=%24%7BencodeURIComponent%28o",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1221,6 +1334,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w300${e.still_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1230,6 +1344,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1239,6 +1354,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1248,6 +1364,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://dizzydump.xyz/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1257,6 +1374,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "schema-or-standard-reference",
       "url": "http://www.w3.org/2000/svg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1266,6 +1384,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://alpha-charlott.github.io/video-openh264/Sintel_master.m3u8",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1275,6 +1394,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1284,6 +1404,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://archive.org/download/ElephantsDream/ed_hd.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1293,6 +1414,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://archive.org/download/Tears-of-Steel/tears_of_steel_720p.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1302,6 +1424,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1311,6 +1434,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1320,6 +1444,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1329,6 +1454,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1338,6 +1464,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1347,6 +1474,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1356,6 +1484,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1365,6 +1494,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1374,6 +1504,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1383,6 +1514,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1392,6 +1524,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w185${F.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1401,6 +1534,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w185${V.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1410,6 +1544,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${se.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1419,6 +1554,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${x.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1428,6 +1564,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://iptv-org.github.io/iptv/countries",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1437,6 +1574,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1446,6 +1584,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.mangaupdates.com/series/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1455,6 +1594,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.anime-planet.com/manga/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1464,6 +1604,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://www.novelupdates.com/series/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1473,6 +1614,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://myanimelist.net/manga/${n",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1482,6 +1624,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://myanimelist.net/manga/${e.idMal",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1491,6 +1634,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://anilist.co/manga/${e.id",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1500,6 +1644,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/original${Pe.backdrop_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1509,6 +1654,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${e",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1518,6 +1664,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://image.tmdb.org/t/p/w342${M.poster_path",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1527,6 +1674,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/jipfr",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1536,6 +1684,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.real-debrid.com/rest/1.0/user",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1545,6 +1694,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://sub.wyzie.ru/search",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1554,6 +1704,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://real-debrid.com/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1563,6 +1714,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://torbox.app/subscription?referral=3f665ece-0405-4012-9db7-c6f90e8567e1",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1572,6 +1724,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "documentation-placeholder",
       "url": "https://example.com/playlist.m3u",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1581,6 +1734,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://store.wyzie.io/redeem",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1590,6 +1744,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://theintrodb.org/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1599,6 +1754,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "url-template",
       "url": "https://trakt.tv/oauth/authorize?%24%7Bc.toString%28=",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1608,6 +1764,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://discord.gg/cjhD23qHtn",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1617,6 +1774,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/p-stream/p-stream-desktop/releases",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1626,6 +1784,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://raw.githubusercontent.com/p-stream/Userscript/main/p-stream.user.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1635,6 +1794,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/p-stream/extension",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1644,6 +1804,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://github.com/Pasithea0",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1653,6 +1814,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1662,6 +1824,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/anime/availability",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1671,6 +1834,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/meta/details-cache",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1680,6 +1844,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.mistral.ai/v1/chat/completions",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1689,6 +1854,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/auth/register",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1698,6 +1864,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/auth/login",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1707,6 +1874,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/ping.txt",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1716,6 +1884,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/admin/restart-log",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1725,6 +1894,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/admin/restart",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1734,6 +1904,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/sources/xtream",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1743,6 +1914,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://api.theintrodb.org/v3/submit",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1752,6 +1924,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://skips.pstream.mov/send",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1761,6 +1934,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipapi.co/json/",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1770,6 +1944,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/iptv/live/channels",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1779,6 +1954,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/iptv/live/epg",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1788,6 +1964,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/iptv/live/guide",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1797,6 +1974,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/v1/auth/device/approve",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1806,6 +1984,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/iptv/xtream/test",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1815,6 +1994,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://fmfau.com/api/iptv/m3u/test",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -1824,6 +2004,7 @@
       "evidence_url": "https://fmfau.com/assets/index-Cg4RjmCn.js",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:29:45.376709+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://ipinfo.io/json",
       "verification_scope": "public_source_reference_not_runtime_use"
     }

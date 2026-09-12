@@ -73,8 +73,8 @@
   "observed_at": "2026-09-12T07:33:18.673577+00:00",
   "provider_ids": [
     "provider-cloudflare-challenge",
-    "provider-cloudflare-insights",
-    "provider-cloudflare-edge"
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
   ],
   "references": [
     {
@@ -83,6 +83,7 @@
       "evidence_url": "https://vivarium.wtf/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:18.673577+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -92,6 +93,7 @@
       "evidence_url": "https://vivarium.wtf/",
       "kind": "script",
       "observed_at": "2026-09-12T07:33:18.673577+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -101,6 +103,7 @@
       "evidence_url": "https://vivarium.wtf/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:18.673577+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -110,6 +113,7 @@
       "evidence_url": "https://vivarium.wtf/",
       "kind": "source-literal",
       "observed_at": "2026-09-12T07:33:18.673577+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
       "verification_scope": "public_source_reference_not_runtime_use"
     },
@@ -119,6 +123,7 @@
       "evidence_url": "https://vivarium.wtf/",
       "kind": "client-endpoint-reference",
       "observed_at": "2026-09-12T07:33:18.673577+00:00",
+      "reference_class": "concrete-url-reference",
       "url": "https://vivarium.wtf/api/gate",
       "verification_scope": "public_source_reference_not_runtime_use"
     }
