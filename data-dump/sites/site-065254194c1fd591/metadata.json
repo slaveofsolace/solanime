@@ -1,7 +1,27 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 3141,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rips.cc/login",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:50.566104+00:00",
+    "redirects": [
+      {
+        "http_status": 303,
+        "location": "https://rips.cc/login",
+        "url": "https://rips.cc/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://rips.cc/"
   },
   "categories": [
@@ -10,14 +30,30 @@
       "Dedicated-Server"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-fad0682d085cc34d"
+    "domain-fad0682d085cc34d",
+    "domain-d15afad5fd0ce8bf"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-20d9ad241c96813d"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://rips.cc/login"
+    }
+  ],
   "id": "site-065254194c1fd591",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +61,175 @@
   "name": "RIPS",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 3141,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rips.cc/login",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "redirects": [
+        {
+          "http_status": 303,
+          "location": "https://rips.cc/login",
+          "url": "https://rips.cc/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://rips.cc/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860764+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:50.566104+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/reset-password",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/global.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/fonts/circular/stylesheet.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/_app/immutable/assets/Error.DPs4iFZ6.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/_app/immutable/assets/3.BptakJZV.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/_app/immutable/assets/Button.BY-bedUv.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://rips.cc/_app/immutable/assets/17.f3025cxh.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "55e38a1f5ca655687287e7b7851332dec14506b3aab55ac22fde453f9905f282",
+      "evidence_url": "https://rips.cc/login",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:50.566104+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

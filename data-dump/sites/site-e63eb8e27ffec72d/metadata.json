@@ -1,7 +1,28 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 34681,
+    "content_type": "text/html;charset=utf-8",
+    "final_url": "https://subtitld.org/en",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN, SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:09.562270+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://subtitld.org/en",
+        "url": "https://subtitld.org/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://subtitld.org/"
   },
   "categories": [
@@ -9,8 +30,32 @@
       "Subtitle Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-d8954a17232f0994"
+    "domain-d8954a17232f0994",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-86601c5411f8e9e0",
+    "domain-88bb79fa6efc5d55",
+    "domain-d15afad5fd0ce8bf",
+    "domain-15059cb96d03103d",
+    "domain-a31fe017b837d3ad",
+    "domain-b0ca1858a5c7e06d",
+    "domain-20a83b42cd540c2f",
+    "domain-4640f52a52335942",
+    "domain-ca2faa8923cab95b",
+    "domain-ff3dbd3f7de0ee84",
+    "domain-01ac74e6305467bf",
+    "domain-3c8b2bbd5af1180d",
+    "domain-37bc9cd0c5947119",
+    "domain-2d0f3c337e640d3a",
+    "domain-d32abd95a5dde05d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +69,1142 @@
   "name": "Subtitld",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 34681,
+      "content_type": "text/html;charset=utf-8",
+      "final_url": "https://subtitld.org/en",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html;charset=UTF-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN, SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://subtitld.org/en",
+          "url": "https://subtitld.org/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://subtitld.org/"
+    },
+    {
+      "bytes_read": 1239,
+      "content_type": "application/javascript",
+      "final_url": "https://subtitld.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:10.100129+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://subtitld.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861920+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:09.562270+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-67JZNZXHNZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/01.home/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/01.home/subtitld_screenshot_.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresopening-f67db6e3.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresretiming-011de4c5.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresinfo-c0f441cd.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresslice-234b7c41.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresaddremove-9faa70c3.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featurestocursor-dbbf2c61.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featureszoom-19ba228a.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresgrid-bfaa8d51.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuressnap-1a9badbb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresplayback-09263535.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featurestimecode-483909c3.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuressublist-d26c2fd4.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featureshistory-a8b8de80.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresundo-33ac8a5c.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresgap-b8a4a6ef.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresfineedit-5991f8ad.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featureskeyboard-37ca8655.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresplaybackspeed-ca9c1f9d.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresplaybackrepeat-c391d3f8.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresmargins-8fe7dc9b.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuressavingadv-540b8552.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresimpexp-279a1a64.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresburn-52dddff2.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featureskeyboardcustom-b26dcfb1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/f/e/a/t/u/featuresautosub-258d1289.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/s/a/v/i/n/savingcommonformats-82aa82d9.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/04.install/01.linux/ubuntu.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/04.install/01.linux/snap-store-black.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/04.install/02.windows/windows.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/pages/04.install/02.windows/download_for_windows.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/support",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/install",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/tutorials",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/development",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/read_various_formats",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/retiming",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/status",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/slicing",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/add_and_remove",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/to_cursor",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/zoom",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/grid",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/snapping",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/playback",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/timecode",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/selection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/history",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/undo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/gap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/fine_edit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/keyboard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/playback_speed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/repeat_playback",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/safety_margins",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/exporting",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/import_export",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/burn_subtitle",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/custon_shortcuts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/auto_subtitles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/features/saving",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/support",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/support/coffee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/support/contributor",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/support/boss",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/install",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/install/linux",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://snapcraft.io/subtitld",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en/install/windows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://apps.microsoft.com/store/detail/subtitld/9MXLZSL8JPQH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://gitlab.com/Subtitld/subtitld/issues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://builds.subtitld.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.jonata.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://jonata.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://creativecommons.org/licenses/by/4.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://twitter.com/subtitld",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://discord.gg/dpkEGrE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C300%3B1%2C400%3B1%2C600%3B1%2C700%3B1%2C800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/css/main.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/plugins/sharer/assets/css-compiled/sharer.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-67JZNZXHNZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/images/t/h/u/m/b/thumbnailen-7f50e21c.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.org/user/themes/alphabs/images/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C300%3B1%2C400%3B1%2C600%3B1%2C700%3B1%2C800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://snapcraft.io/subtitld",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://apps.microsoft.com/store/detail/subtitld/9MXLZSL8JPQH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://gitlab.com/Subtitld/subtitld/issues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://builds.subtitld.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "http://purl.org/dc/terms/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "http://creativecommons.org/ns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://subtitld.jonata.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://jonata.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://creativecommons.org/licenses/by/4.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://twitter.com/subtitld",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://discord.gg/dpkEGrE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3045e60ec9384fc793fe37e2985779e4387fa28edb4780682c668ef02eb4ecf6",
+      "evidence_url": "https://subtitld.org/en",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:09.562270+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "evidence_url": "https://subtitld.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:10.100129+00:00",
+      "url": "https://subtitld.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

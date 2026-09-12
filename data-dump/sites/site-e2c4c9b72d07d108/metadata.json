@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 1821,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://seadex.pages.dev/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:24.288827+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://seadex.pages.dev/"
   },
   "categories": [
@@ -10,10 +25,40 @@
       "Anime Torrenting"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-82e13a3b1901cf86"
+    "domain-82e13a3b1901cf86",
+    "domain-d15afad5fd0ce8bf",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-c060b47693d1df9c",
+    "domain-953c96342d4771e7",
+    "domain-3aeb002460381c6f",
+    "domain-1a2e36cc692d119d",
+    "domain-5556fb17581577f3",
+    "domain-991590f923fdaa0c",
+    "domain-0f6bebe2fb52122c",
+    "domain-8bcbaf204fc3b723",
+    "domain-7386aff2a5374b98",
+    "domain-bbe327b9c67ba111",
+    "domain-07299c0c38b6c84e",
+    "domain-6fcf5bc92988c155",
+    "domain-ae4fef32e0445e25",
+    "domain-59594323920fc93f",
+    "domain-6d5fa39aa60a56bb",
+    "domain-263872cf4eed2039",
+    "domain-5b3097c5c7bd083b"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-61fbde08901b57cd"
+  ],
   "entry_ids": [
     "entry-4624600bfe93aa26"
   ],
@@ -25,16 +70,384 @@
   "name": "SeaDex Mirror",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 1821,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://seadex.pages.dev/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://seadex.pages.dev/"
+    },
+    {
+      "bytes_read": 99019,
+      "content_type": "application/javascript",
+      "final_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://seadex.pages.dev/assets/index-D7pRiPet.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861141+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:24.288827+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-anilist",
+    "provider-cloudflare-pages",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Bitter%3Awght%40500%3B700&family=IBM+Plex+Mono%3Awght%40400%3B500&family=IBM+Plex+Sans%3Awght%40400%3B500%3B600%3B700&family=Lexend+Deca%3Awght%40400%3B500%3B700&family=Roboto%3Awght%40400%3B500%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://seadex.pages.dev/assets/index-PiX3AFNB.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Bitter%3Awght%40500%3B700&family=IBM+Plex+Mono%3Awght%40400%3B500&family=IBM+Plex+Sans%3Awght%40400%3B500%3B600%3B700&family=Lexend+Deca%3Awght%40400%3B500%3B700&family=Roboto%3Awght%40400%3B500%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "99ef577db870c608dd0876403283725774f7e8a1128a8d922618b0bd85ddd134",
+      "evidence_url": "https://seadex.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:24.288827+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://releases.moe/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://releases.moe/about/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://sheet.releases.moe/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://github.com/EithonX",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://github.com/EithonX.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://github.com/EithonX/seadex-mirror",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://anilist.co/anime/${e.alId",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://nyaa.si/view/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://animebytes.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://anidex.info/torrent/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://rutracker.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://animetosho.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://beyond-hd.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://aither.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://blutopia.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://hdbits.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://broadcasthe.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://passthepopcorn.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://anilist.co/anime/${t.alId",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a46d27afcbc0558bce5621720e0942cb212f4968cf7ef2cd1bb491e55ee73f4f",
+      "evidence_url": "https://seadex.pages.dev/assets/index-D7pRiPet.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:25.378816+00:00",
+      "url": "https://api.github.com/users/${encodeURIComponent(G",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-be7ffaa924f70f42"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

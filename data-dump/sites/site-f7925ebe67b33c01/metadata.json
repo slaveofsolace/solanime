@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:42:14.446015+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://way2movies.live/robots.txt",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 403,
+      "reason": "http_403",
+      "redirects": [],
+      "status": "blocked"
+    },
+    "status": "blocked",
     "url": "https://way2movies.live/"
   },
   "categories": [
@@ -25,16 +39,17 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:42:14.446015+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://way2movies.live/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864322+00:00",
+  "observed_at": "2026-09-12T07:42:14.446015+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

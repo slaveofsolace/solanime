@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 10515,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://wiki.servarr.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-frame-options": "deny"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:31.571743+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://wiki.servarr.com/"
   },
   "categories": [
@@ -9,8 +22,20 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-30186aeaba700893"
+    "domain-30186aeaba700893",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-3aeb002460381c6f",
+    "domain-597ae1f78305ad79",
+    "domain-0050c4d5588b89a7"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +49,367 @@
   "name": "Guide",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 10515,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://wiki.servarr.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-frame-options": "deny"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://wiki.servarr.com/"
+    },
+    {
+      "bytes_read": 4983,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://wiki.servarr.com/_assets/js/runtime.js?1643500888=",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "x-frame-options": "deny"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:32.491811+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0c479bf359b08bd5da5a6b9d50221f783a6eb3729922e69d033e3d2645c5fb26",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://wiki.servarr.com/_assets/js/runtime.js?1643500888="
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864499+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:31.571743+00:00",
+  "provider_ids": [
+    "provider-google-analytics"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/_assets/js/runtime.js?1643500888=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/_assets/js/app.js?1643500888=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-K828XTXMYX",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/lidarr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/radarr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/readarr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/sonarr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/whisparr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/prowlarr/logos/16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/assets/servarr/servarr_dark_fav_16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://github.com/Servarr/Wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/lidarr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/radarr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/readarr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/sonarr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/whisparr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/prowlarr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/permissions-and-networking",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/vpn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/docker-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/docker-arm-synology",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/sonarr/xem-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/useful-tools",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://trash-guides.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/lidarr/community-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/install-script",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://use.fontawesome.com/releases/v5.10.0/css/all.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/_assets/css/app.cd94ee14df75f4c2a9da.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://wiki.servarr.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://github.com/Servarr/Wiki/raw/master/assets/servarr/servarr_dark_1024.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://use.fontawesome.com/releases/v5.10.0/css/all.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-K828XTXMYX",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://github.com/Servarr/Wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "813452339dd9505c0fe3e21d291eb8e65b39581ee1a6a6ad6ff8f978615f203a",
+      "evidence_url": "https://wiki.servarr.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:31.571743+00:00",
+      "url": "https://trash-guides.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-a0dfc5b923887882"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

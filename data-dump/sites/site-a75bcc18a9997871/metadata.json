@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 472850,
+    "content_type": "text/javascript; charset=utf-8",
+    "final_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/javascript; charset=utf-8",
+      "server": "nginx/1.24.0 (Ubuntu)"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:46.925819+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js"
   },
   "categories": [
@@ -10,14 +24,78 @@
       "Anime Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-89e79d0cab013376"
+    "domain-89e79d0cab013376",
+    "domain-b09f0d4298566e50",
+    "domain-3aeb002460381c6f",
+    "domain-3d7ea296a08c4098",
+    "domain-38bddbcf12402697",
+    "domain-f5ce252645b12eb1",
+    "domain-0d162abff83e710c",
+    "domain-1f6baa4a359d00da",
+    "domain-d57558ce8e4399e6",
+    "domain-27f9ecc07a5bf826",
+    "domain-78fc98fb7bf99abe",
+    "domain-f17357049e646dc7",
+    "domain-1a2e36cc692d119d",
+    "domain-edf7dcad352dc8cb",
+    "domain-d4c9d9027326271a",
+    "domain-96589e5f7a71b926",
+    "domain-68fc396b16368a13",
+    "domain-8c250cd3ccdc96f7",
+    "domain-883a2618df9ebe52",
+    "domain-665f9ad344199fb4",
+    "domain-4dba122bbbe5e351",
+    "domain-261268e54ad177f6",
+    "domain-269a184b9c5460a0",
+    "domain-3982eb50d2617ae8",
+    "domain-2ab5616a512edcef",
+    "domain-f47f0a7146d0d1d1",
+    "domain-f99bedb26e9ecf92",
+    "domain-dc3f44854c3a73a5",
+    "domain-79f230cbce3cbd53",
+    "domain-a2e415908bf3d963",
+    "domain-7d38d9b8573609f6",
+    "domain-60646a20edc6a8fb",
+    "domain-9fe3d2bd0ee4f2cc",
+    "domain-108d9f92bd0f49d1",
+    "domain-d515a3df469036d5",
+    "domain-e5763d1710e69a15",
+    "domain-cca33ef92e97de63",
+    "domain-125ec6416e9be9d0",
+    "domain-40736c3e845766be",
+    "domain-7fc1bef5b195e415",
+    "domain-81010cfc97cb58b4",
+    "domain-50cd31f411c0d030"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-1984cf17d880b180"
+  ],
   "entry_ids": [
     "entry-b48d1efc2ebc211f"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "WordPress",
+      "source_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js"
+    },
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js"
+    }
+  ],
   "id": "site-a75bcc18a9997871",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +103,533 @@
   "name": "Enhancements",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 472850,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "nginx/1.24.0 (Ubuntu)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864015+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:46.925819+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-myanimelist",
+    "provider-anilist"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://gist.github.com/Ellivers/f7716b6b6895802058c367963f3a2c51",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://github.com/Ellivers/ap-improvements",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://animepahe.pw/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://animepahe.com/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://animepahe.org/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://kwik.cx/e/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://kwik.cx/f/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.meta.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://raw.githubusercontent.com/NOBLES5E/anidb-titles/refs/heads/main/animes-titles.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://raw.githubusercontent.com/Ellivers/open-anime-timestamps/refs/heads/master/timestamps.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://i.${window.location.host/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://github.com/Ellivers/open-anime-timestamps",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://vault-${hostinfo.vaultid/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://ap-improvements-database.ellivers.workers.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://html2canvas.hertzen.com/dist/html2canvas.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://google.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://stackoverflow.com/a/11381730",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://fontawesome.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://fontawesome.com/license/free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://s.pximg.net/www/images/pixiv_logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://st.deviantart.net/minish/main/logo/card_black_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://www.wcostream.com/wp-content/themes/animewp78712/images/logo.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://s.pinimg.com/images/default_open_graph",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://share.redd.it/preview/post/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://i.redd.it/o0h58lzmax6a1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://ir.ebaystatic.com/cr/v/c1/ebay-logo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://i.ebayimg.com/images/g/7WgAAOSwQ7haxTU1/s-l1600.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://www.rottentomatoes.com/assets/pizza-pie/head-assets/images/RT_TwitterCard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://m.media-amazon.com/images/G/01/social_share/amazon_logo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://zoro.to/images/capture.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://cdn.myanimelist.net/img/sp/icon/twitter-card.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://s2.bunnycdn.ru/assets/sites/animesuge/images/preview.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://s2.bunnycdn.ru/assets/sites/anix/preview.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://cdn.myanimelist.net/images/company_no_picture.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://myanimeshelf.com/eva2/handlers/generateSocialImage.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://m.media-amazon.com/images/G/01/imdb/images/social",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://forums.animeuknews.net/styles/default/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://honeysanime.com/wp-content/uploads/2016/12/facebook_cover_2016_851x315.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://fi.somethingawful.com/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://static.hidive.com/misc/HIDIVE-Logo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://static.tvtropes.org/pmwiki/pub/images/logo_light.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://sb-drops.s3.amazonaws.com/drop/rmopt-63058b16935f5-960364300-1661307670.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://myanimelist.net/img/sp/icon/twitter-card.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://www.neogaf.com/styles/neogaf/icons/icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://customsearch.googleapis.com/customsearch/v1?key=%5BREDACTED%5D&cx=913e33346cc3d42bf&tbs=isz%3Al&q=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://static.wikia.nocookie.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://github.com/Ellivers/open-anime-timestamps/issues/new?title=Anime+%22%24%7BencodeURIComponent%28getAnimeName%28",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://raw.githubusercontent.com/Ellivers/ap-improvements/refs/heads/${initialStorage.debug?.devRepo=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "40b1de323956f54ebe8f0df8cfee6faf3a67ce047c52f6402261aeba0d034526",
+      "evidence_url": "https://update.greasyfork.org/scripts/520048/AnimePahe%20Improvements.user.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.925819+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/js-base64@3.7.8/base64.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-7817aa40b3a23d84",
+    "repo-c15a1adec561aa22"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

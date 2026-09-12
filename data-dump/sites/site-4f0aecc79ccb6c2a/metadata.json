@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 58974,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://stremio.ar0.eu/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:12.497594+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://stremio.ar0.eu/"
   },
   "categories": [
@@ -10,14 +25,73 @@
       "Stremio Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-727327713f548ef6"
+    "domain-727327713f548ef6",
+    "domain-b32e9e431abba713",
+    "domain-d15afad5fd0ce8bf",
+    "domain-78e4a6d1867aa0f6",
+    "domain-cdf01902dc74865b",
+    "domain-3aeb002460381c6f",
+    "domain-00fe30f37a529676",
+    "domain-582cff1d9cd20ceb",
+    "domain-393951862691d044",
+    "domain-2458d91eb541c140",
+    "domain-280396613955313d",
+    "domain-378562103d2737ee",
+    "domain-c82682b8ff8a8adf",
+    "domain-bc3b0dd7a7e5c5dc",
+    "domain-725021cc29999664",
+    "domain-d53fce6a1cd26ab3",
+    "domain-86ef30093462ac3d",
+    "domain-21a6cf8c6d472cec",
+    "domain-8e08d6d89d17a981",
+    "domain-356a17cfe9a96e23",
+    "domain-1bac835210beb047",
+    "domain-63ce4e93a346953f",
+    "domain-5dcfbdd23ce3328b",
+    "domain-7239fb85081cf8cc",
+    "domain-a135e0a0d735d58c",
+    "domain-c9bd41a82611676e",
+    "domain-217b2de4aad64936",
+    "domain-5af9ff10706a0750",
+    "domain-a246a6a6b977a740",
+    "domain-81f7d2cb3bc8b8dc",
+    "domain-042a354d36119bbf",
+    "domain-0774b0f3d8e53da2",
+    "domain-8ed5f20fb00ec860",
+    "domain-76ae7a5b849fa4ee",
+    "domain-d27fcde33419f35b",
+    "domain-fcfdff74b4fcf352",
+    "domain-ec17897027706128",
+    "domain-d6df4631199ec2b5",
+    "domain-9e370a7786001d33",
+    "domain-a05fd8704867a457",
+    "domain-c1e897c512bf23df",
+    "domain-7f7ed12dfe7af503",
+    "domain-2d0f3c337e640d3a",
+    "domain-16391d3665ca7477",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-e1d917e35e47beae"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://stremio.ar0.eu/"
+    }
+  ],
   "id": "site-4f0aecc79ccb6c2a",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +99,1453 @@
   "name": "Bye Sudo",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 58974,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://stremio.ar0.eu/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://stremio.ar0.eu/"
+    },
+    {
+      "bytes_read": 12332,
+      "content_type": "application/javascript",
+      "final_url": "https://stremio.ar0.eu/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:13.435740+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://stremio.ar0.eu/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861776+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:12.497594+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://giscus.app/client.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://i.postimg.cc/P5CBwrVn/preview.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://t.me/+B3UIJrNsWf0wNzJh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/itzcozi/stremio-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://donate.cozi.lol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://fmhy.net/beginners-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/apitoken?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/login?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/subscription?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/settings?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio/setup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio/faq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.zendesk.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.stremio.com/downloads",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://vidi.norsb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torrentio.strem.fun/lite/configure",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/Stremio/comments/okjz1y/what_is_hardware_accelerated_decoding_and_what/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.firesticktricks.com/developer-options-firestick.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.stremio.one",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torrentio.strem.fun/lite",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/usenet?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "http://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://trakt.tv/dashboard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/premium?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://alldebrid.com/offer",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.premiumize.me/premium",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debrid-link.com/webapp/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://put.io/plans/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://offcloud.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.deepbrid.com/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/speedtest?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/tools?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://alldebrid.com/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.premiumize.me/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debrid-link.fr/webapp/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://app.put.io/settings/route",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debridmediamanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.wyzie.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://store.wyzie.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://5a0d1888fa64-orion.baby-beamup.club/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio-addons.net/addons/usa-tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://chromewebstore.google.com/detail/imdb-trakt-open-in-stremi/jlmmgfkhpanoeigimlaadjcdjljihmfb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://2ecbbd610840-trakt.baby-beamup.club/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://mediafusion.elfhosted.com/configure/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://ratingposterdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio-addons.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://blog.stremio.com/change-dns-resolution/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://speed.cloudflare.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://status.elfhosted.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/StremioAddons/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://web.stremio.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/torrents?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/dashboard?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/Viren070/stremio-downloader",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/StremioAddons/comments/yi5jdw/ultimate_guide_to_stremio_torrentio_rd/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.firesticktricks.com/stremio-firestick.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.comparitech.com/kodi/what-is-stremio/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/Addons4Kodi/comments/1hfa8cp/comparison_of_debrid_services_for_streaming/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.zendesk.com/hc/en-us/categories/115000394751-Frequently-Asked-Questions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://x.com/sudoflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/itzcozi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans%3Aital%2Cwght%400%2C300..800%3B1%2C300..800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/stremur.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/sitemap.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/entry/start.DbQkZk1O.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/chunks/DlbfEFKQ.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/chunks/BvII3F6I.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/entry/app.BAtZk9Ry.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/chunks/NZTpNUN0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/nodes/0.CF4FPjab.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/nodes/2.BCMw9EE3.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/chunks/Die1bEP9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/_app/immutable/assets/0.Qr7ANO60.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans%3Aital%2Cwght%400%2C300..800%3B1%2C300..800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://t.me/+B3UIJrNsWf0wNzJh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/itzcozi/stremio-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://donate.cozi.lol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://fmhy.net/beginners-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://i.postimg.cc/P5CBwrVn/preview.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/apitoken?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/login?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/subscription?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/settings?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio/setup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio/faq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.zendesk.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.stremio.com/downloads",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://vidi.norsb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torrentio.strem.fun/lite/configure",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/Stremio/comments/okjz1y/what_is_hardware_accelerated_decoding_and_what/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.firesticktricks.com/developer-options-firestick.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.stremio.one",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torrentio.strem.fun/lite",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/usenet?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "http://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://trakt.tv/dashboard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/premium?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://alldebrid.com/offer",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.premiumize.me/premium",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debrid-link.com/webapp/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://put.io/plans/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://offcloud.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.deepbrid.com/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/speedtest?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/tools?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://alldebrid.com/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.premiumize.me/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debrid-link.fr/webapp/speedtest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://app.put.io/settings/route",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://debridmediamanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.wyzie.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://store.wyzie.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://5a0d1888fa64-orion.baby-beamup.club/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio-addons.net/addons/usa-tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://chromewebstore.google.com/detail/imdb-trakt-open-in-stremi/jlmmgfkhpanoeigimlaadjcdjljihmfb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://2ecbbd610840-trakt.baby-beamup.club/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://mediafusion.elfhosted.com/configure/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://ratingposterdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio-addons.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://blog.stremio.com/change-dns-resolution/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://speed.cloudflare.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://status.elfhosted.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/StremioAddons/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://web.stremio.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://real-debrid.com/torrents?id=11626869",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://torbox.app/dashboard?referral=85f3efc7-583b-42ab-842d-c3670fb95d2e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/Viren070/stremio-downloader",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/StremioAddons/comments/yi5jdw/ultimate_guide_to_stremio_torrentio_rd/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.firesticktricks.com/stremio-firestick.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://guides.viren070.me/stremio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.comparitech.com/kodi/what-is-stremio/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://www.reddit.com/r/Addons4Kodi/comments/1hfa8cp/comparison_of_debrid_services_for_streaming/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.zendesk.com/hc/en-us/categories/115000394751-Frequently-Asked-Questions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://giscus.app/client.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://stremio.ar0.eu/comments.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://x.com/sudoflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://github.com/itzcozi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dced26a36f0d83e50c7acc568ef862bba8539c547d45799c6f42bf6c8512af02",
+      "evidence_url": "https://stremio.ar0.eu/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:12.497594+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "evidence_url": "https://stremio.ar0.eu/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.435740+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-e9d9ebb307278de6",
+    "repo-a87c7fa5e0797b34"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

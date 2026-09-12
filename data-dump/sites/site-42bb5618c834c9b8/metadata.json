@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 19698,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rstream.app/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:26.419592+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://rstream.app/"
   },
   "categories": [
@@ -9,14 +23,34 @@
       "Smart TV"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 9,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-1b1e085865d18a24"
+    "domain-1b1e085865d18a24",
+    "domain-37bc9cd0c5947119",
+    "domain-01ebe79a186e4bf7",
+    "domain-1a2e36cc692d119d",
+    "domain-3dc86e6666d7a5f2",
+    "domain-1b16b1df538ba12d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-151e5583eada8cce"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js"
+    }
+  ],
   "id": "site-42bb5618c834c9b8",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -24,16 +58,340 @@
   "name": "⁠RealStream",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 19698,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rstream.app/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://rstream.app/"
+    },
+    {
+      "bytes_read": 224413,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861048+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:26.419592+00:00",
+  "provider_ids": [
+    "provider-vercel"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/5c0aac8a5f149952.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/turbopack-15148b6a77e6191d.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/ff1a16fafef87110.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/d2be314c3ece3fbe.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/e61c5342e93a51e8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/7853d0f7fe5620ce.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/a6dad97d9634a72d.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/5c56ae189ccedda0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/image?url=%2Flogo-realstream.png&w=48&q=75",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://discord.gg/pn6UBHwHDq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/download",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://ko-fi.com/notdoctored",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/70bc3e132a0a741e-s.p.15008bfb.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/Satoshi_300-s.p.7098edd4.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/Satoshi_400-s.p.8b170606.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/Satoshi_500-s.p.eae7bb78.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/Satoshi_700-s.p.fc9d5d15.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/media/Satoshi_900-s.p.34b6b362.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/27eebb30d8e59388.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/_next/static/chunks/5c56ae189ccedda0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://rstream.app/logo-realstream.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://discord.gg/pn6UBHwHDq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b903a4137d70bccdefe351466cdba13047676a3b02f7179be3693a37c5bb8b4a",
+      "evidence_url": "https://rstream.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.419592+00:00",
+      "url": "https://ko-fi.com/notdoctored",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "64d660f32613a73ed78d891152ab129f1ac25f75bfc89d7e92900b8c3b08a8d2",
+      "evidence_url": "https://rstream.app/_next/static/chunks/cf9c3f1512e839dd.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.326685+00:00",
+      "url": "http://n/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

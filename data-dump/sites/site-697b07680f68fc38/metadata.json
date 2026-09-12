@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 35455,
+    "content_type": "text/html",
+    "final_url": "https://www.whatismymovie.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:56.383540+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.whatismymovie.com/"
   },
   "categories": [
@@ -9,8 +23,27 @@
       "Helpful Sites / Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 3,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-6e5c21c169f07c0d"
+    "domain-6e5c21c169f07c0d",
+    "domain-86601c5411f8e9e0",
+    "domain-071dd541cafeb588",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-10e75bcba992839b",
+    "domain-3e723b591bdb95ce",
+    "domain-6d9439ece2b0ad5e",
+    "domain-2d0f3c337e640d3a",
+    "domain-0c8edc00c4427062",
+    "domain-c4c2324205a81d88",
+    "domain-79e2e46d9083c6b5"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +57,469 @@
   "name": "What is My Movie?",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 35455,
+      "content_type": "text/html",
+      "final_url": "https://www.whatismymovie.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.whatismymovie.com/"
+    },
+    {
+      "bytes_read": 4962,
+      "content_type": "text/javascript",
+      "final_url": "https://www.whatismymovie.com/moviesearch.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:57.240593+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "ef7d21557a753b92745fdc9984184dff5c1bfd4655ce9bbd608e4023b375c312",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.whatismymovie.com/moviesearch.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866275+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:56.383540+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/moviesearch.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://cdn.fuseplatform.net/publift/tags/2/3416/fuse.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-G6NSB4LBRZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/bootstrap/js/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/bootstrap/js/ie10-viewport-bug-workaround.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/wimm_logo_inverted.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/spinner.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/feedback",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/terms-conditions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/cookies-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.facebook.com/whatismymovie/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/technology",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://www.valossa.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://www.valossa.com/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/bootstrap/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/bootstrap/css/bootstrap-theme.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700&subset=latin%2Clatin-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/cover.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://whatismymovie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/results",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.whatismymovie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://whatismymovie.com/WHATISMYMOVIE.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://www.whatismymovie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700&amp%3Bsubset=latin%2Clatin-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://cdn.fuseplatform.net/publift/tags/2/3416/fuse.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.facebook.com/tr?id=1672260136329192&amp%3Bev=PixelInitialized",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-G6NSB4LBRZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://whatismymovie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://www.valossa.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/terms-conditions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://valossa.com/cookies-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://www.facebook.com/whatismymovie/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "http://www.valossa.com/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bbde08203eff1d264bcce626e193005ccf2591bccc58b9be059f1c9aa07d2521",
+      "evidence_url": "https://www.whatismymovie.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.383540+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef7d21557a753b92745fdc9984184dff5c1bfd4655ce9bbd608e4023b375c312",
+      "evidence_url": "https://www.whatismymovie.com/moviesearch.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:57.240593+00:00",
+      "url": "https://www.whatismymovie.com/'+b.amazonBuyingLink+'",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef7d21557a753b92745fdc9984184dff5c1bfd4655ce9bbd608e4023b375c312",
+      "evidence_url": "https://www.whatismymovie.com/moviesearch.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:57.240593+00:00",
+      "url": "https://www.whatismymovie.com/'+b.youtubeBuyingLink+'",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef7d21557a753b92745fdc9984184dff5c1bfd4655ce9bbd608e4023b375c312",
+      "evidence_url": "https://www.whatismymovie.com/moviesearch.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:57.240593+00:00",
+      "url": "http://whatismymovie.com/play?item=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef7d21557a753b92745fdc9984184dff5c1bfd4655ce9bbd608e4023b375c312",
+      "evidence_url": "https://www.whatismymovie.com/moviesearch.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:57.240593+00:00",
+      "url": "https://www.omdbapi.com/?i=tt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

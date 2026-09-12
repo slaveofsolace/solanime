@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 37602,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.syedgakbar.com/projects/dst",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:07.451404+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.syedgakbar.com/projects/dst"
   },
   "categories": [
@@ -9,8 +23,41 @@
       "Subtitle Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 8,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-dc09dc29b88cba25"
+    "domain-dc09dc29b88cba25",
+    "domain-86601c5411f8e9e0",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-4733125bc36ce2c1",
+    "domain-73f2eb1fb5ed3fa1",
+    "domain-6860776e5611f69c",
+    "domain-e3b3dc3a7d859c4a",
+    "domain-d73d2981888be2d8",
+    "domain-7a4dc0a14dd97275",
+    "domain-bb438e1309fd5686",
+    "domain-1d3878b46b30bd7f",
+    "domain-0e2d8347bc94d921",
+    "domain-c14044aac3dab91f",
+    "domain-5e97adbb1dcafa0a",
+    "domain-07fa4e17aacc0146",
+    "domain-eb25bd4cba7f1cb3",
+    "domain-330207b2b8f58c37",
+    "domain-191347bfe55d0ca9",
+    "domain-c3b2f6305fe63941",
+    "domain-83b252bc29e3fddb",
+    "domain-3e723b591bdb95ce",
+    "domain-3c8b2bbd5af1180d",
+    "domain-1a2e36cc692d119d",
+    "domain-c2e43554757fed8a",
+    "domain-8d9559743b8b4225"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +71,1550 @@
   "name": "DST",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 37602,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.syedgakbar.com/projects/dst",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.syedgakbar.com/projects/dst"
+    },
+    {
+      "bytes_read": 3173,
+      "content_type": "text/javascript",
+      "final_url": "https://www.syedgakbar.com/theme/js/page.js?v=5",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "EXPIRED",
+        "content-type": "text/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:08.348116+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "66d84dcfec6073cf0df36e5c6a75164a40354fe2db6f1e05172087d7907abbf9",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.syedgakbar.com/theme/js/page.js?v=5"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865989+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:07.451404+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-youtube",
+    "provider-google-ads",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/page.js?v=5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/dropzone.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/dst/dropzoneLoader.js?v=7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/dst/dstState.js?v=9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/dst/pageScripts.js?v=92",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/dst/identity.js?v=7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/lazy/jquery.lazy.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-99NXFV73YZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/arrow_down.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/products-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/compass-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst-small-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/usb-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/swift-logo-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/taskbar-ext-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/quick-chess-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/basecamp_extension_ic.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dynamic_language_tools_icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/rapid-downloader-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/loader.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/change-plan.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/top-up.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/refund.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/info-2.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/history.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/preferences.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/logout.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/dst-logo.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/icon-srt.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/icon-goole-translate.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/icon-edit.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/loading-fb.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/yt_logo_rgb_light.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/products/dst/help-info.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/comments.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/products",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/compass",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/dst",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/usb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/swift-mvc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/taskbar-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/chess",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/basecamp-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/lang-tools",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/downloader",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/?page_id=1267",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/user-subtitles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.paypal.me/syedgakbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.youtube.com/c/SyedGhulamAkbar?sub_confirmation=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.youtube.com/watch?v=i9MIirOR1Xg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-help-tips/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-change-log/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://grok.com/release-notes/apr-17-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://cursor.com/blog/grok-4-5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepmind.google/models/gemini/flash-lite/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepmind.google/models/gemini/flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepseek.ai/deepseek-v4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://mistral.ai/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://docs.mistral.ai/models",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/why-sign-in-and-topup-balance/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/introducing-gpt-5-4/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/introducing-gpt-5-2/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://x.ai/news/grok-4-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/products/gemini/gemini-3-flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/products/gemini/gemini-3/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/gpt-5-1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.videolan.org/vlc/index.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.google.com/policies/privacy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://yandex.com/legal/translate_termsofuse/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-faq/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/contact-me",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2012/08/rubiks-cube-animation-using-css/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2013/10/13/installign-os-x-mountain-lion-on-hp-eny-touchsmart-15t-j000-quadcore-notebook/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2013/01/installing-jelly-beans-on-nexus-one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2012/09/flexible-page-layout-using-css-media-queries",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "http://pk.linkedin.com/in/syedgakbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.facebook.com/OnlineSubtitlesTranslator",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://twitter.com/Syed_G_Akbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/fav-icon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/images/fav-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/css/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/css/style-lazy.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/css/products.css?v=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/theme/css/dst.css?v22=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/subtitles-translate/file-upload",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/products",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/compass",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/dst",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/usb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/swift-mvc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/taskbar-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/chess",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/basecamp-ext",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/lang-tools",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/projects/downloader",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/?page_id=1267",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.paypal.me/syedgakbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.youtube.com/c/SyedGhulamAkbar?sub_confirmation=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.youtube.com/watch?v=i9MIirOR1Xg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-help-tips/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-change-log/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://grok.com/release-notes/apr-17-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://cursor.com/blog/grok-4-5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepmind.google/models/gemini/flash-lite/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepmind.google/models/gemini/flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://deepseek.ai/deepseek-v4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://mistral.ai/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://docs.mistral.ai/models",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/why-sign-in-and-topup-balance/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/introducing-gpt-5-4/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/introducing-gpt-5-2/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://x.ai/news/grok-4-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://support.deepl.com/hc/en-us/articles/360019925219-DeepL-Translator-languages",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/products/gemini/gemini-3-flash/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.google/products/gemini/gemini-3/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://openai.com/index/gpt-5-1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.videolan.org/vlc/index.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.google.com/policies/privacy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://yandex.com/legal/translate_termsofuse/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/subtitles-translator-faq/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.syedgakbar.com/privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/contact-me",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2012/08/rubiks-cube-animation-using-css/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2013/10/13/installign-os-x-mountain-lion-on-hp-eny-touchsmart-15t-j000-quadcore-notebook/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2013/01/installing-jelly-beans-on-nexus-one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://blog.syedgakbar.com/2012/09/flexible-page-layout-using-css-media-queries",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "http://pk.linkedin.com/in/syedgakbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.facebook.com/OnlineSubtitlesTranslator",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://twitter.com/Syed_G_Akbar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-99NXFV73YZ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d25515fa927bb1e56cb98353fa9ae7496a7e2fb9e5e01c7aa7bb883b141d0f0",
+      "evidence_url": "https://www.syedgakbar.com/projects/dst",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:07.451404+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "66d84dcfec6073cf0df36e5c6a75164a40354fe2db6f1e05172087d7907abbf9",
+      "evidence_url": "https://www.syedgakbar.com/theme/js/page.js?v=5",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.348116+00:00",
+      "url": "https://www.syedgakbar.com/theme/js/\"+e+\"",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

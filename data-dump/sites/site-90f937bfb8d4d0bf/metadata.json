@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 29076,
+    "content_type": "text/html;charset=utf-8",
+    "final_url": "https://scripts-onscreen.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:36.714122+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://scripts-onscreen.com/"
   },
   "categories": [
@@ -9,14 +23,55 @@
       "Helpful Sites / Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 3,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-c7ffba0621fc0737"
+    "domain-c7ffba0621fc0737",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-8d9559743b8b4225",
+    "domain-f99bedb26e9ecf92",
+    "domain-ea56b3ccd597e878",
+    "domain-9f03616c5c1cbb92",
+    "domain-a9c596dac47a0242",
+    "domain-a0de628f65730c1e",
+    "domain-f5dff35bf056c0aa",
+    "domain-acc33ed934a71d12",
+    "domain-8fe6d9dc599fde38",
+    "domain-ad89dc6a7fab473b",
+    "domain-7a3f7ea03005da85",
+    "domain-0a99f48d241df310",
+    "domain-b83974d09bef2f6e",
+    "domain-b5adab992288bd7b",
+    "domain-3df66c2c6924f6f4",
+    "domain-071fd72525d30189",
+    "domain-27c4be88d00f3136",
+    "domain-25d425a21ba3dc41",
+    "domain-7df7caa0a5579e01",
+    "domain-86601c5411f8e9e0",
+    "domain-2d0f3c337e640d3a",
+    "domain-ecc0810d5cd94894",
+    "domain-1a2e36cc692d119d"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-b0123247472a167c"
+  ],
   "entry_ids": [
     "entry-926c69f182f1ad72"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "WordPress",
+      "source_url": "https://scripts-onscreen.com/"
+    }
+  ],
   "id": "site-90f937bfb8d4d0bf",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -24,16 +79,1442 @@
   "name": "Scripts Onscreen",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 29076,
+      "content_type": "text/html;charset=utf-8",
+      "final_url": "https://scripts-onscreen.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html;charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://scripts-onscreen.com/"
+    },
+    {
+      "bytes_read": 87553,
+      "content_type": "application/javascript",
+      "final_url": "https://scripts-onscreen.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:37.687641+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "cb6f2d32c49d1c2b25e9ffc9aaafa3f83075346c01bcd4ae6eb187392a4292cf",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://scripts-onscreen.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861119+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:36.714122+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-google-ads",
+    "provider-internet-archive",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=GT-5R3V7SP",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js?ao_version=3.1.13",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/cache/autoptimize/js/autoptimize_1138487325ab2ae93aadcfe3b20be594.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/scripts-onscreen-logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BZTgxMTAxOWUtNzg1NS00Njc0LWE0YWMtMjAyMGU0NzRlZDgxXkEyXkFqcGdeQXVyMTg1MTYzOTU@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMjA4NzYxNWItZWJmNi00ODE2LTgwZDgtMzBkN2MzOGZhNDEzXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMDMzODBlNmMtZmUxNC00NWEwLWE4NTktZWUwNmExNGRlMWEzXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BZGZmZWE5MDUtMTMxNi00MjA1LThiYzYtZmRmMzdkNTZlZDA4XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNTRhM2Q0MWYtZGU3MC00ZDIzLWE0NzYtMzY3MjRhMGIwOWNkXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNzFhMDZmYTctOTNmZi00MjVjLThkNGItMTJhOTI2NDkzMTFiXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BYzFhY2ZlYjctYjk1ZS00YTNiLWI0ZDktOGE3Y2YxZWQ5ZGQ4XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMjcxYmNmNTktZDhlNS00ZGUzLTk2NGUtZDQwMDVmMWZkMjY0XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNDg0Njk0ZjYtZGIyMy00MDkzLWI3MDYtNjUxMWQzMTkxNzIyXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNmY4NWMzMjAtZjIzMC00NzgxLWI3OWQtMjZkNzQzYzY3NDJiXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2020/11/scriptorama.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2011/02/oscar-115x300.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2022/02/WRITERS_GUILD_AWARDS_LOGO-760x591-1-300x233.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2019/01/Alfonso-Cuarón2-300x225.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.imsdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.dailyscript.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.script-o-rama.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.awesomefilm.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptcity.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://sfy.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptfly.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.horrorlair.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.scifiscripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://scripts-onscreen.com/amazon/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptslug.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://archive.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://thescriptsavant.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.simplyscripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/storm-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/20th-century-girl-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/sing-sing-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/paint-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/if-you-were-the-last-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/hit-man-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/his-three-daughters-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/the-family-plan-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/daddio-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/crater-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie-scripts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/oscars-2023-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/script-rama-infected/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/oscars-2022-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/writers-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/alfonso-cuaron-scripts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/script-o-rama-down/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/blog/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://wordpress.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://gmpg.org/xfn/11",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/xmlrpc.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/cache/autoptimize/css/autoptimize_bcb486083172104124713e10f0e75eab.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.googletagmanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://ajax.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/comments/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/wp/v2/pages/64242",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fscripts-onscreen.com%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fscripts-onscreen.com%2F&format=xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-180x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://gmpg.org/xfn/11",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/xmlrpc.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/themes/twentyfifteen/js/html5.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/cache/autoptimize/css/autoptimize_bcb486083172104124713e10f0e75eab.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://ajax.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/comments/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=GT-5R3V7SP",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://api.w.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/wp/v2/pages/64242",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fscripts-onscreen.com%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-180x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2018/11/cropped-cropped-sos-logo-truesqr-270x270.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20322%2077%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.imsdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.dailyscript.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.script-o-rama.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.awesomefilm.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptcity.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://sfy.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptfly.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.horrorlair.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.scifiscripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://scripts-onscreen.com/amazon/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scriptslug.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://archive.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://thescriptsavant.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.simplyscripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://www.scripts.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/storm-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BZTgxMTAxOWUtNzg1NS00Njc0LWE0YWMtMjAyMGU0NzRlZDgxXkEyXkFqcGdeQXVyMTg1MTYzOTU@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/20th-century-girl-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMjA4NzYxNWItZWJmNi00ODE2LTgwZDgtMzBkN2MzOGZhNDEzXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/sing-sing-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMDMzODBlNmMtZmUxNC00NWEwLWE4NTktZWUwNmExNGRlMWEzXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/paint-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BZGZmZWE5MDUtMTMxNi00MjA1LThiYzYtZmRmMzdkNTZlZDA4XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/if-you-were-the-last-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNTRhM2Q0MWYtZGU3MC00ZDIzLWE0NzYtMzY3MjRhMGIwOWNkXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/hit-man-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNzFhMDZmYTctOTNmZi00MjVjLThkNGItMTJhOTI2NDkzMTFiXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/his-three-daughters-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BYzFhY2ZlYjctYjk1ZS00YTNiLWI0ZDktOGE3Y2YxZWQ5ZGQ4XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/the-family-plan-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BMjcxYmNmNTktZDhlNS00ZGUzLTk2NGUtZDQwMDVmMWZkMjY0XkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/daddio-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNDg0Njk0ZjYtZGIyMy00MDkzLWI3MDYtNjUxMWQzMTkxNzIyXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie/crater-script-links/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://m.media-amazon.com/images/M/MV5BNmY4NWMzMjAtZjIzMC00NzgxLWI3OWQtMjZkNzQzYzY3NDJiXkEyXkFqcGc@._UY160_.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/movie-scripts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/oscars-2023-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/script-rama-infected/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2020/11/scriptorama.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20299%20151%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/oscars-2022-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2011/02/oscar-115x300.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2011/02/oscar.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20115%20300%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/writers-screenplay-nominees/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2022/02/WRITERS_GUILD_AWARDS_LOGO-760x591-1-300x233.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2022/02/WRITERS_GUILD_AWARDS_LOGO-760x591-1.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/alfonso-cuaron-scripts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2019/01/Alfonso-Cuarón2-300x225.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/uploads/2019/01/Alfonso-Cuarón2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20300%20225%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/script-o-rama-down/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/blog/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://wordpress.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js?ao_version=3.1.13",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6b9ac3bf8861f6f76cfaccbd687f262c45bd9a51e1250c713378fc98a1df43b2",
+      "evidence_url": "https://scripts-onscreen.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.714122+00:00",
+      "url": "https://scripts-onscreen.com/wp-content/cache/autoptimize/js/autoptimize_1138487325ab2ae93aadcfe3b20be594.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

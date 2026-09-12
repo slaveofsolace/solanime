@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 21248,
+    "content_type": "text/html",
+    "final_url": "https://kisskh.is/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "HIT",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:05.497082+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://kisskh.is/"
   },
   "categories": [
@@ -10,8 +24,20 @@
       "Drama Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 6,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-0885908b42921559"
+    "domain-0885908b42921559",
+    "domain-97692e14df23bd64",
+    "domain-d15afad5fd0ce8bf",
+    "domain-7df7caa0a5579e01",
+    "domain-3e723b591bdb95ce"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +51,315 @@
   "name": "3",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 21248,
+      "content_type": "text/html",
+      "final_url": "https://kisskh.is/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://kisskh.is/"
+    },
+    {
+      "bytes_read": 8071,
+      "content_type": "application/javascript",
+      "final_url": "https://kisskh.is/common.js?v=9082123",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:06.473585+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "cffbf97c8caa4e2663dc800c50fb19a7459d4f74bfa215789160371b996aad27",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kisskh.is/common.js?v=9082123"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856979+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:05.497082+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://accounts.google.com/gsi/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/common.js?v=9082123",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/scripts.js?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/runtime.0f885fc17bc534b3.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/polyfills.4e511b8c5c09b071.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/scripts.075605d76f7d5f68.js?v=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/main.c582432abad915cc.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/assets/icons/icon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/assets/icons/icon-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/assets/prebuilt-themes/purple-green.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/manifest.webmanifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://kisskh.is/styles.45f911e345823eb0.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://www.facebook.com/kisskh.me2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBHMdazTgWw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://fonts.gstatic.com/s/materialicons/v143/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://accounts.google.com/gsi/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c96a7f59bd8015b8ea853de931fbeae392baee6a5724743cd99b8ff440ae04bb",
+      "evidence_url": "https://kisskh.is/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:05.497082+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

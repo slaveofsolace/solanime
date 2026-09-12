@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 14471,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://nomorflix.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:43.995961+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://nomorflix.com/"
   },
   "categories": [
@@ -10,10 +25,27 @@
       "Stream Aggregators"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-9c1c7f8128ab7fe2"
+    "domain-9c1c7f8128ab7fe2",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-9b92b80ad3d83ce3",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-16391d3665ca7477"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-da27282444859ec8",
+    "endpoint-901f0d27d9c5ca4f"
+  ],
   "entry_ids": [
     "entry-903c4da15f423c87"
   ],
@@ -25,16 +57,208 @@
   "name": "Status",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 14471,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://nomorflix.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://nomorflix.com/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.859220+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:43.995961+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=AW-18244430990",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Instrument+Serif%3Aital%400%3B1&family=Space+Grotesk%3Awght%40300%3B400%3B500%3B600&family=JetBrains+Mono%3Awght%40400%3B500&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=AW-18244430990",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Instrument+Serif%3Aital%400%3B1&family=Space+Grotesk%3Awght%40300%3B400%3B500%3B600&family=JetBrains+Mono%3Awght%40400%3B500&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/status.json?_=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8ccd99826f5de2c04bc5c16b7b159bdf1f7e491304b8aa1c7702e871d9014142",
+      "evidence_url": "https://nomorflix.com/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:43:43.995961+00:00",
+      "url": "https://nomorflix.com/domain-down/report",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

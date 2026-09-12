@@ -1,7 +1,18 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rmzmirrors.com/",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 403,
+    "observed_at": "2026-09-12T07:42:38.620590+00:00",
+    "reason": "http_403",
+    "redirects": [],
+    "request_kind": "page",
+    "status": "blocked",
     "url": "https://rmzmirrors.com/"
   },
   "categories": [
@@ -24,16 +35,29 @@
   "name": "Mirrors",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rmzmirrors.com/",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 403,
+      "observed_at": "2026-09-12T07:42:38.620590+00:00",
+      "reason": "http_403",
+      "redirects": [],
+      "request_kind": "page",
+      "status": "blocked",
       "url": "https://rmzmirrors.com/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860955+00:00",
-  "provider_ids": [],
+  "observed_at": "2026-09-12T07:42:38.620590+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge"
+  ],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

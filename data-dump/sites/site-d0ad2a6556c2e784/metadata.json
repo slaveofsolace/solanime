@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 40039,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.dvdsreleasedates.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache/2.4.58 (Ubuntu)"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:40.679282+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.dvdsreleasedates.com/"
   },
   "categories": [
@@ -10,8 +23,27 @@
       "Calendar / Upcoming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-c7daddaa215af6c6"
+    "domain-c7daddaa215af6c6",
+    "domain-c2968eeb7ddf1b02",
+    "domain-86601c5411f8e9e0",
+    "domain-33078ff1a8b8ce77",
+    "domain-3e723b591bdb95ce",
+    "domain-b8970098ae57c2f4",
+    "domain-3c8b2bbd5af1180d",
+    "domain-d527005b0732d55d",
+    "domain-ff5effacb4d45d40",
+    "domain-bdbe71d1205517b9",
+    "domain-8d9559743b8b4225",
+    "domain-76ab26a84db7b1b0"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +57,2057 @@
   "name": "DVDs Release Dates",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 40039,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.dvdsreleasedates.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Apache/2.4.58 (Ubuntu)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.dvdsreleasedates.com/"
+    },
+    {
+      "bytes_read": 12002,
+      "content_type": "text/javascript",
+      "final_url": "https://www.dvdsreleasedates.com/js/script.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript",
+        "server": "Apache/2.4.58 (Ubuntu)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:41.752433+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "8cf9fefa55a92deb582c4d185bf276f25ea19a0a3954fe96ba2596c40e5792d0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.dvdsreleasedates.com/js/script.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864938+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:40.679282+00:00",
+  "provider_ids": [
+    "provider-google-ads"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://cmp.uniconsent.com/v2/stub.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://cmp.uniconsent.com/v2/8a3edee636/cmp.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/js/script.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/cleardot.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/B/Bight-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Land-of-Wolves-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/R/Recollection-2025.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/M/Minions-and-Monsters-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/S/Supergirl-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/P/Passenger-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Leviticus-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/B/Batman-Knightfall-Part-1-Knightfall-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/movies/H/Haunted-Heist-2025.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/M/MobLand-2025.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/P/Pitfall-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/T/Tulsa-King-2022.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/S/Stop!-That!-Train!-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Lucky-Strike-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Lion-Fist-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/T/Two-Prosecutors.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/T/Toy-Story-5-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/S/Scary-Movie-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/Y/Young-Washington-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/E/Evil-Dead-Burn-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/I/I-Love-Boosters-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/T/The-Secret-Agent-2025.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/G/Girls-Like-Girls-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/F/Faces-of-Death-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/G/Gail-Daughtry-and-the-Celebrity-Sex-Pass-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Landman-2024.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/movies/N/NCIS-Naval-Criminal-Investigative-Service-TV-Series-2003-.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/O/One-Last-Shot.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/O/Outlander-2014.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/A/Affection-2026.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/H/Happys-Place-2024.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/posters/110/L/Law-and-Order-Special-Victims-Unit-1999.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/digital-releases/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/dvd-release-news/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/new-movies-2026/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/top-movies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/4k-uhd-blu-rays/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/releases/2026/8/new-dvd-releases-august-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/releases/2026/10/new-dvd-releases-october-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12876/bight",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33320124/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12819/land-of-wolves",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt42941113/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12879/recollection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt21853410/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12488/minions-and-monsters",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32890033/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11764/supergirl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt8814476/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12774/passenger",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33763941/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12792/leviticus",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt39143902/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12825/batman-knightfall-part-1-knightfall",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32333324/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12869/haunted-heist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt34890565/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12831/mobland",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31510819/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12798/pitfall",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32338122/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11170/tulsa-king",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt16358384/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12815/stop-that-train",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt38128726/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12779/lucky-strike",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt19035928/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12880/lion-fist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt38953026/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12823/two-prosecutors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt35521200/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11943/toy-story-5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt29355505/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12489/scary-movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32093575/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12602/young-washington",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32104007/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12770/evil-dead-burn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31170389/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12776/i-love-boosters",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt30827810/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12679/the-secret-agent",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt27847051/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12807/girls-like-girls",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32432654/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12733/faces-of-death",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt14619456/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12809/gail-daughtry-and-the-celebrity-sex-pass",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt36834010/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12263/landman",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt14186672/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/4694/NCIS-Naval-Criminal-Investigative-Service-TV-Series-2003-.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt0364845/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12896/one-last-shot",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt37971717/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/7366/outlander",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt3006802/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12796/affection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33249097/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12558/happys-place",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31106862/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/4895/Law-and-Order-Special-Victims-Unit-TV-Series-1999-.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt0203259/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.facebook.com/DVDsReleaseDates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://feeds.feedburner.com/DVDsReleaseDates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://twitter.com/dvdsreleasedate",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://dvdsreleasedates.tumblr.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.pinterest.com/dvdsreleasedates/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11346/spider-man-brand-new-day",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12312/the-odyssey",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12751/runner",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11855/the-end-of-oak-street",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12906/knightfall",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11131/coyote-vs.-acme",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/11703/moana",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12723/ice-cream-man",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12895/hope",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12646/insidious-out-of-the-further",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12811/i-want-your-sex",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12888/fall-2-deadpoint",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12843/one-night-only",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12536/practical-magic-2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12376/mutiny",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12487/paw-patrol-the-dino-movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12840/bad-counselors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/movies/12842/hot-spot",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/action-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/family-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/romantic-comedy-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/adventure-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/fantasy-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/science-fiction-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/animation-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/history-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/thriller-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/comedy-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/horror-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/war-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/crime-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/music-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/western-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/documentary-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/mystery-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/drama-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/genre/romance-movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/new-movies-2027/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/new-movies-2028/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/new-movies-2029/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/new-movies-2030/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/disclaimer/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/privacy-policy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/drd_fb.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/styles/style.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-iphone.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-ipad.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-iphone4.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/apple-touch-icon-120x120.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/apple-touch-icon-114x114.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://feeds.feedburner.com/DVDsReleaseDates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/search/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://ogp.me/ns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.facebook.com/2008/fbml/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://cmp.uniconsent.com/v2/stub.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://cmp.uniconsent.com/v2/8a3edee636/cmp.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/drd_fb.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/styles/style.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/js/script.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-iphone.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-ipad.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/touch-icon-iphone4.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/apple-touch-icon-120x120.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/apple-touch-icon-114x114.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://feeds.feedburner.com/DVDsReleaseDates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.dvdsreleasedates.com/images/cleardot.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33320124/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt42941113/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt21853410/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32890033/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt8814476/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33763941/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt39143902/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32333324/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt34890565/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31510819/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32338122/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt16358384/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt38128726/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt19035928/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt38953026/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt35521200/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt29355505/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32093575/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32104007/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31170389/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt30827810/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt27847051/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt32432654/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt14619456/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt36834010/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt14186672/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt0364845/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt37971717/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt3006802/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt33249097/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt31106862/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "http://www.imdb.com/title/tt0203259/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.facebook.com/DVDsReleaseDates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://twitter.com/dvdsreleasedate",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://dvdsreleasedates.tumblr.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a2f43a2dc62762cf72dad42e5cf38bbed47c590bf7669631d5692376732168af",
+      "evidence_url": "https://www.dvdsreleasedates.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.679282+00:00",
+      "url": "https://www.pinterest.com/dvdsreleasedates/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8cf9fefa55a92deb582c4d185bf276f25ea19a0a3954fe96ba2596c40e5792d0",
+      "evidence_url": "https://www.dvdsreleasedates.com/js/script.min.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:41.752433+00:00",
+      "url": "https://assets.pinterest.com/images/pidgets/pin_it_button.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

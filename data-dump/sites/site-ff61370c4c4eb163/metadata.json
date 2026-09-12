@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 24671,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://streamcorner.fun/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:46.648766+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://streamcorner.fun/"
   },
   "categories": [
@@ -10,8 +25,24 @@
       "Live Sports"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-2e2405609ad506a7"
+    "domain-2e2405609ad506a7",
+    "domain-edf7dcad352dc8cb",
+    "domain-d15afad5fd0ce8bf",
+    "domain-4250f6d7cca6443b",
+    "domain-3dc86e6666d7a5f2",
+    "domain-1a2e36cc692d119d",
+    "domain-49960de5880e8c68",
+    "domain-930f18f118ca7a87",
+    "domain-c8e8f9f979e435f9"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +56,281 @@
   "name": "4",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 24671,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://streamcorner.fun/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://streamcorner.fun/"
+    },
+    {
+      "bytes_read": 246038,
+      "content_type": "application/javascript",
+      "final_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "MISS",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://streamcorner.fun/assets/6dguCfnQ.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861601+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:46.648766+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://cdn.jsdelivr.net/gh/senbonzakura000/popa/popa_corner_fun.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://cdn.jsdelivr.net/gh/senbonzakura000/jambalaya/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/assets/CEAebI1D.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/assets/DJ2_4S7J.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/assets/BUbBNGXi.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://streamcorner.fun/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://theajack.github.io/disable-devtool/404.html?h=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://cdn.jsdelivr.net/gh/senbonzakura000/popa/popa_corner_fun.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://cdn.jsdelivr.net/gh/senbonzakura000/jambalaya/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "01bc4bfb17565efc80e7f472dca2fd7f2771b6c3bb0e47c3dbcdf4d7c9536ee7",
+      "evidence_url": "https://streamcorner.fun/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:46.648766+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "https://reactrouter.com/en/main/routers/picking-a-router.",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "37fc52884e22b15cc76259c0a6751c6e37de74d947bff0c35245690689cb33b8",
+      "evidence_url": "https://streamcorner.fun/assets/6dguCfnQ.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:47.602655+00:00",
+      "url": "https://discord.com/invite/vV6rRFtWhW",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

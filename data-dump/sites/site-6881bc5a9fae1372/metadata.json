@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 103087,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://duafile.net/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:46.181593+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://duafile.net/"
   },
   "categories": [
@@ -10,10 +25,26 @@
       "Multi-Server (Backups)"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-05bb1acb97ac5fa7"
+    "domain-05bb1acb97ac5fa7",
+    "domain-d15afad5fd0ce8bf",
+    "domain-b22641dd916d6b74",
+    "domain-edb62a2621252d82",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-16391d3665ca7477",
+    "domain-1a2e36cc692d119d"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-2c53379a91799499"
+  ],
   "entry_ids": [
     "entry-ed86eed7c7f3a830"
   ],
@@ -25,16 +56,523 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 103087,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://duafile.net/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://duafile.net/"
+    },
+    {
+      "bytes_read": 12332,
+      "content_type": "application/javascript",
+      "final_url": "https://duafile.net/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:47.062854+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://duafile.net/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853438+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:46.181593+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-analytics",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/duafile-image.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/android-chrome-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=series",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=software",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=game",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=music",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=ebook",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?sort=newest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?sort=rating",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/site-v2.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://www.googletagmanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/duafile-image2-v2.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/duafile-image.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://www.googletagmanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-KB9FM55G4W",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?q=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.net/static/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://duafile.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=series",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=software",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=game",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=music",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?type=ebook",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?sort=newest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?sort=rating",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/api/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/browse?q=%24%7BencodeURIComponent%28query",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/post/${r.slug",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://download.duafile.com/*",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "621e8a484745a481bca3034ef1f4791b6b3d55a31ae8d8ae73ef6f62e4c27da9",
+      "evidence_url": "https://duafile.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:46.181593+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "evidence_url": "https://duafile.net/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.062854+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 53707,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "ESF"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:18.637435+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview"
   },
   "categories": [
@@ -10,8 +23,20 @@
       "Anime Torrenting"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-451ebbe1c8f95384"
+    "domain-451ebbe1c8f95384",
+    "domain-be7c754c95734e21",
+    "domain-f3a7be81d48c07b5",
+    "domain-e5c58fb9a6f69fe9",
+    "domain-4657492b1e11e164"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +50,129 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 53707,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "ESF"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview"
+    },
+    {
+      "bytes_read": 14495,
+      "content_type": "text/javascript",
+      "final_url": "https://docs.google.com/static/spreadsheets2/client/js/136808981-trix_widgets.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript",
+        "server": "sffe"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:19.428279+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "7449a476819e537f81be296b9ffd25bd72efb6c74cf3f362614f1bd57ef02a40",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://docs.google.com/static/spreadsheets2/client/js/136808981-trix_widgets.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853279+00:00",
+  "observed_at": "2026-09-12T07:43:18.637435+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://docs.google.com/static/spreadsheets2/client/js/136808981-trix_widgets.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://ssl.gstatic.com/docs/spreadsheets/spreadsheets-2026-v3.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://docs.google.com/static/spreadsheets2/client/css/736495794-waffle_k_ltr.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://docs.google.com/static/spreadsheets2/client/css/2389730835-trix_widget_ltr.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://csp.withgoogle.com/csp/proto/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://ssl.gstatic.com/docs/spreadsheets/spreadsheets-2026-v3.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview?usp=embed_facebook",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://lh7-us.googleusercontent.com/docs/[REDACTED-OPAQUE]",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f4ca4084648e0ac1f03152a43b79cbaf62f330a5988ff388b7c45c0e1874b29d",
+      "evidence_url": "https://docs.google.com/spreadsheets/d/1PJYwhjzLNPXV2X1np-S4rdZE4fb7pxp-QbHY1O0jH6Q/htmlview",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.637435+00:00",
+      "url": "https://drive-qa.corp.google.com/viewer/main",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

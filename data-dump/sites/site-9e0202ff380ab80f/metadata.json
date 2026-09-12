@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:42:06.323369+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.flixwatch.co/robots.txt",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 429,
+      "reason": "http_429",
+      "redirects": [],
+      "status": "blocked"
+    },
+    "status": "blocked",
     "url": "https://www.flixwatch.co/"
   },
   "categories": [
@@ -24,16 +37,17 @@
   "name": "FlixWatch",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:42:06.323369+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://www.flixwatch.co/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865028+00:00",
+  "observed_at": "2026-09-12T07:42:06.323369+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 13882,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://streamwatch.pages.dev/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:13.563654+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://streamwatch.pages.dev/"
   },
   "categories": [
@@ -10,8 +25,23 @@
       "P-Stream Forks"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-755daa0324bb45a1"
+    "domain-755daa0324bb45a1",
+    "domain-00011f980a03eda4",
+    "domain-9cd4eb28ac97a673",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-6860776e5611f69c",
+    "domain-0e948a9c9e86a4f0",
+    "domain-eabf24fc8493a92c"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +55,651 @@
   "name": "3",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 13882,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://streamwatch.pages.dev/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://streamwatch.pages.dev/"
+    },
+    {
+      "bytes_read": 867,
+      "content_type": "application/javascript",
+      "final_url": "https://streamwatch.pages.dev/config.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:14.610973+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "5d2aa39016518d8400f51352350e193c30e36913671b321376c8dd86fb7e4950",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://streamwatch.pages.dev/config.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861752+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:13.563654+00:00",
+  "provider_ids": [
+    "provider-google-fonts",
+    "provider-youtube",
+    "provider-cloudflare-pages",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/config.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/index-CFham22y.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://directoryeditorweep.com/961d025281d74b4322edc36aac08b498/invoke.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://directoryeditorweep.com/2af5858151ac603b89700fdca8d640f7/invoke.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://tr.geastyetis.com/rNzDumbZfCf/NaGwn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/favicon.ico?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/manifest-BnWONzI7.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/apple-touch-icon.png?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/favicon-32x32.png?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/favicon-16x16.png?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_11__iPhone_XR_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/12.9__iPad_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.9__iPad_Air_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.5__iPad_Air_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.2__iPad_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/8.3__iPad_Mini_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_11__iPhone_XR_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/12.9__iPad_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.9__iPad_Air_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.5__iPad_Air_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/10.2__iPad_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/splash_screens/8.3__iPad_Mini_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/auth-CBvaM8tj.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/caption-parsing-DDIXmOBz.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/vendor-CvGQd_qS.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/locales-D9NzoCxq.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/language-db-BbJr1Erd.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/Icons-C2EiZ_2F.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/react-dom-D0mZEwVt.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/hls-BbSaIQh1.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/Icons-ybeVSQkp.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://streamwatch.pages.dev/assets/index-CqDhMYWI.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ--",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=DM+Sans%3Aital%2Copsz%2Cwght%400%2C9..40%2C100..1000%3B1%2C9..40%2C100..1000&family=Open+Sans%3Awght%40400%3B500%3B600%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://directoryeditorweep.com/961d025281d74b4322edc36aac08b498/invoke.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://directoryeditorweep.com/2af5858151ac603b89700fdca8d640f7/invoke.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dda039bdbb71fa92a57a26c83aa14b203cb1a4aaceb664db0f9b1bcd0f1d1df9",
+      "evidence_url": "https://streamwatch.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:13.563654+00:00",
+      "url": "https://llvpn.com/tag.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5d2aa39016518d8400f51352350e193c30e36913671b321376c8dd86fb7e4950",
+      "evidence_url": "https://streamwatch.pages.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.610973+00:00",
+      "url": "https://server1.com,https//server2.com",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

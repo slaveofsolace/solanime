@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 9004,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.wcostatus.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:38.622881+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.wcostatus.com/"
   },
   "categories": [
@@ -10,10 +24,30 @@
       "Cartoon Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-c4b59d7cadf1b567"
+    "domain-c4b59d7cadf1b567",
+    "domain-edf7dcad352dc8cb",
+    "domain-d15afad5fd0ce8bf",
+    "domain-6afc08a30e6a303a",
+    "domain-e0e35668ae1357c4",
+    "domain-37eac25ecd461108",
+    "domain-13117d4b7ecd2632",
+    "domain-900976d6a79abeeb",
+    "domain-3aeb002460381c6f",
+    "domain-3c8b2bbd5af1180d",
+    "domain-746456718ee0a57c"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-36e2edafa0a422b2"
+  ],
   "entry_ids": [
     "entry-f7b664ae292847f5"
   ],
@@ -25,16 +59,267 @@
   "name": "Status",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 9004,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.wcostatus.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.wcostatus.com/"
+    },
+    {
+      "bytes_read": 407283,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.wcostatus.com/basit.js?v=1",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.wcostatus.com/basit.js?v=1"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866232+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:38.622881+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://www.wcostatus.com/basit.js?v=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://www.wco.tv/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://www.wco.tv/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://www.wcostatus.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "69989203091aed0d531df66448faff8c3c32e0b243c4aa96da0b04c323b6fc78",
+      "evidence_url": "https://www.wcostatus.com/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:43:38.622881+00:00",
+      "url": "https://www.wcostatus.com/check.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://tailwindcss.com/docs/upgrade-guide",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://tailwindcss.com/docs/content-configuration",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://evilmartians.com/chronicles/postcss-8-plugin-migration",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://www.w3ctech.com/topic/2226",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://tailwindcss.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://tailwindcss.com/docs/using-with-preprocessors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://github.com/browserslist/browserslist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://twitter.com/browserslist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://github.com/postcss/autoprefixer",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://tailwindcss.com/docs/installation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://github.com/jonschlinkert/fill-range",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://github.com/jonschlinkert/is-number",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://github.com/micromatch/to-regex-range",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3f362d5daea70c52e798a7880069d147408c4eb1f1b573c4797e837f26500637",
+      "evidence_url": "https://www.wcostatus.com/basit.js?v=1",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.187811+00:00",
+      "url": "https://mths.be/cssesc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-56aa1a9083fd2232",
+    "repo-fd102ab458fa2d8b",
+    "repo-5cae3200b4ca8e76",
+    "repo-51a5616af42b1fab",
+    "repo-907c2e8171482207"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

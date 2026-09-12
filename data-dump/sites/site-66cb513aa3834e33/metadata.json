@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 22961,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://flexget.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-frame-options": "deny"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:55.994777+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://flexget.com/"
   },
   "categories": [
@@ -9,8 +22,28 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-af7b7519064ebda9"
+    "domain-af7b7519064ebda9",
+    "domain-7f2bea21d7396317",
+    "domain-3aeb002460381c6f",
+    "domain-ac5e04d60acf22b2",
+    "domain-7aa0453821320bf9",
+    "domain-c3248d2d0ee5f142",
+    "domain-69168ae625db8e7c",
+    "domain-51eb6aeea41cbd34",
+    "domain-c82682b8ff8a8adf",
+    "domain-bc82a15ad90dbc21",
+    "domain-7a7103f2b5dc4f2a",
+    "domain-b71288d6f0880c7c",
+    "domain-a379a6f6eeafb9a5"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +57,518 @@
   "name": "FlexGet",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 22961,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://flexget.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-frame-options": "deny"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://flexget.com/"
+    },
+    {
+      "bytes_read": 5116,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://flexget.com/_assets/js/runtime.js?1716156900=",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "x-frame-options": "deny"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:57.102613+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "02bdd54cb1388bdd8523ad083f56f656f7ae3f687e199135cc553c4ce1a3bdab",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://flexget.com/_assets/js/runtime.js?1716156900="
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853748+00:00",
+  "observed_at": "2026-09-12T07:43:55.994777+00:00",
   "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/js/runtime.js?1716156900=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/js/app.js?1716156900=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://code.jquery.com/jquery-3.6.0.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/flexget.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Upgrade",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/Flexget/Flexget/discussions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Chat",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/InstallWizard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Configuration",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Cookbook",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Developers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Plugins",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/Flexget/Flexget/issues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/UpgradeActions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://deluge-torrent.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://www.transmissionbt.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://www.utorrent.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://rakshasa.github.io/rtorrent/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://sabnzbd.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://thetvdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://imdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Daemon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Plugins/Daemon/scheduler",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Web-UI",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Install",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://en.wikipedia.org/wiki/YAML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/Plugins/series",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/sponsors/gazpachoking/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/favicons/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/favicons/android-chrome-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/favicons/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/favicons/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/favicons/safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/_assets/css/app.766a556e9dcc61b7fcd5.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://flexget.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://code.jquery.com/jquery-3.6.0.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/Flexget/Flexget/discussions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/Flexget/Flexget/issues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://deluge-torrent.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://www.transmissionbt.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://www.utorrent.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://rakshasa.github.io/rtorrent/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://sabnzbd.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://trakt.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://thetvdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://imdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://en.wikipedia.org/wiki/YAML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "http://example.com/torrents.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2af9c8040f1b25edc6c9c9fc9c629795d3589526cd5d0bd08c480dffe53883ae",
+      "evidence_url": "https://flexget.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:55.994777+00:00",
+      "url": "https://github.com/sponsors/gazpachoking/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-20c53a65431c4bed"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

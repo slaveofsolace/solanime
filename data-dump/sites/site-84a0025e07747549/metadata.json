@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 925,
+    "content_type": "text/html",
+    "final_url": "https://ppv.to/discord",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:14.037157+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "914f409f8ab30069b6f863719b7ffb2ca03f9c852eb3093290b65ad09da9af03",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://ppv.to/discord"
   },
   "categories": [
@@ -10,8 +23,17 @@
       "Live Sports"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-4ce168ea86f0e4ec"
+    "domain-4ce168ea86f0e4ec",
+    "domain-8543909affdc2666"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +47,48 @@
   "name": "ppv.to",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 925,
+      "content_type": "text/html",
+      "final_url": "https://ppv.to/discord",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:14.037157+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "914f409f8ab30069b6f863719b7ffb2ca03f9c852eb3093290b65ad09da9af03",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://ppv.to/discord"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.859969+00:00",
+  "observed_at": "2026-09-12T07:43:14.037157+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "914f409f8ab30069b6f863719b7ffb2ca03f9c852eb3093290b65ad09da9af03",
+      "evidence_url": "https://ppv.to/discord",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:14.037157+00:00",
+      "url": "https://wcw.sstest.click/wcw/2f511b96-3501-4695-8764-476f5d473b56.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "914f409f8ab30069b6f863719b7ffb2ca03f9c852eb3093290b65ad09da9af03",
+      "evidence_url": "https://ppv.to/discord",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.037157+00:00",
+      "url": "https://wcw.sstest.click/wcw/2f511b96-3501-4695-8764-476f5d473b56.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 45034,
+    "content_type": "text/html",
+    "final_url": "https://nuvio.wiki/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "nginx/1.28.3 (Ubuntu)"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:34.260996+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://nuvio.wiki/"
   },
   "categories": [
@@ -16,10 +29,33 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-d856651a0cdbea34"
+    "domain-d856651a0cdbea34",
+    "domain-01ebe79a186e4bf7",
+    "domain-3aeb002460381c6f",
+    "domain-37bc9cd0c5947119",
+    "domain-c150d8dde4024c4d",
+    "domain-6860776e5611f69c",
+    "domain-d6c1754dbbf0bc91",
+    "domain-4ebe90dfc3e46706",
+    "domain-84db2e8732dd1335",
+    "domain-c14900738963f067",
+    "domain-91457a557f31a288"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-19090d588038e637",
+    "endpoint-a745513d154c0baf",
+    "endpoint-0c514c0e77ecba97",
+    "endpoint-9fc92d7f3ec5c789"
+  ],
   "entry_ids": [
     "entry-151e5583eada8cce",
     "entry-8cd48e63cadde68f",
@@ -33,16 +69,899 @@
   "name": "Wiki / Guides",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 45034,
+      "content_type": "text/html",
+      "final_url": "https://nuvio.wiki/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "nginx/1.28.3 (Ubuntu)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://nuvio.wiki/"
+    },
+    {
+      "bytes_read": 155015,
+      "content_type": "application/javascript",
+      "final_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx/1.28.3 (Ubuntu)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://nuvio.wiki/assets/app.DL8gUXeu.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.859417+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:34.260996+00:00",
+  "provider_ids": [
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/haaihond",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/overview",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/features",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/quick-start",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/android-tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/android-mobile",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/ios",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/webos",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/tizen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/windows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/addons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/debrid",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/tmdb-mdblist-trakt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/trakt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/plugins",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/usenet",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/player",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/ui-and-customization",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/profiles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/collections",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/badges",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/tools/setup-doctor",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/troubleshooting",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/faq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/tools",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/status",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/glossary",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/official-links",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://discord.gg/nuvio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/settings/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/integrations/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/setup/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/nl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/blob/main/TRANSLATING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://tapframe.space/contribute",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/installation/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://www.youtube.com/watch?v=ChBg4aowzX8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/skoruppa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/halibiram",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/edoedac",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/sappy-69/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/style.B-AeJKsC.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/vp-icons.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/p2p-generator.DzvssH_5.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/utils.C8amhHSg.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/VPLocalSearchBox.Ch2L1z4E.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/@localSearchIndexroot.CfBhp2a_.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/@localSearchIndexnl.2llaJUKZ.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioAdminDashboard.CiQfpUm1.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioQuickstart.BFmQiDHH.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioTraktBridge.BHsQPQAX.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioToolsContainer.D-sU2ozL.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioProfileTransfer.DL1g5xxc.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/chunks/NuvioConfigurationProfiles.BQUHhTKF.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/assets/index.md.BZjVR0AH.lean.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://nuvio.wiki/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/haaihond",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://discord.gg/nuvio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/blob/main/TRANSLATING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://tapframe.space/contribute",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://www.youtube.com/watch?v=ChBg4aowzX8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/skoruppa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/halibiram",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://ko-fi.com/edoedac",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/sappy-69/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6c9bc9a252bffba615c0dce665856073e560e3c2f8c11c9861b32964db318e7c",
+      "evidence_url": "https://nuvio.wiki/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.260996+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/edit/main/docs/:path",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "http://a.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://api.iconify.design/simple-icons/${e.icon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://tapframe.space/contribute",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://www.youtube.com/watch?v=ChBg4aowzX8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://ko-fi.com/skoruppa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://ko-fi.com/halibiram",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://ko-fi.com/edoedac",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://ko-fi.com/haaihond",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://github.com/sappy-69/Nuvio-Wiki/blob/main/CONTRIBUTING.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://markjs.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://git.io/vwTVl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://nuvio.internal/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://github.com/haaihond/Nuvio-Wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://discord.gg/nuvio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://nuvio.wiki/api/admin/session",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://nuvio.wiki/api/ai/chat",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5e60136b67e511f06abc495346b4db0a46fb2ccdc9c2ea149a23c83a2a0ef48d",
+      "evidence_url": "https://nuvio.wiki/assets/app.DL8gUXeu.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:35.464665+00:00",
+      "url": "https://nuvio.wiki/api/page-feedback",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-26958e94112ca90e",
+    "repo-2c0aeb43b4dc03eb"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

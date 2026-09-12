@@ -1,7 +1,27 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "final_url": "https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=uqqWSuHSnyxgpXhFeIY7i25oM545b08zIY-byrhClMM",
+    "observed_at": "2026-09-12T07:42:19.329458+00:00",
+    "reason": "redirect_target_not_requested",
+    "redirects": [
+      {
+        "http_status": 307,
+        "location": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c?__dm_a=1",
+        "url": "https://www.notion.so/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
+      },
+      {
+        "http_status": 307,
+        "location": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c",
+        "url": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c?__dm_a=1"
+      },
+      {
+        "http_status": 302,
+        "location": "https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=uqqWSuHSnyxgpXhFeIY7i25oM545b08zIY-byrhClMM",
+        "url": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
+      }
+    ],
+    "request_kind": "page",
+    "status": "redirected",
     "url": "https://www.notion.so/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
   },
   "categories": [
@@ -10,9 +30,12 @@
     ]
   ],
   "domain_ids": [
-    "domain-c7ea38081e793cfc"
+    "domain-c7ea38081e793cfc",
+    "domain-829bc0b334998369"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-e83439fb5f0ba992"
+  ],
   "entry_ids": [
     "entry-e7a46ca5a993ef1e"
   ],
@@ -24,16 +47,36 @@
   "name": "Setup Guide",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "final_url": "https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=uqqWSuHSnyxgpXhFeIY7i25oM545b08zIY-byrhClMM",
+      "observed_at": "2026-09-12T07:42:19.329458+00:00",
+      "reason": "redirect_target_not_requested",
+      "redirects": [
+        {
+          "http_status": 307,
+          "location": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c?__dm_a=1",
+          "url": "https://www.notion.so/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
+        },
+        {
+          "http_status": 307,
+          "location": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c",
+          "url": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c?__dm_a=1"
+        },
+        {
+          "http_status": 302,
+          "location": "https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=uqqWSuHSnyxgpXhFeIY7i25oM545b08zIY-byrhClMM",
+          "url": "https://app.notion.com/p/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
+        }
+      ],
+      "request_kind": "page",
+      "status": "redirected",
       "url": "https://www.notion.so/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865336+00:00",
+  "observed_at": "2026-09-12T07:42:19.329458+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "redirected",
   "roles": [
     "listed_related"
   ],

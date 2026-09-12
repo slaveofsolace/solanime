@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 28668,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rivestream.ru/iptv",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "HIT",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Next.js"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:17.830256+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://rivestream.ru/iptv"
   },
   "categories": [
@@ -10,14 +25,36 @@
       "Live TV"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 13,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-afd2e04b33539ecb"
+    "domain-afd2e04b33539ecb",
+    "domain-d15afad5fd0ce8bf",
+    "domain-337be4af55ff20af",
+    "domain-1a2e36cc692d119d",
+    "domain-3aeb002460381c6f",
+    "domain-ca978112ca1bbdca",
+    "domain-1e605e225d009579",
+    "domain-2d711642b726b044"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-074508981f4ec518"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://rivestream.ru/iptv"
+    }
+  ],
   "id": "site-027d170f5a884ee5",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +62,479 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 28668,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rivestream.ru/iptv",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://rivestream.ru/iptv"
+    },
+    {
+      "bytes_read": 112594,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860810+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:17.830256+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/webpack-18dc309a063420a4.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/framework-945b357d4a851f4b.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/main-39e50773f699b0d5.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/pages/_app-9726d6130d772c89.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/37a763b4-5a3b4f5484a24d2c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/a0f95e74-deee7f8b88cc1338.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/823c5380-1dfb1d3849cbbdbc.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/5727-09e2156a3a8910d9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/8530-98b8747ebb84bd3f.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/chunks/pages/iptv-ede8490887f87bd7.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_buildManifest.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/CyMlbmPppJZM5gLcJ2HmQ/_ssgManifest.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/discover",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/ai",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/livesports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/iptv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/radio",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/manga",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/anime",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/kdrama",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/collections",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/library",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/settings",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/profile",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/icons/icon-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/images/logo512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/images/logo512.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/css/e8250ed4d8b45b38.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/css/046ca342ecc41cf5.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://rivestream.ru/_next/static/css/9b22bba48a9cc39a.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://www.rivestream.app/images/MetaImage.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://www.rivestream.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "533654098cc7a5a968a871610f461ec38112b03272fe8c011d28a585c5e2d0bd",
+      "evidence_url": "https://rivestream.ru/iptv",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.830256+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://github.com/zloirock/core-js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://a/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://a/c%20d?a=1&c=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://xn--e1aybc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://rivestream.ru/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:19.002789+00:00",
+      "url": "https://x/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-5f232b5abac171d4"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

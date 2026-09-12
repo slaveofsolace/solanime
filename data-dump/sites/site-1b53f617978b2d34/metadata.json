@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 48777,
+    "content_type": "text/html;charset=utf-8",
+    "final_url": "https://www.ratingraph.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "nginx",
+      "x-frame-options": "sameorigin"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:14.193288+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.ratingraph.com/"
   },
   "categories": [
@@ -10,8 +24,22 @@
       "Curated Recommendations"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-15e6d65cf4ed9274"
+    "domain-15e6d65cf4ed9274",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-bc55c0acf016c1f5",
+    "domain-e48bfdf4afc947fd",
+    "domain-8d9559743b8b4225",
+    "domain-11f22eead42a856b",
+    "domain-7ef847840506114b"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +53,1816 @@
   "name": "Ratings Graph",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 48777,
+      "content_type": "text/html;charset=utf-8",
+      "final_url": "https://www.ratingraph.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html;charset=UTF-8",
+        "server": "nginx",
+        "x-frame-options": "sameorigin"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.ratingraph.com/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865471+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:14.193288+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-google-ads"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-Q7GQ9CCKVS",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/build/bundle.b066d1e3f7ef5fefcc6991ed4da2cd2ff45d62e9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/re-zero-starting-life-in-another-world-ratings-60267/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/bleach-thousand-year-blood-war-ratings-94307/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/mushoku-tensei-jobless-reincarnation-ratings-85279/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/silo-ratings-106508/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/attack-on-titan-ratings-46477/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/one-piece-ratings-17673/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/the-mentalist-ratings-32172/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/game-of-thrones-ratings-26649/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/lanterns-ratings-150189/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/breaking-bad-ratings-26165/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-whisper-man-ratings-374596/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-odyssey-ratings-372804/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/spider-man-brand-new-day-ratings-373387/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-runner-ratings-374879/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/star-wars-the-mandalorian-and-grogu-ratings-370016/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/coyote-vs-acme-ratings-374290/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/obsession-ratings-358168/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/project-hail-mary-ratings-366891/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-invite-ratings-364306/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/backrooms-ratings-370336/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/spider-man-mcu-ratings-1921/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/harry-potter-ratings-27/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-avengers-ratings-280/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/star-wars-ratings-1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-dark-knight-ratings-7/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/toy-story-ratings-103/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-lord-of-the-rings-ratings-3/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/x-men-ratings-23/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/captain-america-ratings-555/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/insidious-ratings-914/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/adam-bernstein-ratings-18509/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/david-nutter-ratings-15097/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/tomohisa-taguchi-ratings-91177/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/shin-ichiro-ueda-ratings-79639/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/christopher-nolan-ratings-29657/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/alrick-riley-ratings-23987/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/alik-sakharov-ratings-36695/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/john-dahl-ratings-18205/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/kevin-hooks-ratings-13003/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/guy-ferland-ratings-23143/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/mike-mcfarland-ratings-120620/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/meli-grant-ratings-404420/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/stan-lee-ratings-24759/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/tite-kubo-ratings-127569/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/jack-kirby-ratings-8856/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/tomohisa-taguchi-ratings-328857/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/ardwight-chamberlain-ratings-36223/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/john-burgmeier-ratings-73661/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/christopher-nolan-ratings-75661/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/bonny-clinkenbeard-ratings-62931/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/privacy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.google-analytics.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/fonts/fa-regular-400.woff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/fonts/fa-solid-900.woff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://pagead2.googlesyndication.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://tpc.googlesyndication.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/build/bundle.2ef41a047f1d1cdd852f2459f033f36f9f4c88ff.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.google-analytics.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/fonts/fa-regular-400.woff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/fonts/fa-solid-900.woff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://pagead2.googlesyndication.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://tpc.googlesyndication.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/icon-16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/pattern.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/film.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/ratingraph.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/fonts/fa-brands-400.woff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/filters.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/sort-both.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/sort-asc.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/sort-desc.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/sort-asc-disabled.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/sort-desc-disabled.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cmp.inmobi.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/re-zero-starting-life-in-another-world-ratings-60267/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/re-zero-starting-life-in-another-world-poster-60267.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/bleach-thousand-year-blood-war-ratings-94307/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/bleach-thousand-year-blood-war-poster-94307.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/mushoku-tensei-jobless-reincarnation-ratings-85279/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/mushoku-tensei-jobless-reincarnation-poster-85279.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/silo-ratings-106508/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/silo-poster-106508.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/attack-on-titan-ratings-46477/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/attack-on-titan-poster-46477.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/one-piece-ratings-17673/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/one-piece-poster-17673.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/the-mentalist-ratings-32172/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/the-mentalist-poster-32172.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/game-of-thrones-ratings-26649/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/game-of-thrones-poster-26649.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/lanterns-ratings-150189/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/lanterns-poster-150189.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/tv-shows/breaking-bad-ratings-26165/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/shows/breaking-bad-poster-26165.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-whisper-man-ratings-374596/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-whisper-man-poster-374596.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-odyssey-ratings-372804/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-odyssey-poster-372804.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/spider-man-brand-new-day-ratings-373387/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/spider-man-brand-new-day-poster-373387.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-runner-ratings-374879/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-runner-poster-374879.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/star-wars-the-mandalorian-and-grogu-ratings-370016/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/star-wars-the-mandalorian-and-grogu-poster-370016.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/coyote-vs-acme-ratings-374290/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/coyote-vs-acme-poster-374290.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/obsession-ratings-358168/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/obsession-poster-358168.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/project-hail-mary-ratings-366891/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/project-hail-mary-poster-366891.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/the-invite-ratings-364306/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-invite-poster-364306.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movies/backrooms-ratings-370336/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/backrooms-poster-370336.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/spider-man-mcu-ratings-1921/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/spider-man-homecoming-poster-172913.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/harry-potter-ratings-27/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/harry-potter-and-the-sorcerer-s-stone-poster-89370.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-avengers-ratings-280/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-avengers-poster-129177.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/star-wars-ratings-1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/star-wars-episode-iv-a-new-hope-poster-39461.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-dark-knight-ratings-7/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/batman-begins-poster-111128.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/toy-story-ratings-103/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/toy-story-poster-59612.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/the-lord-of-the-rings-ratings-3/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/the-lord-of-the-rings-the-fellowship-of-the-ring-poster-62527.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/x-men-ratings-23/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/x-men-poster-62641.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/captain-america-ratings-555/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/captain-america-the-first-avenger-poster-121468.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/movie-franchises/insidious-ratings-914/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/movies/insidious-poster-154430.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/adam-bernstein-ratings-18509/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/adam-bernstein-poster-18509.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/david-nutter-ratings-15097/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/david-nutter-poster-15097.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/tomohisa-taguchi-ratings-91177/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/tomohisa-taguchi-poster-91177.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/shin-ichiro-ueda-ratings-79639/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/shin-ichiro-ueda-poster-79639.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/christopher-nolan-ratings-29657/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/christopher-nolan-poster-29657.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/alrick-riley-ratings-23987/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/alrick-riley-poster-23987.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/alik-sakharov-ratings-36695/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/alik-sakharov-poster-36695.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/john-dahl-ratings-18205/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/john-dahl-poster-18205.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/kevin-hooks-ratings-13003/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/kevin-hooks-poster-13003.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/directors/guy-ferland-ratings-23143/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/directors/guy-ferland-poster-23143.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/mike-mcfarland-ratings-120620/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/missing.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/meli-grant-ratings-404420/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/stan-lee-ratings-24759/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/writers/stan-lee-poster-24759.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/tite-kubo-ratings-127569/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/jack-kirby-ratings-8856/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/writers/jack-kirby-poster-8856.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/tomohisa-taguchi-ratings-328857/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/ardwight-chamberlain-ratings-36223/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/writers/ardwight-chamberlain-poster-36223.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/john-burgmeier-ratings-73661/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/writers/john-burgmeier-poster-73661.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/christopher-nolan-ratings-75661/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/images/writers/christopher-nolan-poster-75661.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/writers/bonny-clinkenbeard-ratings-62931/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.ratingraph.com/privacy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/build/bundle.2ef41a047f1d1cdd852f2459f033f36f9f4c88ff.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-Q7GQ9CCKVS",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "772e14ee8a9c43a836abf8e96e91e05d662460ae16604b0cb714c3ba94f529b9",
+      "evidence_url": "https://www.ratingraph.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:14.193288+00:00",
+      "url": "https://cdn.ratingraph.com/assets/build/bundle.b066d1e3f7ef5fefcc6991ed4da2cd2ff45d62e9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

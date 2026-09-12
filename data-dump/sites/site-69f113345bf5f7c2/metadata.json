@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 11780,
+    "content_type": "text/html",
+    "final_url": "https://reindex.to/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "HIT",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:21.087971+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://reindex.to/"
   },
   "categories": [
@@ -10,8 +24,21 @@
       "Anime Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-0d35c6e72593b6aa"
+    "domain-0d35c6e72593b6aa",
+    "domain-d15afad5fd0ce8bf",
+    "domain-989a7686734e40c5",
+    "domain-0fe9f992c26735ea",
+    "domain-c7a8742ccdb41875",
+    "domain-eaab6df9cf17a791"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +52,151 @@
   "name": "Index",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 11780,
+      "content_type": "text/html",
+      "final_url": "https://reindex.to/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://reindex.to/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860389+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:21.087971+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reindex.to/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.to/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.cz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.wtf/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://restatus.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reindex.to/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reindex.to/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.to/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.cz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://reanime.wtf/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://restatus.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f884b2d7706c072007fa99491cddc460d36e70c5627d975f1d1b3d18a93fc667",
+      "evidence_url": "https://reindex.to/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.087971+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 35439,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.1tube.org/torrent",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "REVALIDATED",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Next.js"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:10.697778+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.1tube.org/torrent"
   },
   "categories": [
@@ -9,14 +24,46 @@
       "Torrent Sites"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 8,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-780aa3fec9dc4241"
+    "domain-780aa3fec9dc4241",
+    "domain-a6a32fe730a26794",
+    "domain-432b7aeabf375265",
+    "domain-d15afad5fd0ce8bf",
+    "domain-72c96fe90856f61b",
+    "domain-37bc9cd0c5947119",
+    "domain-5d19cf66aa443889",
+    "domain-926fdd02611cf327",
+    "domain-d94fcf5105ee9ed8",
+    "domain-73a6b7c5c09a04f0",
+    "domain-6860776e5611f69c",
+    "domain-1a2e36cc692d119d",
+    "domain-3aeb002460381c6f",
+    "domain-ca978112ca1bbdca",
+    "domain-1e605e225d009579",
+    "domain-2d711642b726b044"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-5c6df43d3d28f0f4"
+  ],
   "entry_ids": [
     "entry-994764981e552fbf"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://www.1tube.org/torrent"
+    }
+  ],
   "id": "site-ed6d6f6b60f12966",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -24,16 +71,544 @@
   "name": "1Tube",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 35439,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.1tube.org/torrent",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.1tube.org/torrent"
+    },
+    {
+      "bytes_read": 112594,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864680+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:10.697778+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-tmdb",
+    "provider-youtube",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://fubuki-umami.space/api/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://layla.wtf/embed/s_Jq_b_SHKn6mbA1Fd.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/webpack-f18c59565fed2988.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/framework-840cff9d6bb95703.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/main-b8345c925841dac3.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/pages/_app-9493a04ff689dfc2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/chunks/pages/torrent-ff4172da9e8776e3.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/hg_DGV3lGiLdSzE1JXqOW/_buildManifest.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/hg_DGV3lGiLdSzE1JXqOW/_ssgManifest.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/banner/black_theme.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/tmdb.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/shawts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/tv-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/live-tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/games",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/torrent",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.enma.lol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/history",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/playlist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/watch-later",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/voted",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://discord.gg/the-one",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.themoviedb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/banner/black_theme.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://1tube.org/torrent",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://wsrv.nl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.youtube.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.1tube.org/_next/static/css/9bc9f9bf3cd01055.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://1tube.org/screenshots/torrent.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://1tube.org/torrent",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://wsrv.nl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.youtube.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://fubuki-umami.space/api/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://layla.wtf/embed/s_Jq_b_SHKn6mbA1Fd.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.enma.lol/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://discord.gg/the-one",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://www.themoviedb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "440b1ae2feb5e0852e8558d7680af34953ab11be3e96e9840477a28123ea3346",
+      "evidence_url": "https://www.1tube.org/torrent",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.697778+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://github.com/zloirock/core-js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://a/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://a/c%20d?a=1&c=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://xn--e1aybc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "evidence_url": "https://www.1tube.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.502794+00:00",
+      "url": "https://x/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-5f232b5abac171d4"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 2565,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://nuvio-plugin-library.vercel.app/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:27.272402+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://nuvio-plugin-library.vercel.app/"
   },
   "categories": [
@@ -16,8 +30,22 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-fc13e4822bdb1db4"
+    "domain-fc13e4822bdb1db4",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-16391d3665ca7477",
+    "domain-3dc86e6666d7a5f2",
+    "domain-1a2e36cc692d119d",
+    "domain-290a69d5f614326f",
+    "domain-37bc9cd0c5947119"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -33,16 +61,170 @@
   "name": "Plugins",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 2565,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://nuvio-plugin-library.vercel.app/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://nuvio-plugin-library.vercel.app/"
+    },
+    {
+      "bytes_read": 216126,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.859395+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:27.272402+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-vercel"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-E3SG54G3HS",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://nuvio-plugin-library.vercel.app/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://nuvio-plugin-library.vercel.app/assets/index-3wS2CzWW.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "17047aab3248088cae1f077ca48f3407e7331994c78c2cf1ebe7db6709a37c32",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.272402+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-E3SG54G3HS",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "https://nuvioapp.space/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "52be1b12f1c697d2020ff4ec28cfd00da71af1c396306d0c06487b6733103988",
+      "evidence_url": "https://nuvio-plugin-library.vercel.app/assets/index-CGS-_FnF.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:28.252829+00:00",
+      "url": "https://discord.gg/Nps9Ye2HNs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

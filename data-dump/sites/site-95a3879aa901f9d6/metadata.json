@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 22033,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://strims24.pl/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "via": "1.1 Caddy"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:09.047308+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://strims24.pl/"
   },
   "categories": [
@@ -10,10 +23,30 @@
       "Live Sports"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-ebd89e08dd4a9695"
+    "domain-ebd89e08dd4a9695",
+    "domain-e29684eee53e8532",
+    "domain-8d9559743b8b4225",
+    "domain-857a9fdd96ff3a7a",
+    "domain-37bc9cd0c5947119",
+    "domain-f1412386aa8db257",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-04864585c67d2fa5",
+    "domain-74b32b31d968d23e"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-bac58c6f9d909408",
+    "endpoint-340aea946c994383"
+  ],
   "entry_ids": [
     "entry-683ebf6e146f844b"
   ],
@@ -25,16 +58,411 @@
   "name": "Strims24",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 22033,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://strims24.pl/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "via": "1.1 Caddy"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://strims24.pl/"
+    },
+    {
+      "bytes_read": 73681,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "via": "1.1 Caddy"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861797+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:09.047308+00:00",
+  "provider_ids": [
+    "provider-google-ads",
+    "provider-google-fonts"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://stats.st/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338536291423034",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/js/chat.js?v0822nochat=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/pl.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/gb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/pt.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://discord.gg/myRQvcCcT6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://1.1.1.1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/css/strumyk-2026.css?v=stk101",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://strims24.pl/assets/og-image.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://discord.gg/myRQvcCcT6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://stats.st/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338536291423034",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://1.1.1.1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/pl.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/gb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "85aaea4d37c7632f81666081c9c6b0bfb0f48b9ea208fa709c616523e2f896c6",
+      "evidence_url": "https://strims24.pl/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.047308+00:00",
+      "url": "https://flagcdn.com/w40/pt.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://1.newsoccers.one/2/x/feed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://flagcdn.com/w40/${cc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://iplayer.is/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://iplayer.is/echo/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://strims24.pl/api/v1/viewers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9d75d506ac7ec14ff758ab1becc4ac2f1d223e631c8a8eadc15320fc305f04a5",
+      "evidence_url": "https://strims24.pl/assets/js/strumyk-2026.js?v=vw1787748355",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:10.261046+00:00",
+      "url": "https://strims24.pl/assets/js/channels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

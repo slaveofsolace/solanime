@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 15290,
+    "content_type": "text/html",
+    "final_url": "https://kstream.kdesabiz.workers.dev/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "HIT",
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:40.357256+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://kstream.kdesabiz.workers.dev/"
   },
   "categories": [
@@ -10,8 +25,28 @@
       "P-Stream Forks"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 3,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-104495efa1304169"
+    "domain-104495efa1304169",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-d94fcf5105ee9ed8",
+    "domain-103b40de60c0b362",
+    "domain-99a0236281e88a19",
+    "domain-6860776e5611f69c",
+    "domain-7ba55d105d5a22ca",
+    "domain-16391d3665ca7477",
+    "domain-eabf24fc8493a92c",
+    "domain-2dbd1ff069e2bff4",
+    "domain-fbd32f2212820ad3",
+    "domain-5abc65f57d1578e8"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +60,734 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 15290,
+      "content_type": "text/html",
+      "final_url": "https://kstream.kdesabiz.workers.dev/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://kstream.kdesabiz.workers.dev/"
+    },
+    {
+      "bytes_read": 5002,
+      "content_type": "text/javascript",
+      "final_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kstream.kdesabiz.workers.dev/config.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.857025+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:40.357256+00:00",
+  "provider_ids": [
+    "provider-google-fonts",
+    "provider-tmdb",
+    "provider-supabase",
+    "provider-youtube",
+    "provider-cloudflare-workers",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/inject-popunder.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/index-CtBOvZQL.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/favicon.ico?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/manifest-nGPxz0ls.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/apple-touch-icon.png?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/favicon-32x32.png?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/favicon-16x16.png?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/safari-pinned-tab.svg?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_11__iPhone_XR_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/12.9__iPad_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.9__iPad_Air_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.5__iPad_Air_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.2__iPad_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/8.3__iPad_Mini_landscape.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_14__iPhone_13_Pro__iPhone_13__iPhone_12_Pro__iPhone_12_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_11_Pro_Max__iPhone_XS_Max_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_11__iPhone_XR_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/12.9__iPad_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.9__iPad_Air_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.5__iPad_Air_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/10.2__iPad_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/splash_screens/8.3__iPad_Mini_portrait.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://uploads.mangadex.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://khplnaovkxvzhbimuvzn.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Onest%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C900%3B1%2C400%3B1%2C700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/auth-BRT5GYtT.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/caption-parsing-D7HRbD-o.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/vendor-9eLBLk9l.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/locales-CwK5f3jV.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/language-db-Buy0ad8P.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/Icons-Dfqoy56G.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/react-dom-DjeAvyey.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/hls-DCy42zGF.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/Icons-ybeVSQkp.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kstream.kdesabiz.workers.dev/assets/index-CtIMzOjd.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kdesa.stream/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kdesa.stream/discord-banner.jpg?v=4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://uploads.mangadex.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://khplnaovkxvzhbimuvzn.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Onest%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C900%3B1%2C400%3B1%2C700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0df6881d7515da4875c3c97d258118041045fb0161030c36a2fb7d260172a9b1",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:40.357256+00:00",
+      "url": "https://kdesa.stream/browse/?q=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "url": "https://server1.com,https//server2.com",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "url": "https://pfzoomffmdqxfowklzsg.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "url": "https://www.highrevenueformat.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "url": "https://pl31038617.profitableratecpmnetwork.com/a9/66/ff/a966ff8f4c8db6ee5f7c46e6b12525e8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "7782ba13b3b5def409b88e7dcfb7b8e632da1333f71f13c7f0884b9e013ed86e",
+      "evidence_url": "https://kstream.kdesabiz.workers.dev/config.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:41.273425+00:00",
+      "url": "https://kdesa.stream/settings",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

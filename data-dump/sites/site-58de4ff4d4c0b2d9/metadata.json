@@ -1,14 +1,45 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 24940,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://fmhy-grading.pages.dev/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:17.980214+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://fmhy-grading.pages.dev/"
   },
   "categories": [],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-9254329cec8a5abd"
+    "domain-9254329cec8a5abd",
+    "domain-edf7dcad352dc8cb",
+    "domain-1f6baa4a359d00da",
+    "domain-3aeb002460381c6f",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-820030ce540533ef",
+    "domain-b4f9fbffdb0ed479"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-653e46bbcc1a8a10"
+  ],
   "entry_ids": [],
   "frameworks": [],
   "id": "site-58de4ff4d4c0b2d9",
@@ -18,16 +49,182 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 24940,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://fmhy-grading.pages.dev/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://fmhy-grading.pages.dev/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853924+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:17.980214+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-google-fonts",
+    "provider-cloudflare-pages",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://raw.githubusercontent.com/roigoatzzz/FMHY-Grading/main/fmhy.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://github.com/roigoatzzz/FMHY-Grading",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://raw.githubusercontent.com/roigoatzzz/FMHY-Grading/main/fmhy.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Google+Sans+Flex%3Aopsz%2Cwght%406..144%2C1..1000&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://raw.githubusercontent.com/roigoatzzz/FMHY-Grading/main/fmhy.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Google+Sans+Flex%3Aopsz%2Cwght%406..144%2C1..1000&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://github.com/roigoatzzz/FMHY-Grading",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://raw.githubusercontent.com/wiki/fmhy/FMHY/Stream-Site-Grading.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://api.allorigins.win/raw?url=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0499aa5092500eba179a6332a3743bdedb525363c975f16d3d9ce07c01888e83",
+      "evidence_url": "https://fmhy-grading.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:17.980214+00:00",
+      "url": "https://corsproxy.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-96274067d8d891d5"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "article_reference"
   ],

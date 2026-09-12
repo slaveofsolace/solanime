@@ -1,7 +1,28 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 11769,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://subliminal.readthedocs.io/en/latest/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "HIT",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:51.373412+00:00",
+    "redirects": [
+      {
+        "http_status": 302,
+        "location": "https://subliminal.readthedocs.io/en/latest/",
+        "url": "https://subliminal.readthedocs.io/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://subliminal.readthedocs.io/"
   },
   "categories": [
@@ -10,10 +31,34 @@
       "Download Subtitles"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 5,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-0bae1bb3fed20046"
+    "domain-0bae1bb3fed20046",
+    "domain-3aeb002460381c6f",
+    "domain-d9423abce7c5e06a",
+    "domain-ca5033ef6dd61ae1",
+    "domain-16391d3665ca7477"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-d305f12eb077394a",
+    "endpoint-26d44150203e9df6",
+    "endpoint-78bc42fe41cd0f01",
+    "endpoint-09a46c60aadcc246",
+    "endpoint-29bd1fcba2f31ff3",
+    "endpoint-149cb0192f85dd0c",
+    "endpoint-129dc532691dbea1",
+    "endpoint-a222caddaf994a95",
+    "endpoint-5cd1b778982dfc3b",
+    "endpoint-0586b0aee186300b",
+    "endpoint-18d5307c8fdfeca1"
+  ],
   "entry_ids": [
     "entry-b5f2307813fef33e"
   ],
@@ -25,16 +70,414 @@
   "name": "Subliminal",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 11769,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://subliminal.readthedocs.io/en/latest/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://subliminal.readthedocs.io/en/latest/",
+          "url": "https://subliminal.readthedocs.io/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://subliminal.readthedocs.io/"
+    },
+    {
+      "bytes_read": 328,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://subliminal.readthedocs.io/en/latest/_static/documentation_options.js?v=b21de401",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:52.357349+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "1ee75ee8fecb6675ae2e5f913d0257f5be67dae12832f9a426388b07c2b4c1d2",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/documentation_options.js?v=b21de401"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861898+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:51.373412+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/documentation_options.js?v=b21de401",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/doctools.js?v=9a2dae69",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/sphinx_highlight.js?v=dc90522c",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/js/theme.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/_/static/javascript/readthedocs-addons.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/user/usage.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/user/how_it_works.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/user/cli.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/user/provider_guide.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/core.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/video.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/subtitle.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/providers.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/refiners.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/extensions.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/score.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/utils.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/cache.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/cli.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/api/exceptions.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://github.com/Diaoul/subliminal/blob/main/docs/index.rst",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/genindex.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/py-modindex.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/search.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://www.sphinx-doc.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://github.com/readthedocs/sphinx_rtd_theme",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://readthedocs.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/pygments.css?v=fa44fd50",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/_static/css/theme.css?v=19f00094",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/genindex.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/search.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/user/usage.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://subliminal.readthedocs.io/en/latest/search.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://readthedocs.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://github.com/Diaoul/subliminal/blob/main/docs/index.rst",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "http://schema.org/Article",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://www.sphinx-doc.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dcf0561f9179309ed134895e7900f60a9cbd7a5b783af08053994a9113bef612",
+      "evidence_url": "https://subliminal.readthedocs.io/en/latest/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.373412+00:00",
+      "url": "https://github.com/readthedocs/sphinx_rtd_theme",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-ddb94b6f123e6361",
+    "repo-bf2f882f2bd22a79"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

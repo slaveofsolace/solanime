@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:42:29.893592+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "content_type": "text/html",
+      "final_url": "https://xdaforums.com/robots.txt",
+      "headers": {
+        "content-type": "text/html",
+        "server": "BunnyCDN-ASB1-925"
+      },
+      "http_status": 403,
+      "reason": "http_403",
+      "redirects": [],
+      "status": "blocked"
+    },
+    "status": "blocked",
     "url": "https://xdaforums.com/t/app-android-tv-projectivy-launcher.4436549/"
   },
   "categories": [
@@ -25,16 +38,17 @@
   "name": "XDA Thread",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:42:29.893592+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://xdaforums.com/t/app-android-tv-projectivy-launcher.4436549/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866540+00:00",
+  "observed_at": "2026-09-12T07:42:29.893592+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

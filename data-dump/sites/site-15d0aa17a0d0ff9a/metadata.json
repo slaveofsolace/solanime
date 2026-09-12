@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 93987,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://mysoccerpulse.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "x-powered-by": "PHP/8.4.25"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:44:02.832746+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://mysoccerpulse.com/"
   },
   "categories": [
@@ -10,14 +25,38 @@
       "Sports Replays"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-e396905051e739b0"
+    "domain-e396905051e739b0",
+    "domain-d15afad5fd0ce8bf",
+    "domain-25d425a21ba3dc41",
+    "domain-1c121edcefc0f2e4",
+    "domain-ecc0810d5cd94894",
+    "domain-2d0f3c337e640d3a",
+    "domain-1a2e36cc692d119d",
+    "domain-504a546fac84e033"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-b0123247472a167c"
+  ],
   "entry_ids": [
     "entry-adbf11dd6d8ab3c8"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "WordPress",
+      "source_url": "https://mysoccerpulse.com/"
+    }
+  ],
   "id": "site-15d0aa17a0d0ff9a",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +64,1432 @@
   "name": "⁠MySoccerPulse",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 93987,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://mysoccerpulse.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-powered-by": "PHP/8.4.25"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://mysoccerpulse.com/"
+    },
+    {
+      "bytes_read": 8892,
+      "content_type": "text/javascript",
+      "final_url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/lazyload.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "MISS",
+        "content-type": "text/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:44:03.808851+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "f40767552e5e94b2d5f9a65d7f640cfa7d225298023dbd682095e040809a3d1a",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/lazyload.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.857626+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:44:02.832746+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/lazyload.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/two_bg_vanilla.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/mysoccerpulse-2-1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/arsenal-vs-sporting-cp.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bayern-vs-real-madrid.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/atletico-madrid-vs-barcelona.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/liverpool-vs-psg.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/manchester-united-vs-leeds.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/west-ham-vs-wolves.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-girona.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/barcelona-vs-atletico-madrid-1.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/psg-vs-liverpool.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sporting-vs-arsenal.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-bayern-munich.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/Arsenal.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sweden-vs-poland.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/czech-vs-denmark.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bosnia-vs-italy.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/03/grand-finals-660-x-330-px-11.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/arsenal-vs-sporting-cp-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/author/soccerpulse/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/bayern-munich-vs-real-madrid-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/atletico-madrid-vs-barcelona-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/liverpool-vs-psg-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/manchester-united-vs-leeds-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/west-ham-vs-wolves-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/real-madrid-vs-girona-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/barcelona-vs-atletico-madrid-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/psg-vs-liverpool-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/sporting-cp-vs-arsenal-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/real-madrid-vs-bayern-munich-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/psg-vs-toulouse-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/sweden-vs-poland-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/czech-republic-vs-denmark-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/bosnia-vs-italy-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/colombia-vs-france-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/cache/tw_optimize/css/two_front_page_aggregated_5031697833a1b266bf9fe4d7a52cf38e_delay.min.css?date=1789035982",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://gmpg.org/xfn/11",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/comments/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmysoccerpulse.com%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmysoccerpulse.com%2F&format=xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/wp/v2/pages/34",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-180x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/cache/tw_optimize/css/two_front_page_aggregated_5031697833a1b266bf9fe4d7a52cf38e_delay.min.css?date=1789035982",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://gmpg.org/xfn/11",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://yoast.com/product/yoast-seo-wordpress/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/comments/feed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmysoccerpulse.com%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://api.w.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-json/wp/v2/pages/34",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-192x192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-180x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/cropped-favicon-my-soccer-pulse-270x270.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://fonts.googleapis.com/css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/mysoccerpulse-2-1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/mysoccerpulse-2-1-150x43.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20239%2068%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/arsenal-vs-sporting-cp-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/arsenal-vs-sporting-cp.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/arsenal-vs-sporting-cp-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/arsenal-vs-sporting-cp-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20367%20220%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/author/soccerpulse/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/bayern-munich-vs-real-madrid-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bayern-vs-real-madrid.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bayern-vs-real-madrid-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bayern-vs-real-madrid-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/atletico-madrid-vs-barcelona-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/atletico-madrid-vs-barcelona.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/atletico-madrid-vs-barcelona-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/atletico-madrid-vs-barcelona-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/liverpool-vs-psg-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/liverpool-vs-psg.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/liverpool-vs-psg-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/liverpool-vs-psg-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/manchester-united-vs-leeds-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/manchester-united-vs-leeds.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/manchester-united-vs-leeds-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/manchester-united-vs-leeds-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/west-ham-vs-wolves-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/west-ham-vs-wolves.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/west-ham-vs-wolves-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/west-ham-vs-wolves-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/real-madrid-vs-girona-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-girona.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-girona-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-girona-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/barcelona-vs-atletico-madrid-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/barcelona-vs-atletico-madrid-1.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/barcelona-vs-atletico-madrid-1-300x180.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/barcelona-vs-atletico-madrid-1-150x90.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/psg-vs-liverpool-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/psg-vs-liverpool.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/psg-vs-liverpool-300x180.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/psg-vs-liverpool-150x90.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/sporting-cp-vs-arsenal-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sporting-vs-arsenal.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sporting-vs-arsenal-300x180.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sporting-vs-arsenal-150x90.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/real-madrid-vs-bayern-munich-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-bayern-munich.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-bayern-munich-300x180.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/real-madrid-vs-bayern-munich-150x90.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/psg-vs-toulouse-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/Arsenal.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/Arsenal-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/Arsenal-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/sweden-vs-poland-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sweden-vs-poland.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sweden-vs-poland-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/sweden-vs-poland-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/czech-republic-vs-denmark-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/czech-vs-denmark.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/czech-vs-denmark-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/czech-vs-denmark-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/bosnia-vs-italy-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bosnia-vs-italy.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bosnia-vs-italy-300x180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/04/bosnia-vs-italy-150x90.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/video/colombia-vs-france-highlights/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/03/grand-finals-660-x-330-px-11.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/03/grand-finals-660-x-330-px-11-300x150.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/03/grand-finals-660-x-330-px-11-150x75.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/uploads/2026/03/grand-finals-660-x-330-px-11-600x300.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20390%20195%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/themes/jannah/assets/js/scripts.min.js?ver=5.4.10",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/themes/jannah/assets/js/desktop.min.js?ver=5.4.10",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://s.w.org/images/core/emoji/17.0.2/72x72/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://s.w.org/images/core/emoji/17.0.2/svg/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "http://www.w3.org/2000/svg%22%20viewBox=%220%200%20%20%22%3E%3C/svg%3E",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/lazyload.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://mysoccerpulse.com/wp-content/plugins/tenweb-speed-optimizer/includes/external/js/vanilla-lazyload/two_bg_vanilla.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "23e19b4fa0b5862ed9cf73130645ed28d0746fb9b3b8e24fc45652fbc7fae15d",
+      "evidence_url": "https://mysoccerpulse.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:02.832746+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

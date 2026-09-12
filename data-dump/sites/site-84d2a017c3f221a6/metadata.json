@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 775039,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "ESF",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:41.408839+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D"
   },
   "categories": [
@@ -10,8 +24,34 @@
       "Free w/ Ads"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 9,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-6860776e5611f69c"
+    "domain-6860776e5611f69c",
+    "domain-97692e14df23bd64",
+    "domain-1a7d7b45412e4f31",
+    "domain-d1ed674047cd0021",
+    "domain-2d0f3c337e640d3a",
+    "domain-17556b5e880a6bbd",
+    "domain-80255870a6218fe0",
+    "domain-1a0caaa1ee973060",
+    "domain-a6d1f9af98702ae5",
+    "domain-0a766d7a423f4fbc",
+    "domain-9e102433ac32c44b",
+    "domain-b9b8e1e6ccc48be3",
+    "domain-9aa9a4b9b44910a5",
+    "domain-904d5be30a19c2ab",
+    "domain-d5b195c7bbccbe2d",
+    "domain-140be7b6878857dd",
+    "domain-191347bfe55d0ca9",
+    "domain-1a2e36cc692d119d",
+    "domain-a669dc3a1a47e0f1"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,18 +65,899 @@
   "name": "Official YT Movies",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 775039,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "ESF",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D"
+    },
+    {
+      "bytes_read": 50871,
+      "content_type": "text/javascript",
+      "final_url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript",
+        "server": "sffe"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:41.855838+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "de004c351727bcb08e79a310f47bdefa96f9cfdb95a063e5d2dabf4805e8611e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866398+00:00",
+  "observed_at": "2026-09-12T07:43:41.408839+00:00",
   "provider_ids": [
-    "provider-youtube"
+    "provider-youtube",
+    "provider-google-fonts",
+    "provider-embed-host-97692e14df23bd64"
   ],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/webcomponents-all-noPatch.vflset/webcomponents-all-noPatch.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/fetch-polyfill.vflset/fetch-polyfill.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/intersection-observer.min.vflset/intersection-observer.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/scheduler.vflset/scheduler.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/www-i18n-constants-en_US.vflset/www-i18n-constants.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/spf.vflset/spf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/network.vflset/network.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/_/ytmainappweb/_/js/k=ytmainappweb.kevlar_base.en_US.wDCKWufap4w.es5.O/am=AAAAAAgAEAASBQ/d=1/rs=AGKMywGIYGrWJnep3sXGa0_gjT1l4qA_VA/m=kevlar_base_module,kevlar_main_module,kevlar_base_sync_mod_chunk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "embed",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3D%252Fsignin_passive%26feature%3Dpassive&hl=en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/press/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/copyright/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/t/contact_us/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/creators/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/ads/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://developers.google.com/youtube",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/t/terms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/t/privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/policies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/howyoutubeworks?u=https%3A%2F%2Fwww.youtube.com%2Fhowyoutubeworks%3Futm_source%3Dythp%26utm_medium%3DLeftNav%26utm_campaign%3Dytgen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/new",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://tv.youtube.com/learn/nflsundayticket",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_48x48.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_144x144.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Roboto%3Awght%40300%3B400%3B500%3B700&family=YouTube+Sans%3Awght%40300..900&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-main-desktop-home-page-skeleton.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-onepick.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/_/ytmainappweb/_/ss/k=ytmainappweb.kevlar_base.TD2c11kiWxc.L.X.O/am=AAAAAAjAEACbBQ/d=0/rs=AGKMywH3LklfnRl4f0Vl9Qyy4UROteHCcA",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/opensearch?locale=en_US",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/manifest.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-main-desktop-watch-page-skeleton.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D&amp%3Breferring_app=com.apple.mobilesafari-smartbanner%2C",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/error_204?t=jserror&level=ERROR",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_48x48.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/img/favicon_144x144.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://i.ytimg.com/generate_204",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/webcomponents-all-noPatch.vflset/webcomponents-all-noPatch.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/fetch-polyfill.vflset/fetch-polyfill.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/intersection-observer.min.vflset/intersection-observer.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.gstatic.com/youtube/img/emojis/emojis-png-15.1.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://apis.google.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/feed/storefront?bp=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://accounts.google.com/ServiceLogin?service=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://payments.youtube.com/payments/v4/js/integrator.js?ss=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://families.google.com/webcreation?usegapi=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://client-channel.google.com/client-channel/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://clients4.google.com/invalidation/lcs/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://youtubei-att.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/csi_204",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://studio.youtube.com/persist_identity",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/lottie-light.vflset/lottie-light.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/canvas_advanced_wasm/canvas_advanced_cc.wasm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/canvas_lite_wasm/canvas_lite_cc.wasm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/webgl2_advanced_wasm/webgl2_advanced_cc.wasm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/webgl2_lite_wasm/webgl2_lite_cc.wasm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://support.google.com/youtube/?p=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://accountlinking-pa-clients6.youtube.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.google.com/pagead/lvz?evtid=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/scheduler.vflset/scheduler.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/www-i18n-constants-en_US.vflset/www-i18n-constants.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/spf.vflset/spf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/network.vflset/network.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-main-desktop-home-page-skeleton.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-onepick.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/_/ytmainappweb/_/ss/k=ytmainappweb.kevlar_base.TD2c11kiWxc.L.X.O/am=AAAAAAjAEACbBQ/d=0/rs=AGKMywH3LklfnRl4f0Vl9Qyy4UROteHCcA",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/opensearch?locale=en_US",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://accounts.google.com/ServiceLogin?service=youtube&amp%3Builel=3&amp%3Bpassive=true&amp%3Bcontinue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3D%252Fsignin_passive%26feature%3Dpassive&amp%3Bhl=en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/press/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/copyright/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/creators/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/ads/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://developers.google.com/youtube",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/about/policies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/howyoutubeworks?amp%3Butm_source=ythp&amp%3Butm_medium=LeftNav&amp%3Butm_content=txt&amp%3Bu=https%3A%2F%2Fwww.youtube.com%2Fhowyoutubeworks%3Futm_source%3Dythp%26utm_medium%3DLeftNav%26utm_campaign%3Dytgen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://tv.youtube.com/learn/nflsundayticket",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/_/ytmainappweb/_/js/k=ytmainappweb.kevlar_base.en_US.wDCKWufap4w.es5.O/am=AAAAAAgAEAASBQ/d=1/rs=AGKMywGIYGrWJnep3sXGa0_gjT1l4qA_VA/m=kevlar_base_module,kevlar_main_module,kevlar_base_sync_mod_chunk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.gstatic.com/youtube/img/tvfilm/animated_clapperboard_profile_v1.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://accounts.google.com/ServiceLogin?service=youtube",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "79deb387d3d360ece0011f740dd4f70fcae01965ca410bf6e6960b160697945f",
+      "evidence_url": "https://www.youtube.com/feed/storefront?bp=ogUCKAY%3D",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.408839+00:00",
+      "url": "https://www.youtube.com/s/desktop/e60429bd/cssbin/www-main-desktop-watch-page-skeleton.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "de004c351727bcb08e79a310f47bdefa96f9cfdb95a063e5d2dabf4805e8611e",
+      "evidence_url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.855838+00:00",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "de004c351727bcb08e79a310f47bdefa96f9cfdb95a063e5d2dabf4805e8611e",
+      "evidence_url": "https://www.youtube.com/s/desktop/e60429bd/jsbin/web-animations-next-lite.min.vflset/web-animations-next-lite.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:41.855838+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 56912,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://gitlab.com/vyla-entertainment/home",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "BYPASS",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:48.667718+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://gitlab.com/vyla-entertainment/home"
   },
   "categories": [
@@ -9,10 +24,32 @@
       "Streaming Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 33,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-20a83b42cd540c2f"
+    "domain-20a83b42cd540c2f",
+    "domain-d584c16809169237",
+    "domain-bdbe71d1205517b9",
+    "domain-efe6692a9768f4f9",
+    "domain-938437db20b68a3f",
+    "domain-cee9bb5cb6be03d4",
+    "domain-e28f2c69a990d0c8",
+    "domain-3b4e4a780bab18dc",
+    "domain-8d1b0788edadf91d",
+    "domain-3aeb002460381c6f",
+    "domain-16391d3665ca7477",
+    "domain-30c60b1cd65e395c"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-8a930fb79211b0db",
+    "endpoint-d2016b5e06d6e90f"
+  ],
   "entry_ids": [
     "entry-08005cf2a1614fc6"
   ],
@@ -24,16 +61,811 @@
   "name": "gitlab.com",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 56912,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://gitlab.com/vyla-entertainment/home",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "BYPASS",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://gitlab.com/vyla-entertainment/home"
+    },
+    {
+      "bytes_read": 38661,
+      "content_type": "text/javascript",
+      "final_url": "https://gitlab.com/assets/webpack/runtime.7d431925.bundle.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:49.272832+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "f22341f78b53cbd97ec161b3bb0ffb6381bd72399c26f2990c1c26e5100e9561",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://gitlab.com/assets/webpack/runtime.7d431925.bundle.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856372+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:48.667718+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/runtime.7d431925.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/main.339b0cda.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/tracker.1eb446cb.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/sentry.48540f8b.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-graphql_explorer-pages.admin.application_settings.general-pages.admin.application_settings.s-898e3e93.743b1d66.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.abuse_reports.show-pages.dashboard.issues-pages.dashboard.issues.vue3-pages.dash-81111948.3e8a2ac7.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.abuse_reports.show-pages.dashboard.issues-pages.dashboard.issues.vue3-pages.dash-cbc042be.56d8b84f.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.service_accounts-pages.explore.ai_catalog-pages.explore.ana-dd0b1cb0.a584a429.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.deploy_keys.index-pages.admin.groups.index-pages.admin.projects.index-pages.admi-81888dbb.2bcd41cb.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.dashboard.home-pages.registrations.new-pages.sessions.new-pages.trial_registrations.ne-cea0dc3a.894d2115.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.dashboard.home-pages.projects.snippets.show-pages.snippets.show-pages.snippets.show.vu-3fe7a6f6.18e88bbc.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/0dcf7166.fee24f6c.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.search.show-pages.search.show.vue3-super_sidebar.51b392de.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.search.show-super_sidebar.92e8da54.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/super_sidebar.8be1ec78.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.projects-pages.projects.activity-pages.projects.activity.vue3-pages.projects.alert_man-c7fe9247.a1628129.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/959c8513.6882f79c.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.ci_cd.vue3-pages.admin.application_settings.repository.vue3-2bdea02f.0929a013.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.ci_cd.vue3-pages.admin.application_settings.repository.vue3-14a9f47a.4f9edd9f.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.work_item.vue3-pages.admin.gitlab_duo.model_selection.vue3--72c6dd6f.92150734.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.groups.activity.vue3-pages.groups.analytics.ci_cd_analytics.vue3-pages.groups.analytic-54857405.7726fc37.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.ci_cd.vue3-pages.admin.application_settings.repository.vue3-aac7aa63.dbf38051.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.admin.application_settings.ci_cd.vue3-pages.admin.application_settings.repository.vue3-e2cd2ad3.44c79f78.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/8632254b.1095b752.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.explore.catalog.vue3-pages.groups.iteration_cadences.vue3-pages.groups.milestones.edit-2bf0c584.0eccdb42.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/32327915.0ee0e967.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.projects.blob.show.vue3-pages.projects.branches.new.vue3-pages.projects.commits.show.v-3bb822c9.0471e487.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.explore.ai_catalog.vue3-pages.explore.analytics_dashboards.vue3-pages.explore.catalog.-1c799bf9.d30cefdf.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.projects.blob.show-pages.projects.blob.show.vue3-pages.projects.show-pages.projects.sh-d9a73511.8a4f92a6.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/68026c34.607df987.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.projects.blob.edit-pages.projects.blob.edit.vue3-pages.projects.blob.new-pages.project-f1df0f6f.c8060d02.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/commons-pages.projects.blob.show-pages.projects.blob.show.vue3-pages.projects.show-pages.projects.sh-0859730e.5e1f359c.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/webpack/pages.projects.show.vue3.6f6fb920.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/uploads/-/system/project/avatar/85426578/favicon.ico?v=1788805757&width=48",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home/-/commits/main",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home/-/branches",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home/-/tags",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home/-/releases",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home/-/blob/main/README.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://snowplowprd.trx.gitlab.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/gitlab-sans/GitLabSans-9892dc17af892e03de41625c0ee325117a3b8ee4ba6005f3a3eac68510030aed.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/gitlab-sans/[REDACTED-OPAQUE].woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/gitlab-mono/GitLabMono-29c2152dac8739499dd0fe5cd37a486ebcc7d4798c9b6d3aeab65b3172375b05.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/gitlab-mono/[REDACTED-OPAQUE].woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/application-79bcd04601ac2b3eb6b18cb2c1075f379ba0cccec70e1d4fd5bc53fb274e30cf.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/[REDACTED-OPAQUE].css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/project-d8ddfdcca11af4ede140816f3befd2a538014d7403c28e0f3c62a50b61f93805.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/tree-82a2b0a643427b8cc237cf2437e78bf5ad46c53355f902927c25570510d6852a.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/[REDACTED-OPAQUE].css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/projects-3edb349b720018c3d44f6bece4028f73d0b91a5c0016611274e1e44bbbfd80b0.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/work_items-41608cf50d5529e591f5a635c447fbb3a3bd5892765619ad68eba61d6c811aea.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/page_bundles/notes_shared-009bfb6fa90b583372e5d3f444ccd9b89aa6278564b128d1f21b404747a3981b.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/tailwind-773f3a81cf525a1490d20f1f5cd38436424c9617f1c718c007e37d45c16a653d.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/fonts-deb7ad1d55ca77c0172d8538d53442af63604ff490c74acc2859db295c125bdb.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/highlight/themes/white-7fc95f0d1a131c010fdec7cec17d7f14b49ec9d6014024588c004f24bcccb686.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/highlight/themes/dark-8b75e38954603252cafdeeeabf5e074576b77c9b139f9e8936ff09251f139e4b.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/-/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/[REDACTED-OPAQUE].png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/search/opensearch.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home.atom",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "http://ogp.me/ns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://snowplowprd.trx.gitlab.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/assets/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://www.recaptcha.net/recaptcha/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://about.gitlab.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://forum.gitlab.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://docs.gitlab.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://embed.diagrams.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://customers.gitlab.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://customers.gitlab.com/customers/sign_in?legacy=true",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://customers.gitlab.com/billing_accounts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://github.com/whatwg/fetch/pull/585",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/api/graphql",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/namespace139470478/project85426578",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/uploads/-/system/project/avatar/85426578/favicon.ico?v=1788805757",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://about.gitlab.com/pricing&quot;,&quot;current_menu_items&quot;:[{&quot;id&quot;:&quot;project_overview&quot;,&quot;title&quot;:&quot;Home&quot;,&quot;avatar&quot;:&quot;/uploads/-/system/project/avatar/85426578/favicon.ico?v=1788805757&quot%3B%2C=&quot%3Bentity_id=&quot%3B%3A85426578%2C=&quot%3Blink=&quot%3B%3A=&quot%3B%2Fvyla-entertainment%2Fhome=&quot%3B%2C=&quot%3Blink_classes=&quot%3B%3A=&quot%3Bshortcuts-project=&quot%3B%2C=&quot%3Bis_active=&quot%3B%3Atrue=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "http://schema.org/SoftwareSourceCode",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitlab.com/vyla-entertainment/home.git",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a12c1330305ee7e120abbcaa4dd732b0b04a5f662bcd5e9f80a0349ed37bc64f",
+      "evidence_url": "https://gitlab.com/vyla-entertainment/home",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:48.667718+00:00",
+      "url": "https://gitpod.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-f7d8371a28379bdc"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

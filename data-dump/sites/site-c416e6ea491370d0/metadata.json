@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 227451,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://hydrahd.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:10.776797+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://hydrahd.com/"
   },
   "categories": [
@@ -10,8 +25,25 @@
       "Multi-Server"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-349649f99a443d4e"
+    "domain-349649f99a443d4e",
+    "domain-86601c5411f8e9e0",
+    "domain-88bb79fa6efc5d55",
+    "domain-edf7dcad352dc8cb",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-0e26777389318789",
+    "domain-d15afad5fd0ce8bf",
+    "domain-17d80e8228dc8db2",
+    "domain-1a2e36cc692d119d",
+    "domain-d94fcf5105ee9ed8"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +57,2614 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 227451,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://hydrahd.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://hydrahd.com/"
+    },
+    {
+      "bytes_read": 7010,
+      "content_type": "text/javascript",
+      "final_url": "https://hydrahd.com/assets/all.js?v=1.2.5",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.999470+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "c5e34b1fb2b41fe91cf5697be2c19a6805c0294a8508b6b0f640c68568bc228b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://hydrahd.com/assets/all.js?v=1.2.5"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856715+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:10.776797+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-tmdb",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/assets/all.js?v=1.2.5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-P6FP80YZE3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://fa.shitcabaret.com/r5dFxpvhpJHBRuJB/lQnJA",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/fav-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/themes/bigholder.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/themes/logoholder.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/themes/placeholder.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/tv-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/today",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/keywords",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/collections/1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/202550-watch-moana-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/silo-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204834-watch-mayday-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/lanterns-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/202607-watch-the-odyssey-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/reacher-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204652-watch-one-night-only-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-gentlemen-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/202724-watch-spider-man-brand-new-day-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/dark-matter-2-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/201598-watch-obsession-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/special-ops-lioness-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movies/popular/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204650-watch-coyote-vs-acme-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204499-watch-mutiny-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204879-watch-drawn-together-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204784-watch-the-runner-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/202394-watch-toy-story-5-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204658-watch-the-whisper-man-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/201734-watch-backrooms-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/ted-lasso-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/futurama-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-shards-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-simpsons-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/rick-and-morty-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/house-of-the-dragon-00-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/south-park-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204938-watch-wait-til-dawn-2025-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204937-watch-karavali-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204933-watch-fujiko-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204932-watch-unraveled-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204931-watch-bhaji-in-problem-2013-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204930-watch-the-only-child-2024-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204926-watch-year-of-the-scab-2017-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204925-watch-oh-moon-1988-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204924-watch-new-wave-2024-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204919-watch-onslaught-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204918-watch-bam-2024-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204912-watch-parasomnia-2025-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204909-watch-on-the-sea-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204908-watch-portal-to-hell-2025-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204906-watch-sheep-in-the-box-2026-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/204904-watch-the-bandit-1946-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/soy-luna-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-kings-avatar-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/gardenersx27-world-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/real-time-with-bill-maher-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/anna-pigeon-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/beyond-the-gates-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/deadliest-catch-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/conan-ox27brien-must-go-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-real-housewives-of-orange-county-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/gardening-australia-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/coronation-street-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/casualty-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/rip-off-britain-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/our-great-yorkshire-life-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/gogglebox-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/crowned-in-a-hundred-days-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movies/star-rating/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53814-watch-the-thing-1982-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53683-watch-casino-1995-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53551-watch-walle-2008-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53486-watch-scarface-1983-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/54227-watch-first-blood-1982-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/54073-watch-apocalypse-now-1979-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53829-watch-the-devils-advocate-1997-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53759-watch-heat-1995-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53618-watch-alien-1979-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53582-watch-the-prestige-2006-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53543-watch-the-goonies-1985-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53512-watch-goodfellas-1990-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53509-watch-troy-2004-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53506-watch-saving-private-ryan-1998-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53497-watch-the-matrix-1999-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/movie/53484-watch-the-departed-2006-online",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/breaking-bad-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/chernobyl-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/dexter-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/better-call-saul-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/house-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/sherlock-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-walking-dead-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/vikings-1-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/peaky-blinders-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/band-of-brothers-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/the-queens-gambit-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/lost-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/how-i-met-your-mother-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/prison-break-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/watchseries/game-of-thrones-online-free",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/36362",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/91963",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/36296",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/1485",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/97998",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/86382",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/42370",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/43238",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/85980",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/1439",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/126693",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/31095",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/29362",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/115047",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/46255",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/person/341916",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/faq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/terms-of-service",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/fav-180.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/fav-512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/fav-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdnjs.cloudflare.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://ajax.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/manifest.json?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/assets/main.css?v=2.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/assets/old.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/index.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/manifest.json?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/fav-512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.com/index.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/mMkJq4dkQwfDieB9wRC9yPxDWv9.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eC8OZbPGJTZ8Ot1k4AM7FtONbUP.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/n5FPNMJ0eRoiQrKGfUQQRAZeaxg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/orJ5TfInOu5CzgFIDs4avqEg0wu.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/5N456LS26jNCKYMcJWbEeDsvKWf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uy6Sna1PeNyE7mWbOKLvbH3WTaB.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/mdbWfpbWhvxgG3k5MHpo90UgAUe.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bxAg778W0fV8gs04kSt5OtY1BKV.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/r57L2UBLPKcHdZQYg8tagv9XqK2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kX6ZX4GL7km04332caiOVapR2lb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/m5CggjJuFc08QCuKz54znHP6spJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2YkCVT6opPxKh2ogEqxVrCiFgsr.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/mfgNUnFB25BNIwe9iPJ17cUN64S.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/AaHXwuFNm0gknm5FqwcjGxT415V.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/PqIW7PA74YBURz5slZkxc0K5Pl.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zBaAxkdlFix1xcvEln6CuTdV64U.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/vjMvFSmGUxEtqVdaZgvFee9XkZl.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vbZcDHC5IFylYuRnp3eyOs5rTV1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/5fWxvjOUvtUoSmiMEpFl77V6KZV.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/41oTdX0XzO8VskZTfiNIKijfRuq.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/1pKFDggvtk23zcn1vUcPiKyuHxM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vXo3Fd8Bl9v9OsHetfvwGGI6YGT.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/original/sa9vB0xb3OMU6iSMkig8RBbdESq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/cUDpX6aqZ7LNIquPHZAWiN0v9FS.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://hydrahd.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/iPOn6DinuVyLY17YM9mKuPofV08.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/orkLtdgMGiO9rTVMqJ1kKwrnup1.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/lsYSWqj6i2iyUDJoLA2cazFJYlC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/40I66L7QKguTFDPvcLcdiTbAD7I.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pxG26JdyuiDvJbSoucknaFiLeZD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/6UqflU8Qqkz7Dq4swJPqs0ZJjY4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vpkNMkbisv5cTaIfCzUduYzXnjb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/jFuH0md41x5mB4qj5344mSmtHrO.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rXCzevakJoAN1qnZY0nAQPSLVRv.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zBx1X06G1OlndbXTCZI13FECNz2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5fhZdwP1DVJ0FyVH6vrFdHwpXIn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/sdJcX2cXirwQurLLlrDLYov7hcD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/c6MRUtPk0nEPQ9FBD9RdRKt2rIm.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/wP0GdqwVu2g1y3q1KzBXuSrdTvX.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vHqeLzYl3dEAutojCO26g0LIkom.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gdIrmf2DdY5mgN6ycVP0XlzKzbE.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7QMsOTMUswlwxJP0rTTZfmz2tX2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/xJnbMTrJ2fl1AXAKx34U4BPvOhs.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/9gPk4oMnKMZZvtSZ67Yrj1Zxfpj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/buxVz5LZQY1QLfFIIZnfe6t2F4I.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/1geX2K3nYweYFJvSQyGnNPy6FEj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pAQS4Yq67CHGJpMDdk4SBkL14S.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vEL3mDjMLrEgC5VZHa5aOVFFoIM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7SJfZNiErRFgC0lFqF4RqgGRsmp.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/iGJMixuGQQePXr1JsimWUbTkXtA.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5rqjglWPOIYGlz6DKQEYk4KhO9s.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/71YAX4RrThQEDSWzve1qUSYUUlt.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/cOGtvhc6Ij9KvzM6jZsfQyg0B0O.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/w7dqgb6mtHeDjOY8UE3oNUor9p5.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hXbKeuO6yIvVpt385E2OLUikKWj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/9dZj1TDR2TlSdWjnzGI87jbZSts.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/xuXCPJZjmP2FuGG3U16sI1TYEdR.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/sxAwnj01pLfDBTA4WobJtJw7y9q.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/1oMJUEnlkTga61zd2HFAyfGAES4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/4JDmIzhNF7aMsDGlxVwkQ9kv9E6.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rVEAM1xYLnvNRi8xeUnJCnLERIN.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/fVHz4uUMVX0UIjRrK9v4ximfb0c.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pbpoLLp4kvnYVfnEGiEhagpJuVZ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qQ7nkSvxqFyILu0h2q0hNI6bZTi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rWkFITF0KRXND1gvUcNUn7BPiXv.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/thjh1mHkwGbTs3Wz4tiajuJbmbC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tCyoXW3xcrgkvmqyk0mnxx2cP2h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/mEg3ohdBkLOs0L1GmYGtiwyJXlE.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/79taCPhP1vgKCZVEHRhVZXo6G9F.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/xe6y8SJU0NyGEECu2LV9cXoY81g.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/xori6j1eOdXwD5z213t2o8NMcvu.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/nBiwkYCLye9de2mCrv3AUvwDjOl.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3a3lm1cC4IYN6AmACiIAeDDmllF.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/8ll8L8d3L9Q10m9GabrSKOKr5qU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/9aY1UUREcdtYExktdNI57fSUHef.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tzGY49kseSE9QAKk47uuDGwnSCu.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/4TS5O1IP42bY2BvgMxL156EENy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/a9sa6ERZCpplbPEO7OMWE763CLD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5ZzBGpxy55OQzHxKVY11IpY6a0o.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/umSVjVdbVwtx5ryCA2QXL44Durm.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bdN3gXuIZYaJP7ftKK2sU0nPtEA.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eBU7gCjTCj9n2LTxvCSIXXOvHkD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/a07wLy4ONfpsjnBqMwhlWTJTcm.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/nT97ifVT2J1yMQmeq20Qblg61T.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/fC2HDm5t0kHl7mTm7jxMR31b7by.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/n7PVu0hSz2sAsVekpOIoCnkWlbn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/8JMXquNmdMUy2n2RgW8gfOM0O3l.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5E1BhkCgjLBlqx557Z5yzcN0i88.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/dU35NnjZ4aGw5abIJe3WXVf3Eey.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eOh4ubpOm2Igdg0QH2ghj0mFtC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/9U9Y5GQuWX3EZy39B8nkk4NY01S.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/a6aAilLDKbIXGwBfNgGc44RufVB.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/4z8c5YAe0TCkEZNHXWlKxNTD8sV.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/i0HrRvGkibAZWhZdRcz2yMcbGJj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ohjv9VjTqkXHaVv9evDykEVCsiG.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/olgpCsT5HcSUu56Oyl8YOSXAjsA.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/1gjcpAa99FAOWGnrUvHEXXsRs7o.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/wjNI9KM9qJSYZHxkjD4Pm81kfc4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/55Leuv4o9bwq6vF2ZILH8El6bQ8.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kJp2tfLlg0smYgnhA8Fw5LBbRwC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/AbXKtWQwuDiwhoQLh34VRglwuBE.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/oVPsIKXOpz2cd73gDXhsUboD4xG.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/idpwm8ZdFnndjeQ3mKleF20hvRo.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bHHn3krbHyxQIWb4JbHkPlV6Uu1.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-P6FP80YZE3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "43c2dba982c2666f35f1d97cbcb3920e4f66722e3ba8ba449c35be646ebcd24d",
+      "evidence_url": "https://hydrahd.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:10.776797+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

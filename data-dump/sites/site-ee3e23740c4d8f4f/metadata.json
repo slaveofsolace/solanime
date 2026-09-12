@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 14588,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rentry.co/spenflix",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:09.562221+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://rentry.co/spenflix"
   },
   "categories": [
@@ -10,8 +24,27 @@
       "Stream Aggregators"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 3,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-3dcd2246214f161a"
+    "domain-3dcd2246214f161a",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-716b8b2a7ed5a1c1",
+    "domain-723be698e66bfd47",
+    "domain-22e2d9e9ec55e2be",
+    "domain-47c0c4f845567e88",
+    "domain-05b55b743776eb7f",
+    "domain-9518b045082fcf97",
+    "domain-503b5e1aea11e0d8",
+    "domain-eb31830f543ae6ea",
+    "domain-16f3ce7a28a594ea",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +58,431 @@
   "name": "Status",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 14588,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rentry.co/spenflix",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://rentry.co/spenflix"
+    },
+    {
+      "bytes_read": 89476,
+      "content_type": "application/javascript",
+      "final_url": "https://rentry.co/static/js/jquery.min.js?v=1784113405",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.320390+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rentry.co/static/js/jquery.min.js?v=1784113405"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860652+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:09.562221+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-LLFSDKZXET",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/js/jquery.min.js?v=1784113405",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/js/custom-common.min.js?v=1784113405",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/js/bootstrap.min.js?v=1784113405",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/report-url?url=spenflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://spencerdevs.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://watch.spencerdevs.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://spenflix.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.online/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.tech/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.site/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://lunara.watch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://lunaratv.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/edit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/raw",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/export-page?format=pdf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/export-page?format=png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/export-page?format=webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix/export-page?format=jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/what",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/how",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/langs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/request-login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/css/bootstrap.min.css?v=1784113405",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/manifest.json?v=1784113404",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/spenflix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://spencerdevs.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://watch.spencerdevs.xyz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://spenflix.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.online/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.tech/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.site/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://rentry.co/static/icons/512.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-LLFSDKZXET",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://taxfreemovie.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://lunara.watch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c5e28551cbf7b7ff5db0eb7eb334860209f3a1d635e2b12166cf015913cb6b0",
+      "evidence_url": "https://rentry.co/spenflix",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.562221+00:00",
+      "url": "https://lunaratv.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

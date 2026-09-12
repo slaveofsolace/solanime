@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 18182,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://wiki.hayase.watch/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "EXPIRED",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:29.141885+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://wiki.hayase.watch/"
   },
   "categories": [
@@ -14,8 +29,20 @@
       "Anime Torrenting"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-801ab46ffc0ec03f"
+    "domain-801ab46ffc0ec03f",
+    "domain-d15afad5fd0ce8bf",
+    "domain-3aeb002460381c6f",
+    "domain-37bc9cd0c5947119",
+    "domain-f64f97cb26f2ca31"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -30,16 +57,262 @@
   "name": "Wiki",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 18182,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://wiki.hayase.watch/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "EXPIRED",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://wiki.hayase.watch/"
+    },
+    {
+      "bytes_read": 1352,
+      "content_type": "application/javascript",
+      "final_url": "https://wiki.hayase.watch/assets/app.GVUQbg2Y.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:30.144283+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "07f4b8fc67b93bd1a736d9803932ff2172df11483aaf76d000bd782e9b43b7aa",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://wiki.hayase.watch/assets/app.GVUQbg2Y.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864477+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:29.141885+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/app.GVUQbg2Y.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/getting-started/installation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/faq",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://github.com/hayase-app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://discord.gg/TRQEr9evRA",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/extensions/overview",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/style.CK94x2G5.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/vp-icons.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/inter-roman-latin.Di8DUHzh.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/chunks/theme.DYMAhnk4.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/chunks/framework.dvv-DFtf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/assets/index.md.CrrGzBoY.lean.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://hayase.watch/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://hayase.watch/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://wiki.hayase.watch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://hayase.watch/opengraph.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://github.com/hayase-app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://discord.gg/TRQEr9evRA",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "dd3a56e66f8efcf2f60766d46265c39d210505d8fcab9a64c978df751828ef19",
+      "evidence_url": "https://wiki.hayase.watch/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:29.141885+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

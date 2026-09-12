@@ -1,7 +1,28 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 2460,
+    "content_type": "text/html",
+    "final_url": "https://releases.moe/about/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "x-frame-options": "sameorigin"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:25.002481+00:00",
+    "redirects": [
+      {
+        "http_status": 308,
+        "location": "https://releases.moe/about/",
+        "url": "https://releases.moe/about"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://releases.moe/about"
   },
   "categories": [
@@ -10,14 +31,34 @@
       "Anime Torrenting"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-c060b47693d1df9c"
+    "domain-c060b47693d1df9c",
+    "domain-ab6fb7f5b683aa2a",
+    "domain-d15afad5fd0ce8bf",
+    "domain-7fc1bef5b195e415"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-1984cf17d880b180"
+  ],
   "entry_ids": [
     "entry-4624600bfe93aa26"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://releases.moe/about/"
+    }
+  ],
   "id": "site-bd5f11ddf8d44867",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +66,114 @@
   "name": "Docs",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 2460,
+      "content_type": "text/html",
+      "final_url": "https://releases.moe/about/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare",
+        "x-frame-options": "sameorigin"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "redirects": [
+        {
+          "http_status": 308,
+          "location": "https://releases.moe/about/",
+          "url": "https://releases.moe/about"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://releases.moe/about"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860411+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:25.002481+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-anilist",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://um.theindex.moe/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://releases.moe/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://releases.moe/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://um.theindex.moe/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "20f0207e0e5c256e979164a2f22b1967c49bc5ee9308e6f0d4c63ce1d1eb4ac0",
+      "evidence_url": "https://releases.moe/about/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:25.002481+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

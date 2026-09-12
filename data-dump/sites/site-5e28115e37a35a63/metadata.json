@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 29960,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://theshowgrid.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:43.924839+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://theshowgrid.com/"
   },
   "categories": [
@@ -10,8 +25,21 @@
       "Curated Recommendations"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-25e4c5900865e73b"
+    "domain-25e4c5900865e73b",
+    "domain-89e7e73bb734d19d",
+    "domain-d15afad5fd0ce8bf",
+    "domain-7df7caa0a5579e01",
+    "domain-2d0f3c337e640d3a",
+    "domain-beb52977d4c3c814"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +53,380 @@
   "name": "TheShowGrid",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 29960,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://theshowgrid.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://theshowgrid.com/"
+    },
+    {
+      "bytes_read": 494,
+      "content_type": "application/javascript",
+      "final_url": "https://theshowgrid.com/polyfills-PZSJNBYU.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:44.899686+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "e3efc3a331e8ee7214783ae7d5cf4ab7812b74ecebac2b3e1f5a9d205300fcb0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://theshowgrid.com/polyfills-PZSJNBYU.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.863681+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:43.924839+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://gc.zgo.at/count.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/polyfills-PZSJNBYU.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/main-J4REZHC5.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Open+Sans%3Awght%40300%3B400%3B700&family=Jost%3Awght%40400%3B500&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://theshowgrid.com/styles-YGG5MZU2.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Bungee+Inline&amp%3Bfamily=Open+Sans%3Awght%40300%3B400%3B700&amp%3Bfamily=Jost%3Awght%40400%3B500&amp%3Bdisplay=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/bungeeinline/v19/Gg8zN58UcgnlCweMrih332VuPGp_-WEg.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/bungeeinline/v19/Gg8zN58UcgnlCweMrih332VuPGt_-WEg.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/bungeeinline/v19/Gg8zN58UcgnlCweMrih332VuPGV_-Q.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oDd4iYl.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73ord4iYl.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oTd4g.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu1aB.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://fonts.gstatic.com/s/materialsymbolsoutlined/v369/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://sgrid.goatcounter.com/count",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "93edf240e3177fa67a4a9e7f4c3bd5e60c64e0ed64ac03d4eacb7d2fc42490f2",
+      "evidence_url": "https://theshowgrid.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.924839+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

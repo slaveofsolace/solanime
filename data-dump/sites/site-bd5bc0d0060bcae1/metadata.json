@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 57552,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.filmportal.de/en/videos",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "nginx",
+      "via": "1.1 varnish (Varnish/6.6)",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:20.039460+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.filmportal.de/en/videos"
   },
   "categories": [
@@ -10,8 +25,21 @@
       "Film Archives"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-407091ef55839b9b"
+    "domain-407091ef55839b9b",
+    "domain-79f3f4328d585a8c",
+    "domain-eb55a62c9d2f20fd",
+    "domain-d37cf06efefae3c0",
+    "domain-1a2e36cc692d119d",
+    "domain-39b4babfdaf0a419"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +53,726 @@
   "name": "Film Portal",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 57552,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.filmportal.de/en/videos",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "nginx",
+        "via": "1.1 varnish (Varnish/6.6)",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.filmportal.de/en/videos"
+    },
+    {
+      "bytes_read": 65450,
+      "content_type": "text/javascript",
+      "final_url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv=",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript",
+        "server": "nginx",
+        "via": "1.1 varnish (Varnish/6.6)"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:21.108768+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "5c652d030bb526e05e4b642f0783d24905e7515f81ad351338c7228bee4f4fc6",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv="
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864961+00:00",
+  "observed_at": "2026-09-12T07:43:20.039460+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/js/js_aYz9DJg_FX0rNc8XcbEng-b6Dne3MPkmRcEqD_PCyLM.js?scope=footer&delta=0&language=en&theme=filmportal&include=eJxtjVEKwzAMQy_kNkcKTqOWrE4cHA9y_JV1g33sR-LxQEpwh0XMrgM57kUuHOFAg7FQ-q8HBJtHFolNG2hTQ8j27CxrLix6rPzgSZgupZ1f9UG6ZmpXc5aQeOCXR8lIbMv9RKewaXgnVXatGu56AWJNSFk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/themes/custom/filmportal/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn161558_pic_05_thumb.jpg?itok=DnkcrzVC",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn163165_pic_07_thumb.jpg?itok=DVJxW7T_",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn164871_pic_06_thumb.jpg?itok=-Pz80Ppk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn164311_pic_07_thumb.jpg?itok=sPkB7uli",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn160883_pic_08_thumb.jpg?itok=l_nY-ZZn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn155545_pic_07_thumb.jpg?itok=md7oaDfe",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn156069_pic_04_thumb.jpg?itok=13EOBs6X",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn162092_pic_13_thumb.jpg?itok=mVPn_4ZT",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn162457_pic_13_thumb.jpg?itok=MKzle68U",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn165124_pic_02_thumb.jpg?itok=oyj2qElx",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn163275_pic_03_thumb.jpg?itok=wmKhXmcc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn160147_pic_05_thumb.jpg?itok=jTy_rEcF",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn165030_pic_03_thumb.jpg?itok=AdC59njr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn163601_pic_18_thumb.jpg?itok=_6-zmeKE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn162460_pic_02_thumb.jpg?itok=-Ifq41_K",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/styles/landing_images/public/embedded-videos-thumbs/fn165169_pic_03_thumb.jpg?itok=ZdfhOsSg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/user/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/user/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/videos",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/people",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/image",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/topic",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/sector",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/institutionstock",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/frau-winkler-verlaesst-das-haus-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/corpus-delicti-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/von-scham-und-geld-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/ein-nobody-gegen-putin-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/morgen-war-krieg-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/lovebox-the-meaning-of-love-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/das-getraeumte-abenteuer-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/emil-und-die-detektive-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/bibi-blocksberg-die-total-verhexte-zeitreise-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/berlin-1024576-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/the-beauty-of-ballroom-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/und-es-war-sommer-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/resident-evil-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/kalter-hund-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/gentle-monster-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/video/frost-ohne-schnee-und-eis-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos?page=427",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/page/the-mission-of-filmportalde",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/kontakt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/newsletter/archive",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/sitemap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/page/data-privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/page/masthead",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/feed/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/feed/news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/themes/custom/filmportal/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/css/css_hBCtFqstecG0wR0J7oPiNBXr_kPkJH-6Y7TxyOFhkaQ.css?delta=0&language=en&theme=filmportal&include=eJxNjWsOgzAMgy_U0SOhQL2uIm2qpDDY6Yd4TPtjfbYse0Br0B5rFUPon4l3az6iQIndSIwSSP0NXXshw41MZpsfyH6cYUYR5kZR-KBzJe5CIpZ4RkU0E6cPHNbGqUx36bJuP89VtBGfwxOTij_0nx-yQDUFONusIZ_lJeFt_tAuS5gZX6CiVQU",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/sites/default/files/css/css_PCTZVI3ftmfCQd_NjjAeQUuHIxZw53F3LrB3aZ9kZpk.css?delta=1&language=en&theme=filmportal&include=eJxNjWsOgzAMgy_U0SOhQL2uIm2qpDDY6Yd4TPtjfbYse0Br0B5rFUPon4l3az6iQIndSIwSSP0NXXshw41MZpsfyH6cYUYR5kZR-KBzJe5CIpZ4RkU0E6cPHNbGqUx36bJuP89VtBGfwxOTij_0nx-yQDUFONusIZ_lJeFt_tAuS5gZX6CiVQU",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.filmportal.de/en/videos",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://piwik.werk21system.de/piwik/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1b6698e285ecf1cb74d8f09e02202d42f8994b22a65744b737b8248d330faf4c",
+      "evidence_url": "https://www.filmportal.de/en/videos",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.039460+00:00",
+      "url": "https://www.drupal.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5c652d030bb526e05e4b642f0783d24905e7515f81ad351338c7228bee4f4fc6",
+      "evidence_url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv=",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.108768+00:00",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5c652d030bb526e05e4b642f0783d24905e7515f81ad351338c7228bee4f4fc6",
+      "evidence_url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv=",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.108768+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5c652d030bb526e05e4b642f0783d24905e7515f81ad351338c7228bee4f4fc6",
+      "evidence_url": "https://www.filmportal.de/libraries/klaro/dist/klaro-no-translations-no-css.js?tkferv=",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:21.108768+00:00",
+      "url": "https://kiprotect.com/klaro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

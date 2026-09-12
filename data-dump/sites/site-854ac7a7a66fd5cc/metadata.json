@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 11524,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://telegram.dog/vega_officials",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx/1.30.1",
+      "x-frame-options": "ALLOW-FROM https://web.telegram.org"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:08.331973+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://telegram.dog/vega_officials"
   },
   "categories": [
@@ -9,8 +23,20 @@
       "Download Sites"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-d14f8ca2ab29a86f"
+    "domain-d14f8ca2ab29a86f",
+    "domain-771b8be3bedee8a1",
+    "domain-cbc364be5e950104",
+    "domain-cdf01902dc74865b",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +50,202 @@
   "name": "telegram.dog",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 11524,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://telegram.dog/vega_officials",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "nginx/1.30.1",
+        "x-frame-options": "ALLOW-FROM https://web.telegram.org"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://telegram.dog/vega_officials"
+    },
+    {
+      "bytes_read": 2979,
+      "content_type": "application/javascript",
+      "final_url": "https://telegram.dog/js/tgwallpaper.min.js?3=",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx/1.30.1"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:10.351008+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2031e418ee10af8110729b3f327b968462fc0a9d8d1da095387bb472ccd0dee6",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://telegram.dog/js/tgwallpaper.min.js?3="
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.863524+00:00",
+  "observed_at": "2026-09-12T07:42:08.331973+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/js/tgwallpaper.min.js?3=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://cdn5.telesco.pe/file/[REDACTED-OPAQUE].jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/dl?tme=6003ef81040e613665_14855149858208972530",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/s/vega_officials",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/img/website_icon.svg?4=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/img/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/img/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/img/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/img/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/css/font-roboto.css?1=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/css/bootstrap.min.css?3=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://telegram.dog/css/telegram.css?255=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://web.telegram.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://cdn5.telesco.pe/file/[REDACTED-OPAQUE].jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "https://t.me/vega_officials",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "9232ad481705c5c2f59a3c106cdef8895ed4dd904389a2773df94db0da9eb59e",
+      "evidence_url": "https://telegram.dog/vega_officials",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:08.331973+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

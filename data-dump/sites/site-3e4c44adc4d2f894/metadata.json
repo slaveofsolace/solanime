@@ -1,7 +1,23 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 15172,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://lardbit.github.io/nefarious/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "GitHub.com",
+      "via": "1.1 varnish",
+      "x-cache": "MISS"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:44:01.792656+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://lardbit.github.io/nefarious/"
   },
   "categories": [
@@ -9,8 +25,24 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-546ab1e3adb5ffa6"
+    "domain-546ab1e3adb5ffa6",
+    "domain-3aeb002460381c6f",
+    "domain-8824440a91c849e7",
+    "domain-e83cc4bcd94e4ed5",
+    "domain-63dea9f0debd4480",
+    "domain-752adb05142efdfd",
+    "domain-dd22705656dbb104",
+    "domain-16391d3665ca7477",
+    "domain-88bb79fa6efc5d55"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +56,557 @@
   "name": "nefarious",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 15172,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://lardbit.github.io/nefarious/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "GitHub.com",
+        "via": "1.1 varnish",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://lardbit.github.io/nefarious/"
+    },
+    {
+      "bytes_read": 907,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://lardbit.github.io/nefarious/assets/js/scale.fix.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "GitHub.com",
+        "via": "1.1 varnish",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:44:02.756535+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "ea5945674af9bb92ef367ab00ad7a59b70c3ab14384c3b68fe33024987ece091",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://lardbit.github.io/nefarious/assets/js/scale.fix.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.857048+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:44:01.792656+00:00",
+  "provider_ids": [
+    "provider-opensubtitles",
+    "provider-github-pages"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/assets/js/scale.fix.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/actions/workflows/build.yml/badge.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://img.shields.io/docker/pulls/lardbit/nefarious.svg?maxAge=60&style=flat-square",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/nefarious-demo.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/login.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/search-results.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/media-tv-result.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/media-movie-result.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/media-status.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/discover-tmdb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/discover-rotten-tomatoes.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/wanted.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/watching.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/settings.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/search-manual.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/screenshots/search-mobile.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/actions/workflows/build.yml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://hub.docker.com/r/lardbit/nefarious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/Jackett/Jackett/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://transmissionbt.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/caronc/apprise/tree/v0.9.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://www.opensubtitles.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://opensubtitles.stoplight.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/pull/180",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/DEPENDENCIES.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/SBC.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/VPN.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/USAGE.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/TROUBLESHOOTING.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/docs/DEVELOPMENT.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/orderedlist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/assets/css/style.css?v=35ec9396dfe9f5e870c5accad9545d4afe3f9ff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://lardbit.github.io/nefarious/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/actions/workflows/build.yml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/actions/workflows/build.yml/badge.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://hub.docker.com/r/lardbit/nefarious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://img.shields.io/docker/pulls/lardbit/nefarious.svg?maxAge=60&amp%3Bstyle=flat-square",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/Jackett/Jackett/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://transmissionbt.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/caronc/apprise/tree/v0.9.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://www.opensubtitles.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://opensubtitles.stoplight.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious/pull/180",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit/nefarious.git",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/lardbit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1c208632f61bf06c38503e210d4962e5f70e0f73dd974f97a827d6373d5975dd",
+      "evidence_url": "https://lardbit.github.io/nefarious/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:44:01.792656+00:00",
+      "url": "https://github.com/orderedlist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-b01611eb49a60bea",
+    "repo-75cc4050600812af",
+    "repo-8ba5fc78cc4c80dd",
+    "repo-adf96c79487b7678"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

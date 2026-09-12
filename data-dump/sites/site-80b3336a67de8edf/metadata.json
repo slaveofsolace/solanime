@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:42:05.762115+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.wcoanimedub.tv/robots.txt",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 403,
+      "reason": "http_403",
+      "redirects": [],
+      "status": "blocked"
+    },
+    "status": "blocked",
     "url": "https://www.wcoanimedub.tv/"
   },
   "categories": [
@@ -25,16 +39,17 @@
   "name": "6",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:42:05.762115+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://www.wcoanimedub.tv/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866146+00:00",
+  "observed_at": "2026-09-12T07:42:05.762115+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,29 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 571,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://docyx.github.io/imdb-table/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "GitHub.com",
+      "via": "1.1 varnish",
+      "x-cache": "MISS"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:55.331493+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://docyx.github.io/imdb-table/",
+        "url": "https://docyx.github.io/imdb-table"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "398dce0fba8765f086fb2f966a9bc58135d49a5d03143e4152b1007daa938aaf",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://docyx.github.io/imdb-table"
   },
   "categories": [
@@ -10,8 +32,19 @@
       "Curated Recommendations"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-07c080651ecda674"
+    "domain-07c080651ecda674",
+    "domain-570a4c3b271a9525",
+    "domain-3aeb002460381c6f",
+    "domain-33078ff1a8b8ce77"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +58,118 @@
   "name": "⁠IMDb Table",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 571,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://docyx.github.io/imdb-table/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "GitHub.com",
+        "via": "1.1 varnish",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:55.331493+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://docyx.github.io/imdb-table/",
+          "url": "https://docyx.github.io/imdb-table"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "398dce0fba8765f086fb2f966a9bc58135d49a5d03143e4152b1007daa938aaf",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://docyx.github.io/imdb-table"
+    },
+    {
+      "bytes_read": 34861,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "GitHub.com",
+        "via": "1.1 varnish",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:56.478178+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a4fc731fac08cbfae0deadc31a8a01324e200b47d770ee093b2819716a6f0a05",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853388+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:55.331493+00:00",
+  "provider_ids": [
+    "provider-github-pages"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "398dce0fba8765f086fb2f966a9bc58135d49a5d03143e4152b1007daa938aaf",
+      "evidence_url": "https://docyx.github.io/imdb-table/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:55.331493+00:00",
+      "url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "398dce0fba8765f086fb2f966a9bc58135d49a5d03143e4152b1007daa938aaf",
+      "evidence_url": "https://docyx.github.io/imdb-table/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.331493+00:00",
+      "url": "https://docyx.github.io/imdb-table/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "398dce0fba8765f086fb2f966a9bc58135d49a5d03143e4152b1007daa938aaf",
+      "evidence_url": "https://docyx.github.io/imdb-table/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:55.331493+00:00",
+      "url": "https://docyx.github.io/imdb-table/assets/index.ef78f395.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a4fc731fac08cbfae0deadc31a8a01324e200b47d770ee093b2819716a6f0a05",
+      "evidence_url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.478178+00:00",
+      "url": "https://imdb-table.taux.media/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a4fc731fac08cbfae0deadc31a8a01324e200b47d770ee093b2819716a6f0a05",
+      "evidence_url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.478178+00:00",
+      "url": "https://github.com/docyx/imdb-table",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a4fc731fac08cbfae0deadc31a8a01324e200b47d770ee093b2819716a6f0a05",
+      "evidence_url": "https://docyx.github.io/imdb-table/assets/index.557079ca.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:56.478178+00:00",
+      "url": "https://www.imdb.com/title/${e[11",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-91e8fae72ac8f17d"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

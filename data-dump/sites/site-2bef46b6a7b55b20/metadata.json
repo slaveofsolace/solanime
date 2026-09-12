@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 1683,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://whattowatchon.tv/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:43.554220+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://whattowatchon.tv/"
   },
   "categories": [
@@ -10,10 +23,29 @@
       "Curated Recommendations"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-30d182c6729a7c38"
+    "domain-30d182c6729a7c38",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-f479231e59c1a3ce",
+    "domain-d37cf06efefae3c0",
+    "domain-01d6e1237397752f",
+    "domain-1a2e36cc692d119d",
+    "domain-01ebe79a186e4bf7",
+    "domain-3aeb002460381c6f",
+    "domain-79e2e46d9083c6b5"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-dec320bd8bef18b0",
+    "endpoint-13f2803e1ee7eb49"
+  ],
   "entry_ids": [
     "entry-74f087eaf1d36393"
   ],
@@ -25,16 +57,268 @@
   "name": "WhatToWatchOn.tv",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 1683,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://whattowatchon.tv/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://whattowatchon.tv/"
+    },
+    {
+      "bytes_read": 964987,
+      "content_type": "application/javascript",
+      "final_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864409+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:43.554220+00:00",
+  "provider_ids": [
+    "provider-google-analytics"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-D339QD3G82",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/static/css/main.e83b18e0.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://whattowatchon.tv/screenshots/.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c40989b0bfb4a4b0bb012647fb44d111b8058fa43c12195982d724e0ae587d47",
+      "evidence_url": "https://whattowatchon.tv/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:43.554220+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-D339QD3G82",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://mui.com/production-error/?code=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://fb.me/react-async-component-lifecycle-hooks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://whattowatchon.tv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://whattowatchon.tv/api",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://ko-fi.com/V7V31LPMW",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://github.com/react-spring/react-use-measure/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://www.omdbapi.com/?i=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0b22781931244ac8ec3bba431383224f5c424c61daeb5cb97aa0bca98d300b54",
+      "evidence_url": "https://whattowatchon.tv/static/js/main.ea3a0d22.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:43:53.911386+00:00",
+      "url": "https://www.omdbapi.com/?i=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-d7050ae463396774"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

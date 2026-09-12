@@ -1,7 +1,27 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 5876,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://jubler.org/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Caddy",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:11.113443+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://jubler.org/",
+        "url": "https://www.jubler.org/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.jubler.org/"
   },
   "categories": [
@@ -9,8 +29,31 @@
       "Subtitle Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-fab323fbbf412855"
+    "domain-fab323fbbf412855",
+    "domain-6f038b1a0e5aa411",
+    "domain-387ec6c36e2f2022",
+    "domain-e30d675fa8d34499",
+    "domain-3aeb002460381c6f",
+    "domain-5fccdcc4c6797c99",
+    "domain-522a365998008975",
+    "domain-61c6556fdf8b1baa",
+    "domain-511d3151362b5b43",
+    "domain-83078dfb03d9c31e",
+    "domain-7a8965abd7dd41b5",
+    "domain-c644a4f34cd39c47",
+    "domain-e6ca3edeed0460b2",
+    "domain-0bc03fe159f096e0",
+    "domain-c4f04a338695cedb",
+    "domain-88bb79fa6efc5d55"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +67,472 @@
   "name": "Jubler",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 5876,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://jubler.org/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "Caddy",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://jubler.org/",
+          "url": "https://www.jubler.org/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.jubler.org/"
+    },
+    {
+      "bytes_read": 88145,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://jubler.org/js/jquery-3.4.1.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "Caddy",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:12.102902+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0925e8ad7bd971391a8b1e98be8e87a6971919eb5b60c196485941c3c1df089a",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://jubler.org/js/jquery-3.4.1.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865224+00:00",
+  "observed_at": "2026-09-12T07:43:11.113443+00:00",
   "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/js/jquery-3.4.1.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.paypalobjects.com/donate/sdk/donate-sdk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/img/maskot.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/img/softpedia.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/img/topshareware.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/img/uptodown.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/img/canadian.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.clustrmaps.com/map_v2.png?u=Su6d&d=yD5eq3V6KN7bEfZYi_GCdqslb09lWE5RbVIQTOKxyLY",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://github.com/teras/Jubler",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/index.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/download.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/screenshots.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/changelog.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/contact.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/donations.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://linux.softpedia.com/get/Text-Editing-Processing/Others/Jubler-3015.shtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.topshareware.com/Jubler-download-50506.htm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://jubler.en.uptodown.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.canadiancontent.net/tech/download/Jubler.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.macupdate.com/app/mac/23779/jubler",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.clustrmaps.com/map/jubler.org",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://signpath.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://signpath.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.excelhighschool.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://7littlewordsanswers.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://vpnxpert.com/best-vpn/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/css/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://jubler.org/css/lightbox.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://github.com/teras/Jubler",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.paypalobjects.com/donate/sdk/donate-sdk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://linux.softpedia.com/get/Text-Editing-Processing/Others/Jubler-3015.shtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.topshareware.com/Jubler-download-50506.htm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://jubler.en.uptodown.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.canadiancontent.net/tech/download/Jubler.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.macupdate.com/app/mac/23779/jubler",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.macupdate.com/images/badge/badge_bg.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.macupdate.com/images/badge/stars5.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://www.clustrmaps.com/map/jubler.org",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://signpath.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://signpath.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://www.excelhighschool.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "http://7littlewordsanswers.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eae63f9eacb7b5044576d50dc9780161cd2fbe512666b13ea7ea10312acc81b3",
+      "evidence_url": "https://jubler.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.113443+00:00",
+      "url": "https://vpnxpert.com/best-vpn/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-5865199252642c5c"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

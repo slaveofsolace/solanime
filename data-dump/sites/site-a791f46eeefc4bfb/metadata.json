@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 12479,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://t.me/o2tvseries_new",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx/1.30.1",
+      "x-frame-options": "ALLOW-FROM https://web.telegram.org"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:51.752075+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://t.me/o2tvseries_new"
   },
   "categories": [
@@ -9,8 +23,19 @@
       "Download Sites"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-cdf01902dc74865b"
+    "domain-cdf01902dc74865b",
+    "domain-38c8743ecd2810f7",
+    "domain-cbc364be5e950104",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +49,166 @@
   "name": "t.me",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 12479,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://t.me/o2tvseries_new",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "nginx/1.30.1",
+        "x-frame-options": "ALLOW-FROM https://web.telegram.org"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://t.me/o2tvseries_new"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.863180+00:00",
+  "observed_at": "2026-09-12T07:42:51.752075+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/js/tgwallpaper.min.js?3=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/dl?tme=7fbebc55166f02079a_2496441420437690930",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://t.me/s/o2tvseries_new",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/img/website_icon.svg?4=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/img/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/img/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/img/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/img/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/css/font-roboto.css?1=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/css/bootstrap.min.css?3=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://telegram.org/css/telegram.css?255=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://web.telegram.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "https://t.me/o2tvseries_new",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e4f8d58ac722c87d84ee73b3b32d77b5a4494475472d9f84878ca252562566e3",
+      "evidence_url": "https://t.me/o2tvseries_new",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:51.752075+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

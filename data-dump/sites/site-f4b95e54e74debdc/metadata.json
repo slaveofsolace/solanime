@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 3437,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://tvchart.benmiz.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-cache": "HIT"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:38.422172+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://tvchart.benmiz.com/"
   },
   "categories": [
@@ -10,8 +23,27 @@
       "Curated Recommendations"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-48ad5e6e224e54b6"
+    "domain-48ad5e6e224e54b6",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-7f2bea21d7396317",
+    "domain-88bb79fa6efc5d55",
+    "domain-54b274da0b0df8ea",
+    "domain-8d9559743b8b4225",
+    "domain-3a4b2b7172f3c72d",
+    "domain-3aeb002460381c6f",
+    "domain-5f52d49b5dc1fdb2",
+    "domain-d37cf06efefae3c0",
+    "domain-01d6e1237397752f",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +57,332 @@
   "name": "TV Chart",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 3437,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://tvchart.benmiz.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-cache": "HIT"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://tvchart.benmiz.com/"
+    },
+    {
+      "bytes_read": 703361,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "x-cache": "HIT"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.863818+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:38.422172+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-google-ads"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=UA-164084648-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://code.jquery.com/jquery-3.2.1.slim.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://tvchart.benmiz.com/static/js/main.bdcc9b4b.chunk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://tvchart.benmiz.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://tvchart.benmiz.com/static/css/2.e6bd0b7d.chunk.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://tvchart.benmiz.com/static/css/main.a48a4463.chunk.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://i.imgur.com/9aPDllZ.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=UA-164084648-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://code.jquery.com/jquery-3.2.1.slim.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "72366ed4f72fedb4df8efe92d43d0ebac61670cc1e98a29f45f6116d875f8799",
+      "evidence_url": "https://tvchart.benmiz.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:38.422172+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://github.com/styled-components/styled-components/blob/master/packages/styled-components/src/utils/errors.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://redux.js.org/api-reference/store",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://fb.me/react-animation-transition-group-timeout",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://fb.me/react-async-component-lifecycle-hooks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "https://fb.me/react-polyfills",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c79ba370bb0bd8d46b4656f49ea44f14360ac73d78036c002c406b3fb40caaf8",
+      "evidence_url": "https://tvchart.benmiz.com/static/js/2.c24088ed.chunk.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.348862+00:00",
+      "url": "http://redux.js.org/docs/Troubleshooting.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-11dfba5dad6a8e73"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

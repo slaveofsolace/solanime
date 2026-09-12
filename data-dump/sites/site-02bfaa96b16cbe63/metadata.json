@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 37732,
+    "content_type": "text/html",
+    "final_url": "https://hydrahd.info/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "HIT",
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:59.045563+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://hydrahd.info/"
   },
   "categories": [
@@ -10,8 +25,27 @@
       "Multi-Server"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-17d80e8228dc8db2"
+    "domain-17d80e8228dc8db2",
+    "domain-d6235f45271ed537",
+    "domain-c14c3f85ce14020d",
+    "domain-d15afad5fd0ce8bf",
+    "domain-64da7d552e6b75df",
+    "domain-349649f99a443d4e",
+    "domain-7560e07dd0dea99f",
+    "domain-1a3ef32503dfe688",
+    "domain-e123d2fd8e15b2eb",
+    "domain-1aaa9ada44164a5c",
+    "domain-1a7d7b45412e4f31",
+    "domain-cdf01902dc74865b"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +59,324 @@
   "name": "Status",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 37732,
+      "content_type": "text/html",
+      "final_url": "https://hydrahd.info/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/html",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://hydrahd.info/"
+    },
+    {
+      "bytes_read": 1239,
+      "content_type": "application/javascript",
+      "final_url": "https://hydrahd.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:44:00.110567+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://hydrahd.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856737+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:59.045563+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://cdn.tailwindcss.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/fav-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.ws/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.ac/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://developers.google.com/speed/public-dns/docs/using",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/fav-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/ok.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/fav-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://cdn.tailwindcss.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.ws/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://hydrahd.ac/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://t.me/hydrahdofficial",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://developers.google.com/speed/public-dns/docs/using",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ed8809435657dd9c9989b4e3a97ebd0389c845fd69e2bf6008f3c29640957811",
+      "evidence_url": "https://hydrahd.info/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:59.045563+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "evidence_url": "https://hydrahd.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:44:00.110567+00:00",
+      "url": "https://hydrahd.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

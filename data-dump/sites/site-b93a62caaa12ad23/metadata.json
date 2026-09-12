@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 64605,
+    "content_type": "text/html",
+    "final_url": "https://web.watchargo.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:56.497764+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://web.watchargo.com/"
   },
   "categories": [
@@ -9,8 +23,19 @@
       "Specialty Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-eda3295da1d6b3c8"
+    "domain-eda3295da1d6b3c8",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-7df7caa0a5579e01"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +49,433 @@
   "name": "Argo",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 64605,
+      "content_type": "text/html",
+      "final_url": "https://web.watchargo.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://web.watchargo.com/"
+    },
+    {
+      "bytes_read": 34543,
+      "content_type": "application/javascript",
+      "final_url": "https://web.watchargo.com/polyfills-EONH2QZO.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:57.528122+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "257d8360aea3d0606e7cbf4b8a60209ac070758dbe42f1c92d6edc0d2616e365",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://web.watchargo.com/polyfills-EONH2QZO.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864366+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:56.497764+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-MGH658F78M",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/polyfills-EONH2QZO.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/main-23IWNR5H.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/styles-LGKGVMPM.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-X3DLV7UQ.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-54LMYKOH.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-E4NDJIZE.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-CHKI6RKD.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-ASUU5TOV.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-OPQAX3CO.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-IAMY7KN2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-QSSPYE6N.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-LXNSGSOL.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://web.watchargo.com/chunk-SIT342VN.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/bebasneue/v16/JTUSjIg69CK48gW7PXoo9Wdhyzbi.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/bebasneue/v16/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLFj_Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLFj_Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLFj_Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJbecmNE.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJnecmNE.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLBT5Z11lFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLBT5Z1JlFc-K.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLBT5Z1xlFQ.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-MGH658F78M",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "896f16c60644f06c96a023178ecb09f8a4802069c865cb869f791b1719436df3",
+      "evidence_url": "https://web.watchargo.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:56.497764+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

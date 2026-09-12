@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 31757,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://streamaggregator.in/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "via": "1.1 Caddy",
+      "x-powered-by": "Next.js"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:36.763006+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://streamaggregator.in/"
   },
   "categories": [
@@ -10,14 +25,32 @@
       "Stream Aggregators"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 34,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-770cc120ecb35ecc"
+    "domain-770cc120ecb35ecc",
+    "domain-0e4128756de468fd",
+    "domain-3dc86e6666d7a5f2",
+    "domain-3a0784cc7e6fc2ed"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-5b93650f0394795d"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://streamaggregator.in/"
+    }
+  ],
   "id": "site-7f25915839477ed7",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +58,555 @@
   "name": "StreamAggregator",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 31757,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://streamaggregator.in/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "via": "1.1 Caddy",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://streamaggregator.in/"
+    },
+    {
+      "bytes_read": 37844,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=UTF-8",
+        "via": "1.1 Caddy"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861538+00:00",
+  "observed_at": "2026-09-12T07:42:36.763006+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/12fu7yuuy~0e8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0f_.zogoqvp2x.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/07uz2g0_38qia.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/turbopack-0k0dlzphb1p1w.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0cpscz6g6yakn.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0l~njexnjsned.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0ups-1ft4m2m8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/01y16r33ektrc.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0jzvikp.z_y53.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0xgajfz-ehk_c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0yq.qpel~f83g.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0wpykq.6u1bdf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0popjwn-4fzg..js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/07jtbv_cy4q60.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/02unssv43fhhm.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/09uasa.jaiyll.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0r0urmz1vehny.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0p74cpya2c094.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0t2w7e50c9tdu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/00v28j1.4xttu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/05t25u9pvl2ba.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/045jcbr~oq-72.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/143mr_.1q0c~0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/17x5-_.3_3nc8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/06fnp-.ie6p9g.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0keqcurczajg0.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0qu0k.c2t-4c4.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0zyaikbc.1re9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0e4_th41j11j~.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/11um1x6ht1b.e.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0~3as3x~nyqy..js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/03~yq9q893hmn.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0sgpky1t2j_qm.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/media/47fe1b7cd6e6ed85-s.p.0~mcdl10zdfb3.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/media/7c1e39d02e51fd6d-s.p.0dlnlr0h6v8ro.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/media/8e6fa89aa22d24ec-s.p.0uvzar8hswo3p.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/media/a218039a3287bcfd-s.p.17-1enzs_j91b.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/media/e2334d715941921e-s.p.12skym0rqknxy.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0a91v1~x2tdpo.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/10qkyoct-is_o.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/121r1vnld.1d2.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/_next/static/chunks/0sgpky1t2j_qm.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://cloud.umami.is/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/favicon.ico?favicon.0eap9gra6c~kw.ico=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://streamaggregator.in/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1920b1f8bad675765ae960e9d41d10cabc512402c108218b8560c41c60137946",
+      "evidence_url": "https://streamaggregator.in/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:36.763006+00:00",
+      "url": "https://cloud.umami.is/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/public-next-folder-conflict",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/404-get-initial-props",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/gssp-export",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/gssp-component-member",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/non-standard-node-env",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8a974c3748fb83c68a3e9da5c5025aa9a1322c9a2ec58ef51d274ade0780c306",
+      "evidence_url": "https://streamaggregator.in/_next/static/chunks/04vtmm_365dbf.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:37.875541+00:00",
+      "url": "https://nextjs.org/docs/messages/ssg-fallback-true-export",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

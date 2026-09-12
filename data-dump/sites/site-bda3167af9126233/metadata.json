@@ -1,7 +1,27 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 12241,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www1.gogoanime.pw/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:39.064995+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://www1.gogoanime.pw/",
+        "url": "https://gogoanimez.cc/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://gogoanimez.cc/"
   },
   "categories": [
@@ -10,8 +30,23 @@
       "Anime Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-3608db3df71c45d4"
+    "domain-3608db3df71c45d4",
+    "domain-c14c3f85ce14020d",
+    "domain-53ade318d3f3f477",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-cdf01902dc74865b",
+    "domain-16391d3665ca7477",
+    "domain-9549305c0a3bfb46"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +60,825 @@
   "name": "4",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 12241,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www1.gogoanime.pw/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://www1.gogoanime.pw/",
+          "url": "https://gogoanimez.cc/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://gogoanimez.cc/"
+    },
+    {
+      "bytes_read": 97163,
+      "content_type": "application/javascript",
+      "final_url": "https://www1.gogoanime.pw/js/cdn/jquery.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:39.813617+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "668b046d12db350ccba6728890476b3efee53b2f42dbb84743e5e9f1ae0cc404",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www1.gogoanime.pw/js/cdn/jquery.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856420+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:39.064995+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/js/cdn/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/js/function.js?v=2.2.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-EWD4EYG88T",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/img/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://t.me/+ACENe45VSpFkMDU9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/anime-list.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/season.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/anime-movies.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/popular.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/requests",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/action",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/adventure",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/cars",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/comedy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/dementia",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/demons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/drama",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/ecchi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/fantasy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/game",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/harem",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/historical",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/horror",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/isekai",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/josei",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/kids",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/magic",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/mahou-shoujo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/martial-arts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/mecha",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/military",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/music",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/mystery",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/parody",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/police",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/psychological",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/romance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/samurai",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/school",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/sci-fi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/seinen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/shoujo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/shoujo-ai",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/shounen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/shounen-ai",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/slice-of-life",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/space",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/super-power",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/supernatural",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/thriller",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/genre/vampire",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/img/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/css/main.css?v=2.2.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/search.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/img/preview.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/img/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/search.html?keyword=%7Bkeyword",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/css/main.css?v=2.2.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://t.me/+ACENe45VSpFkMDU9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/img/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/anime-list.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/season.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/anime-movies.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/popular.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/requests",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/search.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://gogoanime.pw/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/js/cdn/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www1.gogoanime.pw/js/function.js?v=2.2.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-EWD4EYG88T",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bb86fedff6cef9ac7af4a1216e4824836602a5715eaf33a12e699e4ef23eb8f5",
+      "evidence_url": "https://www1.gogoanime.pw/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:39.064995+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

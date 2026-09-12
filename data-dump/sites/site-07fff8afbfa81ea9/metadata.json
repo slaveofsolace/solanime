@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 1045,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://web.stremio.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:49.209359+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://web.stremio.com/"
   },
   "categories": [
@@ -9,14 +23,43 @@
       "Torrent Apps"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-a05fd8704867a457"
+    "domain-a05fd8704867a457",
+    "domain-80255870a6218fe0",
+    "domain-a31273d70d7c77ed",
+    "domain-49960de5880e8c68",
+    "domain-126f186d672fc6a3",
+    "domain-af3c0c364b8fe063",
+    "domain-7df08b8f092de3e7",
+    "domain-ec64cf2dbe27bfc5",
+    "domain-eb253e51c1f5b674",
+    "domain-80fc0fb9266db7b8",
+    "domain-1a2e36cc692d119d",
+    "domain-b2cec97c4ab23097",
+    "domain-6860776e5611f69c",
+    "domain-3aeb002460381c6f",
+    "domain-bb3e4bfe40af9b89"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-f624723b6936fcf5"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js"
+    }
+  ],
   "id": "site-07fff8afbfa81ea9",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -24,16 +67,245 @@
   "name": "WebUI",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 1045,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://web.stremio.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://web.stremio.com/"
+    },
+    {
+      "bytes_read": 1250000,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "hash_scope": "bounded_response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "status": "reachable",
+      "truncated": true,
+      "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.864344+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:49.209359+00:00",
+  "provider_ids": [
+    "provider-sentry",
+    "provider-youtube",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/worker.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://web.stremio.com/favicons/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://web.stremio.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/styles/main.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "150a8945480d4320cf89bbfb3e3e334fdbf2cecf2a229e84715ce042be7f3d1a",
+      "evidence_url": "https://web.stremio.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:49.209359+00:00",
+      "url": "https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://spotlightjs.com/sidecar/npx/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://docs.sentry.io/platforms/javascript/best-practices/browser-extensions/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://browser.sentry-cdn.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://dogs.are.great${t/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://dogs.are.great/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://www.example.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://sentry.io/welcome/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://www.youtube.com/iframe_api",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://github.com/narsenico/a-color-picker",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "76061ae2dd70a7850426e6c2d56bcda1d87a686524c9a8998d41593abb3a9314",
+      "evidence_url": "https://web.stremio.com/6ed4463d94baf972dda2630c914ce91c747f9f7c/scripts/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:50.097830+00:00",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-bcc15dbbdc15c24f"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

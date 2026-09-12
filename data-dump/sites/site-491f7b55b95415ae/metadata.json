@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 26693,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://fcast.org/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:47.484063+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://fcast.org/"
   },
   "categories": [
@@ -9,8 +24,31 @@
       "Smart TV"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 7,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-65446f28baad9257"
+    "domain-65446f28baad9257",
+    "domain-d15afad5fd0ce8bf",
+    "domain-2739832762bb390f",
+    "domain-201d3a5c17c0b504",
+    "domain-8e08d6d89d17a981",
+    "domain-a61723a081153cbf",
+    "domain-91c7c57b67602c19",
+    "domain-b63e25909e64be3b",
+    "domain-3aeb002460381c6f",
+    "domain-0537c0b39e8c1247",
+    "domain-6860776e5611f69c",
+    "domain-3c8b2bbd5af1180d",
+    "domain-16bf92b0dd7f44f8",
+    "domain-2d0f3c337e640d3a",
+    "domain-a6bda32d428d7816",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +62,842 @@
   "name": "FCast",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 26693,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://fcast.org/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://fcast.org/"
+    },
+    {
+      "bytes_read": 9399,
+      "content_type": "application/javascript",
+      "final_url": "https://fcast.org/vendor/modernizr/modernizr.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:48.491533+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "6d258157ab0c7384c946aff7fe626bd095389b336c4d7f01b5d418e22256ff62",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://fcast.org/vendor/modernizr/modernizr.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853651+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:47.484063+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-youtube",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/modernizr/modernizr.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/plugins/js/plugins.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/js/theme.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/js/views/view.contact.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/js/custom.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/js/theme.init.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/box-arrow-up-right.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-download.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/tv.avif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/tv1.avif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/sender_connected.avif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/receiver_connected.avif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-google-play.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-amazon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-android.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-windows.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-linux.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/icon-apple.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/youtube.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/x.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/zulip.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/images/github.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://docs.fcast.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://grayjay.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://docs.fcast.org/sdk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.futo.fcast.receiver.playstore&pli=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://www.amazon.com/dp/B0CLKVH8GZ/ref=sr_1_1?keywords=fcast&s=mobile-apps&sr=1-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/android/fcast-release.apk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/receiver/desktop/win-x64/FCastReceiver-latest-win64-installer.msi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://flathub.org/en/apps/org.fcast.Receiver",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/receiver/desktop/macos-aarch64/fcast-receiver-latest-macos-aarch64.dmg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://github.com/futo-org/fcast/releases",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/sender/desktop/latest/FCastSender-latest-win64-installer.msi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://flathub.org/en/apps/org.fcast.Sender",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/sender/desktop/latest/fcast-sender-latest-macos-aarch64.dmg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://futo.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://www.youtube.com/@FUTOTECH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://twitter.com/FUTO_Tech",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://chat.futo.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://github.com/futo-org/fcast",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/img/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600%2C700%2C800%7CShadows+Into+Light&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/assets/fonts/outfit.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/bootstrap/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/fontawesome-free/css/all.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/animate/animate.compat.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/simple-line-icons/css/simple-line-icons.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/theme.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/theme-elements.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/theme-blog.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/theme-shop.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/rs-plugin/css/settings.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/rs-plugin/css/layers.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/vendor/rs-plugin/css/navigation.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/css/skin-app-landing.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600%2C700%2C800%7CShadows+Into+Light&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://docs.fcast.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://grayjay.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://docs.fcast.org/sdk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.futo.fcast.receiver.playstore&pli=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://www.amazon.com/dp/B0CLKVH8GZ/ref=sr_1_1?keywords=fcast&amp%3Bs=mobile-apps&amp%3Bsr=1-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/android/fcast-release.apk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/receiver/desktop/win-x64/FCastReceiver-latest-win64-installer.msi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://flathub.org/en/apps/org.fcast.Receiver",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/receiver/desktop/macos-aarch64/fcast-receiver-latest-macos-aarch64.dmg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://github.com/futo-org/fcast/releases",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/sender/desktop/latest/FCastSender-latest-win64-installer.msi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://flathub.org/en/apps/org.fcast.Sender",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://dl.fcast.org/sender/desktop/latest/fcast-sender-latest-macos-aarch64.dmg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://fcast.org/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://futo.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://www.youtube.com/@FUTOTECH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://twitter.com/FUTO_Tech",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://chat.futo.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://github.com/futo-org/fcast",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "599b2bda3287f41780e1500636e726308f8d4365e3551cf15f65debdac2f4a1c",
+      "evidence_url": "https://fcast.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:47.484063+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6d258157ab0c7384c946aff7fe626bd095389b336c4d7f01b5d418e22256ff62",
+      "evidence_url": "https://fcast.org/vendor/modernizr/modernizr.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:48.491533+00:00",
+      "url": "https://modernizr.com/download/?-backgroundcliptext-boxshadow-csstransforms3d-csstransitions-history-svg-video-domprefixes-mq-prefixed-prefixes-setclasses-shiv-testallprops-teststyles=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6d258157ab0c7384c946aff7fe626bd095389b336c4d7f01b5d418e22256ff62",
+      "evidence_url": "https://fcast.org/vendor/modernizr/modernizr.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:48.491533+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-940ac6111f5b5e2d"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 30397,
+    "content_type": "text/html",
+    "final_url": "https://www.quodb.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:12.378419+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.quodb.com/"
   },
   "categories": [
@@ -9,8 +23,38 @@
       "Helpful Sites / Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 5,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-967fff3257355818"
+    "domain-967fff3257355818",
+    "domain-395eb8c2797dc850",
+    "domain-04009dc9600def08",
+    "domain-88bb79fa6efc5d55",
+    "domain-8d9559743b8b4225",
+    "domain-950237e13098bfe4",
+    "domain-d15afad5fd0ce8bf",
+    "domain-a669dc3a1a47e0f1",
+    "domain-01ac74e6305467bf",
+    "domain-466737cf5a9844b2",
+    "domain-15a12664bc6642bd",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-aba0c55b0160e3d1",
+    "domain-9e0b3e3f51f737d3",
+    "domain-b2de828e980d40e9",
+    "domain-7ef847840506114b",
+    "domain-49226ec89372c2e9",
+    "domain-3c8b2bbd5af1180d",
+    "domain-3aeb002460381c6f",
+    "domain-fc996725599e8408",
+    "domain-45ef5f98b38b536a",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +68,516 @@
   "name": "QuoDB",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 30397,
+      "content_type": "text/html",
+      "final_url": "https://www.quodb.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.quodb.com/"
+    },
+    {
+      "bytes_read": 10987,
+      "content_type": "application/javascript",
+      "final_url": "https://www.quodb.com/scripts/vendor/7d72bbd1.modernizr.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:13.273609+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0d073c4d374b4c636c1dbd58498942f73e4770b38ed7b35b3cd5944d0f8e9b41",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.quodb.com/scripts/vendor/7d72bbd1.modernizr.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865449+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:12.378419+00:00",
+  "provider_ids": [
+    "provider-google-ads",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/scripts/vendor/7d72bbd1.modernizr.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdn.adverge.ai/adv.quodb.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://btloader.com/tag?o=5766703155773440&upapi=true",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3730271461974795",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/bad_words.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://widget.freshworks.com/widgets/70000001553.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/scripts/f47daadf.vendor.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/scripts/126944f7.plugins.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/scripts/6e5f4f3a.main.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://creativecommons.org/licenses/by/3.0/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://glyphicons.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ads.landocsventures.com/quodb/Privacy/Privacy.pdf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ads.landocsventures.com/quodb/Privacy/COOKIE.pdf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Roboto%3Awght%40100%3B300%3B400%3B500%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdn.plyr.io/3.7.8/plyr.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/styles/3bc9b732.main.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/styles/new-design.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/images/84d8302d.favicon_quodb.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ccpa.privacymanager.io/latest/ccpa.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://gdpr.privacymanager.io/latest/gdpr.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://www.quodb.com/styles/e29e9ee4.modules.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Roboto%3Awght%40100%3B300%3B400%3B500%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdn.plyr.io/3.7.8/plyr.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ccpa.privacymanager.io/latest/ccpa.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://gdpr.privacymanager.io/latest/gdpr.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdn.adverge.ai/adv.quodb.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://btloader.com/tag?o=5766703155773440&upapi=true",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3730271461974795",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://cmp.inmobi.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://capi.connatix.com/tr/si?token=%5BREDACTED%5D&cid=5971e8d1-b3b8-45dd-a1a1-f681130cc202",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://twitter.com/lusob",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://creativecommons.org/licenses/by/3.0/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "http://glyphicons.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ads.landocsventures.com/quodb/Privacy/Privacy.pdf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://ads.landocsventures.com/quodb/Privacy/COOKIE.pdf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://github.com/lusob/backbone-quodb/releases",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://widget.freshworks.com/widgets/70000001553.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://launchpad-wrapper.privacymanager.io/37339e7f-89e9-4dff-9dea-a3d03785bafa/launchpad-liveramp.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://launchpad.privacymanager.io/latest/launchpad.bundle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4421cd6d177ddfa7e3c2f0a6136d65db6be932c32728d2d9d7dd6395a03523a",
+      "evidence_url": "https://www.quodb.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:12.378419+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0d073c4d374b4c636c1dbd58498942f73e4770b38ed7b35b3cd5944d0f8e9b41",
+      "evidence_url": "https://www.quodb.com/scripts/vendor/7d72bbd1.modernizr.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:13.273609+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-805aa11cee07b9b4"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

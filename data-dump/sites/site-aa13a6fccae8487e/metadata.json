@@ -1,7 +1,29 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 129160,
+    "content_type": "text/html;charset=utf-8",
+    "final_url": "https://kcnawatch.us/?popup=free-member-form",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "https://signup.koreapro.org",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "nginx",
+      "via": "1.1 google",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:40.094472+00:00",
+    "redirects": [
+      {
+        "http_status": 302,
+        "location": "https://kcnawatch.us/?popup=free-member-form",
+        "url": "https://kcnawatch.us/korea-central-tv-livestream"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://kcnawatch.us/korea-central-tv-livestream"
   },
   "categories": [
@@ -10,14 +32,55 @@
       "Live TV"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 10,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-b7dd03ad678f434e"
+    "domain-b7dd03ad678f434e",
+    "domain-bd740fffba876470",
+    "domain-80255870a6218fe0",
+    "domain-a97c4c7974bb1266",
+    "domain-c071584575df5769",
+    "domain-3c8b2bbd5af1180d",
+    "domain-5ca704affb6babee",
+    "domain-3e723b591bdb95ce",
+    "domain-6860776e5611f69c",
+    "domain-4592b4f3f535f28b",
+    "domain-d9b666d9372732f8",
+    "domain-b5f7ba80fcd9dd7b",
+    "domain-5dd057147ee27623",
+    "domain-9966fb0010f93d58",
+    "domain-7ef847840506114b",
+    "domain-3bfc10fc01753798",
+    "domain-ecc0810d5cd94894",
+    "domain-1a2e36cc692d119d",
+    "domain-dabbc07dcff77c17",
+    "domain-32ebb1abcc1c601c",
+    "domain-504a546fac84e033",
+    "domain-2033cf94de7e0112",
+    "domain-779b5d4ebcec6b41",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-29078f5ef8eb9960"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-b0123247472a167c"
+  ],
   "entry_ids": [
     "entry-0c471895afabc5a1"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "WordPress",
+      "source_url": "https://kcnawatch.us/?popup=free-member-form"
+    }
+  ],
   "id": "site-aa13a6fccae8487e",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +88,2736 @@
   "name": "KCNA",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 129160,
+      "content_type": "text/html;charset=utf-8",
+      "final_url": "https://kcnawatch.us/?popup=free-member-form",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "https://signup.koreapro.org",
+        "content-type": "text/html;charset=UTF-8",
+        "server": "nginx",
+        "via": "1.1 google",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://kcnawatch.us/?popup=free-member-form",
+          "url": "https://kcnawatch.us/korea-central-tv-livestream"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://kcnawatch.us/korea-central-tv-livestream"
+    },
+    {
+      "bytes_read": 94292,
+      "content_type": "application/javascript",
+      "final_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx",
+        "via": "1.1 google",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.856892+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:40.094472+00:00",
+  "provider_ids": [
+    "provider-cloudflare-challenge",
+    "provider-youtube",
+    "provider-google-analytics"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nkpro-members-only.js?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/vendor/alpine.min.js?ver=3.15.8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileLoaded&render=explicit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.gstatic.com/charts/loader.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/jquery.fancybox.min.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://027b920af26444faade4f5b0da2b04ff.js.ubembed.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/bootstrap.min.js?ver=5.3.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/sidebarmenu.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/mCustomScrollbar.concat.min.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/custom.js?ver=1788826168",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/images/nk_link.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2015/11/kcna-english.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2015/11/rodong-english.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba858b0a5daf44db5a5cfc142ec243b74a",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2024/01/tongil-sinbo-2024-0106-pdf-360x484.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/pyongyang-times-2026-0905-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/dpr-korea-2026-0901-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/Kumsugangsan-2026-0901-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2021/03/korea-today-2021-0306-pdf-360x510.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/08/foreign-trade-2026-0701-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/2026/05/west_coast_exchange_desktop-ezgif.com-optimize.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/images/logo-kcna-ft.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/images/nk-pro-ie-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/images/logo-kcna.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://twitter.com/nknewsorg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.instagram.com/nknewsorg/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.facebook.com/nknewsorg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.youtube.com/channel/UCz5Nf5Eb7EQul1mLqrRwliw",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://koreapro.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/163",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/183982",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/190034",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/190036",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-the-kcna-databases/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/156",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/189661",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/rodong-sinmun/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/203095/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2184294",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2166752",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2161004/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/197200/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2166769",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2191705",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2166766",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216118/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216120/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2164524",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/203101",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/214207/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2167629",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2185928/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2180305",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/195116/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216103/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/183989",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/pyongyang-times/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/209105",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/203097/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216105/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216111/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/216114/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2182965",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/209108/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/175",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/189660",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2166760/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/article/2166758/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/dpr-korea/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/foreign-trade/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/korea-today/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/kumsugangsan/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/tongil-sinbo/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/korea-central-tv-livestream/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/kctv-archive/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/create-chart/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kim-index/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-threat-index/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/alerts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/advanced-search/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/?popup=free-member-form",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789193054-408133583/press-review",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789186588-92109796/exhibition-in-sector-of-intellectual-property-2026-opens-in-dprk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185025-649296347/respected-comrade-kim-jong-un-receives-greetings-from-azerbaijani-president",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185024-807608660/respected-comrade-kim-jong-un-receives-greetings-from-palestinian-president",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185023-139475991/[REDACTED-OPAQUE]",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba858b0a5daf44db5a5cfc142ec243b74a",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://events.nknews.org/west-coast-exchange/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://signup.nknews.org/nk-pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kim-index",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-threat-index",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kcnawatch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/frequently-asked-questions-about-nk-news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/terms-and-conditions-nk-news-pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://challenges.cloudflare.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://027b920af26444faade4f5b0da2b04ff.js.ubembed.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkcnawatch.org%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkcnawatch.org%2F&format=xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/leaky-paywall//css/issuem-leaky-paywall.css?ver=4.10.15",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/css/nk-paywall.css?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/css/nkpro-flow.css?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/bootstrap.min.css?ver=5.3.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/font-awesome.min.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/fontello.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/mCustomScrollbar.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/jquery.fancybox.min.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/style.css?ver=1788826168",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/responsive.css?ver=36758",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/wp/v2/pages/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://federated.press/@nknews",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2016/01/cropped-mstile-310x310-120x120.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2016/01/cropped-mstile-310x310-300x300.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/image-search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/?popup=signin",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://cmp.inmobi.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkcnawatch.org%2F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkcnawatch.org%2F&amp%3Bformat=xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/leaky-paywall//css/issuem-leaky-paywall.css?ver=4.10.15",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/css/nk-paywall.css?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/css/nkpro-flow.css?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/bootstrap.min.css?ver=5.3.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/font-awesome.min.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/fontello.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/mCustomScrollbar.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/jquery.fancybox.min.css?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/style.css?ver=1788826168",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/css/responsive.css?ver=36758",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-admin/admin-ajax.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/nknews/css/custom-font.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/?nk_paywall_toss=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nkpro-members-only.js?ver=1.3.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/vendor/alpine.min.js?ver=3.15.8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileLoaded&amp%3Brender=explicit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.gstatic.com/charts/loader.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://api.w.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-json/wp/v2/pages/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/xmlrpc.php?rsd=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://federated.press/@nknews",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2016/01/cropped-mstile-310x310-120x120.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2016/01/cropped-mstile-310x310-300x300.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://twitter.com/nknewsorg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.instagram.com/nknewsorg/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.facebook.com/nknewsorg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.youtube.com/channel/UCz5Nf5Eb7EQul1mLqrRwliw",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://koreapro.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-the-kcna-databases/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/rodong-sinmun/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/pyongyang-times/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/dpr-korea/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/foreign-trade/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/korea-today/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/kumsugangsan/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/periodicals/tongil-sinbo/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/korea-central-tv-livestream/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/kctv-archive/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/create-chart/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kim-index/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-threat-index/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/alerts/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/?popup=free-member-form",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/203095",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2184294",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2166752",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2161004",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/197200",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2191705",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2166769",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2166766",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/190034",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/190036",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/163",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/183982",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216118",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216120",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2164524",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/203101",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/214207",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2167629",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2191689",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2191687",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2185928",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2180305",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/195116",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216103",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/183989",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/156",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/189661",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/203097",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/209105",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216105",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216111",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/216114",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2182965",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/209108",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/175",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/189660",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2166760",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/article/2166758",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/?popup=free-member-form&amp%3Bsort=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/?popup=free-member-form&amp%3Bsort=pop",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/?popup=free-member-form&amp%3Blang=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/?popup=free-member-form&amp%3Blang=kr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789193054-408133583/press-review",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2015/11/kcna-english.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789186588-92109796/exhibition-in-sector-of-intellectual-property-2026-opens-in-dprk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2015/11/rodong-english.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185025-649296347/respected-comrade-kim-jong-un-receives-greetings-from-azerbaijani-president",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185024-807608660/respected-comrade-kim-jong-un-receives-greetings-from-palestinian-president",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/newstream/1789185023-139475991/[REDACTED-OPAQUE]",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/image-search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_kr/images/983c74764d50d46eed473d67779f45ba858b0a5daf44db5a5cfc142ec243b74a",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45bacdc9cafc6927cb94059aa3b74cb574f0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45badab460a6b34d08790b89a632a3ae66e6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba2fe80e9b36914550840ac7d1e4a09894",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/kcna-watch/kcna_kp_en/images/983c74764d50d46eed473d67779f45ba92a0f1e729af1a671b2c20f97d9eb9e5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2024/01/tongil-sinbo-2024-0106-pdf-360x484.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/pyongyang-times-2026-0905-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/dpr-korea-2026-0901-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/09/Kumsugangsan-2026-0901-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2021/03/korea-today-2021-0306-pdf-360x510.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/sites/5/2026/08/foreign-trade-2026-0701-pdf.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.org/wp-content/plugins/nk-pro-ads/assets/images/bg-image.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://events.nknews.org/west-coast-exchange/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://assets.korearisk.com/uploads/2026/05/west_coast_exchange_desktop-ezgif.com-optimize.gif",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/?popup=signin",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://signup.nknews.org/nk-pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kim-index",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-threat-index",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/about-kcnawatch/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/frequently-asked-questions-about-nk-news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/privacy-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://www.nknews.org/terms-and-conditions-nk-news-pro",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://stats.nknews.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "http://(/%5B/%5D+",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/jquery.fancybox.min.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://027b920af26444faade4f5b0da2b04ff.js.ubembed.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/bootstrap.min.js?ver=5.3.3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/sidebarmenu.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/mCustomScrollbar.concat.min.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-content/themes/kcnawatch/js/custom.js?ver=1788826168",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://s.w.org/images/core/emoji/17.0.2/72x72/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://s.w.org/images/core/emoji/17.0.2/svg/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/wp-emoji-release.min.js?ver=7.0.4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "651cf78dfd6d535cdf569a3788151825214debde286a5408c7b3bdf9807c2ce0",
+      "evidence_url": "https://kcnawatch.us/?popup=free-member-form",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.094472+00:00",
+      "url": "https://kcnawatch.us/wp-includes/js/wp-emoji-loader.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "evidence_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "evidence_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "url": "https://js.tosspayments.com/v2/standard",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "evidence_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "url": "https://js.stripe.com/v3/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "evidence_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=AW-994398360",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a236da7934ba6c7239d9c563801fe7d967eb37ed367d8f85c89500eb51fa08fa",
+      "evidence_url": "https://kcnawatch.us/wp-content/plugins/nk-paywall/assets/js/nk-paywall.js?ver=1.3.2",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:40.875897+00:00",
+      "url": "https://static.ads-twitter.com/uwt.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

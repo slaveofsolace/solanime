@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 44097,
+    "content_type": "text/html; charset=utf8",
+    "final_url": "https://flixer.su/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf8",
+      "server": "nginx",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:32.531153+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://flixer.su/"
   },
   "categories": [
@@ -10,10 +24,37 @@
       "Stream Aggregators"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-86f7cb3574dc4077"
+    "domain-86f7cb3574dc4077",
+    "domain-d94fcf5105ee9ed8",
+    "domain-16391d3665ca7477",
+    "domain-fd6a07a9309450df",
+    "domain-7c2ecd07f1556484",
+    "domain-0e948a9c9e86a4f0",
+    "domain-01d6e1237397752f",
+    "domain-1a2e36cc692d119d",
+    "domain-49960de5880e8c68",
+    "domain-59c042de3c6c49ac",
+    "domain-ecbb2ec5112e3173",
+    "domain-3787f203c405cfd3",
+    "domain-3ce164b49979d0df",
+    "domain-af420a3aa8b858cc",
+    "domain-d37cf06efefae3c0",
+    "domain-2bc016108f5a8792",
+    "domain-24027908cfccaaa7"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-d2049039fad159e3",
+    "endpoint-2f791e5736af7b1d"
+  ],
   "entry_ids": [
     "entry-404d7c693d08026f"
   ],
@@ -25,16 +66,826 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 44097,
+      "content_type": "text/html; charset=utf8",
+      "final_url": "https://flixer.su/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf8",
+        "server": "nginx",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://flixer.su/"
+    },
+    {
+      "bytes_read": 508982,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://flixer.su/assets/js/index-15527206.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "nginx",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://flixer.su/assets/js/index-15527206.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.853817+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:32.531153+00:00",
+  "provider_ids": [
+    "provider-tmdb"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/assets/js/index-15527206.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/assets/icons/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/assets/icons/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/assets/icons/mask-icon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/manifest.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/assets/sitemaps/sitemap.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/es",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/fr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/de",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/it",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/nl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ru",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ja",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ko",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/zh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/bn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/hi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/jv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/te",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/tr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/vi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://flixer.su/assets/css/index-15527206.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/assets/icons/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/assets/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/search?q=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/es",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/fr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/de",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/it",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pt",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/nl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ru",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ja",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ko",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/zh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/ar",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/bn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/hi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/jv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/pl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/te",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/tr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/vi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://image.tmdb.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://1414.hexa.su/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://www/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://www/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "https://llvpn.com/tag.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8318f787c415c7ff231b3ade94574222d81c1329158105a870ad9be4ef8239ed",
+      "evidence_url": "https://flixer.su/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:32.531153+00:00",
+      "url": "http://flixer.su/shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://flixer.su/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://${t/?%3F%28typeof=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://www/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://${s/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://www/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://${s/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://${jd(zx(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://${zd(zx(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://gsap.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "http://fb.me/use-check-prop-types",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://${lv/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://flixer.gd/backup-domains",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://flixer.su/assets/docs/CHANGELOG.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4034a034d1b7a183301811a113a24829ea48eedeca0d6b212ed30b65c834be28",
+      "evidence_url": "https://flixer.su/assets/js/index-15527206.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:34.363299+00:00",
+      "url": "https://flixer.su/version.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

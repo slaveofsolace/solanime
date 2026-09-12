@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 369080,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://popwatch.cc/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Next.js"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:33.953960+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://popwatch.cc/"
   },
   "categories": [
@@ -10,14 +25,36 @@
       "Stream Aggregators"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 15,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-817df96b8585eff2"
+    "domain-817df96b8585eff2",
+    "domain-d15afad5fd0ce8bf",
+    "domain-6860776e5611f69c",
+    "domain-d94fcf5105ee9ed8",
+    "domain-1a2e36cc692d119d",
+    "domain-3dc86e6666d7a5f2"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-fa51c7ee9c4bfc14"
+  ],
   "entry_ids": [
     "entry-ce3e38a93e70d159"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://popwatch.cc/"
+    }
+  ],
   "id": "site-c6c8ed38665e93ae",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +62,3585 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 369080,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://popwatch.cc/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://popwatch.cc/"
+    },
+    {
+      "bytes_read": 173020,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.859827+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:42:33.953960+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-youtube",
+    "provider-tmdb",
+    "provider-cloudflare-edge",
+    "provider-embed-host-6860776e5611f69c"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/5635-f836051a5803c2df.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/main-app-0c272a0d1192543b.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/app/layout-b66cad11113dbe98.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/8739-b4f533d599595214.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/app/error-17b50729630e7385.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/2573-c56d8c02dcb4b53e.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/3346-872367bb0dbff09c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/9638-123068b5e9bfc11f.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/app/(site)/layout-ba376cc838a68e86.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/4241-c2bff4cee5dbc13c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/5274-c84be501a28e20cf.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/app/(site)/page-67e250b3335b774c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/webpack-4c4a65a99f61245a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "embed",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://www.youtube.com/embed/EEz5xbzYPKI?autoplay=1&mute=1&controls=0&loop=1&playlist=EEz5xbzYPKI&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1&fs=0&enablejsapi=1&cc_load_policy=0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/24JmHBUaZVmZRoEMjzejLL3sJc5.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/4v8XgcmtUFVXUzGb7noltdjg2Ou.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/i65y7cMae36K0giN0GRaMjAHUru.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/api/logo?path=%2FpRHIM8liJBYy1Z4wNgAizqCOuOU.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pu2VxGlpGwffOx292w18b1tv96j.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/jzPwsojjFStf5lR5Nm07w2hH56G.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rwaxLuOkJ5mMvJU5juNaPcKADOW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eSS5mvSG84UUuvtbHel5Yu3Wik4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zxcMdx0w5Zmg8yZuuiS7CJ8vOea.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3PWJqDfygN0YNNjWsDUOXclCp3h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/oLld47ZT1I3iecM3OWhIphohQUJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/4LwvU9SZc8QQzW1X1FAPhNbXnEU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7bOuu1SRALGwsG2fLCTvRkCmQBj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2l0gBLpjcWo4ivmbHUhFIw3KGDn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/nUXjSyXAQZhOf32e6lkLX6C6Rf3.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pzujcdPAoH361NObVrtbA7zACE7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/k6KhQBpW4gdcoSp9JQvQFq14lFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qezeCEkIKHQM5iwyVeYBuXmYA2h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ewYjHmmyxIaM3heRO0eZaOA6xo2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/AaOxyfJdXcb1FnKeoj87FiHUs0w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/lgD4j9gUGmMckZpWWRJjorWqGVT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2rTGn2CBavgioMVorVdZHgmdA2n.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7BjipkA48xXLauTg45QKiOb144a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/trending?type=movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/trending?type=tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/trending?type=anime",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/trending",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/continue-watching",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/action",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/comedy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/horror",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/sci-fi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/adventure",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/animation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/crime",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/documentary",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/drama",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/family",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/fantasy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/history",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/mystery",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/romance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/thriller",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/western",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1108427",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1433367",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1386315",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1302904",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1339713",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1137844",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/969681",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1440098",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1368337",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1423191",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1204680",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1288445",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1083381",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1084244",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1185806",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1081003",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1377237",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1101412",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1003596",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1522689",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/top-rated?type=movie",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1375646",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1506560",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1294189",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1393326",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1285366",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1516698",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1621552",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1323244",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1315772",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/movie/1514682",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/125988",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/95350",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/108978",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/236235",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/246473",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/329471",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/258230",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/69557",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/30984",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/37854",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/196322",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/113962",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/253941",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/97546",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/299952",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/615",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/255358",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/82684",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/300507",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/65942",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/genre/top-rated?type=tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/51025",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/36109",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/30801",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/45857",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/5920",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/117217",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/91759",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/94722",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/22980",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/2734",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/31472",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/79744",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/72879",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/tv/50821",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/css/0b577bf2e13445f4.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/_next/static/chunks/webpack-4c4a65a99f61245a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/manifest.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/apple-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/api/logo?path=%2FpRHIM8liJBYy1Z4wNgAizqCOuOU.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://popwatch.cc/opengraph-image?70206f85a2f0bb29=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/dmwb15BCkqjoXA9dXIsoY2Hn10F.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/46q8z1TbbVcF8uhRHsvt5s0h2SH.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/uxCaBoYXsDC4A0SqTm3SISj0OwK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/ogwQOLbCfncjvBhFb5l0OmQH8KC.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/hVXjX1jLZ1ljFSNGXpjJfbTUOa7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/vhv7lBWYM0DUuNU2a0V7Rhq21dD.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/pu2VxGlpGwffOx292w18b1tv96j.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pu2VxGlpGwffOx292w18b1tv96j.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/pu2VxGlpGwffOx292w18b1tv96j.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/gpC7h43xPMEV3goYMQShfJbTtLq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/2l0gBLpjcWo4ivmbHUhFIw3KGDn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2l0gBLpjcWo4ivmbHUhFIw3KGDn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/2l0gBLpjcWo4ivmbHUhFIw3KGDn.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/cyBg9FJ2AmTWEGktA43gMo4t0Vj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/kq6XB6xmD86txW4UR32tT2JUiN9.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/k6KhQBpW4gdcoSp9JQvQFq14lFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/k6KhQBpW4gdcoSp9JQvQFq14lFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/k6KhQBpW4gdcoSp9JQvQFq14lFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/qezeCEkIKHQM5iwyVeYBuXmYA2h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qezeCEkIKHQM5iwyVeYBuXmYA2h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/qezeCEkIKHQM5iwyVeYBuXmYA2h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/ewYjHmmyxIaM3heRO0eZaOA6xo2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ewYjHmmyxIaM3heRO0eZaOA6xo2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/ewYjHmmyxIaM3heRO0eZaOA6xo2.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/24JmHBUaZVmZRoEMjzejLL3sJc5.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/4v8XgcmtUFVXUzGb7noltdjg2Ou.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/i65y7cMae36K0giN0GRaMjAHUru.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://www.youtube.com/embed/EEz5xbzYPKI?autoplay=1&amp%3Bmute=1&amp%3Bcontrols=0&amp%3Bloop=1&amp%3Bplaylist=EEz5xbzYPKI&amp%3Bmodestbranding=1&amp%3Brel=0&amp%3Biv_load_policy=3&amp%3Bdisablekb=1&amp%3Bplaysinline=1&amp%3Bfs=0&amp%3Benablejsapi=1&amp%3Bcc_load_policy=0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/6rpvddXbaQPOi0fB2HKWbZ3uUSg.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/qnin56Syy5rbG7KCaxWY7SPuy6p.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/yBKMAIj7clP42UkFejhGDBBoTpb.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/jzPwsojjFStf5lR5Nm07w2hH56G.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/jzPwsojjFStf5lR5Nm07w2hH56G.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/jzPwsojjFStf5lR5Nm07w2hH56G.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rwaxLuOkJ5mMvJU5juNaPcKADOW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/rwaxLuOkJ5mMvJU5juNaPcKADOW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/rwaxLuOkJ5mMvJU5juNaPcKADOW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eSS5mvSG84UUuvtbHel5Yu3Wik4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/eSS5mvSG84UUuvtbHel5Yu3Wik4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/eSS5mvSG84UUuvtbHel5Yu3Wik4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/zxcMdx0w5Zmg8yZuuiS7CJ8vOea.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/zxcMdx0w5Zmg8yZuuiS7CJ8vOea.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/zxcMdx0w5Zmg8yZuuiS7CJ8vOea.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/3PWJqDfygN0YNNjWsDUOXclCp3h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/3PWJqDfygN0YNNjWsDUOXclCp3h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/3PWJqDfygN0YNNjWsDUOXclCp3h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/alpf5v4UqSFawPmG9RX03Or4BDk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/oLld47ZT1I3iecM3OWhIphohQUJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/oLld47ZT1I3iecM3OWhIphohQUJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/oLld47ZT1I3iecM3OWhIphohQUJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/4LwvU9SZc8QQzW1X1FAPhNbXnEU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/4LwvU9SZc8QQzW1X1FAPhNbXnEU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/4LwvU9SZc8QQzW1X1FAPhNbXnEU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7bOuu1SRALGwsG2fLCTvRkCmQBj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/7bOuu1SRALGwsG2fLCTvRkCmQBj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/7bOuu1SRALGwsG2fLCTvRkCmQBj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/vozJZjHv0Yyv4PjoOxF5tVMUGFI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/bc6XIKP1TrnugYMzIIUz9YCL8VM.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/2DPmTlv8F0V1TQBPmlsGOVOhtWk.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/ySA5MvhoxTdezNUMe0ifPmhxH4w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/uRHsiw1wLxPHFXkkv4Ix1s0O6f4.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/lGFngmJWMO4HTPcI0sUGKBAFqMe.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/nUXjSyXAQZhOf32e6lkLX6C6Rf3.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/nUXjSyXAQZhOf32e6lkLX6C6Rf3.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/nUXjSyXAQZhOf32e6lkLX6C6Rf3.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/pzujcdPAoH361NObVrtbA7zACE7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/pzujcdPAoH361NObVrtbA7zACE7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/pzujcdPAoH361NObVrtbA7zACE7.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/jkPZW1iHNvlI6077NxSxwITa1tj.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/oHqYrPAsIiTD5m4DuxumV4er8BU.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/AaOxyfJdXcb1FnKeoj87FiHUs0w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/AaOxyfJdXcb1FnKeoj87FiHUs0w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/AaOxyfJdXcb1FnKeoj87FiHUs0w.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/lgD4j9gUGmMckZpWWRJjorWqGVT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/lgD4j9gUGmMckZpWWRJjorWqGVT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/lgD4j9gUGmMckZpWWRJjorWqGVT.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/2rTGn2CBavgioMVorVdZHgmdA2n.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/2rTGn2CBavgioMVorVdZHgmdA2n.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/2rTGn2CBavgioMVorVdZHgmdA2n.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/7BjipkA48xXLauTg45QKiOb144a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/7BjipkA48xXLauTg45QKiOb144a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/7BjipkA48xXLauTg45QKiOb144a.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w342/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w185/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://image.tmdb.org/t/p/w500/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ee8732e476de5af8557b3fc63419d94b1d51f060993cdd3f4fd5674d9475eb61",
+      "evidence_url": "https://popwatch.cc/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:33.953960+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "evidence_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "evidence_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "evidence_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "evidence_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8695635f039d56fecd1ab2f1e181f70d41f7aefcb167bae6224561c25dbb7083",
+      "evidence_url": "https://popwatch.cc/_next/static/chunks/f625b344-97a11cbb39bce0d3.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:34.603465+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

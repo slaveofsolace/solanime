@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 116385,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.viddsee.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:33.699301+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.viddsee.com/"
   },
   "categories": [
@@ -9,8 +22,40 @@
       "Specialty Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 5,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-411206a3e7de1470"
+    "domain-411206a3e7de1470",
+    "domain-2c0f15aa8bbe029a",
+    "domain-97692e14df23bd64",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-3addcca36564a8d6",
+    "domain-deb89b6c899e0fc6",
+    "domain-3e723b591bdb95ce",
+    "domain-3c8b2bbd5af1180d",
+    "domain-6860776e5611f69c",
+    "domain-055878d4c9c9aa32",
+    "domain-823fb5b298a0ab38",
+    "domain-4d7af2eb06c575b1",
+    "domain-7c50ed4acef2e79d",
+    "domain-ed369af2fedc8f98",
+    "domain-3944a46f6d316061",
+    "domain-3aeb002460381c6f",
+    "domain-a779e2f62123944b",
+    "domain-ac1e504308aafb8d",
+    "domain-f38934ef2154f3d9",
+    "domain-251110a33f2aaac1",
+    "domain-8e08d6d89d17a981",
+    "domain-b72715a15edddc7f",
+    "domain-1a60146945f020ec",
+    "domain-d84a36a05e56cc9d",
+    "domain-f5594fab1b035ec0"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -24,16 +69,1654 @@
   "name": "Viddsee",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 116385,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.viddsee.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.viddsee.com/"
+    },
+    {
+      "bytes_read": 110437,
+      "content_type": "application/javascript",
+      "final_url": "https://www.viddsee.com/assets/packs/js/head-0571a5fc25cefdd8f724.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:34.844715+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "30ab0dd6a0deb008330522c4d2e519d2e994c2ab07606b1d0007d50623eef733",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.viddsee.com/assets/packs/js/head-0571a5fc25cefdd8f724.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866101+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:33.699301+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/js/head-0571a5fc25cefdd8f724.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://accounts.google.com/gsi/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/i18n.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/javascripts/translations.js?v=922dc3c5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/js/styles-c199fa86da6b2a236a4a.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/js/app-d193476fdfe51f5d7347.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/images/modal-download/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/facebook-304a9de5a3d0b1a68ed220940383f9b0.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/x-3b49205712ae7d4be5992d2b6014c98d.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/youtube-48fece7779853fd41a9f3c10c8a17a0a.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/instagram-f0cfa30d48f79bb3d8c99ebf43dea781.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/linkedin-03f1d164221e3a81954e6ec24a350288.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/media/images/organisms/footer/social-icons/tiktok-7d137f08c92b346174865ec640646683.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/mobile",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/s/nuggets",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/s/originals",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/studios",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/submit",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/community",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/new",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/popular",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/channel",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/series",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/drama",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/documentary",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/animation",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/comedy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/thriller",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/horror",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/romance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/action",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/genre/sci-fi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/love",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/family",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/hope",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/sexuality",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/crime",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/politics",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/childhood",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/inspiration",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/topic/friendship",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/rp6kffqb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/join",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.facebook.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://twitter.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.youtube.com/subscription_center?add_user=viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://instagram.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.linkedin.com/company/viddsee/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.tiktok.com/@viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://help.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://careers.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://press.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/sitemap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/terms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/privacy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=id",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=zh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/opensearch.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/css/all.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/css/styles-6a63d9e7.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/assets/packs/css/app-a3113f9e.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/apple-touch-icon.png?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/favicon-32x32.png?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/android-chrome-192x192.png?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/favicon-16x16.png?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/manifest.json?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/safari-pinned-tab.svg?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/icons/favicon.ico?v=A0eeoy83Yb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/sendy_subscribe",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://github.com/newrelic/newrelic-browser-agent/blob/main/docs/warning-codes.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://js-agent.newrelic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "http://custom.transaction/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=en",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=id",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/?locale=zh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/v1/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/v2/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://hazelnut.viddsee.com/v3/?optin=true",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://app.vidds.ee/a/key_live_mfgLAnEYJFwVF1WQ0un3zpnjCqkdrolR",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.viddsee&referrer=utm_source%3Dviddsee%26utm_medium%3Dapp_banner%26utm_campaign%3Dapp_banner",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://itunes.apple.com/app/viddsee-watch-asian-movies/id930821146",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/[REDACTED-OPAQUE].jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/melody-of-bamboo-ft-001_9f54362883a45624b93028a1304b2129_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/vlcsnap-2016-05-23-21h56m47s734_6421fdc96fa55467a66abdd68c844b18_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/kharratey-ft-001_4bab66aef7a5526ca9dbe5bf0516369b_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/happy-birthday-th-ft-001_4fca09886eb35d98a00d0ffb7064786a_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/human-form-ft-002_08ed26f7e7cd5d7ab74a89146ab90bb7_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/stay-ft-001_b089b8294a3d50958c466d59a30c4565_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/a-day-in-1951-ss-001_1c53e7e4052d5c2890ff52b14f78e836_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/impression-xps160-ft-001_aeb1059d878e54f0aba164829219cdb5_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/possum-ft-001_838cf08051e450168c98e5c433f3fdc1_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/one-night-at-my-mothers-ft-001_7e73bf959e375ad8b37c1e1b57ee2ae7_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/six-pack-ft-001_67be1a2527e65bd286e2ff55af2251cc_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Same_same_Hres_ssh1_e2cbceab8ef056a3a5f258fd7e439f27_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/help-ft-001_e52ddb109eda5296aa65f1068b3edf51_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/power-state-ft-001_b5158246d20f531fb8f8a0e56ccd4601_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/the-edge-ft-001_0b55792af3855105be21e52c6287ce43_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/The-Scale-Modelers-ft-001_be569756f24e5ff4b8cb20966828d50c_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/lakota-ft-001_3b741ecb80015182b04d2a8f2b1a8bca_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_large.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/rp6kffqb",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_medium.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/video/ready-set-serve-e3/q88uv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_medium.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/video/ready-set-serve-e2/m1anv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_medium.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/video/ready-set-serve-e1/ra9yc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_medium.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/video/are-singaporeans-first-aid-ready/mhm9r",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_medium.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_small.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/EDM_%28400px_x_574px%29_e3569ba5778b5e3ba91cdacd49ca3f5d_large.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/video/scdf-adults-for-a-day/kyg9n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_large.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/o5dyxsdn",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_large.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/hcrrdte8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_large.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/mt7846j8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_large.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_medium.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_small.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://viddseereels.onelink.me/sCpa/3vrvg44y",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.viddsee.com/s/nuggets",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_large.jpg&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-05-08T09:01:17Z&quot;,&quot;updated_at&quot;:&quot;2026-05-11T11:23:44Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_medium.jpg&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_0c3bde739b1c5ae781cb7ed4f5a4b07f_small.jpg&quot;,&quot;published_date&quot;:&quot;2026-05-08T08:55:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:false,&quot;uri&quot;:&quot;carousels/1603&quot;,&quot;action_url&quot;:&quot;https://viddseereels.onelink.me/sCpa/rp6kffqb?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_large.png&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-14T14:19:45Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_medium.png&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_65bb3424b3b85e2d9c160440785ecc01_small.png&quot;,&quot;published_date&quot;:&quot;2026-03-14T14:19:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1591&quot;,&quot;action_url&quot;:&quot;https://www.viddsee.com/video/ready-set-serve-e3/q88uv?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_large.png&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-07T11:10:22Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_medium.png&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_514a1587b0255b9d888bdad5050bd0dc_small.png&quot;,&quot;published_date&quot;:&quot;2026-03-07T11:10:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1585&quot;,&quot;action_url&quot;:&quot;https://www.viddsee.com/video/ready-set-serve-e2/m1anv?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_large.png&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-02-28T10:10:24Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_medium.png&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/SAFVC_-_Ready_Set_Serve%21_-_Viddsee_Website_%281920px_x_640px%29_d32460b6fe7b598a9cdcfa3d4445e219_small.png&quot;,&quot;published_date&quot;:&quot;2026-02-28T10:10:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1584&quot;,&quot;action_url&quot;:&quot;https://www.viddsee.com/video/ready-set-serve-e1/ra9yc?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_large.png&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-02-05T09:57:08Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_medium.png&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_efb1d84f331659f190724594ebd3518c_small.png&quot;,&quot;published_date&quot;:&quot;2026-02-05T08:00:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1583&quot;,&quot;action_url&quot;:&quot;https://www.viddsee.com/video/are-singaporeans-first-aid-ready/mhm9r",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_large.png&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-01-29T15:22:31Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_medium.png&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/Viddsee_Website_%281920px_x_640px%29_c45e7557561d5e0e9272fafa64e80ec7_small.png&quot;,&quot;published_date&quot;:&quot;2026-01-29T15:21:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;https://images.viddsee.com/Photos/EDM_%28400px_x_574px%29_e3569ba5778b5e3ba91cdacd49ca3f5d_large.png&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1582&quot;,&quot;action_url&quot;:&quot;https://www.viddsee.com/video/scdf-adults-for-a-day/kyg9n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_large.jpg&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-13T08:13:44Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_medium.jpg&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/TLB_99966c4a13f9595f8c566482bf8a5ba2_small.jpg&quot;,&quot;published_date&quot;:&quot;2026-03-13T08:10:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1586&quot;,&quot;action_url&quot;:&quot;https://viddseereels.onelink.me/sCpa/o5dyxsdn?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_large.jpg&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-13T08:45:41Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_medium.jpg&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/COSD_e62c061b4e5a5dc9b2f445a91893487b_small.jpg&quot;,&quot;published_date&quot;:null,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1587&quot;,&quot;action_url&quot;:&quot;https://viddseereels.onelink.me/sCpa/hcrrdte8?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_large.jpg&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-13T08:57:45Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_medium.jpg&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/WBW_83bfcebaf4de5f59a9b276aeea13fb31_small.jpg&quot;,&quot;published_date&quot;:null,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1589&quot;,&quot;action_url&quot;:&quot;https://viddseereels.onelink.me/sCpa/mt7846j8?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_large.jpg&quot;,&quot;expires_at&quot;:null,&quot;created_at&quot;:&quot;2026-03-13T09:06:03Z&quot;,&quot;updated_at&quot;:&quot;2026-05-08T09:01:32Z&quot;,&quot;photo_medium_url&quot;:&quot;https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_medium.jpg&quot;,&quot;photo_small_url&quot;:&quot;https://images.viddsee.com/Photos/Adulting_8a9fccc64c3f5f02b39b1b7f77dc78b4_small.jpg&quot;,&quot;published_date&quot;:&quot;2026-03-13T09:05:00Z&quot;,&quot;carousel_type&quot;:&quot;main&quot;,&quot;video_url&quot;:&quot;&quot;,&quot;delay_before_next&quot;:7,&quot;vertical_banner_url&quot;:&quot;&quot;,&quot;is_image_only&quot;:false,&quot;should_use_dark_text&quot;:false,&quot;has_watch_now_button&quot;:true,&quot;uri&quot;:&quot;carousels/1590&quot;,&quot;action_url&quot;:&quot;https://viddseereels.onelink.me/sCpa/3vrvg44y?quot%3B=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.facebook.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://twitter.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.youtube.com/subscription_center?add_user=viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://instagram.com/viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.linkedin.com/company/viddsee/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.tiktok.com/@viddsee",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://help.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://careers.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://press.viddsee.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://accounts.google.com/gsi/client",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://cdn.branch.io/branch-latest.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://connect.facebook.net/en_US/fbevents.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "05f36b13905564ca2c48f2ac22133f7bd95b5f5f85adfb99a0ad8870a27a89de",
+      "evidence_url": "https://www.viddsee.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:33.699301+00:00",
+      "url": "https://analytics.tiktok.com/i18n/pixel/events.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-b25f474a2e30308c"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

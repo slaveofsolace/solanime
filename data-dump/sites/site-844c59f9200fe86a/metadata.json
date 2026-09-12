@@ -1,7 +1,24 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:43:26.251223+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "bytes_read": 130,
+      "content_type": "text/plain; charset=utf-8",
+      "final_url": "https://search-ace.stream/robots.txt",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "EXPIRED",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "redirects": [],
+      "sha256": "771535dcb5e66171767405216ea50098c9d356983108910615b61d4b66f1f617",
+      "status": "reachable",
+      "truncated": false
+    },
+    "status": "blocked",
     "url": "https://search-ace.stream/"
   },
   "categories": [
@@ -24,16 +41,17 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:43:26.251223+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://search-ace.stream/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861162+00:00",
+  "observed_at": "2026-09-12T07:43:26.251223+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],

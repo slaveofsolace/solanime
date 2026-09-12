@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 13916,
+    "content_type": "text/html",
+    "final_url": "https://primewire.nexus/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:20.884314+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://primewire.nexus/"
   },
   "categories": [
@@ -14,8 +28,30 @@
       "TV Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-b9b0c766c276e90d"
+    "domain-b9b0c766c276e90d",
+    "domain-d15afad5fd0ce8bf",
+    "domain-eea7d277cfa6bddc",
+    "domain-27ba68a27cc19827",
+    "domain-f8a7e5b40d973561",
+    "domain-1ad0f89ca1472f5b",
+    "domain-0fb00cd1ed35a3dd",
+    "domain-fea9f94c5698e431",
+    "domain-bfc0086d8e42e9b9",
+    "domain-c63aedadbb66c9bd",
+    "domain-7f0c4669f1244fa9",
+    "domain-54e531343f69ca5b",
+    "domain-3aeb002460381c6f",
+    "domain-16391d3665ca7477",
+    "domain-1a2e36cc692d119d"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -30,16 +66,460 @@
   "name": "Status / Mirrors",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 13916,
+      "content_type": "text/html",
+      "final_url": "https://primewire.nexus/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://primewire.nexus/"
+    },
+    {
+      "bytes_read": 1239,
+      "content_type": "application/javascript",
+      "final_url": "https://primewire.nexus/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:21.570748+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://primewire.nexus/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.860016+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:43:20.884314+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.pw/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.zip/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.mov/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.tf/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.si/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.li/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.ag/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.vc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primesrc.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://gohugo.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://github.com/adityatelange/hugo-PaperMod/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/index.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.nexus/index.xml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.pw/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.zip/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.mov/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.tf/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.si/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.li/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.ag/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primewire.vc/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://primesrc.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://gohugo.io/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://github.com/adityatelange/hugo-PaperMod/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a61f045312185bc061404de0739fc4b6bfdf487f4a6bd5f1794648a0cecda288",
+      "evidence_url": "https://primewire.nexus/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:20.884314+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "evidence_url": "https://primewire.nexus/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:21.570748+00:00",
+      "url": "https://primewire.nexus/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-fb2873caac1cf87a"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

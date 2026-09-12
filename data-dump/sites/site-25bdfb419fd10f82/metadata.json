@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 29178,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.talpasearch.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "x-powered-by": "PHP/7.4.33"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:18.702737+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.talpasearch.com/"
   },
   "categories": [
@@ -9,10 +24,27 @@
       "Helpful Sites / Tools"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-5d51a18bf2d1b17f"
+    "domain-5d51a18bf2d1b17f",
+    "domain-7781296073cd92cc",
+    "domain-3a3a1c669ffb52cd",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-22a0836580a9eef0",
+    "domain-edf7dcad352dc8cb",
+    "domain-ca047042debbcc95"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-adbc3ea74d1df6d5"
+  ],
   "entry_ids": [
     "entry-408b204cc8bddfda"
   ],
@@ -24,16 +56,1306 @@
   "name": "Talpa Search",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 29178,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.talpasearch.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-powered-by": "PHP/7.4.33"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.talpasearch.com/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866011+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:18.702737+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-jsdelivr",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery-3.7.1.min.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/lt2_jsinit.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/mmlog.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/modernizr_lt.3.6.0010.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.visible.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_basics.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_main.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/autocomplete.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/toastify.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_tabs.js?v=3%3Fv%3D5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.truncator.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js/lt_utility.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.easing.1.3.lt1.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_popup.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/imagesloaded.pkgd.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_lightbox2020.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_maxbox.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/addbooks_express.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/collections.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/ratings.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/tag_suggestions.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_eventemitter.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/websocket.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/talpa.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/new_debug.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-38J30YTTP7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logo_hor.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logomob_hor.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_h_logotype_ext_outline_final.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/about",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/google_oauth.php?cover_search=0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=astronaut+stranded+on+Mars",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=what+book+begins+%22Call+me+Ishmael%3F%22",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=YA+with+sparkly+vampires",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=novels+about+France+during+World+War+II",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=movies+about+killer+asteroid",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/search?query=Stephen+King+movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?genre=statistics&color=Yellow",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?genre=dystopia&color=Red",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?search=marionette&genre=mafia",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?search=mona+lisa&genre=thriller",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?search=spaceship&genre=science+fiction",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/coversearch?genre=time+travel%2C+romance&color=Blue",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/whoweare.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://syndetics.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/talpa_logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/talpa_favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/talpa_favicon-16x16.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/talpa_safari-pinned-tab.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/talpa_apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/bootstrap-3.3.4.min.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_vars.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_main.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/lt2_tabs.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_forms.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt1.5_nav_bridge.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_main_grid.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_content.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_lt1_overrides.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_stylepicker_verdant_14.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/notifier_control.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/fontawesome6.7.2/css/all.min.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/lticon_fonts.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/jqueryui_autocomplete_lt2.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/toastify.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_toastify.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_popup.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_stylepicker.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt_lightbox2020.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/addbooks_express.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/syndeticsunbound/css/unbound.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/talpa.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://syndetics.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.talpasearch.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/talpa_opengraph_fb2.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/talpa_opengraph_twitter2.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/bootstrap-3.3.4.min.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_vars.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_main.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/lt2_tabs.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_forms.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt1.5_nav_bridge.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_main_grid.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_content.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_lt1_overrides.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_stylepicker_verdant_14.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/notifier_control.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/fontawesome6.7.2/css/all.min.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/lticon_fonts.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/jqueryui_autocomplete_lt2.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/css/toastify.css?v=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_toastify.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_popup.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt2_stylepicker.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/lt_lightbox2020.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/addbooks_express.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/syndeticsunbound/css/unbound.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/css/talpa.css?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery-3.7.1.min.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://pics.cdn.librarything.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/lt2_jsinit.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/mmlog.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/modernizr_lt.3.6.0010.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.visible.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_basics.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_main.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/autocomplete.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/toastify.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "wss://www.talpasearch.com/websocket_server_talpa",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logo_hor.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logo_hor@2x.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logomob_hor.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_logomob_hor@2x.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_h_logotype_ext_outline_final.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/pics/talpa/5/talpa_h_logotype_ext_outline_final@2x.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/whoweare.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_tabs.js?v=3%3Fv%3D5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.truncator.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js/lt_utility.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js/jquery.easing.1.3.lt1.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt2_popup.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://image.librarything.com/js2/imagesloaded.pkgd.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_lightbox2020.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_maxbox.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/addbooks_express.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/collections.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/ratings.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/tag_suggestions.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/lt_eventemitter.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/websocket.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/talpa.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.librarything.com/js2/new_debug.js?v=5966",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-38J30YTTP7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bad7c9721f0bbe75f813dce364e8438d15c026759ae035d8da5a69b61549f427",
+      "evidence_url": "https://www.talpasearch.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:18.702737+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

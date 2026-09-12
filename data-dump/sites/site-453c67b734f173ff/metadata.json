@@ -1,7 +1,22 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 1094,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://typetype.video/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:09.854498+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://typetype.video/"
   },
   "categories": [
@@ -10,8 +25,20 @@
       "Video Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-f8a1fccca0d42a8e"
+    "domain-f8a1fccca0d42a8e",
+    "domain-d15afad5fd0ce8bf",
+    "domain-1a2e36cc692d119d",
+    "domain-3aeb002460381c6f",
+    "domain-73309a99c9031841"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -26,16 +53,205 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 1094,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://typetype.video/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://typetype.video/"
+    },
+    {
+      "bytes_read": 39199,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "MISS",
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://typetype.video/assets/main-CSAAeSgA.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.863915+00:00",
-  "provider_ids": [],
-  "references": [],
-  "repository_ids": [],
-  "research_status": "queued",
+  "observed_at": "2026-09-12T07:42:09.854498+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://typetype.video/logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://typetype.video/assets/styles-DJ8ed8Ou.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://typetype.video/assets/styles-D4dM02kn.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "800432a5e895ac3e1e0c48e76c8512dd7d93c03c51518877aec9ad4058764dcf",
+      "evidence_url": "https://typetype.video/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:09.854498+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/logos",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType-Downloader",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType-Player",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType-Server",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType-Token",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://github.com/Priveetee/TypeType/issues/${e.number",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://priveetee.github.io/Docs-TypeType/self-hosting/maintenance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3752f2c9c034aec8e8200a617a3bfd4205d39d0ce5580ca746866d237795827b",
+      "evidence_url": "https://typetype.video/assets/main-CSAAeSgA.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:11.151779+00:00",
+      "url": "https://priveetee.github.io/Docs-TypeType/self-hosting/rollback",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-27f32b42d12a2bea",
+    "repo-0e8924911c8f35b0",
+    "repo-de68538ae3c9ca80",
+    "repo-5c08dfb75d96d4c8",
+    "repo-d583f4afbc2db419"
+  ],
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

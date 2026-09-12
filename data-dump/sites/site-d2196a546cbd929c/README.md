@@ -2,6 +2,6 @@
 
 URL: https://player.bfi.org.uk/search/free?q=&availability=1
 
-Status: queued
+Status: blocked
 
 See metadata.json for evidence, observations and unresolved fields. A reference does not prove runtime use, common ownership, media availability or integration permission.

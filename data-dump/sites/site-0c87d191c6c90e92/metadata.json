@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 44213,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://srstop.link/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:32.237161+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://srstop.link/"
   },
   "categories": [
@@ -10,8 +24,20 @@
       "TV Streaming"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 11,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-01075145dad76400"
+    "domain-01075145dad76400",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-d15afad5fd0ce8bf",
+    "domain-2d0f3c337e640d3a",
+    "domain-06c32cc74ab47f02"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +51,2008 @@
   "name": "3",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 44213,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://srstop.link/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://srstop.link/"
+    },
+    {
+      "bytes_read": 93868,
+      "content_type": "application/javascript",
+      "final_url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:32.387997+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "88171413fc76dda23ab32baa17b11e4fff89141c633ece737852445f1ba6c1bd",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861470+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:32.237161+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.autocomplete.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.rating.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.MetaData.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/dropdown.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/tabber-minimized.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.tipsy.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/js/scripts.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/foxycomplete.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-T7T80QV3FR",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/lazyload.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/img/sgoo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/images/logo_footer.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/index.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/new-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/tv-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e04/season/1/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e03/season/1/episode/3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e02/season/1/episode/2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e01/season/1/episode/1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/gardeners-world",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/gardeners-world-s59e25/season/59/episode/25",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/real-time-with-bill-maher",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/real-time-with-bill-maher-s24e26/season/24/episode/26",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/diners-drive-ins-and-dives",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/diners-drive-ins-and-dives-s56e07/season/56/episode/7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/conan-obrien-must-go",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/conan-obrien-must-go-s03e04/season/3/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-bold-and-the-beautiful",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-bold-and-the-beautiful-s40e04/season/40/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-young-and-the-restless",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-young-and-the-restless-s53e237/season/53/episode/237",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/live-from-the-lycett-arms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/live-from-the-lycett-arms-s01e02/season/1/episode/2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed-s30e35/season/30/episode/35",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/our-great-yorkshire-life",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/our-great-yorkshire-life-s04e01/season/4/episode/1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/beyond-the-gates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/beyond-the-gates-s02e166/season/2/episode/166",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/jeopardy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/jeopardy-s2026e148/season/2026/episode/148",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/naked-news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/naked-news-s2026e218/season/2026/episode/218",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/roast-my-rental",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/roast-my-rental-s01e08/season/1/episode/8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed-s32e05/season/32/episode/5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/wwe-smackdown",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/wwe-smackdown-s28e37/season/28/episode/37",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/bbc-proms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/bbc-proms-s2026e27/season/2026/episode/27",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/lanterns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/reacher",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/silo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/special-ops-lioness",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/ted-lasso",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/love-island-us",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/furious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/star-trek-strange-new-worlds",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/below-deck-mediterranean",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-walking-dead-dead-city",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-challenge",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-real-housewives-ultimate-girls-trip",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-gentlemen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/90-day-fiance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/stuart-fails-to-save-the-universe",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/anna-pigeon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/project-runway",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-drop-a-snowfall-saga",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/dark-matter-2024",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-real-housewives-of-orange-county",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/responsive.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/dropdown.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/js/tooltip.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/bootstrap.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/pagenavi.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.rating.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/foxycomplete.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C700",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://fonts.googleapis.com/css?family=Oswald%3A400%2C300",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/index.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/responsive.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/dropdown.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/js/tooltip.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/bootstrap.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/cadabrapress/css/ie6.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/cadabrapress/css/ie7.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/pagenavi.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.rating.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/css/foxycomplete.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.autocomplete.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.rating.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.MetaData.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jcarousel.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/dropdown.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/tabber-minimized.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery.tipsy.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/js/scripts.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/foxycomplete.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://cse.google.com/cse.js?cx=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/index.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/images/logo.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/new-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/popular-w",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/tv-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/feed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/browse-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_69542a53edb800900e8a03c0ccd3425e.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e04/season/1/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e03/season/1/episode/3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e02/season/1/episode/2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/collision-2026-s01e01/season/1/episode/1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/gardeners-world",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_c432f97e495282730ebc4b5da4029e5f.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/gardeners-world-s59e25/season/59/episode/25",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/real-time-with-bill-maher",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_62c212f041b9e0be3a52802be12cdd21.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/real-time-with-bill-maher-s24e26/season/24/episode/26",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/diners-drive-ins-and-dives",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_f469c44d5807e938ec7c93d6cd2f7a83.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/diners-drive-ins-and-dives-s56e07/season/56/episode/7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/conan-obrien-must-go",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_4e405d9b61f66423bf999691fdad748b.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/conan-obrien-must-go-s03e04/season/3/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-bold-and-the-beautiful",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_1c2a1688ad86a20b44a2b845bb07f058.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-bold-and-the-beautiful-s40e04/season/40/episode/4",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-young-and-the-restless",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_51ea3748543445937e71baac50c58e08.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-young-and-the-restless-s53e237/season/53/episode/237",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/live-from-the-lycett-arms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_98019dbd80b92bcdad07bb1788bf92e9.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/live-from-the-lycett-arms-s01e02/season/1/episode/2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_962f00e758045eedaf5ab0a66e32eb1e.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed-s30e35/season/30/episode/35",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/our-great-yorkshire-life",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_f02c1046d92df8686050150c1c5be046.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/our-great-yorkshire-life-s04e01/season/4/episode/1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/beyond-the-gates",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_84ca3c4e96d26315c8e788327bea2707.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/beyond-the-gates-s02e166/season/2/episode/166",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/jeopardy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_18cbe633a74325d9081430d0393cee48.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/jeopardy-s2026e148/season/2026/episode/148",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/naked-news",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_9773467940bd9e2242bca6f7f504dabd.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/naked-news-s2026e218/season/2026/episode/218",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/roast-my-rental",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_7a41a274ca90d3927de4da22cf41f32c.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/roast-my-rental-s01e08/season/1/episode/8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/four-in-a-bed-s32e05/season/32/episode/5",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/wwe-smackdown",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_71aeb277eb337d165be6316bdd106830.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/wwe-smackdown-s28e37/season/28/episode/37",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/bbc-proms",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_3a90f60b2e3a3bd6364492cae68574a4.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/bbc-proms-s2026e27/season/2026/episode/27",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/lanterns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_933228ae2ac0eddf1808e08a6788b100.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/reacher",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_0a351ba6f351f1d7ed7b4236bf2daab7.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/silo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_469478c0a304f6f96821b9cfd1e544ad.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/special-ops-lioness",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_c8edff875c902b24b3c2f941a2dc830e.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/ted-lasso",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_62ba5bcd78dcbbd4a18900094d1aeb6f.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/love-island-us",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_f376687ccc24a293ed9c585880932f01.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/furious",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_702c4ae37c7950f4360be666754923af.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/star-trek-strange-new-worlds",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_e59a25340301448171ea3d5fa3fee159.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/below-deck-mediterranean",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_abf6e12a477dcf4b8fdbde4b9c5032e1.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-walking-dead-dead-city",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_01576a3b6d3cf978f087d03c78c1d3e0.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-challenge",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_26dba9510710f6ed2f9c1f8a97a3c2fb.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-real-housewives-ultimate-girls-trip",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_46bcb7e0237f830f50550dfb2d6333f1.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-gentlemen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_bfec77a2220f1284675a3a3a06de6a36.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/90-day-fiance",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_2ab41f73cafd66cf0fb5601354463535.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/stuart-fails-to-save-the-universe",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_e86aa100b49afae7c12919151afab060.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/anna-pigeon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_79c2674e079aa915355fad2a8bcbe4b6.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/project-runway",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_c1dd4512b0f769f8da75bcf2aae8f934.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-drop-a-snowfall-saga",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_0cec7fe0a60a4de0f03a1a20858b0ca1.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/dark-matter-2024",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_ba3ae4110c2d721cf9825d0b1f2e8ceb.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/show/the-real-housewives-of-orange-county",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/timthumb.php?src=https%3A%2F%2Fsrstop.link%2Fthumbs%2Fshow_1c99a9b26b880e973065f7d33d0b796e.jpg&w=120&h=180&zc=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/images/logo_footer.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/contacts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-T7T80QV3FR",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/lazyload.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "faca13540cef90dd32903eb582609bdf68bc7b87d8870588507cdae826cd01ae",
+      "evidence_url": "https://srstop.link/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:32.237161+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "88171413fc76dda23ab32baa17b11e4fff89141c633ece737852445f1ba6c1bd",
+      "evidence_url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.387997+00:00",
+      "url": "https://srstop.link/a",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "88171413fc76dda23ab32baa17b11e4fff89141c633ece737852445f1ba6c1bd",
+      "evidence_url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:32.387997+00:00",
+      "url": "https://srstop.link/templates/tvstream/js/jquery-1.7.1.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

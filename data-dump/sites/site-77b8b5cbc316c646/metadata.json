@@ -1,7 +1,23 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 29285,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://youshows.org/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN",
+      "x-powered-by": "Next.js"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:26.522017+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://youshows.org/"
   },
   "categories": [
@@ -10,14 +26,35 @@
       "Multi-Server"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 12,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-f63078d265511f8c"
+    "domain-f63078d265511f8c",
+    "domain-d15afad5fd0ce8bf",
+    "domain-5d19cf66aa443889",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-dbfa9e75d7563100",
+    "domain-1a2e36cc692d119d",
+    "domain-3dc86e6666d7a5f2"
   ],
   "endpoint_ids": [],
   "entry_ids": [
     "entry-0ce2b78cd5a8b3af"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Next.js",
+      "source_url": "https://youshows.org/"
+    }
+  ],
   "id": "site-77b8b5cbc316c646",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +62,417 @@
   "name": "Youshows",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 29285,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://youshows.org/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN",
+        "x-powered-by": "Next.js"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://youshows.org/"
+    },
+    {
+      "bytes_read": 31396,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://youshows.org/_next/static/chunks/241i40m5udipu.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:27.263485+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "1edb57a6a0319e51f4ef6357f474a7dc9977b321674bc8cdd4dfd6139a2d47d6",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://youshows.org/_next/static/chunks/241i40m5udipu.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.866629+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:26.522017+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-tmdb",
+    "provider-google-analytics",
+    "provider-cloudflare-edge"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/241i40m5udipu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/1eglloh0s_w8l.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/1_zmgipypuk59.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/27jktro2p5rq9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/turbopack-2f6ahritcd1ok.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/000u1e4q2bwzi.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/14mrh2-p_w84d.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/3gf5qbzolgu8y.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/0hsjn9t33p4jq.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/1mlgx6nc8m9c9.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/2iho8jepmwwua.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/trending",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/movies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/tv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/live",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/profile",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/history",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/playlists",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/watch-later",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/liked",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/3p-jqaeguqf_w.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/_next/static/chunks/2iho8jepmwwua.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-MYZXQPVMYT",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://qm.enjellyclysma.com/rhEBbM4Y6cS3/148169",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-MYZXQPVMYT",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://youshows.org/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1354966559d033c8ee9e330b3824065e747a544ede3139f7f56da0786870712c",
+      "evidence_url": "https://youshows.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:26.522017+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1edb57a6a0319e51f4ef6357f474a7dc9977b321674bc8cdd4dfd6139a2d47d6",
+      "evidence_url": "https://youshows.org/_next/static/chunks/241i40m5udipu.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:27.263485+00:00",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

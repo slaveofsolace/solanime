@@ -1,7 +1,20 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 321564,
+    "content_type": "text/html",
+    "final_url": "https://streamed.st/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "ddos-guard"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:51.042087+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://streamed.st/"
   },
   "categories": [
@@ -10,14 +23,40 @@
       "Live Sports"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-d19fcdbfacb234f9"
+    "domain-d19fcdbfacb234f9",
+    "domain-2f7679f232178170",
+    "domain-6e0655459c6ad767",
+    "domain-37bc9cd0c5947119",
+    "domain-14eed220cfdbbca0",
+    "domain-194958edd2369b1b",
+    "domain-1a2e36cc692d119d",
+    "domain-46676e702a7458f2"
   ],
-  "endpoint_ids": [],
+  "endpoint_ids": [
+    "endpoint-0914b38c42f9b782",
+    "endpoint-84f1a349e7f8dbc4",
+    "endpoint-4787575f68c53fc7"
+  ],
   "entry_ids": [
     "entry-14c6aebf37597afb"
   ],
-  "frameworks": [],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://streamed.st/docs"
+    }
+  ],
   "id": "site-5d20f51009713ebf",
   "limitations": [
     "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
@@ -25,16 +64,678 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 321564,
+      "content_type": "text/html",
+      "final_url": "https://streamed.st/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "ddos-guard"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://streamed.st/"
+    },
+    {
+      "bytes_read": 20612,
+      "content_type": "text/html",
+      "final_url": "https://streamed.st/docs",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "ddos-guard"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://streamed.st/docs"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.861643+00:00",
+  "observed_at": "2026-09-12T07:43:51.042087+00:00",
   "provider_ids": [],
-  "references": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://a.cdn-lab.shop/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/api/images/poster/fallback.webp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/schedule",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/docs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://status.strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/multiview",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://discord.gg/KHC4xTYZgv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/basketball",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/football",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/american-football",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/hockey",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/baseball",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/motor-sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/fight",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/tennis",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/rugby",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/golf",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/billiards",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/afl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/darts",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/cricket",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/category/other",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/new-zealand-warriors-vs-dolphins-2600191",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/fiji-rugby-vs-canada-rugby-2539652",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/motogp-san-marino-grand-prix-game-122273",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/ppv-event-05-cage-fury-fc-161-ppv-05",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/ppv-event-04-marquez-v-sanchez-ppv-004",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/watch/ppv-event-03-bkfc-93-perdomo-v-hill-ppv-03",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/fonts/inter/InterVariable.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.pk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/dist.CJNePmAC.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/0.B_Evpr83.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/scroll-area.QE5ZuEV4.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/SearchDrawer.Dfn3BCaV.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://a.cdn-lab.shop/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://streamed.pk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://status.strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://discord.gg/KHC4xTYZgv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "5a45daa12c521443a4b16efcbadd807d51a8e1531025fe9e863f10194c14e0d6",
+      "evidence_url": "https://streamed.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.042087+00:00",
+      "url": "https://movy.bz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://a.cdn-lab.shop/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/schedule",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/docs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://status.strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/multiview",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://discord.gg/KHC4xTYZgv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/docs/matches",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/docs/streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/docs/sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/docs/images",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/fonts/inter/InterVariable.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/dist.CJNePmAC.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/0.B_Evpr83.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/scroll-area.QE5ZuEV4.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/SearchDrawer.Dfn3BCaV.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.st/_app/immutable/assets/monokai.BOCB5FSt.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://a.cdn-lab.shop/js/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.pk/docs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://status.strmd.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://discord.gg/KHC4xTYZgv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.pk/api/matches/football&",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://streamed.pk/api/stream/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a0828d4ee3dca5d398abc4ec9e2f4b7ab29b5d7b9252e4010194d2cdc485929e",
+      "evidence_url": "https://streamed.st/docs",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:51.749164+00:00",
+      "url": "https://movy.bz/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

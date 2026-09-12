@@ -1,23 +1,12 @@
 [
   {
-    "category": "fonts",
+    "category": "analytics",
     "hostname_patterns": [
-      "fonts.googleapis.com",
-      "fonts.gstatic.com"
+      "cloudflareinsights.com"
     ],
-    "id": "provider-google-fonts",
+    "id": "provider-cloudflare-insights",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Google Fonts"
-  },
-  {
-    "category": "metadata",
-    "hostname_patterns": [
-      "themoviedb.org",
-      "tmdb.org"
-    ],
-    "id": "provider-tmdb",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "TMDB"
+    "name": "Cloudflare Insights"
   },
   {
     "category": "analytics",
@@ -28,27 +17,6 @@
     "id": "provider-google-analytics",
     "identity_scope": "domain_label_not_common_ownership_claim",
     "name": "Google Analytics/Tag Manager"
-  },
-  {
-    "category": "advertising",
-    "hostname_patterns": [
-      "doubleclick.net",
-      "googlesyndication.com",
-      "googleadservices.com"
-    ],
-    "id": "provider-google-ads",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Google advertising"
-  },
-  {
-    "category": "video-platform",
-    "hostname_patterns": [
-      "vimeo.com",
-      "vimeocdn.com"
-    ],
-    "id": "provider-vimeo",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Vimeo"
   },
   {
     "category": "video-platform",
@@ -65,20 +33,12 @@
   {
     "category": "metadata",
     "hostname_patterns": [
-      "anilist.co"
+      "themoviedb.org",
+      "tmdb.org"
     ],
-    "id": "provider-anilist",
+    "id": "provider-tmdb",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "AniList"
-  },
-  {
-    "category": "analytics",
-    "hostname_patterns": [
-      "cloudflareinsights.com"
-    ],
-    "id": "provider-cloudflare-insights",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Cloudflare Insights"
+    "name": "TMDB"
   },
   {
     "category": "metadata",
@@ -92,21 +52,21 @@
   {
     "category": "metadata",
     "hostname_patterns": [
-      "kitsu.io",
-      "kitsu.app"
+      "anilist.co"
     ],
-    "id": "provider-kitsu",
+    "id": "provider-anilist",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Kitsu"
+    "name": "AniList"
   },
   {
-    "category": "archive",
+    "category": "fonts",
     "hostname_patterns": [
-      "archive.org"
+      "fonts.googleapis.com",
+      "fonts.gstatic.com"
     ],
-    "id": "provider-internet-archive",
+    "id": "provider-google-fonts",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Internet Archive"
+    "name": "Google Fonts"
   },
   {
     "category": "anti-bot",
@@ -118,33 +78,32 @@
     "name": "Cloudflare challenge/Turnstile"
   },
   {
-    "category": "subtitles",
-    "hostname_patterns": [
-      "opensubtitles.com",
-      "opensubtitles.org"
-    ],
-    "id": "provider-opensubtitles",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "OpenSubtitles"
-  },
-  {
-    "category": "asset-cdn",
-    "hostname_patterns": [
-      "jsdelivr.net"
-    ],
-    "id": "provider-jsdelivr",
-    "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "jsDelivr"
-  },
-  {
     "category": "video-platform",
     "hostname_patterns": [
-      "dailymotion.com",
-      "dmcdn.net"
+      "vimeo.com",
+      "vimeocdn.com"
     ],
-    "id": "provider-dailymotion",
+    "id": "provider-vimeo",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Dailymotion"
+    "name": "Vimeo"
+  },
+  {
+    "category": "embed-provider",
+    "hostname_patterns": [
+      "vidlink.pro"
+    ],
+    "id": "provider-vidlink",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "VidLink"
+  },
+  {
+    "category": "embed-provider",
+    "hostname_patterns": [
+      "vidfast.pro"
+    ],
+    "id": "provider-vidfast",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "VidFast"
   },
   {
     "category": "embed-provider",
@@ -158,11 +117,40 @@
   {
     "category": "asset-cdn",
     "hostname_patterns": [
-      "unpkg.com"
+      "jsdelivr.net"
     ],
-    "id": "provider-unpkg",
+    "id": "provider-jsdelivr",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "UNPKG"
+    "name": "jsDelivr"
+  },
+  {
+    "category": "archive",
+    "hostname_patterns": [
+      "archive.org"
+    ],
+    "id": "provider-internet-archive",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Internet Archive"
+  },
+  {
+    "category": "advertising",
+    "hostname_patterns": [
+      "doubleclick.net",
+      "googlesyndication.com",
+      "googleadservices.com"
+    ],
+    "id": "provider-google-ads",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Google advertising"
+  },
+  {
+    "category": "observability",
+    "hostname_patterns": [
+      "sentry.io"
+    ],
+    "id": "provider-sentry",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Sentry"
   },
   {
     "category": "backend-platform",
@@ -175,23 +163,26 @@
     "name": "Supabase"
   },
   {
-    "category": "authentication",
+    "category": "video-platform",
     "hostname_patterns": [
-      "clerk.accounts.dev",
-      "clerk.com"
+      "dailymotion.com",
+      "dmcdn.net"
     ],
-    "id": "provider-clerk",
+    "id": "provider-dailymotion",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Clerk"
+    "name": "Dailymotion"
   },
   {
-    "category": "observability",
+    "category": "backend-platform",
     "hostname_patterns": [
-      "sentry.io"
+      "firebaseio.com",
+      "firebaseapp.com",
+      "firebasestorage.googleapis.com",
+      "firestore.googleapis.com"
     ],
-    "id": "provider-sentry",
+    "id": "provider-firebase",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Sentry"
+    "name": "Firebase"
   },
   {
     "category": "embed-provider",
@@ -203,22 +194,43 @@
     "name": "MultiEmbed"
   },
   {
-    "category": "embed-provider",
+    "category": "authentication",
     "hostname_patterns": [
-      "vidfast.pro"
+      "clerk.accounts.dev",
+      "clerk.com"
     ],
-    "id": "provider-vidfast",
+    "id": "provider-clerk",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "VidFast"
+    "name": "Clerk"
   },
   {
-    "category": "metadata-api",
+    "category": "asset-cdn",
     "hostname_patterns": [
-      "jikan.moe"
+      "unpkg.com"
     ],
-    "id": "provider-jikan",
+    "id": "provider-unpkg",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Jikan"
+    "name": "UNPKG"
+  },
+  {
+    "category": "subtitles",
+    "hostname_patterns": [
+      "opensubtitles.com",
+      "opensubtitles.org"
+    ],
+    "id": "provider-opensubtitles",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "OpenSubtitles"
+  },
+  {
+    "category": "metadata",
+    "hostname_patterns": [
+      "kitsu.io",
+      "kitsu.app"
+    ],
+    "id": "provider-kitsu",
+    "identity_scope": "domain_label_not_common_ownership_claim",
+    "name": "Kitsu"
   },
   {
     "category": "video-host",
@@ -250,24 +262,243 @@
     "name": "Streamtape"
   },
   {
-    "category": "embed-provider",
+    "category": "metadata-api",
     "hostname_patterns": [
-      "vidlink.pro"
+      "jikan.moe"
     ],
-    "id": "provider-vidlink",
+    "id": "provider-jikan",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "VidLink"
+    "name": "Jikan"
   },
   {
-    "category": "backend-platform",
+    "category": "authentication",
     "hostname_patterns": [
-      "firebaseio.com",
-      "firebaseapp.com",
-      "firebasestorage.googleapis.com",
-      "firestore.googleapis.com"
+      "auth0.com"
     ],
-    "id": "provider-firebase",
+    "id": "provider-auth0",
     "identity_scope": "domain_label_not_common_ownership_claim",
-    "name": "Firebase"
+    "name": "Auth0"
+  },
+  {
+    "category": "edge-cdn",
+    "id": "provider-cloudflare-edge",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "Cloudflare edge"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a599aeb3c7c1dfa5",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.googletagmanager.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a9a3831c1f777981",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "ghbtns.com"
+  },
+  {
+    "category": "hosting-platform",
+    "id": "provider-github-pages",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "GitHub Pages"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-57f25bb082331a14",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "donarally.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-11801c6593132f08",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "ad.a-ads.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-7554cfbfd9df2e87",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "deaffestonlinecinema.eventive.org"
+  },
+  {
+    "category": "hosting-platform",
+    "id": "provider-cloudflare-pages",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "Cloudflare Pages"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-b5339297cd75d2e6",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "player.vimeo.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-f4baab954579c421",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "watch-wrestling.eu"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-c33dbf71b02bd328",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.youtube-nocookie.com"
+  },
+  {
+    "category": "hosting-platform",
+    "id": "provider-vercel",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "Vercel"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-562b3b2345784001",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.bingeclock.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a8df24724528bf16",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "rumble.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a95fef0644cb1876",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "atvideo.at.sfsu.edu"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-97692e14df23bd64",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "accounts.google.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-6860776e5611f69c",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.youtube.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-451ebbe1c8f95384",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "docs.google.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-8c5001e75f150154",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "wheresthejump.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-9ac256ffe312419c",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.defenceimagery.mod.uk"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a6b0a74c5e07ca45",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "freetvgarden.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-ebdf0b3656f8cf2f",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "twcclassics.com"
+  },
+  {
+    "category": "hosting-platform",
+    "id": "provider-cloudflare-workers",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "Cloudflare Workers"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-2d6d590e744c7b57",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "donorbox.org"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-3e723b591bdb95ce",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.facebook.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-492bdc1c235d6927",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "videa.hu"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-bbb1d1cecc177215",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "episodecalendar.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-7cf2a1329b1b7c4a",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "stellar.rip"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-9bf264b83e7b6f2b",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "acceptable.a-ads.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-bb2b1f99170617ee",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "trailers.flixhouse.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-2be7813ba86ab318",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "streamic.st"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-4863dbc6f7ed287c",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "www.classreal.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-eb050d5ad8382bbc",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "nblmoviess.blogspot.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-c8e8f9f979e435f9",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "discord.com"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-cd8d13b57a8f5dcd",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "bbflix.one"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-b769126b5ae66231",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "texasarchive.org"
+  },
+  {
+    "category": "embed-origin-unidentified",
+    "id": "provider-embed-host-a3b2ce0c57dbde1e",
+    "identity_scope": "domain_or_header_indicator_not_operator_identity",
+    "name": "crimsonfansubs.com"
   }
 ]

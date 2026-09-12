@@ -1,7 +1,21 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "bytes_read": 52071,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.futbol-x.top/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:11.841077+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+    "status": "reachable",
+    "truncated": false,
     "url": "https://www.futbol-x.top/"
   },
   "categories": [
@@ -10,8 +24,26 @@
       "Live Sports"
     ]
   ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
   "domain_ids": [
-    "domain-476a3dfba54c2fd1"
+    "domain-476a3dfba54c2fd1",
+    "domain-80255870a6218fe0",
+    "domain-edf7dcad352dc8cb",
+    "domain-af110f2bbac2b869",
+    "domain-73a1220668a1b571",
+    "domain-37bc9cd0c5947119",
+    "domain-8ee9a32e2c693669",
+    "domain-5e3ea32cbe91e734",
+    "domain-88bb79fa6efc5d55",
+    "domain-eaf31ea198bf09b4",
+    "domain-ebea5fa709fb55bd"
   ],
   "endpoint_ids": [],
   "entry_ids": [
@@ -25,16 +57,350 @@
   "name": "2",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "bytes_read": 52071,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.futbol-x.top/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "status": "reachable",
+      "truncated": false,
       "url": "https://www.futbol-x.top/"
+    },
+    {
+      "bytes_read": 330,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://www.futbol-x.top/assets/js/api.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "Vercel"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:12.767393+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "b8df4aca9480f861d6b2f52447410b4b7129f36f4edf70d228ef03d00195f9c9",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.futbol-x.top/assets/js/api.js"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.865093+00:00",
-  "provider_ids": [],
-  "references": [],
+  "observed_at": "2026-09-12T07:43:11.841077+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-vercel"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/assets/js/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdn.phototourl.com/free/2026-07-30-b4eb4fe7-50b2-4b18-8f9b-605f09574de3.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQeN56pzA4LKgAiLZ8zrvSqhPhTy-WAUWHywdrFq0CjSg&s=10",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://discord.gg/CmRcPbBB2k",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/vip",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/auth/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/auth/signup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://futxtv.indevs.in/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://discord.gg/UzHzerb6XY",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://fonts.bunny.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://fonts.bunny.net/css?family=kanit%3A300%2C400%2C600%2C700%2C800%2C900%7Coutfit%3A300%2C400%2C500%2C600%2C700",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.futbol-x.top/assets/css/main.css?v=26",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://futbol-x.site/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://fonts.bunny.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://fonts.bunny.net/css?family=kanit%3A300%2C400%2C600%2C700%2C800%2C900%7Coutfit%3A300%2C400%2C500%2C600%2C700",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdn.phototourl.com/free/2026-07-30-b4eb4fe7-50b2-4b18-8f9b-605f09574de3.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://discord.gg/CmRcPbBB2k",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://futxtv.indevs.in/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://discord.gg/UzHzerb6XY",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQeN56pzA4LKgAiLZ8zrvSqhPhTy-WAUWHywdrFq0CjSg&s=10",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b00818f3076724b47ed8987ea7a6a6ea53a02ea17f0396bc3220b3ea023b78d0",
+      "evidence_url": "https://www.futbol-x.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:11.841077+00:00",
+      "url": "https://via.placeholder.com/285x160?text=FutbolX",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "infrastructure_partially_mapped",
   "roles": [
     "listed_related"
   ],

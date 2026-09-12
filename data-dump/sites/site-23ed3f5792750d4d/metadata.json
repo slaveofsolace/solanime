@@ -1,7 +1,23 @@
 {
   "availability": {
-    "reason": "run_budget_exhausted",
-    "status": "queued",
+    "observed_at": "2026-09-12T07:42:08.366024+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "bytes_read": 40,
+      "content_type": "text/plain; charset=utf-8",
+      "final_url": "https://libremdb.iket.me/robots.txt",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/plain; charset=UTF-8",
+        "via": "1.1 Caddy"
+      },
+      "http_status": 200,
+      "redirects": [],
+      "sha256": "3154ded79e64e4b894cd4d54e3a5848db9d523809ef710fd39ffa9d028901e42",
+      "status": "reachable",
+      "truncated": false
+    },
+    "status": "blocked",
     "url": "https://libremdb.iket.me/"
   },
   "categories": [
@@ -24,16 +40,17 @@
   "name": "Frontend",
   "observations": [
     {
-      "reason": "run_budget_exhausted",
-      "status": "queued",
+      "observed_at": "2026-09-12T07:42:08.366024+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
       "url": "https://libremdb.iket.me/"
     }
   ],
-  "observed_at": "2026-09-12T07:38:20.857117+00:00",
+  "observed_at": "2026-09-12T07:42:08.366024+00:00",
   "provider_ids": [],
   "references": [],
   "repository_ids": [],
-  "research_status": "queued",
+  "research_status": "blocked",
   "roles": [
     "listed_related"
   ],
