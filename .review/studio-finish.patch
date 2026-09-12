@@ -1,0 +1,245 @@
+diff --git a/src/components/MediaControls.tsx b/src/components/MediaControls.tsx
+index 36ff956..4c536a6 100644
+--- a/src/components/MediaControls.tsx
++++ b/src/components/MediaControls.tsx
+@@ -1,5 +1,6 @@
+ import { useEffect, useRef, useState, type RefObject, type KeyboardEvent } from 'react';
+ import Icon from './Icon';
++import { createMediaSeeker } from '../lib/mediaSeek';
+ export function formatTime(seconds: number): string {
+   if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+   const whole = Math.floor(seconds),
+@@ -25,6 +26,14 @@ export default function MediaControls({
+     [tracks, setTracks] = useState<TextTrack[]>([]),
+     [caption, setCaption] = useState(-1);
+   const lastVolume = useRef(1);
++  const seeker = useRef<ReturnType<typeof createMediaSeeker> | null>(null);
++  useEffect(() => {
++    const video = videoRef.current;
++    if (!video) return;
++    const instance = createMediaSeeker(video, () => setMessage('Seek complete. Press Play to resume.'));
++    seeker.current = instance;
++    return () => { instance.dispose(); if (seeker.current === instance) seeker.current = null; };
++  }, [videoRef]);
+   useEffect(() => {
+     const video = videoRef.current;
+     if (!video) return;
+@@ -73,6 +82,7 @@ export default function MediaControls({
+     const video = videoRef.current;
+     if (!video) return;
+     setMessage('');
++    seeker.current?.cancel();
+     try {
+       if (video.paused) await video.play();
+       else video.pause();
+@@ -83,7 +93,7 @@ export default function MediaControls({
+   const seek = (value: number) => {
+     const video = videoRef.current;
+     if (video && Number.isFinite(video.duration) && video.duration > 0) {
+-      video.currentTime = Math.max(0, Math.min(video.duration, value));
++      seeker.current?.seek(value);
+       setTime(video.currentTime);
+     }
+   };
+diff --git a/src/lib/mediaSeek.ts b/src/lib/mediaSeek.ts
+new file mode 100644
+index 0000000..3009f02
+--- /dev/null
++++ b/src/lib/mediaSeek.ts
+@@ -0,0 +1,43 @@
++/** Seek while preserving playback intent, without loading a second media element.
++ * Pause before the seek so WebKit's media pipeline can flush the old position.
++ * Resume only after its real seeked event; completion stays owned by the browser.
++ */
++export function createMediaSeeker(video: HTMLVideoElement, onError: () => void) {
++  let pending: { resume: boolean; done: () => void } | null = null;
++  let disposed = false;
++  let generation = 0;
++  const cancel = () => {
++    generation += 1;
++    if (pending) video.removeEventListener('seeked', pending.done);
++    pending = null;
++  };
++  return {
++    seek(seconds: number) {
++      if (disposed || !Number.isFinite(seconds) || !Number.isFinite(video.duration) || video.duration <= 0) return;
++      const resume = pending?.resume ?? (!video.paused && !video.ended);
++      cancel();
++      const current = generation;
++      if (resume) video.pause();
++      const done = () => {
++        if (disposed || current !== generation) return;
++        video.removeEventListener('seeked', done);
++        pending = null;
++        if (resume && !video.ended) {
++          void video.play().catch(() => { if (!disposed && current === generation) onError(); });
++        }
++      };
++      pending = { resume, done };
++      video.addEventListener('seeked', done);
++      try {
++        video.currentTime = Math.max(0, Math.min(video.duration, seconds));
++        // Seeking to the existing position may legitimately emit no event.
++        if (!video.seeking) done();
++      } catch {
++        cancel();
++        onError();
++      }
++    },
++    cancel,
++    dispose() { cancel(); disposed = true; },
++  };
++}
+diff --git a/src/lib/storage.ts b/src/lib/storage.ts
+index 2df5d84..d76eb94 100644
+--- a/src/lib/storage.ts
++++ b/src/lib/storage.ts
+@@ -1,4 +1,4 @@
+-import { useCallback, useEffect, useMemo, useState } from 'react';
++import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+ import type {
+   EpisodeComment,
+   Preferences,
+@@ -135,13 +135,23 @@ export function usePersistentState<T>(key: string, fallback: T) {
+   const [value, setValue] = useState<T>(() =>
+     scope ? decodeStored(key, scope.read(key), fallback) : readStored(key, fallback),
+   );
++  // Reading a profile must not enqueue writes of untouched defaults. Apart from
++  // needless traffic, those writes could still be running when the user navigates.
++  const persistedValue = useRef(JSON.stringify(value));
+   useEffect(() => {
++    const serialized = JSON.stringify(value);
++    if (serialized === persistedValue.current) return;
++    persistedValue.current = serialized;
+     if (scope) scope.write(key, value);
+     else writeStored(key, value);
+   }, [key, value, scope]);
+   useEffect(() => {
+     if (scope)
+-      return scope.subscribe(key, () => setValue(decodeStored(key, scope.read(key), fallback)));
++      return scope.subscribe(key, () => {
++        const incoming = decodeStored(key, scope.read(key), fallback);
++        persistedValue.current = JSON.stringify(incoming);
++        setValue(incoming);
++      });
+     const onStorage = (event: StorageEvent) => {
+       if (event.key === PREFIX + key || event.key === null) setValue(readStored(key, fallback));
+     };
+diff --git a/tests/e2e/accounts.spec.ts b/tests/e2e/accounts.spec.ts
+index fae1361..d75ac1c 100644
+--- a/tests/e2e/accounts.spec.ts
++++ b/tests/e2e/accounts.spec.ts
+@@ -28,6 +28,9 @@ async function choose(page: Page, name = 'You') {
+     .filter({ has: page.getByText(name, { exact: true }) })
+     .click();
+   await expect(page).toHaveURL(/\/$/);
++  // A committed route is not yet a rendered/settled homepage. Wait for the UI
++  // before a hard navigation, which otherwise tears down in-flight WebKit fetches.
++  await expect(page.locator('#featured-title')).toBeVisible();
+ }
+ async function overflow(page: Page) {
+   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
+diff --git a/tests/e2e/application.spec.ts b/tests/e2e/application.spec.ts
+index 8ef1462..70ce4c4 100644
+--- a/tests/e2e/application.spec.ts
++++ b/tests/e2e/application.spec.ts
+@@ -228,9 +228,12 @@ test('native media advances and moves to the next episode only after ending', as
+   await expect
+     .poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime))
+     .toBeGreaterThan(0.2);
+-  await video.evaluate((element: HTMLVideoElement) => {
+-    element.currentTime = 1;
+-  });
++  // Exercise the actual user control, not a direct assignment that bypasses its
++  // pause/seek/resume lifecycle. Native time and ended assertions remain below.
++  const seekBar = page.getByRole('slider', { name: 'Seek video', exact: true });
++  const bounds = await seekBar.boundingBox();
++  if (!bounds) throw new Error('Seek control has no rendered bounds.');
++  await seekBar.click({ position: { x: bounds.width / 4, y: bounds.height / 2 } });
+   try {
+     await expect(page).toHaveURL(
+       new RegExp(`/watch/paper-lantern/${data.second.id}\\?language=sub`),
+diff --git a/tests/media-seek.test.ts b/tests/media-seek.test.ts
+new file mode 100644
+index 0000000..4f343aa
+--- /dev/null
++++ b/tests/media-seek.test.ts
+@@ -0,0 +1,47 @@
++import { describe, expect, it, vi } from 'vitest';
++import { createMediaSeeker } from '../src/lib/mediaSeek';
++function fixture(paused = false) {
++  const video = Object.assign(new EventTarget(), {
++    paused, ended: false, duration: 120, currentTime: 0, seeking: true,
++    pause: vi.fn(function(this: { paused: boolean }) { this.paused = true; }),
++    play: vi.fn(function(this: { paused: boolean }) { this.paused = false; return Promise.resolve(); }),
++  });
++  const error = vi.fn();
++  const seeker = createMediaSeeker(video as unknown as HTMLVideoElement, error);
++  return { video, error, seeker };
++}
++describe('native seek lifecycle', () => {
++  it('pauses before seeking and resumes only on the actual seeked event', () => {
++    const { video, seeker } = fixture(); seeker.seek(20);
++    expect(video.pause).toHaveBeenCalledOnce(); expect(video.currentTime).toBe(20);
++    expect(video.play).not.toHaveBeenCalled(); video.dispatchEvent(new Event('seeked'));
++    expect(video.play).toHaveBeenCalledOnce(); video.dispatchEvent(new Event('seeked'));
++    expect(video.play).toHaveBeenCalledOnce();
++  });
++  it('does not start a paused video', () => {
++    const { video, seeker } = fixture(true); seeker.seek(20); video.dispatchEvent(new Event('seeked'));
++    expect(video.play).not.toHaveBeenCalled(); expect(video.pause).not.toHaveBeenCalled();
++  });
++  it('coalesces repeated slider positions without losing playback intent', () => {
++    const { video, seeker } = fixture(); seeker.seek(20); seeker.seek(40); seeker.seek(60);
++    video.dispatchEvent(new Event('seeked')); expect(video.currentTime).toBe(60);
++    expect(video.play).toHaveBeenCalledOnce();
++  });
++  it('cancels a pending resume after user action or disposal', () => {
++    const { video, seeker } = fixture(); seeker.seek(20); seeker.cancel();
++    video.dispatchEvent(new Event('seeked')); expect(video.play).not.toHaveBeenCalled();
++    video.paused = false; seeker.seek(40); seeker.dispose(); video.dispatchEvent(new Event('seeked'));
++    expect(video.play).not.toHaveBeenCalled(); seeker.seek(90); expect(video.currentTime).toBe(40);
++  });
++  it('clamps targets and rejects invalid positions', () => {
++    const { video, seeker } = fixture(true); seeker.seek(-1); expect(video.currentTime).toBe(0);
++    seeker.seek(200); expect(video.currentTime).toBe(120);
++    seeker.seek(NaN); expect(video.currentTime).toBe(120);
++  });
++  it('reports refused resume without an unhandled rejection or fake completion', async () => {
++    const { video, seeker, error } = fixture(); video.play.mockRejectedValueOnce(new Error('blocked'));
++    const ended = vi.fn(); video.addEventListener('ended', ended);
++    seeker.seek(20); video.dispatchEvent(new Event('seeked')); await Promise.resolve();
++    expect(error).toHaveBeenCalledOnce(); expect(ended).not.toHaveBeenCalled();
++  });
++});
+diff --git a/tests/persistent-state.test.tsx b/tests/persistent-state.test.tsx
+new file mode 100644
+index 0000000..7268346
+--- /dev/null
++++ b/tests/persistent-state.test.tsx
+@@ -0,0 +1,25 @@
++// @vitest-environment jsdom
++import { afterEach, describe, expect, it, vi } from 'vitest';
++import { act, cleanup, renderHook } from '@testing-library/react';
++import type { PropsWithChildren } from 'react';
++import { StorageScopeContext, profileStorage } from '../src/account/storageScope';
++import { usePersistentState } from '../src/lib/storage';
++afterEach(() => cleanup());
++describe('profile read and write separation', () => {
++  it('does not save untouched defaults on mount or rerender', () => {
++    const commit = vi.fn(async () => 1);
++    const scope = profileStorage({ values: {}, revisions: {} }, commit, () => {});
++    const wrapper = ({ children }: PropsWithChildren) => <StorageScopeContext.Provider value={scope}>{children}</StorageScopeContext.Provider>;
++    const { rerender } = renderHook(() => usePersistentState<string[]>('history', []), { wrapper });
++    rerender(); expect(commit).not.toHaveBeenCalled(); expect(scope.hasPending()).toBe(false);
++  });
++  it('persists an actual edit once and does not rewrite it on a matching rerender', async () => {
++    const commit = vi.fn(async () => 1);
++    const scope = profileStorage({ values: {}, revisions: {} }, commit, () => {});
++    const wrapper = ({ children }: PropsWithChildren) => <StorageScopeContext.Provider value={scope}>{children}</StorageScopeContext.Provider>;
++    const { result, rerender } = renderHook(() => usePersistentState<any[]>('history', []), { wrapper });
++    const entry = { titleId:'1',slug:'paper',title:'Paper',episodeId:'1',episodeLabel:'1',language:'sub',watchedAt:'2026-09-12' };
++    await act(async () => { result.current[1]([entry]); });
++    await scope.flush(); rerender(); expect(commit).toHaveBeenCalledOnce();
++  });
++});
