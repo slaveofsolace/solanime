@@ -1,0 +1,116 @@
+name: Studio release review
+on:
+  push:
+    branches: [feat/studio-v05]
+    paths: [.github/workflows/studio-review.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify and apply source patch
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feat/studio-v05
+          git diff --exit-code 89d9d79e541f04db2fb16e9e5082ec9663e6b762 HEAD -- src server scripts shared tests package.json public docs config README.md index.html playwright.config.ts
+          mkdir -p /tmp/studio-review
+          python - <<'PY'
+          import base64, hashlib, lzma, pathlib
+          chunks = [pathlib.Path(f'.review/studio-{i}.b64').read_text().strip() for i in range(3)]
+          compressed = base64.b64decode(''.join(chunks), validate=True)
+          assert hashlib.sha256(compressed).hexdigest() == '21e4487f0965bab6e7c28c87b2b99c46fffa4adab37ce22e727e41a7a3698141', 'Patch checksum mismatch'
+          pathlib.Path('/tmp/studio.patch').write_bytes(lzma.decompress(compressed))
+          PY
+          git apply --check /tmp/studio.patch
+          git apply /tmp/studio.patch
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+      - name: Types, unit/API tests and production build
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee /tmp/studio-review/check.log
+      - name: Commit source on the review branch only
+        run: |
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .review/studio-*.b64
+          git add src server scripts shared tests docs package.json README.md index.html playwright.config.ts
+          git add -u .review
+          git diff --cached --exit-code -- .github/workflows data
+          git commit -m 'Revamp studio browsing and motion; persist standard playback across episode changes'
+          git push origin HEAD:refs/heads/feat/studio-v05
+          git rev-parse HEAD > /tmp/studio-review/commit.txt
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Browser acceptance without retries
+        id: browser
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --retries=0 2>&1 | tee /tmp/studio-review/browser.log
+      - name: Real catalogue visual review and deployment diagnostic
+        if: always()
+        run: |
+          test -f dist/index.html || exit 0
+          cp data/solanime.sqlite /tmp/studio-catalogue.sqlite
+          PORT=18788 SOLANIME_DB_PATH=/tmp/studio-catalogue.sqlite SOLANIME_ACCOUNTS_DB_PATH=/tmp/studio-private/accounts.sqlite node --import tsx server/app.ts --serve-static > /tmp/studio-review/runtime.log 2>&1 &
+          for i in $(seq 1 25); do curl -fsS http://127.0.0.1:18788/api/health && break || sleep 1; done
+          node scripts/verify-deployment.mjs http://127.0.0.1:18788 > /tmp/studio-review/deployment.json
+          cat > .studio-visual.mjs <<'JS'
+          import { chromium } from '@playwright/test';
+          import fs from 'node:fs';
+          const browser = await chromium.launch(); const observations=[];
+          for (const [name, viewport] of [['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]]) {
+            const page = await browser.newPage({ viewport }); const errors=[];
+            page.on('pageerror',e=>errors.push(e.message));
+            await page.route('**/api/providers/*/resolve',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{message:'Live provider verification was not performed during visual review.'}})}));
+            for (const [label,path] of [['home','/'],['catalogue','/catalogue?q=naruto'],['profiles','/login']]) {
+              await page.goto('http://127.0.0.1:18788'+path);
+              if(label==='home') await page.locator('#featured-title').waitFor();
+              if(label==='catalogue') await page.locator('.title-card').first().waitFor();
+              if(label==='profiles') await page.getByLabel('Email address',{exact:true}).waitFor();
+              await page.waitForTimeout(1000);
+              await page.screenshot({path:`/tmp/studio-review/${label}-${name}.png`,fullPage:true});
+              observations.push({name,label,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),errors:[...errors]});
+            }
+            await page.goto('http://127.0.0.1:18788/'); await page.locator('#featured-title').waitFor();
+            await page.getByRole('button',{name:'Customize appearance'}).click();
+            await page.screenshot({path:`/tmp/studio-review/appearance-${name}.png`,fullPage:true});
+            await page.close();
+          }
+          await browser.close();
+          fs.writeFileSync('/tmp/studio-review/visual.json',JSON.stringify(observations,null,2));
+          JS
+          node .studio-visual.mjs
+      - name: Package committed source for reconciliation
+        if: always()
+        run: |
+          python - <<'PY'
+          import subprocess, pathlib, zipfile
+          names = subprocess.check_output(['git','ls-tree','-r','--name-only','-z','HEAD']).decode().split('\0')
+          with zipfile.ZipFile('/tmp/studio-review/review-source.zip','w',zipfile.ZIP_DEFLATED) as archive:
+            for name in filter(None,names):
+              if not name.startswith('.review/'):
+                archive.writestr('solanime/'+name,subprocess.check_output(['git','cat-file','blob',f'HEAD:{name}']))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-release-review
+          path: |
+            /tmp/studio-review/
+            test-results/
+            playwright-report/
+          retention-days: 7
+      - name: Require browser acceptance
+        if: steps.browser.outcome == 'failure'
+        run: exit 1
