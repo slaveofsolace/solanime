@@ -8,10 +8,10 @@
 .masthead {
   border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
 }
+/* Theme text and its background change together; interpolating only the
+ * text color creates unreadable intermediate frames on a light background. */
 .main-nav > a {
-  transition:
-    color var(--motion-fast),
-    opacity var(--motion-fast);
+  transition: transform var(--motion-fast);
 }
 .main-nav > a.active::after {
   height: 3px;

@@ -144,6 +144,10 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
   await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
   await page.getByRole('button', { name: 'Use light theme' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  const link = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true });
+  expect(await link.evaluate((element) => getComputedStyle(element).transitionProperty)).not.toMatch(/color|all/);
+  await expect(link).toHaveCSS('color', 'rgb(92, 92, 92)');
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
   expect(results.violations).toEqual([]);
 });
