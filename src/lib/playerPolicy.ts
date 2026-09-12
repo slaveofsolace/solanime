@@ -1,7 +1,7 @@
 export const PLAYER_SANDBOX = 'allow-scripts allow-same-origin';
 export const PLAYER_PERMISSIONS =
   "autoplay; fullscreen; encrypted-media; picture-in-picture; camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'";
-/** Embed documents remain cross-origin so scripts cannot remove their sandbox. */
+/** Only reviewed cross-origin embed URLs are accepted. Sandbox mode is an explicit preference. */
 export function playbackUrl(input: string, kind: string, base: string): string | null {
   if (!input) return null;
   try {

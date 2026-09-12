@@ -1,4 +1,6 @@
-# Sol Anime 0.4
+# Sol Anime 0.5
+
+**0.5 update:** persistent provider-compatibility mode fixes the per-video sandbox reset; refreshed browsing and motion preserve account data. See [the release and deployment guide](docs/RELEASE_05.md).
 
 An independent anime catalogue with a cinema-style interface, custom accents, email/password login, and up to five profiles per account. React handles the interface; a Node API serves the catalogue and private account data from separate SQLite databases.
 
@@ -44,7 +46,7 @@ Private data lives in `data/private/accounts.sqlite`, separately from the distri
 No browser extension installation is required to run the site. The current choices are explicit:
 
 - **Restricted embed** retains sandbox restrictions. A provider that rejects sandboxing may refuse playback.
-- **Provider compatibility** recreates the selected provider frame without the sandbox. This may address its rejection, but it does **not** provide popup or tracker blocking.
+- **Provider compatibility (default)** persists per profile or guest browser and recreates the selected provider frame without the sandbox. This may address its rejection, but it does **not** provide popup or tracker blocking.
 - **Native media** loads an operator-registered MP4/HLS/DASH source in Solanime's own theme-aware controls without the provider webpage or its advertising scripts. The registry is empty by default: the existing library has not been converted into native streams.
 
 A hidden iframe with an overlay would not remove its network activity. This release does not claim a universal extension-free blocker, arbitrary cross-origin player styling, or verified live playback for every mapping. Earlier Guard files remain optional legacy tooling, not a new required installation. See [the account and playback architecture](docs/ACCOUNTS_AND_PLAYBACK.md) for exact boundaries and native-source registration.

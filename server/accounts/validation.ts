@@ -27,6 +27,8 @@ export function validateData(key: string, value: unknown) {
     if (!object(value)) throw new AppError(400, 'BAD_REQUEST', 'Preferences must be an object.');
     return {
       theme: value.theme === 'light' ? 'light' : 'dark',
+      embedMode: value.embedMode === 'restricted' ? 'restricted' : 'compatible',
+      motion: value.motion === 'reduced' ? 'reduced' : 'system',
       accent:
         typeof value.accent === 'string' && /^#[\da-f]{6}$/i.test(value.accent)
           ? value.accent.toUpperCase()

@@ -15,6 +15,8 @@ export const defaultPreferences: Preferences = {
   rememberProgress: true,
   theme: 'dark',
   accent: DEFAULT_ACCENT,
+  embedMode: 'compatible',
+  motion: 'system',
 };
 type RecordValue = Record<string, unknown>;
 const record = (value: unknown): value is RecordValue =>
@@ -63,6 +65,8 @@ export function decodeStored<T>(key: string, value: unknown, fallback: T): T {
       rememberProgress: typeof data.rememberProgress === 'boolean' ? data.rememberProgress : true,
       theme: data.theme === 'light' ? 'light' : 'dark',
       accent: normalizeAccent(data.accent),
+      embedMode: data.embedMode === 'restricted' ? 'restricted' : 'compatible',
+      motion: data.motion === 'reduced' ? 'reduced' : 'system',
     } as T;
   }
   if (key.startsWith('progress:'))

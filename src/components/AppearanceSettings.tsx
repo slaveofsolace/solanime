@@ -28,6 +28,25 @@ export default function AppearanceSettings() {
           </button>
         ))}
       </div>
+      <div className="motion-preference">
+        <h3>Motion</h3>
+        <div className="appearance-mode" role="group" aria-label="Motion preference">
+          <button
+            type="button"
+            aria-pressed={preferences.motion !== 'reduced'}
+            onClick={() => setPreferences((current) => ({ ...current, motion: 'system' }))}
+          >
+            Follow device
+          </button>
+          <button
+            type="button"
+            aria-pressed={preferences.motion === 'reduced'}
+            onClick={() => setPreferences((current) => ({ ...current, motion: 'reduced' }))}
+          >
+            Reduce motion
+          </button>
+        </div>
+      </div>
       <h3>Accent color</h3>
       <div className="accent-presets" role="group" aria-label="Accent presets">
         {ACCENT_PRESETS.map((preset) => (

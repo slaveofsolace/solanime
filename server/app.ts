@@ -1,3 +1,4 @@
+import { RELEASE } from '../shared/release.ts';
 import { createAccounts, type AccountsService } from './accounts/service.ts';
 import { openAccountsDatabase } from './accounts/database.ts';
 import { nativeSourceResolver } from './providers/nativeSources.ts';
@@ -296,6 +297,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
       if (method === 'GET' && url.pathname === '/api/health')
         return json(response, 200, {
           status: 'ok',
+          release: RELEASE,
           schemaVersion: currentSchemaVersion(db),
           database: 'connected',
           now: new Date().toISOString(),

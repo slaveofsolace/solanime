@@ -5,6 +5,7 @@ import { readProgress, writeProgress } from '../lib/storage';
 import { PLAYER_SANDBOX, PLAYER_PERMISSIONS, playbackUrl } from '../lib/playerPolicy';
 import MediaControls from './MediaControls';
 import Icon from './Icon';
+import { useAppState } from '../state';
 
 type PlayerState = 'loading' | 'ready' | 'playing' | 'error';
 
@@ -40,7 +41,13 @@ export default function PlayerSurface({
   const [state, setState] = useState<PlayerState>('loading');
   const [detail, setDetail] = useState('Preparing the selected source…');
   const [iframeEnabled, setIframeEnabled] = useState(false);
-  const [embedMode, setEmbedMode] = useState<'restricted' | 'compatible'>('restricted');
+  const [preferences, setPreferences] = useAppState().preferences;
+  const embedMode = preferences.embedMode === 'restricted' ? 'restricted' : 'compatible';
+  const setEmbedMode = (mode: 'compatible' | 'restricted') =>
+    setPreferences((current) => ({ ...current, embedMode: mode }));
+  const [frameAttempt, setFrameAttempt] = useState(0);
+  const [frameSlow, setFrameSlow] = useState(false);
+  const [insidePreview] = useState(() => window.self !== window.top);
   const inputUrl = resolution.url ?? resolution.embedUrl ?? '';
   const sourceUrl = playbackUrl(inputUrl, resolution.playbackType, window.location.origin) ?? '';
   const progressScope = `${resolution.providerId}:${resolution.playbackType}`;
@@ -59,6 +66,14 @@ export default function PlayerSurface({
     setState('loading');
     setDetail('');
   }, [sourceUrl]);
+
+  useEffect(() => {
+    if (!iframeEnabled || resolution.playbackType !== 'iframe') return;
+    setFrameSlow(false);
+    update('loading', 'Loading player…');
+    const timer = window.setTimeout(() => setFrameSlow(true), 15000);
+    return () => window.clearTimeout(timer);
+  }, [sourceUrl, iframeEnabled, embedMode, frameAttempt, resolution.playbackType]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -209,25 +224,9 @@ export default function PlayerSurface({
   if (resolution.playbackType === 'iframe') {
     return (
       <div className="player-frame">
-        <div className="embed-mode" role="group" aria-label="Provider compatibility">
-          <button
-            type="button"
-            aria-pressed={embedMode === 'restricted'}
-            onClick={() => setEmbedMode('restricted')}
-          >
-            Restricted embed
-          </button>
-          <button
-            type="button"
-            aria-pressed={embedMode === 'compatible'}
-            onClick={() => setEmbedMode('compatible')}
-          >
-            Provider compatibility
-          </button>
-        </div>
         {iframeEnabled ? (
           <iframe
-            key={`${sourceUrl}:${embedMode}`}
+            key={`${sourceUrl}:${embedMode}:${frameAttempt}`}
             src={sourceUrl}
             title="Episode player"
             allow={PLAYER_PERMISSIONS}
@@ -235,7 +234,13 @@ export default function PlayerSurface({
             data-solanime-player="true"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
-            onLoad={() => update('ready', 'Player frame loaded.')}
+            onLoad={() => {
+              setFrameSlow(false);
+              update(
+                'ready',
+                'Player document loaded; media availability is controlled by the provider.',
+              );
+            }}
           />
         ) : (
           <div className="player-consent">
@@ -255,7 +260,7 @@ export default function PlayerSurface({
         )}
         {embedMode === 'compatible' && (
           <p className="compatibility-status" role="status">
-            Provider compatibility active · popup and tracking protection is limited.
+            Provider compatibility active · provider-controlled playback.
           </p>
         )}
         <p
@@ -264,8 +269,65 @@ export default function PlayerSurface({
         >
           {detail}
         </p>
+        {frameSlow && state === 'loading' && (
+          <div className="player-delay" role="status">
+            Still waiting for the provider.{' '}
+            <button type="button" onClick={() => setFrameAttempt((attempt) => attempt + 1)}>
+              Reload player
+            </button>
+          </div>
+        )}
         <details className="player-help">
-          <summary>Player options</summary>
+          <summary>
+            Playback settings &amp; help
+            <span className="player-mode-label">
+              {embedMode === 'compatible' ? 'Standard' : 'Restricted'}
+            </span>
+          </summary>
+          <div className="embed-mode" role="group" aria-label="Provider compatibility">
+            <button
+              type="button"
+              aria-pressed={embedMode === 'restricted'}
+              onClick={() => setEmbedMode('restricted')}
+            >
+              Restricted embed
+            </button>
+            <button
+              type="button"
+              aria-pressed={embedMode === 'compatible'}
+              onClick={() => setEmbedMode('compatible')}
+            >
+              Provider compatibility
+            </button>
+          </div>
+          <p className="player-preference-note">
+            This choice is saved for your current profile or guest browser and follows you between
+            episodes.
+          </p>
+          <button
+            className="button"
+            type="button"
+            onClick={() => {
+              setFrameAttempt((attempt) => attempt + 1);
+              setIframeEnabled(true);
+              markOpen();
+            }}
+          >
+            Reload player
+          </button>
+          {embedMode === 'restricted' && (
+            <button type="button" className="button" onClick={() => setEmbedMode('compatible')}>
+              Fix sandbox warning
+            </button>
+          )}
+          {insidePreview && (
+            <p>
+              This site is open inside another page. Its restrictions can affect the player.{' '}
+              <a href={window.location.href} target="_blank" rel="noopener noreferrer">
+                Open Solanime in its own tab
+              </a>
+            </p>
+          )}
           <p>
             {embedMode === 'restricted'
               ? 'A sandbox error means this provider refuses restricted embedding. Provider compatibility removes the sandbox for this source; it also removes its popup and navigation protections.'

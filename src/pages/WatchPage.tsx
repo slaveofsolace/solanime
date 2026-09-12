@@ -27,10 +27,22 @@ function capabilityList(provider: ProviderChoice): string[] {
 export default function WatchPage() {
   const { slug = '', episodeId = '' } = useParams();
   const [params] = useSearchParams();
-  return <WatchSession key={`${slug}:${episodeId}:${params.get('language') ?? ''}`} />;
-}
-function WatchSession() {
   const [theater, setTheater] = useState(false);
+  return (
+    <WatchSession
+      key={`${slug}:${episodeId}:${params.get('language') ?? ''}`}
+      theater={theater}
+      setTheater={setTheater}
+    />
+  );
+}
+function WatchSession({
+  theater,
+  setTheater,
+}: {
+  theater: boolean;
+  setTheater: (update: (current: boolean) => boolean) => void;
+}) {
   const { slug = '', episodeId = '' } = useParams();
   const [params, updateParams] = useSearchParams();
   // URL updates must not restart the provider-list request on each server selection.
@@ -296,9 +308,10 @@ function WatchSession() {
             <span>/</span>
             <span aria-current="page">{episodeName(episode)}</span>
           </nav>
-          <p className="eyebrow">NOW WATCHING / {language.toUpperCase()}</p>
+          <p className="watch-context">
+            {episodeName(episode)} <span>·</span> {language.toUpperCase()}
+          </p>
           <h1>{titleName}</h1>
-          <p>{episodeName(episode)}</p>
         </div>
         <div className="episode-nav" aria-label="Episode navigation">
           <button
@@ -316,10 +329,10 @@ function WatchSession() {
             disabled={!previous}
             onClick={() => previous && goToEpisode(previous)}
           >
-            <span aria-hidden="true">←</span> Previous
+            <Icon name="left" /> Previous
           </button>
           <button type="button" disabled={!next} onClick={() => next && goToEpisode(next)}>
-            Next <span aria-hidden="true">→</span>
+            Next <Icon name="right" />
           </button>
           <label className="episode-jump">
             <span>Jump to</span>

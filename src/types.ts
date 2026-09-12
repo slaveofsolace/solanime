@@ -181,6 +181,8 @@ export interface Preferences {
   rememberProgress: boolean;
   theme?: 'dark' | 'light';
   accent?: string;
+  embedMode?: 'compatible' | 'restricted';
+  motion?: 'system' | 'reduced';
 }
 
 export interface ImportStatus {

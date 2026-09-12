@@ -18,6 +18,8 @@ import Icon from './Icon';
 import { applyTheme } from '../lib/theme';
 import AppearanceSettings from './AppearanceSettings';
 import Dialog from './Dialog';
+import { useRouteMotion } from '../lib/motion';
+import { RELEASE } from '../../shared/release';
 const TitlePreview = lazy(() => import('./TitlePreview'));
 
 function Mark() {
@@ -38,6 +40,10 @@ export function Layout({ children }: PropsWithChildren) {
   const [appearanceOpen, setAppearanceOpen] = useState(false);
   const [prefs, setPrefs] = preferences;
   const theme = prefs.theme ?? 'dark';
+  useRouteMotion(main, location.pathname);
+  useLayoutEffect(() => {
+    document.documentElement.dataset.motion = prefs.motion === 'reduced' ? 'reduced' : 'system';
+  }, [prefs.motion]);
   useLayoutEffect(() => {
     applyTheme(prefs.accent, theme);
   }, [prefs.accent, theme]);
@@ -150,6 +156,9 @@ export function Layout({ children }: PropsWithChildren) {
         <p>
           <strong>Sol Anime</strong>
           <span>Independent catalogue.</span>
+          <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
+            v{RELEASE}
+          </span>
         </p>
         <nav aria-label="Footer navigation">
           <Link to="/catalogue">Browse</Link>

@@ -154,6 +154,9 @@ test('provider compatibility is an explicit mode and recreates only the provider
   const episode = (await (await page.request.get('/api/titles/paper-lantern')).json()).episodes[0];
   await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
   await page.getByRole('button', { name: 'Play here', exact: true }).click();
+  await expect(page.locator('iframe')).not.toHaveAttribute('sandbox', /.*/);
+  await page.locator('.player-help summary').click();
+  await page.getByRole('button', { name: 'Restricted embed', exact: true }).click();
   await expect(page.locator('iframe')).toHaveAttribute(
     'sandbox',
     'allow-scripts allow-same-origin',

@@ -86,6 +86,9 @@ test('iframe cannot open a popup or navigate its parent, and accent changes keep
   page,
   context,
 }, info) => {
+  await page.addInitScript(() =>
+    localStorage.setItem('sol-anime:preferences', JSON.stringify({ embedMode: 'restricted' })),
+  );
   const episode = await getEpisode(page);
   await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
   await expect(page.getByText('This opens a third-party player.', { exact: false })).toHaveCount(0);

@@ -1,13 +1,14 @@
+import FeatureSpotlight from '../components/FeatureSpotlight';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Rail from '../components/CatalogueRail';
-import { CoverArt, InlineNotice, TitleCard } from '../components/ui';
+import { CoverArt, InlineNotice } from '../components/ui';
 import Icon from '../components/Icon';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
 import type { CatalogueFacets, TitleSummary } from '../types';
 export default function HomePage() {
-  const { history, watchlist, setPreview } = useAppState();
+  const { history, watchlist } = useAppState();
   const [latest, setLatest] = useState<TitleSummary[]>([]);
   const [movies, setMovies] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
@@ -55,56 +56,7 @@ export default function HomePage() {
           <span className="sr-only">Loading catalogue…</span>
         </section>
       ) : featured ? (
-        <section className="home-feature" aria-labelledby="featured-title">
-          <div className="home-feature__copy">
-            <p className="feature-caption">Discover your next story</p>
-            <h2 id="featured-title">{featured.name}</h2>
-            <p className="feature-meta">
-              {[
-                featured.type,
-                featured.releaseYear,
-                featured.episodeCount ? `${featured.episodeCount} episodes` : null,
-              ]
-                .filter(Boolean)
-                .join(' · ')}
-            </p>
-            <p className="feature-synopsis">
-              {featured.synopsis || 'Explore the episode list and available language versions.'}
-            </p>
-            <div className="button-row">
-              <Link
-                className="button button--play"
-                to={`/title/${encodeURIComponent(featured.slug)}`}
-              >
-                <Icon name="play" /> View episodes
-              </Link>
-              <button
-                className="button button--outline"
-                type="button"
-                aria-pressed={watchlist.has(featured.id)}
-                onClick={() => watchlist.toggle(featured.id, featured)}
-              >
-                <Icon name={watchlist.has(featured.id) ? 'check' : 'bookmark'} />
-                {watchlist.has(featured.id) ? 'Saved' : 'My list'}
-              </button>
-              <button
-                className="button button--glass"
-                type="button"
-                onClick={() => setPreview(featured)}
-              >
-                <Icon name="info" />
-                More info
-              </button>
-            </div>
-          </div>
-          <Link
-            className="home-feature__art"
-            to={`/title/${encodeURIComponent(featured.slug)}`}
-            aria-label={`Open ${featured.name}`}
-          >
-            <CoverArt title={featured} eager />
-          </Link>
-        </section>
+        <FeatureSpotlight items={latest} />
       ) : !error ? (
         <InlineNotice>
           No titles have been imported yet. Saved titles remain available in your list.

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TitleCard } from './ui';
 import Icon from './Icon';
+import { motionReduced } from '../lib/motion';
 import type { TitleSummary } from '../types';
 export default function CatalogueRail({
   title,
@@ -37,7 +38,7 @@ export default function CatalogueRail({
     if (element)
       element.scrollBy({
         left: direction * element.clientWidth * 0.85,
-        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        behavior: motionReduced() ? 'instant' : 'smooth',
       });
   };
   if (!items.length) return null;
@@ -73,9 +74,35 @@ export default function CatalogueRail({
           </button>
         </div>
       </header>
-      <div id={`${id}-items`} className="rail-track" ref={track}>
-        {items.map((item) => (
-          <TitleCard key={item.id} title={item} />
+      <div
+        id={`${id}-items`}
+        className="rail-track"
+        ref={track}
+        tabIndex={0}
+        aria-label={`${title} titles`}
+        onKeyDown={(event) => {
+          if (
+            event.target !== event.currentTarget ||
+            event.altKey ||
+            event.ctrlKey ||
+            event.metaKey
+          )
+            return;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            scroll(event.key === 'ArrowRight' ? 1 : -1);
+          }
+          if (event.key === 'Home' || event.key === 'End') {
+            event.preventDefault();
+            event.currentTarget.scrollTo({
+              left: event.key === 'Home' ? 0 : event.currentTarget.scrollWidth,
+              behavior: motionReduced() ? 'instant' : 'smooth',
+            });
+          }
+        }}
+      >
+        {items.map((item, index) => (
+          <TitleCard key={item.id} title={item} index={index} />
         ))}
       </div>
     </section>
