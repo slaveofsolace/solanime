@@ -1,0 +1,146 @@
+{
+  "availability": {
+    "bytes_read": 4858,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://m3u-ip.tv/browser/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "Apache"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:42.711873+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://m3u-ip.tv/browser/",
+        "url": "https://m3u-ip.tv/browser"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://m3u-ip.tv/browser"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "IPTV Players"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-b50392bed0fccac9"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-70a82f46e0507379"
+  ],
+  "frameworks": [],
+  "id": "site-c1a5d1af85780d17",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "M3U IPTV",
+  "observations": [
+    {
+      "bytes_read": 4858,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://m3u-ip.tv/browser/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "Apache"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:42.711873+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://m3u-ip.tv/browser/",
+          "url": "https://m3u-ip.tv/browser"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://m3u-ip.tv/browser"
+    },
+    {
+      "bytes_read": 22332,
+      "content_type": "text/javascript",
+      "final_url": "https://m3u-ip.tv/browser/js/lang-home.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/javascript",
+        "server": "Apache"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:43.803557+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "98f256fde854d7fe9447b30f24040031bb4c53aa6ddaf06ebff4741e5dadcfb7",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://m3u-ip.tv/browser/js/lang-home.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:42.711873+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+      "evidence_url": "https://m3u-ip.tv/browser/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:42.711873+00:00",
+      "url": "https://m3u-ip.tv/browser/js/lang-home.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+      "evidence_url": "https://m3u-ip.tv/browser/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:42.711873+00:00",
+      "url": "https://m3u-ip.tv/browser/settings/index.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+      "evidence_url": "https://m3u-ip.tv/browser/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.711873+00:00",
+      "url": "https://m3u-ip.tv/browser/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f320f14dc1b55691ff12c92f3670d3172763b83e3cbde9bdb598e9f8ab7c6922",
+      "evidence_url": "https://m3u-ip.tv/browser/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.711873+00:00",
+      "url": "https://m3u-ip.tv/browser/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://m3u-ip.tv/browser"
+}

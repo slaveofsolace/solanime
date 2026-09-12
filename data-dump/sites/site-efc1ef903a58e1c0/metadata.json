@@ -1,0 +1,455 @@
+{
+  "availability": {
+    "bytes_read": 1071,
+    "content_type": "text/html",
+    "final_url": "https://atlantic.st/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:28:50.970496+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://atlantic.st/"
+  },
+  "categories": [
+    [
+      "Streaming Sites",
+      "Dedicated-Server"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-07053b3cb9c39fe6",
+    "domain-d15afad5fd0ce8bf",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-01d6e1237397752f",
+    "domain-1a2e36cc692d119d",
+    "domain-528c9b49e02001ca",
+    "domain-4d5be849297ef769",
+    "domain-d94fcf5105ee9ed8",
+    "domain-3aeb002460381c6f",
+    "domain-09fdc3bd98e25e2b",
+    "domain-15af9aed552a4cd8",
+    "domain-eb9179f493f31c4c",
+    "domain-970b00aadd3200f7",
+    "domain-13568bb2d89c2037",
+    "domain-71bb02188cf9cb20",
+    "domain-bb3e4bfe40af9b89"
+  ],
+  "endpoint_ids": [
+    "endpoint-2fdc11bbcb80f2d6",
+    "endpoint-02227185f4e9eef0"
+  ],
+  "entry_ids": [
+    "entry-4e95703262252118"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://atlantic.st/assets/index-Z19LpSW2.js"
+    }
+  ],
+  "id": "site-efc1ef903a58e1c0",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Atlantic",
+  "observations": [
+    {
+      "bytes_read": 1071,
+      "content_type": "text/html",
+      "final_url": "https://atlantic.st/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://atlantic.st/"
+    },
+    {
+      "bytes_read": 969314,
+      "content_type": "application/javascript",
+      "final_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://atlantic.st/assets/index-Z19LpSW2.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:28:50.970496+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-google-fonts",
+    "provider-tmdb",
+    "provider-opensubtitles"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://atlantic.st/assets/index-BeTktrxh.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700%3B800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "26eacdfd3352cf16ff71da68b35a7339060392a1ac0e492e7d9ca381b0af6a80",
+      "evidence_url": "https://atlantic.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:50.970496+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://reactjs.org/docs/error-decoder.html?invariant=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://jedwatson.github.io/classnames",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://api.themoviedb.org/3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/original${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w780${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w342${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/original${s.file_path",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w185${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w300${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://github.com/pmndrs/zustand/discussions/1937",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://api.atlantic.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w780/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://image.tmdb.org/t/p/w92${X.logo_path",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://cdn.maybeoneday.ch/content",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://stellar.maybeoneday.ch/resolve",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://sub.vdrk.site/v1/tv/${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://sub.vdrk.site/v1/movie/${n",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://natsuki.maybeoneday.ch/subs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://rest.opensubtitles.org/search/${e&&t",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "eaa61a14c80eacc47563f2cb6e01b02b6c32aa06195872ca522269e355008ab4",
+      "evidence_url": "https://atlantic.st/assets/index-Z19LpSW2.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:51.851213+00:00",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-75279b216fe82640"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://atlantic.st/"
+}

@@ -1,0 +1,905 @@
+{
+  "availability": {
+    "bytes_read": 5002,
+    "content_type": "text/html",
+    "final_url": "https://www.kanopy.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:33.018006+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://www.kanopy.com/",
+        "url": "https://kanopy.com/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://kanopy.com/"
+  },
+  "categories": [
+    [
+      "Streaming Sites",
+      "Free w/ Ads"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-4b35be11b9102128",
+    "domain-e6caaf0f8d61c9bf",
+    "domain-1a2e36cc692d119d",
+    "domain-3bbd7c83445a9c06",
+    "domain-8e08d6d89d17a981",
+    "domain-38b36076ca933259",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-c0eeae611e612562",
+    "domain-a379a6f6eeafb9a5",
+    "domain-d9bb7e4d34f11981",
+    "domain-a669dc3a1a47e0f1",
+    "domain-679689a83bf59973",
+    "domain-ad845a6da981f0ba",
+    "domain-104160a4b8204f91",
+    "domain-14850c1856b31159",
+    "domain-6aea976c582b874e",
+    "domain-158edf28d61b1ed9",
+    "domain-f99099f96f99b8c1",
+    "domain-b01da98063840601",
+    "domain-cca1ddf9623619fa",
+    "domain-c2932500380982b5",
+    "domain-7859987c6d620eac",
+    "domain-3e723b591bdb95ce",
+    "domain-823fb5b298a0ab38",
+    "domain-5ca704affb6babee",
+    "domain-f58ed2d21dafd4df",
+    "domain-f72c2d6d2339057a",
+    "domain-21eda786be0fd344",
+    "domain-2ea0464e9363076c",
+    "domain-a61723a081153cbf",
+    "domain-705d51c3baad549a",
+    "domain-b294ffbe62e95ba6",
+    "domain-5c1d9def5b7820f7",
+    "domain-acde068cce04ca64",
+    "domain-25562cebdd5853db",
+    "domain-54ca1b93be60a800",
+    "domain-3aeb002460381c6f",
+    "domain-d6c1754dbbf0bc91",
+    "domain-36ee5e49b53c8b15",
+    "domain-400a637f48858937"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-86e1e7d2e42a8e06"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Nuxt",
+      "source_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js"
+    },
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Video.js",
+      "source_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js"
+    }
+  ],
+  "id": "site-1bb4f0aa03dd5e13",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Kanopy",
+  "observations": [
+    {
+      "bytes_read": 5002,
+      "content_type": "text/html",
+      "final_url": "https://www.kanopy.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://www.kanopy.com/",
+          "url": "https://kanopy.com/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kanopy.com/"
+    },
+    {
+      "bytes_read": 1250000,
+      "content_type": "text/javascript",
+      "final_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "hash_scope": "bounded_response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "status": "reachable",
+      "truncated": true,
+      "url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:33.018006+00:00",
+  "provider_ids": [
+    "provider-google-analytics"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/kanopy-logo.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/spinner.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/error404bg-HYjqiB53.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/maintenance-pcookYhW.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/error503bg-CDbrNbaI.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/kanopy-kids-2.0-logo-BZrCdFF3.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/verify-email-icon-DSURf7iE.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/linkedin-CnW_Aeq9.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/overdrive-DkjYjXGw.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/logo_chromecast-CI1o2hJy.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/logo_samsung-D8FC3WKu.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/badge_appstore-hjD459mt.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/badge_googleplay-bjLfc7y7.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/badge_firetablet-DfuZ88Cq.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/kids_banner-C4XvP0gs.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/ticket-gradient-BQsYy0IY.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/bg-ticket-posters-C7dh0610.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/ticket-animation-intro-Jze4YuVp.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/puzzle-face-DFLJjeN-.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/spinner-BfUYzBq7.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ef895dc340bbb1aac3a6896f91ca7b4dce7dd07e261ad8a5204da0041ebd2593",
+      "evidence_url": "https://www.kanopy.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:33.018006+00:00",
+      "url": "https://www.kanopy.com/kui-assets/client-CmyvR4Qf.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://apps.apple.com/app/apple-store/id${e.env.APP_STORE_APPID?%3F=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://play.google.com/store/apps/details?id=%24%7Be.env.PLAYSTORE_APPID%3F%3F",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.clarity.ms/tag/o56j2m6fm7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.googletagmanager.com/gtm.js?id=GTM-MJFKZ365",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.googletagmanager.com/ns.html?id=GTM-MJFKZ365",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://stage.kanopy.com/kapi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://example.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://survey.alchemer.com/s3/6586124/Kanopy-Support-Form",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://firebaseinstallations.googleapis.com/v1/projects/${e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://firebase.googleapis.com/v1alpha/projects/-/apps/{app-id",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://kcms.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://auth.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://${this.to/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://sketchapp.com%20--%3e%3ctitle%3egroup%209%3c/title%3e%3cdesc%3eCreated%20with%20Sketch.%3c/desc%3e%3cg%20id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.bohemiancoding.com/sketch%20--%3e%3ctitle%3eGroup%2012%3c/title%3e%3cdesc%3eCreated%20with%20Sketch.%3c/desc%3e%3cdefs%3e%3cpolygon%20id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/hc/en-us/articles/360026504533",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://lib.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://careers.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://press.kanopy.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/hc/en-us",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.facebook.com/Kanopy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.linkedin.com/company/kanopy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.instagram.com/kanopy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.threads.net/@kanopy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://bsky.app/profile/kanopy.com",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.overdrive.com/policies/kanopy-accessibility-statement",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://apps.apple.com/app/apple-store/id1205614510?pt=118563515&ct=KWEB&mt=8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.kanopy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://play.google.com/store/apps/details?id=com.kanopy.tvapp",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/hc/en-us/articles/235868727-Watching-Kanopy-with-Chromecast",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://channelstore.roku.com/details/ce0521da8b84e9ad934530f7f12b5c16:a6be98dfb1c9504c7fe71de31829002c/kanopy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.amazon.com/Kanopy/dp/B07HKPNGVD",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.amazon.com/Kanopy/dp/B075SJCV38",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/en-us/4148.htm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://bcorp.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://kanopy.idm.oclc.org/logout",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.bohemiancoding.com/sketch%20--%3e%3ctitle%3eGroup%203%3c/title%3e%3cdesc%3eCreated%20with%20Sketch.%3c/desc%3e%3cdefs%3e%3cpolygon%20id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.consumer.ftc.gov/articles/0042-online-tracking",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.allaboutcookies.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.youronlinechoices.eu/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://www.overdrive.com/policies/cookie-policy",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://help.kanopy.com/en-us/4260.htm",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://feross.org/opensource",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://feross.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://github.com/kesla/parse-headers/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://github.com/kesla/parse-headers/blob/master/LICENCE",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://a.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "http://www.w3.org/2000/xmlns/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://vjs.zencdn.net/vttjs/0.14.1/vtt.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://github.com/videojs/video.js/issues/2617",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f2365454d6bc407c9f5fcf776e48fc69151b74d7b4ee32b974f9a136193f15e",
+      "evidence_url": "https://www.kanopy.com/kui-assets/client-ANZ33kkl.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:34.034866+00:00",
+      "url": "https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-09",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-32b97c63126b94fe",
+    "repo-48669023b91e83bf"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://kanopy.com/"
+}

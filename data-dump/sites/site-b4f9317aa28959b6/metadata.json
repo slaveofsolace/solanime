@@ -1,0 +1,510 @@
+{
+  "availability": {
+    "bytes_read": 107738,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://babyanime.top/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:28:53.219078+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://babyanime.top/"
+  },
+  "categories": [
+    [
+      "Specialty Streaming",
+      "Anime Streaming"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-d84bd9f7742ae37c",
+    "domain-f8030d52ed182a6b",
+    "domain-edf7dcad352dc8cb",
+    "domain-d15afad5fd0ce8bf",
+    "domain-5556fb17581577f3",
+    "domain-125ec6416e9be9d0",
+    "domain-3aeb002460381c6f",
+    "domain-7fc1bef5b195e415",
+    "domain-3e05de05227e0ae7",
+    "domain-55b6164eed36375f",
+    "domain-82f2685608438e08",
+    "domain-dc86b5d7c75e311e",
+    "domain-d94fcf5105ee9ed8",
+    "domain-4d5be849297ef769",
+    "domain-50bbf1067075748a",
+    "domain-89d88624781fa7c0",
+    "domain-1a2e36cc692d119d"
+  ],
+  "endpoint_ids": [
+    "endpoint-1984cf17d880b180",
+    "endpoint-01fd037e2803e900",
+    "endpoint-c2fc3c76c4714d35",
+    "endpoint-e8baf3e91c52a5e1",
+    "endpoint-162cda656521d3be",
+    "endpoint-07ee7c71c08a120e"
+  ],
+  "entry_ids": [
+    "entry-ee66685abf7c2b3e"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://babyanime.top/"
+    }
+  ],
+  "id": "site-b4f9317aa28959b6",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Babyanime",
+  "observations": [
+    {
+      "bytes_read": 107738,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://babyanime.top/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://babyanime.top/"
+    },
+    {
+      "bytes_read": 28091,
+      "content_type": "application/javascript",
+      "final_url": "https://babyanime.top/assets/app.js?v=3",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "HIT",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://babyanime.top/assets/app.js?v=3"
+    }
+  ],
+  "observed_at": "2026-09-12T07:28:53.219078+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-cloudflare-insights",
+    "provider-anilist",
+    "provider-myanimelist",
+    "provider-supabase",
+    "provider-tmdb",
+    "provider-jikan"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://openpanel.dev/op1.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@latest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime.top/assets/app.js?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime.top/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://myanimelist.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://github.com/manami-project/anime-offline-database",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime.top/assets/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://proxy.babyanime.top/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime-stream-proxy.sujeetunbeatable.workers.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime.top/assets/app.css?v=3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://m.babyanime.top/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://openpanel.dev/op1.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://proxy.babyanime.top/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://babyanime-stream-proxy.sujeetunbeatable.workers.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@latest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://myanimelist.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://github.com/manami-project/anime-offline-database",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://mdrnjwljpbmfhttadwxj.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://proxy.babyanime.top/api",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://image.tmdb.org/t/p/w500",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://api.themoviedb.org/3/search/tv?api_key=%5BREDACTED%5D",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4d3d7ba0a8262f8bcb9dda3542af5b382018d2f89fbd18db5f279e85a59dc8c8",
+      "evidence_url": "https://babyanime.top/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:28:53.219078+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://media.giphy.com/media/${s.id",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://proxy.babyanime.top/api/anilist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://babyanime-stream-proxy.sujeetunbeatable.workers.dev/api/jikan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://api.jikan.moe/v4/anime/${malId",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://babyanime-stream-proxy.sujeetunbeatable.workers.dev/stream-proxy?url=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "http://www.w3.org/2000/svg%22",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://mdrnjwljpbmfhttadwxj.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1895453582f3e98aad89cc19d042176e0ccd9c3f6955f0290dadf6d517060190",
+      "evidence_url": "https://babyanime.top/assets/app.js?v=3",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:28:54.174754+00:00",
+      "url": "https://graphql.anilist.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-1de3df41a95bab6c"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://babyanime.top/"
+}

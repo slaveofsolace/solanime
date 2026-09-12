@@ -1,0 +1,500 @@
+{
+  "availability": {
+    "bytes_read": 108916,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://famelack.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:29:27.380050+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://famelack.com/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-dd9179163caee0e9",
+    "domain-d15afad5fd0ce8bf",
+    "domain-3aeb002460381c6f",
+    "domain-49695d45e86f44a2",
+    "domain-b4999fe402505e76",
+    "domain-fe44ba3751989f34",
+    "domain-1f6baa4a359d00da",
+    "domain-16391d3665ca7477",
+    "domain-1a2e36cc692d119d",
+    "domain-6860776e5611f69c",
+    "domain-c33dbf71b02bd328"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-a2c55b20e1b16f7b"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://famelack.com/assets/index-C1l3jrp8.js"
+    },
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "Video.js",
+      "source_url": "https://famelack.com/"
+    }
+  ],
+  "id": "site-6e49b201bcfa5dbf",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Famelack",
+  "observations": [
+    {
+      "bytes_read": 108916,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://famelack.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://famelack.com/"
+    },
+    {
+      "bytes_read": 234449,
+      "content_type": "application/javascript",
+      "final_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://famelack.com/assets/index-C1l3jrp8.js"
+    },
+    {
+      "bytes_read": 1239,
+      "content_type": "application/javascript",
+      "final_url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:29.328395+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:29:27.380050+00:00",
+  "provider_ids": [
+    "provider-cloudflare-insights",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://github.com/iptv-org/iptv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/cdn-cgi/l/email-protection",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://threejs.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://videojs.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://github.com/video-dev/hls.js/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://moment.github.io/luxon/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://raw.githubusercontent.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/assets/fonts/Roboto-Regular.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/favicon-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/assets/index-BZ5TNyLO.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://raw.githubusercontent.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://famelack.com/favicon-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://github.com/iptv-org/iptv",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://threejs.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://videojs.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://github.com/video-dev/hls.js/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://moment.github.io/luxon/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b6eb15c1cac66bf8446a6f3551c182f63a4405a548d8bac0a71237613e0fd47b",
+      "evidence_url": "https://famelack.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:27.380050+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/tv/compressed/countries_metadata.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/radio/compressed/countries_metadata.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://raw.githubusercontent.com/famelack/famelack-data/main/webcams/compressed/countries_metadata.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://www.youtube.com/iframe_api",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "https://www.youtube-nocookie.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "359a3b0efff36f2ddc758443f69d76a894a26fa45fca9468e801cfe14a07ab71",
+      "evidence_url": "https://famelack.com/assets/index-C1l3jrp8.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:28.354368+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "evidence_url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:29.328395+00:00",
+      "url": "https://famelack.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/'+e.replace(/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-7cee059b5393d0da",
+    "repo-1301d9b056cc52e9"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://famelack.com/"
+}

@@ -1,0 +1,322 @@
+{
+  "availability": {
+    "bytes_read": 1624,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://replay-exc.pages.dev/",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:32:23.608350+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://replay-exc.pages.dev/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Sports Replays"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-0d92de508643277a",
+    "domain-edf7dcad352dc8cb",
+    "domain-d15afad5fd0ce8bf",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-cad4cf8e029cc65c",
+    "domain-ab0492eb0d89f537"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-63fbcad49c1abf8c"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js"
+    }
+  ],
+  "id": "site-e1f90104e732354b",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "⁠ReplayZone",
+  "observations": [
+    {
+      "bytes_read": 1624,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://replay-exc.pages.dev/",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://replay-exc.pages.dev/"
+    },
+    {
+      "bytes_read": 9161,
+      "content_type": "application/javascript",
+      "final_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://replay-exc.pages.dev/assets/index-CPETp928.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:32:23.608350+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-cloudflare-insights",
+    "provider-google-fonts"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://replay-exc.pages.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://replay-exc.pages.dev/assets/index-beoFg9Vu.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b60cabf0a3e3152d0f12591248a9ae6d2e6b9b6312b164eddeaef778a6af434",
+      "evidence_url": "https://replay-exc.pages.dev/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:23.608350+00:00",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/video/${l(e.slug)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/${h(a)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/${h(t)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/assets/${s}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/assets/${s}/${D(r.name)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay-exc.pages.dev/${h(a.category)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay.adityapangshe.workers.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://soccerfull.net/hls/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c9e5e0dada5c1388386ce5da6f79ce3ee15ce39c622c8648b8f97bb91fb2ccf3",
+      "evidence_url": "https://replay-exc.pages.dev/assets/index-CPETp928.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:24.599037+00:00",
+      "url": "https://replay.adityapangshe.workers.dev/hls?u=%24%7BencodeURIComponent%28t.url",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://replay-exc.pages.dev/"
+}

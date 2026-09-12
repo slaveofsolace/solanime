@@ -1,0 +1,2421 @@
+{
+  "availability": {
+    "bytes_read": 363646,
+    "content_type": "text/html;charset=utf-8",
+    "final_url": "https://ok.ru/video",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "envoy-lb7-prod",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:32:02.044295+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://ok.ru/video"
+  },
+  "categories": [
+    [
+      "Streaming Sites",
+      "Video Streaming"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-d306ecdb5f4fc204",
+    "domain-9fd23ea18adbbf05",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-bed7e00f167e01e0",
+    "domain-e0e1efe54065fd34",
+    "domain-ec519d20f2d17141",
+    "domain-1d13ffcd115a5079",
+    "domain-0383ce8d5577ecd8",
+    "domain-2da5fefe17ea6997",
+    "domain-d3e3088d8596d88f",
+    "domain-c6e2ca3329b9b6b8",
+    "domain-44d3320a67007fc6",
+    "domain-d1e4804404b05294",
+    "domain-cf46fe0f769f5c3b",
+    "domain-aa138d2ade633e9c",
+    "domain-75e7da7333b0a542",
+    "domain-c27f9a8ded97d5ba",
+    "domain-13f439e44149da40",
+    "domain-8f3ce42691d74c91",
+    "domain-f488bcba99f4b99a",
+    "domain-38f29a600526b276",
+    "domain-d9bf47af37837ecd",
+    "domain-bdbe71d1205517b9",
+    "domain-440246dac6b7c0b1",
+    "domain-16391d3665ca7477",
+    "domain-6860776e5611f69c",
+    "domain-23217f7c037a5d3d",
+    "domain-3aeb002460381c6f",
+    "domain-79e20b2452034a83",
+    "domain-1a2e36cc692d119d",
+    "domain-7c0d00e6d46fe537",
+    "domain-bbcebc39187f1010"
+  ],
+  "endpoint_ids": [
+    "endpoint-cf843af1bdc05fcf"
+  ],
+  "entry_ids": [
+    "entry-082bf5c2e1839bb0"
+  ],
+  "frameworks": [],
+  "id": "site-ab176adca4601de0",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "OK",
+  "observations": [
+    {
+      "bytes_read": 363646,
+      "content_type": "text/html;charset=utf-8",
+      "final_url": "https://ok.ru/video",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html;charset=UTF-8",
+        "server": "envoy-lb7-prod",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ok.ru/video"
+    },
+    {
+      "bytes_read": 3644,
+      "content_type": "application/javascript",
+      "final_url": "https://ok.ru/res/js/cdnFailover_CVQTVUIK.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "kittenx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:02.763508+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "67ff5999a80d321083808de0ff0079b3d3496c31321d997f0941bc23c7e0d0e3",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ok.ru/res/js/cdnFailover_CVQTVUIK.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:32:02.044295+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/js/cdnFailover_CVQTVUIK.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/require-2.1.11_kyyqpj4q.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/tracerPlaceholder_chnrkzcc.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/polyfillsModern_mx8ooaq7.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/polyfills_cknco4yg.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/classic_hqz4vl14.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/placeholders_emz7aifk.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/require-conf-b77087b5d75950ced4ad1f92d1c71b7d.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "embed",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://www.googletagmanager.com/ns.html?id=GTM-WFHQQ63",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://mc.yandex.ru/watch/87663567",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://top-fwz1.mail.ru/counter?id=87663567%3Bjs%3Dna",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Service_Main.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Mail.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Cloud.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Calendar.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Notes.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Calls.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/VK_Mail.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/TV.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Weather.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Horoscope_Blue.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Sport_Blue.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Answers.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/VKR.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/Lady.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/vk/svg/VK.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/pro3/1-0-101/_storage/i/video/holder_alerts_bd_videocard.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/video-banner/1-0-46/vkus_epohi_web.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=24509767682652&type=39&idx=1&scl=4&tkn=OzdqjHYt6Fb9IRvEoYutt3hLW2M&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYbRpO5qGQw1WOJspmXWaXJfClo5i7UyRpx22Gfeg_wUQ&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY7ocpkrWi3VR4Ma6zgGIoxEVawKl8Tu6kS7aOmC5ghAM&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18780470970937&type=39&idx=0&scl=4&tkn=LhNiGjYFy2JwR7zJf5Br_Keodgc&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19250531207771&type=32&idx=2&scl=4&tkn=DI7Y5wMvNAkUctRfhFRl1-UaYhU&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=17592429972206&type=39&idx=0&scl=4&tkn=iggqeWJsIfZJ_-9XS-D4cok1N5I&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19494380374558&type=32&idx=2&scl=4&tkn=dVtOrE45fAl4-1tj2FQy8QOiqAY&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYN4ljdssUhrQ6RzdWDNM145Ve0LmhNdOdD438HGkZKM8&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18770092558905&type=32&idx=1&tkn=N_Pmb4Gxim1Qsv4tON3E0q8wDnM&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18113936362101&type=32&idx=1&scl=4&tkn=NuyQHXf37M7deKvrXTIyYFYarRw&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYUNOB0yJ4W9wpbxoSkIRQMh5aK5VniW9kyK__x9SuL7E&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19899350911679&type=39&idx=0&tkn=Fhp72Rj7eiA5I4KsO4GjLrTFyaI&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18084485335724&type=32&idx=3&tkn=8VRkRXz58R4WpjIP-YEkQOLsYoc&fn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYmBk8F6CZMD7kKcCoCbglgp-pJwLJO3y1JyGXS65QrKw&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYU-Frww_NpXo8SL9cC8ibyPm7tG13xeFz0yEt1YXMymQ&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19967875680834&type=39&idx=2&scl=4&tkn=MQV_5MOrfdgLQAo7JMGmPCzl3N8&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY9F9mREXlC1yEaUylVdM-6BjI8Exx8AT4QW9kGWZAcjs&fn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/discovery",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/jqwff1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/mdjti3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/zmr9n2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/tjj123",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/rc21q1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://calls.vk.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/o9z920",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/rotur8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/n6l9o1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/edf872",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/wuejf1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/eefga9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ads.vk.com/promo/firstbonus",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/znddo7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/xyn8o1?mt_campaign=mainvkmail_ok&mt_adset=&mt_network=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://vk.company/ru/projects/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/null",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/?st.cmd=anonymMain",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/groups",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/search/profiles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/search/content",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/games",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/gifts/catalog/all",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/pozdravleniya",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ads.vk.ru/promo/firstbonus",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/help?st.cmd=helpFaq&st.origin=FTRL&st._aid=FatFooter_helpFaqAnonym",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/ok?st._aid=FatFooter_officialGroup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://insideok.ru/info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://apiok.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://spb.hh.ru/employer/15478?template=makeup%3A6149&version=354378",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=logExternal&st.cmd=logExternal&st.sig=Y2w966_K9qteX0DQ4Oz6ojnqfYRE7QRjauHecC0qPNryUlYRF6jCBvOVbhnckkeDm-FnE5cEc2Syxc9vBw&st.link=http%3A%2F%2Fwww.translit.ru&st.name=translit_ru",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/agreementpage?st.cmd=helpAgreementPage",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/collections",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/channels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/serial",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/kino",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/children",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/tvshow",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/live",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/c38933971",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/21658536381020?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=21658536381020&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15902502423151?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15902502423151&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/7475662490142?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=7475662490142&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/21671064504924?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=21671064504924&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16366356531803?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16366356531803&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15576503159534?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15576503159534&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/17021688154654?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=17021688154654&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15950356744786?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15950356744786&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15839626594933?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15839626594933&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15807185750645?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15807185750645&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16282330729070?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16282330729070&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16872585956025?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16872585956025&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16211155094221?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16211155094221&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16831695161857?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16831695161857&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16653655738911?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16653655738911&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/16819886492226?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=16819886492226&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video/15434106079955?st._aid=VideoState_open_showcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?cmd=VideoCardMenu&st.vc.action=RESTORE&st.vc.movieId=15434106079955&st.cmd=anonymVideo&st.m=SHOWCASE&st.furl=%2Fvideo%2Fshowcase",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk?st.cmd=anonymRegistrationEnterPhone",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/i/ok_logo-r.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/ncore_oq7jaxpr.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/colors_gzct653y.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/colors.dark_byb9hya0.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/nmain_full_b51y36k0.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/nb_jnjxgsee.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/nmain_postponed_37nz1okx.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/ncore_postponed_mudvs5rf.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://i.okcdn.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://dp.okcdn.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://pimg.okcdn.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://i.mycdn.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://dp.mycdn.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://pimg.mycdn.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.mycdn.me/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/css/layout_g8m316ss.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/css-hacks/2-0-121/overrides_lexwc293.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/logo_ok_16-r23.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/logo_ok_32-r23.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/res/i/logo_ok_42-r23.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/pwa-manifest/0-0-1/icon_pwa_192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/vendor/@ok_common_design-system.web.css-12.5.0-4ISBZT6V.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/modal-manager/modal-manager-latest-FRJBUMSD.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/layer-arrow-button/layer-arrow-button-latest-AEZVYUU3.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/layer-close-button/layer-close-button-latest-UKPAT5O3.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/mobile-menu-button/mobile-menu-button-latest-5DPCXKZ5.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/toolbar-search/toolbar-search-latest-SL7EKNEJ.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/adaptive-menu/adaptive-menu-latest-F4ZV2MI3.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/info-content-button/info-content-button-latest-5AIXK4BT.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/video-search-input/video-search-input-latest-DJW4TJL2.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/video-navigation-block/video-navigation-block-latest-EXWH73EJ.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/clips-fullscreen/clips-fullscreen-latest-ER2J4LIR.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/auth-login-popup/auth-login-popup-latest-Q65JNZ2M.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/auth-login-banner/auth-login-banner-latest-WCZFXZDQ.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/react/bdui-component/bdui-component-latest-CSFJ2KFB.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/NewsFetchCoordinator_nm7sad4c.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/storage_mej9qdub.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/GwtExperimentsCfg_lpmpxpwj.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/GwtConfig_i86bns5w.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/pts_owt8jacb.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/dateTimeUtils_d8xs7ywy.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/vanilla_g0y8j6os.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/StatLogger_muj86wqu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/HookActivator_kb8b9lon.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/environment_eq9js1ba.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/AjaxNavigationLog_oxmn9133.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/PackageRegistry_klpu9ibn.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/screens_hv6rcwzj.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/cookie_n3q7bswl.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/js/stringUtils_o0ehtgie.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/dk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "http://ogp.me/ns",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "http://ogp.me/ns/video",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "http://webmaster.yandex.ru/vocabularies/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/res/i/ok_logo-r.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ok.ru/video",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://www.googletagmanager.com/gtm.js?id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/css-hacks/2-0-121/overrides_lexwc293.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/pwa-manifest/0-0-1/icon_pwa_192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st-ok.cdn-vk.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://mc.yandex.ru/metrika/tag.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://mc.yandex.ru/watch/87663567",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://top-fwz1.mail.ru/js/code.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://top-fwz1.mail.ru/counter?id=87663567%3Bjs%3Dna",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://www.googletagmanager.com/ns.html?id=GTM-WFHQQ63",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://www.youtube.com/iframe_api?noext=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "wss://testproxy2.tamtam.chat/websocket",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://github.com/motiondivision/motion/issues/3126",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://yandex.ru/ads/system/context.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ad.mail.ru/adf/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ad.mail.ru/adq/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/i/v5fiy3?mt_idfa=%7Bmt_idfa%7D",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/jqwff1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/mdjti3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/zmr9n2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/tjj123",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/rc21q1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://calls.vk.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/o9z920",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/rotur8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/n6l9o1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/edf872",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/wuejf1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/eefga9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ads.vk.com/promo/firstbonus?amp%3Butm_medium=external&amp%3Butm_campaign=attraction_vkr&amp%3Butm_content=promo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/znddo7",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://trk.mail.ru/c/xyn8o1?mt_campaign=mainvkmail_ok&amp%3Bmt_adset=&amp%3Bmt_network=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://vk.company/ru/projects/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/pro3/1-0-101/_storage/i/video/holder_alerts_bd_videocard.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ads.vk.ru/promo/firstbonus?amp%3Butm_medium=external&amp%3Butm_campaign=attraction_vkr&amp%3Butm_content=promo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://insideok.ru/info/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://apiok.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://spb.hh.ru/employer/15478?template=makeup%3A6149&amp%3Bversion=354378",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://st.okcdn.ru/static/video-banner/1-0-46/vkus_epohi_web.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=24509767682652&amp%3Btype=39&amp%3Bidx=1&amp%3Bscl=4&amp%3Btkn=OzdqjHYt6Fb9IRvEoYutt3hLW2M&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=24509767682652&amp%3Btype=32&amp%3Bidx=1&amp%3Bscl=4&amp%3Btkn=t8fYLmiLQgHojW4PSpj157TeXwM&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYbRpO5qGQw1WOJspmXWaXJfClo5i7UyRpx22Gfeg_wUQ&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY7ocpkrWi3VR4Ma6zgGIoxEVawKl8Tu6kS7aOmC5ghAM&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18780470970937&amp%3Btype=39&amp%3Bidx=0&amp%3Bscl=4&amp%3Btkn=LhNiGjYFy2JwR7zJf5Br_Keodgc&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18780470970937&amp%3Btype=32&amp%3Bidx=0&amp%3Bscl=4&amp%3Btkn=Xw11CRORLJ30V4TzLz5ApXEz0t4&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19250531207771&amp%3Btype=32&amp%3Bidx=2&amp%3Bscl=4&amp%3Btkn=DI7Y5wMvNAkUctRfhFRl1-UaYhU&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=17592429972206&amp%3Btype=39&amp%3Bidx=0&amp%3Bscl=4&amp%3Btkn=iggqeWJsIfZJ_-9XS-D4cok1N5I&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=17592429972206&amp%3Btype=32&amp%3Bidx=0&amp%3Bscl=4&amp%3Btkn=vjdja46dVzvkzZof5nRar0UyF08&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19494380374558&amp%3Btype=32&amp%3Bidx=2&amp%3Bscl=4&amp%3Btkn=dVtOrE45fAl4-1tj2FQy8QOiqAY&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYN4ljdssUhrQ6RzdWDNM145Ve0LmhNdOdD438HGkZKM8&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18770092558905&amp%3Btype=32&amp%3Bidx=1&amp%3Btkn=N_Pmb4Gxim1Qsv4tON3E0q8wDnM&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18113936362101&amp%3Btype=32&amp%3Bidx=1&amp%3Bscl=4&amp%3Btkn=NuyQHXf37M7deKvrXTIyYFYarRw&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYUNOB0yJ4W9wpbxoSkIRQMh5aK5VniW9kyK__x9SuL7E&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19899350911679&amp%3Btype=39&amp%3Bidx=0&amp%3Btkn=Fhp72Rj7eiA5I4KsO4GjLrTFyaI&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19899350911679&amp%3Btype=32&amp%3Bidx=0&amp%3Btkn=W66JzQXgqFcHWmHxv9LX53PNgY0&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=18084485335724&amp%3Btype=32&amp%3Bidx=3&amp%3Btkn=8VRkRXz58R4WpjIP-YEkQOLsYoc&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYmBk8F6CZMD7kKcCoCbglgp-pJwLJO3y1JyGXS65QrKw&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYmBk8F6CZMD7kKcCoCbglgp-pJwLJO3y1JyGXS65QrKw&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYU-Frww_NpXo8SL9cC8ibyPm7tG13xeFz0yEt1YXMymQ&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgYU-Frww_NpXo8SL9cC8ibyPm7tG13xeFz0yEt1YXMymQ&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19967875680834&amp%3Btype=39&amp%3Bidx=2&amp%3Bscl=4&amp%3Btkn=MQV_5MOrfdgLQAo7JMGmPCzl3N8&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/videoPreview?id=19967875680834&amp%3Btype=32&amp%3Bidx=2&amp%3Bscl=4&amp%3Btkn=UKAmwg2tQSf63Colkuriq1iLsKQ&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY9F9mREXlC1yEaUylVdM-6BjI8Exx8AT4QW9kGWZAcjs&amp%3Bfn=w_320",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://iv.okcdn.ru/i?r=BDFSTM1h2o92P_v-s8DgGlgY9F9mREXlC1yEaUylVdM-6BjI8Exx8AT4QW9kGWZAcjs&amp%3Bfn=external_8",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://r3.mail.ru/k?fver=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "https://ad.mail.ru/static/sync-loader.js?v=2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "821d3700ceab19ae51b179a12d5d90cab2d36873dfc61b6145e25a538243004c",
+      "evidence_url": "https://ok.ru/video",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:02.044295+00:00",
+      "url": "http://schema.org/CreativeWork",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-d0d951d500e0a6ae"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://ok.ru/video"
+}

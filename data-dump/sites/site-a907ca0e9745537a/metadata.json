@@ -1,0 +1,726 @@
+{
+  "availability": {
+    "bytes_read": 117533,
+    "content_type": "text/html",
+    "final_url": "https://livelive24.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "LiteSpeed",
+      "x-powered-by": "CyberPanel-OLS/2.5.0"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:38.915549+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://livelive24.com/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-ad1dcf830d2cd4cd",
+    "domain-edf7dcad352dc8cb",
+    "domain-9907de73083e1aaa",
+    "domain-839134f3e7b492e7",
+    "domain-f5f1fa17a91af26f",
+    "domain-37bc9cd0c5947119",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-b5ae902db807a105",
+    "domain-cdf01902dc74865b",
+    "domain-3c8b2bbd5af1180d",
+    "domain-3e723b591bdb95ce",
+    "domain-80830508d7f7fc87",
+    "domain-6d07ba2eb2ff8187",
+    "domain-5fb881f01ecfb6fd",
+    "domain-0b092e11eac0ffe8",
+    "domain-b6860a749f78ed89",
+    "domain-14c7ac9af3498a4f"
+  ],
+  "endpoint_ids": [
+    "endpoint-fd988181776ddfc0",
+    "endpoint-3adef99c6fd00d5a",
+    "endpoint-bd0ad76abfd00b0f",
+    "endpoint-9f85b947cefab2da",
+    "endpoint-334f9f2f1f31ed4e",
+    "endpoint-705d9c4b1f3daa16"
+  ],
+  "entry_ids": [
+    "entry-9d3ce4df8efdcb4a"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://livelive24.com/"
+    }
+  ],
+  "id": "site-a907ca0e9745537a",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Live24",
+  "observations": [
+    {
+      "bytes_read": 117533,
+      "content_type": "text/html",
+      "final_url": "https://livelive24.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "LiteSpeed",
+        "x-powered-by": "CyberPanel-OLS/2.5.0"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://livelive24.com/"
+    },
+    {
+      "bytes_read": 72985,
+      "content_type": "text/javascript",
+      "final_url": "https://livelive24.com/ads/ad2.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript",
+        "server": "LiteSpeed",
+        "x-powered-by": "CyberPanel-OLS/2.5.0"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:40.068642+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "40fbb369eaaa49cbe92d2f33a51ca6e03e08f9b79ba013a04df9575f91bbfb22",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://livelive24.com/ads/ad2.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:38.915549+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-google-fonts"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@0.14.17/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://st.chatango.com/js/gz/emb.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://cosetengarb.com/gVagk2P3uVEcl1Z/124241",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/ads/ad2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://sstatic1.histats.com/0.gif?5038378=&101=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://discord.gg/HteyR3zf5v",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/ntv/ntv.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Aopsz%2Cwght%4014..32%2C400%3B14..32%2C500%3B14..32%2C600%3B14..32%2C700%3B14..32%2C800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/fav.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Inter%3Aopsz%2Cwght%4014..32%2C400%3B14..32%2C500%3B14..32%2C600%3B14..32%2C700%3B14..32%2C800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@0.14.17/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://discord.gg/HteyR3zf5v",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/ntv/ntv.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://wa.me/?text=%24%7BencodedTitle",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://t.me/share/url?url=%24%7BencodedUrl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://twitter.com/intent/tweet?text=%24%7BencodedTitle",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://www.facebook.com/sharer/sharer.php?u=%24%7BencodedUrl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://api.bosstvmm.com/api/matches",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://api.sportplustv.live/v5/matches/index?sport_id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://api.onsport365.live/v5/matches/view?lang=en&id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://ui-avatars.com/api/?name=%24%7BencodeURIComponent%28chName",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/tv.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/processed_matches_prioritized.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/main.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/processed_matches_other.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/basketball.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/baseball.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/tennis.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/futsal.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/american_football.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/snooker.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/rugby_union.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/Rugby.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/badminton.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/table_tennis.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/volleyball.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/ice_hockey.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/handball.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/boxing.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/darts.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/cricket.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/car_racing.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/cycling.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/golf.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/water_polo.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/lacrosse.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/cage_tennis.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/test/test/sports_data/mixed_martial_arts.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/sport/icehockey.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/streamedpk.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/buffsports.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/ppv.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/onlive.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://ui-avatars.com/api/?name=CS+Saint-Laurent&background=1f2a38&color=fff&size=128",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://embedsports.me/a/hanshin-tigers-vs-yakult-swallows-stream-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://embedsports.me/a/hanshin-tigers-vs-yakult-swallows-stream-2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://ui-avatars.com/api/?name=FAR+Rabat&background=1f2a38&color=fff&size=128",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://embedsports.me/a/rakuten-gold-eagles-vs-chiba-lotte-marines-stream-1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://livelive24.com/ads/ad2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://bvtpk.com/tag.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2f81e6b4a5449f7c043939b95e749d499628212f6ed60de2890f836ba7e43ed3",
+      "evidence_url": "https://livelive24.com/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:31:38.915549+00:00",
+      "url": "https://api.bosstvmm.com/api/matches",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://livelive24.com/"
+}

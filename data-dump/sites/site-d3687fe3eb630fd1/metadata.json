@@ -1,0 +1,516 @@
+{
+  "availability": {
+    "bytes_read": 36663,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://ntv.st/matches/kobra",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:28:31.730373+00:00",
+    "redirects": [
+      {
+        "http_status": 301,
+        "location": "https://ntv.st/",
+        "url": "http://ntv.st/"
+      },
+      {
+        "http_status": 302,
+        "location": "https://ntv.st/matches/kobra",
+        "url": "https://ntv.st/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+    "status": "reachable",
+    "truncated": false,
+    "url": "http://ntv.st/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-341e048044f700c3",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-c8e8f9f979e435f9",
+    "domain-5d534065796b84ae",
+    "domain-2399d1f8ddb922ab",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-edf7dcad352dc8cb",
+    "domain-16391d3665ca7477"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-270889833ff0d172"
+  ],
+  "frameworks": [],
+  "id": "site-d3687fe3eb630fd1",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "NTV",
+  "observations": [
+    {
+      "bytes_read": 36663,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://ntv.st/matches/kobra",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "redirects": [
+        {
+          "http_status": 301,
+          "location": "https://ntv.st/",
+          "url": "http://ntv.st/"
+        },
+        {
+          "http_status": 302,
+          "location": "https://ntv.st/matches/kobra",
+          "url": "https://ntv.st/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "status": "reachable",
+      "truncated": false,
+      "url": "http://ntv.st/"
+    },
+    {
+      "bytes_read": 18996,
+      "content_type": "application/javascript",
+      "final_url": "https://ntv.st/assets/matches-loader.js?v=1788854748",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:32.494793+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "0a3c2fe14d29fee5ad5259835061596fe6b502ce4d68d33ddc42aefa01ff5d39",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ntv.st/assets/matches-loader.js?v=1788854748"
+    },
+    {
+      "bytes_read": 35090,
+      "content_type": "application/javascript",
+      "final_url": "https://ntv.st/assets/script.js?v=1788854748",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:34.270997+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a5e4736aadb612d392b6ae4459eeefdb13827feab0686b8a704a09e5601456b7",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ntv.st/assets/script.js?v=1788854748"
+    }
+  ],
+  "observed_at": "2026-09-12T07:28:31.730373+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-google-fonts",
+    "provider-jsdelivr"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-984LDVDKB3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/matches-loader.js?v=1788854748",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/script.js?v=1788854748",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/logo1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/matches/kobra",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/matches/falcon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/matches/raptor",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/matches/phoenix",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/matches/titan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/multi-stream",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/channels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://discord.com/invite/uY3ud5gcpW",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntvx.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/favorites",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.cx/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/favicon-32x32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/img/icons/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://cdn.jsdelivr.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/dist/site.min.css?v=1789086726",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Outfit%3Awght%40300..700&family=Syne%3Awght%40500..800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/vendor/phosphor/style.css?v=2.1.1-swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-984LDVDKB3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.cx/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/?search=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://cdn.jsdelivr.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://fonts.googleapis.com/css2?family=Outfit%3Awght%40300..700&family=Syne%3Awght%40500..800&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://discord.com/invite/uY3ud5gcpW",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntvx.link/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "1e490354732d95725a072ea378478fa4db12cb9ff91bd0975111dcede0796c87",
+      "evidence_url": "https://ntv.st/matches/kobra",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:31.730373+00:00",
+      "url": "https://ntv.st/assets/matches-loader.js?v=1788854748",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "http://ntv.st/"
+}

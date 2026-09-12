@@ -1,0 +1,368 @@
+{
+  "availability": {
+    "bytes_read": 15207,
+    "content_type": "text/html",
+    "final_url": "https://meguanime.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "x-frame-options": "SAMEORIGIN"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:44.401117+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://meguanime.com/"
+  },
+  "categories": [
+    [
+      "Specialty Streaming",
+      "Anime Streaming"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 4,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-0104ec62dc607ec9",
+    "domain-adaafd8d68331238",
+    "domain-3aeb002460381c6f",
+    "domain-bb3e4bfe40af9b89",
+    "domain-1a2e36cc692d119d"
+  ],
+  "endpoint_ids": [
+    "endpoint-344233f410ee4bb3"
+  ],
+  "entry_ids": [
+    "entry-73af5c0842584dc3"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://meguanime.com/hls.min.js"
+    }
+  ],
+  "id": "site-40006f50f31bda31",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "⁠MeguAnimes",
+  "observations": [
+    {
+      "bytes_read": 15207,
+      "content_type": "text/html",
+      "final_url": "https://meguanime.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://meguanime.com/"
+    },
+    {
+      "bytes_read": 206997,
+      "content_type": "application/javascript",
+      "final_url": "https://meguanime.com/supabase.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:45.411029+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "4138271dc0a021cc0ae80eab6afc69b68aa20c2aee535b15c1616fdf73e1d7d3",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://meguanime.com/supabase.min.js"
+    },
+    {
+      "bytes_read": 543002,
+      "content_type": "application/javascript",
+      "final_url": "https://meguanime.com/hls.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "REVALIDATED",
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:46.557760+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://meguanime.com/hls.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:44.401117+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/supabase.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/player.js?v=be40yc2zfs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/app.min.js?v=ca40yc2zfs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/home",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/w2g",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/genres",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/recent",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/search/sort%3DPOPULARITY_DESC",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/schedule",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/themes",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/watchlist",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/profile",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/settings",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/discord",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/ongoing",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/notifications",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/style.css?v=uz40yc2zfs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b9bf54411ea488e7c536058b5cac736f65859e9dc8e9b3d679e94604a78b22d0",
+      "evidence_url": "https://meguanime.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:44.401117+00:00",
+      "url": "https://meguanime.com/player.css?v=2c40yc2zfs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4138271dc0a021cc0ae80eab6afc69b68aa20c2aee535b15c1616fdf73e1d7d3",
+      "evidence_url": "https://meguanime.com/supabase.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:45.411029+00:00",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "4138271dc0a021cc0ae80eab6afc69b68aa20c2aee535b15c1616fdf73e1d7d3",
+      "evidence_url": "https://meguanime.com/supabase.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:45.411029+00:00",
+      "url": "https://github.com/orgs/supabase/discussions/37217",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "evidence_url": "https://meguanime.com/hls.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:46.557760+00:00",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "evidence_url": "https://meguanime.com/hls.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:46.557760+00:00",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://meguanime.com/"
+}

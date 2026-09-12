@@ -1,0 +1,1343 @@
+{
+  "availability": {
+    "bytes_read": 459201,
+    "content_type": "text/html",
+    "final_url": "https://damitv.st/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:29:10.873315+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://damitv.st/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live Sports"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-adb474eb61a97f71",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-3a4b2b7172f3c72d",
+    "domain-9d0fe3d0ca5b0baf",
+    "domain-b37195102c2e1afb",
+    "domain-ff3cfdfac1695b35",
+    "domain-cdf01902dc74865b",
+    "domain-16391d3665ca7477",
+    "domain-edf7dcad352dc8cb",
+    "domain-8d9559743b8b4225",
+    "domain-63978de5251d679e",
+    "domain-6c9fe5c30bc7391b",
+    "domain-2e3bb6238dc9c45a",
+    "domain-820030ce540533ef",
+    "domain-c358bd42f302258f",
+    "domain-f110986a87ad9e66",
+    "domain-384dee02e40bfd82",
+    "domain-4c8e2881f0d6f042",
+    "domain-762f62ee9fdb215e",
+    "domain-535f7ac02119e10a",
+    "domain-dd694561525bf4ea",
+    "domain-883122ed25c055d7",
+    "domain-6860776e5611f69c",
+    "domain-bb3e4bfe40af9b89",
+    "domain-1a2e36cc692d119d",
+    "domain-a379a6f6eeafb9a5"
+  ],
+  "endpoint_ids": [
+    "endpoint-49beaa307052cc2d",
+    "endpoint-653e46bbcc1a8a10",
+    "endpoint-ce36f7e54b59b91a",
+    "endpoint-a28ab12a68b27926",
+    "endpoint-e2d32425162149ed",
+    "endpoint-780549918ee47b74",
+    "endpoint-a8b672de068e89e2",
+    "endpoint-c4b6f8e6856d03fc",
+    "endpoint-bcde504de3d03581",
+    "endpoint-4a9e611989b1f399",
+    "endpoint-1f6a0fb7c853ad84",
+    "endpoint-cd8385114ab021ec",
+    "endpoint-0b4da2d7445fb4b3",
+    "endpoint-909f7d3d3cec3d1d",
+    "endpoint-1eb6e8e6e171757d",
+    "endpoint-e151dac6f63384e5",
+    "endpoint-14ec4894b3a3f02a",
+    "endpoint-d141089e47c2daae",
+    "endpoint-9a63c6424c74eb89",
+    "endpoint-b180b1eba0287d47"
+  ],
+  "entry_ids": [
+    "entry-26a8589209fd8fbd"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://damitv.st/js/hls.min.js"
+    }
+  ],
+  "id": "site-a2e237c8e989a164",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "DamiTV",
+  "observations": [
+    {
+      "bytes_read": 459201,
+      "content_type": "text/html",
+      "final_url": "https://damitv.st/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://damitv.st/"
+    },
+    {
+      "bytes_read": 543002,
+      "content_type": "application/javascript",
+      "final_url": "https://damitv.st/js/hls.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:12.986636+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://damitv.st/js/hls.min.js"
+    },
+    {
+      "bytes_read": 275488,
+      "content_type": "application/javascript",
+      "final_url": "https://damitv.st/js/mpegts.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx",
+        "x-cache": "MISS"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:14.894187+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "bda31748736a69cb610c2edf4623e633f1f4f47b5bda83668c8d287e51b0c3a8",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://damitv.st/js/mpegts.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:29:10.873315+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-jsdelivr",
+    "provider-google-ads",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-H46GW8WB6D",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/js/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/js/mpegts.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://i.imgur.com/FetkA0F.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/img/hero-banner.jpeg?v=538",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/img/iptv-banner.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://fmdtv.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://90minutes.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://one.one.one.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/download",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://t.me/+DH8w27ZsWDViOGQ0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/premier-league-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/champions-league-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/la-liga-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/serie-a-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/bundesliga-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/ligue-1-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/nba-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/nfl-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/ufc-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/boxing-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/f1-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/motogp-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/cricket-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/mlb-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/nhl-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/tennis-streams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/img/hero-banner.jpeg?v=538",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.googletagmanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/favicon-32.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/favicon-192.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/manifest.json",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-H46GW8WB6D",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://i.imgur.com/FetkA0F.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.googletagmanager.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/img/favicon.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@1.6.16",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/mpegts.js@latest/dist/mpegts.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://fmdtv.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://90minutes.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://one.one.one.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1571754472834-677ab0a62ba7?fm=jpg&q=60&w=1600&auto=format&fit=crop",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://api.ppv.to/assets/thumb/...",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/embed/?id=wc%2F2026-06-16%2Ffra-sen",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/embed/?id=wc%2F2026-06-16%2Ffra-sen%2Fuk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/embed/?id=wc%2F2026-06-16%2Ffra-sen%2Ftelemundo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/embed/?id=wc%2F2026-06-16%2Ffra-sen%2Ffox-4k",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/embed/?id=MATCH_ID",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://t.me/+DH8w27ZsWDViOGQ0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.movistarplus.es/deportes",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.movistarplus.es/el-partido-movistarplus",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.movistarplus.es/deportes/futbol",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://api.allorigins.win/raw?url=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.ufc.com/events",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.ufc.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://imgs.search.brave.com/zzHyoakWHGI7__JA4LG82IZ8IuIgFzaRhmjypCTcwxU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE0/NDc4NTk2Ny9waG90/by9tZW4tYXJlLXBs/YXlpbmctcnVnYnkt/YXQtc3RhZGl1bS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/SjNXLXBNRmpKb2Z0/dUtJY3dDdjY0c25F/VnNucFoza2dMTUhP/LUVjYUQwbz0",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://imgs.search.brave.com/TowpL48cWfvVfkTuHNnwizbwcVhReXvfg3hyhPt3eW0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTY2/NzgxNjUyMy9waG90/by9tZWxib3VybmUt/YXVzdHJhbGlhLWNy/b3dkcy13YXRjaC1v/bi1kdXJpbmctdGhl/LTIwMjMtYWZsLWZp/cnN0LXNlbWktZmlu/YWwtbWF0Y2gtYmV0/d2Vlbi10aGUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPXp6/Uk5sU1FFU1V2cXJ4/blFwUXVqVDB5OU44/OWFpakgyNzZpTEFH/QTZBbUE9",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1529768167801-9173d94c2a42?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1583225214464-9296029427aa?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1615213612138-4d1195b1c0e7?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1580748142262-ac7014653e31?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1544681280-d773caab6df2?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1629721671030-a83edbb11211?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1668367274956-f17df8a5ba19?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1706412215593-153a556ceb09?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://images.unsplash.com/photo-1461896836934-bd45ba7b5330?w=1200&q=80",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/gasy9d1737743125.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/ja4it51687628717.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/67q3q21679951383.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/teqh1b1679952008.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/9f7z9d1742983155.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/facv1u1742998896.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://r2.thesportsdb.com/images/media/league/badge/frdjqy1536585083.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://schema.org/EventPostponed",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://site.api.espn.com/apis",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/predictions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.espn.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/predictions/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/favicon.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://schema.org/EventScheduled",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://schema.org/OnlineEventAttendanceMode",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://embedindia.st/embed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://messi.damitv.st/papi/tv/dlhd/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/iptv-proxy/hls-live/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://es-cdn.top/embed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/img/cards/card-",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://www.youtube.com/embed/${m[1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://messi.damitv.st/papi/ts2/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/cdn-stream/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/alternatives",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/viewers/bulk?ids=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/sdb-highlights",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/api/match/stats?home=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/extract-url/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/data/manual-sources.json?t=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/tv/resolve/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/highlights",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/highlights/parts?url=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/data/ts-channels.json?v=544",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/data/ts-health.json?v=538",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/data/tv-channels.json?v=538",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/data/dlhd-channels.json?v=538",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/tv-shows",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/viewers/all?t=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/viewers/all",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/papi/geo",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "2cb7499149d0947a9014465d235d9fab561c16f0b4f60b5a1eb6eb9cb0b345de",
+      "evidence_url": "https://damitv.st/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:29:10.873315+00:00",
+      "url": "https://damitv.st/chat/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "evidence_url": "https://damitv.st/js/hls.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:12.986636+00:00",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+      "evidence_url": "https://damitv.st/js/hls.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:12.986636+00:00",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bda31748736a69cb610c2edf4623e633f1f4f47b5bda83668c8d287e51b0c3a8",
+      "evidence_url": "https://damitv.st/js/mpegts.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:14.894187+00:00",
+      "url": "https://example.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://damitv.st/"
+}

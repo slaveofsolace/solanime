@@ -1,0 +1,626 @@
+{
+  "availability": {
+    "bytes_read": 871928,
+    "content_type": "text/html",
+    "final_url": "https://vaultplayer.co.uk/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:33:16.046218+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://vaultplayer.co.uk/"
+  },
+  "categories": [
+    [
+      "Streaming Sites",
+      "Dedicated-Server"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 10,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-502e710dd1ee2801",
+    "domain-edf7dcad352dc8cb",
+    "domain-01ebe79a186e4bf7",
+    "domain-7593956a6e91715d",
+    "domain-1a2e36cc692d119d",
+    "domain-71add8494685601e",
+    "domain-dd583e897babe605",
+    "domain-d94fcf5105ee9ed8",
+    "domain-438d0b1f54016e51",
+    "domain-6860776e5611f69c",
+    "domain-05903623928ea97a"
+  ],
+  "endpoint_ids": [
+    "endpoint-d880b44f8130110c",
+    "endpoint-015090274de6beb3",
+    "endpoint-8062b82485f24797",
+    "endpoint-27b83781cca645b4",
+    "endpoint-df73293ccdeb1b43"
+  ],
+  "entry_ids": [
+    "entry-e61e51ee4919533a"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://vaultplayer.co.uk/"
+    }
+  ],
+  "id": "site-2255c550d9557eb3",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "VaultPlayer",
+  "observations": [
+    {
+      "bytes_read": 871928,
+      "content_type": "text/html",
+      "final_url": "https://vaultplayer.co.uk/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://vaultplayer.co.uk/"
+    },
+    {
+      "bytes_read": 1349,
+      "content_type": "application/javascript",
+      "final_url": "https://vaultplayer.co.uk/splash-sound.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:16.947180+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "146ee98f6a003b970d7debc0f3872d255b11490583e91ad94dd71d1679ca11d4",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://vaultplayer.co.uk/splash-sound.js"
+    },
+    {
+      "bytes_read": 49093,
+      "content_type": "application/javascript",
+      "final_url": "https://vaultplayer.co.uk/party.js?v=2.5.55",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:18.069506+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "b4a114f98669a46f261f09bbb95e5f1acf18b75ca76f0e48c3b774ee2b9b19c7",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://vaultplayer.co.uk/party.js?v=2.5.55"
+    }
+  ],
+  "observed_at": "2026-09-12T07:33:16.046218+00:00",
+  "provider_ids": [
+    "provider-jsdelivr",
+    "provider-tmdb",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/splash-sound.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@1.6.16/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/party.js?v=2.5.55",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/collections.js?v=3.0.2&collections=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/collections-ui.js?v=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/queues.js?v=3.0.2&collections=1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/footer.js?v=2.5.74",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/audience-copy.js?v=3.0.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/sw-register.js?v=2.5.68",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/presence-ping.js?v=2.5.98",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/jre-mark.js?v=2.0.1",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/VP.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/VP-pink.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/VaultPlayerTransparent.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/VaultPlayer-pink.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/kids/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/teen/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/history/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://ko-fi.com/vaultplayer",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/sync/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/sync/?next=party",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/origin/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/about/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/apk/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/privacy/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/terms/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/contact/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/dmca/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://jreco.de/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/party.css?v=2.5.55",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/theme.css?v=3.0.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/jre-mark.css?v=2.0.2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://ko-fi.com/vaultplayer",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://jreco.de/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://cdn.jsdelivr.net/npm/hls.js@1.6.16/dist/hls.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaplayer.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vidapi.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://image.tmdb.org/t/p/w780",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://image.tmdb.org/t/p/w500",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vidapi.ru/tvshows/latest/page-",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vidapi.ru/episodes/latest/page-",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vidapi.ru/movies/latest/page-",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://placehold.co/400x600/1b2028/f5c518?text=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://www.youtube.com/iframe_api",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://image.tmdb.org/t/p/w1280",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://image.tmdb.org/t/p/w185",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://v2.sg.media-imdb.com/suggests/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/service-worker.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/playback_client_log.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/tmdb_proxy.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/search_log.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0814cddd7cb7cf008b9baf55c62e4196639a3d72b46f170bed14d707c71ae705",
+      "evidence_url": "https://vaultplayer.co.uk/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:16.046218+00:00",
+      "url": "https://vaultplayer.co.uk/feature_request.php",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://vaultplayer.co.uk/"
+}
