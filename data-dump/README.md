@@ -74,3 +74,7 @@ Raw response bodies, HAR files with headers, cookies, tokens, binary media, priv
 ## Repository isolation
 
 This research branch starts from the old main baseline solely to isolate data-dump/. Import only that directory into the current application branch; do not use this research branch to replace or roll back the ongoing UI/player work. Main, production, accounts and catalogue databases are unchanged. A branch-only execution workflow was used during collection and removed from the final tree. A reusable, non-active template remains under data-dump/tools/.
+
+## Transient URL-state redaction
+
+After any refresh or offline rebuild, run `python data-dump/tools/scrub.py`. This removes nonce, CSRF, OAuth-state and other sensitive URL values, including nested return URLs, from the final records and reports. Parameter names and endpoint structure remain available as architectural evidence. This is an additional conservative privacy check, not permission to retain credentials.

@@ -2,7 +2,7 @@
 
 Listed URL: https://vkvideo.ru/@miselet
 
-HTTP observation: blocked; final URL: https://login.vk.ru/?act=autologin&redirect_uri=https%3A%2F%2Fvkvideo.ru&state=eyJzdGF0ZSI6IjZlZDhmMDkyLTFiYTgtNDlmMC05MjM5LWQ2YmYzN2QxMGVkMCIsInJldHVybl90byI6IlwvQG1pc2VsZXQiLCJhdXRvbG9naW4iOnRydWV9&uuid=c281667d02&app_id=52461373
+HTTP observation: blocked; final URL: https://login.vk.ru/?act=autologin&redirect_uri=https%3A%2F%2Fvkvideo.ru&state=%5BREDACTED%5D&uuid=c281667d02&app_id=52461373
 
 Observed: 2026-09-12T07:33:20.585125+00:00
 

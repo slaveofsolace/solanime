@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 
 UA = 'SolanimePublicResearch/1.0 (public read-only architecture inventory)'
-SECRET = re.compile(r'(?i)(token|secret|password|passwd|authorization|cookie|session|signature|api[_-]?key|access[_-]?key|credential|^sig$|^key$|^auth$|^jwt$)')
+SECRET = re.compile(r'(?i)(token|secret|password|passwd|authorization|cookie|session|signature|api[_-]?key|access[_-]?key|credential|^sig$|^key$|^auth$|^jwt$|nonce|csrf|^state$|ticket|challenge|clearance)')
 URL_RE = re.compile(r'''(?:https?|wss?)://[^\s<>"'`\\)\]}]+''')
 MEDIA = re.compile(r'(?i)\.(mp4|mkv|webm|mp3|aac|ts|m4s|avi|mov|flac|zip|exe|dmg|apk|pdf|woff2?|ttf|otf|png|jpe?g|gif|webp|svg)(?:$|\?)')
 KNOWN = [

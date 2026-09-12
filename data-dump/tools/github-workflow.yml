@@ -23,6 +23,7 @@ jobs:
       - run: python data-dump/tools/deepen.py --seconds 180 --modules 8
       - run: python data-dump/tools/enrich.py --offline
       - run: python data-dump/tools/audit.py
+      - run: python data-dump/tools/scrub.py
       - name: Commit only research data
         run: |
           test "$(git branch --show-current)" = data-dump/fmhy-video

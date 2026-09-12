@@ -2,7 +2,7 @@
 
 Listed URL: https://www.notion.so/TizenBrew-Guide-30437864d8618033bb03e818e894fd5c
 
-HTTP observation: redirected; final URL: https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=uqqWSuHSnyxgpXhFeIY7i25oM545b08zIY-byrhClMM
+HTTP observation: redirected; final URL: https://app.notion.com/api/v3/sessionSync?returnUrl=https%3A%2F%2Fapp.notion.com%2Fp%2FTizenBrew-Guide-30437864d8618033bb03e818e894fd5c&sessionSyncId=%5BREDACTED%5D&csrfNonce=%5BREDACTED%5D
 
 Observed: 2026-09-12T07:42:19.329458+00:00
 
