@@ -18,23 +18,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Verify and apply source patch
+      - name: Apply traced state and contrast corrections
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = feat/studio-v05
-          git diff --exit-code 89d9d79e541f04db2fb16e9e5082ec9663e6b762 HEAD -- src server scripts shared tests package.json public docs config README.md index.html playwright.config.ts
           mkdir -p /tmp/studio-review
-          python - <<'PY'
-          import base64, hashlib, lzma, pathlib
-          chunks = [pathlib.Path(f'.review/studio-{i}.b64').read_text().strip() for i in range(3)]
-          compressed = base64.b64decode(''.join(chunks), validate=True)
-          assert hashlib.sha256(compressed).hexdigest() == '21e4487f0965bab6e7c28c87b2b99c46fffa4adab37ce22e727e41a7a3698141', 'Patch checksum mismatch'
-          pathlib.Path('/tmp/studio.patch').write_bytes(lzma.decompress(compressed))
-          PY
-          git apply --check /tmp/studio.patch
-          git apply /tmp/studio.patch
+          git apply --check .review/studio-refinements.patch
+          git apply .review/studio-refinements.patch
+          if ! command -v ffmpeg >/dev/null; then sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; fi
+          ffmpeg -hide_banner -loglevel error -y -f lavfi -i 'testsrc2=size=160x90:rate=10' -f lavfi -i 'anullsrc=channel_layout=stereo:sample_rate=48000' -t 4 -c:v libx264 -profile:v baseline -level:v 3.0 -g 10 -bf 0 -crf 32 -pix_fmt yuv420p -c:a aac -b:a 64k -movflags +faststart tests/fixtures/motion.mp4
+          ffprobe -v quiet -show_streams -of json tests/fixtures/motion.mp4 > /tmp/studio-review/test-media.json
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
+          npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/state.tsx src/pages/WatchPage.tsx src/styles/studio.css src/lib/motion.ts tests/e2e/accounts.spec.ts tests/e2e/studio.spec.ts
       - name: Types, unit/API tests and production build
         run: |
           set -o pipefail
@@ -43,11 +40,11 @@ jobs:
         run: |
           git config user.name 'Solanime maintenance'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          rm -f .review/studio-*.b64
-          git add src server scripts shared tests docs package.json README.md index.html playwright.config.ts
+          rm -f .review/studio-refinements.patch
+          git add src tests
           git add -u .review
           git diff --cached --exit-code -- .github/workflows data
-          git commit -m 'Revamp studio browsing and motion; persist standard playback across episode changes'
+          git commit -m 'Persist theater state above route boundaries and keep animated text fully legible'
           git push origin HEAD:refs/heads/feat/studio-v05
           git rev-parse HEAD > /tmp/studio-review/commit.txt
       - run: pnpm exec playwright install --with-deps chromium webkit
@@ -57,6 +54,13 @@ jobs:
         run: |
           set -o pipefail
           pnpm exec playwright test --retries=0 2>&1 | tee /tmp/studio-review/browser.log
+          cp -R test-results /tmp/studio-review/website-test-results
+      - name: Repeat native and standard playback regression cases
+        id: repeated
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --project=desktop-webkit --project=mobile-webkit --grep 'compatibility is the initial|native media advances' --repeat-each=3 --retries=0 2>&1 | tee /tmp/studio-review/repeated.log
       - name: Real catalogue visual review and deployment diagnostic
         if: always()
         run: |
@@ -73,16 +77,18 @@ jobs:
             const page = await browser.newPage({ viewport }); const errors=[];
             page.on('pageerror',e=>errors.push(e.message));
             await page.route('**/api/providers/*/resolve',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{message:'Live provider verification was not performed during visual review.'}})}));
-            for (const [label,path] of [['home','/'],['catalogue','/catalogue?q=naruto'],['profiles','/login']]) {
-              await page.goto('http://127.0.0.1:18788'+path);
+            for (const [label,path] of [['home','/'],['catalogue','/catalogue?q=naruto'],['login','/login']]) {
+              await page.goto('http://127.0.0.1:18788'+path,{waitUntil:'domcontentloaded'});
               if(label==='home') await page.locator('#featured-title').waitFor();
               if(label==='catalogue') await page.locator('.title-card').first().waitFor();
-              if(label==='profiles') await page.getByLabel('Email address',{exact:true}).waitFor();
-              await page.waitForTimeout(1000);
+              if(label==='login') await page.getByLabel('Email address',{exact:true}).waitFor();
+              await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
+              await page.waitForTimeout(1400); await page.evaluate(()=>window.scrollTo(0,0));
+              await page.waitForTimeout(700);
               await page.screenshot({path:`/tmp/studio-review/${label}-${name}.png`,fullPage:true});
               observations.push({name,label,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),errors:[...errors]});
             }
-            await page.goto('http://127.0.0.1:18788/'); await page.locator('#featured-title').waitFor();
+            await page.goto('http://127.0.0.1:18788/',{waitUntil:'domcontentloaded'}); await page.locator('#featured-title').waitFor();
             await page.getByRole('button',{name:'Customize appearance'}).click();
             await page.screenshot({path:`/tmp/studio-review/appearance-${name}.png`,fullPage:true});
             await page.close();
@@ -95,7 +101,7 @@ jobs:
         if: always()
         run: |
           python - <<'PY'
-          import subprocess, pathlib, zipfile
+          import subprocess, zipfile
           names = subprocess.check_output(['git','ls-tree','-r','--name-only','-z','HEAD']).decode().split('\0')
           with zipfile.ZipFile('/tmp/studio-review/review-source.zip','w',zipfile.ZIP_DEFLATED) as archive:
             for name in filter(None,names):
@@ -112,5 +118,5 @@ jobs:
             playwright-report/
           retention-days: 7
       - name: Require browser acceptance
-        if: steps.browser.outcome == 'failure'
+        if: steps.browser.outcome == 'failure' || steps.repeated.outcome == 'failure'
         run: exit 1
