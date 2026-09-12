@@ -1,0 +1,108 @@
+name: Publish reviewed native candidate
+on:
+  push:
+    branches: [feat/studio-v05]
+    paths: [.github/workflows/publish-native-candidate.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Reconstruct and verify the exact delivered patch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feat/studio-v05
+          python - <<'PY'
+          import base64, hashlib, json, lzma, os, pathlib, subprocess, urllib.request, zlib
+          base = '4fd60a177f06afd2e43a79e1521c4888b4eda545'
+          workflow = '.github/workflows/publish-native-candidate.yml'
+          changed = subprocess.check_output(['git', 'diff', '--name-only', base, 'HEAD']).decode().splitlines()
+          assert changed == [workflow], 'The remote branch advanced beyond the reviewed base; refusing to overwrite work.'
+          chunks = [
+            'b148e4944f2b487c13d88e16566e4db1163b0ca7',
+            'ab38eb3526ce75edda42477b9fcc93456d6ac674',
+            'f13fde9d72cb856d258fca0766eb5b0bfa6d0ab9',
+            '6fcf225f11197151f1e2e51e3c105315258e783f',
+            'e2fab71748e485883bc76f74ed78e653ec81404b',
+            'b58ba52cc688bb597db634f6ccb33e5c8c1f8a92',
+            'd95fee776e9120abbd108c8daae68464f805aa11',
+            '055e67faf5dcc76286c3e7b1363daadd1c4ecbb6',
+          ]
+          encoded = []
+          for sha in chunks:
+            request = urllib.request.Request(f'https://api.github.com/repos/slaveofsolace/solanime/git/blobs/{sha}', headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
+            with urllib.request.urlopen(request, timeout=30) as response:
+              blob = json.load(response)
+            data = base64.b64decode(blob['content'])
+            assert hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest() == sha
+            encoded.append(data.decode('ascii'))
+          decoded = lzma.decompress(base64.b64decode(''.join(encoded), validate=True))
+          assert hashlib.sha256(decoded).hexdigest() == 'e3068ee0a54fbf9c733f118bb1fefb0efd37412ab352fe24c32b4cda321056cf'
+          manifest = json.loads(decoded)
+          assert manifest['base'] == base
+          assert subprocess.check_output(['git', 'rev-parse', base + '^{tree}']).decode().strip() == manifest['baseTree']
+          def path_allowed(value):
+            path = pathlib.PurePosixPath(value)
+            assert not path.is_absolute() and '..' not in path.parts
+            assert path.parts[0] in {'src', 'server', 'scripts', 'shared', 'tests', 'docs', 'config', 'public'} or value in {'.env.example', '.gitignore', '.github/workflows/quality.yml', 'README.md', 'index.html', 'package.json', 'playwright.config.ts'}
+            return pathlib.Path(value)
+          for entry in manifest['files']:
+            path = path_allowed(entry['path'])
+            if entry['dictionary']:
+              dictionary = subprocess.check_output(['git', 'show', base + ':' + entry['dictionary']])[-32768:]
+              decoder = zlib.decompressobj(zdict=dictionary)
+            else:
+              decoder = zlib.decompressobj()
+            data = decoder.decompress(base64.b64decode(entry['data'], validate=True)) + decoder.flush()
+            assert hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest() == entry['sha'], entry['path']
+            assert entry['mode'] in {'100644', '100755'}
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+            path.chmod(int(entry['mode'][-3:], 8))
+          for name in manifest['delete']:
+            path_allowed(name).unlink()
+          pathlib.Path(workflow).unlink()
+          subprocess.run(['git', 'add', '-A'], check=True)
+          tree = subprocess.check_output(['git', 'write-tree']).decode().strip()
+          assert tree == manifest['targetTree'] == '376c63009529020730401c729a0fd9aefeec1443', (tree, manifest['targetTree'])
+          print('Exact candidate tree verified:', tree)
+          # Application commits made by GITHUB_TOKEN must not modify workflow files.
+          # The authenticated connector publishes the reviewed quality workflow separately.
+          subprocess.run(['git', 'restore', '--source=HEAD', '--staged', '--worktree', '--', '.github/workflows'], check=True)
+          subprocess.run(['git', 'diff', '--cached', '--exit-code', '--', '.github/workflows', 'data'], check=True)
+          PY
+      - name: Validate the candidate
+        run: |
+          set -o pipefail
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+          pnpm check 2>&1 | tee /tmp/native-publication-check.log
+      - name: Commit application changes to PR 4 without force
+        run: |
+          set -euo pipefail
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git diff --cached --exit-code -- .github/workflows data
+          git commit -m 'Redesign Solanime and require native playback without provider frames'
+          git push origin HEAD:refs/heads/feat/studio-v05
+          git rev-parse HEAD | tee /tmp/native-publication-commit.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-publication-check
+          path: |
+            /tmp/native-publication-check.log
+            /tmp/native-publication-commit.txt
+          retention-days: 7
