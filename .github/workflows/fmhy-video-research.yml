@@ -1,0 +1,66 @@
+name: FMHY combined research package
+on:
+  push:
+    branches: [data-dump/fmhy-video]
+    paths: [.github/workflows/fmhy-video-research.yml]
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data-dump/fmhy-video
+          fetch-depth: 2
+          sparse-checkout: data-dump
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r data-dump/requirements.txt
+      - name: Include compressed audit in privacy checks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('data-dump/tools/scrub.py')
+          s=p.read_text().replace('import argparse, json, re','import argparse, gzip, json, re')
+          needle="    for path in sorted(root.rglob('*.md')):"
+          addition="    for path in sorted(root.rglob('*.json.gz')):\n        before=json.loads(gzip.decompress(path.read_bytes()));after=visit(before)\n        if after!=before:\n            path.write_bytes(gzip.compress((json.dumps(after,ensure_ascii=False,indent=2,sort_keys=True)+'\\n').encode(),mtime=0));changed.append(path.relative_to(root).as_posix())\n"
+          if "root.rglob('*.json.gz')" not in s: s=s.replace(needle,addition+needle)
+          p.write_text(s)
+          p=Path('data-dump/HANDOFF.md');s=p.read_text()
+          note='\n## Supplemental source audit\n\nAlso read `curated/README.md` and `curated/source-audit.json.gz`; use `curated/query.py` for evidence bindings, shared providers and combined coverage. The Meowly/FishyStream provider declarations are implementation leads, not validated native streams. Preserve exact domains, distinguish empty Direct mapping sentinels from servers, and verify custom-player capability before integrating a provider. Do not add supplemental counts to bulk counts without deduplicating shared entities. The combined coverage joins differing observation methods rather than pretending every site passed the same crawler.\n'
+          if '## Supplemental source audit' not in s: p.write_text(s+note)
+          PY
+      - name: Generate joined evidence and validate
+        run: |
+          python data-dump/curated/query.py validate > data-dump/reports/supplemental-validation.json
+          python data-dump/curated/query.py summary > data-dump/reports/supplemental-summary.json
+          python data-dump/curated/query.py coverage > data-dump/reports/combined-coverage.json
+          python data-dump/curated/query.py bindings > data-dump/indexes/supplemental-bindings.json
+          python data-dump/tools/scrub.py
+          python -m unittest discover -s data-dump/tests -v
+          python -m unittest discover -s data-dump/curated/tests -v
+          python -m py_compile data-dump/tools/*.py data-dump/curated/query.py
+      - name: Finalize only research files
+        run: |
+          test "$(git branch --show-current)" = data-dump/fmhy-video
+          git rm -f --sparse -- .github/workflows/fmhy-video-research.yml
+          git add -- data-dump/
+          git ls-files data-dump/ > data-dump/FILE_MANIFEST.txt
+          git add -- data-dump/FILE_MANIFEST.txt
+          git -c user.name='Solanime research' -c user.email='research@users.noreply.github.com' commit -m 'data-dump: reconcile supplemental audit, coverage and final package'
+          git push origin HEAD:refs/heads/data-dump/fmhy-video
+          git archive --format=zip --output=/tmp/fmhy-video-data-dump.zip HEAD:data-dump
+          sha256sum /tmp/fmhy-video-data-dump.zip > /tmp/fmhy-video-data-dump.zip.sha256
+          git rev-parse HEAD >> "$GITHUB_STEP_SUMMARY"
+          cat data-dump/reports/supplemental-validation.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fmhy-video-data-dump-combined
+          path: |
+            /tmp/fmhy-video-data-dump.zip
+            /tmp/fmhy-video-data-dump.zip.sha256
+          retention-days: 14
