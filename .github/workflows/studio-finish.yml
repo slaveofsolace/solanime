@@ -1,0 +1,80 @@
+name: Studio completion review
+on:
+  push:
+    branches: [feat/studio-v05]
+    paths: [.github/workflows/studio-finish.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Apply locally tested lifecycle repairs
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = feat/studio-v05
+          mkdir -p /tmp/studio-finish
+          git apply --check .review/studio-finish.patch
+          git apply .review/studio-finish.patch
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+          npm install --prefix /tmp/formatter --ignore-scripts prettier@3.6.2
+          node /tmp/formatter/node_modules/prettier/bin/prettier.cjs --write src/components/MediaControls.tsx src/lib/mediaSeek.ts src/lib/storage.ts tests/media-seek.test.ts tests/persistent-state.test.tsx tests/e2e/accounts.spec.ts tests/e2e/application.spec.ts
+          pnpm check 2>&1 | tee /tmp/studio-finish/check.log
+      - name: Commit application changes on the existing review branch
+        run: |
+          git config user.name 'Solanime maintenance'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .review/studio-finish.patch
+          git add src tests
+          git add -u .review
+          git diff --cached --exit-code -- data .github/workflows
+          git commit -m 'Stabilize native seeking and avoid profile writes during read-only navigation'
+          git push origin HEAD:refs/heads/feat/studio-v05
+          git rev-parse HEAD > /tmp/studio-finish/commit.txt
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Full browser suite without retries
+        id: browsers
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --retries=0 2>&1 | tee /tmp/studio-finish/browser.log
+      - name: Preserve full-suite evidence
+        if: always()
+        run: |
+          test ! -d test-results || cp -R test-results /tmp/studio-finish/full-test-results
+          test ! -d playwright-report || cp -R playwright-report /tmp/studio-finish/full-playwright-report
+      - name: Repeat WebKit profile, native seek and sandbox persistence cases
+        id: repeated
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          pnpm exec playwright test --project=desktop-webkit --project=mobile-webkit --grep 'five profiles keep|native media advances|compatibility is the initial' --repeat-each=2 --retries=0 2>&1 | tee /tmp/studio-finish/repeated.log
+      - name: Package exact tracked source without private databases
+        if: always()
+        run: |
+          python - <<'PY'
+          import subprocess, zipfile
+          names = subprocess.check_output(['git','ls-tree','-r','--name-only','-z','HEAD']).decode().split('\0')
+          with zipfile.ZipFile('/tmp/studio-finish/source.zip','w',zipfile.ZIP_DEFLATED) as archive:
+            for name in filter(None,names):
+              archive.writestr('solanime/'+name,subprocess.check_output(['git','cat-file','blob',f'HEAD:{name}']))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studio-completion-evidence
+          path: |
+            /tmp/studio-finish/
+            test-results/
+            playwright-report/
+          retention-days: 7
+      - name: Enforce both acceptance results
+        if: steps.browsers.outcome == 'failure' || steps.repeated.outcome == 'failure'
+        run: exit 1
