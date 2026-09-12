@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Redact transient URL state from the research snapshot; no network access."""
-import argparse, json, re
+import argparse, gzip, json, re
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 import collect as c
@@ -37,6 +37,10 @@ def main():
         before=json.loads(path.read_text());after=visit(before)
         if after!=before:
             c.dump(path,after);changed.append(path.relative_to(root).as_posix())
+    for path in sorted(root.rglob('*.json.gz')):
+        before=json.loads(gzip.decompress(path.read_bytes()));after=visit(before)
+        if after!=before:
+            path.write_bytes(gzip.compress((json.dumps(after,ensure_ascii=False,indent=2,sort_keys=True)+'\n').encode(),mtime=0));changed.append(path.relative_to(root).as_posix())
     for path in sorted(root.rglob('*.md')):
         before=path.read_text();after=scrub_text(before)
         if before!=after: path.write_text(after);changed.append(path.relative_to(root).as_posix())

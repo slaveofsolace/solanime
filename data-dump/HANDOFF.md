@@ -73,3 +73,7 @@ Implement everything supported by verified interfaces and current permissions. F
 Push a dedicated integration branch/PR, provide the exact commit SHA, an updated-source ZIP, precise macOS and frontend/backend deployment instructions, screenshots and a reproducible QA report. Include a per-source matrix showing research evidence, implemented capabilities, actual live checks, unresolved gaps and why disabled sources remain disabled.
 
 Completion means the live Solanime application visibly uses the redesigned interface and genuinely supported custom-player integrations. It does not mean a large dataset exists, an iframe loaded, or the source registry has names without working adapters. Do not call universal ecosystem integration complete while unsupported providers or unresolved playback chains remain.
+
+## Supplemental source audit
+
+Also read `curated/README.md` and `curated/source-audit.json.gz`; use `curated/query.py` for evidence bindings, shared providers and combined coverage. The Meowly/FishyStream provider declarations are implementation leads, not validated native streams. Preserve exact domains, distinguish empty Direct mapping sentinels from servers, and verify custom-player capability before integrating a provider. Do not add supplemental counts to bulk counts without deduplicating shared entities. The combined coverage joins differing observation methods rather than pretending every site passed the same crawler.
