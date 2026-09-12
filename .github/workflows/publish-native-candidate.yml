@@ -56,7 +56,7 @@ jobs:
           def path_allowed(value):
             path = pathlib.PurePosixPath(value)
             assert not path.is_absolute() and '..' not in path.parts
-            assert path.parts[0] in {'src', 'server', 'scripts', 'shared', 'tests', 'docs', 'config', 'public'} or value in {'.env.example', '.gitignore', '.github/workflows/quality.yml', 'README.md', 'index.html', 'package.json', 'playwright.config.ts'}
+            assert path.parts[0] in {'src', 'server', 'scripts', 'shared', 'tests', 'docs', 'config', 'public'} or value in {'.env.example', '.gitignore', '.github/workflows/quality.yml', 'README.md', 'index.html', 'package.json', 'playwright.config.ts', 'vite.config.ts'}
             return pathlib.Path(value)
           for entry in manifest['files']:
             path = path_allowed(entry['path'])
@@ -78,8 +78,6 @@ jobs:
           tree = subprocess.check_output(['git', 'write-tree']).decode().strip()
           assert tree == manifest['targetTree'] == '376c63009529020730401c729a0fd9aefeec1443', (tree, manifest['targetTree'])
           print('Exact candidate tree verified:', tree)
-          # Application commits made by GITHUB_TOKEN must not modify workflow files.
-          # The authenticated connector publishes the reviewed quality workflow separately.
           subprocess.run(['git', 'restore', '--source=HEAD', '--staged', '--worktree', '--', '.github/workflows'], check=True)
           subprocess.run(['git', 'diff', '--cached', '--exit-code', '--', '.github/workflows', 'data'], check=True)
           PY
