@@ -1,0 +1,2272 @@
+{
+  "availability": {
+    "bytes_read": 71105,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://rugby24.net/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "nginx"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:32:30.125616+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://rugby24.net/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Sports Replays"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 7,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-06f167618fcd2769",
+    "domain-8ae209ae2219788c",
+    "domain-a599aeb3c7c1dfa5",
+    "domain-4dc3a769398cc025",
+    "domain-768d7186bec0f2f9",
+    "domain-b5bb5504eb4d60e3"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-a5a25821204bec8e"
+  ],
+  "frameworks": [],
+  "id": "site-ef6af1388ce58b35",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Rugby24",
+  "observations": [
+    {
+      "bytes_read": 71105,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://rugby24.net/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rugby24.net/"
+    },
+    {
+      "bytes_read": 97163,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://rugby24.net/.s/src/jquery-1.12.4.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:31.090435+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "668b046d12db350ccba6728890476b3efee53b2f42dbb84743e5e9f1ae0cc404",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rugby24.net/.s/src/jquery-1.12.4.min.js"
+    },
+    {
+      "bytes_read": 213693,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://rugby24.net/.s/src/uwnd.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "nginx"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:32.123516+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "b37ba20124acac28e596521ca55f2f778f904add5bd72ae4ba45c6e73d20696f",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://rugby24.net/.s/src/uwnd.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:32:30.125616+00:00",
+  "provider_ids": [
+    "provider-google-analytics",
+    "provider-vimeo",
+    "provider-youtube"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/jquery-1.12.4.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/uwnd.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/ulightbox/ulightbox.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/bottomInfo.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://jnbhi.com/tag.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-QCPJXYCNVH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/js/st-panel.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/js/jquery.accordion-menu.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/js/common.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/67/86584210.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/65/92758559.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/65/16568706.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/65/94648488.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/65/14524023.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/51178491.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/77111111.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/76653680.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/61323849.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/88937462.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/52637207.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/76660811.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/53105334.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/93881765.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/74312167.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/35101650.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/35666794.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/68/80967167.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/68/29126478.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/69/52012122.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/68/24414155.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/_pu/68/26410754.jpg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/premiership-rugby",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/top14",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/urc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/champions-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/content-policy-dcma",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/challenge-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/the-rugby-championship",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/six-nations",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/super_rugby_games",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/blues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/brumbies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/chiefs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/crusaders",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/drua",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/force",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/highlanders",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/hurricanes",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/moana-pasifika",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rebels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/reds",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/waratahs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bath",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bristol-bears",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/exeter-chiefs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/gloucester",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/harlequins",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/leicester-tigers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/newcastle-falcons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/northampton-saints",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/sale-sharks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/saracens",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bayonne",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bordeaux-begles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/brive",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/castres",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/clermont",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/la-rochelle",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/lyon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/montpellier",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/pau",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/perpignan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/racing92",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/stade-francais",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/toulon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/toulouse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/montauban",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/benetton",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bulls",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/cardiff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/connacht",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/dragons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/edinburgh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/glasgow-warriors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/leinster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/lions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/munster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/ospreys",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/scarlets",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/sharks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/stormers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/ulster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/zebre",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/nrl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/super-league",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-league-internationals",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-internationals",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-sevens",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/japan-league",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/currie-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/nz",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/mlr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/publ/australian_football/afl/111",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/fijian-drua-v-waratahs-full-match-replay-super-rugby-womens-25-july-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/[REDACTED-OPAQUE]",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/chiefs-v-reds-full-match-replay-super-rugby-pacific-quarter-final-6-june-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/full-match/australian_football/afl/111",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/otago-v-tasman-full-match-replay-hilux-npc-11-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/york-knights-v-bradford-bulls-full-match-replay-super-league-10-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/manawatu-v-taranaki-full-match-replay-hilux-npc-10-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bayonne-v-toulon-top-14-rugby-full-match-replay-5-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/lyon-v-clermont-top-14-rugby-full-match-replay-5-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/stade-francais-v-perpignan-top-14-rugby-full-match-replay-5-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/la-rochelle-v-toulouse-top-14-rugby-full-match-replay-6-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/cheetahs-v-pumas-full-match-replay-currie-cup-semi-final-6-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/griquas-v-lions-full-match-replay-currie-cup-semi-final-6-september-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/?page2=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/?page3=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/?page535=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/?page536=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/argentina-v-australia-full-match-replay-rugby-internationals-29-august-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bulls-v-new-zealand-full-match-replay-rugby-internationals-15-august-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/normalize.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/components.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/uDefault.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/fonts.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/css/media.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/base.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/layer7.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/ulightbox/ulightbox.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/.s/src/social.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/search/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/premiership-rugby",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/top14",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/urc",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/champions-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/content-policy-dcma",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/challenge-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/the-rugby-championship",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/six-nations",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/super_rugby_games",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/blues",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/brumbies",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/chiefs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/crusaders",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/drua",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/force",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/highlanders",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/hurricanes",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/moana-pasifika",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rebels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/reds",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/waratahs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bath",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bristol-bears",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/exeter-chiefs",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/gloucester",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/harlequins",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/leicester-tigers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/newcastle-falcons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/northampton-saints",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/sale-sharks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/saracens",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bayonne",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bordeaux-begles",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/brive",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/castres",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/clermont",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/la-rochelle",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/lyon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/montpellier",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/pau",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/perpignan",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/racing92",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/stade-francais",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/toulon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/toulouse",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/montauban",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/benetton",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bulls",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/cardiff",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/connacht",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/dragons",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/edinburgh",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/glasgow-warriors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/leinster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/lions",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/munster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/ospreys",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/scarlets",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/sharks",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/stormers",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/ulster",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/zebre",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/nrl",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/super-league",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-league-internationals",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-internationals",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/rugby-sevens",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/japan-league",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/currie-cup",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/nz",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/mlr",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/publ/australian_football/afl/111",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/fijian-drua-v-waratahs-full-match-replay-super-rugby-womens-25-july-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/[REDACTED-OPAQUE]",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/chiefs-v-reds-full-match-replay-super-rugby-pacific-quarter-final-6-june-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/argentina-v-australia-full-match-replay-rugby-internationals-29-august-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://rugby24.net/bulls-v-new-zealand-full-match-replay-rugby-internationals-15-august-2026",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c4e9e9a7609d6571e916c908816feed62c0d906476b344016318370d8d9159ee",
+      "evidence_url": "https://rugby24.net/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:30.125616+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-QCPJXYCNVH",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b37ba20124acac28e596521ca55f2f778f904add5bd72ae4ba45c6e73d20696f",
+      "evidence_url": "https://rugby24.net/.s/src/uwnd.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:32.123516+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://youtube.com/embed/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b37ba20124acac28e596521ca55f2f778f904add5bd72ae4ba45c6e73d20696f",
+      "evidence_url": "https://rugby24.net/.s/src/uwnd.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:32.123516+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://video.rutube.ru/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "b37ba20124acac28e596521ca55f2f778f904add5bd72ae4ba45c6e73d20696f",
+      "evidence_url": "https://rugby24.net/.s/src/uwnd.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:32:32.123516+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://vimeo.com/moogaloop.swf?clip_id=",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://rugby24.net/"
+}

@@ -111,8 +111,10 @@ export function importSnapshot(
   const counts: ImportResult = { titles: 0, episodes: 0, versions: 0, mappings: 0, duplicates: 0 };
   const existingTitle = db.prepare('SELECT id FROM titles WHERE source=? AND source_id=?');
   const findTitle = db.prepare('SELECT id FROM titles WHERE source=? AND source_id=?');
+  // Legacy related_source_id values belong to the owning title's source namespace.
   const linkInboundRelations = db.prepare(
-    'UPDATE related_titles SET related_title_id=? WHERE related_source_id=? AND related_title_id IS NULL',
+    `UPDATE related_titles SET related_title_id=? WHERE related_source_id=? AND related_title_id IS NULL
+    AND EXISTS (SELECT 1 FROM titles owner WHERE owner.id=related_titles.title_id AND owner.source=?)`,
   );
   const upsertTitle =
     db.prepare(`INSERT INTO titles(source,source_id,slug,canonical_url,name,description,format,release_year,status,artwork_url,artwork_origin,artwork_reuse_status,availability_state,first_seen_at,last_seen_at,last_successful_import_at,created_at,updated_at)
@@ -162,7 +164,7 @@ export function importSnapshot(
       const titleId = Number(
         currentTitle?.id ?? (findTitle.get('anikoto', title.sourceId) as { id: number }).id,
       );
-      linkInboundRelations.run(titleId, title.sourceId);
+      linkInboundRelations.run(titleId, title.sourceId, snapshot.source);
       counts.titles++;
       for (const alias of title.aliases ?? [])
         db.prepare(
@@ -182,7 +184,7 @@ export function importSnapshot(
         );
       }
       for (const relation of title.related ?? []) {
-        const relatedTitle = findTitle.get('anikoto', relation.sourceId) as
+        const relatedTitle = findTitle.get(snapshot.source, relation.sourceId) as
           | { id: number }
           | undefined;
         db.prepare(

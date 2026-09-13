@@ -1,6 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import { profileStorage } from '../src/account/storageScope';
+import { profileStorage, readOnlyStorage } from '../src/account/storageScope';
 describe('profile write coordination', () => {
+  it('keeps unresolved account storage ephemeral and read-only', async () => {
+    const state = readOnlyStorage();
+    state.write('history', [{ episodeId: 'private' }]);
+    expect(state.read('history')).toBeUndefined();
+    expect(state.hasPending()).toBe(false);
+    await expect(state.flush()).resolves.toBeUndefined();
+  });
   it('orders updates with server revisions', async () => {
     const commit = vi.fn(async (_key: string, _value: unknown, revision: number) => revision + 1),
       state = profileStorage({ values: {}, revisions: {} }, commit, () => {});

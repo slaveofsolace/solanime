@@ -176,6 +176,39 @@ test('failed media load offers a real retry with no iframe fallback', async ({ p
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 
+test('compatible native source switching carries the current version position', async ({ page }) => {
+  const e = await watch(page);
+  const source = page.getByRole('combobox', { name: 'Playback source' });
+  const options = await source.locator('option:not([disabled])').evaluateAll(options =>
+    options.map(option => (option as HTMLOptionElement).value),
+  );
+  expect(options.length).toBeGreaterThan(1);
+  const video = page.locator('video');
+  await video.evaluate((element: HTMLVideoElement) => {
+    element.currentTime = Math.min(0.75, element.duration / 2);
+    element.dispatchEvent(new Event('timeupdate'));
+  });
+  const carried = await video.evaluate((element: HTMLVideoElement) => element.currentTime);
+  let failures = 1;
+  await page.route('**/api/providers/*/resolve', route =>
+    failures-- > 0
+      ? route.fulfill({
+          status: 503,
+          contentType: 'application/json',
+          body: '{"error":{"code":"UNAVAILABLE","message":"Transient source failure"}}',
+        })
+      : route.continue(),
+  );
+  await source.selectOption(options[1]);
+  await expect(page.getByText('Transient source failure')).toBeVisible();
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.locator('video')).toBeVisible();
+  await expect
+    .poll(() => page.locator('video').evaluate((element: HTMLVideoElement) => element.currentTime))
+    .toBeCloseTo(carried, 1);
+  await expect(page.locator('iframe')).toHaveCount(0);
+});
+
 for (const format of ['hls', 'dash'] as const)
   test(`native ${format} renders moving media without a webpage player`, async ({ page }) => {
     const e = await episode(page);
@@ -194,6 +227,20 @@ for (const format of ['hls', 'dash'] as const)
     );
     await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
     const video = page.locator('video');
+    const playbackAvailable = await page.evaluate((kind) => {
+      const probe = document.createElement('video');
+      return kind === 'hls'
+        ? Boolean(probe.canPlayType('application/vnd.apple.mpegurl')) ||
+            typeof MediaSource !== 'undefined'
+        : typeof MediaSource !== 'undefined';
+    }, format);
+    if (!playbackAvailable) {
+      await expect(
+        page.getByRole('heading', { name: 'Video unavailable', exact: true }),
+      ).toBeVisible();
+      await expect(page.locator('iframe')).toHaveCount(0);
+      return;
+    }
     await expect
       .poll(() => video.evaluate((v: HTMLVideoElement) => v.readyState), { timeout: 20000 })
       .toBeGreaterThan(1);

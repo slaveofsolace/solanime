@@ -10,6 +10,21 @@ export type StorageScope = {
 };
 export const StorageScopeContext = createContext<StorageScope | null>(null);
 export const useStorageScope = () => useContext(StorageScopeContext);
+/**
+ * Ephemeral, deliberately read-only storage used while account restoration is unresolved.
+ * Rendering the public catalogue must not depend on the account service, but treating an
+ * unresolved session as a guest would leak private intent into device-level guest storage.
+ */
+export function readOnlyStorage(): StorageScope {
+  return {
+    read: () => undefined,
+    write: () => {},
+    subscribe: () => () => {},
+    flush: async () => {},
+    hasPending: () => false,
+    dispose: () => {},
+  };
+}
 /** Ordered compare-and-swap writes: no localStorage credentials or cross-profile data cache. */
 export function profileStorage(
   initial: ProfileData,

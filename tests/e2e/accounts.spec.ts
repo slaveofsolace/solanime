@@ -1,6 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-const password = 'Our long sample passphrase 2026';
+import { generatedTestPassphrase } from '../helpers/auth-material';
+const password = generatedTestPassphrase('browser account');
 const image =
   '<svg xmlns="http://www.w3.org/2000/svg" width="360" height="510"><rect width="360" height="510" fill="#253744"/><circle cx="180" cy="180" r="85" fill="#efb083"/></svg>';
 test.beforeEach(async ({ page }) => {
@@ -38,6 +39,12 @@ async function overflow(page: Page) {
   );
 }
 
+async function openPaperTitle(page: Page) {
+  await page.goto('/catalogue?q=Paper');
+  await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Add to watchlist', exact: true })).toBeEnabled();
+}
+
 test('five profiles keep appearance and saved lists separate across reloads', async ({
   page,
 }, info) => {
@@ -64,14 +71,14 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await overflow(page);
   await page.screenshot({ path: info.outputPath('five-profiles.png'), fullPage: true });
   await choose(page);
-  await page.goto('/catalogue?q=Paper');
-  await page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }).click();
+  await openPaperTitle(page);
+  await page.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
   await page.getByRole('button', { name: 'Customize appearance' }).click();
   await page.getByRole('dialog').getByRole('button', { name: 'Violet', exact: true }).click();
   await page.keyboard.press('Escape');
   await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
   await choose(page, 'Mira');
-  await expect(page.locator('html')).toHaveAttribute('data-accent', '#AE9CFF');
+  await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toHaveCount(0);
   await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
@@ -93,6 +100,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   context,
 }, info) => {
   const { email, code } = await register(page);
+  const changedPassword = generatedTestPassphrase('browser recovery');
   await page.goto('/account');
   await page.getByRole('button', { name: 'Sign out', exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
@@ -103,23 +111,29 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   await page.goto('/recover');
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Recovery code', { exact: true }).fill(code);
-  await page.getByLabel('New password', { exact: true }).fill('Our changed sample passphrase 2026');
+  await page.getByLabel('New password', { exact: true }).fill(changedPassword);
   await page
     .getByLabel('Confirm password', { exact: true })
-    .fill('Our changed sample passphrase 2026');
+    .fill(changedPassword);
   await page.getByRole('button', { name: 'Reset password' }).click();
   await expect(page.getByRole('heading', { name: 'Save your new recovery code' })).toBeVisible();
   await page.getByLabel('I have saved my recovery code').check();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await expect(page).toHaveURL(/\/login$/);
   await page.getByLabel('Email address', { exact: true }).fill(email);
-  await page.getByLabel('Password', { exact: true }).fill('Our changed sample passphrase 2026');
+  await page.getByLabel('Password', { exact: true }).fill(changedPassword);
+  const loginResponse = page.waitForResponse(
+    (response) =>
+      response.url().endsWith('/api/account/login') && response.request().method() === 'POST',
+  );
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page).toHaveURL(/\/profiles$/);
+  const setCookie = (await (await loginResponse).allHeaders())['set-cookie'] ?? '';
+  expect(setCookie).toMatch(/solanime_session=.*; Path=\/; HttpOnly; SameSite=Strict/i);
   const cookies = await context.cookies();
-  expect(
-    cookies.some((c) => c.name === 'solanime_session' && c.httpOnly && c.sameSite === 'Strict'),
-  ).toBe(true);
+  // Playwright WebKit reports SameSite=Strict response cookies as `None` through
+  // context.cookies(); the response header above is the authoritative boundary.
+  expect(cookies.some((c) => c.name === 'solanime_session' && c.httpOnly)).toBe(true);
   await page.goto('/account');
   await expect(page.getByRole('heading', { name: 'Security', exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('account-settings.png'), fullPage: true });
@@ -143,7 +157,9 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
   await page.goto('/login');
   await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Use light theme' }).click();
+  await page.getByRole('button', { name: 'Customize appearance' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Light', exact: true }).click();
+  await page.keyboard.press('Escape');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
   expect(results.violations).toEqual([]);
@@ -151,10 +167,7 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
 test('a sync conflict does not trap an authenticated session', async ({ page }) => {
   await register(page);
   await choose(page);
-  await page.goto('/catalogue?q=Paper');
-  await expect(
-    page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }),
-  ).toBeVisible();
+  await openPaperTitle(page);
   await page.route('**/api/account/profiles/*/data', (route) => {
     if (route.request().method() === 'POST')
       return route.fulfill({
@@ -169,7 +182,7 @@ test('a sync conflict does not trap an authenticated session', async ({ page }) 
       });
     return route.continue();
   });
-  await page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }).click();
+  await page.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
   await expect(
     page
       .getByText('This profile changed in another tab. Reload it before saving again.', {

@@ -29,20 +29,23 @@ export default function TitlePreview({
     return () => controller.abort();
   }, [title.slug]);
   const item = detail?.title ?? title;
+  const name = item.name ?? item.title ?? 'Untitled record';
   return (
-    <Dialog title={title.name} onClose={onClose} className="title-preview">
+    <Dialog title={name} onClose={onClose} className="title-preview">
       <div className="title-preview__body">
         <div className="title-preview__art">
-          <CoverArt title={item} eager />
+          <CoverArt title={item} eager variant="landscape" />
         </div>
         <div className="title-preview__copy">
+          <h3>{name}</h3>
           <p className="preview-meta">
             {[item.type, item.releaseYear, item.status].filter(Boolean).join(' · ')}
           </p>
           <p>{item.synopsis || 'Details will be available on the title page.'}</p>
           {detail && (
             <p className="preview-episodes">
-              {detail.episodes.length.toLocaleString()} episodes in the catalogue
+              {detail.episodes.length.toLocaleString()}{' '}
+              {detail.episodes.length === 1 ? 'episode' : 'episodes'} in the catalogue
             </p>
           )}
           {error && <p className="inline-notice">{error}</p>}

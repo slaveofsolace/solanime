@@ -1,0 +1,293 @@
+{
+  "availability": {
+    "bytes_read": 3331,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://ee3.me/login",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:29:23.252369+00:00",
+    "redirects": [
+      {
+        "http_status": 303,
+        "location": "https://ee3.me/login",
+        "url": "https://ee3.me/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://ee3.me/"
+  },
+  "categories": [
+    [
+      "Streaming Sites",
+      "Dedicated-Server"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-5b0f8b27789cd874",
+    "domain-d15afad5fd0ce8bf",
+    "domain-1a2e36cc692d119d"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-20d9ad241c96813d"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "SvelteKit",
+      "source_url": "https://ee3.me/login",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
+    }
+  ],
+  "id": "site-6d2cb6d970983bb8",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "EE3",
+  "observations": [
+    {
+      "bytes_read": 3331,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://ee3.me/login",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "redirects": [
+        {
+          "http_status": 303,
+          "location": "https://ee3.me/login",
+          "url": "https://ee3.me/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ee3.me/"
+    },
+    {
+      "bytes_read": 12332,
+      "content_type": "application/javascript",
+      "final_url": "https://ee3.me/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:23.819294+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://ee3.me/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:29:23.252369+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/reset-password",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/favicon-96x96.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/apple-touch-icon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "manifest",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/site.webmanifest",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/global.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/fonts/circular/stylesheet.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/_app/immutable/assets/Error.DPs4iFZ6.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/_app/immutable/assets/3.BptakJZV.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/_app/immutable/assets/Button.BY-bedUv.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ee3.me/_app/immutable/assets/17.f3025cxh.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "95d65a1c7a9b502bc1e87321d64fe9bc8a93294da6a4c11807a5785430e81e6e",
+      "evidence_url": "https://ee3.me/login",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:23.252369+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "ccf00d1923b0131a10e0c6d26f95e5dee6ebf8621a27e83c5a2f68a2e0093142",
+      "evidence_url": "https://ee3.me/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:23.819294+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://ee3.me/"
+}

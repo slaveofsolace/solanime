@@ -1,34 +1,38 @@
-# Solanime native redesign system
+# Solanime design system
 
 ## Direction
 
-A quiet media library, not a settings dashboard or Netflix skin. Page hierarchy is background → open section → poster or media → controls. Most grouping is achieved by spacing, type size and alignment; borders belong to inputs, separators and exceptional overlays. The previous cinematic/studio override stylesheets are removed rather than layered underneath the new system.
+Artwork-first streaming cinema: near-black viewing-room surfaces, ember-orange signature details, large title-led hero imagery, dense landscape discovery rows, and a player-first watch page. The browsing hierarchy takes current streaming-product cues from Netflix's official 2025 TV redesign and 2026 mobile announcement, while the mark, language, data model, controls, and presentation remain independently implemented Solanime work. It uses no Netflix artwork, logo, ranking, recommendation claim, trailer, or autoplay preview.
 
-## Tokens
+## Type, color, and shape
 
-`src/styles/tokens.css` is the common vocabulary. Dark background `#0C0D10`, major surface `#15161C`, control surface `#22242D`, text `#F3F2F7`, muted text `#ADB0C2`; light mode uses true white. Default iris accent `#AE9CFF` can be changed. Existing account preferences are preserved. Derived accent/focus colors retain readable contrast without rewriting the user's selected value.
+Bundled `Manrope Local` is the display and interface face; the strong sans hierarchy replaces the earlier editorial-serif identity. The WOFF2 file and OFL notice live under `public/fonts/`, with Segoe UI as fallback.
 
-Spacing uses 4/8/12/16/24/32/48/64 pixels. Controls use a 6px radius, artwork 8px, dialogs 14px. Shadows are reserved for overlays. System fonts provide display and interface type without redistributing font files. Display type scales from 32 to 60px, headings and metadata step down consistently.
+Canonical tokens are in `src/styles/tokens.css`:
 
-## Shells and components
+- Dark: background `#090909`, surface `#151515`, raised surface `#272727`, line `#393939`, text `#F4F4F4`, muted `#B3B3B3`.
+- Light: background `#F3F3F3`, surface `#FFFFFF`, raised surface `#E4E4E4`, text `#171717`, muted `#5F5F5F`.
+- Cinema signature: `#EE791F`; soft dark-theme ink `#FFAE6F`. Orange is the default accent, while saved custom accents and light/dark choices remain intact. Focus and player-control inks are contrast-derived from the selected accent.
+- Spacing: 4/8/12/16/24/32/48/64px. Landscape artwork and controls use 4px radii; dialogs use 8px. Shadows support player, hero, card hover, and overlay depth.
 
-- Desktop browse/home/search/library: 192px navigation rail, open reading area and discreet search utility.
-- Mobile: simple brand/appearance/account header and four bottom navigation destinations; content includes bottom clearance.
-- Watch and authentication/profile selection: focused composition without a competing sidebar around the media.
-- Catalogue cards: artwork plus title/metadata/actions, no outer card panel.
-- Title: editorial title/poster/synopsis with open facts and a shared episode list.
-- Watch: video, owned control rail, episode/source/version selectors, title and save action, synopsis, episodes, collapsed notes and optional unsupported-source explanation.
-- Account: open two-column sections with rules, not nested settings cards. Auth is a two-column type/form composition; mobile stacks it.
-- Profiles: original initial avatars in circles, clear selection/editing actions and one dialog for the editor.
-- Dialogs: one modal surface, constrained width, focus restoration, Escape dismissal and backdrop. Appearance shares the same control rules.
-- Empty/loading/error: concise state and action, not a large decorative card. Unsupported playback has no fake play button.
+## Navigation and responsive behavior
 
-## Motion
+The desktop shell uses a translucent horizontal masthead with primary destinations, Series/Films/Dubbed shortcuts, compact global search, appearance, and profile access. At 1180px category shortcuts collapse; at 820px primary labels become icons. At 760px and below the established four-destination bottom navigation remains, while focused watch/auth/profile/operator routes omit audience navigation. At 360px gutters reduce to 12px. The supported minimum viewport is 320px, validated against the document client width so a classic scrollbar gutter cannot hide overflow.
 
-Use short transform movement and artwork hover scaling, not persistent bouncing or text-opacity fades. Route movement is cancelled on navigation and never rekeys a watch player. Feature changes are user-controlled, with no timed rotation. Staggering is capped at six tiles. Dialog entrance is 200ms; routine UI motion is 160–320ms. OS reduced motion takes precedence; the profile setting can reduce it further. Palette changes are immediate so a mid-transition foreground does not lose contrast against a changed background.
+## Product surfaces
+
+- Home uses a title-led cinematic hero followed by actual Continue Watching, browse shortcuts, dense landscape catalogue rows, My List, genres, and films. Hero calls to action open known title/episode inventory; they never imply unverified playback.
+- Browse/Search use shareable controls, a dense responsive landscape grid, real imported metadata, and quick-look dialogs without invented ranks, scores, or popularity.
+- Title pages distinguish a metadata-only/pending episode inventory from a verified empty inventory.
+- Watch keeps video, episode navigation, source, version, provenance, and previous/next actions together. Native controls use the selected accent; unsupported modes fail explicitly and never fall back to an iframe.
+- Library, history, appearance, and notes are local/profile-scoped and remain useful without an account. Unresolved account restoration permits public reads but no guest writes.
+- Operator diagnostics are separate focused routes. Tokens are memory-only; evidence fragments load explicitly in bounded pages with cancellation, cloud diagnostics show snapshot progress and quotas, and cloud backups remain explicit CLI operations.
+- Route readiness is a compact branded skeleton. Errors retain useful retry actions and do not turn transient failures into empty content.
+
+## Interaction and motion
+
+All visible controls require a real state transition or a clear unavailable state. Focus is visible, touch targets are at least 44px, tables and long evidence scroll within their containers, and 320px layouts must not overflow the page. Motion is short and user-controlled: 160–320ms transforms, capped tile staggering, no automatic carousel rotation, and no opacity-only text reveal. OS reduced motion overrides all animation; the profile preference can reduce it further.
 
 ## Review gates
 
-Check desktop 1440×1000 and mobile 390×844, plus 320px narrow interactions. Inspect Home, Browse/Search, Title, Watch, Auth, Profiles/Editor, Account, Appearance, quick look, empty/error states and loading geometry. Verify meaningful controls, readable type, absence of redundant boxes, focus visibility, keyboard behavior, no horizontal overflow and actual media control behavior. Synthetic fixture images used in QA are not production artwork or purported imported content.
-
-This is a review candidate. Automated layout/accessibility tests and developer inspection do not imply user acceptance or a claim that the entire site is perfect.
+Review at 1440×1000, tablet width, 390×844, and 320px. Exercise Home, Browse/Search, Title, Watch, Library, Auth, Profiles, Account, Appearance, operator screens, loading/error states, deep links, keyboard control, both themes, source switching, and real native playback. Fixture media and artwork prove mechanics only; they are never catalogue or live-provider evidence. Automated checks and screenshots do not substitute for human acceptance.

@@ -14,6 +14,16 @@ export type EvidenceClass =
   | 'unknown';
 
 export type ApiErrorCode =
+  | 'INVALID_QUERY'
+  | 'INVALID_REVIEW'
+  | 'IMPORT_QUOTA_PAUSED'
+  | 'INVALID_BUDGET'
+  | 'RESERVATION_CONFLICT'
+  | 'INVALID_IMPORT'
+  | 'IMPORT_TOO_LARGE'
+  | 'IMPORT_CHECKSUM_MISMATCH'
+  | 'IMPORT_CONFLICT'
+  | 'IMPORT_IDENTITY_CONFLICT'
   | 'BAD_REQUEST'
   | 'NOT_FOUND'
   | 'UNAUTHORIZED'

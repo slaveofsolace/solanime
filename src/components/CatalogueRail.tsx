@@ -8,10 +8,12 @@ export default function CatalogueRail({
   title,
   to,
   items,
+  format = 'poster',
 }: {
   title: string;
   to: string;
   items: TitleSummary[];
+  format?: 'poster' | 'landscape';
 }) {
   const track = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: true });
@@ -35,15 +37,18 @@ export default function CatalogueRail({
   }, [items.length]);
   const scroll = (direction: number) => {
     const element = track.current;
-    if (element)
-      element.scrollBy({
-        left: direction * element.clientWidth * 0.85,
+    if (element) {
+      const step = element.clientWidth * 0.85;
+      const left = direction < 0 && element.scrollLeft <= step + 8 ? 0 : element.scrollLeft + direction * step;
+      element.scrollTo({
+        left,
         behavior: motionReduced() ? 'instant' : 'smooth',
       });
+    }
   };
   if (!items.length) return null;
   return (
-    <section className="home-rail" aria-labelledby={id}>
+    <section className={`home-rail home-rail--${format}`} aria-labelledby={id}>
       <header className="rail-heading">
         <div className="rail-heading__title">
           <h2 id={id}>{title}</h2>
@@ -102,7 +107,7 @@ export default function CatalogueRail({
         }}
       >
         {items.map((item, index) => (
-          <TitleCard key={item.id} title={item} index={index} />
+          <TitleCard key={item.id} title={item} index={index} format={format} />
         ))}
       </div>
     </section>

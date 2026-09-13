@@ -246,6 +246,18 @@ export const api = {
     );
   },
 
+  startCloudImport(token: string, signal?: AbortSignal) {
+    return request<{ job: { id: string; runId: number; created: boolean }; dispatch: unknown }>(
+      '/api/admin/import/start',
+      {
+        method: 'POST',
+        headers: { 'x-admin-token': token },
+        body: '{}',
+        signal,
+      },
+    );
+  },
+
   backup(token: string, signal?: AbortSignal) {
     return request<{ path: string; schemaVersion: number }>('/api/admin/backup', {
       method: 'POST',

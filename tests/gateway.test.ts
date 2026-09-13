@@ -50,7 +50,7 @@ describe('optional Pages gateway', () => {
     expect(spy.mock.calls[0][0]).toBe('https://api.example.com/api/titles?q=test');
     expect(spy.mock.calls[0][1].headers.has('cookie')).toBe(false);
     expect(spy.mock.calls[0][1].headers.has('x-admin-token')).toBe(false);
-    expect(spy.mock.calls[0][1].redirect).toBe('error');
+    expect(spy.mock.calls[0][1].redirect).toBe('manual');
   });
   it('rejects foreign-origin POSTs and oversized bodies', async () => {
     expect(

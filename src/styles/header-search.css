@@ -1,0 +1,50 @@
+/* Independent of catalogue cards: a compact desktop search with a fixed footprint. */
+.header-search { position: relative; flex: none; }
+.header-search__trigger {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  border-radius: 3px;
+}
+.header-search__trigger:hover { background: color-mix(in srgb, var(--text) 9%, transparent); }
+.header-search__form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: min(320px, 38vw);
+  height: 40px;
+  border: 1px solid var(--text);
+  background: var(--bg);
+  box-shadow: 0 4px 20px #0003;
+}
+.header-search__form input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+}
+.header-search__form button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  min-height: 36px;
+  padding: 8px;
+  color: var(--text);
+}
+.header-search__form input::-webkit-search-cancel-button { appearance: none; }
+.main-nav > .main-nav__search { display: none; }
+@media (max-width: 820px) {
+  .header-search { display: none; }
+  .main-nav > .main-nav__search { display: flex; }
+}

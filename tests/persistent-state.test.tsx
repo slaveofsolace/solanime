@@ -3,9 +3,26 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, renderHook } from '@testing-library/react';
 import type { PropsWithChildren } from 'react';
 import { StorageScopeContext, profileStorage } from '../src/account/storageScope';
-import { usePersistentState } from '../src/lib/storage';
+import { decodeStored, usePersistentState } from '../src/lib/storage';
 afterEach(() => cleanup());
 describe('profile read and write separation', () => {
+  it('retains only finite, non-negative viewing progress in history', () => {
+    const base = {
+      titleId: '1',
+      slug: 'paper',
+      title: 'Paper',
+      episodeId: '1',
+      episodeLabel: '1',
+      language: 'sub',
+      watchedAt: '2026-09-12',
+    };
+    expect(
+      decodeStored('history', [{ ...base, position: 75, duration: 100 }], []),
+    ).toMatchObject([{ position: 75, duration: 100 }]);
+    expect(
+      decodeStored('history', [{ ...base, position: Number.NaN, duration: -4 }], []),
+    ).toMatchObject([{ position: undefined, duration: undefined }]);
+  });
   it('does not save untouched defaults on mount or rerender', () => {
     const commit = vi.fn(async () => 1);
     const scope = profileStorage({ values: {}, revisions: {} }, commit, () => {});

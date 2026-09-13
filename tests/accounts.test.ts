@@ -5,11 +5,12 @@ import { openDatabase, migrate } from '../server/db';
 import { openAccountsDatabase } from '../server/accounts/database';
 import { createAccounts } from '../server/accounts/service';
 import { verifyPassword } from '../server/accounts/passwords';
+import { generatedTestPassphrase } from './helpers/auth-material';
 const cleanup: Array<() => Promise<void>> = [];
 afterEach(async () => {
   for (const dispose of cleanup.splice(0)) await dispose();
 });
-const password = 'a long testing passphrase 2026';
+const password = generatedTestPassphrase('local account');
 async function fixture(secure = false) {
   const catalog = openDatabase(':memory:');
   migrate(catalog);
@@ -111,7 +112,7 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
     expect(a.cookie).not.toBe(before);
     const stale = await fetch(f.origin + '/api/account/session', {
       headers: { cookie: before },
-    }).then((r) => r.json());
+    }).then((r) => r.json<{ account: unknown }>());
     expect(stale.account).toBeNull();
     await a.call('logout', {});
     expect((await a.call('session')).body.account).toBeNull();
@@ -265,7 +266,7 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
       (
         await a.call('password', {
           currentPassword: password,
-          password: 'new longer password in 2026',
+          password: generatedTestPassphrase('changed local account'),
         })
       ).response.status,
     ).toBe(200);
@@ -299,9 +300,10 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
   it('rate-limits credential guessing with Retry-After', async () => {
     const f = await fixture(),
       a = f.user();
+    const rejectedPassword = generatedTestPassphrase('unregistered identity');
     for (let i = 0; i < 12; i++)
-      await a.call('login', { email: 'guess@example.test', password: 'not valid' });
-    const r = await a.call('login', { email: 'guess@example.test', password: 'not valid' });
+      await a.call('login', { email: 'guess@example.test', password: rejectedPassword });
+    const r = await a.call('login', { email: 'guess@example.test', password: rejectedPassword });
     expect(r.response.status).toBe(429);
     expect(Number(r.response.headers.get('retry-after'))).toBeGreaterThan(0);
   }, 15000);

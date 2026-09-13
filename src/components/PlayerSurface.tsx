@@ -2,7 +2,7 @@ import { useStorageScope } from '../account/storageScope';
 import { useEffect, useRef, useState } from 'react';
 import type { PlaybackResolution } from '../types';
 import { readProgress, writeProgress } from '../lib/storage';
-import { mediaIsSupported, playbackUrl } from '../lib/playerPolicy';
+import { mediaCrossOrigin, mediaIsSupported, playbackUrl } from '../lib/playerPolicy';
 import MediaControls from './MediaControls';
 import Icon from './Icon';
 
@@ -46,8 +46,10 @@ export default function PlayerSurface({
   episodeId,
   language,
   rememberProgress,
+  initialPosition,
   onStateChange,
   onOpen,
+  onProgress,
   onEnded,
   onPrevious,
   onNext,
@@ -58,8 +60,11 @@ export default function PlayerSurface({
   episodeId: string;
   language: string;
   rememberProgress: boolean;
+  /** Current episode-version position carried across compatible native providers. */
+  initialPosition?: number;
   onStateChange?: (state: PlayerState, detail?: string) => void;
   onOpen?: () => void;
+  onProgress?: (position: number, duration: number) => void;
   onEnded?: () => void;
   onPrevious?: () => void;
   onNext?: () => void;
@@ -69,8 +74,10 @@ export default function PlayerSurface({
   const scope = useStorageScope();
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
-  const callbacks = useRef({ onStateChange, onOpen, onEnded, rememberProgress });
-  callbacks.current = { onStateChange, onOpen, onEnded, rememberProgress };
+  const [overlayTarget, setOverlayTarget] = useState<HTMLDivElement | null>(null);
+  const callbacks = useRef({ onStateChange, onOpen, onProgress, onEnded, rememberProgress });
+  callbacks.current = { onStateChange, onOpen, onProgress, onEnded, rememberProgress };
+  const carriedPosition = useRef(initialPosition);
   const [state, setState] = useState<PlayerState>('loading');
   const [detail, setDetail] = useState('Loading video…');
   const [attempt, setAttempt] = useState(0);
@@ -87,9 +94,14 @@ export default function PlayerSurface({
     if (!video || !sourceUrl) return;
     let hls: { destroy(): void } | null = null;
     let dash: { reset(): void } | null = null;
+    const controller = new AbortController();
     let cancelled = false,
-      opened = false,
-      restored = false;
+      opened = false;
+    let restoreTarget: number | null | undefined;
+    let restoreCheck: number | undefined;
+    let restoreStartedAt = 0;
+    let restoreStableAt = 0;
+    let restoreSettled = false;
     let lastProgressWrite = 0;
     const update = (next: PlayerState, message: string) => {
       if (cancelled) return;
@@ -106,21 +118,79 @@ export default function PlayerSurface({
         );
     }, 25_000);
     const save = (seconds: number) => {
-      if (!callbacks.current.rememberProgress || !Number.isFinite(seconds) || seconds < 0) return;
-      if (scope) scope.write(progressKey, seconds);
-      else writeProgress(episodeId, language, progressScope, seconds);
+      if (!Number.isFinite(seconds) || seconds < 0) return;
+      if (callbacks.current.rememberProgress) {
+        if (scope) scope.write(progressKey, seconds);
+        else writeProgress(episodeId, language, progressScope, seconds);
+      }
+      if (Number.isFinite(video.duration) && video.duration > 0)
+        callbacks.current.onProgress?.(seconds, video.duration);
+    };
+    const stopRestoreCheck = () => {
+      if (restoreCheck !== undefined) window.clearInterval(restoreCheck);
+      restoreCheck = undefined;
     };
     const restore = () => {
-      if (restored || !Number.isFinite(video.duration)) return;
-      restored = true;
-      if (!callbacks.current.rememberProgress) return;
-      const value = scope
-        ? scope.read(progressKey)
-        : readProgress(episodeId, language, progressScope);
-      if (typeof value === 'number' && value > 5 && value < video.duration - 15)
-        video.currentTime = value;
+      if (restoreSettled || !Number.isFinite(video.duration)) return;
+      if (restoreTarget === undefined) {
+        const carried = carriedPosition.current;
+        if (!callbacks.current.rememberProgress && typeof carried !== 'number') {
+          restoreTarget = null;
+          return;
+        }
+        const stored = callbacks.current.rememberProgress
+          ? scope
+            ? scope.read(progressKey)
+            : readProgress(episodeId, language, progressScope)
+          : undefined;
+        const value = typeof carried === 'number' && Number.isFinite(carried) ? carried : stored;
+        const endGuard = Math.min(15, Math.max(0.25, video.duration * 0.05));
+        const minimum = value === carried ? 0 : 5;
+        restoreTarget =
+          typeof value === 'number' && value > minimum && value < video.duration - endGuard
+            ? value
+            : null;
+      }
+      if (restoreTarget === null) return;
+      const now = performance.now();
+      const difference = video.currentTime - restoreTarget;
+      if (difference > 0.1) {
+        // Playback or a deliberate forward seek has already moved beyond the carried point.
+        restoreSettled = true;
+        stopRestoreCheck();
+        return;
+      }
+      if (Math.abs(difference) <= 0.05) {
+        restoreStableAt ||= now;
+        if (now - restoreStableAt >= 600) {
+          restoreSettled = true;
+          stopRestoreCheck();
+          return;
+        }
+      } else {
+        restoreStableAt = 0;
+        try {
+          video.currentTime = restoreTarget;
+        } catch {
+          // Metadata is present but some engines accept the seek only after their next ready event.
+        }
+      }
+      if (restoreCheck === undefined) {
+        restoreStartedAt ||= now;
+        restoreCheck = window.setInterval(() => {
+          if (cancelled || performance.now() - restoreStartedAt > 4_000) {
+            restoreSettled = true;
+            stopRestoreCheck();
+            return;
+          }
+          restore();
+        }, 100);
+      }
     };
     const ready = () => {
+      // WebKit may reset a loadedmetadata seek while finalizing a new resource; verify once at
+      // canplay without rewinding media that has already advanced.
+      restore();
       clearTimeout(timer);
       update(video.paused ? 'ready' : 'playing', '');
     };
@@ -134,14 +204,20 @@ export default function PlayerSurface({
     };
     const ended = () => {
       save(0);
+      if (Number.isFinite(video.duration) && video.duration > 0)
+        callbacks.current.onProgress?.(video.duration, video.duration);
       callbacks.current.onEnded?.();
     };
     const failed = () =>
       update('error', 'This video could not be played. Try again or choose another source.');
     const remember = () => {
+      restore();
       if (!video.ended && Date.now() - lastProgressWrite >= 5000) {
         lastProgressWrite = Date.now();
         save(video.currentTime);
+      } else if (!video.ended && Number.isFinite(video.duration) && video.duration > 0) {
+        // Session carry is cheap and must stay current even while durable writes are throttled.
+        callbacks.current.onProgress?.(video.currentTime, video.duration);
       }
     };
     video.addEventListener('loadedmetadata', restore);
@@ -180,18 +256,36 @@ export default function PlayerSurface({
           });
         }
       } else if (resolution.playbackType === 'dash') {
+        if (typeof MediaSource === 'undefined') {
+          update('error', 'This browser cannot play this DASH source.');
+          return;
+        }
         const dashjs = await import('dashjs');
         if (cancelled) return;
         const instance = dashjs.MediaPlayer().create();
         dash = instance;
         instance.initialize(video, sourceUrl, false);
         instance.on(dashjs.MediaPlayer.events.ERROR, failed);
-      } else video.src = sourceUrl;
+      } else {
+        // Same-origin native files can be checked without widening CORS or proxying. This also
+        // gives every browser a deterministic failure signal before attaching a broken resource.
+        if (new URL(sourceUrl).origin === window.location.origin) {
+          const response = await fetch(sourceUrl, {
+            method: 'HEAD',
+            cache: 'no-store',
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error(`Media returned HTTP ${response.status}.`);
+        }
+        if (!cancelled) video.src = sourceUrl;
+      }
     };
     void attach().catch(failed);
     return () => {
       cancelled = true;
+      controller.abort();
       clearTimeout(timer);
+      stopRestoreCheck();
       video.removeEventListener('loadedmetadata', restore);
       video.removeEventListener('canplay', ready);
       video.removeEventListener('playing', playing);
@@ -225,10 +319,11 @@ export default function PlayerSurface({
     );
   return (
     <div className="player-video" ref={frameRef} data-player="solanime-native">
+      <div className="player-screen" ref={setOverlayTarget}>
       <video
         ref={videoRef}
         playsInline
-        crossOrigin="anonymous"
+        crossOrigin={mediaCrossOrigin(resolution)}
         preload="metadata"
         aria-label="Episode video"
       >
@@ -264,9 +359,11 @@ export default function PlayerSurface({
           </PlayerMessage>
         </div>
       )}
+      </div>
       <MediaControls
         videoRef={videoRef}
         frameRef={frameRef}
+        overlayTarget={state === 'ready' || state === 'playing' ? overlayTarget : null}
         onPrevious={onPrevious}
         onNext={onNext}
         theater={theater}

@@ -1,5 +1,8 @@
-/** Optional Cloudflare Pages gateway. SQLite remains on the Node host. */
+/** Pages routes API traffic through a private Worker service binding.
+ * The fixed-origin mode remains available for existing self-hosted installations. */
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
+const operatorRead = /^\/api\/(?:admin\/(?:sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
+const operatorWrite = /^\/api\/admin\/(?:sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/data)$/;
 const accountWrite =
@@ -43,30 +46,40 @@ export function apiOrigin(value, ownOrigin) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname.startsWith('/__private-import/')) return problem(404, 'NOT_FOUND', 'Route not found.');
+    if (url.pathname === '/api') return problem(404, 'NOT_FOUND', 'API route not found.');
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
+    const bound = !!env.SOLANIME_API;
+    const operatorRoute = bound && (operatorRead.test(url.pathname) || operatorWrite.test(url.pathname));
     const accountRoute = accountRead.test(url.pathname) || accountWrite.test(url.pathname);
     const mutation =
       request.method === 'POST' &&
-      (resolvePath.test(url.pathname) || accountWrite.test(url.pathname));
+      (resolvePath.test(url.pathname) || accountWrite.test(url.pathname) || (bound && operatorWrite.test(url.pathname)));
     if (
       !(
         request.method === 'GET' &&
-        (publicRead.test(url.pathname) || accountRead.test(url.pathname))
+        (publicRead.test(url.pathname) || accountRead.test(url.pathname) || (bound && operatorRead.test(url.pathname)))
       ) &&
       !mutation
     )
       return problem(404, 'NOT_FOUND', 'This API route is not exposed by the public gateway.');
     let origin;
     try {
-      origin = apiOrigin(env.SOLANIME_API_ORIGIN, url.origin);
+      origin = bound ? url.origin : apiOrigin(env.SOLANIME_API_ORIGIN, url.origin);
     } catch {
       return problem(
         503,
         'API_NOT_CONFIGURED',
-        'Configure SOLANIME_API_ORIGIN with the HTTPS origin of your running Solanime Node API.',
+        'The application API binding is missing. Check the Pages deployment configuration.',
       );
     }
     const headers = new Headers({ accept: 'application/json' });
+    if (operatorRoute) {
+      const token = request.headers.get('x-admin-token');
+      if (!token || token.length > 256) return problem(401, 'UNAUTHORIZED', 'An operator token is required.');
+      headers.set('x-admin-token', token);
+    }
+    if (bound) headers.set('cf-connecting-ip', request.headers.get('cf-connecting-ip') ?? 'unknown');
     if (accountRoute) {
       const cookies = (request.headers.get('cookie') ?? '')
         .split(';')
@@ -83,13 +96,13 @@ export default {
         headers.set('x-solanime-client-ip', request.headers.get('cf-connecting-ip') ?? '');
       }
     }
-    const bodyLimit = accountRoute ? limit : 16 * 1024;
+    const bodyLimit = accountRoute ? limit : operatorRoute ? 60_000 : 16 * 1024;
     let body;
     if (mutation) {
       const caller = request.headers.get('origin');
       const site = request.headers.get('sec-fetch-site');
       if (
-        (accountRoute && !caller) ||
+        ((bound || accountRoute || operatorRoute) && !caller) ||
         (caller && caller !== url.origin) ||
         (site && site !== 'same-origin')
       )
@@ -128,14 +141,28 @@ export default {
       headers.set('sec-fetch-site', 'same-origin');
     }
     try {
-      const upstream = await fetch(`${origin}${url.pathname}${url.search}`, {
+      const init = {
         method: request.method,
         headers,
         body,
-        redirect: 'error',
-        signal: AbortSignal.timeout(55_000),
-      });
-      if (!upstream.headers.get('content-type')?.includes('application/json')) {
+        // Workers supports manual/follow Request modes. Manual also ensures
+        // upstream redirects are rejected by the JSON response contract below.
+        redirect: 'manual',
+        signal: request.signal
+          ? AbortSignal.any([request.signal, AbortSignal.timeout(20_000)])
+          : AbortSignal.timeout(20_000),
+      };
+      const target = `${origin}${url.pathname}${url.search}`;
+      const upstream = bound
+        ? await env.SOLANIME_API.fetch(new Request(target, init))
+        : await fetch(target, init);
+      const type = upstream.headers.get('content-type') ?? '';
+      if (upstream.status >= 300 && upstream.status < 400) {
+        await upstream.body?.cancel();
+        return problem(502, 'INVALID_UPSTREAM', 'The configured API returned an unexpected redirect.');
+      }
+      const csvExport = operatorRoute && url.pathname.endsWith('.csv') && type.includes('text/csv');
+      if (!type.includes('application/json') && !csvExport) {
         await upstream.body?.cancel();
         return problem(
           502,
@@ -144,10 +171,11 @@ export default {
         );
       }
       const responseHeaders = new Headers({
-        'content-type': 'application/json; charset=utf-8',
+        'content-type': csvExport ? 'text/csv; charset=utf-8' : 'application/json; charset=utf-8',
         'cache-control': 'no-store',
         'x-content-type-options': 'nosniff',
         'referrer-policy': 'no-referrer',
+        'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
       });
       if (accountRoute) {
         const cookies =
@@ -161,12 +189,17 @@ export default {
       }
       const retry = upstream.headers.get('retry-after');
       if (retry) responseHeaders.set('retry-after', retry);
+      if (csvExport) for (const name of ['x-export-schema-version', 'x-next-cursor']) {
+        const value = upstream.headers.get(name);
+        if (value !== null) responseHeaders.set(name, value);
+      }
       return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
-    } catch {
+    } catch (error) {
+      console.error(JSON.stringify({ event: 'api_gateway_failure', errorType: error instanceof Error ? error.name : 'UnknownError' }));
       return problem(
         502,
         'UPSTREAM_UNAVAILABLE',
-        'The catalogue API could not be reached. Check that the Node API is running.',
+        'The application API could not be reached. Try again shortly.',
       );
     }
   },

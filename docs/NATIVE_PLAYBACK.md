@@ -1,5 +1,22 @@
 # Native playback contract and provider findings
 
+> Current investigation correction (2026-09-12): the older iframe adapters stop
+> before the media-resolution step. MegaPlay now has directly verified public
+> embed/event documentation and there is a concrete native-resolution source
+> lead. Native-only rejection is not proof of upstream impossibility. See
+> [the current investigation](provider-investigation-current.md).
+
+## Integrated 0.7 release
+
+The local operator registry described below remains supported, but is no longer
+the only native path. The hosted/local APIs also resolve explicitly approved
+stable resources from `native_resources`, with a shared identity/rights gate and
+a discriminated `native | unsupported` result. The Internet Archive connection
+for the reviewed restored-silent *The Dull Sword* edition is implemented; see
+[current provider evidence](native-provider-evidence.md) and
+[cloud deployment](CLOUD_RELEASE.md). Earlier candidate observations below are
+historical, not the current release verification matrix.
+
 ## What the supplied code establishes
 
 The inspected PR #4 base was `4fd60a177f06afd2e43a79e1521c4888b4eda545`. Its `server/providers/adapters.ts` implements HD-1, HD-2 and Vidstream-2 through `AnikotoMegaPlayEmbedAdapter`. The adapter resolves a webpage at the approved MegaPlay `/stream/s-2/` route and returns `playbackType: iframe`. Its own capability contract reports no seek, volume, subtitle or progress interface. VidPlay-1 has an unresolved backend; Kiwi is not an integrated native streaming source.
@@ -18,7 +35,7 @@ Records and source identifiers remain intact. `getProviderAdapter` is retained f
 
 ## Enforcement layers
 
-1. The backend uses only `nativeSourceResolver` for production playback. Unsupported mappings return typed `UNSUPPORTED_SOURCE` errors with no embed URL. A plugin/test resolver returning an iframe is rejected by `enforceNativeResolution` before caching or recording successful resolution.
+1. The backend uses approved native adapters, plus the separately configured local native registry. Unsupported mappings return typed errors with no embed URL. A plugin/test resolver returning an iframe is rejected by `enforceNativeResolution` before caching or recording successful resolution.
 2. The frontend requires a resolved native delivery, a supported media kind and a valid media URL. A legacy or malicious `200 OK` iframe response still becomes Unsupported source. No fallback frame, external launch or compatibility switch exists.
 3. Production Node, Vite development/preview and Pages asset policies specify `frame-src 'none'` and block object embedding. The deployment check verifies the release and frame policy.
 4. Solanime controls operate on the actual media element. The only central overlay is a native play button over `<video>`; no webpage is hidden underneath.

@@ -32,6 +32,66 @@ test('operating-system reduced motion overrides animation preference', async ({ 
     await page.locator('.spotlight-art').evaluate((el) => getComputedStyle(el).animationDuration),
   ).toMatch(/0s|0.01ms|1e-05s/);
 });
+test('primary catalogue renders without waiting for optional home data', async ({ page }) => {
+  await page.route('**/api/meta/filters', async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 2_500));
+    await route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"optional"}' });
+  });
+  await page.route('**/api/titles?*', async (route) => {
+    const url = new URL(route.request().url());
+    if (url.searchParams.get('type') === 'movie') {
+      await route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"optional"}' });
+      return;
+    }
+    await route.continue();
+  });
+  await page.goto('/');
+  await expect(page.locator('#featured-title')).toBeVisible({ timeout: 1_500 });
+  await expect(page.getByText('Catalogue unavailable.')).toHaveCount(0);
+});
+test('tablet navigation stays visible and light history follows the hero before recent updates', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 768, height: 900 });
+  await watch(page);
+  await page.getByRole('button', { name: 'Mute video', exact: true }).click();
+  await page.getByRole('button', { name: 'Play video', exact: true }).click();
+  await expect
+    .poll(() => page.locator('video').evaluate((video: HTMLVideoElement) => video.currentTime))
+    .toBeGreaterThan(0.2);
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
+  await page.getByRole('button', { name: 'Customize appearance' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Light', exact: true }).click();
+  await page.keyboard.press('Escape');
+
+  const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
+  await expect(primaryLinks).toHaveCount(4);
+  for (const link of await primaryLinks.all()) {
+    expect((await link.locator('.icon').isVisible()) || (await link.locator('span').first().isVisible())).toBe(
+      true,
+    );
+  }
+  const history = page.getByRole('region', { name: 'Continue watching', exact: true });
+  await expect(page.locator('.home-feature + .continue-section--home + .home-rail[aria-labelledby="rail-recent-updates"]')).toHaveCount(1);
+  const layout = await page.evaluate(() => {
+    const hero = document.querySelector('.home-feature')!.getBoundingClientRect();
+    const history = document.querySelector('.continue-section--home')!.getBoundingClientRect();
+    const recent = document.querySelector('[aria-labelledby="rail-recent-updates"]')!.getBoundingClientRect();
+    return { heroBottom: hero.bottom, historyTop: history.top, historyBottom: history.bottom, recentTop: recent.top };
+  });
+  // The reference's first rail overlaps only the empty bottom artwork fade.
+  expect(layout.heroBottom - layout.historyTop).toBeGreaterThanOrEqual(30);
+  expect(layout.heroBottom - layout.historyTop).toBeLessThanOrEqual(65);
+  expect(layout.recentTop).toBeGreaterThanOrEqual(layout.historyBottom);
+  expect(layout.recentTop - layout.historyBottom).toBeLessThan(40);
+  await expect(history.getByRole('link', { name: 'Full history' })).toHaveAttribute('href', '/library');
+  await expect(history.locator('.continue-card > a')).toHaveAttribute('href', /^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
+  await expect(history.getByRole('progressbar', { name: 'Paper Lantern viewing progress' })).toBeVisible();
+  expect(Number(await history.getByRole('progressbar').getAttribute('aria-valuenow'))).toBeGreaterThan(0);
+  await expect(history.getByRole('button', { name: /Remove Paper Lantern .* from history/ })).toBeVisible();
+  await noOverflow(page);
+});
 test('major screens have meaningful content, no overflow and accessible controls in both themes', async ({
   page,
 }, info) => {

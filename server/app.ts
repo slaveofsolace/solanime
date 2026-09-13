@@ -2,6 +2,8 @@ import { RELEASE } from '../shared/release.ts';
 import { createAccounts, type AccountsService } from './accounts/service.ts';
 import { openAccountsDatabase } from './accounts/database.ts';
 import { nativeSourceResolver } from './providers/nativeSources.ts';
+import { legacyResolution, type ApprovedNativeResource } from './providers/native.ts';
+import { hasEnabledNativeResource, resolveApprovedNative } from './providers/native-registry.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { backup, type DatabaseSync } from 'node:sqlite';
 import { resolve } from 'node:path';
@@ -163,8 +165,11 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
   const backupDirectory = resolve(options.backupDirectory ?? resolve('data', 'backups'));
   const executeResolution =
     options.resolveProvider ??
-    ((mapping: StoredProviderMapping, signal: AbortSignal) =>
-      Promise.resolve(nativeSources(mapping) ?? unsupportedSource(mapping)));
+    (async (mapping: StoredProviderMapping, signal: AbortSignal) => {
+      const approved = db.prepare('SELECT * FROM native_resources WHERE mapping_id=? AND enabled=1').get(mapping.mappingId) as ApprovedNativeResource | undefined;
+      if (approved && ['internet-archive', 'wikimedia-commons'].includes(mapping.providerId)) return legacyResolution(await resolveApprovedNative(mapping, approved, signal));
+      return nativeSources(mapping) ?? unsupportedSource(mapping);
+    });
 
   const recordResolution = (
     mapping: StoredProviderMapping,
@@ -339,27 +344,29 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
           providers: result.providers.map((provider) => {
             const mapping = getMapping(db, Number((provider as Record<string, unknown>).mappingId));
             const registered = nativeSources(mapping);
+            const resource = db.prepare('SELECT * FROM native_resources WHERE mapping_id=?').get(mapping.mappingId) as ApprovedNativeResource | undefined;
+            const approved = hasEnabledNativeResource(mapping, resource);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
             return {
               ...provider,
-              supported: source?.status === 'resolved',
-              playbackType: source?.playbackType ?? 'unknown',
-              status: source
+              supported: !!approved || source?.status === 'resolved',
+              playbackType: approved ? 'direct' : source?.playbackType ?? 'unknown',
+              status: approved ? 'available' : source
                 ? source.status === 'resolved'
                   ? 'available'
                   : 'unavailable'
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source ? null : 'No authorized native integration is configured for this source.'),
+                (source || approved ? null : 'No authorized native integration is configured for this source.'),
               capabilities:
-                source?.status === 'resolved'
+                approved || source?.status === 'resolved'
                   ? {
                       seek: true,
                       volume: true,
                       fullscreen: true,
                       progressEvents: true,
-                      subtitles: !!source.captions?.length,
+                      subtitles: !!source?.captions?.length,
                     }
                   : {},
             };

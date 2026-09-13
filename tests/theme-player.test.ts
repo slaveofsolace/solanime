@@ -15,7 +15,7 @@ import { readFileSync } from 'node:fs';
 describe('cinema accent tokens', () => {
   it.each([undefined, null, {}, '#fff', 'red', '#12ABCD;display:none', '#ZZZZZZ'])(
     'rejects unsafe stored accent: %j',
-    (value) => expect(normalizeAccent(value)).toBe('#AE9CFF'),
+    (value) => expect(normalizeAccent(value)).toBe('#EE791F'),
   );
   it('migrates preferences while preserving unrelated choices', () =>
     expect(
@@ -32,7 +32,7 @@ describe('cinema accent tokens', () => {
       for (let i = 0; i < 256; i++)
         colors.push('#' + ((i * 65793 * 71) % 16777216).toString(16).padStart(6, '0'));
       const surfaces =
-        mode === 'dark' ? ['#0C0D10', '#15161C', '#22242D'] : ['#FFFFFF', '#F5F6F9', '#E9EBF1'];
+        mode === 'dark' ? ['#100F0D', '#191714', '#26221D'] : ['#F5EFE4', '#FFFAF1', '#E9DECE'];
       for (const color of colors) {
         const t = themeTokens(color, mode);
         expect(t.accent).toBe(color.toUpperCase());

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Episode } from '../types';
 import { useAppState } from '../state';
@@ -7,34 +7,49 @@ export const episodeName = (episode: Episode) =>
   episode.label ||
   episode.title ||
   (episode.number != null ? `Episode ${episode.number}` : 'Special');
-export default function EpisodeBrowser({
-  episodes,
-  language,
-  slug,
-  currentId,
-}: {
+const episodeCountLabel = (count: number) => `${count} ${count === 1 ? 'episode' : 'episodes'}`;
+interface EpisodeBrowserProps {
   episodes: Episode[];
   language: string;
   slug: string;
   currentId?: string;
-}) {
+}
+
+export default function EpisodeBrowser(props: EpisodeBrowserProps) {
+  // A new watch context resets the search/range, not an ordinary inventory refresh.
+  return <EpisodeBrowserContent key={JSON.stringify([props.slug, props.language, props.currentId])} {...props} />;
+}
+
+function EpisodeBrowserContent({
+  episodes,
+  language,
+  slug,
+  currentId,
+}: EpisodeBrowserProps) {
   const { watched } = useAppState();
   const [query, setQuery] = useState(''),
-    [page, setPage] = useState(0);
+    [page, setPage] = useState<number | null>(null);
+  const focusCurrentOnMount = useRef(false);
+  const languageEpisodes = useMemo(
+    () => episodes.filter((episode) => !language || episode.versions.some((version) => version.language === language)),
+    [episodes, language],
+  );
+  const currentIndex = languageEpisodes.findIndex((episode) => episode.id === currentId);
+  const currentPage = Math.floor(Math.max(0, currentIndex) / 50);
   const matches = useMemo(
     () =>
-      episodes.filter(
+      languageEpisodes.filter(
         (e) =>
-          (!language || e.versions.some((v) => v.language === language)) &&
           `${e.number ?? ''} ${episodeName(e)}`
             .toLocaleLowerCase()
             .includes(query.trim().toLocaleLowerCase()),
       ),
-    [episodes, language, query],
+    [languageEpisodes, query],
   );
   const pages = Math.ceil(matches.length / 50),
-    active = Math.min(page, Math.max(0, pages - 1));
+    active = Math.min(page ?? currentPage, Math.max(0, pages - 1));
   const visible = matches.slice(active * 50, active * 50 + 50);
+  const canJumpToCurrent = currentIndex >= 0 && (query !== '' || !visible.some((episode) => episode.id === currentId));
   return (
     <div className="episode-browser">
       <div className="episode-toolbar">
@@ -52,7 +67,20 @@ export default function EpisodeBrowser({
             }}
           />
         </label>
-        <span>{matches.length} episodes</span>
+        <span>{episodeCountLabel(matches.length)}</span>
+        {canJumpToCurrent && (
+          <button
+            type="button"
+            className="episode-current-jump"
+            onClick={() => {
+              focusCurrentOnMount.current = true;
+              setQuery('');
+              setPage(null);
+            }}
+          >
+            Current episode
+          </button>
+        )}
       </div>
       {pages > 1 && (
         <div className="episode-ranges" role="group" aria-label="Episode range">
@@ -68,6 +96,12 @@ export default function EpisodeBrowser({
           {visible.map((e) => (
             <li key={e.id} data-current={currentId === e.id}>
               <Link
+                ref={e.id === currentId ? (element) => {
+                  if (element && focusCurrentOnMount.current) {
+                    focusCurrentOnMount.current = false;
+                    element.focus();
+                  }
+                } : undefined}
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}`}
                 aria-current={e.id === currentId ? 'page' : undefined}
               >

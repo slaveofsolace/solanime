@@ -7,14 +7,21 @@ test('browse, search, save and reopen a persistent list', async ({ page }) => {
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
-  await page
-    .getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: 'Search', exact: true })
-    .click();
-  await page.getByRole('searchbox', { name: 'Search catalogue' }).fill('Paper');
-  await page.getByRole('searchbox', { name: 'Search catalogue' }).press('Enter');
+  if ((page.viewportSize()?.width ?? 0) > 820) {
+    await page.getByRole('button', { name: 'Search all anime', exact: true }).click();
+    await page.getByRole('searchbox', { name: 'Find anime', exact: true }).fill('Paper');
+    await page.getByRole('searchbox', { name: 'Find anime', exact: true }).press('Enter');
+  } else {
+    await page
+      .getByRole('navigation', { name: 'Primary navigation' })
+      .getByRole('link', { name: 'Search', exact: true })
+      .click();
+    await page.getByRole('searchbox', { name: 'Search catalogue' }).fill('Paper');
+    await page.getByRole('searchbox', { name: 'Search catalogue' }).press('Enter');
+  }
   await expect(page).toHaveURL(/search\?q=Paper/);
-  await page.getByRole('button', { name: 'Save Paper Lantern to your list', exact: true }).click();
+  await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
+  await page.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
   await page
     .getByRole('navigation', { name: 'Primary navigation' })
     .getByRole('link', { name: /My list/ })

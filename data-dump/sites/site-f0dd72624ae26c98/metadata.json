@@ -1,0 +1,351 @@
+{
+  "availability": {
+    "bytes_read": 5045,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://tv.jest.one/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Netlify"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:33:07.914690+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://tv.jest.one/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-bae76ffdd679d9ad",
+    "domain-edf7dcad352dc8cb",
+    "domain-0d9bfc16404300fd",
+    "domain-ef1e109b586d1fa8"
+  ],
+  "endpoint_ids": [
+    "endpoint-17e4413f8956067a"
+  ],
+  "entry_ids": [
+    "entry-08ae96aa16692df2"
+  ],
+  "frameworks": [
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "Video.js",
+      "source_url": "https://tv.jest.one/main.js",
+      "verification_scope": "signature_present_only"
+    }
+  ],
+  "id": "site-f0dd72624ae26c98",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "TV.Jest",
+  "observations": [
+    {
+      "bytes_read": 5045,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://tv.jest.one/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Netlify"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tv.jest.one/"
+    },
+    {
+      "bytes_read": 4741,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://tv.jest.one/main.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "Netlify"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:08.820751+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "696fa0636b9c61d0a56af9090acb2fde741df682eefeb2d31b472a4fee6eab5d",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tv.jest.one/main.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:33:07.914690+00:00",
+  "provider_ids": [
+    "provider-jsdelivr"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tv.jest.one/main.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://umami.jest.one/my-umami.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvdata.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://umami.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video-js.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tv.jest.one/style.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvdata.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://umami.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video-js.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/video.js@7.13.3/dist/video.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-youtube@2.6.1/dist/Youtube.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/npm/videojs-overlay@2.1.4/dist/videojs-overlay.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2f8ecbf72d3aa204f5b319f39dedce04a218cb1ef8dbffef44c6fc28d47a90d",
+      "evidence_url": "https://tv.jest.one/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:07.914690+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://umami.jest.one/my-umami.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "696fa0636b9c61d0a56af9090acb2fde741df682eefeb2d31b472a4fee6eab5d",
+      "evidence_url": "https://tv.jest.one/main.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:08.820751+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvdata.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "696fa0636b9c61d0a56af9090acb2fde741df682eefeb2d31b472a4fee6eab5d",
+      "evidence_url": "https://tv.jest.one/main.js",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:33:08.820751+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvdata.jest.one/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://tv.jest.one/"
+}

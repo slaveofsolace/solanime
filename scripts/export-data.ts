@@ -1,12 +1,12 @@
 import { existsSync, mkdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
-  adminStatus,
   exportCatalogue,
   exportCatalogueCsv,
   exportCoverageCsv,
 } from '../server/catalogue.ts';
-import { currentSchemaVersion, migrate, openDatabase } from '../server/db.ts';
+import { migrate, openDatabase } from '../server/db.ts';
+import { publicExportManifest } from './cloud-data/export-manifest.ts';
 
 const outputDirectory = resolve(process.argv[2] ?? 'data/exports');
 mkdirSync(outputDirectory, { recursive: true });
@@ -24,11 +24,10 @@ try {
   db.exec('BEGIN');
   try {
     const exportedAt = new Date().toISOString();
-    const schemaVersion = currentSchemaVersion(db);
     catalogueJson = `${JSON.stringify(exportCatalogue(db), null, 2)}\n`;
     coverageCsv = exportCoverageCsv(db);
     catalogueCsv = exportCatalogueCsv(db);
-    manifestJson = `${JSON.stringify({ schemaVersion, exportedAt, files: ['catalogue.json', 'catalogue.csv', 'coverage.csv'], status: adminStatus(db) }, null, 2)}\n`;
+    manifestJson = `${JSON.stringify(publicExportManifest(db, exportedAt), null, 2)}\n`;
     db.exec('COMMIT');
   } catch (error) {
     db.exec('ROLLBACK');

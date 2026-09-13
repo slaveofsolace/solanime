@@ -19,11 +19,23 @@ export function playbackUrl(input: string, kind: string, base: string): string |
   }
 }
 export function mediaIsSupported(
-  resolution: { delivery?: string; playbackType: string; url?: string | null },
+  resolution: { kind?: string; delivery?: string; playbackType: string; url?: string | null },
   base: string,
 ): boolean {
   return (
+    (resolution.kind === undefined || resolution.kind === 'native') &&
     resolution.delivery === 'native' &&
     !!playbackUrl(resolution.url ?? '', resolution.playbackType, base)
   );
+}
+export function mediaCrossOrigin(resolution: {
+  mediaCrossOrigin?: string;
+  playbackType: string;
+  captions?: unknown[];
+}): 'anonymous' | undefined {
+  return resolution.mediaCrossOrigin === 'none' &&
+    resolution.playbackType === 'direct' &&
+    (resolution.captions?.length ?? 0) === 0
+    ? undefined
+    : 'anonymous';
 }

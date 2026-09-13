@@ -1,0 +1,582 @@
+{
+  "availability": {
+    "bytes_read": 24661,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://cmvv.lovable.app/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:29:06.987710+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://cmvv.lovable.app/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live Sports"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-4d9b162b991095bb",
+    "domain-8be1c7819c978dc3",
+    "domain-2d0f3c337e640d3a",
+    "domain-7df7caa0a5579e01",
+    "domain-5ebb77c71c761029",
+    "domain-f208a073c05f994f",
+    "domain-1a2e36cc692d119d",
+    "domain-aaf89f8e081e72a0",
+    "domain-3dc86e6666d7a5f2",
+    "domain-49960de5880e8c68",
+    "domain-3aeb002460381c6f",
+    "domain-b708cda93580c690"
+  ],
+  "endpoint_ids": [
+    "endpoint-189fb0a40c48e3af"
+  ],
+  "entry_ids": [
+    "entry-d82188e0c0d9984b"
+  ],
+  "frameworks": [],
+  "id": "site-eba242f01284a525",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "⁠CMVTV",
+  "observations": [
+    {
+      "bytes_read": 24661,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://cmvv.lovable.app/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cmvv.lovable.app/"
+    },
+    {
+      "bytes_read": 21296,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://cmvv.lovable.app/~flock.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:07.418964+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "a86e084b4f82709814be6c15fd6305daa783fda87ad95402da9a4d3a1dd6d748",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cmvv.lovable.app/~flock.js"
+    },
+    {
+      "bytes_read": 480003,
+      "content_type": "text/javascript; charset=utf-8",
+      "final_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/javascript; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:29:06.987710+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge",
+    "provider-google-fonts",
+    "provider-supabase"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/~flock.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/catalog",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/sports",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/mirrors",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://lovable.dev/projects/lovp_2fxtrvg8hr90jaz6basva5hcnk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/styles-kpnFVeRw.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk%3Awght%40500%3B600%3B700&family=DM+Sans%3Awght%40400%3B500%3B600&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/rolldown-runtime-CbXtAM7H.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/content-D9D03bTd.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/useRouterState-DAKwhgVZ.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/routes-D8L4ZVYH.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/utils-BLZbnKeU.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/EventCard-LhKCERva.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/MirrorList-Ct3aO_Hl.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/AppLayout-Cdl28D_8.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/refresh-cw-NYA4Rp1f.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/TelegramJoin-BQ5p-8Pa.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cmvv.lovable.app/assets/time-mCa21IpC.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk%3Awght%40500%3B600%3B700&amp%3Bfamily=DM+Sans%3Awght%40400%3B500%3B600&amp%3Bdisplay=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4ebea9ae-b64e-433c-82a8-1ea9523d77c9/id-preview-dfd743b8--0bc399a3-4f9c-412c-b852-66b8413e71ff.lovable.app-1788332333600.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "f5f9aa557e3224acd88aa2ae8f2583d82da8944b8f275147d52403abe01cc3ca",
+      "evidence_url": "https://cmvv.lovable.app/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:06.987710+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://lovable.dev/projects/lovp_2fxtrvg8hr90jaz6basva5hcnk",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "a86e084b4f82709814be6c15fd6305daa783fda87ad95402da9a4d3a1dd6d748",
+      "evidence_url": "https://cmvv.lovable.app/~flock.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:07.418964+00:00",
+      "reference_class": "url-template",
+      "url": "https://api.tinybird.co/v0/events?name=%24%7Bi",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://react.dev/errors/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xlink",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/XML/1998/namespace",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "http://localhost/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/supabase/supabase-js/blob/master/packages/core/realtime-js/migrations/httpsend-server-version.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/supabase/supabase-js/blob/master/packages/core/auth-js/migrations/lockless-coordination.md",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/orgs/supabase/discussions/45715",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://lovable.dev/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://bjrtdtdkrnsdtmxuhibi.supabase.co/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "6461d6198a0f8fc36249a51c0b3ddf788a1b8de66183f2f34466eb56b8a7c5a4",
+      "evidence_url": "https://cmvv.lovable.app/assets/index-CwsHg24y.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:29:09.009228+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk%3Awght%40500%3B600%3B700&family=DM+Sans%3Awght%40400%3B500%3B600&display=swap",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-4a3f384d994efbbf"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://cmvv.lovable.app/"
+}

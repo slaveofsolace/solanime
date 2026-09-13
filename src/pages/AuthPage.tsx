@@ -17,10 +17,15 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     [replacement, setReplacement] = useState<string | null>(null);
   const register = mode === 'register',
     recover = mode === 'recover';
-  async function submit(event: FormEvent) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
-    if ((register || recover) && password !== confirm) {
+    const submitted = new FormData(event.currentTarget);
+    const submittedEmail = String(submitted.get('email') ?? '').trim();
+    const submittedPassword = String(submitted.get('password') ?? '');
+    const submittedConfirm = String(submitted.get('confirm') ?? '');
+    const submittedCode = String(submitted.get('recoveryCode') ?? '').trim();
+    if ((register || recover) && submittedPassword !== submittedConfirm) {
       setError('Passwords do not match.');
       return;
     }
@@ -28,15 +33,15 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     try {
       if (recover) {
         const result = await accountRequest<{ recoveryCode: string }>('recover', {
-          email,
-          password,
-          recoveryCode: code.trim(),
+          email: submittedEmail,
+          password: submittedPassword,
+          recoveryCode: submittedCode,
         });
         account.clearProfile();
         await account.refresh();
         setReplacement(result.recoveryCode);
       } else {
-        await account.login(email, password, remember, register);
+        await account.login(submittedEmail, submittedPassword, remember, register);
         navigate(register ? '/account/recovery-code' : '/profiles', { replace: true });
       }
     } catch (e) {
@@ -93,6 +98,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             <label htmlFor="account-email">Email address</label>
             <input
               id="account-email"
+              name="email"
               type="email"
               autoComplete="username"
               maxLength={254}
@@ -106,6 +112,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 <label htmlFor="recovery-code">Recovery code</label>
                 <input
                   id="recovery-code"
+                  name="recoveryCode"
                   autoComplete="off"
                   spellCheck={false}
                   required
@@ -120,6 +127,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             <div className="password-input">
               <input
                 id="account-password"
+                name="password"
                 type={show ? 'text' : 'password'}
                 autoComplete={register || recover ? 'new-password' : 'current-password'}
                 required
@@ -146,6 +154,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 <label htmlFor="confirm-password">Confirm password</label>
                 <input
                   id="confirm-password"
+                  name="confirm"
                   type={show ? 'text' : 'password'}
                   autoComplete="new-password"
                   required

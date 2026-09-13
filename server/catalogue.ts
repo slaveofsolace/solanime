@@ -1,6 +1,7 @@
 import { currentSchemaVersion, type SqliteDatabase } from './db.ts';
 import { AppError } from './errors.ts';
 import type { StoredProviderMapping } from './providers/contract.ts';
+import { decorateLocalArtwork } from './artwork/catalogue.ts';
 
 const parseJson = (value: unknown, fallback: unknown) => {
   try {
@@ -74,7 +75,7 @@ export function browseTitles(db: SqliteDatabase, params: BrowseParams) {
     Record<string, unknown>
   >;
   return {
-    items: rows.map((row) => {
+    items: decorateLocalArtwork(db, rows).map((row) => {
       const { episode_count, ...item } = row;
       return { ...item, episodeCount: episode_count };
     }),
@@ -194,11 +195,14 @@ export function getTitle(db: SqliteDatabase, slug: string) {
     entries.push(version);
     byEpisode.set(key, entries);
   }
+  const verifiedEmpty = episodes.length === 0 && !!db.prepare("SELECT 1 FROM verification_observations WHERE entity_type='title' AND entity_id=? AND result='empty_episode_inventory' LIMIT 1").get(String(title.sourceId));
+  const collectionState = verifiedEmpty || episodes.length > 0 ? 'complete' : 'pending';
   return {
-    title: Object.assign(title, { episodeCount: episodes.length }) as Record<string, unknown>,
+    collectionState,
+    title: Object.assign(decorateLocalArtwork(db, [title])[0], { episodeCount: episodes.length, collectionState }) as Record<string, unknown>,
     aliases,
     genres,
-    related,
+    related: decorateLocalArtwork(db, related),
     episodes: episodes.map((episode) => ({
       ...episode,
       versions: byEpisode.get(String(episode.id)) ?? [],

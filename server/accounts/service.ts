@@ -59,7 +59,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
       .prepare('SELECT id,name,avatar FROM profiles WHERE account_id=? ORDER BY created_at,id')
       .all(id);
   const sessionCookie = (value: string, age?: number) =>
-    `${name}=${value}; Path=/; HttpOnly; SameSite=Strict${secure ? '; Secure' : ''}${age !== undefined ? `; Max-Age=${age}` : ''}`;
+    `${name}=${value}; Path=/; HttpOnly; SameSite=Strict${secure ? '; Secure' : ''}${age !== undefined ? `; Max-Age=${age}` : ''}${age === 0 ? '; Expires=Thu, 01 Jan 1970 00:00:00 GMT' : ''}`;
   function prune() {
     db.prepare('DELETE FROM sessions WHERE expires_at<=? OR last_seen<?').run(
       now(),

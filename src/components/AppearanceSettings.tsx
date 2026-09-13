@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from 'react';
+import { useId, useState } from 'react';
 import { useAppState } from '../state';
 import { ACCENT_PRESETS, DEFAULT_ACCENT, normalizeAccent } from '../lib/theme';
 import type { CSSProperties } from 'react';
@@ -8,12 +8,12 @@ export default function AppearanceSettings() {
   const [draft, setDraft] = useState(accent);
   const [error, setError] = useState(false);
   const id = useId();
-  useEffect(() => {
-    setDraft(accent);
+  const choose = (value: string) => {
+    const normalized = normalizeAccent(value);
+    setDraft(normalized);
     setError(false);
-  }, [accent]);
-  const choose = (value: string) =>
-    setPreferences((current) => ({ ...current, accent: normalizeAccent(value) }));
+    setPreferences((current) => ({ ...current, accent: normalized }));
+  };
   return (
     <div className="appearance-settings">
       <div className="appearance-mode" role="group" aria-label="Color theme">
@@ -90,7 +90,7 @@ export default function AppearanceSettings() {
               setDraft(event.target.value);
               setError(false);
             }}
-            placeholder="#AE9CFF"
+            placeholder="#EE791F"
             maxLength={7}
             spellCheck={false}
             autoComplete="off"

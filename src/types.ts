@@ -1,3 +1,5 @@
+import type { CatalogueArtwork } from '../shared/artwork';
+
 export type AvailabilityStatus =
   | 'observed'
   | 'available'
@@ -19,7 +21,7 @@ export type PlaybackType =
   | 'unknown'
   | 'unsupported';
 
-export interface TitleSummary {
+export interface TitleSummary extends CatalogueArtwork {
   id: string;
   sourceId?: string;
   slug: string;
@@ -72,6 +74,7 @@ export interface Episode {
 }
 
 export interface TitleDetail extends TitleSummary {
+  collectionState?: 'complete' | 'partial' | 'pending' | 'metadata-only' | 'unknown';
   description?: string | null;
   format?: string | null;
   airedFrom?: string | null;
@@ -82,6 +85,7 @@ export interface TitleDetail extends TitleSummary {
 }
 
 export interface TitleDetailResponse {
+  collectionState?: 'complete' | 'partial' | 'pending' | 'metadata-only' | 'unknown';
   title: TitleDetail;
   aliases: TitleAlias[];
   genres: Array<string | { id?: string; name: string }>;
@@ -110,8 +114,11 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
+  kind?: 'native' | 'unsupported';
   captions?: import('../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
+  mediaCrossOrigin?: 'anonymous' | 'none';
+  attribution?: { label: string; url: string; license: string };
   allowedMediaHosts?: string[];
   mappingId: string;
   providerId: string;
@@ -190,6 +197,42 @@ export interface Preferences {
 }
 
 export interface ImportStatus {
+  runtime?: 'local' | 'cloudflare-workers';
+  backupMode?: 'local-api' | 'operator-cli';
+  syncEnabled?: boolean;
+  sourceRefreshEnabled?: boolean;
+  dispatchAllowance?: {
+    status: 'quota_paused' | 'available';
+    retryAt: string | null;
+    minimumHeadroom: {
+      writtenRows: number;
+      queueOperations: number;
+    };
+  };
+  cloudBudget?: {
+    day: string;
+    writtenRowsReserved: number;
+    queueOperationsReserved: number;
+    limits: { dailyWrittenRows: number; dailyQueueOperations: number };
+    accountScope: string;
+  };
+  snapshot?: {
+    jobs: Array<{
+      id: string;
+      runId: number;
+      taskId?: number;
+      status: string;
+      importedBatches: number;
+      totalBatches: number;
+      totalRows: number;
+      createdAt?: string;
+      availableAt?: string | null;
+      errorCode?: string | null;
+      errorMessage?: string | null;
+    }>;
+    storage?: string;
+    publicAssetServing?: boolean;
+  };
   latestRun: null | {
     id: number;
     mode: string;

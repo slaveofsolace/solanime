@@ -60,7 +60,7 @@
 }
 .eyebrow {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--cinema-soft);
   letter-spacing: 0.08em;
   margin-bottom: 12px;
   font-weight: 600;
@@ -70,7 +70,9 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  padding: 22px 0 32px;
+  padding: 26px 0 34px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 26px;
 }
 .page-intro__copy {
   margin-top: 14px;
@@ -87,7 +89,8 @@
 .page-intro__aside strong {
   display: block;
   font-size: 23px;
-  font-weight: 450;
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
+  font-weight: 560;
   color: var(--text);
 }
 .page-intro__aside span {
@@ -171,7 +174,7 @@
 .rail-heading h2,
 .section-heading h2,
 .results-heading h2 {
-  font-size: 24px;
+  font-size: 26px;
 }
 .section-heading > p,
 .results-heading p {
@@ -191,7 +194,7 @@
   font-size: 12px;
 }
 .rail-heading a:hover {
-  color: var(--accent-ink);
+  color: var(--cinema-soft);
 }
 .rail-heading .icon {
   width: 16px;
@@ -366,7 +369,7 @@
   margin-top: 12px;
 }
 .skeleton-feature {
-  height: 500px;
+  height: 390px;
   background: var(--surface);
 }
 .skeleton-card {
@@ -426,6 +429,10 @@
 .admin-run dl {
   display: flex;
   gap: 28px;
+  flex-wrap: wrap;
+}
+.admin-run progress {
+  max-width: 100%;
 }
 .admin-run dt {
   font-size: 12px;
@@ -534,3 +541,47 @@ td {
     flex-basis: 100%;
   }
 }
+.route-readiness {
+  width: min(100%, 760px);
+  margin: clamp(20px, 5vw, 64px) 0;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+.route-readiness p {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 12px;
+}
+.route-readiness strong {
+  color: var(--text);
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 650;
+}
+.route-readiness__lines {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+}
+.route-readiness__lines i {
+  width: min(100%, 520px);
+  height: 7px;
+  background: var(--surface-2);
+  border-radius: 2px;
+}
+.route-readiness__lines i:last-child {
+  width: min(72%, 360px);
+}
+.route-readiness__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.route-readiness__actions > a { text-decoration: underline; text-underline-offset: 3px; }

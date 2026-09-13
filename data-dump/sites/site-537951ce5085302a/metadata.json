@@ -1,0 +1,333 @@
+{
+  "availability": {
+    "bytes_read": 13322,
+    "content_type": "text/html",
+    "final_url": "https://m3u4u.com/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:42.898756+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://m3u4u.com/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "IPTV Tools"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 2,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-b1b5ee4287290455",
+    "domain-bd740fffba876470",
+    "domain-7df7caa0a5579e01",
+    "domain-edf7dcad352dc8cb",
+    "domain-fb5aa6792e95570c",
+    "domain-1d519b746d73caab",
+    "domain-1a2e36cc692d119d",
+    "domain-1d0279ad028e7b40"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-ac4c8d2f4c7c6f1d"
+  ],
+  "frameworks": [],
+  "id": "site-537951ce5085302a",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "M3U4U",
+  "observations": [
+    {
+      "bytes_read": 13322,
+      "content_type": "text/html",
+      "final_url": "https://m3u4u.com/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://m3u4u.com/"
+    },
+    {
+      "bytes_read": 34585,
+      "content_type": "text/javascript",
+      "final_url": "https://m3u4u.com/polyfills-5CFQRCPP.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:43.434711+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "15c6f58707b9b19116fde3a3f6a0ce9cf83427d64a91e95cb91fe1056c3da616",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://m3u4u.com/polyfills-5CFQRCPP.js"
+    },
+    {
+      "bytes_read": 1250000,
+      "content_type": "text/javascript",
+      "final_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "hash_scope": "bounded_response_body",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "content-type": "text/javascript",
+        "server": "cloudflare",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "status": "reachable",
+      "truncated": true,
+      "url": "https://m3u4u.com/main-LXGVJIRH.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:42.898756+00:00",
+  "provider_ids": [
+    "provider-cloudflare-challenge",
+    "provider-cloudflare-edge",
+    "provider-google-fonts",
+    "provider-jsdelivr"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/polyfills-5CFQRCPP.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/favicon.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.5.0/css/flag-icons.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/styles-3QQNETJ2.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/chunk-6WUNGVXV.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://m3u4u.com/assets/m3u4u-logo-1.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.5.0/css/flag-icons.min.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "c2ed2b1bf65209631e5ca09ad44e85ad53d09688158592947e1b360ae4b29c6f",
+      "evidence_url": "https://m3u4u.com/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:42.898756+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.ag-grid.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "unresolved-host-expression",
+      "url": "https://${ri/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.ag-grid.com/react-data-grid/master-detail-custom-detail/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.ag-grid.com/react-data-grid/theming-migration/.",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8eb9f39cd296731e4f2fe75c2f9bffcec2fc2461d4ea7f0b737e1b6d63cf0504",
+      "evidence_url": "https://m3u4u.com/main-LXGVJIRH.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:44.419298+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://ag-grid.com/react-data-grid/grid-interface/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://m3u4u.com/"
+}

@@ -27,8 +27,12 @@ async function runtime() {
   );
   writeFileSync(join(dist, 'assets', 'app-test.js'), 'console.log("asset")');
   writeFileSync(join(dist, '.env'), 'SECRET=private');
-  writeFileSync(join(root, 'outside.js'), 'private');
-  symlinkSync(join(root, 'outside.js'), join(dist, 'leak.js'));
+  const outside = join(root, 'outside');
+  mkdirSync(outside);
+  writeFileSync(join(outside, 'private.js'), 'private');
+  // Directory junctions preserve the realpath-escape assertion without requiring
+  // Windows developer mode or administrator privileges for a file symlink.
+  symlinkSync(outside, join(dist, 'leak'), process.platform === 'win32' ? 'junction' : 'dir');
   const db = openDatabase(':memory:');
   migrate(db);
   const server = createApp(db, { staticDirectory: dist });
@@ -65,7 +69,7 @@ describe('production runtime', () => {
       '/api/not-real',
       '/assets/missing.js',
       '/.env',
-      '/leak.js',
+      '/leak/private.js',
       '/%5c..%5c.env',
       '/_worker.js',
     ]) {

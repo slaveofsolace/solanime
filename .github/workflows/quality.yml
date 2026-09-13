@@ -1,7 +1,7 @@
 name: Quality
 on:
   push:
-    branches: [main, fix/solanime-quality-pass, feat/solanime-cinema, feat/accounts-built-in-player, feat/studio-v05]
+    branches: [main, 'sol/**', fix/solanime-quality-pass, feat/solanime-cinema, feat/accounts-built-in-player, feat/studio-v05]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -30,18 +30,19 @@ jobs:
         run: |
           set -o pipefail
           pnpm check 2>&1 | tee check.log
-      - name: Reproducible tracked source snapshot
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: FMHY inventory and supplemental regression suites
+        run: |
+          python -m pip install -r data-dump/requirements.txt
+          python -m unittest discover -s data-dump/tests -v
+          python -m unittest discover -s data-dump/curated/tests -v
+      - name: Publication-safe reproducible source snapshot
         if: runner.os == 'Linux'
         run: |
           git rev-parse HEAD > source-commit.txt
-          python - <<'PY'
-          import subprocess, zipfile
-          names = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', '-z', 'HEAD']).decode().split('\0')
-          with zipfile.ZipFile('review-source.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
-            for name in filter(None, names):
-              data = subprocess.check_output(['git', 'cat-file', 'blob', f'HEAD:{name}'])
-              archive.writestr('solanime/' + name, data)
-          PY
+          pnpm package:source --include-research --out=review-source.zip
       - uses: actions/upload-artifact@v4
         if: always()
         with:

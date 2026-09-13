@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import { mediaIsSupported } from '../lib/playerPolicy';
@@ -8,6 +8,15 @@ import PlayerSurface, { PlayerMessage } from '../components/PlayerSurface';
 import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
+
+function safeAttributionUrl(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
+  } catch {
+    return null;
+  }
+}
 
 export default function WatchPage() {
   const { slug = '', episodeId = '' } = useParams();
@@ -33,10 +42,13 @@ function WatchSession() {
     [loadingSources, setLoadingSources] = useState(true);
   const [resolution, setResolution] = useState<PlaybackResolution | null>(null),
     [failure, setFailure] = useState<string | null>(null);
+  const [failureStage, setFailureStage] = useState<'providers' | 'resolution' | null>(null);
   const [resolving, setResolving] = useState(false),
     [unsupported, setUnsupported] = useState(false),
-    [retry, setRetry] = useState(0);
+    [providerRetry, setProviderRetry] = useState(0),
+    [resolutionRetry, setResolutionRetry] = useState(0);
   const [note, setNote] = useState('');
+  const carriedProgress = useRef<{ position: number; duration: number } | null>(null);
   const episode = detail?.episodes.find((item) => item.id === episodeId);
   const requestedLanguage = params.get('language') ?? preferences.preferredLanguage;
   const language = episode?.versions.some((v) => v.language === requestedLanguage)
@@ -71,6 +83,7 @@ function WatchSession() {
     setLoadingSources(true);
     setProviders([]);
     setFailure(null);
+    setFailureStage(null);
     setResolution(null);
     void api
       .providers(episode.id, language, abort.signal)
@@ -82,11 +95,12 @@ function WatchSession() {
       .catch((e) => {
         if (!abort.signal.aborted) {
           setFailure(errorMessage(e));
+          setFailureStage('providers');
           setLoadingSources(false);
         }
       });
     return () => abort.abort();
-  }, [episode?.id, language, retry]);
+  }, [episode?.id, language, providerRetry]);
   useEffect(() => {
     setResolution(null);
     setUnsupported(false);
@@ -99,6 +113,7 @@ function WatchSession() {
     const abort = new AbortController();
     setResolving(true);
     setFailure(null);
+    setFailureStage(null);
     void api
       .resolve(candidate.mappingId, language, abort.signal)
       .then((source) => {
@@ -114,11 +129,19 @@ function WatchSession() {
       .catch((e) => {
         if (!abort.signal.aborted) {
           setFailure(errorMessage(e));
+          setFailureStage('resolution');
           setResolving(false);
         }
       });
     return () => abort.abort();
-  }, [candidate?.mappingId, candidate?.supported, candidate?.status, language, loadingSources]);
+  }, [
+    candidate?.mappingId,
+    candidate?.supported,
+    candidate?.status,
+    language,
+    loadingSources,
+    resolutionRetry,
+  ]);
   if (titleError)
     return (
       <StatusPanel
@@ -161,6 +184,34 @@ function WatchSession() {
       `/watch/${encodeURIComponent(slug)}/${encodeURIComponent(id)}?language=${encodeURIComponent(language)}`,
     );
   const localNotes = comments.forEpisode(episode.id);
+  const activeVersion = episode.versions.find((version) => version.language === language);
+  const versionLabel = activeVersion?.label?.trim() || language.toUpperCase();
+  const historyEntry = history.entries.find(
+    (item) => item.episodeId === episode.id && item.language === language,
+  );
+  const remember = (position = historyEntry?.position, duration = historyEntry?.duration) => {
+    if (
+      typeof position === 'number' &&
+      Number.isFinite(position) &&
+      typeof duration === 'number' &&
+      Number.isFinite(duration) &&
+      duration > 0
+    ) {
+      carriedProgress.current = { position, duration };
+    }
+    history.remember({
+      titleId: title.id,
+      slug,
+      title: title.name,
+      imageUrl: title.imageUrl ?? title.posterUrl,
+      episodeId: episode.id,
+      episodeLabel: episodeName(episode),
+      language,
+      position,
+      duration,
+      watchedAt: new Date().toISOString(),
+    });
+  };
   return (
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
       <Link className="watch-back" to={`/title/${encodeURIComponent(slug)}`}>
@@ -171,7 +222,14 @@ function WatchSession() {
         {loadingSources || resolving ? (
           <PlayerMessage title="Loading video" busy />
         ) : failure ? (
-          <PlayerMessage title="Video unavailable" retry={() => setRetry((n) => n + 1)}>
+          <PlayerMessage
+            title="Video unavailable"
+            retry={() =>
+              failureStage === 'providers'
+                ? setProviderRetry((value) => value + 1)
+                : setResolutionRetry((value) => value + 1)
+            }
+          >
             {failure}
           </PlayerMessage>
         ) : resolution ? (
@@ -181,22 +239,19 @@ function WatchSession() {
             episodeId={episode.id}
             language={language}
             rememberProgress={preferences.rememberProgress}
+            initialPosition={
+              carriedProgress.current?.position ??
+              (preferences.rememberProgress ? historyEntry?.position : undefined)
+            }
             theater={theater}
             onTheater={() => setTheater((value) => !value)}
             onPrevious={previous ? () => go(previous.id) : undefined}
             onNext={next ? () => go(next.id) : undefined}
-            onOpen={() =>
-              history.remember({
-                titleId: title.id,
-                slug,
-                title: title.name,
-                imageUrl: title.imageUrl ?? title.posterUrl,
-                episodeId: episode.id,
-                episodeLabel: episodeName(episode),
-                language,
-                watchedAt: new Date().toISOString(),
-              })
-            }
+            onOpen={() => remember()}
+            onProgress={(position, duration) => {
+              carriedProgress.current = { position, duration };
+              if (preferences.rememberProgress) remember(position, duration);
+            }}
             onEnded={() => {
               if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
               if (preferences.autoplayNext && next) go(next.id);
@@ -285,16 +340,32 @@ function WatchSession() {
           >
             {episode.versions.map((v) => (
               <option key={v.id} value={v.language}>
-                {v.language.toUpperCase()}
+                {v.label?.trim() || v.language.toUpperCase()}
               </option>
             ))}
           </select>
         </label>
       </div>
+      {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
+        <p className="source-attribution">
+          Source:{' '}
+          <a
+            href={safeAttributionUrl(resolution.attribution.url)!}
+            target="_blank"
+            rel="noreferrer nofollow"
+          >
+            {resolution.attribution.label}
+          </a>{' '}
+          ·{' '}
+          {/public domain/i.test(resolution.attribution.license)
+            ? 'Public domain'
+            : resolution.attribution.license}
+        </p>
+      )}
       <header className="watch-heading">
         <div>
           <p>
-            {episodeName(episode)} · {language.toUpperCase()}
+            {episodeName(episode)} · {versionLabel}
           </p>
           <h1>{title.name}</h1>
         </div>
@@ -308,12 +379,13 @@ function WatchSession() {
           {watchlist.has(title.id) ? 'Saved' : 'Save series'}
         </button>
       </header>
-      <section className="watch-about">
+      <details className="watch-about">
+        <summary>About this title</summary>
         <p>
           {title.synopsis || title.description || 'No description is available for this title.'}
         </p>
-      </section>
-      <details className="watch-chapter" open>
+      </details>
+      <details className="watch-chapter watch-episodes" open>
         <summary>
           Episodes <span>{versions.length}</span>
         </summary>

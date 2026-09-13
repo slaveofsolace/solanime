@@ -1,5 +1,5 @@
 .watch-page {
-  max-width: 1120px;
+  max-width: 1220px;
   margin: 0 auto;
 }
 .watch-page--theater {
@@ -21,6 +21,8 @@
   background: #06070a;
   position: relative;
   color: #f5f5fa;
+  border: 1px solid #2d2923;
+  box-shadow: 0 22px 65px #0007;
 }
 .player-message {
   min-height: 320px;
@@ -57,12 +59,21 @@
   color: #fff;
   min-width: 0;
 }
+.player-screen {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
 .player-video video {
   display: block;
   width: 100%;
   aspect-ratio: 16/9;
+  max-height: 62svh;
   object-fit: contain;
   background: #06070a;
+}
+.watch-page--theater .player-screen video {
+  max-height: 78svh;
 }
 .player-video:fullscreen {
   display: flex;
@@ -71,13 +82,22 @@
   width: 100%;
   height: 100%;
 }
-.player-video:fullscreen video {
-  max-height: calc(100svh - 100px);
+.player-video:fullscreen .player-screen {
+  flex: 1;
+  min-height: 0;
+}
+.player-video:fullscreen .player-screen video {
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+}
+.player-video:fullscreen .media-controls {
+  flex-shrink: 0;
 }
 .media-controls {
   position: relative;
   z-index: 2;
-  background: #12131a;
+  background: #14120f;
   color: #f5f5fa;
   padding: 0 20px 12px;
 }
@@ -169,8 +189,9 @@
 .media-center-play {
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 1px);
-  transform: translate(-50%, -100px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
   border-radius: 50%;
   width: 68px;
   height: 68px;
@@ -178,8 +199,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent);
-  color: var(--on-accent);
+  border: 1px solid rgb(255 255 255 / 75%);
+  background: rgb(12 12 12 / 72%);
+  color: #fff;
   box-shadow: 0 8px 30px #0005;
 }
 .media-center-play .icon {
@@ -187,12 +209,16 @@
   height: 26px;
 }
 .media-center-play:hover:not(:disabled) {
-  background: var(--accent);
+  background: rgb(40 40 40 / 92%);
+}
+.media-center-play:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
 }
 .media-loading {
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 50%;
   transform: translate(-50%, -50%);
   color: var(--player-accent);
 }
@@ -219,7 +245,7 @@
 }
 .media-failure {
   position: absolute;
-  inset: 0 0 86px;
+  inset: 0;
   background: #06070a;
   z-index: 3;
 }
@@ -232,7 +258,10 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 22px 0;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--cinema);
 }
 .episode-nav {
   display: flex;
@@ -250,6 +279,8 @@
 .watch-selection label > span {
   color: var(--muted);
   font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 .watch-selection select {
   background: transparent;
@@ -277,7 +308,7 @@
   max-width: 30ch;
 }
 .watch-heading p {
-  color: var(--accent-ink);
+  color: var(--cinema-soft);
   font-size: 12px;
   margin-bottom: 12px;
 }
@@ -405,6 +436,9 @@
   .watch-selection {
     flex-wrap: wrap;
     gap: 10px 20px;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    border-inline: 0;
   }
   .episode-nav {
     width: 100%;
@@ -471,7 +505,6 @@
   .media-center-play {
     width: 54px;
     height: 54px;
-    transform: translate(-50%, -55px);
     padding: 16px;
   }
   .media-center-play .icon {
@@ -480,9 +513,6 @@
   .comments-layout {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-  .media-failure {
-    bottom: 70px;
   }
   .media-failure .player-message {
     padding: 16px;
@@ -497,6 +527,16 @@
     display: none;
   }
 }
+.source-attribution {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.source-attribution a {
+  color: var(--cinema-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 @media (max-width: 390px) {
   .media-controls__extras {
     flex-basis: 100%;
@@ -509,7 +549,18 @@
   .media-controls__row > .media-time {
     margin-left: auto;
   }
-  .media-failure {
-    bottom: 110px;
+}
+@media (max-width: 360px) {
+  .watch-selection {
+    gap: 8px 12px;
+  }
+  .watch-heading h1 {
+    font-size: 25px;
+  }
+  .watch-heading .button {
+    min-width: 44px;
+  }
+  .media-volume {
+    display: none;
   }
 }

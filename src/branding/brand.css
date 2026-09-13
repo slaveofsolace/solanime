@@ -1,0 +1,40 @@
+.sol-brand {
+  position: relative;
+  display: block;
+  contain: layout style;
+  width: 100%;
+  line-height: 0;
+  isolation: isolate;
+}
+.sol-brand--full { aspect-ratio: 960 / 850; }
+.sol-brand--emblem { aspect-ratio: 1; }
+.sol-brand--compact { aspect-ratio: 5; }
+.sol-brand-art { display: block; width: 100%; height: 100%; overflow: visible; }
+.sol-brand-art [data-brand-composition] { pointer-events: none; }
+.sol-brand[data-asset="loading"][data-motion="intro"] .sol-brand-art { visibility: hidden; }
+.sol-brand[data-asset="error"] .sol-brand-art { visibility: hidden; }
+.sol-brand-fallback {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: #e7b867; font-family: inherit; font-size: clamp(1.2rem, 5vw, 2.8rem);
+  font-weight: 600; line-height: 1.1;
+  letter-spacing: -.035em;
+}
+.sol-brand-readiness {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 0; padding: clamp(1rem, 4vw, 3rem);
+  color: #f3eee6; background: #070708;
+}
+.sol-brand-readiness[data-theme="light"] { color: #27242a; background: #f6f4ee; }
+.sol-brand-readiness .sol-brand { width: min(540px, 86vw, 64vh); flex: 0 0 auto; }
+.sol-brand-readiness--inline { position: relative; min-height: min(520px, 75vh); z-index: auto; }
+.sol-brand-readiness__status { width: min(29rem, 100%); min-height: 5.25rem; text-align: center; font: inherit; }
+.sol-brand-readiness__status p { margin: 1rem 0; font-size: .8125rem; line-height: 1.6; letter-spacing: .025em; opacity: .8; }
+.sol-brand-readiness__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.sol-brand-readiness__actions button { min-height: 44px; padding: .65rem 1rem; border: 1px solid #ffffff30; border-radius: 4px; color: inherit; background: transparent; font: inherit; font-size: .8125rem; cursor: pointer; }
+.sol-brand-readiness__actions button:first-child { border-color: #c89a51; background: #c89a51; color: #17130e; }
+.sol-brand-readiness[data-theme="light"] .sol-brand-readiness__actions button:not(:first-child) { border-color: #27242a55; }
+.sol-brand-readiness__actions button:focus-visible { outline: 3px solid #e7b867; outline-offset: 4px; }
+.sol-brand-readiness[data-readiness="ready"] { pointer-events: none; animation: sol-brand-dismiss 180ms ease-out both; }
+@keyframes sol-brand-dismiss { to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sol-brand-readiness[data-readiness="ready"] { animation-duration: 80ms; } }

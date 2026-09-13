@@ -20,6 +20,8 @@ const mime: Record<string, string> = {
   '.jpg': 'image/jpeg',
   '.webp': 'image/webp',
   '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
+  '.txt': 'text/plain; charset=utf-8',
 };
 const inside = (root: string, file: string) => {
   const path = relative(root, file);
@@ -49,7 +51,7 @@ export async function serveStatic(
   let file = resolve(root, `.${pathname}`);
   if (!inside(root, file)) return false;
   const appRoute =
-    /^\/(?:catalogue|search|library|admin|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
+    /^\/(?:catalogue|search|library|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
       pathname,
     );
   if (appRoute) file = resolve(root, 'index.html');

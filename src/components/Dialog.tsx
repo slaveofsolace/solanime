@@ -1,5 +1,11 @@
 import { useEffect, useRef, type PropsWithChildren } from 'react';
 import Icon from './Icon';
+
+let pendingReturnFocus: HTMLElement | null = null;
+export function markDialogTrigger(element: HTMLElement) {
+  pendingReturnFocus = element;
+}
+
 export default function Dialog({
   title,
   onClose,
@@ -12,21 +18,30 @@ export default function Dialog({
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
-    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousFocus =
+      pendingReturnFocus?.isConnected === true
+        ? pendingReturnFocus
+        : (document.activeElement as HTMLElement | null);
+    pendingReturnFocus = null;
     const overflow = document.body.style.overflow;
     element.showModal();
     document.body.style.overflow = 'hidden';
     return () => {
       element.close();
       document.body.style.overflow = overflow;
-      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
-      else {
-        // The opening control can disappear when the fifth profile replaces Add profile.
-        const fallback =
-          document.querySelector<HTMLElement>('[data-dialog-fallback-focus]') ??
-          document.querySelector<HTMLElement>('main');
-        fallback?.focus();
-      }
+      window.setTimeout(() => {
+        // WebKit may move focus after close(); restore after its native close work. The
+        // open check also avoids stealing focus during React StrictMode's effect replay.
+        if (element.open) return;
+        if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+        else {
+          // The opening control can disappear when the fifth profile replaces Add profile.
+          const fallback =
+            document.querySelector<HTMLElement>('[data-dialog-fallback-focus]') ??
+            document.querySelector<HTMLElement>('main');
+          fallback?.focus();
+        }
+      }, 0);
     };
   }, []);
   return (

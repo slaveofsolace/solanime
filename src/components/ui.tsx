@@ -1,6 +1,6 @@
 import { useAccount } from '../account/AccountProvider';
 import Avatar from '../account/Avatar';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   useEffect,
   useLayoutEffect,
@@ -17,28 +17,21 @@ import { useAppState } from '../state';
 import Icon from './Icon';
 import { applyTheme } from '../lib/theme';
 import AppearanceSettings from './AppearanceSettings';
-import Dialog from './Dialog';
+import HeaderSearch from './HeaderSearch';
+import Dialog, { markDialogTrigger } from './Dialog';
 import { useRouteMotion } from '../lib/motion';
 import { RELEASE } from '../../shared/release';
+import { SolanimeBrand } from '../branding';
 const TitlePreview = lazy(() => import('./TitlePreview'));
-
-function Mark() {
-  return (
-    <svg className="brand-mark" viewBox="0 0 42 42" aria-hidden="true">
-      <path d="M6 27a15 15 0 0 1 30 0M6 33h30M21 5v4M7 10l3 4M35 10l-3 4" />
-    </svg>
-  );
-}
 
 export function Layout({ children }: PropsWithChildren) {
   const account = useAccount();
   const location = useLocation();
-  const navigate = useNavigate();
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
   const { watchlist, preferences, preview, setPreview } = useAppState();
   const [appearanceOpen, setAppearanceOpen] = useState(false);
-  const [prefs, setPrefs] = preferences;
+  const [prefs] = preferences;
   const theme = prefs.theme ?? 'dark';
   useRouteMotion(main, location.pathname);
   useLayoutEffect(() => {
@@ -55,67 +48,61 @@ export function Layout({ children }: PropsWithChildren) {
     main.current?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
-  const focused = [
-    '/login',
-    '/register',
-    '/recover',
-    '/profiles',
-    '/account/recovery-code',
-  ].includes(location.pathname);
+  const focused =
+    ['/login', '/register', '/recover', '/profiles', '/account/recovery-code'].includes(
+      location.pathname,
+    ) ||
+    location.pathname === '/admin' ||
+    location.pathname.startsWith('/admin/');
   const watching = location.pathname.startsWith('/watch/');
+  const home = location.pathname === '/';
   return (
     <div
-      className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}`}
+      className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
     >
       <a className="skip-link" href="#main">
         Skip to content
       </a>
       <header className="masthead">
         <Link className="wordmark" to="/" aria-label="Sol Anime home">
-          <Mark />
-          <span>
-            <strong>sol</strong>
-            <em>anime</em>
-          </span>
+          <SolanimeBrand variant="compact" motion="static" theme={theme} decorative />
         </Link>
+        <div className="navigation-dock">
         <nav className="main-nav" aria-label="Primary navigation">
-          <NavLink to="/" end>
+          <NavLink to="/" end aria-label="Home">
             <Icon name="home" />
             <span>Home</span>
           </NavLink>
-          <NavLink to="/catalogue">
+          <NavLink to="/catalogue" aria-label="Browse">
             <Icon name="browse" />
             <span>Browse</span>
           </NavLink>
-          <NavLink to="/search">
+          <NavLink className="main-nav__search" to="/search" aria-label="Search">
             <Icon name="search" />
             <span>Search</span>
           </NavLink>
-          <NavLink to="/library">
+          <NavLink
+            to="/library"
+            aria-label={`Library / My list, ${watchlist.ids.length} saved`}
+          >
             <Icon name="bookmark" />
-            <span>My list</span>
-            <small>{watchlist.ids.length}</small>
+            <span>My List</span>
+            {watchlist.ids.length > 0 && <small aria-hidden="true">{watchlist.ids.length}</small>}
           </NavLink>
         </nav>
         <div className="masthead-actions">
+          <HeaderSearch />
           <button
             type="button"
             className="theme-toggle appearance-jump"
             aria-label="Customize appearance"
-            onClick={() => setAppearanceOpen(true)}
+            onClick={(event) => {
+              markDialogTrigger(event.currentTarget);
+              setAppearanceOpen(true);
+            }}
           >
             <Icon name="palette" />
             <span>Appearance</span>
-          </button>
-          <button
-            className="theme-toggle"
-            type="button"
-            aria-label={`Use ${theme === 'dark' ? 'light' : 'dark'} theme`}
-            onClick={() =>
-              setPrefs((p) => ({ ...p, theme: p.theme === 'light' ? 'dark' : 'light' }))
-            }
-          >
-            <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
           </button>
           {account.account ? (
             <Link className="account-jump" to="/profiles" aria-label="Switch profile">
@@ -130,34 +117,9 @@ export function Layout({ children }: PropsWithChildren) {
             </Link>
           )}
         </div>
+        </div>
       </header>
       <div className="content-shell">
-        {!focused && !watching && (
-          <div className="utility-bar">
-            <p>Find your next story.</p>
-            <form
-              role="search"
-              aria-label="Search all anime"
-              onSubmit={(event) => {
-                event.preventDefault();
-                const value = new FormData(event.currentTarget).get('q');
-                navigate(`/search?q=${encodeURIComponent(String(value ?? '').trim())}`);
-              }}
-            >
-              <Icon name="search" />
-              <input
-                aria-label="Find anime"
-                name="q"
-                type="search"
-                maxLength={200}
-                placeholder="Find your next story"
-              />
-              <button type="submit" aria-label="Search all titles">
-                <Icon name="arrow" />
-              </button>
-            </form>
-          </div>
-        )}
         {account.loadError && (
           <div className="account-service-notice" role="status">
             Account service unavailable. Browsing remains available.{' '}
@@ -189,8 +151,8 @@ export function Layout({ children }: PropsWithChildren) {
           </p>
           <nav aria-label="Footer navigation">
             <Link to="/catalogue">Browse</Link>
-            <Link to="/library">Your list</Link>
-            <Link to="/admin">Administration</Link>
+            <Link to="/library">My List</Link>
+            {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
           </nav>
         </footer>
       </div>
@@ -229,10 +191,55 @@ function displayGenres(title: TitleSummary): string[] {
   return (title.genres ?? []).map((genre) => (typeof genre === 'string' ? genre : genre.name));
 }
 
-export function CoverArt({ title, eager = false }: { title: TitleSummary; eager?: boolean }) {
-  const src = title.imageUrl ?? title.posterUrl;
-  const [failedSrc, setFailedSrc] = useState<string | null>(null);
-  if (!src || failedSrc === src) {
+export function CoverArt({
+  title,
+  eager = false,
+  variant = 'poster',
+}: {
+  title: TitleSummary;
+  eager?: boolean;
+  variant?: 'poster' | 'landscape';
+}) {
+  const posterSources = [title.posterUrl, title.imageUrl].filter(
+    (source, index, sources): source is string =>
+      Boolean(source) && sources.indexOf(source) === index,
+  );
+  const backdropSrc = variant === 'landscape' ? title.backdropUrl : null;
+  const [failedSources, setFailedSources] = useState<string[]>([]);
+  const usablePoster = posterSources.find((source) => !failedSources.includes(source)) ?? null;
+  const usableBackdrop = backdropSrc && !failedSources.includes(backdropSrc) ? backdropSrc : null;
+  const src = variant === 'landscape' ? usableBackdrop : usablePoster;
+  const markFailed = (failed: string) =>
+    setFailedSources((current) => (current.includes(failed) ? current : [...current, failed]));
+  if (variant === 'landscape' && !usableBackdrop && usablePoster) {
+    return (
+      <span className="cover-composition">
+        <img
+          className="cover-composition__wash"
+          src={usablePoster}
+          alt=""
+          width="640"
+          height="360"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onError={() => markFailed(usablePoster)}
+          referrerPolicy="no-referrer"
+        />
+        <img
+          className="cover-composition__poster"
+          src={usablePoster}
+          alt=""
+          width="360"
+          height="510"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onError={() => markFailed(usablePoster)}
+          referrerPolicy="no-referrer"
+        />
+      </span>
+    );
+  }
+  if (!src) {
     return (
       <div
         className="cover-fallback"
@@ -253,61 +260,68 @@ export function CoverArt({ title, eager = false }: { title: TitleSummary; eager?
     <img
       src={src}
       alt=""
-      width="360"
-      height="510"
+      width={variant === 'landscape' ? '640' : '360'}
+      height={variant === 'landscape' ? '360' : '510'}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
-      onError={() => setFailedSrc(src)}
+      onError={() => markFailed(src)}
       referrerPolicy="no-referrer"
     />
   );
 }
 
-export function TitleCard({ title, index = 0 }: { title: TitleSummary; index?: number }) {
+export function TitleCard({ title, index = 0, format = 'poster' }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape' }) {
   const { watchlist, setPreview } = useAppState();
   const name = title.name ?? title.title ?? 'Untitled record';
   const genres = displayGenres(title);
   const isSaved = watchlist.has(title.id);
+  const facts = [title.type, title.releaseYear ?? title.year].filter(
+    (fact): fact is string | number => fact !== null && fact !== undefined && fact !== '',
+  );
+  const descriptor = genres.slice(0, 3).join(' · ') || title.status || null;
   return (
-    <article className="title-card" style={{ '--index': Math.min(index, 8) } as CSSProperties}>
+    <article className={`title-card title-card--${format}`} style={{ '--index': Math.min(index, 8) } as CSSProperties}>
       <Link
         className="title-card__art"
         to={`/title/${encodeURIComponent(title.slug)}`}
         aria-label={`Open ${name}`}
       >
-        <CoverArt title={{ ...title, name }} />
-        <span className="title-card__corner">
-          <Icon name="play" />
-        </span>
+        <CoverArt title={{ ...title, name }} variant={format} />
       </Link>
       <div className="title-card__copy">
-        <div className="title-card__meta">
-          <span>{title.type ?? 'Unknown format'}</span>
-          <span>{title.releaseYear ?? title.year ?? '—'}</span>
-        </div>
         <h2>
           <Link to={`/title/${encodeURIComponent(title.slug)}`}>{name}</Link>
         </h2>
-        <p>{genres.slice(0, 3).join(' · ') || title.status || 'Catalogue record'}</p>
-        <div className="title-card__actions">
-          <button
-            className="save-button"
-            type="button"
-            aria-pressed={isSaved}
-            aria-label={`${isSaved ? 'Remove' : 'Save'} ${name}${isSaved ? ' from your list' : ' to your list'}`}
-            onClick={() => watchlist.toggle(title.id, { ...title, name })}
-          >
-            <Icon name={isSaved ? 'check' : 'bookmark'} />
-            {isSaved ? 'Saved' : 'Save'}
-          </button>
-          <button
-            className="card-info"
-            type="button"
-            aria-label={`Quick look at ${name}`}
-            onClick={() => setPreview(title)}
-          >
-            <Icon name="info" />
-          </button>
+        <div className="title-card__details">
+          {facts.length > 0 && (
+            <div className="title-card__meta">
+              {facts.map((fact) => <span key={fact}>{fact}</span>)}
+            </div>
+          )}
+          {descriptor && <p>{descriptor}</p>}
+          <div className="title-card__actions">
+            <button
+              className="save-button"
+              type="button"
+              aria-pressed={isSaved}
+              aria-label={`${isSaved ? 'Remove' : 'Save'} ${name}${isSaved ? ' from your list' : ' to your list'}`}
+              onClick={() => watchlist.toggle(title.id, { ...title, name })}
+            >
+              <Icon name={isSaved ? 'check' : 'bookmark'} />
+              {isSaved ? 'Saved' : 'Save'}
+            </button>
+            <button
+              className="card-info"
+              type="button"
+              aria-label={`Quick look at ${name}`}
+              onClick={(event) => {
+                markDialogTrigger(event.currentTarget);
+                setPreview(title);
+              }}
+            >
+              <Icon name="info" />
+            </button>
+          </div>
         </div>
       </div>
     </article>

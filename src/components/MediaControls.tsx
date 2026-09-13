@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type RefObject, type KeyboardEvent } from 'react';
+import { createPortal } from 'react-dom';
 import Icon from './Icon';
 import { createMediaSeeker } from '../lib/mediaSeek';
 export function formatTime(seconds: number): string {
@@ -12,6 +13,7 @@ export function formatTime(seconds: number): string {
 export default function MediaControls({
   videoRef,
   frameRef,
+  overlayTarget,
   onPrevious,
   onNext,
   theater = false,
@@ -19,6 +21,8 @@ export default function MediaControls({
 }: {
   videoRef: RefObject<HTMLVideoElement | null>;
   frameRef: RefObject<HTMLDivElement | null>;
+  /** Place the paused control against the actual picture, independently of toolbar height. */
+  overlayTarget?: HTMLElement | null;
   onPrevious?: () => void;
   onNext?: () => void;
   theater?: boolean;
@@ -193,7 +197,7 @@ export default function MediaControls({
       tabIndex={0}
       onKeyDown={key}
     >
-      {!playing && duration > 0 && (
+      {!playing && duration > 0 && overlayTarget && createPortal(
         <button
           type="button"
           className="media-center-play"
@@ -201,7 +205,8 @@ export default function MediaControls({
           onClick={() => void play()}
         >
           <Icon name="play" />
-        </button>
+        </button>,
+        overlayTarget,
       )}
       {buffering && (
         <span className="media-buffering" role="status">

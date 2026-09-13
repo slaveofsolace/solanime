@@ -105,7 +105,7 @@ describe('application HTTP API', () => {
     );
     const providerResponse = await fetch(
       `${origin}/api/episodes/${episodeId}/providers?language=sub`,
-    ).then((response) => response.json());
+    ).then((response) => response.json<{ version: { id: string } }>());
     expect(providerResponse).toMatchObject({
       episode: { id: episodeId, versions: [{ language: 'sub', providerCount: 3 }] },
       version: { language: 'sub', providerCount: 3 },
@@ -367,7 +367,7 @@ describe('application HTTP API', () => {
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
     const result = await (
       await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)
-    ).json();
+    ).json<{ providers: Array<{ mappingId: string }> }>();
     expect(result.providers).toHaveLength(3);
     for (const p of result.providers)
       expect(p).toMatchObject({ supported: false, status: 'unsupported', playbackType: 'unknown' });
@@ -377,7 +377,7 @@ describe('application HTTP API', () => {
       body: '{"language":"sub"}',
     });
     expect(res.status).toBe(422);
-    const body = await res.json();
+    const body = await res.json<{ error: { code: string } }>();
     expect(body.error.code).toBe('UNSUPPORTED_SOURCE');
     expect(body).not.toHaveProperty('embedUrl');
     expect(body).not.toHaveProperty('url');
@@ -408,7 +408,7 @@ describe('application HTTP API', () => {
       body: '{}',
     });
     expect(res.status).toBe(422);
-    const body = await res.json();
+    const body = await res.json<{ status: string }>();
     expect(body.status).toBe('unsupported');
     expect(body).not.toHaveProperty('embedUrl');
     expect(
@@ -439,7 +439,9 @@ describe('application HTTP API', () => {
           : null,
     });
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
-    const list = await (await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)).json();
+    const list = await (await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)).json<{
+      providers: Array<{ supported: boolean; mappingId: string; capabilities: { subtitles: boolean } }>;
+    }>();
     const supported = list.providers.filter((p: { supported: boolean }) => p.supported);
     expect(supported).toHaveLength(1);
     expect(supported[0].capabilities.subtitles).toBe(true);

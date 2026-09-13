@@ -46,23 +46,42 @@ test('preset and custom accents persist, validate input, and restore focus', asy
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await appearance(page);
   await page.getByRole('dialog').getByRole('button', { name: 'Reset accent' }).click();
-  await expect(page.locator('html')).toHaveAttribute('data-accent', '#AE9CFF');
+  await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
   await noOverflow(page);
 });
-test('quick-look details preserve catalogue position and saved state', async ({ page }, info) => {
-  await page.goto('/catalogue?q=Paper');
-  const trigger = page.getByRole('button', { name: 'Quick look at Paper Lantern', exact: true });
+test('quick-look details preserve the originating route, focus and saved state', async ({ page, isMobile }, info) => {
+  // Touch cards open the title; their preview entry is the featured More info
+  // control. Desktop cards reveal quick look on pointer or keyboard intent.
+  await page.goto(isMobile ? '/' : '/catalogue?q=Paper');
+  let title = 'Paper Lantern';
+  if (isMobile) {
+    await expect(page.locator('#featured-title')).toBeVisible();
+    title = await page.locator('#featured-title').innerText();
+  } else {
+    await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).focus();
+  }
+  const trigger = page.getByRole('button', {
+    name: isMobile ? 'More info' : 'Quick look at Paper Lantern', exact: true,
+  });
+  // Measure the position from which the user can actually press the control;
+  // mobile WebKit otherwise scrolls it into view as part of click actionability.
+  await trigger.scrollIntoViewIfNeeded();
+  const originalUrl = page.url();
+  const originalScroll = await page.evaluate(() => scrollY);
   await trigger.click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.getByText('Paper Lantern', { exact: true }).first()).toBeVisible();
+  await expect(dialog.getByText(title, { exact: true }).first()).toBeVisible();
   await expect(dialog.getByRole('link', { name: 'View episodes' })).toBeVisible();
   await dialog.getByRole('button', { name: 'My list', exact: true }).click();
   await expect(dialog.getByRole('button', { name: 'Saved', exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('quick-look.png'), fullPage: true });
   await dialog.getByRole('button', { name: 'Close dialog' }).click();
   await expect(trigger).toBeFocused();
-  await expect(page).toHaveURL(/catalogue\?q=Paper/);
+  await expect(page).toHaveURL(originalUrl);
+  await expect.poll(async () => Math.abs(await page.evaluate(() => scrollY) - originalScroll)).toBeLessThanOrEqual(1);
   await noOverflow(page);
+  await page.goto('/library');
+  await expect(page.getByRole('link', { name: `Open ${title}`, exact: true })).toBeVisible();
 });
 test('rails expose keyboard-accessible scrolling without expanding the page', async ({ page }) => {
   await page.goto('/');
@@ -75,4 +94,42 @@ test('rails expose keyboard-accessible scrolling without expanding the page', as
   await region.getByRole('button', { name: 'Previous Recent updates' }).click();
   await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBe(0);
   await noOverflow(page);
+});
+
+test('catalogue format and language controls return matching imported records', async ({ page }) => {
+  const revealActiveFacet = async () => {
+    const disclosure = page.locator('.filter-disclosure');
+    const summary = disclosure.locator('summary');
+    await expect(disclosure).not.toHaveAttribute('open');
+    await summary.focus();
+    await expect(summary).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(disclosure).toHaveAttribute('open', '');
+  };
+
+  await page.goto('/catalogue');
+  await revealActiveFacet();
+  await page.getByRole('combobox', { name: 'Format' }).selectOption('tv');
+  await expect(page).toHaveURL(/type=tv/);
+  await expect(page.getByRole('combobox', { name: 'Format' })).toHaveValue('tv');
+  await expect(page.locator('.title-card')).toHaveCount(24);
+  await expect(page.locator('.title-card__meta > span:first-child')).toHaveText(
+    Array.from({ length: 24 }, () => 'TV'),
+  );
+
+  await page.getByRole('combobox', { name: 'Format' }).selectOption('movie');
+  await expect(page).toHaveURL(/type=movie/);
+  await expect(page.getByRole('combobox', { name: 'Format' })).toHaveValue('movie');
+  await expect(page.locator('.title-card')).toHaveCount(8);
+  await expect(page.locator('.title-card__meta > span:first-child')).toHaveText(
+    Array.from({ length: 8 }, () => 'Movie'),
+  );
+
+  await page.getByRole('combobox', { name: 'Format' }).selectOption('');
+  await page.getByRole('combobox', { name: 'Language' }).selectOption('dub');
+  await expect(page).toHaveURL(/language=dub/);
+  await expect(page).not.toHaveURL(/type=/);
+  await expect(page.getByRole('combobox', { name: 'Format' })).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Language' })).toHaveValue('dub');
+  await expect(page.locator('.title-card')).toHaveCount(24);
 });

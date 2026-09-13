@@ -1,0 +1,70 @@
+import { describe, expect, it } from 'vitest';
+import { BrandClock, EXIT_MS, getBrandSession, INTRO_MS, LOOP_MS, sampleBrandExit, sampleBrandFrame, staticBrandFrame } from '../src/branding/timeline';
+
+describe('approved branding timeline', () => {
+  it('forms the ribbon before the sunrise and keeps the wordmark late and short', () => {
+    const start = sampleBrandFrame('intro', 0);
+    expect(start.front).toBe(0); expect(start.sun).toBe(0);
+    expect(start.letters.every(value => value === 0)).toBe(true);
+    const ribbon = sampleBrandFrame('intro', 1100);
+    expect(ribbon.front).toBeGreaterThan(.8); expect(ribbon.sun).toBe(0);
+    const sunrise = sampleBrandFrame('intro', 1700);
+    expect(sunrise.front).toBe(1); expect(sunrise.sunY).toBeGreaterThan(0);
+    expect(sunrise.sun).toBe(1); expect(sunrise.letters.every(value => value === 0)).toBe(true);
+    const type = sampleBrandFrame('intro', 2200);
+    expect(type.letters[0]).toBeGreaterThan(type.letters[7]);
+    expect(sampleBrandFrame('intro', 2600).letters.every(value => value === 1)).toBe(true);
+  });
+  it('lands on exactly the loading-loop start without geometry or light jumps', () => {
+    expect(sampleBrandFrame('intro', INTRO_MS)).toEqual(sampleBrandFrame('loading', 0));
+    const before = sampleBrandFrame('intro', INTRO_MS - .001);
+    const after = sampleBrandFrame('intro', INTRO_MS);
+    for (const key of ['front', 'back', 'core', 'play', 'sun', 'sunY', 'sunlight', 'flare', 'glint', 'opacity'] as const) expect(before[key]).toBeCloseTo(after[key], 5);
+    expect(before.letters).toEqual(after.letters);
+  });
+  it('has a periodic loop with invisible traveling-light wrap and fixed geometry', () => {
+    for (const time of [0, 11, 100, 1800, 4199]) expect(sampleBrandFrame('loading', time)).toEqual(sampleBrandFrame('loading', time + LOOP_MS));
+    const a = sampleBrandFrame('loading', 0);
+    const b = sampleBrandFrame('loading', LOOP_MS - .01);
+    expect(a.glint).toBe(0); expect(b.glint).toBeLessThan(1e-9);
+    for (let time = 0; time <= LOOP_MS; time += 20) {
+      const frame = sampleBrandFrame('loading', time);
+      expect([frame.front, frame.back, frame.core, frame.play, frame.sun, ...frame.letters]).toEqual(Array(13).fill(1));
+      expect(frame.sunY).toBe(0); expect(frame.opacity).toBe(1);
+    }
+  });
+  it('freezes every partially formed frame when readiness interrupts', () => {
+    for (const time of [0, 80, 800, 1400, 2100, 2970]) {
+      const frame = sampleBrandFrame('intro', time);
+      const exiting = sampleBrandExit(frame, 70);
+      expect({ ...exiting, opacity: 1 }).toEqual({ ...frame, opacity: 1 });
+      expect(exiting.opacity).toBeGreaterThan(0); expect(exiting.opacity).toBeLessThan(1);
+      expect(sampleBrandExit(frame, EXIT_MS).opacity).toBe(0);
+    }
+  });
+  it('never moves the ribbon or sun when reduced motion is requested', () => {
+    for (const time of [0, 900, 2100, 12000]) {
+      expect(sampleBrandFrame('intro', time, true)).toEqual(staticBrandFrame());
+      expect(sampleBrandFrame('loading', time, true)).toEqual(staticBrandFrame());
+    }
+    expect(sampleBrandExit(staticBrandFrame(), 80, true).opacity).toBe(0);
+  });
+  it('handles malformed sample times with a deterministic safe frame', () => {
+    expect(sampleBrandFrame('intro', NaN)).toEqual(sampleBrandFrame('intro', 0));
+    expect(sampleBrandFrame('intro', Infinity)).toEqual(sampleBrandFrame('intro', 0));
+    expect(sampleBrandFrame('intro', -40)).toEqual(sampleBrandFrame('intro', 0));
+  });
+  it('pauses hidden time, resumes elapsed motion, and keeps a bounded boot identity', () => {
+    const clock = new BrandClock();
+    clock.tick(0, true); expect(clock.tick(120, true)).toBe(120);
+    clock.tick(200, false); expect(clock.tick(10000, true)).toBe(120);
+    expect(clock.tick(10100, true)).toBe(220);
+    clock.pause(); expect(clock.tick(30000, true)).toBe(220);
+    const session = getBrandSession('test-repeated-mount');
+    session.elapsed = 920; session.resolved = true;
+    expect(getBrandSession('test-repeated-mount')).toBe(session);
+    expect(getBrandSession('test-repeated-mount').elapsed).toBe(920);
+    for (let index = 0; index < 34; index++) getBrandSession(`bounded-session-${index}`);
+    expect(getBrandSession('test-repeated-mount')).not.toBe(session);
+  });
+});

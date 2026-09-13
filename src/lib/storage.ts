@@ -96,7 +96,18 @@ export function decodeStored<T>(key: string, value: unknown, fallback: T): T {
           'watchedAt',
         ]),
       )
-      .map((entry) => ({ ...entry, imageUrl: optionalText(entry.imageUrl) }))
+      .map((entry) => ({
+        ...entry,
+        imageUrl: optionalText(entry.imageUrl),
+        position:
+          typeof entry.position === 'number' && Number.isFinite(entry.position) && entry.position >= 0
+            ? entry.position
+            : undefined,
+        duration:
+          typeof entry.duration === 'number' && Number.isFinite(entry.duration) && entry.duration > 0
+            ? entry.duration
+            : undefined,
+      }))
       .slice(0, 100) as T;
   if (key === 'watched-episodes')
     return value
@@ -146,14 +157,24 @@ export function usePersistentState<T>(key: string, fallback: T) {
     else writeStored(key, value);
   }, [key, value, scope]);
   useEffect(() => {
-    if (scope)
-      return scope.subscribe(key, () => {
+    if (scope) {
+      const receive = () => {
         const incoming = decodeStored(key, scope.read(key), fallback);
         persistedValue.current = JSON.stringify(incoming);
         setValue(incoming);
-      });
+      };
+      receive();
+      return scope.subscribe(key, receive);
+    }
+    const incoming = readStored(key, fallback);
+    persistedValue.current = JSON.stringify(incoming);
+    setValue(incoming);
     const onStorage = (event: StorageEvent) => {
-      if (event.key === PREFIX + key || event.key === null) setValue(readStored(key, fallback));
+      if (event.key === PREFIX + key || event.key === null) {
+        const next = readStored(key, fallback);
+        persistedValue.current = JSON.stringify(next);
+        setValue(next);
+      }
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);

@@ -1,0 +1,358 @@
+{
+  "availability": {
+    "bytes_read": 6249,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "http://sync.coconono.org/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-powered-by": "Express"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:28:23.685045+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+    "status": "reachable",
+    "truncated": false,
+    "url": "http://sync.coconono.org/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 3,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-700a374179e6bb08",
+    "domain-54b274da0b0df8ea",
+    "domain-3aeb002460381c6f",
+    "domain-252d7efde569520c"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-72af2f7919e070ea"
+  ],
+  "frameworks": [],
+  "id": "site-d2f3b640021c7b16",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "psp-tv",
+  "observations": [
+    {
+      "bytes_read": 6249,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "http://sync.coconono.org/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-powered-by": "Express"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "http://sync.coconono.org/"
+    },
+    {
+      "bytes_read": 806,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "http://sync.coconono.org/js/theme.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "x-powered-by": "Express"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:24.555018+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "c0758e9388fdec1cd9f39d8eb65e242641d2fff18a93602ce7dbc2847f052e0e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "http://sync.coconono.org/js/theme.js"
+    },
+    {
+      "bytes_read": 96381,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "http://sync.coconono.org/js/jquery-1.11.0.min.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=UTF-8",
+        "x-powered-by": "Express"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:28:25.591083+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "b294e973896f8f874e90a8eb1a8908ac790980d034c4c4bdf0fc3d37b8abf682",
+      "status": "reachable",
+      "truncated": false,
+      "url": "http://sync.coconono.org/js/jquery-1.11.0.min.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:28:23.685045+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/js/theme.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/js/jquery-1.11.0.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/js/jquery-ui.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/register",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/r/totanon",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/r/CozyTube",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/r/tokutube",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/r/rasslinstreams",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/account/channels",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/calzoneman/sync",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/contact",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/calzoneman/sync/wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/css/sticky-footer-navbar.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/css/cytube.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/css/themes/slate.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "http://sync.coconono.org/login",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/calzoneman/sync",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://github.com/calzoneman/sync/wiki",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "3b28cae337521b2d0ffe0276af104587ad32ba01c8b4122785310e0795b5829b",
+      "evidence_url": "http://sync.coconono.org/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:28:23.685045+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [
+    "repo-5b2a10ed26344da2"
+  ],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "http://sync.coconono.org/"
+}

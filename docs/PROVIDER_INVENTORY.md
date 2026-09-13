@@ -2,6 +2,12 @@
 
 # Provider inventory
 
+> 2026-09-12 correction: the parent-origin limitation below was an incorrect
+> inference from an advertising-script domain list in the currently observed
+> client code. Public MegaPlay embed/event documentation
+> has been rechecked, and the remaining media-resolution step is under active
+> investigation. See [current evidence](provider-investigation-current.md).
+
 States below are dated 2026-09-11 and intentionally separate identity, mapping import, source resolution, provider-document response, and playback.
 
 | Visible label | Internal ID | Observed backend relationship | Adapter | Current evidence | Limitation |

@@ -1,0 +1,258 @@
+{
+  "availability": {
+    "bytes_read": 44573,
+    "content_type": "text/html",
+    "final_url": "https://www.90minutes.pro/",
+    "hash_scope": "response_body",
+    "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "content-type": "text/html",
+      "server": "cloudflare"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:42:44.153484+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://www.90minutes.pro/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ],
+    [
+      "Live TV / Sports",
+      "Live Sports"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
+  "domain_ids": [
+    "domain-8729f80c5b5e1af1",
+    "domain-d15afad5fd0ce8bf",
+    "domain-16391d3665ca7477"
+  ],
+  "endpoint_ids": [
+    "endpoint-3532148cb4e9e01b"
+  ],
+  "entry_ids": [
+    "entry-e9f20fa5172ac068",
+    "entry-26a8589209fd8fbd"
+  ],
+  "frameworks": [
+    {
+      "confidence": "strongly_inferred",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://www.90minutes.pro/",
+      "verification_scope": "homepage_source_signature_not_server_code_verification"
+    }
+  ],
+  "id": "site-e24ee773f7412663",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "90minutes",
+  "observations": [
+    {
+      "bytes_read": 44573,
+      "content_type": "text/html",
+      "final_url": "https://www.90minutes.pro/",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "content-type": "text/html",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.90minutes.pro/"
+    },
+    {
+      "bytes_read": 639758,
+      "content_type": "application/javascript",
+      "final_url": "https://www.90minutes.pro/js/xk7m9p2.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "cf-cache-status": "EXPIRED",
+        "content-type": "application/javascript",
+        "server": "cloudflare"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:42:45.532131+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "5180ea2aa623481732b960cbf8a5231defbc2eaa34be19682b5f945319cf1ac6",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://www.90minutes.pro/js/xk7m9p2.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:42:44.153484+00:00",
+  "provider_ids": [
+    "provider-cloudflare-edge",
+    "provider-cloudflare-insights"
+  ],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/js/xk7m9p2.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/p/about.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/p/dmca.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/p/contact.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/p/privacy-policy.html",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "https://schema.org/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "url-template",
+      "url": "https://www.90minutes.pro/search?q=%7Bsearch_term_string",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/favicon.png",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "bdbff9f0c43f574e27b6c1c5a07ff27fb9cfca343c9e5c2830fc571e583b7620",
+      "evidence_url": "https://www.90minutes.pro/",
+      "kind": "client-endpoint-reference",
+      "observed_at": "2026-09-12T07:42:44.153484+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://www.90minutes.pro/feeds/posts/default?alt=json&max-results=6",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "listed_related"
+  ],
+  "url": "https://www.90minutes.pro/"
+}

@@ -1,22 +1,72 @@
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-200-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-300-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-400-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-500-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-600-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-700-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-800-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
 :root {
   color-scheme: dark;
-  --bg: #0c0d10;
-  --surface: #15161c;
-  --surface-2: #22242d;
-  --line: #333642;
-  --text: #f3f2f7;
-  --muted: #adb0c2;
-  --accent: #ae9cff;
-  --accent-ink: #c5baff;
-  --on-accent: #080910;
-  --player-accent: #c5baff;
-  --danger: #ffb0b9;
-  --warning: #edc68c;
-  --radius-control: 6px;
-  --radius-art: 8px;
-  --radius-dialog: 14px;
+  --bg: #100f0d;
+  --surface: #191714;
+  --surface-2: #26221d;
+  --line: #3b352c;
+  --text: #f6efe3;
+  --muted: #b8ad9b;
+  --cinema: #ee791f;
+  --cinema-soft: #ffae6f;
+  --accent: #ee791f;
+  --accent-ink: #ffae6f;
+  --on-accent: #160a02;
+  --player-accent: #ffae6f;
+  --danger: #ffb6aa;
+  --warning: #ffc47d;
+  --radius-control: 5px;
+  --radius-art: 5px;
+  --radius-dialog: 10px;
   --gutter: clamp(20px, 4vw, 64px);
-  --sidebar: 192px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -25,25 +75,27 @@
   --space-8: 32px;
   --space-12: 48px;
   --space-16: 64px;
-  --shadow-overlay: 0 24px 90px #0007;
+  --shadow-overlay: 0 28px 100px #000a;
   --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --motion-fast: 160ms;
   --motion-enter: 280ms;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 :root[data-theme='light'] {
   color-scheme: light;
-  --bg: #fff;
-  --surface: #f5f6f9;
-  --surface-2: #e9ebf1;
-  --text: #181a24;
-  --muted: #535b70;
-  --line: #cbd0de;
-  --danger: #a22437;
-  --warning: #825309;
+  --bg: #f5efe4;
+  --surface: #fffaf1;
+  --surface-2: #e9dece;
+  --text: #211b16;
+  --muted: #655a4d;
+  --line: #cfc1ae;
+  --cinema: #b94b09;
+  --cinema-soft: #8e3906;
+  --danger: #962b25;
+  --warning: #74410b;
 }
 * {
   box-sizing: border-box;
@@ -57,6 +109,7 @@ body {
   color: var(--text);
   font-size: 15px;
   line-height: 1.6;
+  min-width: 0;
 }
 button,
 input,
@@ -97,8 +150,9 @@ h2,
 h3 {
   overflow-wrap: anywhere;
   line-height: 1.12;
-  font-weight: 550;
-  letter-spacing: -0.035em;
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
+  font-weight: 720;
+  letter-spacing: -0.025em;
 }
 h1 {
   font-size: clamp(32px, 4.3vw, 60px);

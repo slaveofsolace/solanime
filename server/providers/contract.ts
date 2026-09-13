@@ -22,6 +22,10 @@ export interface ProviderCapabilities {
 }
 
 export interface ProviderResolution {
+  attribution?: { label: string; url: string; license: string };
+  mediaCrossOrigin?: 'anonymous' | 'none';
+  kind?: 'native' | 'unsupported';
+  result?: import('../../shared/playback').PlaybackResult;
   captions?: import('../../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
   allowedMediaHosts?: string[];

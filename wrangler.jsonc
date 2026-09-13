@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "solanime-api-preview",
+  "account_id": "84aa597f700e42f7f2396a71193648c8",
+  "main": "server/cloud/worker.ts",
+  "compatibility_date": "2026-09-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./build/cloud-import-assets",
+    "binding": "IMPORT_ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 },
+  "vars": {
+    "SOLANIME_APP_ORIGIN": "https://cloud-release.solanime.pages.dev",
+    "SOLANIME_ALLOWED_ORIGINS": "https://cloud-release.solanime.pages.dev",
+    "SOLANIME_REGISTRATION": "open",
+    "FIREBASE_PROJECT_ID": "solanime-9ef23",
+    "SYNC_ENABLED": "true",
+    "SOURCE_REFRESH_ENABLED": "true",
+    "IMPORT_MANIFEST_PATH": "/__private-import/d2c4b3b60ff8eb32ca2e3d24cc89ac80b40a40032897a354127ec76029f125ac/manifest.json",
+    "IMPORT_MANIFEST_SHA256": "a720a98a1455989973ef31f9e18fb194f3c102b2f5c4253520ef3b0c9074aa7a",
+    "SYNC_DAILY_WRITE_BUDGET": "75000",
+    "SYNC_DAILY_QUEUE_BUDGET": "2500",
+    "RELEASE_CHANNEL": "preview"
+  },
+  "secrets": { "required": ["SOLANIME_ADMIN_TOKEN", "FIREBASE_API_KEY", "FIREBASE_SERVICE_ACCOUNT_JSON", "AUTH_CREDENTIAL_KEY"] },
+  "d1_databases": [
+    { "binding": "CATALOGUE", "database_name": "solanime-catalogue-preview", "database_id": "aca4baa8-386e-4528-915b-7ec41b852edc", "migrations_dir": "migrations/cloud/catalogue" },
+    { "binding": "ACCOUNTS", "database_name": "solanime-accounts-preview", "database_id": "fa7d5b8f-5c75-4f85-89d7-68801c773574", "migrations_dir": "migrations/cloud/accounts" },
+    { "binding": "RESEARCH", "database_name": "solanime-research-preview", "database_id": "d7ead4af-f1c7-43d8-bad3-78b9fe183f2e", "migrations_dir": "migrations/cloud/research" }
+  ],
+  "queues": {
+    "producers": [{ "binding": "SYNC_QUEUE", "queue": "solanime-sync-preview" }],
+    "consumers": [{ "queue": "solanime-sync-preview", "max_batch_size": 1, "max_batch_timeout": 5, "max_retries": 2, "max_concurrency": 1 }]
+  },
+  "ratelimits": [
+    { "name": "API_LIMITER", "namespace_id": "2026091201", "simple": { "limit": 180, "period": 60 } },
+    { "name": "RESOLVE_LIMITER", "namespace_id": "2026091202", "simple": { "limit": 30, "period": 60 } }
+  ],
+  "triggers": { "crons": ["* * * * *"] }
+}

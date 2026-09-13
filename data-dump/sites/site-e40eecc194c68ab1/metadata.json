@@ -1,0 +1,123 @@
+{
+  "availability": {
+    "bytes_read": 2222,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://subslikescript.com/challenge?destination=%2F",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:32:53.209578+00:00",
+    "redirects": [
+      {
+        "http_status": 302,
+        "location": "https://subslikescript.com/challenge?destination=%2F",
+        "url": "https://subslikescript.com/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "0967718812f5dfb754d8efd26d933963ae637b377821ec6fe07285f05c593f3b",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://subslikescript.com/"
+  },
+  "categories": [
+    [
+      "Helpful Sites / Tools"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-e59ddab912604a21"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-926c69f182f1ad72"
+  ],
+  "frameworks": [],
+  "id": "site-e40eecc194c68ab1",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "SubsLikeScript",
+  "observations": [
+    {
+      "bytes_read": 2222,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://subslikescript.com/challenge?destination=%2F",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:53.209578+00:00",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://subslikescript.com/challenge?destination=%2F",
+          "url": "https://subslikescript.com/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "0967718812f5dfb754d8efd26d933963ae637b377821ec6fe07285f05c593f3b",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://subslikescript.com/"
+    },
+    {
+      "bytes_read": 1303,
+      "content_type": "application/javascript",
+      "final_url": "https://subslikescript.com/captcha-protect-poj.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:32:54.174049+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "7d04af454f43250bc77f5e4b20e67e25fee8f3124b63249711dddc946e68d56c",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://subslikescript.com/captcha-protect-poj.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:32:53.209578+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0967718812f5dfb754d8efd26d933963ae637b377821ec6fe07285f05c593f3b",
+      "evidence_url": "https://subslikescript.com/challenge?destination=%2F",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:32:53.209578+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://subslikescript.com/captcha-protect-poj.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "0967718812f5dfb754d8efd26d933963ae637b377821ec6fe07285f05c593f3b",
+      "evidence_url": "https://subslikescript.com/challenge?destination=%2F",
+      "kind": "form-action-not-requested",
+      "observed_at": "2026-09-12T07:32:53.209578+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://subslikescript.com/challenge",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://subslikescript.com/"
+}

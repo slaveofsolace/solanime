@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { enforceNativeResolution } from '../server/providers/playbackPolicy';
-import { mediaIsSupported, playbackUrl } from '../src/lib/playerPolicy';
+import { mediaCrossOrigin, mediaIsSupported, playbackUrl } from '../src/lib/playerPolicy';
 import type { StoredProviderMapping, ProviderResolution } from '../server/providers/contract';
 const mapping: StoredProviderMapping = {
   mappingId: 1,
@@ -48,6 +48,18 @@ describe('native-only contract', () => {
     expect(mediaIsSupported({ ...source, delivery: undefined }, 'https://solanime.test')).toBe(
       false,
     ));
+  it('requires an explicit uncaptioned direct-media exception before omitting CORS', () => {
+    expect(
+      mediaCrossOrigin({ playbackType: 'direct', mediaCrossOrigin: 'none', captions: [] }),
+    ).toBeUndefined();
+    expect(
+      mediaCrossOrigin({ playbackType: 'direct', mediaCrossOrigin: 'none', captions: [{}] }),
+    ).toBe('anonymous');
+    expect(mediaCrossOrigin({ playbackType: 'hls', mediaCrossOrigin: 'none' })).toBe('anonymous');
+  });
+  it('rejects an explicitly unsupported result kind', () => {
+    expect(mediaIsSupported({ ...source, kind: 'unsupported' }, 'https://solanime.test')).toBe(false);
+  });
   it('accepts an absolute media URL independently of a relative base', () => {
     expect(playbackUrl(source.url!, 'direct', 'null')).toBe(source.url);
     expect(playbackUrl('/video.mp4', 'direct', 'null')).toBeNull();

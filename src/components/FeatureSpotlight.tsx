@@ -4,6 +4,43 @@ import type { TitleSummary } from '../types';
 import { useAppState } from '../state';
 import { CoverArt } from './ui';
 import Icon from './Icon';
+import { markDialogTrigger } from './Dialog';
+
+/** A loaded banner is the single, proportionally cropped artwork surface.
+ * Keep the original poster visible until the banner has actually loaded.
+ */
+export function SpotlightArtwork({ title, className = '' }: { title: TitleSummary; className?: string }) {
+  const [bannerResult, setBannerResult] = useState<{ url: string; state: 'loaded' | 'failed' } | null>(null);
+  const banner = title.backdropUrl || null;
+  const bannerState = !banner ? 'none' : bannerResult?.url === banner ? bannerResult.state : 'loading';
+  const dimensions = title.artwork?.backdrop?.url === banner ? title.artwork.backdrop : undefined;
+  return (
+    <div className={`spotlight-art ${className}`} aria-hidden="true" data-banner={bannerState}>
+      {banner && bannerState !== 'failed' && (
+        <img
+          key={banner}
+          className="spotlight-art__banner"
+          src={banner}
+          alt=""
+          width={dimensions?.width}
+          height={dimensions?.height}
+          decoding="async"
+          fetchPriority="high"
+          referrerPolicy="no-referrer"
+          onLoad={(event) => {
+            const rendered = event.currentTarget.naturalWidth > 0 && event.currentTarget.naturalHeight > 0;
+            setBannerResult({ url: banner, state: rendered ? 'loaded' : 'failed' });
+          }}
+          onError={() => setBannerResult({ url: banner, state: 'failed' })}
+        />
+      )}
+      <div className="spotlight-art__poster" hidden={bannerState === 'loaded'}>
+        <CoverArt title={title} eager />
+      </div>
+    </div>
+  );
+}
+
 export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
   const { watchlist, setPreview } = useAppState();
   const [index, setIndex] = useState(0);
@@ -19,31 +56,36 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
       aria-roledescription="carousel"
     >
       <div className="spotlight-scene" key={item.id}>
-        <div className="spotlight-art" aria-hidden="true">
-          <CoverArt title={item} eager />
-        </div>
+        <SpotlightArtwork title={item} />
         <div className="home-feature__copy">
+          <h2 id="featured-title">{item.name}</h2>
           <p className="feature-meta">
             {[
               item.type,
               item.releaseYear,
-              item.episodeCount ? `${item.episodeCount} episodes` : null,
+              item.episodeCount
+                ? `${item.episodeCount} ${item.episodeCount === 1 ? 'episode' : 'episodes'}`
+                : null,
             ]
               .filter(Boolean)
               .join(' · ')}
           </p>
-          <h2 id="featured-title">{item.name}</h2>
-          <p className="feature-synopsis">
-            {item.synopsis || 'Explore the episodes and available versions.'}
-          </p>
+          {item.synopsis && <p className="feature-synopsis">{item.synopsis}</p>}
           <div className="button-row">
             <Link className="button button--primary" to={`/title/${encodeURIComponent(item.slug)}`}>
               <Icon name="play" />
               View episodes
             </Link>
-            <button className="button button--quiet" type="button" onClick={() => setPreview(item)}>
+            <button
+              className="button button--quiet"
+              type="button"
+              onClick={(event) => {
+                markDialogTrigger(event.currentTarget);
+                setPreview(item);
+              }}
+            >
+              <Icon name="info" />
               More info
-              <Icon name="arrow" />
             </button>
             <button
               className="icon-button"
@@ -61,20 +103,6 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
       </div>
       {choices.length > 1 && (
         <div className="spotlight-controls" role="group" aria-label="Featured selections">
-          <div className="feature-picks">
-            {choices.map((title, position) => (
-              <button
-                key={title.id}
-                type="button"
-                aria-label={`Feature ${title.name}`}
-                aria-pressed={position === selected}
-                onClick={() => setIndex(position)}
-              >
-                <span>{String(position + 1).padStart(2, '0')}</span>
-                <strong>{title.name}</strong>
-              </button>
-            ))}
-          </div>
           <div className="feature-arrows">
             <button
               className="icon-button"
@@ -84,6 +112,18 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
             >
               <Icon name="left" />
             </button>
+            <div className="feature-dots">
+              {choices.map((choice, choiceIndex) => (
+                <button key={choice.id} type="button" aria-label={`Feature ${choice.name}`}
+                  aria-pressed={choiceIndex === selected} onClick={() => setIndex(choiceIndex)}>
+                  <span />
+                </button>
+              ))}
+            </div>
+            <span className="feature-count" aria-live="polite" aria-atomic="true">
+              <span aria-hidden="true">{String(selected + 1).padStart(2, '0')} / {String(choices.length).padStart(2, '0')}</span>
+              <span className="sr-only">Featured title {selected + 1} of {choices.length}</span>
+            </span>
             <button
               className="icon-button"
               type="button"
