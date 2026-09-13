@@ -18,25 +18,41 @@ interface UnsupportedPlaybackProps {
 
 export default function UnsupportedPlayback({ providers, selected }: UnsupportedPlaybackProps) {
   const selectedWasRejected = selected?.supported && selected.status === 'available';
+  const mappedCount = providers.length;
+  const nativeCount = providers.filter(
+    (provider) => provider.supported && provider.status === 'available',
+  ).length;
+  const webpageOnlyCount = providers.filter(
+    (provider) => provider.playbackType === 'external' || provider.playbackType === 'iframe',
+  ).length;
+  const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} mapped · ${nativeCount} native streams`;
   return (
     <section className="unsupported-playback" aria-labelledby="unsupported-playback-title">
       <Icon name="unavailable" className="unsupported-playback__icon" />
       <div className="unsupported-playback__copy">
-        <p className="unsupported-playback__eyebrow">Playback status</p>
+        <p className="unsupported-playback__eyebrow">
+          {mappedCount > 0 ? mappedSummary : 'No sources mapped'}
+        </p>
         <h2 id="unsupported-playback-title">
-          {selectedWasRejected ? 'This source cannot play safely' : 'Not available in the Solanime player'}
+          {selectedWasRejected
+            ? 'This source cannot play here'
+            : mappedCount > 0
+              ? 'No in-player stream'
+              : 'Playback not mapped yet'}
         </h2>
         <p>
-          {providers.length
+          {mappedCount
             ? selectedWasRejected
-              ? 'The selected source returned a format or origin the native player cannot safely use.'
-              : 'Provider mappings are preserved for this episode, but none currently expose a supported native stream.'
-            : 'No provider mapping has been observed for this episode yet.'}
+              ? 'The selected provider returned a format or origin the Solanime player cannot use. Choose another source or episode.'
+              : webpageOnlyCount === mappedCount
+                ? 'These mappings lead to provider webpages or embeds, not a native video stream. Try another episode or check again after sources are refreshed.'
+                : 'None of the mapped providers currently returns a supported native stream. Try another episode or check again after sources are refreshed.'
+            : 'No provider mapping has been observed for this episode. Try another episode while synchronization continues.'}
         </p>
       </div>
-      {providers.length > 0 && (
-        <div className="unsupported-playback__sources">
-          <p>Observed sources</p>
+      {mappedCount > 0 && (
+        <details className="unsupported-playback__sources">
+          <summary>Why each source is unavailable</summary>
           <ul aria-label="Observed playback sources">
             {providers.map((provider) => (
               <li key={provider.mappingId}>
@@ -45,7 +61,7 @@ export default function UnsupportedPlayback({ providers, selected }: Unsupported
               </li>
             ))}
           </ul>
-        </div>
+        </details>
       )}
     </section>
   );

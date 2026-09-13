@@ -40,7 +40,7 @@ test('title fallback art reads as a full feature and episodes remain dense', asy
 test('desktop watch keeps the player dominant with a bounded episode side rail', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await watch(page);
-  await expect(page.getByRole('heading', { name: 'Conversation', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Comments', exact: true })).toBeVisible();
 
   const layout = await page.evaluate(() => {
     const box = (selector: string) => {
@@ -65,11 +65,11 @@ test('320px title and watch controls remain readable without horizontal overflow
   await page.setViewportSize({ width: 320, height: 820 });
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Play first episode', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open first episode', exact: true })).toBeVisible();
   expect(await page.locator('.title-page .episode-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(1);
   await noOverflow(page);
 
-  await page.getByRole('link', { name: 'Play first episode', exact: true }).click();
+  await page.getByRole('link', { name: 'Open first episode', exact: true }).click();
   await expect(page.locator('video')).toBeVisible();
   await expect(page.getByLabel('Choose episode')).toBeVisible();
   await expect(page.getByLabel('Playback source')).toBeVisible();

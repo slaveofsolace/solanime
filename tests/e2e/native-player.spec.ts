@@ -131,7 +131,7 @@ test('unregistered catalogue sources stay unsupported despite legacy compatibili
     page.getByRole('button', { name: 'Provider compatibility', exact: true }),
   ).toHaveCount(0);
   expect((await page.request.get('/')).headers()['content-security-policy']).toContain(
-    "frame-src 'none'",
+    'frame-src https://megaplay.buzz',
   );
 });
 test('native ended events update watched state and navigate when autoplay-next is enabled', async ({

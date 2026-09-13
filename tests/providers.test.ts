@@ -10,11 +10,28 @@ describe('provider adapters', () => {
         label: providerId,
         language: 'sub',
         providerResourceId: null,
-        canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?autostart=true',
+        canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/123/sub',
         availability: 'observed',
         unavailableReason: null,
       });
-      expect(result).toMatchObject({ status: 'resolved', playbackType: 'iframe' });
+      expect(result).toMatchObject({
+        kind: 'embed',
+        status: 'resolved',
+        delivery: 'provider',
+        playbackType: 'iframe',
+        allowedEmbedHosts: ['megaplay.buzz'],
+        iframePolicy: {
+          sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'],
+          allow: ['autoplay', 'fullscreen'],
+          referrerPolicy: 'no-referrer',
+        },
+        messageProtocol: {
+          origin: 'https://megaplay.buzz',
+          channel: 'megacloud',
+          events: ['time', 'complete', 'error'],
+          types: ['watching-log'],
+        },
+      });
     });
   }
 
@@ -45,7 +62,7 @@ describe('provider adapters', () => {
       unavailableReason: null,
     });
     expect(result).toMatchObject({
-      status: 'unavailable',
+      status: 'unsupported',
       error: { code: 'INVALID_PROVIDER_RESOURCE' },
     });
   });

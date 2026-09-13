@@ -29,16 +29,17 @@ afterAll(async()=>{local?.close();await runtime?.dispose();if(!resolve(root).sta
 
 describe('private baseline with a partially hydrated actual D1 catalogue',()=>{
  it('searches full aliases, filters and episode counts without reading card assets for existing D1 titles',async()=>{
-  const test=reader(),repository=createCatalogueRepository(db,test.baseline);const result=await repository.browseTitles({q:'Alternative',genre:'adventure',language:'sub',page:1,pageSize:100,sort:'episodes'});
-  expect(result.total).toBe(1);expect(result.items[0]).toMatchObject({id:'1',episodeCount:103,name:'Alpha series'});expect(result.facets?.languages).toContainEqual({value:'sub',label:'SUB',count:2});expect(test.requests.some(url=>url.includes('/browse/')||url.includes('/titles/'))).toBe(false);
+  const test=reader(),repository=createCatalogueRepository(db,test.baseline);const result=await repository.browseTitles({scope:'anime',q:'Alternative',genre:'adventure',language:'sub',page:1,pageSize:100,sort:'episodes'});
+  expect(result.total).toBe(1);expect(result.items[0]).toMatchObject({id:'1',episodeCount:103,name:'Alpha series'});expect(result.facets?.languages).toContainEqual({value:'sub',label:'SUB',count:1});expect(test.requests.some(url=>url.includes('/browse/')||url.includes('/titles/'))).toBe(false);
  expect((await repository.getFilters()).genres).toContainEqual({value:'adventure',label:'Adventure',count:1});
  });
  it('combines baseline anime with D1-backed non-animation TV and movie collections',async()=>{
   // The hosted D1 intentionally does not duplicate the immutable TVMaze snapshot.
   await db.prepare('DELETE FROM titles WHERE id=2').run();
-  for(const [id,sourceId,source,name,format] of [[90,'Q90','wikipedia-tv','External TV','TV'],[91,'Q91','wikipedia-movie','External Movie','Movie']] as const) {
+  for(const [id,sourceId,source,name,format] of [[90,'Q90','wikipedia-tv','External TV','TV'],[91,'Q91','wikipedia-movie','External Movie','Movie'],[92,'Q92','wikipedia-miniseries','Future Wikipedia','TV']] as const) {
    await db.prepare('INSERT INTO titles(id,source,source_id,slug,canonical_url,name,description,format,release_year,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(id,source,sourceId,`external-${id}`,`https://en.wikipedia.org/wiki/${sourceId}`,name,'External catalogue record',format,2026,'Upcoming',date,date,date,date).run();
   }
+  await db.prepare("INSERT INTO genres(id,slug,name) VALUES(1,'adventure','Adventure') ON CONFLICT(id) DO NOTHING").run();await db.prepare('INSERT INTO title_genres(title_id,genre_id) VALUES(90,1)').run();
   const repository=createCatalogueRepository(db,reader().baseline);
   expect((await repository.browseTitles({scope:'anime',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Alpha series','Zero episodes']);
   expect((await repository.browseTitles({scope:'tv',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Beta series','External TV']);
@@ -47,6 +48,32 @@ describe('private baseline with a partially hydrated actual D1 catalogue',()=>{
   expect((await repository.browseTitles({scope:'tv',q:'Beta',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Beta series']);
   expect((await repository.browseTitles({scope:'movies',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['External Movie']);
   expect((await repository.browseTitles({scope:'all',q:'External',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['External Movie','External TV']);
+  expect((await repository.browseTitles({q:'Beta',page:1,pageSize:100,sort:'name'}))).toMatchObject({total:1,items:[{id:'2',name:'Beta series'}]});
+  expect((await repository.browseTitles({scope:'all',q:'Beta',page:1,pageSize:100,sort:'name'}))).toMatchObject({total:1,items:[{id:'2',name:'Beta series'}]});
+  expect((await repository.browseTitles({q:'Future',page:1,pageSize:100,sort:'name'}))).toMatchObject({total:1,items:[{source:'wikipedia-miniseries',name:'Future Wikipedia'}]});
+  expect((await repository.browseTitles({scope:'all',page:1,pageSize:2,sort:'name',includeFacets:false}))).toMatchObject({total:6,pages:3,items:[{name:'Alpha series'},{name:'Beta series'}]});
+  expect((await repository.browseTitles({page:2,pageSize:2,sort:'name',includeFacets:false}))).toMatchObject({total:6,pages:3,items:[{name:'External Movie'},{name:'External TV'}]});
+  expect((await repository.browseTitles({page:3,pageSize:2,sort:'name'}))).toMatchObject({total:6,pages:3,items:[{name:'Future Wikipedia'},{name:'Zero episodes'}],facets:{genres:expect.arrayContaining([expect.objectContaining({value:'adventure',count:2})]),types:expect.arrayContaining([expect.objectContaining({value:'movie',count:1}),expect.objectContaining({value:'tv',count:5})])}});
+  expect(await repository.titleCount()).toBe(6);
+ },15000);
+ it('keeps a same-ID row with a different canonical source identity distinct',async()=>{
+  await db.prepare('DELETE FROM titles WHERE id=2').run();
+  await db.prepare('INSERT INTO titles(id,source,source_id,slug,canonical_url,name,description,format,release_year,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(2,'wikipedia-tv','Q2','numeric-collision','https://en.wikipedia.org/wiki/Q2','Collision series','Independent identity','TV',2026,'Upcoming',date,date,date,date).run();
+  const repository=createCatalogueRepository(db,reader().baseline);const result=await repository.browseTitles({scope:'all',page:1,pageSize:100,sort:'name',includeFacets:false});
+  expect(result.total).toBe(4);expect(result.items.filter(row=>row.id==='2').map(row=>row.name)).toEqual(['Beta series','Collision series']);
+ });
+ it('does not duplicate a represented TVMaze row when D1 also hydrates it',async()=>{
+  const result=await createCatalogueRepository(db,reader().baseline).browseTitles({scope:'tv',page:1,pageSize:100,sort:'name',includeFacets:false});
+  expect(result).toMatchObject({total:1,pages:1,items:[{id:'2',source:'tvmaze',sourceId:'source-2',name:'Beta series'}]});expect(result.items).toHaveLength(1);
+ });
+ it('keeps the baseline authoritative when D1 reallocates an identity from a represented source',async()=>{
+  await db.prepare('DELETE FROM titles WHERE id=2').run();
+  await db.prepare('INSERT INTO titles(id,source,source_id,slug,canonical_url,name,description,format,release_year,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(92,'tvmaze','source-2','title-2','https://example.invalid/title-2','Beta overlay','Newer metadata','TV',2026,'Finished',date,date,date,date).run();
+  const repository=createCatalogueRepository(db,reader().baseline);
+  expect(await repository.browseTitles({scope:'all',q:'overlay',page:1,pageSize:100,sort:'name',includeFacets:false})).toMatchObject({total:0,items:[]});
+  expect(await repository.browseTitles({scope:'all',q:'Beta',page:1,pageSize:100,sort:'name',includeFacets:false})).toMatchObject({total:1,items:[{id:'2',source:'tvmaze',sourceId:'source-2',name:'Beta series'}]});
+  expect((await repository.browseTitles({page:1,pageSize:100,sort:'name',includeFacets:false}))).toMatchObject({total:3});
+  expect(await repository.titleCount()).toBe(3);
  });
  it('falls back only missing D1 cards while keeping baseline sorting and requested pagination',async()=>{
   await db.prepare('DELETE FROM titles WHERE id=2').run();const test=reader();const result=await createCatalogueRepository(db,test.baseline).browseTitles({page:1,pageSize:2,sort:'name',includeFacets:false});

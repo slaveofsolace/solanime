@@ -11,7 +11,7 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .spotlight-art { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .spotlight-art__banner { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; visibility: hidden; }
 .spotlight-art[data-banner='loaded'] .spotlight-art__banner { visibility: visible; }
-.spotlight-art__poster[hidden] { display: none; }
+.spotlight-art[data-banner='loaded'] .spotlight-art__poster { display: none; }
 .spotlight-art__poster { position: absolute; top: 125px; right: 14%; height: min(55svh, 560px); aspect-ratio: 36 / 51; overflow: hidden; border-radius: 10px; background: var(--surface); box-shadow: 0 24px 70px #0006; }
 .spotlight-art__poster img { width: 100%; height: 100%; object-fit: contain; }
 .spotlight-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg), transparent 75%), linear-gradient(0deg, var(--bg), transparent 36%); }
@@ -213,6 +213,8 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 @media (max-width: 600px) {
   .spotlight-scene { min-height: min(760px, 92svh); padding: 330px var(--gutter) 120px; }
   .spotlight-art__banner { object-position: 64% center; }
+  .spotlight-art[data-banner='loaded'][data-mobile-art='poster'] .spotlight-art__banner { visibility: hidden; }
+  .spotlight-art[data-banner='loaded'][data-mobile-art='poster'] .spotlight-art__poster { display: block; }
   .spotlight-art[data-banner='loaded']::after { background: linear-gradient(0deg, var(--bg), #050909b8 28%, transparent 75%), linear-gradient(180deg, #0005, transparent 26%); }
   .spotlight-art__poster { top: 90px; right: 50%; transform: translateX(50%); height: 220px; }
   .spotlight-art::after { background: linear-gradient(0deg, var(--bg), color-mix(in srgb, var(--bg) 95%, transparent) 30%, transparent 72%); }

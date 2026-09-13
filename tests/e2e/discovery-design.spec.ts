@@ -60,11 +60,13 @@ test('320px discovery controls remain readable and contained', async ({ page }) 
   expect(search!.width).toBeGreaterThanOrEqual(280);
   expect(filters!.height).toBeGreaterThanOrEqual(44);
   expect(sort!.height).toBeGreaterThanOrEqual(43.9);
-  expect(sortSelect!.width).toBeGreaterThanOrEqual(135);
-  expect(view!.width).toBeGreaterThanOrEqual(136);
+  expect(Math.abs(filters!.y - sort!.y)).toBeLessThanOrEqual(1);
+  expect(Math.abs(sort!.y - view!.y)).toBeLessThanOrEqual(1);
+  expect(sortSelect!.width).toBeGreaterThanOrEqual(110);
+  expect(view!.width).toBeGreaterThanOrEqual(80);
   const densityButtons = await page.locator('.view-switcher button').all();
   for (const button of densityButtons) {
-    expect((await button.boundingBox())!.width).toBeGreaterThanOrEqual(60);
+    expect((await button.boundingBox())!.width).toBeGreaterThanOrEqual(38);
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
     await page.evaluate(() => document.documentElement.clientWidth),
@@ -73,5 +75,5 @@ test('320px discovery controls remain readable and contained', async ({ page }) 
   await page.setViewportSize({ width: 390, height: 844 });
   expect(
     (await page.getByRole('combobox', { name: 'Sort titles' }).boundingBox())!.width,
-  ).toBeGreaterThanOrEqual(165);
+  ).toBeGreaterThanOrEqual(150);
 });

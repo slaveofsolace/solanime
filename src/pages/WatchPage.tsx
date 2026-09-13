@@ -10,6 +10,8 @@ import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
 import EpisodeCommunity from '../components/EpisodeCommunity';
 import UnsupportedPlayback from '../components/UnsupportedPlayback';
+import ProviderPlayer from '../components/ProviderPlayer';
+import { isProviderEmbedResolution } from '../lib/providerEmbedPolicy';
 import '../styles/title-watch.css';
 
 function safeAttributionUrl(value: string) {
@@ -121,6 +123,11 @@ function WatchSession() {
       .resolve(candidate.mappingId, language, abort.signal)
       .then((source) => {
         if (abort.signal.aborted) return;
+        if (isProviderEmbedResolution(source, language)) {
+          setResolution(source);
+          setResolving(false);
+          return;
+        }
         if (!mediaIsSupported(source, window.location.origin)) {
           setUnsupported(true);
           setResolving(false);
@@ -219,7 +226,7 @@ function WatchSession() {
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
       <Link className="watch-back" to={`/title/${encodeURIComponent(slug)}`}>
         <Icon name="left" />
-        Back to series
+        Back to title
       </Link>
       <div className="player-stage">
         {loadingSources || resolving ? (
@@ -236,30 +243,52 @@ function WatchSession() {
             {failure}
           </PlayerMessage>
         ) : resolution ? (
-          <PlayerSurface
-            key={`${episode.id}:${resolution.mappingId}`}
-            resolution={resolution}
-            episodeId={episode.id}
-            language={language}
-            rememberProgress={preferences.rememberProgress}
-            initialPosition={
-              carriedProgress.current?.position ??
-              (preferences.rememberProgress ? historyEntry?.position : undefined)
-            }
-            theater={theater}
-            onTheater={() => setTheater((value) => !value)}
-            onPrevious={previous ? () => go(previous.id) : undefined}
-            onNext={next ? () => go(next.id) : undefined}
-            onOpen={() => remember()}
-            onProgress={(position, duration) => {
-              carriedProgress.current = { position, duration };
-              if (preferences.rememberProgress) remember(position, duration);
-            }}
-            onEnded={() => {
-              if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
-              if (preferences.autoplayNext && next) go(next.id);
-            }}
-          />
+          isProviderEmbedResolution(resolution, language) ? (
+            <ProviderPlayer
+              key={`${episode.id}:${resolution.mappingId}`}
+              resolution={resolution}
+              language={language}
+              onOpen={() => remember()}
+              onProgress={(position, duration) => {
+                carriedProgress.current = { position, duration };
+                if (preferences.rememberProgress) remember(position, duration);
+              }}
+              onEnded={() => {
+                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (preferences.autoplayNext && next) go(next.id);
+              }}
+              onError={(message) => {
+                setFailure(message);
+                setFailureStage('resolution');
+                setResolution(null);
+              }}
+            />
+          ) : (
+            <PlayerSurface
+              key={`${episode.id}:${resolution.mappingId}`}
+              resolution={resolution}
+              episodeId={episode.id}
+              language={language}
+              rememberProgress={preferences.rememberProgress}
+              initialPosition={
+                carriedProgress.current?.position ??
+                (preferences.rememberProgress ? historyEntry?.position : undefined)
+              }
+              theater={theater}
+              onTheater={() => setTheater((value) => !value)}
+              onPrevious={previous ? () => go(previous.id) : undefined}
+              onNext={next ? () => go(next.id) : undefined}
+              onOpen={() => remember()}
+              onProgress={(position, duration) => {
+                carriedProgress.current = { position, duration };
+                if (preferences.rememberProgress) remember(position, duration);
+              }}
+              onEnded={() => {
+                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (preferences.autoplayNext && next) go(next.id);
+              }}
+            />
+          )
         ) : (
           <UnsupportedPlayback providers={providers} selected={unsupported ? candidate : undefined} />
         )}
@@ -359,7 +388,7 @@ function WatchSession() {
           onClick={() => watchlist.toggle(title.id, title)}
         >
           <Icon name={watchlist.has(title.id) ? 'check' : 'bookmark'} />
-          {watchlist.has(title.id) ? 'Saved' : 'Save series'}
+          {watchlist.has(title.id) ? 'In My List' : 'My List'}
         </button>
       </header>
       {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
@@ -394,6 +423,7 @@ function WatchSession() {
           language={language}
           slug={slug}
           currentId={episode.id}
+          compactHeading
         />
       </details>
       <EpisodeCommunity episodeId={episode.id} />
@@ -429,8 +459,8 @@ function WatchSession() {
           <ul className="comment-list" aria-label="Saved episode notes">
             {localNotes.length === 0 ? (
               <li className="comment-list__empty">
-                <strong>No notes for this episode</strong>
-                <p>Anything you save stays private to this profile or device.</p>
+                <strong>No private notes yet</strong>
+                <p>Notes you save here stay with this profile or device.</p>
               </li>
             ) : localNotes.map((n) => (
                 <li key={n.id}>

@@ -49,6 +49,13 @@ const search = () => screen.getByRole('searchbox', { name: 'Find an episode' }) 
 const currentLink = () => document.querySelector<HTMLAnchorElement>('a[aria-current="page"]');
 
 describe('episode browser current-range navigation', () => {
+  it('does not repeat a generic episode number beside the same generated label', () => {
+    setup({ episodes: episodes.slice(0, 1), currentId: 'episode-1' });
+    expect(screen.getByText('Episode 1')).toBeTruthy();
+    expect(document.querySelector('.episode-number')).toBeNull();
+    expect(screen.queryByRole('searchbox', { name: 'Find an episode' })).toBeNull();
+  });
+
   it('initially opens episode 1177 in the final bounded range and preserves its watch route', () => {
     setup();
     expect(range('1151–1177').getAttribute('aria-pressed')).toBe('true');

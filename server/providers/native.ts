@@ -104,7 +104,9 @@ export async function resolveInternetArchive(mapping: StoredProviderMapping, res
 /** Transitional fields keep existing local clients compatible with the stricter contract. */
 export function legacyResolution(result: PlaybackResult): ProviderResolution & { result: PlaybackResult } {
   const base = { mappingId: Number(result.mappingId), providerId: result.providerId, kind: result.kind, result };
-  return result.kind === 'native'
-    ? { ...base, status: 'resolved', playbackType: result.format, delivery: 'native', url: result.url, allowedMediaHosts: result.allowedMediaHosts, mediaCrossOrigin: result.mediaCrossOrigin, captions: result.captions, attribution: result.attribution, expiresAt: result.expiresAt ?? undefined }
-    : { ...base, status: 'unsupported', playbackType: 'unknown', error: result.error };
+  if (result.kind === 'native')
+    return { ...base, status: 'resolved', playbackType: result.format, delivery: 'native', url: result.url, allowedMediaHosts: result.allowedMediaHosts, mediaCrossOrigin: result.mediaCrossOrigin, captions: result.captions, attribution: result.attribution, expiresAt: result.expiresAt ?? undefined };
+  if (result.kind === 'embed')
+    return { ...base, status: 'resolved', playbackType: 'iframe', delivery: 'provider', embedUrl: result.embedUrl, allowedEmbedHosts: result.allowedEmbedHosts, capabilities: result.capabilities, iframePolicy: result.iframePolicy, messageProtocol: result.messageProtocol, expiresAt: result.expiresAt ?? undefined };
+  return { ...base, status: 'unsupported', playbackType: 'unknown', error: result.error };
 }

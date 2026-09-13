@@ -17,16 +17,26 @@ const rows = async (db: CatalogueDatabase, sql: string, ...values: unknown[]) =>
 /** Request-scoped repository: no cross-request mutable cache or SQLite filesystem dependency. */
 export function createCatalogueRepository(db: CatalogueDatabase, baseline?: ReturnType<typeof createPrivateBaselineReader>) {
   const titleSelect = 'SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount';
+  const canonicalIdentity = (row: Row) => {
+    const source = typeof row.source === 'string' ? row.source.trim().toLowerCase() : '';
+    const sourceId = typeof row.sourceId === 'string' || typeof row.sourceId === 'number' ? String(row.sourceId).trim() : '';
+    return source && sourceId ? `${source}\u0000${sourceId}` : null;
+  };
+  const normalizedId = (row: Row) => {
+    const value = String(row.id ?? '').trim();
+    return /^[0-9]+$/.test(value) ? value.replace(/^0+(?=\d)/, '') : value;
+  };
+  const identityTie = (left: Row, right: Row) => (canonicalIdentity(left) ?? `id\u0000${normalizedId(left)}`).localeCompare(canonicalIdentity(right) ?? `id\u0000${normalizedId(right)}`);
   const nameCompare = (left: Row, right: Row) => {
     const a = String(left.name ?? '').toLowerCase(), b = String(right.name ?? '').toLowerCase();
-    return a < b ? -1 : a > b ? 1 : Number(left.id) - Number(right.id);
+    return a < b ? -1 : a > b ? 1 : Number(left.id) - Number(right.id) || identityTie(left, right);
   };
   const compareBrowseRows = (sort: string) => (left: Row, right: Row) => {
     const aYear = left.releaseYear === null || left.releaseYear === undefined ? null : Number(left.releaseYear);
     const bYear = right.releaseYear === null || right.releaseYear === undefined ? null : Number(right.releaseYear);
     if (sort === 'newest' || sort === 'year_desc') return (bYear ?? -Infinity) - (aYear ?? -Infinity) || nameCompare(left, right);
     if (sort === 'oldest' || sort === 'year_asc') return (aYear ?? Infinity) - (bYear ?? Infinity) || nameCompare(left, right);
-    if (sort === 'updated') return String(right.updatedAt).localeCompare(String(left.updatedAt)) || Number(right.id) - Number(left.id);
+    if (sort === 'updated') return String(right.updatedAt).localeCompare(String(left.updatedAt)) || Number(right.id) - Number(left.id) || identityTie(left, right);
     if (sort === 'episodes') return Number(right.episodeCount) - Number(left.episodeCount) || nameCompare(left, right);
     return nameCompare(left, right);
   };
@@ -44,10 +54,21 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     }
     return result;
   };
-  const sourceClause = (sources: readonly string[]) => sources.length ? `t.source IN (${sources.map(() => '?').join(',')})` : '1=1';
+  const sourceClause = (sources: readonly string[], excludedSources: readonly string[] = []) => sources.length
+    ? `LOWER(t.source) IN (${sources.map(() => '?').join(',')})`
+    : excludedSources.length ? `LOWER(t.source) NOT IN (${excludedSources.map(() => '?').join(',')})` : '1=1';
+  const sameIdentity = (left: Row, right: Row) => {
+    const a = canonicalIdentity(left), b = canonicalIdentity(right);
+    return a && b ? a === b : Boolean(normalizedId(left) && normalizedId(left) === normalizedId(right));
+  };
+  const baselineCard = (value: Awaited<ReturnType<NonNullable<typeof baseline>['browseRow']>>) => {
+    if (!value) return null;
+    const { card, aliases: _aliases, genres: _genres, languages: _languages, ...summary } = value;
+    return { ...summary, ...card, imageUrl: card.artworkUrl, description: card.synopsis, format: card.type } as Row;
+  };
 
-  async function getD1Filters(sources: readonly string[]) {
-    const clause = sourceClause(sources), values = [...sources];
+  async function getD1Filters(sources: readonly string[], excludedSources: readonly string[] = []) {
+    const clause = sourceClause(sources, excludedSources), values = (sources.length ? sources : excludedSources).map(source => source.toLowerCase());
     const result = await db.batch<Row>([
       db.prepare(`SELECT g.slug AS value,g.name AS label,COUNT(*) AS count FROM genres g JOIN title_genres tg ON tg.genre_id=g.id JOIN titles t ON t.id=tg.title_id WHERE ${clause} GROUP BY g.id ORDER BY g.name`).bind(...values),
       db.prepare(`SELECT LOWER(t.format) AS value,MIN(t.format) AS label,COUNT(*) AS count FROM titles t WHERE ${clause} AND t.format IS NOT NULL AND t.format<>'' GROUP BY t.format COLLATE NOCASE ORDER BY t.format COLLATE NOCASE`).bind(...values),
@@ -63,14 +84,10 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     if (baseline && await baseline.episode(episodeId)) return true;
     return Boolean(await db.prepare('SELECT 1 FROM episodes WHERE id=?').bind(episodeId).first());
   }
-  async function getFilters() {
-    if(baseline)return (await baseline.manifest()).facets;
-    return getD1Filters([]);
-  }
 
-  async function browseD1Titles(params: BrowseParams, sources: readonly string[], offset = (params.page - 1) * params.pageSize, limit = params.pageSize) {
-    const where = [sourceClause(sources)];
-    const values: unknown[] = [...sources];
+  async function browseD1Titles(params: BrowseParams, sources: readonly string[], offset = (params.page - 1) * params.pageSize, limit = params.pageSize, includeFacets = params.includeFacets !== false, excludedSources: readonly string[] = []) {
+    const where = [sourceClause(sources, excludedSources)];
+    const values: unknown[] = [...(sources.length ? sources : excludedSources).map(source => source.toLowerCase())];
     if (params.q) {
       where.push('(INSTR(LOWER(t.name),LOWER(?))>0 OR EXISTS (SELECT 1 FROM title_aliases a WHERE a.title_id=t.id AND INSTR(LOWER(a.alias),LOWER(?))>0))');
       values.push(params.q, params.q);
@@ -92,8 +109,59 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     ]);
     const total = Number(result[0].results[0].count);
     return {
-      items: await decorateCloudArtwork(db, result[1].results), total,
-      facets: params.includeFacets !== false ? await getD1Filters(sources) : undefined,
+      items: result[1].results, total,
+      facets: includeFacets ? await getD1Filters(sources, excludedSources) : undefined,
+    };
+  }
+
+  const overlayBaselineCard = (frozen: Row, actual: Row) => {
+    const preferred = Object.fromEntries(Object.entries(actual).filter(([, value]) => value !== null && value !== undefined && value !== ''));
+    return {
+      ...frozen, ...preferred,
+      id: frozen.id, source: frozen.source, sourceId: frozen.sourceId,
+      episodeCount: Math.max(Number(frozen.episodeCount ?? 0), Number(actual.episodeCount ?? 0)),
+    };
+  };
+  async function getFilters() {
+    if (!baseline) return getD1Filters([]);
+    const frozen = await baseline.browseIds({ page: 1, pageSize: 1, sort: 'name', includeFacets: true }, { offset: 0, limit: 1 });
+    return mergeFacets(frozen.facets, await getD1Filters([], frozen.sourceNames)) ?? { genres: [], types: [], statuses: [], languages: [] };
+  }
+  async function titleCount() {
+    if (!baseline) return Number((await db.prepare('SELECT COUNT(*) AS titles FROM titles').first<{ titles: number }>())?.titles ?? 0);
+    const frozen = await baseline.browseIds({ page: 1, pageSize: 1, sort: 'name', includeFacets: false }, { offset: 0, limit: 1 });
+    const clause = sourceClause([], frozen.sourceNames);
+    const external = await db.prepare(`SELECT COUNT(*) AS titles FROM titles t WHERE ${clause}`).bind(...frozen.sourceNames.map(source => source.toLowerCase())).first<{ titles: number }>();
+    return frozen.total + Number(external?.titles ?? 0);
+  }
+
+  async function hydrateBaselineRows(ids: readonly string[], episodeCounts: Record<string, number>, sourceNames: readonly string[]) {
+    const clause = sourceClause(sourceNames);
+    const stored = ids.length ? await rows(db, `${titleSelect} FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?)) AND ${clause}`, JSON.stringify(ids), ...sourceNames.map(source => source.toLowerCase())) : [];
+    const byId = new Map(stored.map(row => [normalizedId(row), row]));
+    const hydrated: Row[] = [];
+    for (const id of ids) {
+      const frozen = baselineCard(await baseline!.browseRow(id));
+      if (!frozen) throw new AppError(503, 'UNAVAILABLE', 'A catalogue card is missing from its verified snapshot.');
+      frozen.episodeCount = Math.max(Number(frozen.episodeCount ?? 0), Number(episodeCounts[id] ?? 0));
+      const actual = byId.get(normalizedId(frozen));
+      hydrated.push(actual && sameIdentity(frozen, actual) ? overlayBaselineCard(frozen, actual) : frozen);
+    }
+    return hydrated;
+  }
+
+  async function browseUnionTitles(params: BrowseParams) {
+    const offset = (params.page - 1) * params.pageSize;
+    const end = offset + params.pageSize;
+    const frozen = await baseline!.browseIds(params, { offset: 0, limit: end });
+    const external = await browseD1Titles(params, [], 0, end, params.includeFacets !== false, frozen.sourceNames);
+    const baselineRows = await hydrateBaselineRows(frozen.ids, frozen.episodeCounts, frozen.sourceNames);
+    const items = [...baselineRows, ...external.items].sort(compareBrowseRows(params.sort)).slice(offset, end);
+    const total = frozen.total + external.total;
+    return {
+      items: await decorateCloudArtwork(db, items), total, page: params.page, pageSize: params.pageSize,
+      pages: Math.ceil(total / params.pageSize),
+      ...(params.includeFacets !== false ? { facets: mergeFacets(frozen.facets, external.facets) } : {}),
     };
   }
 
@@ -104,10 +172,10 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     const scope = params.scope;
     if (scope && !isCatalogueScope(scope))
       throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
-    // The immutable baseline is authoritative for the large anime catalogue and
-    // legacy unscoped browse page. TV is a composite: TVMaze remains in the
-    // checked snapshot while independent Wikipedia rows arrive through D1.
-    const useBaselineBrowse = baseline && (!scope || scope === 'anime');
+    // Anime remains snapshot-authoritative. Global discovery is the stable
+    // identity union of that snapshot and every D1 source, including sources
+    // added after this Worker release.
+    const useBaselineBrowse = baseline && scope === 'anime';
     if (useBaselineBrowse) {
       const page = await baseline.browseIds(params);
       const stored = page.ids.length ? await rows(db, `${titleSelect} FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
@@ -123,6 +191,7 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
       }
       return {items:await decorateCloudArtwork(db,items),total:page.total,page:page.page,pageSize:page.pageSize,pages:page.pages,...(params.includeFacets !== false ? {facets:page.facets}:{})};
     }
+    if (baseline && (!scope || scope === 'all')) return browseUnionTitles(params);
     if (baseline && scope === 'tv') {
       const end = params.page * params.pageSize;
       const frozen = await baseline.browseIds(params, { offset: 0, limit: end });
@@ -142,14 +211,14 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
       const offset = (params.page - 1) * params.pageSize;
       const total = frozen.total + overlay.total;
       return {
-        items: combined.slice(offset, offset + params.pageSize), total, page: params.page,
+        items: await decorateCloudArtwork(db, combined.slice(offset, offset + params.pageSize)), total, page: params.page,
         pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize),
         ...(params.includeFacets !== false ? { facets: mergeFacets(frozen.facets, overlay.facets) } : {}),
       };
     }
     const sources = scope && isCatalogueScope(scope) ? sourcesForCatalogueScope(scope) : [];
     const result = await browseD1Titles(params, sources);
-    return { items: result.items, total: result.total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(result.total / params.pageSize), ...(params.includeFacets !== false ? { facets: result.facets } : {}) };
+    return { items: await decorateCloudArtwork(db, result.items), total: result.total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(result.total / params.pageSize), ...(params.includeFacets !== false ? { facets: result.facets } : {}) };
   }
 
   async function getTitleD1(slug: string) {
@@ -292,5 +361,5 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     return { exportSchemaVersion: 2, items, nextCursor: hasMore ? items.at(-1)?.id : null, note: 'Catalogue fields only; authentication, resolver resources and temporary playback references are excluded.' };
   }
 
-  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, hasEpisode, adminStatus, exportTitlesPage };
+  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, hasEpisode, titleCount, adminStatus, exportTitlesPage };
 }

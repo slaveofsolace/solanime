@@ -15,8 +15,19 @@ export function SpotlightArtwork({ title, className = '' }: { title: TitleSummar
   const poster = title.posterUrl || title.imageUrl || null;
   const bannerState = !banner ? 'none' : bannerResult?.url === banner ? bannerResult.state : 'loading';
   const dimensions = title.artwork?.backdrop?.url === banner ? title.artwork.backdrop : undefined;
+  const mobileBannerSafe = Boolean(
+    dimensions &&
+      dimensions.width >= 900 &&
+      dimensions.height >= 600 &&
+      dimensions.width / dimensions.height <= 2.8,
+  );
   return (
-    <div className={`spotlight-art ${className}`} aria-hidden="true" data-banner={bannerState}>
+    <div
+      className={`spotlight-art ${className}`}
+      aria-hidden="true"
+      data-banner={bannerState}
+      data-mobile-art={banner && mobileBannerSafe ? 'banner' : 'poster'}
+    >
       {banner && bannerState !== 'failed' && (
         <img
           key={banner}
@@ -37,7 +48,6 @@ export function SpotlightArtwork({ title, className = '' }: { title: TitleSummar
       )}
       <div
         className="spotlight-art__poster"
-        hidden={bannerState === 'loaded'}
         style={poster ? ({ '--spotlight-poster': `url(${JSON.stringify(poster)})` } as CSSProperties) : undefined}
       >
         <CoverArt title={title} eager />
@@ -50,7 +60,11 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
   const { watchlist, setPreview } = useAppState();
   const [index, setIndex] = useState(0);
   const usable = items.filter((title) => title.synopsis && (title.imageUrl || title.posterUrl));
-  const choices = (usable.length ? usable : items).slice(0, 5);
+  const editorial = usable.filter((title) => Boolean(title.backdropUrl));
+  // An ultrawide hero needs an actual backdrop. Falling through to a portrait
+  // poster after four good slides makes the carousel visibly collapse, so a
+  // shorter high-fidelity set is preferable to a fixed five-item count.
+  const choices = (editorial.length ? editorial : usable.length ? usable : items).slice(0, 5);
   const selected = index % Math.max(choices.length, 1),
     item = choices[selected];
   if (!item) return null;
@@ -78,7 +92,7 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
           {item.synopsis && <p className="feature-synopsis">{item.synopsis}</p>}
           <div className="button-row">
             <Link className="button button--primary" to={`/title/${encodeURIComponent(item.slug)}`}>
-              <Icon name="play" />
+              <Icon name="right" />
               View episodes
             </Link>
             <button

@@ -53,6 +53,12 @@ function publicAttributionUrl(value?: string): string | null {
   }
 }
 
+function languageLabel(value: string) {
+  if (value.toLocaleLowerCase() === 'sub') return 'Subtitled';
+  if (value.toLocaleLowerCase() === 'dub') return 'Dubbed';
+  return value;
+}
+
 export default function TitlePage() {
   const { slug = '' } = useParams();
   return <TitleSession key={slug} />;
@@ -197,7 +203,7 @@ function TitleSession() {
                 className="button button--primary"
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(firstPlayableEpisode.id)}?language=${encodeURIComponent(language)}`}
               >
-                Play first episode <Icon name="play" />
+                Open first episode <Icon name="right" />
               </Link>
             ) : firstEpisode ? (
               <a className="button button--primary" href="#episodes-title">
@@ -211,7 +217,7 @@ function TitleSession() {
               onClick={() => watchlist.toggle(title.id, { ...title, name })}
             >
               <Icon name={saved ? 'check' : 'bookmark'} />
-              {saved ? 'Remove from watchlist' : 'Add to watchlist'}
+              {saved ? 'In My List' : 'My List'}
             </button>
           </div>
           <div className="title-hero__details">
@@ -226,7 +232,7 @@ function TitleSession() {
               </div>
               <div>
                 <dt>Versions</dt>
-                <dd>{languages.join(' / ') || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
+                <dd>{languages.map(languageLabel).join(' / ') || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
               </div>
             </dl>
             {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}
@@ -266,7 +272,7 @@ function TitleSession() {
                   setLanguage(item);
                 }}
               >
-                {item}
+                {languageLabel(item)}
               </button>
             ))}
           </div>
@@ -278,7 +284,7 @@ function TitleSession() {
             remains available while synchronization continues.
           </InlineNotice>
         ) : (
-          <EpisodeBrowser episodes={episodes} slug={slug} language={language} />
+          <EpisodeBrowser episodes={episodes} slug={slug} language={language} compactHeading />
         )}
       </section>
 

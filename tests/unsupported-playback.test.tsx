@@ -29,7 +29,10 @@ describe('unsupported playback state', () => {
   it('keeps observed provider mappings visible without calling them playable', () => {
     render(<UnsupportedPlayback providers={providers} />);
 
-    expect(screen.getByRole('heading', { name: 'Not available in the Solanime player' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'No in-player stream' })).toBeTruthy();
+    expect(screen.getByText('2 sources mapped · 0 native streams')).toBeTruthy();
+    expect(screen.getByText(/None of the mapped providers currently returns/i)).toBeTruthy();
+    expect(screen.getByText('Why each source is unavailable')).toBeTruthy();
     expect(screen.getByRole('list', { name: 'Observed playback sources' })).toBeTruthy();
     expect(screen.getByText('Web mirror')).toBeTruthy();
     expect(screen.getByText('Webpage-only source')).toBeTruthy();
@@ -48,7 +51,7 @@ describe('unsupported playback state', () => {
     };
     render(<UnsupportedPlayback providers={[selected]} selected={selected} />);
 
-    expect(screen.getByRole('heading', { name: 'This source cannot play safely' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'This source cannot play here' })).toBeTruthy();
     expect(screen.getByText('Selected response rejected')).toBeTruthy();
     expect(screen.getByText(/format or origin/i)).toBeTruthy();
   });
@@ -56,7 +59,8 @@ describe('unsupported playback state', () => {
   it('reports a genuinely empty mapping inventory without inventing sources', () => {
     render(<UnsupportedPlayback providers={[]} />);
 
-    expect(screen.getByText('No provider mapping has been observed for this episode yet.')).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Playback not mapped yet' })).toBeTruthy();
+    expect(screen.getByText(/No provider mapping has been observed/i)).toBeTruthy();
     expect(screen.queryByRole('list', { name: 'Observed playback sources' })).toBeNull();
   });
 });

@@ -514,14 +514,18 @@
   }
 
   .main-nav {
+    display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: auto;
     border-radius: 12px;
     pointer-events: auto;
   }
 
   .main-nav > a {
+    min-width: 0;
     padding: 4px;
     border-radius: 8px;
+    overflow: hidden;
   }
 
   .main-nav > a[aria-current='page'] {
@@ -564,6 +568,14 @@
   .title-hero {
     min-height: 600px;
     padding-top: 118px;
+  }
+
+  .site-shell--watch .main-nav {
+    display: none;
+  }
+
+  .site-shell--watch .site-footer {
+    margin-bottom: 0;
   }
 }
 
@@ -619,8 +631,8 @@
   }
 
   .title-hero {
-    min-height: 620px;
-    padding: 296px var(--gutter) 36px;
+    min-height: 540px;
+    padding: 242px var(--gutter) 30px;
   }
 
   .title-page .episode-grid {
@@ -629,6 +641,29 @@
 
   .genre-grid a {
     width: 100%;
+  }
+
+  .catalogue-page .discovery-actions {
+    display: grid;
+    grid-template-columns: 78px minmax(110px, 1fr) 84px;
+    gap: 4px;
+  }
+
+  .catalogue-page .discovery-actions .filter-disclosure,
+  .catalogue-page .discovery-actions .discovery-sort,
+  .catalogue-page .discovery-actions .view-switcher {
+    grid-column: auto;
+  }
+
+  .catalogue-page .discovery-actions .view-switcher {
+    gap: 2px;
+    padding-left: 2px;
+  }
+
+  .catalogue-page .discovery-actions .view-switcher button {
+    width: 40px;
+    min-height: 44px;
+    flex: none;
   }
 }
 

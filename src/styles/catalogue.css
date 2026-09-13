@@ -35,6 +35,60 @@
   height: 100%;
   object-fit: cover;
 }
+.cover-composition {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111315;
+}
+.cover-composition::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 2%), rgb(0 0 0 / 14%)),
+    radial-gradient(circle at 58% 34%, transparent 34%, rgb(0 0 0 / 16%) 100%);
+  content: '';
+  pointer-events: none;
+}
+.cover-composition--poster-layout::after {
+  background:
+    linear-gradient(90deg, rgb(3 4 5 / 38%), transparent 48%, rgb(3 4 5 / 8%)),
+    linear-gradient(180deg, transparent 54%, rgb(0 0 0 / 28%));
+}
+.cover-composition__wash,
+.cover-composition__poster,
+.cover-composition__crop {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cover-composition__wash,
+.cover-composition__crop {
+  object-fit: cover;
+}
+.cover-composition__wash {
+  filter: blur(13px) saturate(.86) contrast(1.02) brightness(.58);
+  transform: scale(1.13);
+}
+.cover-composition__poster {
+  z-index: 1;
+  right: 4%;
+  left: auto;
+  width: 46%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(-12px 0 22px rgb(0 0 0 / 54%));
+}
+.cover-composition__crop {
+  object-position: 50% 24%;
+  filter: saturate(.94) contrast(1.035) brightness(.94);
+  transform: scale(1.025);
+}
 .title-card__corner {
   position: absolute;
   bottom: 10px;
@@ -366,6 +420,18 @@
 .watched-toggle .icon {
   width: 15px;
   height: 15px;
+  padding: 2px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.watched-toggle[aria-pressed='false'] .icon path {
+  opacity: 0;
+}
+.watched-toggle[aria-pressed='true'] .icon {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 .watched-toggle span {
   display: none;

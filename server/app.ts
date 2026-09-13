@@ -24,11 +24,12 @@ import {
   getTitle,
 } from './catalogue.ts';
 import { AppError, asAppError } from './errors.ts';
-import { unsupportedSource, enforceNativeResolution } from './providers/playbackPolicy.ts';
+import { unsupportedSource, enforceNativeResolution, enforcePlaybackResolution } from './providers/playbackPolicy.ts';
 import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.ts';
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
 import { providerSupportDiagnostic } from './providers/support-diagnostics.ts';
+import { hasSupportedMegaPlayEmbed, MEGAPLAY_EMBED_CAPABILITIES, resolveMegaPlayEmbed } from './providers/embed.ts';
 
 const MAX_BODY = 16 * 1024;
 const DEFAULT_MAX_PENDING_RESOLUTIONS = 8;
@@ -169,7 +170,10 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     (async (mapping: StoredProviderMapping, signal: AbortSignal) => {
       const approved = db.prepare('SELECT * FROM native_resources WHERE mapping_id=? AND enabled=1').get(mapping.mappingId) as ApprovedNativeResource | undefined;
       if (approved && ['internet-archive', 'wikimedia-commons'].includes(mapping.providerId)) return legacyResolution(await resolveApprovedNative(mapping, approved, signal));
-      return nativeSources(mapping) ?? unsupportedSource(mapping);
+      const registered = nativeSources(mapping);
+      if (registered) return registered;
+      if (hasSupportedMegaPlayEmbed(mapping)) return legacyResolution(await resolveMegaPlayEmbed(mapping, signal));
+      return unsupportedSource(mapping);
     });
 
   const recordResolution = (
@@ -268,7 +272,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         .then((resolution) => {
           if (controller.signal.aborted)
             throw new DOMException('Resolution cancelled', 'AbortError');
-          const recorded = recordResolution(mapping, enforceNativeResolution(mapping, resolution));
+          const recorded = recordResolution(mapping, enforcePlaybackResolution(mapping, resolution));
           if (resolutionCooldownMs > 0) {
             resolutionCooldowns.set(mapping.mappingId, {
               expiresAt: Date.now() + resolutionCooldownMs,
@@ -352,21 +356,25 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
             const approved = hasEnabledNativeResource(mapping, resource);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
             const diagnostic = providerSupportDiagnostic(mapping);
+            const embed = !approved && !source && hasSupportedMegaPlayEmbed(mapping);
             return {
               ...provider,
-              supported: !!approved || source?.status === 'resolved',
-              playbackType: approved ? 'direct' : source?.playbackType ?? 'unknown',
-              status: approved ? 'available' : source
+              supported: !!approved || source?.status === 'resolved' || embed,
+              kind: approved || source?.status === 'resolved' ? 'native' : embed ? 'embed' : 'unsupported',
+              playbackType: approved ? 'direct' : source?.playbackType ?? (embed ? 'iframe' : 'unknown'),
+              status: approved || embed ? 'available' : source
                 ? source.status === 'resolved'
                   ? 'available'
                   : 'unavailable'
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source || approved ? null : diagnostic.message),
-              reasonCode: source?.error?.code ?? (source || approved ? null : diagnostic.code),
+                (source || approved || embed ? null : diagnostic.message),
+              reasonCode: source?.error?.code ?? (source || approved || embed ? null : diagnostic.code),
               capabilities:
-                approved || source?.status === 'resolved'
+                embed
+                  ? MEGAPLAY_EMBED_CAPABILITIES
+                  : approved || source?.status === 'resolved'
                   ? {
                       seek: true,
                       volume: true,

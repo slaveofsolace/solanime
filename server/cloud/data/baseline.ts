@@ -193,19 +193,22 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     const names: Record<string, keyof BaselinePostings['orders']> = { name: 'name', title: 'name', newest: 'newest', year_desc: 'newest', oldest: 'oldest', year_asc: 'oldest', updated: 'updated', episodes: 'episodes' };
     const order = own(postings.orders, names[params.sort] ?? 'name');
     if (!Array.isArray(order) || order.some(id => typeof id !== 'string')) throw changed();
+    const sourcePostings = own(postings, 'sources');
+    if (sourcePostings !== undefined && !record(sourcePostings)) throw changed();
+    if (sourcePostings) for (const values of Object.values(sourcePostings))
+      if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
+    const sourceNames = sourcePostings ? Object.keys(sourcePostings) : ['anikoto'];
     let ids: string[] = order;
     if (params.scope) {
       if (!isCatalogueScope(params.scope)) throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
       const requestedSources = sourcesForCatalogueScope(params.scope);
-      const sources = own(postings, 'sources');
-      if (sources === undefined) {
+      if (sourcePostings === undefined) {
         if (params.scope !== 'anime' && params.scope !== 'all') ids = [];
       } else {
-        if (!record(sources)) throw changed();
         if (requestedSources.length) {
           const accepted = new Set<string>();
           for (const source of requestedSources) {
-            const values = own(sources, source) ?? [];
+            const values = own(sourcePostings, source) ?? [];
             if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
             for (const id of values) accepted.add(id);
           }
@@ -249,7 +252,7 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
       if (!Number.isSafeInteger(count) || Number(count) < 0) throw changed();
       episodeCounts[id] = Number(count);
     }
-    return { ids: selected, episodeCounts, total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), facets: scopedFacets };
+    return { ids: selected, episodeCounts, total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), facets: scopedFacets, sourceNames };
   }
   return { manifest, titleById, titleBySlug, episodePage, episode, mapping, browseRow, browseIds, diagnostics: () => ({ reads, bytesRead }) };
 }

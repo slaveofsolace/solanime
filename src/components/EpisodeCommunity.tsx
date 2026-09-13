@@ -127,7 +127,7 @@ export default function EpisodeCommunity({ episodeId }: { episodeId: string }) {
   return (
     <section className="episode-community" aria-labelledby="episode-community-title">
       <header className="episode-community__heading">
-        <div><p className="eyebrow">Episode community</p><h2 id="episode-community-title">Conversation</h2></div>
+        <h2 id="episode-community-title">Comments</h2>
         <span aria-label={`${data.total} comments`}>{data.total}</span>
       </header>
 
@@ -158,8 +158,8 @@ export default function EpisodeCommunity({ episodeId }: { episodeId: string }) {
         <div className="community-empty">
           <span className="community-empty__mark" aria-hidden="true" />
           <div>
-            <strong>Be the first to comment</strong>
-            <p>No comments yet. Start the conversation for this episode.</p>
+            <strong>No comments yet</strong>
+            <p>Start the conversation for this episode.</p>
           </div>
         </div>
       ) : (

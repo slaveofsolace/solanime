@@ -435,17 +435,20 @@
   filter: drop-shadow(0 6px 18px rgb(0 0 0 / 40%));
 }
 
-.home-page .cover-composition__wash {
-  filter: blur(24px) saturate(.82) brightness(.52);
-  transform: scale(1.12);
+.home-page :is(.cover-composition__crop, .cover-composition__poster) {
+  transition: filter 180ms ease, transform 260ms cubic-bezier(.2, .75, .25, 1);
 }
 
-.home-page .cover-composition__poster {
-  right: auto;
-  left: 50%;
-  width: 52%;
-  transform: translateX(-50%);
-  filter: drop-shadow(0 0 18px rgb(0 0 0 / 70%));
+.home-page .title-card:hover .cover-composition__crop,
+.home-page .title-card:focus-within .cover-composition__crop {
+  filter: saturate(1.01) contrast(1.045) brightness(1.01);
+  transform: scale(1.065);
+}
+
+.home-page .title-card:hover .cover-composition__poster,
+.home-page .title-card:focus-within .cover-composition__poster {
+  filter: drop-shadow(-14px 0 24px rgb(0 0 0 / 58%)) brightness(1.035);
+  transform: scale(1.025);
 }
 
 .home-page .genre-grid {
@@ -954,7 +957,9 @@
   }
 
   .catalogue-heading__copy {
-    align-items: flex-end;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 12px;
   }
 
   .catalogue-page .catalogue-heading h1 {
@@ -962,8 +967,8 @@
   }
 
   .catalogue-page .catalogue-summary {
-    max-width: 15ch;
-    text-align: right;
+    max-width: none;
+    text-align: left;
     white-space: normal;
   }
 
@@ -973,11 +978,13 @@
   }
 
   .catalogue-page .discovery-actions {
+    display: grid;
+    grid-template-columns: auto minmax(112px, 1fr) auto;
     gap: 5px;
   }
 
   .catalogue-page .filter-disclosure {
-    grid-column: 1;
+    grid-column: auto;
   }
 
   .catalogue-page .filter-disclosure > summary {
@@ -985,18 +992,20 @@
   }
 
   .catalogue-page .discovery-sort {
-    grid-column: 2;
+    grid-column: auto;
     min-height: 44px;
   }
 
   .catalogue-page .view-switcher {
-    grid-column: 1 / -1;
+    grid-column: auto;
+    gap: 2px;
+    padding-left: 4px;
   }
 
   .catalogue-page .view-switcher button {
-    width: 44px;
+    width: 40px;
     min-height: 44px;
-    flex: 1;
+    flex: none;
   }
 
   .catalogue-page .title-grid,

@@ -245,14 +245,45 @@ export function CoverArt({
   );
   const backdropSrc = variant === 'landscape' ? title.backdropUrl : null;
   const [failedSources, setFailedSources] = useState<string[]>([]);
+  const [landscapeSources, setLandscapeSources] = useState<string[]>([]);
   const usablePoster = posterSources.find((source) => !failedSources.includes(source)) ?? null;
   const usableBackdrop = backdropSrc && !failedSources.includes(backdropSrc) ? backdropSrc : null;
   const src = variant === 'landscape' ? usableBackdrop : usablePoster;
+  const measuredPoster = title.artwork?.poster?.url === usablePoster ? title.artwork.poster : null;
+  const posterIsLandscape = Boolean(
+    usablePoster &&
+      (landscapeSources.includes(usablePoster) ||
+        (measuredPoster && measuredPoster.width / measuredPoster.height >= 1.45)),
+  );
   const markFailed = (failed: string) =>
     setFailedSources((current) => (current.includes(failed) ? current : [...current, failed]));
+  const recordShape = (image: HTMLImageElement, source: string) => {
+    if (image.naturalWidth / Math.max(1, image.naturalHeight) < 1.45) return;
+    setLandscapeSources((current) =>
+      current.includes(source) ? current : [...current, source],
+    );
+  };
   if (variant === 'landscape' && !usableBackdrop && usablePoster) {
+    if (posterIsLandscape) {
+      return (
+        <span className="cover-composition cover-composition--landscape-fallback" data-artwork-source="landscape-fallback">
+          <img
+            className="cover-composition__crop"
+            src={usablePoster}
+            alt=""
+            width="640"
+            height="360"
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
+            onError={() => markFailed(usablePoster)}
+            referrerPolicy="no-referrer"
+          />
+        </span>
+      );
+    }
     return (
-      <span className="cover-composition">
+      <span className="cover-composition cover-composition--poster-layout" data-artwork-source="poster-layout">
         <img
           className="cover-composition__wash"
           src={usablePoster}
@@ -261,6 +292,7 @@ export function CoverArt({
           height="360"
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
+          onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
           onError={() => markFailed(usablePoster)}
           referrerPolicy="no-referrer"
         />
@@ -272,6 +304,7 @@ export function CoverArt({
           height="510"
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
+          onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
           onError={() => markFailed(usablePoster)}
           referrerPolicy="no-referrer"
         />

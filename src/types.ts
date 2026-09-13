@@ -118,12 +118,18 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
-  kind?: 'native' | 'unsupported';
+  kind?: 'native' | 'embed' | 'unsupported';
+  language?: string;
+  format?: import('../shared/playback').MediaKind | 'iframe';
   captions?: import('../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
   mediaCrossOrigin?: 'anonymous' | 'none';
   attribution?: { label: string; url: string; license: string };
   allowedMediaHosts?: string[];
+  allowedEmbedHosts?: string[];
+  capabilities?: import('../shared/playback').NativeCapabilities | import('../shared/playback').EmbedCapabilities;
+  iframePolicy?: import('../shared/playback').EmbedIframePolicy;
+  messageProtocol?: import('../shared/playback').EmbedMessageProtocol;
   mappingId: string;
   providerId: string;
   playbackType: PlaybackType;

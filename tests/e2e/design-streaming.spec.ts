@@ -195,7 +195,7 @@ test('title defaults to a mapped version and presents a single grammatical episo
     'aria-pressed',
     'false',
   );
-  await expect(page.getByRole('link', { name: /Play first episode/ })).toHaveAttribute(
+  await expect(page.getByRole('link', { name: /Open first episode/ })).toHaveAttribute(
     'href',
     /language=silent/,
   );

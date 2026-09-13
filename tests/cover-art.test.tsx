@@ -5,6 +5,7 @@ import { CoverArt } from '../src/components/ui';
 
 const title = {
   id: 'artwork-title',
+  source: 'anikoto',
   slug: 'artwork-title',
   name: 'Artwork title',
   posterUrl: 'https://images.example/poster.jpg',
@@ -15,7 +16,7 @@ const title = {
 describe('CoverArt', () => {
   afterEach(() => cleanup());
 
-  it('falls back from a failed backdrop to an uncropped poster composition', () => {
+  it('falls back from a failed backdrop to a role-safe poster layout', () => {
     const view = render(<CoverArt title={title} variant="landscape" />);
 
     const backdrop = view.container.querySelector('img');
@@ -25,6 +26,7 @@ describe('CoverArt', () => {
     const poster = view.container.querySelector<HTMLImageElement>('.cover-composition__poster');
     expect(poster?.src).toBe(title.posterUrl);
     expect(poster?.className).toBe('cover-composition__poster');
+    expect(poster?.parentElement?.getAttribute('data-artwork-source')).toBe('poster-layout');
   });
 
   it('tries the original thumbnail before presenting the explicit missing-art state', () => {
@@ -41,5 +43,21 @@ describe('CoverArt', () => {
     expect(
       view.getByLabelText('No artwork available for Artwork title').textContent,
     ).toContain('Artwork unavailable');
+  });
+
+  it('uses a measured landscape fallback as full-bleed artwork', () => {
+    const view = render(
+      <CoverArt title={{ ...title, source: 'tvmaze', backdropUrl: null }} variant="landscape" />,
+    );
+
+    const probe = view.container.querySelector<HTMLImageElement>('.cover-composition__poster')!;
+    Object.defineProperties(probe, {
+      naturalWidth: { configurable: true, value: 1280 },
+      naturalHeight: { configurable: true, value: 720 },
+    });
+    fireEvent.load(probe);
+    const landscape = view.container.querySelector<HTMLImageElement>('.cover-composition__crop');
+    expect(landscape?.src).toBe(title.posterUrl);
+    expect(landscape?.parentElement?.getAttribute('data-artwork-source')).toBe('landscape-fallback');
   });
 });

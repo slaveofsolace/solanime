@@ -14,6 +14,7 @@ import { createSnapshotImportHandlers, createSnapshotImportRepository } from './
 import { legacyResolution, type ApprovedNativeResource } from '../providers/native.ts';
 import { hasEnabledNativeResource, resolveApprovedNative, NATIVE_RESEARCH_RECORDS } from '../providers/native-registry.ts';
 import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
+import { hasSupportedMegaPlayEmbed, MEGAPLAY_EMBED_CAPABILITIES, resolveMegaPlayEmbed } from '../providers/embed.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
 const apiHeaders = {
@@ -94,10 +95,8 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (path.startsWith('/api/admin/') || path.startsWith('/api/exports/')) await admin(request, env);
     if (request.method === 'POST') sameOrigin(request, env);
     if (request.method === 'GET' && path === '/api/health') {
-      const state = await env.CATALOGUE.prepare('SELECT COUNT(*) AS titles FROM titles').first<{ titles: number }>();
       const migration = await env.CATALOGUE.prepare('SELECT COUNT(*) AS count FROM d1_migrations').first<{ count: number }>();
-      const baselineTitles = baseline ? Number((await baseline.manifest()).counts.titles ?? 0) : 0;
-      return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: Math.max(Number(state?.titles ?? 0), baselineTitles), now: new Date().toISOString() });
+      return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: await catalogue.titleCount(), now: new Date().toISOString() });
     }
     if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), scope: bounded(p.get('scope')), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
     if (request.method === 'GET' && path === '/api/meta/filters') return json(await catalogue.getFilters());
@@ -108,13 +107,16 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const result = await catalogue.getEpisodeProviders(number(episodes[1], 0, Number.MAX_SAFE_INTEGER), bounded(p.get('language')));
       const approved = await env.CATALOGUE.prepare('SELECT r.*,m.id AS mappingId,m.provider_id AS providerId,m.provider_resource_id AS providerResourceId,v.language AS mappingLanguage FROM native_resources r JOIN episode_provider_mappings m ON m.id=r.mapping_id JOIN episode_versions v ON v.id=m.version_id WHERE m.version_id=?').bind(Number(result.version.id)).all<ApprovedNativeResource & { mappingId: number; providerId: string; providerResourceId: string | null; mappingLanguage: string }>();
       const ids = new Set(approved.results.filter(r => hasEnabledNativeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
-      return json({ ...result, providers: result.providers.map(provider => {
-        const supported = ids.has(String(provider.mappingId));
+      return json({ ...result, providers: await Promise.all(result.providers.map(async provider => {
+        const native = ids.has(String(provider.mappingId));
+        const mapping = await catalogue.getMapping(Number(provider.mappingId));
+        const embed = !native && hasSupportedMegaPlayEmbed(mapping);
+        const supported = native || embed;
         const diagnostic = providerSupportDiagnostic({
           providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
         });
-        return { ...provider, supported, playbackType: supported ? 'direct' : 'unknown', status: supported ? 'available' : 'unsupported', reason: supported ? null : diagnostic.message, reasonCode: supported ? null : diagnostic.code, capabilities: supported ? { seek: true, volume: true, fullscreen: true, progressEvents: true, subtitles: false } : {} };
-      }) });
+        return { ...provider, supported, kind: native ? 'native' : embed ? 'embed' : 'unsupported', playbackType: native ? 'direct' : embed ? 'iframe' : 'unknown', status: supported ? 'available' : 'unsupported', reason: supported ? null : diagnostic.message, reasonCode: supported ? null : diagnostic.code, capabilities: embed ? MEGAPLAY_EMBED_CAPABILITIES : native ? { seek: true, volume: true, fullscreen: true, progressEvents: true, subtitles: false } : {} };
+      })) });
     }
     const resolve = /^\/api\/providers\/(\d+)\/resolve$/.exec(path);
     if (request.method === 'POST' && resolve) {
@@ -122,10 +124,15 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
       const resource = await env.CATALOGUE.prepare('SELECT * FROM native_resources WHERE mapping_id=?').bind(mapping.mappingId).first<ApprovedNativeResource>();
-      const result = await resolveApprovedNative(mapping, resource, request.signal);
+      const nativeApproved = hasEnabledNativeResource(mapping, resource);
+      const result = nativeApproved
+        ? await resolveApprovedNative(mapping, resource, request.signal)
+        : hasSupportedMegaPlayEmbed(mapping)
+          ? await resolveMegaPlayEmbed(mapping, request.signal)
+          : await resolveApprovedNative(mapping, resource, request.signal);
       // A resolution is not playback verification. Never store temporary media URLs.
-      if (result.kind === 'native') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
-      return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' ? 200 : 422);
+      if (result.kind === 'native' || result.kind === 'embed') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
+      return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'embed' ? 200 : 422);
     }
     if (request.method === 'GET' && path === '/api/admin/sources') return json(await research.browseSources({ q: bounded(p.get('q')), category: bounded(p.get('category')), kind: bounded(p.get('kind')), status: bounded(p.get('status')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 30, 100) }));
     const verification = /^\/api\/admin\/providers\/(\d+)\/verification$/.exec(path);

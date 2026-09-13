@@ -14,6 +14,27 @@ export interface NativeCapabilities {
   subtitles: boolean;
   qualitySelection: boolean;
 }
+export interface EmbedCapabilities {
+  fullscreen: true;
+  progressEvents: true;
+  completionEvents: true;
+  errorEvents: true;
+  seek: false;
+  volume: false;
+  subtitles: false;
+  qualitySelection: false;
+}
+export interface EmbedIframePolicy {
+  sandbox: Array<'allow-scripts' | 'allow-same-origin' | 'allow-presentation'>;
+  allow: Array<'autoplay' | 'fullscreen'>;
+  referrerPolicy: 'no-referrer';
+}
+export interface EmbedMessageProtocol {
+  origin: 'https://megaplay.buzz';
+  channel: 'megacloud';
+  events: Array<'time' | 'complete' | 'error'>;
+  types: Array<'watching-log'>;
+}
 export type PlaybackResult = {
   kind: 'native';
   mappingId: string;
@@ -27,6 +48,19 @@ export type PlaybackResult = {
   captions: CaptionSource[];
   expiresAt: string | null;
   attribution?: { label: string; url: string; license: string };
+} | {
+  /** Provider-owned webpage shown inside Solanime; never native media. */
+  kind: 'embed';
+  mappingId: string;
+  providerId: string;
+  language: string;
+  format: 'iframe';
+  embedUrl: string;
+  allowedEmbedHosts: ['megaplay.buzz'];
+  capabilities: EmbedCapabilities;
+  iframePolicy: EmbedIframePolicy;
+  messageProtocol: EmbedMessageProtocol;
+  expiresAt: string | null;
 } | {
   kind: 'unsupported';
   mappingId: string;

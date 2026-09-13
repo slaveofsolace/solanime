@@ -30,6 +30,8 @@ interface EpisodeBrowserProps {
   language: string;
   slug: string;
   currentId?: string;
+  /** Hide the unfiltered count when a parent heading already shows it. */
+  compactHeading?: boolean;
 }
 
 export default function EpisodeBrowser(props: EpisodeBrowserProps) {
@@ -42,6 +44,7 @@ function EpisodeBrowserContent({
   language,
   slug,
   currentId,
+  compactHeading = false,
 }: EpisodeBrowserProps) {
   const { watched } = useAppState();
   const [query, setQuery] = useState(''),
@@ -99,9 +102,11 @@ function EpisodeBrowserContent({
   const currentExists = languageEpisodes.some((episode) => episode.id === currentId);
   const canJumpToCurrent =
     currentExists && (normalizedQuery !== '' || !visible.some((episode) => episode.id === currentId));
+  const showToolbar = languageEpisodes.length > 1 || normalizedQuery !== '';
+  const showResultCount = !compactHeading || normalizedQuery !== '';
   return (
     <div className="episode-browser">
-      <div className="episode-toolbar">
+      {showToolbar && <div className="episode-toolbar">
         <label className="episode-search">
           <Icon name="search" />
           <span className="sr-only">Find an episode</span>
@@ -116,7 +121,7 @@ function EpisodeBrowserContent({
             }}
           />
         </label>
-        <span>{episodeCountLabel(matches.length)}</span>
+        {showResultCount && <span className="episode-result-count" aria-live="polite">{episodeCountLabel(matches.length)}</span>}
         {canJumpToCurrent && (
           <button
             type="button"
@@ -131,7 +136,7 @@ function EpisodeBrowserContent({
             Current episode
           </button>
         )}
-      </div>
+      </div>}
       {seasonGroups && (
         <label className="episode-season-picker">
           <span>Season</span>
@@ -165,8 +170,17 @@ function EpisodeBrowserContent({
       )}
       {visible.length ? (
         <ol className="episode-grid">
-          {visible.map((e) => (
-            <li key={e.id} data-current={currentId === e.id}>
+          {visible.map((e) => {
+            const displayName = episodeName(e);
+            const episodeNumber = e.number == null ? null : String(e.number).trim();
+            const repeatedNumber = Boolean(
+              episodeNumber &&
+                (displayName.trim().toLocaleLowerCase() === episodeNumber.toLocaleLowerCase() ||
+                  displayName.trim().toLocaleLowerCase() === `episode ${episodeNumber}`.toLocaleLowerCase() ||
+                  displayName.trim().toLocaleLowerCase() === `ep ${episodeNumber}`.toLocaleLowerCase() ||
+                  displayName.trim().toLocaleLowerCase().startsWith(`${episodeNumber.toLocaleLowerCase()} ·`)),
+            );
+            return <li key={e.id} data-current={currentId === e.id}>
               <Link
                 ref={e.id === currentId ? (element) => {
                   if (element && focusCurrentOnMount.current) {
@@ -177,8 +191,8 @@ function EpisodeBrowserContent({
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}`}
                 aria-current={e.id === currentId ? 'page' : undefined}
               >
-                <span className="episode-number">{e.number ?? '—'}</span>
-                <strong>{episodeName(e)}</strong>
+                {!repeatedNumber && <span className="episode-number">{e.number ?? '—'}</span>}
+                <strong>{displayName}</strong>
                 <span className="episode-play">
                   <Icon name="play" />
                 </span>
@@ -193,8 +207,8 @@ function EpisodeBrowserContent({
                 <Icon name="check" />
                 <span>{watched.isWatched(e.id, language) ? 'Watched' : 'Mark watched'}</span>
               </button>
-            </li>
-          ))}
+            </li>;
+          })}
         </ol>
       ) : (
         <div className="library-empty">

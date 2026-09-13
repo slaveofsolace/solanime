@@ -38,7 +38,8 @@ describe('EpisodeCommunity', () => {
 
   it('keeps public reading available while clearly requiring sign-in to post', async () => {
     render(<MemoryRouter><EpisodeCommunity episodeId="ep-1" /></MemoryRouter>);
-    expect(await screen.findByText('No comments yet. Start the conversation for this episode.')).toBeTruthy();
+    expect(await screen.findByText('No comments yet')).toBeTruthy();
+    expect(screen.getByText('Start the conversation for this episode.')).toBeTruthy();
     expect(screen.getByRole('link', { name: 'Sign in' }).getAttribute('href')).toBe('/login');
     expect(community.list).toHaveBeenCalledWith('ep-1', { page: 1, pageSize: 12 }, expect.any(AbortSignal));
   });
@@ -63,7 +64,7 @@ describe('EpisodeCommunity', () => {
     community.create.mockResolvedValue({ comment: { id: 'comment-1' } });
 
     render(<MemoryRouter><EpisodeCommunity episodeId="ep-1" /></MemoryRouter>);
-    await screen.findByText('No comments yet. Start the conversation for this episode.');
+    await screen.findByText('No comments yet');
     fireEvent.change(screen.getByLabelText('Comment as Mina'), { target: { value: 'That ending was excellent.' } });
     fireEvent.click(screen.getByRole('button', { name: 'Post comment' }));
 
