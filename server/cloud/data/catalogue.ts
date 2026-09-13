@@ -16,6 +16,48 @@ const rows = async (db: CatalogueDatabase, sql: string, ...values: unknown[]) =>
 
 /** Request-scoped repository: no cross-request mutable cache or SQLite filesystem dependency. */
 export function createCatalogueRepository(db: CatalogueDatabase, baseline?: ReturnType<typeof createPrivateBaselineReader>) {
+  const titleSelect = 'SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount';
+  const nameCompare = (left: Row, right: Row) => {
+    const a = String(left.name ?? '').toLowerCase(), b = String(right.name ?? '').toLowerCase();
+    return a < b ? -1 : a > b ? 1 : Number(left.id) - Number(right.id);
+  };
+  const compareBrowseRows = (sort: string) => (left: Row, right: Row) => {
+    const aYear = left.releaseYear === null || left.releaseYear === undefined ? null : Number(left.releaseYear);
+    const bYear = right.releaseYear === null || right.releaseYear === undefined ? null : Number(right.releaseYear);
+    if (sort === 'newest' || sort === 'year_desc') return (bYear ?? -Infinity) - (aYear ?? -Infinity) || nameCompare(left, right);
+    if (sort === 'oldest' || sort === 'year_asc') return (aYear ?? Infinity) - (bYear ?? Infinity) || nameCompare(left, right);
+    if (sort === 'updated') return String(right.updatedAt).localeCompare(String(left.updatedAt)) || Number(right.id) - Number(left.id);
+    if (sort === 'episodes') return Number(right.episodeCount) - Number(left.episodeCount) || nameCompare(left, right);
+    return nameCompare(left, right);
+  };
+  const mergeFacets = (left: Record<string, unknown[]> | undefined, right: Record<string, unknown[]> | undefined) => {
+    if (!left && !right) return undefined;
+    const result: Record<string, Row[]> = {};
+    for (const kind of ['genres', 'types', 'statuses', 'languages']) {
+      const combined = new Map<string, Row>();
+      for (const row of [...((left?.[kind] ?? []) as Row[]), ...((right?.[kind] ?? []) as Row[])]) {
+        const key = String(row.value ?? '');
+        const previous = combined.get(key);
+        combined.set(key, { ...previous, ...row, count: Number(previous?.count ?? 0) + Number(row.count ?? 0) });
+      }
+      result[kind] = [...combined.values()].sort((a, b) => String(a.label ?? a.value).localeCompare(String(b.label ?? b.value)));
+    }
+    return result;
+  };
+  const sourceClause = (sources: readonly string[]) => sources.length ? `t.source IN (${sources.map(() => '?').join(',')})` : '1=1';
+
+  async function getD1Filters(sources: readonly string[]) {
+    const clause = sourceClause(sources), values = [...sources];
+    const result = await db.batch<Row>([
+      db.prepare(`SELECT g.slug AS value,g.name AS label,COUNT(*) AS count FROM genres g JOIN title_genres tg ON tg.genre_id=g.id JOIN titles t ON t.id=tg.title_id WHERE ${clause} GROUP BY g.id ORDER BY g.name`).bind(...values),
+      db.prepare(`SELECT LOWER(t.format) AS value,MIN(t.format) AS label,COUNT(*) AS count FROM titles t WHERE ${clause} AND t.format IS NOT NULL AND t.format<>'' GROUP BY t.format COLLATE NOCASE ORDER BY t.format COLLATE NOCASE`).bind(...values),
+      db.prepare(`SELECT LOWER(t.status) AS value,MIN(t.status) AS label,COUNT(*) AS count FROM titles t WHERE ${clause} AND t.status IS NOT NULL AND t.status<>'' GROUP BY t.status COLLATE NOCASE ORDER BY t.status COLLATE NOCASE`).bind(...values),
+      db.prepare(`SELECT v.language AS value,UPPER(v.language) AS label,COUNT(DISTINCT e.title_id) AS count FROM episode_versions v JOIN episodes e ON e.id=v.episode_id JOIN titles t ON t.id=e.title_id WHERE ${clause} GROUP BY v.language ORDER BY v.language`).bind(...values),
+    ]);
+    const labels: Record<string, string> = { movie: 'Movie', music: 'Music', ona: 'ONA', ova: 'OVA', special: 'Special', tv: 'TV', tv_short: 'TV Short', 'tv special': 'TV Special' };
+    return { genres: result[0].results, types: result[1].results.map(row => ({ ...row, label: labels[String(row.value)] ?? row.label })), statuses: result[2].results, languages: result[3].results };
+  }
+
   async function hasEpisode(episodeId: number) {
     if (!Number.isSafeInteger(episodeId) || episodeId < 1) return false;
     if (baseline && await baseline.episode(episodeId)) return true;
@@ -23,53 +65,13 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
   }
   async function getFilters() {
     if(baseline)return (await baseline.manifest()).facets;
-    const result = await db.batch<Row>([
-      db.prepare('SELECT g.slug AS value,g.name AS label,COUNT(*) AS count FROM genres g JOIN title_genres tg ON tg.genre_id=g.id GROUP BY g.id ORDER BY g.name'),
-      db.prepare("SELECT LOWER(format) AS value,MIN(format) AS label,COUNT(*) AS count FROM titles WHERE format IS NOT NULL AND format<>'' GROUP BY format COLLATE NOCASE ORDER BY format COLLATE NOCASE"),
-      db.prepare("SELECT LOWER(status) AS value,MIN(status) AS label,COUNT(*) AS count FROM titles WHERE status IS NOT NULL AND status<>'' GROUP BY status COLLATE NOCASE ORDER BY status COLLATE NOCASE"),
-      db.prepare('SELECT v.language AS value,UPPER(v.language) AS label,COUNT(DISTINCT e.title_id) AS count FROM episode_versions v JOIN episodes e ON e.id=v.episode_id GROUP BY v.language ORDER BY v.language'),
-    ]);
-    const labels: Record<string, string> = { movie: 'Movie', music: 'Music', ona: 'ONA', ova: 'OVA', special: 'Special', tv: 'TV', tv_short: 'TV Short', 'tv special': 'TV Special' };
-    return { genres: result[0].results, types: result[1].results.map(row => ({ ...row, label: labels[String(row.value)] ?? row.label })), statuses: result[2].results, languages: result[3].results };
+    return getD1Filters([]);
   }
 
-  async function browseTitles(params: BrowseParams) {
-    if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100)
-      throw new AppError(400, 'INVALID_QUERY', 'Choose a valid page and a page size between 1 and 100.');
-    if (params.q && params.q.length > 200) throw new AppError(400, 'INVALID_QUERY', 'Search is limited to 200 characters.');
-    const scope = params.scope;
-    if (scope && !isCatalogueScope(scope))
-      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
-    // The immutable baseline is authoritative for the large anime catalogue and
-    // legacy unscoped browse page. External Movies/TV rows live in D1 overlays,
-    // so those scopes (and global search) must query D1 to remain discoverable.
-    const useBaselineBrowse = baseline && (!scope || scope === 'anime');
-    if (useBaselineBrowse) {
-      const page = await baseline.browseIds(params);
-      const stored = page.ids.length ? await rows(db, `SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
-      const byId = new Map(stored.map(row => [String(row.id),row]));
-      const items: Row[] = [];
-      for (const id of page.ids) {
-        const actual = byId.get(id);
-        if (actual) { items.push({...actual,episodeCount:Math.max(Number(actual.episodeCount),page.episodeCounts[id])}); continue; }
-        const fallback = await baseline.browseRow(id);
-        if (!fallback) throw new AppError(503,'UNAVAILABLE','A catalogue card is missing from its verified snapshot.');
-        const {card,aliases:_aliases,genres:_genres,languages:_languages,...summary} = fallback;
-        items.push({...summary,...card,imageUrl:card.artworkUrl,description:card.synopsis,format:card.type});
-      }
-      return {items:await decorateCloudArtwork(db,items),total:page.total,page:page.page,pageSize:page.pageSize,pages:page.pages,...(params.includeFacets !== false ? {facets:page.facets}:{})};
-    }
-    const where = ['1=1'];
-    const values: unknown[] = [];
-    if (scope && isCatalogueScope(scope)) {
-      const sources = sourcesForCatalogueScope(scope);
-      if (sources.length) {
-        where.push(`t.source IN (${sources.map(() => '?').join(',')})`);
-        values.push(...sources);
-      }
-    }
+  async function browseD1Titles(params: BrowseParams, sources: readonly string[], offset = (params.page - 1) * params.pageSize, limit = params.pageSize) {
+    const where = [sourceClause(sources)];
+    const values: unknown[] = [...sources];
     if (params.q) {
-      // INSTR keeps literal search semantics without D1's 50-byte LIKE-pattern limit.
       where.push('(INSTR(LOWER(t.name),LOWER(?))>0 OR EXISTS (SELECT 1 FROM title_aliases a WHERE a.title_id=t.id AND INSTR(LOWER(a.alias),LOWER(?))>0))');
       values.push(params.q, params.q);
     }
@@ -86,10 +88,68 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     const from = `FROM titles t WHERE ${where.join(' AND ')}`;
     const result = await db.batch<Row>([
       db.prepare(`SELECT COUNT(*) AS count ${from}`).bind(...values),
-      db.prepare(`SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount ${from} ORDER BY ${orders[params.sort] ?? orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, params.pageSize, (params.page - 1) * params.pageSize),
+      db.prepare(`${titleSelect} ${from} ORDER BY ${orders[params.sort] ?? orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, limit, offset),
     ]);
     const total = Number(result[0].results[0].count);
-    return { items: await decorateCloudArtwork(db, result[1].results), total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), ...(params.includeFacets !== false ? { facets: await getFilters() } : {}) };
+    return {
+      items: await decorateCloudArtwork(db, result[1].results), total,
+      facets: params.includeFacets !== false ? await getD1Filters(sources) : undefined,
+    };
+  }
+
+  async function browseTitles(params: BrowseParams) {
+    if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100)
+      throw new AppError(400, 'INVALID_QUERY', 'Choose a valid page and a page size between 1 and 100.');
+    if (params.q && params.q.length > 200) throw new AppError(400, 'INVALID_QUERY', 'Search is limited to 200 characters.');
+    const scope = params.scope;
+    if (scope && !isCatalogueScope(scope))
+      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
+    // The immutable baseline is authoritative for the large anime catalogue and
+    // legacy unscoped browse page. TV is a composite: TVMaze remains in the
+    // checked snapshot while independent Wikipedia rows arrive through D1.
+    const useBaselineBrowse = baseline && (!scope || scope === 'anime');
+    if (useBaselineBrowse) {
+      const page = await baseline.browseIds(params);
+      const stored = page.ids.length ? await rows(db, `${titleSelect} FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
+      const byId = new Map(stored.map(row => [String(row.id),row]));
+      const items: Row[] = [];
+      for (const id of page.ids) {
+        const actual = byId.get(id);
+        if (actual) { items.push({...actual,episodeCount:Math.max(Number(actual.episodeCount),page.episodeCounts[id])}); continue; }
+        const fallback = await baseline.browseRow(id);
+        if (!fallback) throw new AppError(503,'UNAVAILABLE','A catalogue card is missing from its verified snapshot.');
+        const {card,aliases:_aliases,genres:_genres,languages:_languages,...summary} = fallback;
+        items.push({...summary,...card,imageUrl:card.artworkUrl,description:card.synopsis,format:card.type});
+      }
+      return {items:await decorateCloudArtwork(db,items),total:page.total,page:page.page,pageSize:page.pageSize,pages:page.pages,...(params.includeFacets !== false ? {facets:page.facets}:{})};
+    }
+    if (baseline && scope === 'tv') {
+      const end = params.page * params.pageSize;
+      const frozen = await baseline.browseIds(params, { offset: 0, limit: end });
+      const stored = frozen.ids.length ? await rows(db, `${titleSelect} FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(frozen.ids)) : [];
+      const byId = new Map(stored.map(row => [String(row.id), row]));
+      const snapshotRows: Row[] = [];
+      for (const id of frozen.ids) {
+        const actual = byId.get(id);
+        if (actual) { snapshotRows.push({ ...actual, episodeCount: Math.max(Number(actual.episodeCount), frozen.episodeCounts[id]) }); continue; }
+        const fallback = await baseline.browseRow(id);
+        if (!fallback) throw new AppError(503, 'UNAVAILABLE', 'A catalogue card is missing from its verified snapshot.');
+        const { card, aliases: _aliases, genres: _genres, languages: _languages, ...summary } = fallback;
+        snapshotRows.push({ ...summary, ...card, imageUrl: card.artworkUrl, description: card.synopsis, format: card.type });
+      }
+      const overlay = await browseD1Titles(params, ['wikipedia-tv'], 0, end);
+      const combined = [...snapshotRows, ...overlay.items].sort(compareBrowseRows(params.sort));
+      const offset = (params.page - 1) * params.pageSize;
+      const total = frozen.total + overlay.total;
+      return {
+        items: combined.slice(offset, offset + params.pageSize), total, page: params.page,
+        pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize),
+        ...(params.includeFacets !== false ? { facets: mergeFacets(frozen.facets, overlay.facets) } : {}),
+      };
+    }
+    const sources = scope && isCatalogueScope(scope) ? sourcesForCatalogueScope(scope) : [];
+    const result = await browseD1Titles(params, sources);
+    return { items: result.items, total: result.total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(result.total / params.pageSize), ...(params.includeFacets !== false ? { facets: result.facets } : {}) };
   }
 
   async function getTitleD1(slug: string) {

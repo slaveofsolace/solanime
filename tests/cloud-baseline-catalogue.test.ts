@@ -34,12 +34,17 @@ describe('private baseline with a partially hydrated actual D1 catalogue',()=>{
  expect((await repository.getFilters()).genres).toContainEqual({value:'adventure',label:'Adventure',count:1});
  });
  it('combines baseline anime with D1-backed non-animation TV and movie collections',async()=>{
+  // The hosted D1 intentionally does not duplicate the immutable TVMaze snapshot.
+  await db.prepare('DELETE FROM titles WHERE id=2').run();
   for(const [id,sourceId,source,name,format] of [[90,'Q90','wikipedia-tv','External TV','TV'],[91,'Q91','wikipedia-movie','External Movie','Movie']] as const) {
    await db.prepare('INSERT INTO titles(id,source,source_id,slug,canonical_url,name,description,format,release_year,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(id,source,sourceId,`external-${id}`,`https://en.wikipedia.org/wiki/${sourceId}`,name,'External catalogue record',format,2026,'Upcoming',date,date,date,date).run();
   }
   const repository=createCatalogueRepository(db,reader().baseline);
   expect((await repository.browseTitles({scope:'anime',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Alpha series','Zero episodes']);
   expect((await repository.browseTitles({scope:'tv',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Beta series','External TV']);
+  expect((await repository.browseTitles({scope:'tv',page:1,pageSize:1,sort:'name'}))).toMatchObject({total:2,pages:2,items:[{name:'Beta series'}]});
+  expect((await repository.browseTitles({scope:'tv',page:2,pageSize:1,sort:'name'}))).toMatchObject({total:2,pages:2,items:[{name:'External TV'}]});
+  expect((await repository.browseTitles({scope:'tv',q:'Beta',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['Beta series']);
   expect((await repository.browseTitles({scope:'movies',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['External Movie']);
   expect((await repository.browseTitles({scope:'all',q:'External',page:1,pageSize:100,sort:'name'})).items.map(row=>row.name)).toEqual(['External Movie','External TV']);
  });

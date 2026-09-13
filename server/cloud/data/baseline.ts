@@ -184,8 +184,9 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
         : 'anikoto';
     return { id, source, name: item.name, slug: item.slug, aliases: strings(item.aliases), genres: strings(item.genres), languages: strings(item.languages), type: nullableString(item.type), status: nullableString(item.status), episodeCount: Number(item.episodeCount), releaseYear: item.releaseYear === null ? null : Number(item.releaseYear), updatedAt: nullableString(item.updatedAt), card: item.card };
   }
-  async function browseIds(params: BrowseParams) {
+  async function browseIds(params: BrowseParams, window?: { offset: number; limit: number }) {
     if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100 || (params.q?.length ?? 0) > 200) throw new AppError(400, 'INVALID_QUERY', 'Invalid catalogue page.');
+    if (window && (!Number.isSafeInteger(window.offset) || window.offset < 0 || !Number.isSafeInteger(window.limit) || window.limit < 1 || window.limit > 10_000_000)) throw new AppError(400, 'INVALID_QUERY', 'Invalid catalogue window.');
     const info = await manifest(); const ref = validRef(info.postings, baselinePath(pin.id, 'indexes/postings.json'), BASELINE_MAX_INDEX_BYTES);
     const postings = await read(ref.path, ref.sha256, BASELINE_MAX_INDEX_BYTES, ref.bytes);
     if (!record(postings) || !record(postings.orders)) throw changed();
@@ -238,7 +239,9 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
       ids = ids.filter(id => accepted.has(id));
     }
     const total = ids.length;
-    const selected = ids.slice((params.page - 1) * params.pageSize, params.page * params.pageSize);
+    const offset = window?.offset ?? (params.page - 1) * params.pageSize;
+    const limit = window?.limit ?? params.pageSize;
+    const selected = ids.slice(offset, offset + limit);
     if (!record(postings.episodeCounts)) throw changed();
     const episodeCounts: Record<string, number> = {};
     for (const id of selected) {
