@@ -29,6 +29,17 @@ type YouTubeApi = {
   ) => YouTubePlayer;
 };
 
+function isYouTubePlayer(value: unknown): value is YouTubePlayer {
+  if (!value || typeof value !== 'object') return false;
+  const candidate = value as Partial<YouTubePlayer>;
+  return (
+    typeof candidate.destroy === 'function' &&
+    typeof candidate.getCurrentTime === 'function' &&
+    typeof candidate.getDuration === 'function' &&
+    typeof candidate.seekTo === 'function'
+  );
+}
+
 declare global {
   interface Window {
     YT?: YouTubeApi;
@@ -118,10 +129,12 @@ export default function YouTubeOfficialPlayer({
     opened.current = false;
     setState('loading');
     setError(null);
-    const sample = () => {
-      if (!player || cancelled) return;
-      const position = player.getCurrentTime();
-      const duration = player.getDuration();
+    const sample = (eventPlayer?: unknown) => {
+      if (cancelled) return;
+      const activePlayer = isYouTubePlayer(eventPlayer) ? eventPlayer : player;
+      if (!activePlayer) return;
+      const position = activePlayer.getCurrentTime();
+      const duration = activePlayer.getDuration();
       if (Number.isFinite(position) && position >= 0 && Number.isFinite(duration) && duration > 0)
         callbacks.current.onProgress?.(position, duration);
     };
@@ -131,12 +144,13 @@ export default function YouTubeOfficialPlayer({
     };
     void loadYouTubeApi().then((api) => {
       if (cancelled) return;
-      player = new api.Player(frame, {
+      const candidate = new api.Player(frame, {
         events: {
           onReady(event) {
             if (cancelled) return;
+            if (isYouTubePlayer(event.target)) player = event.target;
             setState('ready');
-            const duration = event.target.getDuration();
+            const duration = isYouTubePlayer(event.target) ? event.target.getDuration() : Number.NaN;
             const endGuard = Number.isFinite(duration) ? Math.min(15, Math.max(1, duration * .05)) : 15;
             if (
               typeof initialPosition === 'number' &&
@@ -149,6 +163,7 @@ export default function YouTubeOfficialPlayer({
           },
           onStateChange(event) {
             if (cancelled) return;
+            if (isYouTubePlayer(event.target)) player = event.target;
             if (event.data === 1) {
               setState('playing');
               if (!opened.current) {
@@ -156,19 +171,19 @@ export default function YouTubeOfficialPlayer({
                 callbacks.current.onOpen?.();
               }
               if (progressTimer === undefined) {
-                sample();
+                sample(event.target);
                 progressTimer = window.setInterval(sample, 1_000);
               }
               return;
             }
             if (event.data === 0) {
-              sample();
+              sample(event.target);
               stopSampling();
               callbacks.current.onEnded?.();
               return;
             }
             if (event.data === 2) {
-              sample();
+              sample(event.target);
               stopSampling();
               setState('ready');
             }
@@ -181,6 +196,7 @@ export default function YouTubeOfficialPlayer({
           },
         },
       });
+      if (isYouTubePlayer(candidate)) player = candidate;
     }).catch((reason: unknown) => {
       if (cancelled) return;
       setError({
@@ -193,7 +209,7 @@ export default function YouTubeOfficialPlayer({
       stopSampling();
       sample();
       cancelled = true;
-      player?.destroy();
+      if (isYouTubePlayer(player)) player.destroy();
     };
   }, [attempt, initialPosition, resolution, source]);
 

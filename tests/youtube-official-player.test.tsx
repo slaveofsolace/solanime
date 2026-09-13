@@ -114,6 +114,35 @@ describe('official YouTube player', () => {
     expect(destroy).toHaveBeenCalledTimes(1);
   });
 
+  it('samples the ready event target when the constructor result is not hydrated yet', async () => {
+    const progress = vi.fn();
+    let events!: {
+      onReady(event: { target: unknown }): void;
+      onStateChange(event: { data: number; target: unknown }): void;
+    };
+    const hydratedPlayer = {
+      destroy: vi.fn(),
+      seekTo: vi.fn(),
+      getCurrentTime: vi.fn(() => 8),
+      getDuration: vi.fn(() => 24),
+    };
+    window.YT = {
+      Player: class {
+        constructor(_frame: HTMLIFrameElement, options: { events: typeof events }) {
+          events = options.events;
+          return { destroy: vi.fn() };
+        }
+      } as unknown as NonNullable<typeof window.YT>['Player'],
+    };
+
+    render(<YouTubeOfficialPlayer resolution={resolution} onProgress={progress} />);
+    await act(async () => { await Promise.resolve(); });
+    act(() => events.onReady({ target: hydratedPlayer }));
+    act(() => events.onStateChange({ data: 1, target: hydratedPlayer }));
+
+    expect(progress).toHaveBeenCalledWith(8, 24);
+  });
+
   it('removes a failed API script so Retry can start with a clean loader', async () => {
     render(<YouTubeOfficialPlayer resolution={resolution} />);
     const failedScript = document.getElementById('solanime-youtube-iframe-api') as HTMLScriptElement;
