@@ -13,13 +13,13 @@ const baselineHash = 'd'.repeat(64);
 function fixture(storageMode: 'isolated' | 'shared-preview-read-only' = 'isolated') {
   const folder = join(root, crypto.randomUUID()), assets = join(folder, 'assets'); mkdirSync(assets, { recursive: true });
   const main = put(join(folder, 'worker.ts'), 'const hasEnabledOfficialYouTubeResource=true; const resolveApprovedPlayback=true; export default {};');
-  const baseWorker = put(join(folder, 'wrangler.preview.json'), { name: 'solanime-api-preview', main, workers_dev: false, preview_urls: true, assets: { directory: assets, binding: 'IMPORT_ASSETS', run_worker_first: true }, vars: { RELEASE_CHANNEL: 'preview' }, secrets: { required: ['SOLANIME_ADMIN_TOKEN', 'FIREBASE_API_KEY', 'FIREBASE_SERVICE_ACCOUNT_JSON', 'AUTH_CREDENTIAL_KEY'] }, d1_databases: [
+  const baseWorker = put(join(folder, 'wrangler.preview.json'), { name: 'solanime-api-preview', account_id: 'dddddddddddddddddddddddddddddddd', main, workers_dev: false, preview_urls: true, assets: { directory: assets, binding: 'IMPORT_ASSETS', run_worker_first: true }, vars: { RELEASE_CHANNEL: 'preview' }, secrets: { required: ['SOLANIME_ADMIN_TOKEN', 'FIREBASE_API_KEY', 'FIREBASE_SERVICE_ACCOUNT_JSON', 'AUTH_CREDENTIAL_KEY'] }, d1_databases: [
     { binding: 'CATALOGUE', database_name: 'catalogue-preview', database_id: previewIds[0] },
     { binding: 'ACCOUNTS', database_name: 'accounts-preview', database_id: previewIds[1] },
     { binding: 'RESEARCH', database_name: 'research-preview', database_id: previewIds[2] },
   ], ratelimits: [{ name: 'API_LIMITER', namespace_id: '1', simple: { limit: 180, period: 60 } }, { name: 'RESOLVE_LIMITER', namespace_id: '2', simple: { limit: 30, period: 60 } }], queues: { producers: [], consumers: [] }, triggers: { crons: ['* * * * *'] } });
   const baselinePlan = put(join(folder, 'preview-plan.json'), { kind: 'solanime-baseline-preview-plan', source: { sha256: baselineHash }, baseline: { counts: { mappings: 423_237 } }, preview: { config: baseWorker } });
-  const pagesConfig = put(join(folder, 'cloud', 'pages', 'wrangler.jsonc'), { name: 'solanime', account_id: 'dddddddddddddddddddddddddddddddd', pages_build_output_dir: '../../dist', env: { preview: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] }, production: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] } } });
+  const pagesConfig = put(join(folder, 'cloud', 'pages', 'wrangler.jsonc'), { name: 'solanime', pages_build_output_dir: '../../dist', env: { preview: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] }, production: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] } } });
   const base = { version: 1 as const, kind: 'solanime-youtube-review-resources' as const, workerName: 'solanime-api-youtube-review' as const, pagesProject: 'solanime', pagesBranch: 'youtube-official-review' as const, expectedBaseline: { sourceSha256: baselineHash, mappings: 423_237 }, rateLimits: { API_LIMITER: '2026091303', RESOLVE_LIMITER: '2026091304' } };
   const resources: YouTubeReviewResources = storageMode === 'isolated'
     ? { ...base, storageMode, d1: { CATALOGUE: { databaseName: 'solanime-catalogue-youtube-review', databaseId: ids[0] }, ACCOUNTS: { databaseName: 'solanime-accounts-youtube-review', databaseId: ids[1] }, RESEARCH: { databaseName: 'solanime-research-youtube-review', databaseId: ids[2] } } }
@@ -46,11 +46,14 @@ describe('official YouTube review configuration', () => {
     expect(worker).not.toHaveProperty('secrets'); expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
     expect(plan.worker.staticAssets).toMatchObject({ files: 0, freePlanFileLimit: 20_000, fileHeadroom: 20_000, perFileByteLimit: 25 * 1024 * 1024, paidPlanAssumed: false });
     const pages = JSON.parse(readFileSync(plan.pages.config, 'utf8'));
-    expect(pages.account_id).toBe('dddddddddddddddddddddddddddddddd');
+    expect(pages).not.toHaveProperty('account_id');
+    expect(readFileSync(plan.pages.accountEnvFile, 'utf8')).toBe('CLOUDFLARE_ACCOUNT_ID=dddddddddddddddddddddddddddddddd\n');
+    expect(readFileSync(plan.pages.accountEnvFile, 'utf8')).not.toMatch(/TOKEN|SECRET|KEY/);
     expect(pages.env.preview).toMatchObject({ vars: { SOLANIME_REVIEW_MODE: 'youtube-official' }, services: [{ binding: 'SOLANIME_API', service: 'solanime-api-youtube-review', environment: 'production' }] });
     expect(pages.env.production.services[0].service).toBe('solanime-api-preview');
     expect(pages.env.production.vars?.SOLANIME_REVIEW_MODE).toBeUndefined();
     expect(plan.commands.pagesDeployAfterWorkerReview).toContain('youtube-official-review');
+    expect(plan.commands.pagesDeployAfterWorkerReview).toContain('--env-file');
     expect(plan.residualSharing.join(' ')).not.toContain('D1 databases');
   });
 
@@ -89,11 +92,12 @@ describe('official YouTube review configuration', () => {
     expect(() => prepareYouTubeReview({ baselinePlan: value.baselinePlan, resources: put(join(root, crypto.randomUUID(), 'repeated.json'), repeated), pagesConfig: value.pagesConfig, output: join(root, crypto.randomUUID(), 'out') })).toThrow('do not repeat');
   });
 
-  it('rejects a base Pages config without an explicit reviewed account', () => {
+  it('rejects a base Worker config without an explicit reviewed account', () => {
     const value = fixture();
-    const pages = JSON.parse(readFileSync(value.pagesConfig, 'utf8'));
-    delete pages.account_id;
-    writeFileSync(value.pagesConfig, JSON.stringify(pages));
+    const plan = JSON.parse(readFileSync(value.baselinePlan, 'utf8'));
+    const worker = JSON.parse(readFileSync(plan.preview.config, 'utf8'));
+    delete worker.account_id;
+    writeFileSync(plan.preview.config, JSON.stringify(worker));
     expect(() => prepareYouTubeReview({ baselinePlan: value.baselinePlan, resources: value.resourcePath, pagesConfig: value.pagesConfig, output: join(root, crypto.randomUUID(), 'out') })).toThrow('account_id');
   });
 });

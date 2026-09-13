@@ -79,7 +79,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
   const resources = validateResources(JSON.parse(readFileSync(resolve(options.resources), 'utf8')));
   if (resources.workerName === baseWorker.name) throw new Error('Review Worker must not reuse the existing API service name.');
   if (resources.pagesProject !== basePages.name) throw new Error('Review Pages project must match the reviewed project; isolation is provided by its non-production branch binding.');
-  if (typeof basePages.account_id !== 'string' || !/^[a-f0-9]{32}$/i.test(basePages.account_id)) throw new Error('Base Pages config must declare the reviewed Cloudflare account_id.');
+  if (typeof baseWorker.account_id !== 'string' || !/^[a-f0-9]{32}$/i.test(baseWorker.account_id)) throw new Error('Base Worker config must declare the reviewed Cloudflare account_id.');
   if (!object(baselinePlan.source) || baselinePlan.source.sha256 !== resources.expectedBaseline.sourceSha256 || !object(baselinePlan.baseline) || baselinePlan.baseline.counts == null || !object(baselinePlan.baseline.counts) || baselinePlan.baseline.counts.mappings !== resources.expectedBaseline.mappings) throw new Error('Review baseline does not match the explicitly approved source hash and mapping count.');
 
   const existingD1 = Array.isArray(baseWorker.d1_databases) ? baseWorker.d1_databases.filter(object) : [];
@@ -118,6 +118,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
   delete worker.triggers;
 
   const pages = structuredClone(basePages);
+  delete pages.account_id;
   pages.$schema = portable(resolve(dirname(basePagesPath), '../../node_modules/wrangler/config-schema.json'));
   pages.pages_build_output_dir = portable(resolve(dirname(basePagesPath), '../../dist'));
   const baseEnvironments = object(basePages.env) ? basePages.env : {};
@@ -130,12 +131,14 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
   mkdirSync(join(staging, 'pages'), { recursive: true });
   const workerConfig = join(output, 'wrangler.youtube-review.json');
   const pagesConfig = join(output, 'pages', 'wrangler.jsonc');
+  const pagesAccountEnv = join(output, 'pages', 'account.env');
   writeFileSync(join(staging, 'wrangler.youtube-review.json'), `${JSON.stringify(worker, null, 2)}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
   writeFileSync(join(staging, 'pages', 'wrangler.jsonc'), `${JSON.stringify(pages, null, 2)}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
+  writeFileSync(join(staging, 'pages', 'account.env'), `CLOUDFLARE_ACCOUNT_ID=${baseWorker.account_id}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
   const plan = {
     version: 1, kind: 'solanime-official-youtube-review-deployment',
     worker: { name: resources.workerName, config: workerConfig, sourceSha256: hash(workerSource), readOnlyReview: true, publicRoutes: false, previewUrls: false, staticAssets: { ...staticAssets, freePlanFileLimit: workersFreeAssetFileLimit, fileHeadroom: workersFreeAssetFileLimit - staticAssets.files, perFileByteLimit: staticAssetFileByteLimit, paidPlanAssumed: false } },
-    pages: { project: resources.pagesProject, branch: resources.pagesBranch, config: pagesConfig, reviewMode: 'youtube-official', service: resources.workerName },
+    pages: { project: resources.pagesProject, branch: resources.pagesBranch, config: pagesConfig, accountEnvFile: pagesAccountEnv, reviewMode: 'youtube-official', service: resources.workerName },
     storage: { mode: resources.storageMode, bindings: (worker.d1_databases as RecordValue[]).map(item => ({ binding: item.binding, databaseName: item.database_name, databaseId: item.database_id })) },
     isolation: { workerService: true, d1Databases: resources.storageMode === 'isolated', d1ApplicationWrites: false, rateLimitNamespaces: true, pagesPreviewBinding: true, backgroundTriggers: false, backgroundQueues: false, registrationOpen: false },
     residualSharing: ['Cloudflare account', 'Pages project', 'completed immutable Worker asset package', 'Pages env.preview binding (applies to every preview deployment made with the generated config)', ...(resources.storageMode === 'shared-preview-read-only' ? ['existing preview D1 databases (read-only application access)'] : [])],
@@ -145,7 +148,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
     commands: {
       workerDryRun: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--dry-run', '--outdir', join(output, 'worker-dry-run')],
       workerDeployAfterReview: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--strict', '--keep-vars'],
-      pagesDeployAfterWorkerReview: ['pnpm', 'exec', 'wrangler', '--cwd', join(output, 'pages'), 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch],
+      pagesDeployAfterWorkerReview: ['pnpm', 'exec', 'wrangler', '--cwd', join(output, 'pages'), '--env-file', pagesAccountEnv, 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch],
       forbidden: ['deploying the checked-in wrangler.jsonc', 'binding Pages preview to solanime-api-preview', ...(resources.storageMode === 'shared-preview-read-only' ? ['migrating, seeding, importing, or writing shared preview D1'] : ['using any existing D1 database ID']), 'deploying the Pages main or cloud-release branch'],
     },
   };
