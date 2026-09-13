@@ -41,23 +41,45 @@ function RouteReadiness() {
     const timer = window.setTimeout(() => setTimedOut(true), 12000);
     return () => window.clearTimeout(timer);
   }, [pathname]);
-  const label = pathname.startsWith('/watch/') ? 'Loading episode…'
-    : pathname === '/library' ? 'Loading your library…'
-      : ['/catalogue', '/search'].includes(pathname) ? 'Loading catalogue…'
-        : 'Loading this view…';
+  const kind = pathname.startsWith('/watch/') ? 'watch'
+    : pathname.startsWith('/title/') ? 'title'
+      : pathname === '/library' ? 'library'
+        : ['/catalogue', '/search'].includes(pathname) ? 'catalogue'
+          : pathname.startsWith('/account') || pathname === '/profiles' ? 'account'
+            : 'default';
+  const label = kind === 'watch' ? 'Preparing this episode…'
+    : kind === 'title' ? 'Opening title…'
+      : kind === 'library' ? 'Opening your library…'
+        : kind === 'catalogue' ? 'Loading catalogue…'
+          : kind === 'account' ? 'Opening your profile…'
+            : 'Loading this view…';
+  const placeholders = kind === 'watch' ? 5 : kind === 'title' ? 6 : 12;
   return (
-    <section className="route-readiness" role="status" aria-label="Loading this view">
-      <SolanimeBrand variant="emblem" motion={timedOut ? 'error' : 'loading'}
-        theme={prefs.theme ?? 'dark'} reducedMotion={prefs.motion === 'reduced'}
-        decorative style={{ width: 32 }} />
-      <p>{timedOut ? 'This view is taking longer than expected.' : label}</p>
-      {timedOut && <div className="route-readiness__actions">
-        <button type="button" className="button button--outline" onClick={() => window.location.reload()}>Reload view</button>
-        <Link to="/">Go home</Link>
-      </div>}
-      <div className="route-readiness__lines" aria-hidden="true">
-        <i />
-        <i />
+    <section className="route-readiness" data-route-kind={kind} role="status" aria-label={label}>
+      <div className="route-readiness__status">
+        <SolanimeBrand variant="emblem" motion={timedOut ? 'error' : 'loading'}
+          theme={prefs.theme ?? 'dark'} reducedMotion={prefs.motion === 'reduced'}
+          decorative style={{ width: 30 }} />
+        <p>{timedOut ? 'This view is taking longer than expected.' : label}</p>
+        {timedOut && <div className="route-readiness__actions">
+          <button type="button" className="button button--outline" onClick={() => window.location.reload()}>Reload view</button>
+          <Link to="/">Go home</Link>
+        </div>}
+      </div>
+      <div className="route-readiness__scene" aria-hidden="true">
+        <div className="route-readiness__feature">
+          <i className="route-readiness__wash" />
+          <div className="route-readiness__copy">
+            <i />
+            <i />
+            <i />
+            <span><b /><b /></span>
+          </div>
+          {kind === 'watch' && <div className="route-readiness__transport"><i /><i /><i /></div>}
+        </div>
+        <div className="route-readiness__rail">
+          {Array.from({ length: placeholders }, (_, index) => <i key={index} />)}
+        </div>
       </div>
     </section>
   );

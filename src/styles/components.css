@@ -542,46 +542,167 @@ td {
   }
 }
 .route-readiness {
-  width: min(100%, 760px);
-  margin: clamp(20px, 5vw, 64px) 0;
-  padding: 18px 0;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 12px;
+  --route-sheen: linear-gradient(105deg, transparent 28%, rgb(255 255 255 / .055) 43%, transparent 58%);
+  width: 100%;
+  min-height: min(68svh, 760px);
+  padding-block: clamp(16px, 2.5vw, 32px) 48px;
   color: var(--muted);
+  overflow: hidden;
 }
-.route-readiness p {
+.route-readiness__status {
+  min-height: 36px;
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 18px;
+}
+.route-readiness__status p {
   font-size: 12px;
+  letter-spacing: .01em;
 }
-.route-readiness strong {
-  color: var(--text);
-  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
-  font-size: 20px;
-  font-weight: 650;
-}
-.route-readiness__lines {
-  grid-column: 1 / -1;
+.route-readiness__scene {
+  width: 100%;
   display: grid;
-  gap: 8px;
+  gap: clamp(18px, 2.5vw, 30px);
 }
-.route-readiness__lines i {
-  width: min(100%, 520px);
-  height: 7px;
-  background: var(--surface-2);
+.route-readiness__feature,
+.route-readiness__rail > i,
+.route-readiness__copy > i,
+.route-readiness__copy b,
+.route-readiness__transport i {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-2) 74%, transparent);
+}
+.route-readiness__feature::after,
+.route-readiness__rail > i::after,
+.route-readiness__copy > i::after,
+.route-readiness__copy b::after,
+.route-readiness__transport i::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--route-sheen);
+  transform: translateX(-120%);
+  animation: route-readiness-sheen 1.6s ease-in-out infinite;
+}
+.route-readiness__feature {
+  min-height: clamp(260px, 42vw, 510px);
+  border-radius: 3px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 74% 34%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 28%),
+    linear-gradient(90deg, color-mix(in srgb, var(--surface) 94%, black) 0 35%, color-mix(in srgb, var(--surface-2) 82%, transparent) 72%, transparent),
+    color-mix(in srgb, var(--surface-2) 72%, black);
+}
+.route-readiness__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .62;
+  background:
+    linear-gradient(0deg, var(--bg), transparent 38%),
+    linear-gradient(90deg, transparent 52%, color-mix(in srgb, var(--surface-3) 78%, transparent));
+}
+.route-readiness__copy {
+  position: absolute;
+  left: clamp(18px, 4vw, 64px);
+  bottom: clamp(28px, 6vw, 78px);
+  width: min(42vw, 470px);
+  display: grid;
+  gap: 11px;
+}
+.route-readiness__copy > i {
+  display: block;
+  height: 10px;
   border-radius: 2px;
 }
-.route-readiness__lines i:last-child {
-  width: min(72%, 360px);
+.route-readiness__copy > i:first-child { width: 28%; height: 8px; }
+.route-readiness__copy > i:nth-child(2) { width: 88%; height: clamp(24px, 3vw, 42px); }
+.route-readiness__copy > i:nth-child(3) { width: 67%; }
+.route-readiness__copy span { display: flex; gap: 10px; margin-top: 8px; }
+.route-readiness__copy b { display: block; width: 112px; height: 36px; border-radius: 3px; }
+.route-readiness__copy b:last-child { width: 94px; }
+.route-readiness__rail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(6px, .75vw, 12px);
+}
+.route-readiness__rail > i {
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 3px;
+}
+.route-readiness[data-route-kind='catalogue'] .route-readiness__feature,
+.route-readiness[data-route-kind='library'] .route-readiness__feature,
+.route-readiness[data-route-kind='account'] .route-readiness__feature,
+.route-readiness[data-route-kind='default'] .route-readiness__feature {
+  min-height: clamp(150px, 22vw, 260px);
+}
+.route-readiness[data-route-kind='catalogue'] .route-readiness__rail {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+}
+.route-readiness[data-route-kind='catalogue'] .route-readiness__rail > i { aspect-ratio: 2 / 3; }
+.route-readiness[data-route-kind='library'] .route-readiness__rail > i { aspect-ratio: 16 / 10; }
+.route-readiness[data-route-kind='account'] .route-readiness__scene {
+  width: min(100%, 760px);
+}
+.route-readiness[data-route-kind='account'] .route-readiness__rail { display: none; }
+.route-readiness[data-route-kind='watch'] .route-readiness__scene {
+  grid-template-columns: minmax(0, 4fr) minmax(230px, 1fr);
+  align-items: start;
+}
+.route-readiness[data-route-kind='watch'] .route-readiness__feature {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  background: #07080b;
+}
+.route-readiness[data-route-kind='watch'] .route-readiness__copy { display: none; }
+.route-readiness[data-route-kind='watch'] .route-readiness__rail {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.route-readiness[data-route-kind='watch'] .route-readiness__rail > i { aspect-ratio: 16 / 5; }
+.route-readiness__transport {
+  position: absolute;
+  inset: auto 18px 16px;
+  display: grid;
+  grid-template-columns: 34px 1fr 34px;
+  align-items: center;
+  gap: 10px;
+}
+.route-readiness__transport i { height: 5px; border-radius: 99px; }
+.route-readiness__transport i:first-child,
+.route-readiness__transport i:last-child { height: 28px; border-radius: 50%; }
+.route-readiness__transport i:nth-child(2) { background: color-mix(in srgb, var(--muted) 24%, transparent); }
+@keyframes route-readiness-sheen { 60%, 100% { transform: translateX(120%); } }
+@media (prefers-reduced-motion: reduce) {
+  .route-readiness__feature::after,
+  .route-readiness__rail > i::after,
+  .route-readiness__copy > i::after,
+  .route-readiness__copy b::after,
+  .route-readiness__transport i::after { animation: none; }
 }
 .route-readiness__actions {
-  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
+  margin-left: auto;
 }
 .route-readiness__actions > a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .route-readiness { min-height: 62svh; padding-top: 10px; }
+  .route-readiness__status { margin-bottom: 12px; }
+  .route-readiness__feature { min-height: clamp(220px, 83vw, 360px); }
+  .route-readiness__copy { left: 16px; bottom: 24px; width: 76%; gap: 8px; }
+  .route-readiness__copy > i:nth-child(2) { height: 26px; }
+  .route-readiness__copy b { width: 96px; height: 34px; }
+  .route-readiness__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .route-readiness[data-route-kind='catalogue'] .route-readiness__rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .route-readiness[data-route-kind='watch'] .route-readiness__scene { grid-template-columns: 1fr; }
+  .route-readiness[data-route-kind='watch'] .route-readiness__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .route-readiness[data-route-kind='watch'] .route-readiness__rail > i { aspect-ratio: 16 / 9; }
+  .route-readiness__actions { flex-basis: 100%; margin-left: 41px; }
+}

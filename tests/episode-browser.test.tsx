@@ -163,4 +163,54 @@ describe('episode browser current-range navigation', () => {
     expect(screen.getAllByRole('listitem')).toHaveLength(20);
     expect(screen.queryByRole('button', { name: 'Current episode' })).toBeNull();
   });
+
+  it('groups a reliable multi-season inventory and searches across every season', () => {
+    const seasonalEpisodes: Episode[] = Array.from({ length: 138 }, (_, index) => {
+      const season = Math.floor(index / 24) + 1;
+      const episode = (index % 24) + 1;
+      return {
+        id: `seasonal-${index + 1}`,
+        number: `S${season} E${episode}`,
+        label: `S${season} E${episode} · Chapter ${index + 1}`,
+        versions: [{ id: `seasonal-${index + 1}:sub`, language: 'sub', providerCount: 2 }],
+      };
+    });
+
+    setup({
+      episodes: seasonalEpisodes,
+      slug: 'six-season-series',
+      currentId: 'seasonal-138',
+    });
+
+    const season = screen.getByRole('combobox', { name: 'Season' });
+    expect(season).toHaveProperty('value', 'season-6');
+    expect(screen.getAllByRole('listitem')).toHaveLength(18);
+    expect(currentLink()?.getAttribute('href')).toContain('/seasonal-138?language=sub');
+
+    fireEvent.change(season, { target: { value: 'season-2' } });
+    expect(screen.getAllByRole('listitem')).toHaveLength(24);
+    expect(screen.getByText('S2 E1 · Chapter 25')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Current episode' })).toBeTruthy();
+
+    fireEvent.change(search(), { target: { value: 'S5 E4' } });
+    expect(season).toHaveProperty('value', 'all');
+    expect(screen.getByText('Searching every season')).toBeTruthy();
+    expect(screen.getAllByRole('listitem')).toHaveLength(1);
+    expect(screen.getByText('S5 E4 · Chapter 100')).toBeTruthy();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Current episode' }));
+    expect(season).toHaveProperty('value', 'season-6');
+    expect(document.activeElement).toBe(currentLink());
+  });
+
+  it('keeps irregular inventories on the established bounded-range navigation', () => {
+    const mixedEpisodes = episodes.slice(0, 80).map((episode, index) => ({
+      ...episode,
+      number: index < 20 ? `S1 E${index + 1}` : episode.number,
+    }));
+    setup({ episodes: mixedEpisodes, currentId: 'episode-80' });
+
+    expect(screen.queryByRole('combobox', { name: 'Season' })).toBeNull();
+    expect(range('51–80').getAttribute('aria-pressed')).toBe('true');
+  });
 });

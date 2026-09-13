@@ -9,6 +9,7 @@ import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
 import EpisodeCommunity from '../components/EpisodeCommunity';
+import UnsupportedPlayback from '../components/UnsupportedPlayback';
 import '../styles/title-watch.css';
 
 function safeAttributionUrl(value: string) {
@@ -260,11 +261,7 @@ function WatchSession() {
             }}
           />
         ) : (
-          <PlayerMessage title="Unsupported source">
-            {unsupported && providers.length
-              ? 'No safely integrated source is available for this selection. Choose another source or episode.'
-              : 'No playable source is available for this episode yet.'}
-          </PlayerMessage>
+          <UnsupportedPlayback providers={providers} selected={unsupported ? candidate : undefined} />
         )}
       </div>
       <div className="watch-selection">
@@ -446,16 +443,6 @@ function WatchSession() {
           </ul>
         </div>
       </details>
-      {!providers.some((p) => p.supported) && providers.length > 0 && (
-        <details className="source-explanation">
-          <summary>Why is this source unavailable?</summary>
-          <p>
-            These source entries only identify third-party webpages or lack an authorized native
-            integration. Solanime does not load them, rather than expose you to their player
-            redirects.
-          </p>
-        </details>
-      )}
     </div>
   );
 }

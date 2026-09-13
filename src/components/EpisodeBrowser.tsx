@@ -3,11 +3,28 @@ import { Link } from 'react-router-dom';
 import type { Episode } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
+
+const PAGE_SIZE = 50;
+
 export const episodeName = (episode: Episode) =>
   episode.label ||
   episode.title ||
   (episode.number != null ? `Episode ${episode.number}` : 'Special');
 const episodeCountLabel = (count: number) => `${count} ${count === 1 ? 'episode' : 'episodes'}`;
+
+function episodeSeason(episode: Episode) {
+  const candidates = [episode.number, episode.label, episode.title].filter(
+    (value): value is string | number => value != null,
+  );
+  for (const candidate of candidates) {
+    const value = String(candidate).trim();
+    const match =
+      /^s(?:eason)?[\s._-]*(\d{1,3})[\s._:-]*e(?:pisode)?[\s._-]*\d+/i.exec(value) ??
+      /^season[\s._-]+(\d{1,3})(?:[\s._:-]+episode[\s._-]+\d+)/i.exec(value);
+    if (match) return Number(match[1]);
+  }
+  return null;
+}
 interface EpisodeBrowserProps {
   episodes: Episode[];
   language: string;
@@ -28,28 +45,60 @@ function EpisodeBrowserContent({
 }: EpisodeBrowserProps) {
   const { watched } = useAppState();
   const [query, setQuery] = useState(''),
-    [page, setPage] = useState<number | null>(null);
+    [page, setPage] = useState<number | null>(null),
+    [selectedSeason, setSelectedSeason] = useState<string | null>(null);
   const focusCurrentOnMount = useRef(false);
   const languageEpisodes = useMemo(
     () => episodes.filter((episode) => !language || episode.versions.some((version) => version.language === language)),
     [episodes, language],
   );
-  const currentIndex = languageEpisodes.findIndex((episode) => episode.id === currentId);
-  const currentPage = Math.floor(Math.max(0, currentIndex) / 50);
+  const seasonGroups = useMemo(() => {
+    const parsed = languageEpisodes.map((episode) => ({ episode, season: episodeSeason(episode) }));
+    const seasons = new Set(parsed.flatMap(({ season }) => (season == null ? [] : [season])));
+    if (seasons.size < 2 || parsed.filter(({ season }) => season != null).length / Math.max(1, parsed.length) < 0.7) {
+      return null;
+    }
+    const groups = [...seasons]
+      .sort((a, b) => a - b)
+      .map((season) => ({
+        key: `season-${season}`,
+        label: `Season ${season}`,
+        episodes: parsed.filter((item) => item.season === season).map((item) => item.episode),
+      }));
+    const extras = parsed.filter((item) => item.season == null).map((item) => item.episode);
+    if (extras.length) groups.push({ key: 'extras', label: 'Extras', episodes: extras });
+    return groups;
+  }, [languageEpisodes]);
+  const currentSeason = seasonGroups?.find((group) => group.episodes.some((episode) => episode.id === currentId));
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  const selectedGroup = seasonGroups?.find((group) => group.key === selectedSeason);
+  const activeSeason = normalizedQuery
+    ? 'all'
+    : selectedSeason === 'all'
+      ? 'all'
+      : (selectedGroup?.key ?? currentSeason?.key ?? seasonGroups?.[0]?.key ?? 'all');
+  const scopedEpisodes =
+    activeSeason === 'all'
+      ? languageEpisodes
+      : (seasonGroups?.find((group) => group.key === activeSeason)?.episodes ?? languageEpisodes);
   const matches = useMemo(
     () =>
-      languageEpisodes.filter(
+      scopedEpisodes.filter(
         (e) =>
           `${e.number ?? ''} ${episodeName(e)}`
             .toLocaleLowerCase()
-            .includes(query.trim().toLocaleLowerCase()),
+            .includes(normalizedQuery),
       ),
-    [languageEpisodes, query],
+    [normalizedQuery, scopedEpisodes],
   );
-  const pages = Math.ceil(matches.length / 50),
+  const currentIndex = matches.findIndex((episode) => episode.id === currentId);
+  const currentPage = Math.floor(Math.max(0, currentIndex) / PAGE_SIZE);
+  const pages = Math.ceil(matches.length / PAGE_SIZE),
     active = Math.min(page ?? currentPage, Math.max(0, pages - 1));
-  const visible = matches.slice(active * 50, active * 50 + 50);
-  const canJumpToCurrent = currentIndex >= 0 && (query !== '' || !visible.some((episode) => episode.id === currentId));
+  const visible = matches.slice(active * PAGE_SIZE, active * PAGE_SIZE + PAGE_SIZE);
+  const currentExists = languageEpisodes.some((episode) => episode.id === currentId);
+  const canJumpToCurrent =
+    currentExists && (normalizedQuery !== '' || !visible.some((episode) => episode.id === currentId));
   return (
     <div className="episode-browser">
       <div className="episode-toolbar">
@@ -75,6 +124,7 @@ function EpisodeBrowserContent({
             onClick={() => {
               focusCurrentOnMount.current = true;
               setQuery('');
+              setSelectedSeason(null);
               setPage(null);
             }}
           >
@@ -82,11 +132,33 @@ function EpisodeBrowserContent({
           </button>
         )}
       </div>
+      {seasonGroups && (
+        <label className="episode-season-picker">
+          <span>Season</span>
+          <select
+            aria-label="Season"
+            value={activeSeason}
+            onChange={(event) => {
+              setQuery('');
+              setSelectedSeason(event.target.value);
+              setPage(0);
+            }}
+          >
+            <option value="all">All episodes · {languageEpisodes.length}</option>
+            {seasonGroups.map((group) => (
+              <option key={group.key} value={group.key}>
+                {group.label} · {group.episodes.length}
+              </option>
+            ))}
+          </select>
+          {normalizedQuery && <small>Searching every season</small>}
+        </label>
+      )}
       {pages > 1 && (
         <div className="episode-ranges" role="group" aria-label="Episode range">
           {Array.from({ length: pages }, (_, i) => (
             <button type="button" key={i} aria-pressed={i === active} onClick={() => setPage(i)}>
-              {i * 50 + 1}–{Math.min(matches.length, (i + 1) * 50)}
+              {i * PAGE_SIZE + 1}–{Math.min(matches.length, (i + 1) * PAGE_SIZE)}
             </button>
           ))}
         </div>

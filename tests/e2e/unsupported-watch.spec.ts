@@ -1,0 +1,64 @@
+import { expect, test, type Route } from '@playwright/test';
+import { episode } from './helpers';
+
+const unsupportedProviders = [
+  {
+    mappingId: 'observed-webpage',
+    providerId: 'observed-webpage-provider',
+    label: 'Observed webpage mirror',
+    playbackType: 'iframe',
+    status: 'observed',
+    supported: false,
+  },
+  {
+    mappingId: 'blocked-upstream',
+    providerId: 'blocked-provider',
+    label: 'Blocked upstream mirror',
+    playbackType: 'unknown',
+    status: 'blocked',
+    supported: false,
+  },
+];
+
+async function serveUnsupportedProviders(route: Route) {
+  const response = await route.fetch();
+  const payload = (await response.json()) as Record<string, unknown>;
+  await route.fulfill({ response, json: { ...payload, providers: unsupportedProviders } });
+}
+
+test('watch exposes truthful observed-source status without offering unsafe playback', async ({ page }) => {
+  const firstEpisode = await episode(page);
+  await page.route('**/api/episodes/*/providers*', serveUnsupportedProviders);
+
+  await page.goto(`/watch/paper-lantern/${firstEpisode.id}?language=sub`);
+
+  await expect(
+    page.getByRole('heading', { name: 'Not available in the Solanime player' }),
+  ).toBeVisible();
+  await expect(page.getByRole('list', { name: 'Observed playback sources' })).toContainText(
+    'Observed webpage mirror',
+  );
+  await expect(page.getByRole('list', { name: 'Observed playback sources' })).toContainText(
+    'Blocked upstream',
+  );
+  await expect(page.getByRole('combobox', { name: 'Playback source' })).toBeDisabled();
+  await expect(page.locator('video, iframe')).toHaveCount(0);
+});
+
+test('unsupported source inventory remains usable at 320px', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  const firstEpisode = await episode(page);
+  await page.route('**/api/episodes/*/providers*', serveUnsupportedProviders);
+
+  await page.goto(`/watch/paper-lantern/${firstEpisode.id}?language=sub`);
+
+  await expect(
+    page.getByRole('list', { name: 'Observed playback sources' }).getByText('Observed webpage mirror'),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth),
+  ).toBe(true);
+  const episodeControl = page.getByRole('combobox', { name: 'Choose episode' });
+  await episodeControl.focus();
+  await expect(episodeControl).toBeFocused();
+});
