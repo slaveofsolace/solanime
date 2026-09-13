@@ -18,6 +18,16 @@ function initialLanguage(episodes: Episode[], preferredLanguage: string): string
   const languages = Array.from(
     new Set(episodes.flatMap((episode) => episode.versions.map((version) => version.language))),
   );
+  const playableLanguages = languages.filter((candidate) =>
+    episodes.some((episode) =>
+      episode.versions.some(
+        (version) =>
+          version.language === candidate &&
+          version.providerCount > 0 &&
+          version.availability === 'available',
+      ),
+    ),
+  );
   const mappedLanguages = languages.filter((candidate) =>
     episodes.some((episode) =>
       episode.versions.some(
@@ -25,6 +35,8 @@ function initialLanguage(episodes: Episode[], preferredLanguage: string): string
       ),
     ),
   );
+  if (playableLanguages.includes(preferredLanguage)) return preferredLanguage;
+  if (playableLanguages.length > 0) return playableLanguages[0];
   if (mappedLanguages.includes(preferredLanguage)) return preferredLanguage;
   if (mappedLanguages.length > 0) return mappedLanguages[0];
   return languages.includes(preferredLanguage) ? preferredLanguage : (languages[0] ?? '');

@@ -175,8 +175,8 @@ test('title defaults to a mapped version and presents a single grammatical episo
             number: '1',
             label: 'Episode 1',
             versions: [
-              { id: 'sub-version', language: 'sub', label: 'Subtitled', providerCount: 0 },
-              { id: 'silent-version', language: 'silent', label: 'Restored', providerCount: 2 },
+              { id: 'sub-version', language: 'sub', label: 'Subtitled', providerCount: 2, availability: 'observed' },
+              { id: 'silent-version', language: 'silent', label: 'Restored', providerCount: 2, availability: 'available' },
             ],
           },
         ],

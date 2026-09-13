@@ -61,6 +61,7 @@ export interface EpisodeVersion {
   language: string;
   label?: string;
   providerCount: number;
+  availability?: AvailabilityStatus;
 }
 
 export interface Episode {
