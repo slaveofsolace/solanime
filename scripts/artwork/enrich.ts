@@ -5,7 +5,7 @@ import { dirname, resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { migrate, projectRoot } from '../../server/db.ts';
 import { applyArtworkBundle } from '../../server/artwork/bundle.ts';
-import { enrichmentStatus, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment, visibleArtworkTitleIds } from '../../server/artwork/enrichment.ts';
+import { allAnikotoArtworkTitleIds, enrichmentStatus, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment, visibleArtworkTitleIds } from '../../server/artwork/enrichment.ts';
 
 const args = new Map(process.argv.slice(2).map(arg => { const [key,...rest] = arg.split('='); return [key,rest.join('=') || 'true']; }));
 const execute = args.get('--execute') === 'true'; const create = args.get('--create-copy') === 'true'; const seed = args.get('--seed') === 'true' || create;
@@ -40,27 +40,31 @@ if (existsSync(markerPath)) {
   const marker = JSON.parse(readFileSync(markerPath,'utf8'));
   if (marker.version !== 1 || marker.databasePath !== databasePath || marker.queuePath !== queuePath) throw new Error('The task-copy marker does not match these exact database and queue paths.');
 }
-const requests = Number(args.get('--max-requests')); const dailyLimit = Number(args.get('--daily-request-limit')); const seconds = Number(args.get('--max-seconds'));
-if (execute && (!Number.isSafeInteger(requests) || requests < 1 || requests > 10_000 || !Number.isSafeInteger(dailyLimit) || dailyLimit < 1 || dailyLimit > 10_000 || !Number.isSafeInteger(seconds) || seconds < 1 || seconds > 3600 || !args.get('--title-ids'))) throw new Error('Execution requires explicit --title-ids=visible|<ids>, --max-requests=1..10000, --daily-request-limit=1..10000 and --max-seconds=1..3600. No implicit full import exists.');
+const requests = Number(args.get('--max-requests')); const dailyLimit = Number(args.get('--daily-request-limit')); const seconds = Number(args.get('--max-seconds')); const identityOnly = args.get('--identity-only') === 'true';
+const identityIntervalMs = args.has('--identity-interval-ms') ? Number(args.get('--identity-interval-ms')) : 2200;
+const maximumSeconds = identityOnly && args.get('--title-ids') === 'all-anikoto' ? 14_400 : 3600;
+if (execute && (!Number.isSafeInteger(requests) || requests < 1 || requests > 10_000 || !Number.isSafeInteger(dailyLimit) || dailyLimit < 1 || dailyLimit > 10_000 || !Number.isSafeInteger(seconds) || seconds < 1 || seconds > maximumSeconds || !args.get('--title-ids') || !Number.isSafeInteger(identityIntervalMs) || identityIntervalMs < 1000 || identityIntervalMs > 60_000)) throw new Error(`Execution requires explicit --title-ids=visible|all-anikoto|<ids>, --max-requests=1..10000, --daily-request-limit=1..10000, --max-seconds=1..${maximumSeconds} and optional --identity-interval-ms=1000..60000. No implicit full import exists.`);
 const db = new DatabaseSync(databasePath,{readOnly: !execute && !seed,enableForeignKeyConstraints:true});
 const queue = new DatabaseSync(queuePath,{readOnly: !execute && !seed,enableForeignKeyConstraints:true});
 try {
   if (execute || seed) migrateArtworkEnrichment(queue);
   let seeded;
   if (seed) seeded = seedArtworkEnrichment(db,queue);
-  const selected = args.get('--title-ids') === 'visible' ? visibleArtworkTitleIds(db) : (args.get('--title-ids') ?? '').split(',').filter(Boolean).map(Number);
+  const selected = args.get('--title-ids') === 'visible' ? visibleArtworkTitleIds(db) : args.get('--title-ids') === 'all-anikoto' ? allAnikotoArtworkTitleIds(db) : (args.get('--title-ids') ?? '').split(',').filter(Boolean).map(Number);
   let used = 0; let steps = 0; let halt = execute ? 'deadline-or-request-budget' : 'read-only';
   if (execute) {
     const deadline = Date.now() + seconds * 1000;
     while (used < requests && Date.now() < deadline && steps < requests * 5) {
-      const result = await runArtworkEnrichmentStep(db,queue,{titleIds:selected,dailyRequestLimit:dailyLimit,identityOnly:args.get('--identity-only') === 'true'});
+      const result = await runArtworkEnrichmentStep(db,queue,{titleIds:selected,dailyRequestLimit:dailyLimit,identityOnly,identityRequestIntervalMs:identityIntervalMs});
       used += result.requests; steps++; console.log(JSON.stringify(result));
       if (result.status === 'blocked' || result.reason === 'QUOTA_EXHAUSTED') { halt = result.reason ?? 'source-policy-blocked'; break; }
       if (result.status === 'idle') {
-        const row = queue.prepare("SELECT MIN(available_at) AS next FROM artwork_enrichment_tasks WHERE title_id IN (SELECT value FROM json_each(?)) AND status IN ('pending','retry') AND (?=0 OR stage='identity')").get(JSON.stringify(selected),args.get('--identity-only') === 'true' ? 1 : 0);
+        const row = queue.prepare("SELECT MIN(available_at) AS next FROM artwork_enrichment_tasks WHERE title_id IN (SELECT value FROM json_each(?)) AND status IN ('pending','retry') AND (?=0 OR stage='identity')").get(JSON.stringify(selected),identityOnly ? 1 : 0);
         if (!row?.next || Date.parse(String(row.next)) >= deadline) { halt = row?.next ? 'durable-retry-pending' : 'selected-titles-settled'; break; }
       }
-      await delay(Math.min(2300,Math.max(0,deadline-Date.now())));
+      const nextHostAt = identityOnly ? db.prepare("SELECT next_request_at FROM artwork_source_policy WHERE hostname='anime.vidy.st'").get()?.next_request_at : null;
+      const waitMs = nextHostAt ? Math.max(0,Date.parse(String(nextHostAt))-Date.now()+25) : 2300;
+      await delay(Math.min(waitMs,Math.max(0,deadline-Date.now())));
     }
   }
   const receipt = { observedAt:new Date().toISOString(),mode:execute ? 'bounded-task-copy-enrichment' : seed ? 'task-copy-queue-seeded' : 'read-only',databasePath,queuePath,seeded,selectedTitleIds:selected,requestsIssued:used,steps,halt,...enrichmentStatus(db,queue),
