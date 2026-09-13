@@ -42,7 +42,7 @@ async function overflow(page: Page) {
 async function openPaperTitle(page: Page) {
   await page.goto('/catalogue?q=Paper');
   await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Add to watchlist', exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'My List', exact: true })).toBeEnabled();
 }
 
 test('five profiles keep appearance and saved lists separate across reloads', async ({
@@ -72,7 +72,7 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await page.screenshot({ path: info.outputPath('five-profiles.png'), fullPage: true });
   await choose(page);
   await openPaperTitle(page);
-  await page.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
+  await page.getByRole('button', { name: 'My List', exact: true }).click();
   await page.getByRole('button', { name: 'Customize appearance' }).click();
   await page.getByRole('dialog').getByRole('button', { name: 'Violet', exact: true }).click();
   await page.keyboard.press('Escape');
@@ -182,7 +182,7 @@ test('a sync conflict does not trap an authenticated session', async ({ page }) 
       });
     return route.continue();
   });
-  await page.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
+  await page.getByRole('button', { name: 'My List', exact: true }).click();
   await expect(
     page
       .getByText('This profile changed in another tab. Reload it before saving again.', {

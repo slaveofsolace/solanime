@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => { await fixtureArt(page); await page.emulate
 test('shared chrome has one gutter, one navigation state and consistent UI typography', async ({ page }) => {
   for (const width of [320, 768, 1440]) {
     await page.setViewportSize({ width, height: 960 });
-    await page.goto('/catalogue');
+    await page.goto('/catalogue?scope=anime');
     await expect(page.locator('.title-card').first()).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
 
@@ -19,6 +19,24 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
     await expect(browse).toHaveAttribute('aria-current', 'page');
     if (width <= 820) {
       await expect(browse).toHaveCSS('border-radius', '8px');
+      const navigationGeometry = await page.locator('.main-nav > a').evaluateAll((links) =>
+        links
+          .filter((link) => (link as HTMLElement).offsetWidth > 0)
+          .map((link) => {
+            const box = link.getBoundingClientRect();
+            const label = link.querySelector('span');
+            return {
+              left: box.left,
+              right: box.right,
+              height: box.height,
+              labelClipped: label ? label.scrollWidth > label.clientWidth + 1 : false,
+            };
+          }),
+      );
+      expect(navigationGeometry).toHaveLength(6);
+      expect(navigationGeometry.every(({ left, right }) => left >= 0 && right <= width)).toBe(true);
+      expect(navigationGeometry.every(({ height }) => height >= 44)).toBe(true);
+      expect(navigationGeometry.some(({ labelClipped }) => labelClipped)).toBe(false);
     } else {
       await expect(browse).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
       await expect(browse).toHaveCSS('border-radius', '0px');

@@ -148,7 +148,7 @@ test('home genre discovery is a dense text index rather than decorative panels',
   expect((await genre.boundingBox())!.height).toBeLessThanOrEqual(66);
 });
 
-test('title defaults to a mapped version and presents a single grammatical episode count', async ({
+test('title defaults to a mapped version and presents one compact episode count', async ({
   page,
 }) => {
   await page.route('**/api/titles/provider-backed-language', (route) =>
@@ -191,7 +191,7 @@ test('title defaults to a mapped version and presents a single grammatical episo
     'aria-pressed',
     'true',
   );
-  await expect(page.getByRole('button', { name: 'sub', exact: true })).toHaveAttribute(
+  await expect(page.getByRole('button', { name: 'Subtitled', exact: true })).toHaveAttribute(
     'aria-pressed',
     'false',
   );
@@ -200,7 +200,12 @@ test('title defaults to a mapped version and presents a single grammatical episo
     /language=silent/,
   );
   await expect(page.getByText('YEAR UNKNOWN')).toHaveCount(0);
-  await expect(page.getByText('1 episode', { exact: true })).toHaveCount(1);
+  const episodeFact = page.locator('.title-facts > div').filter({
+    has: page.locator('dt', { hasText: /^Episodes$/ }),
+  });
+  await expect(episodeFact).toHaveCount(1);
+  await expect(episodeFact.locator('dd')).toHaveText('1');
+  await expect(page.getByText('1 episode', { exact: true })).toHaveCount(0);
 });
 
 test('touch cards keep original posters and full accessible title links without text over artwork', async ({ page }, info) => {

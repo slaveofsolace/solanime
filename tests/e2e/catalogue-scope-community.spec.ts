@@ -33,8 +33,9 @@ test('watch keeps public conversation separate from private episode notes', asyn
   await page.goto('/title/paper-lantern');
   await page.getByRole('link', { name: 'Open first episode', exact: true }).click();
   await expect(page.locator('video')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Conversation', exact: true })).toBeVisible();
-  await expect(page.getByText('No comments yet. Start the conversation for this episode.')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Comments', exact: true })).toBeVisible();
+  await expect(page.getByText('No comments yet', { exact: true })).toBeVisible();
+  await expect(page.getByText('Start the conversation for this episode.', { exact: true })).toBeVisible();
   await expect(page.locator('.episode-community').getByRole('link', { name: 'Sign in', exact: true })).toHaveAttribute('href', '/login');
   await page.getByText('Your notes', { exact: false }).click();
   await expect(page.getByText('Private to your current profile or device.')).toBeVisible();

@@ -526,6 +526,7 @@
     padding: 4px;
     border-radius: 8px;
     overflow: hidden;
+    font-size: 10px;
   }
 
   .main-nav > a[aria-current='page'] {
@@ -664,6 +665,29 @@
     width: 40px;
     min-height: 44px;
     flex: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-shell--watch .watch-selection {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-shell--watch .watch-selection .episode-nav,
+  .site-shell--watch .watch-selection > .source-choice,
+  .site-shell--watch .watch-selection > .version-choice {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-nav {
+    inset-inline: 8px;
+  }
+
+  .main-nav > a {
+    padding-inline: 2px;
+    font-size: 9px;
   }
 }
 

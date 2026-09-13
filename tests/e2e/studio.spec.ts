@@ -66,7 +66,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await page.keyboard.press('Escape');
 
   const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
-  await expect(primaryLinks).toHaveCount(4);
+  await expect(primaryLinks).toHaveCount(6);
   for (const link of await primaryLinks.all()) {
     expect((await link.locator('.icon').isVisible()) || (await link.locator('span').first().isVisible())).toBe(
       true,
