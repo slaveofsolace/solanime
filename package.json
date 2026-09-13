@@ -19,6 +19,7 @@
     "db:migrate": "node --env-file-if-exists=.env --import tsx scripts/migrate.ts",
     "import:anikoto": "node --env-file-if-exists=.env --import tsx scripts/import-anikoto.ts",
     "import:tvmaze": "node --env-file-if-exists=.env --import tsx scripts/import-tvmaze.ts",
+    "import:wikipedia": "node --env-file-if-exists=.env --import tsx scripts/import-wikipedia.ts",
     "import:detached": "node --env-file-if-exists=.env --import tsx scripts/start-full-import.ts",
     "import:status": "node --env-file-if-exists=.env --import tsx scripts/import-status.ts",
     "export:data": "node --env-file-if-exists=.env --import tsx scripts/export-data.ts",

@@ -97,7 +97,7 @@ export interface SnapshotTitle {
 
 export interface CatalogueSnapshot {
   schemaVersion: 1;
-  source: 'anikoto' | 'tvmaze';
+  source: 'anikoto' | 'tvmaze' | 'wikipedia-movie' | 'wikipedia-tv';
   observedAt: string;
   denominator?: { titles?: number; scope: string };
   titles: SnapshotTitle[];

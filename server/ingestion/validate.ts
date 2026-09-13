@@ -212,7 +212,10 @@ export function validateSnapshot(raw: unknown): CatalogueSnapshot {
   const value = raw as Record<string, unknown>;
   if (
     value.schemaVersion !== 1 ||
-    (value.source !== 'anikoto' && value.source !== 'tvmaze') ||
+    (value.source !== 'anikoto' &&
+      value.source !== 'tvmaze' &&
+      value.source !== 'wikipedia-movie' &&
+      value.source !== 'wikipedia-tv') ||
     !Array.isArray(value.titles)
   )
     throw new AppError(

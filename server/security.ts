@@ -6,6 +6,7 @@ const PUBLIC_SOURCE_HOSTS = new Set([
   'www.anikototv.to',
   'tvmaze.com',
   'www.tvmaze.com',
+  'en.wikipedia.org',
 ]);
 
 function headerValue(value: string | string[] | undefined): string {
