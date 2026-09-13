@@ -28,6 +28,7 @@ describe('publication-safe source archive', () => {
     expect(shouldIncludeSourcePath('docs/RESOURCE_REGISTRY.json')).toBe(true);
     expect(shouldIncludeSourcePath('docs/cloud-release-checklist.md')).toBe(true);
     expect(shouldIncludeSourcePath('dist/index.html')).toBe(false);
+    expect(shouldIncludeSourcePath('build/cloud-worker-assets-tvmaze-v1/manifest.json')).toBe(false);
   });
 
   it('makes reviewed research material an explicit opt-in without admitting runtime data', () => {

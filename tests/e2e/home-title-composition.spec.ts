@@ -66,7 +66,7 @@ test('a loaded wide banner fills the home and title artwork field without a seco
   await fixtureBanner(page, bannerUrl);
   for (const surface of [
     { route: '/', selector: '.home-feature', action: 'View episodes', name: 'home' },
-    { route: '/title/paper-lantern', selector: '.title-hero', action: 'Open first episode', name: 'title' },
+    { route: '/title/paper-lantern', selector: '.title-hero', action: 'Play first episode', name: 'title' },
   ]) {
     await page.goto(surface.route);
     const art = page.locator(`${surface.selector} .spotlight-art`);
@@ -182,7 +182,7 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
       expect(Math.abs(after[index]![key] - before[index]![key])).toBeLessThanOrEqual(.001);
     }
   }
-  await expect(page.getByRole('link', { name: 'Open first episode', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Play first episode', exact: true })).toBeVisible();
   await noOverflow(page);
 });
 
@@ -201,7 +201,7 @@ test('title keeps episode navigation close and full information available on dem
   await expect(page.locator('.title-about')).toHaveAttribute('open');
   await expect(page.locator('.title-about__body')).toBeVisible();
   await page.locator('.title-about summary').click();
-  const openEpisode = page.getByRole('link', { name: /Open first episode/ });
+  const openEpisode = page.getByRole('link', { name: /Play first episode/ });
   const destination = await openEpisode.getAttribute('href');
   expect(destination).toMatch(/^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
   await openEpisode.click();
@@ -228,7 +228,7 @@ test('artwork failure preserves the real title, episode inventory and navigation
   await expect(page.locator('.title-hero .cover-fallback')).toBeVisible();
   await expect(page.locator('.title-hero .spotlight-art__banner')).toHaveCount(0);
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
-  await expect(page.getByRole('link', { name: /Open first episode/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Play first episode/ })).toBeVisible();
   await noOverflow(page);
 });
 
@@ -267,7 +267,7 @@ test('320px home and title preserve readable controls in both themes', async ({ 
     await page.screenshot({ path: info.outputPath(`home-320-${theme.toLowerCase()}.png`), fullPage: true });
     await page.goto('/title/paper-lantern');
     await expect(page.locator('#title-name')).toBeVisible();
-    await expect(page.getByRole('link', { name: /Open first episode/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Play first episode/ })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`title-320-${theme.toLowerCase()}.png`), fullPage: true });
   }

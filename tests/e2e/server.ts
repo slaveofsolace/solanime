@@ -44,6 +44,7 @@ const titles: SnapshotTitle[] = Array.from({ length: 32 }, (_, index) => {
         versions: ['sub', 'dub'].map((language) => ({
           sourceId: `${id}:${language}`,
           language,
+          availability: 'available',
           providers: ['hd-1', 'hd-2', 'kiwi'].map((providerId) => ({
             sourceMappingId: `${id}:${language}:${providerId}`,
             providerId,

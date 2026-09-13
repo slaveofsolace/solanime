@@ -8,6 +8,7 @@ import PlayerSurface, { PlayerMessage } from '../components/PlayerSurface';
 import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
+import EpisodeCommunity from '../components/EpisodeCommunity';
 
 function safeAttributionUrl(value: string) {
   try {
@@ -397,6 +398,7 @@ function WatchSession() {
           currentId={episode.id}
         />
       </details>
+      <EpisodeCommunity episodeId={episode.id} />
       <details className="watch-chapter">
         <summary>
           Your notes <span>{localNotes.length}</span>

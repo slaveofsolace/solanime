@@ -96,7 +96,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const migration = await env.CATALOGUE.prepare('SELECT COUNT(*) AS count FROM d1_migrations').first<{ count: number }>();
       return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: state?.titles ?? 0, now: new Date().toISOString() });
     }
-    if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
+    if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), scope: bounded(p.get('scope')), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
     if (request.method === 'GET' && path === '/api/meta/filters') return json(await catalogue.getFilters());
     const title = /^\/api\/titles\/([^/]+)$/.exec(path);
     if (request.method === 'GET' && title) { let slug: string; try { slug = decodeURIComponent(title[1]); } catch { throw new AppError(400, 'BAD_REQUEST', 'Invalid title encoding.'); } return json(await catalogue.getTitle(bounded(slug) ?? '')); }

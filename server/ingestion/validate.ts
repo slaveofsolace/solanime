@@ -210,7 +210,11 @@ export function validateSnapshot(raw: unknown): CatalogueSnapshot {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw))
     throw new AppError(422, 'UPSTREAM_CHANGED', 'Snapshot root must be an object.');
   const value = raw as Record<string, unknown>;
-  if (value.schemaVersion !== 1 || value.source !== 'anikoto' || !Array.isArray(value.titles))
+  if (
+    value.schemaVersion !== 1 ||
+    (value.source !== 'anikoto' && value.source !== 'tvmaze') ||
+    !Array.isArray(value.titles)
+  )
     throw new AppError(
       422,
       'UPSTREAM_CHANGED',
@@ -221,7 +225,7 @@ export function validateSnapshot(raw: unknown): CatalogueSnapshot {
     throw new AppError(422, 'UPSTREAM_CHANGED', 'observedAt is not an ISO date.');
   return {
     schemaVersion: 1,
-    source: 'anikoto',
+    source: value.source,
     observedAt: new Date(observedAt).toISOString(),
     denominator: value.denominator as CatalogueSnapshot['denominator'],
     titles: value.titles.map(validateTitle),

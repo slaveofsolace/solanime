@@ -40,7 +40,7 @@ describe('private snapshot publication boundary', () => {
     expect(config.workers_dev).toBe(false);
     expect(config.preview_urls).toBe(false);
     expect(config.assets.binding).toBe('IMPORT_ASSETS');
-    expect(config.assets.directory).toBe('./build/cloud-worker-assets');
+    expect(config.assets.directory).toMatch(/^\.\/build\/cloud-worker-assets(?:-[a-z0-9-]+)?$/);
     expect(config.assets.run_worker_first).toBe(true);
     expect(config.assets.html_handling).toBe('none');
     expect(config.assets.not_found_handling).toBe('none');

@@ -15,7 +15,7 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
     expect(Math.abs(brand!.x - heading!.x)).toBeLessThanOrEqual(1);
 
     const browse = page.getByRole('navigation', { name: 'Primary navigation' })
-      .getByRole('link', { name: 'Browse', exact: true });
+      .getByRole('link', { name: 'Anime', exact: true });
     await expect(browse).toHaveAttribute('aria-current', 'page');
     if (width <= 820) {
       await expect(browse).toHaveCSS('border-radius', '8px');

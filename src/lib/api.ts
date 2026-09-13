@@ -103,6 +103,7 @@ export async function request<T>(
 
 export interface CatalogueQuery {
   q?: string;
+  scope?: 'anime' | 'tv';
   genre?: string;
   type?: string;
   status?: string;

@@ -36,9 +36,11 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100)
       throw new AppError(400, 'INVALID_QUERY', 'Choose a valid page and a page size between 1 and 100.');
     if (params.q && params.q.length > 200) throw new AppError(400, 'INVALID_QUERY', 'Search is limited to 200 characters.');
+    if (params.scope && params.scope !== 'anime' && params.scope !== 'tv')
+      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
     if (baseline) {
       const page = await baseline.browseIds(params);
-      const stored = page.ids.length ? await rows(db, `SELECT CAST(t.id AS TEXT) AS id,t.source_id AS sourceId,t.slug,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
+      const stored = page.ids.length ? await rows(db, `SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
       const byId = new Map(stored.map(row => [String(row.id),row]));
       const items: Row[] = [];
       for (const id of page.ids) {
@@ -53,6 +55,7 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     }
     const where = ['1=1'];
     const values: unknown[] = [];
+    if (params.scope) { where.push('t.source=?'); values.push(params.scope === 'anime' ? 'anikoto' : 'tvmaze'); }
     if (params.q) {
       // INSTR keeps literal search semantics without D1's 50-byte LIKE-pattern limit.
       where.push('(INSTR(LOWER(t.name),LOWER(?))>0 OR EXISTS (SELECT 1 FROM title_aliases a WHERE a.title_id=t.id AND INSTR(LOWER(a.alias),LOWER(?))>0))');
@@ -71,14 +74,14 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     const from = `FROM titles t WHERE ${where.join(' AND ')}`;
     const result = await db.batch<Row>([
       db.prepare(`SELECT COUNT(*) AS count ${from}`).bind(...values),
-      db.prepare(`SELECT CAST(t.id AS TEXT) AS id,t.source_id AS sourceId,t.slug,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount ${from} ORDER BY ${orders[params.sort] ?? orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, params.pageSize, (params.page - 1) * params.pageSize),
+      db.prepare(`SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount ${from} ORDER BY ${orders[params.sort] ?? orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, params.pageSize, (params.page - 1) * params.pageSize),
     ]);
     const total = Number(result[0].results[0].count);
     return { items: await decorateCloudArtwork(db, result[1].results), total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), ...(params.includeFacets !== false ? { facets: await getFilters() } : {}) };
   }
 
   async function getTitleD1(slug: string) {
-    const title = await db.prepare('SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,slug,canonical_url AS canonicalUrl,name,description,description AS synopsis,format,format AS type,release_year AS releaseYear,status,artwork_url AS artworkUrl,artwork_url AS imageUrl,artwork_origin AS artworkOrigin,artwork_reuse_status AS artworkReuseStatus,availability_state AS availability,first_seen_at AS firstSeen,last_seen_at AS lastSeen,last_successful_import_at AS lastSuccessfulImport FROM titles WHERE slug=?').bind(slug).first<Row>();
+    const title = await db.prepare('SELECT CAST(id AS TEXT) AS id,source,source_id AS sourceId,slug,canonical_url AS canonicalUrl,name,description,description AS synopsis,format,format AS type,release_year AS releaseYear,status,artwork_url AS artworkUrl,artwork_url AS imageUrl,artwork_origin AS artworkOrigin,artwork_reuse_status AS artworkReuseStatus,availability_state AS availability,first_seen_at AS firstSeen,last_seen_at AS lastSeen,last_successful_import_at AS lastSuccessfulImport FROM titles WHERE slug=?').bind(slug).first<Row>();
     if (!title) throw new AppError(404, 'NOT_FOUND', 'Title was not found.');
     const id = Number(title.id);
     const result = await db.batch<Row>([

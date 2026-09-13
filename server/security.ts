@@ -1,7 +1,12 @@
 import { AppError } from './errors.ts';
 import type { IncomingHttpHeaders } from 'node:http';
 
-const PUBLIC_SOURCE_HOSTS = new Set(['anikototv.to', 'www.anikototv.to']);
+const PUBLIC_SOURCE_HOSTS = new Set([
+  'anikototv.to',
+  'www.anikototv.to',
+  'tvmaze.com',
+  'www.tvmaze.com',
+]);
 
 function headerValue(value: string | string[] | undefined): string {
   return Array.isArray(value) ? (value[0] ?? '') : (value ?? '');

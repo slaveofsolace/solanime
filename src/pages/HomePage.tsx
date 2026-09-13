@@ -26,6 +26,7 @@ export default function HomePage() {
   const [bootDismissed, setBootDismissed] = useState(() => isBrandSessionResolved('solanime-home-boot'));
   const [latest, setLatest] = useState<TitleSummary[]>([]);
   const [movies, setMovies] = useState<TitleSummary[]>([]);
+  const [tvShows, setTvShows] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
   const [collections, setCollections] = useState<Array<{ label: string; genre: string; items: TitleSummary[] }>>([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ export default function HomePage() {
     setLoading(latest.length === 0);
     setError(null);
     void api
-      .catalogue({ sort: 'updated', pageSize: 13 }, controller.signal)
+      .catalogue({ scope: 'anime', sort: 'updated', pageSize: 13 }, controller.signal)
       .then((recent) => {
         if (!controller.signal.aborted) setLatest(recent.items);
       })
@@ -47,9 +48,15 @@ export default function HomePage() {
         if (!controller.signal.aborted) setLoading(false);
       });
     void api
-      .catalogue({ type: 'movie', sort: 'year_desc', pageSize: 12 }, controller.signal)
+      .catalogue({ scope: 'anime', type: 'movie', sort: 'year_desc', pageSize: 12 }, controller.signal)
       .then((films) => {
         if (!controller.signal.aborted) setMovies(films.items);
+      })
+      .catch(() => undefined);
+    void api
+      .catalogue({ scope: 'tv', sort: 'updated', pageSize: 12 }, controller.signal)
+      .then((shows) => {
+        if (!controller.signal.aborted) setTvShows(shows.items);
       })
       .catch(() => undefined);
     void api
@@ -63,7 +70,7 @@ export default function HomePage() {
         });
         const rows = await Promise.all(selected.map(async row => {
           try {
-            const result = await api.catalogue({ genre: row.genre, sort: 'updated', pageSize: 12 }, controller.signal);
+            const result = await api.catalogue({ scope: 'anime', genre: row.genre, sort: 'updated', pageSize: 12 }, controller.signal);
             return { ...row, items: result.items };
           } catch { return { ...row, items: [] }; }
         }));
@@ -184,14 +191,15 @@ export default function HomePage() {
       )}
       <Rail
         title="Recent updates"
-        to="/catalogue?sort=updated"
+        to="/catalogue?scope=anime&sort=updated"
         items={latest.filter((item) => item.id !== featured?.id)}
         format="landscape"
       />
       <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} format="landscape" />
-      <Rail title="Films" to="/catalogue?type=movie&sort=year_desc" items={movies} format="landscape" />
+      <Rail title="Anime films" to="/catalogue?scope=anime&type=movie&sort=year_desc" items={movies} format="landscape" />
+      <Rail title="TV shows" to="/catalogue?scope=tv&sort=updated" items={tvShows} format="landscape" />
       {collections.map(row => <Rail key={row.genre} title={row.label}
-        to={`/catalogue?genre=${encodeURIComponent(row.genre)}`} items={row.items} format="landscape" />)}
+        to={`/catalogue?scope=anime&genre=${encodeURIComponent(row.genre)}`} items={row.items} format="landscape" />)}
       {(facets.genres?.length ?? 0) > 0 && (
         <section className="genre-section" aria-labelledby="genres-title">
           <header className="rail-heading">
@@ -205,7 +213,7 @@ export default function HomePage() {
               .sort((a, b) => (b.count ?? 0) - (a.count ?? 0))
               .slice(0, 8)
               .map((genre) => (
-                <Link key={genre.value} to={`/catalogue?genre=${encodeURIComponent(genre.value)}`}>
+                <Link key={genre.value} to={`/catalogue?scope=anime&genre=${encodeURIComponent(genre.value)}`}>
                   <strong>{genre.label}</strong>
                   {typeof genre.count === 'number' && <small>{genre.count.toLocaleString()} titles</small>}
                   <Icon name="arrow" />

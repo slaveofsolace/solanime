@@ -23,7 +23,9 @@ export type PlaybackType =
 
 export interface TitleSummary extends CatalogueArtwork {
   id: string;
+  source?: string;
   sourceId?: string;
+  canonicalUrl?: string;
   slug: string;
   name: string;
   title?: string;

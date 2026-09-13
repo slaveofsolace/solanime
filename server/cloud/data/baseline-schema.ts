@@ -37,13 +37,13 @@ export interface BaselineMapping {
   provenance: { sourceMappingId: string | null; mappingOrigin: string | null; firstSeen: string | null; lastSeen: string | null; lastSuccessfulImport: string | null; resourceOmittedReason: string | null };
 }
 export interface BaselineBrowseRow {
-  id: string; slug: string; name: string; aliases: string[]; genres: string[];
+  id: string; source: string; slug: string; name: string; aliases: string[]; genres: string[];
   type: string | null; status: string | null; languages: string[]; episodeCount: number;
   releaseYear: number | null; updatedAt: string | null;
   card: BaselineRow;
 }
 export interface BaselinePostings {
-  genres: Record<string, string[]>; languages: Record<string, string[]>; types: Record<string, string[]>; statuses: Record<string, string[]>;
+  genres: Record<string, string[]>; languages: Record<string, string[]>; types: Record<string, string[]>; statuses: Record<string, string[]>; sources?: Record<string, string[]>;
   orders: Record<'name' | 'newest' | 'oldest' | 'updated' | 'episodes', string[]>;
   /** Complete immutable baseline counts; never derive these from partially hydrated D1. */
   episodeCounts: Record<string, number>;

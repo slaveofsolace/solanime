@@ -85,11 +85,35 @@ afterEach(async () => {
 });
 
 describe('application HTTP API', () => {
-  it('keeps the operational source allowlist on the canonical Anikoto hosts', () => {
+  it('keeps catalogue ingestion on the exact approved source hosts', () => {
     expect(validatePublicSourceUrl('https://anikototv.to/filter').hostname).toBe('anikototv.to');
+    expect(validatePublicSourceUrl('https://www.tvmaze.com/shows/1/example').hostname).toBe('www.tvmaze.com');
     expect(() => validatePublicSourceUrl('https://anikotoapi.site/filter')).toThrow(
       /not allowlisted/i,
     );
+  });
+
+  it('separates anime and non-animation TV records with a stable scope query', async () => {
+    const { origin, db } = await app();
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'tvmaze',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: '42',
+        slug: 'example-show-tvmaze-42',
+        canonicalUrl: 'https://www.tvmaze.com/shows/42/example-show',
+        name: 'Example Show',
+        format: 'TV',
+        episodes: [],
+      }],
+    });
+    const anime = await fetch(`${origin}/api/titles?scope=anime`).then((response) => response.json<{ items: Array<{ source: string }> }>());
+    const tv = await fetch(`${origin}/api/titles?scope=tv`).then((response) => response.json<{ items: Array<{ source: string; name: string }> }>());
+    expect(anime.items).toMatchObject([{ source: 'anikoto' }]);
+    expect(tv.items).toMatchObject([{ source: 'tvmaze', name: 'Example Show' }]);
+    const invalid = await fetch(`${origin}/api/titles?scope=movies`);
+    expect(invalid.status).toBe(400);
   });
 
   it('serves database-backed browse data and typed input errors', async () => {

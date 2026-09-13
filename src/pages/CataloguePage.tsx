@@ -55,6 +55,9 @@ export default function CataloguePage() {
   const queryType = params.get('type') ?? undefined;
   const queryStatus = params.get('status') ?? undefined;
   const queryLanguage = params.get('language') ?? undefined;
+  const queryScope = params.get('scope') === 'anime' || params.get('scope') === 'tv'
+    ? params.get('scope') as 'anime' | 'tv'
+    : undefined;
   const querySort = params.get('sort') ?? 'updated';
   const searchInput = useRef<HTMLInputElement>(null);
   const [draftQuery, setDraftQuery] = useState(params.get('q') ?? '');
@@ -73,11 +76,12 @@ export default function CataloguePage() {
       type: queryType,
       status: queryStatus,
       language: queryLanguage,
+      scope: queryScope,
       sort: querySort,
       page,
       pageSize: 24,
     }),
-    [queryText, queryGenre, queryType, queryStatus, queryLanguage, querySort, page],
+    [queryText, queryGenre, queryType, queryStatus, queryLanguage, queryScope, querySort, page],
   );
 
   useEffect(() => {
@@ -149,16 +153,34 @@ export default function CataloguePage() {
       setParams(next);
   };
 
+  const changeCollection = (scope: '' | 'anime' | 'tv') => {
+    const next = new URLSearchParams(pendingParams.current);
+    next.delete('focus');
+    next.delete('page');
+    next.delete('type');
+    next.delete('language');
+    if (scope) next.set('scope', scope);
+    else next.delete('scope');
+    pendingParams.current = next;
+    setParams(next);
+  };
+
   const advancedFilters = ['genre', 'type', 'status', 'language'].filter((key) =>
     params.has(key),
   ).length;
   const view = params.get('view') === 'compact' ? 'compact' : 'standard';
   const pageTitle = searchView
     ? 'Search'
-    : params.get('type')?.toLowerCase() === 'tv'
+    : queryScope === 'tv'
       ? 'TV Shows'
-      : params.get('type')?.toLowerCase() === 'movie'
-        ? 'Films'
+      : queryScope === 'anime' && params.get('type')?.toLowerCase() === 'movie'
+        ? 'Anime Films'
+        : queryScope === 'anime'
+          ? 'Anime'
+      : params.get('type')?.toLowerCase() === 'tv'
+        ? 'TV Shows'
+        : params.get('type')?.toLowerCase() === 'movie'
+          ? 'Films'
         : params.get('language')?.toLowerCase() === 'dub'
           ? 'Dubbed Anime'
           : 'Browse';
@@ -197,6 +219,12 @@ export default function CataloguePage() {
           </p>
         </div>
       </header>
+
+      <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
+        <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
+        <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
+        <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
+      </div>
 
       <form
         className="catalogue-controls"

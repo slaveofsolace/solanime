@@ -422,6 +422,45 @@
   gap: 20px;
 }
 
+.catalogue-collections {
+  display: flex;
+  gap: 22px;
+  margin: -6px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.catalogue-collections button {
+  position: relative;
+  min-height: 42px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.catalogue-collections button[aria-pressed='true'] {
+  color: var(--text);
+}
+
+.catalogue-collections button[aria-pressed='true']::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  content: '';
+}
+
+.catalogue-collections button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
 .catalogue-page .catalogue-heading h1 {
   font-size: clamp(30px, 3vw, 44px);
   font-weight: 730;

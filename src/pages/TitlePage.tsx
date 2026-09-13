@@ -42,6 +42,16 @@ function initialLanguage(episodes: Episode[], preferredLanguage: string): string
   return languages.includes(preferredLanguage) ? preferredLanguage : (languages[0] ?? '');
 }
 
+function publicAttributionUrl(value?: string): string | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function TitlePage() {
   const { slug = '' } = useParams();
   return <TitleSession key={slug} />;
@@ -144,6 +154,14 @@ function TitleSession() {
       entry.language === language &&
       episodes.some((item) => item.id === entry.episodeId),
   );
+  const firstPlayableEpisode = languageEpisodes.find((episode) =>
+    episode.versions.some(
+      (version) =>
+        version.language === language &&
+        version.providerCount > 0 &&
+        version.availability === 'available',
+    ),
+  );
   const firstEpisode = languageEpisodes[0];
   const episodeInventoryPending =
     episodes.length === 0 && title.collectionState !== 'complete';
@@ -173,13 +191,17 @@ function TitleSession() {
               >
                 Continue {recent.episodeLabel} <Icon name="play" />
               </Link>
-            ) : firstEpisode ? (
+            ) : firstPlayableEpisode ? (
               <Link
                 className="button button--primary"
-                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(firstEpisode.id)}?language=${encodeURIComponent(language)}`}
+                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(firstPlayableEpisode.id)}?language=${encodeURIComponent(language)}`}
               >
-                Open first episode <Icon name="play" />
+                Play first episode <Icon name="play" />
               </Link>
+            ) : firstEpisode ? (
+              <a className="button button--primary" href="#episodes-title">
+                Browse episodes <Icon name="arrow" />
+              </a>
             ) : null}
             <button
               className="button button--outline"
@@ -209,6 +231,19 @@ function TitleSession() {
           {genres.length > 0 && <div className="tag-list" aria-label="Genres">
             {genres.map((genre) => <span key={genre}>{genre}</span>)}
           </div>}
+          {title.source === 'tvmaze' && publicAttributionUrl(title.canonicalUrl) && (
+            <p className="title-source-credit">
+              Metadata and imagery:{' '}
+              <a
+                href={publicAttributionUrl(title.canonicalUrl)!}
+                target="_blank"
+                rel="noreferrer nofollow"
+              >
+                TVmaze
+              </a>{' '}
+              · CC BY-SA
+            </p>
+          )}
         </div>
       </section>
 

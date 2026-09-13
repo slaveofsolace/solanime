@@ -79,19 +79,19 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="home" />
             <span>Home</span>
           </NavLink>
-          <NavLink to="/catalogue" aria-label="Browse">
+          <NavLink to="/catalogue?scope=anime" aria-label="Anime">
             <Icon name="browse" />
-            <span>Browse</span>
+            <span>Anime</span>
           </NavLink>
           <NavLink className="main-nav__search" to="/search" aria-label="Search">
             <Icon name="search" />
             <span>Search</span>
           </NavLink>
-          <Link className="main-nav__category" to="/catalogue?type=tv">
+          <Link className="main-nav__category" to="/catalogue?scope=tv">
             TV Shows
           </Link>
-          <Link className="main-nav__category" to="/catalogue?type=movie">
-            Films
+          <Link className="main-nav__category" to="/catalogue?scope=anime&type=movie">
+            Anime Films
           </Link>
           <Link className="main-nav__category" to="/catalogue?language=dub">
             Dubbed
@@ -165,7 +165,8 @@ export function Layout({ children }: PropsWithChildren) {
             </span>
           </p>
           <nav aria-label="Footer navigation">
-            <Link to="/catalogue">Browse</Link>
+            <Link to="/catalogue?scope=anime">Anime</Link>
+            <Link to="/catalogue?scope=tv">TV Shows</Link>
             <Link to="/library">My List</Link>
             {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
           </nav>

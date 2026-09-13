@@ -13,6 +13,7 @@ const parseJson = (value: unknown, fallback: unknown) => {
 
 export interface BrowseParams {
   q?: string;
+  scope?: string;
   genre?: string;
   type?: string;
   status?: string;
@@ -26,6 +27,12 @@ export interface BrowseParams {
 export function browseTitles(db: SqliteDatabase, params: BrowseParams) {
   const where: string[] = ['1=1'];
   const bindings: Array<string | number> = [];
+  if (params.scope) {
+    if (params.scope !== 'anime' && params.scope !== 'tv')
+      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
+    where.push('t.source=?');
+    bindings.push(params.scope === 'anime' ? 'anikoto' : 'tvmaze');
+  }
   if (params.q) {
     where.push(
       `(t.name LIKE ? ESCAPE '\\' OR EXISTS (SELECT 1 FROM title_aliases a WHERE a.title_id=t.id AND a.alias LIKE ? ESCAPE '\\'))`,
@@ -69,7 +76,7 @@ export function browseTitles(db: SqliteDatabase, params: BrowseParams) {
   );
   const rows = db
     .prepare(
-      `SELECT CAST(t.id AS TEXT) AS id,t.source_id AS sourceId,t.slug,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episode_count ${from} ORDER BY ${order[params.sort] ?? order.name}, t.id ASC LIMIT ? OFFSET ?`,
+      `SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episode_count ${from} ORDER BY ${order[params.sort] ?? order.name}, t.id ASC LIMIT ? OFFSET ?`,
     )
     .all(...bindings, params.pageSize, (params.page - 1) * params.pageSize) as Array<
     Record<string, unknown>
@@ -152,7 +159,7 @@ function readFilters(db: SqliteDatabase) {
 export function getTitle(db: SqliteDatabase, slug: string) {
   const title = db
     .prepare(
-      'SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,slug,canonical_url AS canonicalUrl,name,description,description AS synopsis,format,format AS type,release_year AS releaseYear,status,artwork_url AS artworkUrl,artwork_url AS imageUrl,artwork_origin AS artworkOrigin,artwork_reuse_status AS artworkReuseStatus,availability_state AS availability,first_seen_at AS firstSeen,last_seen_at AS lastSeen,last_successful_import_at AS lastSuccessfulImport FROM titles WHERE slug=?',
+      'SELECT CAST(id AS TEXT) AS id,source,source_id AS sourceId,slug,canonical_url AS canonicalUrl,name,description,description AS synopsis,format,format AS type,release_year AS releaseYear,status,artwork_url AS artworkUrl,artwork_url AS imageUrl,artwork_origin AS artworkOrigin,artwork_reuse_status AS artworkReuseStatus,availability_state AS availability,first_seen_at AS firstSeen,last_seen_at AS lastSeen,last_successful_import_at AS lastSuccessfulImport FROM titles WHERE slug=?',
     )
     .get(slug) as Record<string, unknown> | undefined;
   if (!title) throw new AppError(404, 'NOT_FOUND', 'Title was not found.');

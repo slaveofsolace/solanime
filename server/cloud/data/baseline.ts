@@ -176,7 +176,12 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     if (item === null) return null;
     if (!record(item) || item.id !== id || typeof item.name !== 'string' || typeof item.slug !== 'string') throw changed();
     if (!Number.isSafeInteger(item.episodeCount) || Number(item.episodeCount) < 0 || (item.releaseYear !== null && !Number.isSafeInteger(item.releaseYear)) || !record(item.card)) throw changed();
-    return { id, name: item.name, slug: item.slug, aliases: strings(item.aliases), genres: strings(item.genres), languages: strings(item.languages), type: nullableString(item.type), status: nullableString(item.status), episodeCount: Number(item.episodeCount), releaseYear: item.releaseYear === null ? null : Number(item.releaseYear), updatedAt: nullableString(item.updatedAt), card: item.card };
+    const source = typeof item.source === 'string' && item.source
+      ? item.source
+      : typeof item.card.source === 'string' && item.card.source
+        ? item.card.source
+        : 'anikoto';
+    return { id, source, name: item.name, slug: item.slug, aliases: strings(item.aliases), genres: strings(item.genres), languages: strings(item.languages), type: nullableString(item.type), status: nullableString(item.status), episodeCount: Number(item.episodeCount), releaseYear: item.releaseYear === null ? null : Number(item.releaseYear), updatedAt: nullableString(item.updatedAt), card: item.card };
   }
   async function browseIds(params: BrowseParams) {
     if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100 || (params.q?.length ?? 0) > 200) throw new AppError(400, 'INVALID_QUERY', 'Invalid catalogue page.');
@@ -187,6 +192,18 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     const order = own(postings.orders, names[params.sort] ?? 'name');
     if (!Array.isArray(order) || order.some(id => typeof id !== 'string')) throw changed();
     let ids: string[] = order;
+    if (params.scope) {
+      if (params.scope !== 'anime' && params.scope !== 'tv') throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
+      const sources = own(postings, 'sources');
+      if (sources === undefined) {
+        if (params.scope === 'tv') ids = [];
+      } else {
+        if (!record(sources)) throw changed();
+        const values = own(sources, params.scope === 'anime' ? 'anikoto' : 'tvmaze') ?? [];
+        if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
+        const accepted = new Set(values); ids = ids.filter(id => accepted.has(id));
+      }
+    }
     for (const [kind, value] of [['genres', params.genre], ['types', params.type?.toLowerCase()], ['statuses', params.status?.toLowerCase()], ['languages', params.language?.toLowerCase()]] as const) {
       if (!value) continue; const group = own(postings, kind); if (!record(group)) throw changed();
       const values = own(group, value) ?? []; if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();

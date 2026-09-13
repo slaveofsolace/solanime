@@ -320,6 +320,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
           200,
           browseTitles(db, {
             q,
+            scope: url.searchParams.get('scope') || undefined,
             genre: url.searchParams.get('genre') || undefined,
             type: url.searchParams.get('type') || undefined,
             status: url.searchParams.get('status') || undefined,

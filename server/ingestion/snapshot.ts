@@ -118,7 +118,7 @@ export function importSnapshot(
   );
   const upsertTitle =
     db.prepare(`INSERT INTO titles(source,source_id,slug,canonical_url,name,description,format,release_year,status,artwork_url,artwork_origin,artwork_reuse_status,availability_state,first_seen_at,last_seen_at,last_successful_import_at,created_at,updated_at)
-    VALUES ('anikoto',?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     ON CONFLICT(source,source_id) DO UPDATE SET slug=excluded.slug,canonical_url=excluded.canonical_url,name=excluded.name,description=COALESCE(excluded.description,titles.description),format=COALESCE(excluded.format,titles.format),release_year=COALESCE(excluded.release_year,titles.release_year),status=COALESCE(excluded.status,titles.status),artwork_url=COALESCE(excluded.artwork_url,titles.artwork_url),artwork_origin=COALESCE(excluded.artwork_origin,titles.artwork_origin),artwork_reuse_status=excluded.artwork_reuse_status,availability_state=excluded.availability_state,last_seen_at=excluded.last_seen_at,last_successful_import_at=excluded.last_successful_import_at,updated_at=excluded.updated_at`);
   const upsertEpisode =
     db.prepare(`INSERT INTO episodes(title_id,source_id,number_text,number_sort,label,slug,canonical_url,episode_type,availability_state,first_seen_at,last_seen_at,last_successful_import_at,created_at,updated_at)
@@ -137,12 +137,13 @@ export function importSnapshot(
   db.exec('BEGIN IMMEDIATE');
   try {
     for (const title of snapshot.titles) {
-      const currentTitle = existingTitle.get('anikoto', title.sourceId) as
+      const currentTitle = existingTitle.get(snapshot.source, title.sourceId) as
         | { id: number }
         | undefined;
       if (currentTitle) counts.duplicates++;
       if (touchAncestors || !currentTitle)
         upsertTitle.run(
+          snapshot.source,
           title.sourceId,
           title.slug,
           title.canonicalUrl,
@@ -162,7 +163,8 @@ export function importSnapshot(
           now,
         );
       const titleId = Number(
-        currentTitle?.id ?? (findTitle.get('anikoto', title.sourceId) as { id: number }).id,
+        currentTitle?.id ??
+          (findTitle.get(snapshot.source, title.sourceId) as { id: number }).id,
       );
       linkInboundRelations.run(titleId, title.sourceId, snapshot.source);
       counts.titles++;

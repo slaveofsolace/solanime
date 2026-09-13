@@ -46,7 +46,7 @@ export default function HeaderSearch() {
         ref={trigger}
         type="button"
         className="header-search__trigger"
-        aria-label="Search all anime"
+        aria-label="Search all titles"
         aria-expanded={open}
         aria-controls={open ? formId : undefined}
         onClick={() => setOpen(value => !value)}
@@ -58,7 +58,7 @@ export default function HeaderSearch() {
           id={formId}
           className="header-search__form"
           role="search"
-          aria-label="Search all anime"
+          aria-label="Search all titles"
           onSubmit={(event) => {
             event.preventDefault();
             close(true);
@@ -71,7 +71,7 @@ export default function HeaderSearch() {
             ref={input}
             name="q"
             type="search"
-            aria-label="Find anime"
+            aria-label="Find titles"
             placeholder="Titles, genres, aliases"
             maxLength={200}
             value={query}

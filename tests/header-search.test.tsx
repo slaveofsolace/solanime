@@ -12,7 +12,7 @@ function Harness() {
 }
 function setup(path = '/') {
   render(<MemoryRouter initialEntries={[path]}><Harness /></MemoryRouter>);
-  return screen.getByRole('button', { name: 'Search all anime' });
+  return screen.getByRole('button', { name: 'Search all titles' });
 }
 
 describe('compact header search', () => {
@@ -21,8 +21,8 @@ describe('compact header search', () => {
     expect(screen.queryByRole('search')).toBeNull();
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
     fireEvent.click(trigger);
-    expect(screen.getByRole('search', { name: 'Search all anime' })).toBeTruthy();
-    expect(document.activeElement).toBe(screen.getByRole('searchbox', { name: 'Find anime' }));
+    expect(screen.getByRole('search', { name: 'Search all titles' })).toBeTruthy();
+    expect(document.activeElement).toBe(screen.getByRole('searchbox', { name: 'Find titles' }));
     expect(trigger.getAttribute('aria-expanded')).toBe('true');
   });
 
