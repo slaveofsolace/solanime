@@ -49,12 +49,14 @@ describe('official YouTube review configuration', () => {
     expect(pages).not.toHaveProperty('account_id');
     expect(readFileSync(plan.pages.accountEnvFile, 'utf8')).toBe('CLOUDFLARE_ACCOUNT_ID=dddddddddddddddddddddddddddddddd\n');
     expect(readFileSync(plan.pages.accountEnvFile, 'utf8')).not.toMatch(/TOKEN|SECRET|KEY/);
+    expect(plan.pages.commandCwd).toBe(dirname(plan.pages.config));
     expect(pages.env.preview).toMatchObject({ vars: { SOLANIME_REVIEW_MODE: 'youtube-official' }, services: [{ binding: 'SOLANIME_API', service: 'solanime-api-youtube-review', environment: 'production' }] });
     expect(pages.env.production.services[0].service).toBe('solanime-api-preview');
     expect(pages.env.production.vars?.SOLANIME_REVIEW_MODE).toBeUndefined();
     expect(plan.commands.pagesDeployAfterWorkerReview).toContain('youtube-official-review');
     expect(plan.commands.pagesDeployAfterWorkerReview).not.toContain('--cwd');
-    expect(plan.commands.pagesDeployAfterWorkerReview.some((value: string) => value.startsWith('--config='))).toBe(true);
+    expect(plan.commands.pagesDeployAfterWorkerReview[0]).toMatch(/wrangler(?:\.cmd)?$/);
+    expect(plan.commands.pagesDeployAfterWorkerReview.some((value: string) => value.startsWith('--config='))).toBe(false);
     expect(plan.commands.pagesDeployAfterWorkerReview.some((value: string) => value.startsWith('--env-file='))).toBe(true);
     expect(plan.residualSharing.join(' ')).not.toContain('D1 databases');
   });

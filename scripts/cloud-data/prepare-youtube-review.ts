@@ -132,13 +132,16 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
   const workerConfig = join(output, 'wrangler.youtube-review.json');
   const pagesConfig = join(output, 'pages', 'wrangler.jsonc');
   const pagesAccountEnv = join(output, 'pages', 'account.env');
+  const pagesCommandCwd = dirname(pagesConfig);
+  const wranglerExecutable = portable(resolve('node_modules/.bin', process.platform === 'win32' ? 'wrangler.cmd' : 'wrangler'));
+  if (!existsSync(wranglerExecutable)) throw new Error('Repository-pinned Wrangler executable is unavailable.');
   writeFileSync(join(staging, 'wrangler.youtube-review.json'), `${JSON.stringify(worker, null, 2)}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
   writeFileSync(join(staging, 'pages', 'wrangler.jsonc'), `${JSON.stringify(pages, null, 2)}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
   writeFileSync(join(staging, 'pages', 'account.env'), `CLOUDFLARE_ACCOUNT_ID=${baseWorker.account_id}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 });
   const plan = {
     version: 1, kind: 'solanime-official-youtube-review-deployment',
     worker: { name: resources.workerName, config: workerConfig, sourceSha256: hash(workerSource), readOnlyReview: true, publicRoutes: false, previewUrls: false, staticAssets: { ...staticAssets, freePlanFileLimit: workersFreeAssetFileLimit, fileHeadroom: workersFreeAssetFileLimit - staticAssets.files, perFileByteLimit: staticAssetFileByteLimit, paidPlanAssumed: false } },
-    pages: { project: resources.pagesProject, branch: resources.pagesBranch, config: pagesConfig, accountEnvFile: pagesAccountEnv, reviewMode: 'youtube-official', service: resources.workerName },
+    pages: { project: resources.pagesProject, branch: resources.pagesBranch, config: pagesConfig, accountEnvFile: pagesAccountEnv, commandCwd: pagesCommandCwd, reviewMode: 'youtube-official', service: resources.workerName },
     storage: { mode: resources.storageMode, bindings: (worker.d1_databases as RecordValue[]).map(item => ({ binding: item.binding, databaseName: item.database_name, databaseId: item.database_id })) },
     isolation: { workerService: true, d1Databases: resources.storageMode === 'isolated', d1ApplicationWrites: false, rateLimitNamespaces: true, pagesPreviewBinding: true, backgroundTriggers: false, backgroundQueues: false, registrationOpen: false },
     residualSharing: ['Cloudflare account', 'Pages project', 'completed immutable Worker asset package', 'Pages env.preview binding (applies to every preview deployment made with the generated config)', ...(resources.storageMode === 'shared-preview-read-only' ? ['existing preview D1 databases (read-only application access)'] : [])],
@@ -148,7 +151,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
     commands: {
       workerDryRun: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--dry-run', '--outdir', join(output, 'worker-dry-run')],
       workerDeployAfterReview: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--strict', '--keep-vars'],
-      pagesDeployAfterWorkerReview: ['pnpm', 'exec', 'wrangler', 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch, `--config=${portable(pagesConfig)}`, `--env-file=${portable(pagesAccountEnv)}`],
+      pagesDeployAfterWorkerReview: [wranglerExecutable, 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch, `--env-file=${portable(pagesAccountEnv)}`],
       forbidden: ['deploying the checked-in wrangler.jsonc', 'binding Pages preview to solanime-api-preview', ...(resources.storageMode === 'shared-preview-read-only' ? ['migrating, seeding, importing, or writing shared preview D1'] : ['using any existing D1 database ID']), 'deploying the Pages main or cloud-release branch'],
     },
   };
