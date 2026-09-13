@@ -805,10 +805,10 @@ export class PublicYouTubeMetadataClient {
     this.fetcher = options.fetcher ?? fetch;
     this.sleep = options.sleep ?? ((milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)));
   }
-  private async request(url: URL, init: RequestInit, maxBytes = this.options.maxResponseBytes): Promise<string> {
+  private async request(url: URL, init: RequestInit, maxBytes = this.options.maxResponseBytes, retriedOperation = false): Promise<string> {
     let last: unknown;
     for (let attempt = 1; attempt <= this.options.maxAttempts; attempt += 1) {
-      this.options.onRequest?.({ url: url.href, attempt, retry: attempt > 1 });
+      this.options.onRequest?.({ url: url.href, attempt, retry: retriedOperation || attempt > 1 });
       try {
         return await this.options.scheduler.run(url.hostname, async () => {
           const response = await this.fetcher(url, { ...init, redirect: 'manual', signal: AbortSignal.timeout(this.options.timeoutMs) });
@@ -848,7 +848,21 @@ export class PublicYouTubeMetadataClient {
   async list(source: OfficialPublisherSource, continuation: string | null): Promise<ListedYouTubePage> {
     let session = this.sessions.get(source.id);
     if (!continuation || !session) {
-      const initial = parseYouTubeInitialListing(await this.request(this.initialUrl(source), { headers: { Accept: 'text/html', 'Accept-Language': 'en-US,en;q=0.9', 'User-Agent': 'Mozilla/5.0 SolanimeOfficialMetadata/1.0' } }));
+      const url = this.initialUrl(source);
+      const init = { headers: { Accept: 'text/html', 'Accept-Language': 'en-US,en;q=0.9', 'User-Agent': 'Mozilla/5.0 SolanimeOfficialMetadata/1.0' } };
+      let initial: ListedYouTubePage | null = null;
+      let parseError: unknown;
+      for (let parseAttempt = 1; parseAttempt <= 2; parseAttempt += 1) {
+        try {
+          initial = parseYouTubeInitialListing(await this.request(url, init, this.options.maxResponseBytes, parseAttempt > 1));
+          break;
+        } catch (error) {
+          parseError = error;
+          if (!(error instanceof DiscoveryHttpError) || error.code !== 'YOUTUBE_SCHEMA_CHANGED' || parseAttempt === 2) throw error;
+          await this.sleep(250);
+        }
+      }
+      if (!initial) throw parseError;
       session = initial.session!;
       this.sessions.set(source.id, session);
       if (!continuation) return initial;

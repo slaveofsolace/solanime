@@ -133,6 +133,20 @@ describe('official YouTube discovery', () => {
     expect(sleep).toHaveBeenCalledWith(2000);
   });
 
+  it('retries one transient successful HTML response that lacks listing data', async () => {
+    const sleep = vi.fn().mockResolvedValue(undefined);
+    const onRequest = vi.fn();
+    const fetcher = vi.fn()
+      .mockResolvedValueOnce(new Response('<!doctype html><title>Uploads from Publisher - YouTube</title>', { status: 200, headers: { 'Content-Type': 'text/html' } }))
+      .mockResolvedValueOnce(new Response(initialHtml({ contents: [renderer()], channelMetadataRenderer: { externalId: source.channelId, title: 'Publisher' } }), { status: 200, headers: { 'Content-Type': 'text/html' } }));
+    const scheduler = new AdaptiveRequestScheduler({ globalConcurrency: 1, perHostConcurrency: 1, requestsPerSecond: 100, burst: 2, circuitFailures: 4, circuitCooldownMs: 1000, sleep });
+    const client = new PublicYouTubeMetadataClient({ fetcher, scheduler, maxAttempts: 2, timeoutMs: 1000, maxResponseBytes: 100_000, observationRegion: 'test', retryCapMs: 5000, sleep, onRequest });
+    await expect(client.list(source, null)).resolves.toMatchObject({ channelId: source.channelId });
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    expect(sleep).toHaveBeenCalledWith(250);
+    expect(onRequest).toHaveBeenLastCalledWith(expect.objectContaining({ retry: true }));
+  });
+
   it('opens the scheduler circuit after bounded repeated failures', async () => {
     const scheduler = new AdaptiveRequestScheduler({ globalConcurrency: 1, perHostConcurrency: 1, requestsPerSecond: 100, burst: 2, circuitFailures: 2, circuitCooldownMs: 60_000 });
     const fail = () => scheduler.run('www.youtube.com', async () => { throw new DiscoveryHttpError('UPSTREAM_UNAVAILABLE', 'down', true, 503); });
