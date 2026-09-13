@@ -1,5 +1,36 @@
 # Resumable mapping throughput
 
+## Completed standalone run (September 13, 2026)
+
+The task-owned standalone crawl completed run 2 at `2026-09-13T06:40:43.059Z`.
+Its retained queue now contains 144,367 completed tasks, zero pending tasks and
+zero failures. The resulting database contains 8,949 titles, 134,825 episodes,
+184,073 episode versions and 423,236 provider mappings. The supervisor created
+a final integrity-checked checkpoint at:
+
+```text
+E:\CodexProjects\solanime-cloud-artifacts\mapping-resume-20260913\checkpoints\catalogue-final-20260913T064052Z.sqlite
+```
+
+The checkpoint SHA-256 is
+`2ac4cd16f061cab1cb44cec53595f84661573b5b906b9a93be608ef9c5d2cc4e`.
+No source worker remains live because there is no remaining queue; the installed
+current-user startup entry is intentionally idempotent and exits after observing
+completion. The source-collection ETA is therefore zero. Cloud synchronization,
+native source resolution and actual playback are separate milestones.
+
+The tracked `data/solanime.sqlite` can retain an older crawl heartbeat because
+the unattended work deliberately ran against the task-owned database above.
+Select the database explicitly when checking either state:
+
+```powershell
+pnpm import:status -- --db=E:/CodexProjects/solanime-cloud-artifacts/mapping-resume-20260913/catalogue.sqlite
+```
+
+`import:status` accepts both `--db=<path>` and `--db <path>` and rejects unknown,
+empty or duplicate selections. This prevents an explicit status request from
+silently falling back to the default database.
+
 The source worker defaults to one lane with 1,200 ms between request starts.
 The operator can explicitly select a measured start spacing with
 `SOLANIME_SOURCE_DELAY_MS` (50–60,000 ms) and use `--concurrency=1` through
