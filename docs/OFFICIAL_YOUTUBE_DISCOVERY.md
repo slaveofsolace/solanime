@@ -50,6 +50,26 @@ The configuration contract is defined in `config/official-youtube-discovery.sche
 
 Adding a discovery source never enables it in the player. Playback permission is a second, explicit `playbackPolicies` allowlist keyed by the same stable channel ID and source IDs. Runtime validation rejects a policy whose channel does not match every referenced source. A policy can be added only after its provider adapter, publisher-specific approval registry, focused tests, and evidence review exist; the current configuration contains only the implemented REMOW policy.
 
+The 2026-09-13 configuration contains 31 discovery surfaces: the five initial channel/playlist sources plus 26 independently evidenced, reference-only Muse, Ani-One regional, Pokemon regional playlist, BEYBLADE regional, and Kodansha Full Anime TV surfaces. The expansion deliberately leaves `playbackPolicies` unchanged at the single reviewed REMOW policy. Regional, membership, windowed, and language-specific sources may enumerate zero public items from the crawler's observation region; that is a recorded availability result, not a parser failure or permission to bypass the restriction.
+
+The prepared expanded run is resumable at the same output directory. It keeps global concurrency at two, per-host concurrency at one, and uses 500 logical shards:
+
+```powershell
+pnpm discover:youtube-official:detached -- `
+  --catalogue=E:\CodexProjects\solanime-cloud-artifacts\official-youtube-immutable-20260913\catalogue-final-20260913T064052Z.sqlite `
+  --config=E:\CodexProjects\solanime-cloud\config\official-youtube-discovery.json `
+  --out=E:\CodexProjects\solanime-cloud-artifacts\official-youtube-discovery-run-20260913-v2-expanded `
+  --shard-count=500 `
+  --worker-range=0-499 `
+  --global-concurrency=2 `
+  --per-host-concurrency=1 `
+  --requests-per-second=0.75 `
+  --burst=1 `
+  --request-budget=5000 `
+  --probe-budget=2000 `
+  --max-pages=500
+```
+
 Public page labels such as “7,002 videos” are stored as unreconciled advertised counts. They are not treated as crawl completion denominators or pending queue items. The enumerable count is the number of normalized videos reached through ordinary public playlist continuations in the observation region. Differences may represent region restrictions, member-only uploads, unavailable/private/deleted items, or an upstream listing limitation and stay visible as a coverage caveat.
 
 On 2026-09-13, the Ani-One uploads playlist advertised 7,002 videos but its ordinary public continuation chain from the US observation region returned 29 items, then four items, then an empty terminal page: 33 enumerable records. No request or page budget, retry, redirect, parse error, or rate limit ended that chain. [Medialink’s own Ani-One page](https://www.medialink.com.hk/en/Anione.aspx) confirms daily YouTube episode uploads and a separate paid ULTRA catalogue. That supports access-tier caution but does not prove how many of the missing 6,969 labels are member-only, region-restricted, private, deleted, or withheld by YouTube’s public listing interface. Solanime therefore records 33 as the reachable denominator and retains the 7,002 label only as an unresolved visibility observation.

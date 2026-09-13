@@ -10,6 +10,7 @@
     "shardCount": { "type": "integer", "minimum": 1, "maximum": 10000 },
     "playbackPolicies": {
       "type": "array",
+      "description": "Explicit runtime allowlist. Discovery-source additions MUST NOT add entries here without a separately implemented adapter and reviewed approval registry.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -26,6 +27,7 @@
     },
     "sources": {
       "type": "array",
+      "description": "Reference-only publisher inventory surfaces. Inclusion permits metadata discovery and review, never playback or automatic database approval.",
       "minItems": 1,
       "items": {
         "type": "object",

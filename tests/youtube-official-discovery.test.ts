@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   AdaptiveRequestScheduler,
   DiscoveryHttpError,
@@ -144,5 +145,19 @@ describe('official YouTube discovery', () => {
     const discoveryOnly = { ...source, id: 'second-official-source', channelId: 'UCzGf0DdUJVrsbcWL3e_tK1Q', channelUrl: 'https://www.youtube.com/channel/UCzGf0DdUJVrsbcWL3e_tK1Q' };
     expect(() => validateOfficialYouTubeDiscoveryConfig({ version: 1, shardCount: 500, sources: [source, discoveryOnly], playbackPolicies: [{ id: 'remow-reviewed-v1', channelId: source.channelId, sourceIds: [source.id], adapter: 'youtube-official', state: 'implemented', approvalRegistry: 'REMOW_EPISODE_APPROVALS' }] })).not.toThrow();
     expect(() => validateOfficialYouTubeDiscoveryConfig({ version: 1, shardCount: 500, sources: [source, discoveryOnly], playbackPolicies: [{ id: 'bad-policy', channelId: source.channelId, sourceIds: [discoveryOnly.id], adapter: 'youtube-official', state: 'implemented', approvalRegistry: 'UNREVIEWED' }] })).toThrow('PLAYBACK_POLICY_SOURCE_MISMATCH');
+  });
+
+  it('loads the expanded publisher inventory without widening playback policy', () => {
+    const config = JSON.parse(readFileSync(new URL('../config/official-youtube-discovery.json', import.meta.url), 'utf8'));
+    expect(() => validateOfficialYouTubeDiscoveryConfig(config)).not.toThrow();
+    expect(config.sources).toHaveLength(31);
+    expect(new Set(config.sources.map((entry: OfficialPublisherSource) => entry.id)).size).toBe(31);
+    expect(config.sources.every((entry: OfficialPublisherSource) => entry.disposition === 'reference-only')).toBe(true);
+    expect(config.playbackPolicies).toEqual([expect.objectContaining({
+      id: 'remow-reviewed-v1',
+      channelId: 'UCsj_CYajUSQ2ca8bYCMan9g',
+      sourceIds: ['remow-its-anime'],
+    })]);
+    expect(config.playbackPolicies).toHaveLength(1);
   });
 });
