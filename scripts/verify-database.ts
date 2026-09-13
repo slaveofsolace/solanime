@@ -55,7 +55,10 @@ try {
       .get(),
     invalidCanonicalUrls: db
       .prepare(
-        "SELECT COUNT(*) AS count FROM titles WHERE canonical_url NOT LIKE 'https://anikototv.to/watch/%'",
+        `SELECT COUNT(*) AS count FROM titles
+          WHERE canonical_url NOT LIKE 'https://%'
+            OR (source='anikoto' AND canonical_url NOT LIKE 'https://anikototv.to/watch/%')
+            OR (source='tvmaze' AND canonical_url NOT LIKE 'https://www.tvmaze.com/shows/%')`,
       )
       .get(),
   };
