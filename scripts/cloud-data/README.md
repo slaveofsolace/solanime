@@ -121,6 +121,39 @@ database SHA-256 printed by preparation, and
 pin also changes the Worker edge-cache namespace. The request-scoped reader has
 no arbitrary URL input and re-verifies every payload it actually consumes.
 
+For an immutable completed checkpoint that already has a prepared baseline,
+create a preview-only release plan without editing the checked-in Wrangler file
+or opening the SQLite database:
+
+```sh
+node --import tsx scripts/cloud-data/prepare-baseline-preview.ts \
+  --source-db=/absolute/private/catalogue-final.sqlite \
+  --expected-source-sha256=<reviewed-64-character-sha256> \
+  --expected-mappings=<reviewed-complete-mapping-count> \
+  --baseline-assets=/absolute/private/catalogue-baseline \
+  --import-assets=build/cloud-import-assets \
+  --out=/absolute/private/fresh-preview-plan \
+  --preview-alias=completed-catalogue
+```
+
+The planner streams the source hash without opening SQLite, verifies that the
+baseline manifest identity and mapping denominator match it, checks every
+baseline/import payload while staging a fresh Worker-only asset tree, and writes
+an isolated `wrangler.preview.json` plus `preview-plan.json`. The generated
+version config enables Preview URLs, pins the completed baseline, and disables
+new registration plus snapshot/source synchronization. Preparation performs
+zero D1 writes.
+
+Run only the `commands.verifyOnly` argument vector from `preview-plan.json`
+first. It uses `wrangler versions upload --dry-run`, so Wrangler compiles and
+checks the version without uploading it. After operator review, the separate
+`commands.uploadPreviewVersionAfterReview` vector uploads an undeployed Worker
+version with a preview alias. Do not substitute `wrangler deploy`,
+`wrangler versions deploy`, D1 migration, or D1 execute commands: those cross
+the preview-only boundary. Preview URLs are public unless the Worker is covered
+by Cloudflare Access, so verify the Worker's private-asset denial routes before
+sharing the alias.
+
 Apply all catalogue migrations, including `009_cloud_snapshot_jobs.sql` and
 `010_cloud_sync_payloads.sql`, then
 wire these exports from `server/cloud/data/index.ts`:
