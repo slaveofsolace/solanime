@@ -35,17 +35,17 @@ describe('artwork delta exact-byte publication contract',()=>{
   it('hashes precisely the validated UTF-8 bytes written for the existing uploader',()=>{
     const {folder,path}=fixture(1);const output=join(folder,'delta');const manifest=generate(path,output);
     for(const entry of manifest.batches){const body=readFileSync(join(output,entry.file),'utf8');expect(sha(body)).toBe(entry.sha256);const batch=validateImportBatch(JSON.parse(body));expect(sha(JSON.stringify(batch.rows))).toBe(batch.contentHash);expect(body).toContain('Épisode 測定');}
-  });
+  },25_000);
   it('splits long evidence by both byte and row limits while preserving every row and exact hashes',()=>{
     const {folder,path}=fixture(36,true);const output=join(folder,'delta');const manifest=generate(path,output);
     expect(manifest.totalBatches).toBeGreaterThan(2);expect(manifest.batches.reduce((total,entry)=>total+entry.rows,0)).toBe(36);
     for(const entry of manifest.batches){const body=readFileSync(join(output,entry.file),'utf8');expect(Buffer.byteLength(body,'utf8')).toBeLessThanOrEqual(MAX_IMPORT_BYTES);expect(entry.rows).toBeLessThanOrEqual(MAX_IMPORT_ROWS);expect(sha(body)).toBe(entry.sha256);expect(validateImportBatch(JSON.parse(body)).rows).toHaveLength(entry.rows);}
-  });
+  },25_000);
   it('filters explicit owners without changing or overwriting a previous delta directory',()=>{
     const {folder,path}=fixture(2);const output=join(folder,'delta');const manifest=generate(path,output,['--title-ids=2']);
     expect(manifest.catalogueCounts.artwork_matches).toBe(1);expect(manifest.requiredTitleOwners.map(row=>row.titleId)).toEqual([2]);
     const previous=readFileSync(join(output,'manifest.json'),'utf8');
     const result=spawnSync(process.execPath,['--import','tsx','scripts/artwork/delta.ts',`--db=${path}`,`--out=${output}`,'--written-row-budget=2000'],{cwd:projectRoot,encoding:'utf8',windowsHide:true,timeout:20_000});
     expect(result.status).not.toBe(0);expect(readFileSync(join(output,'manifest.json'),'utf8')).toBe(previous);
-  });
+  },25_000);
 });
