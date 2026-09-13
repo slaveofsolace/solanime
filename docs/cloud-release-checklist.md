@@ -1,4 +1,4 @@
-# Release verification: 0.7.0-alpha cloud baseline candidate
+# Release verification: 0.7.0-alpha cloud baseline review
 
 Application baseline: `feat/studio-v05@632a82a`. Research baseline:
 `data-dump/fmhy-video@3e53fb2`, importing only `data-dump/`. The integration lives
@@ -20,9 +20,17 @@ preserved.
 - The frontend uses the supplied Netflix/Cinejoy hierarchy: a conventional
   masthead, full-bleed feature art, dense landscape rails, compact episode access,
   restrained controls, and responsive bottom navigation.
-- The old review deployment remains historical evidence until the new candidate
-  is deployed and separately verified. `https://solanime.pages.dev` is not being
-  promoted as part of this pre-deployment record.
+- The current candidate is deployed at the stable review origin. The old review
+  deployments remain historical evidence. `https://solanime.pages.dev` was not
+  promoted.
+
+## Current review deployment
+
+| Surface | Identifier | Verification |
+| --- | --- | --- |
+| Source | `3d8ba38` on `sol/cloud-release` | Pushed to the private `slaveofsolace/solanime` repository. |
+| Frontend | [fbe8c6a5](https://fbe8c6a5.solanime.pages.dev) | Stable alias: [cloud-release.solanime.pages.dev](https://cloud-release.solanime.pages.dev). |
+| API Worker | `80730f1d-1d3b-43d5-9b93-c5efc8594f5c` | Complete baseline assets, three D1 bindings, Queue producer/consumer, rate limits, and minute schedule deployed. |
 
 ## Data evidence
 
@@ -59,8 +67,8 @@ version 183770, with mappings 121117 and 121118.
 
 | Provider / mapping | Connection | Verification state |
 | --- | --- | --- |
-| Internet Archive / 121117 | Public item metadata, bounded validated redirects, and direct MP4 | Adapter implemented; earlier review progressed in the native video element. New candidate deployment verification pending. |
-| Wikimedia Commons / 121118 | Exact File title, pinned SHA-1 and rights metadata, and original WebM | Adapter implemented; earlier review progressed after a source switch. New candidate deployment verification pending. |
+| Internet Archive / 121117 | Public item metadata, bounded validated redirects, and direct MP4 | Adapter implemented; current review progressed in the native video element. |
+| Wikimedia Commons / 121118 | Exact File title, pinned SHA-1 and rights metadata, and original WebM | Adapter implemented; current review progressed after an in-site source switch. |
 
 Original observable relationships are retained separately:
 
@@ -77,7 +85,7 @@ button. A provider-origin page, captured expiring URL, 200 response, or iframe
 declaration is not represented as a native source. No referrer spoofing, access
 block bypass, credential reuse, media copying, or unrelated substitute is used.
 
-## Pre-deployment verification
+## Verification
 
 - Focused cloud-data tests: 5 files, 78 tests passed.
 - FMHY inventory and curated suites: 17/17 and 10/10 passed.
@@ -90,12 +98,36 @@ block bypass, credential reuse, media copying, or unrelated substitute is used.
 - Full Playwright matrix: 270 passed, 10 intentional platform-specific skips,
   and zero failures across desktop/mobile Chromium and WebKit in 4.5 minutes.
 
-Deployment evidence must be appended only after the current Worker and Pages
-artifacts are uploaded. Required checks are: JSON health/version match; full
-baseline browse/search/title/episode/mapping results; unauthorized admin 401;
-private asset paths 404; authentication/profile contracts; deep links and browser
-errors; desktop/mobile visual review; and real progression, seek, switch, cleanup,
-and restoration for mappings 121117 and 121118.
+- `pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed:
+  matching frontend/API `0.7.0-alpha`, framing blocked, and no parent-sandbox
+  compatibility policy.
+- Deployed `/api/health` returns JSON, Workers runtime, schema 12, and 8,949 titles.
+  `/api/titles?page=1&pageSize=2` returns a 8,949-record denominator; the real
+  title returns episode 58614 and versions 75701/183770; the provider route returns
+  mappings 121117 and 121118 as supported native choices.
+- The exact private baseline manifest path returns 404. An unauthenticated
+  `/api/admin/sources` request returns 401.
+- Desktop home/watch and 390px mobile title/watch layouts were inspected on the
+  stable origin. Readiness resolved, header/navigation remained usable, dense
+  rails and the adjacent desktop episode list rendered, and the mobile bottom
+  navigation did not overlap the player controls.
+- The production-data browser check exposed and fixed a title action that chose
+  the observed `sub` version ahead of the available native `silent` edition. The
+  general availability ranking is covered by 599/599 application tests and four
+  targeted Chromium/WebKit browser cases. The deployed title now selects SILENT
+  and its primary action opens the verified watch route.
+
+### Deployed native playback, 2026-09-13
+
+| Provider / mapping | Progression | Switch/restoration | Player state |
+| --- | --- | --- | --- |
+| Internet Archive / 121117 | 90.220716 → 96.944256 s | Switched at the same episode/version | duration 258.856054 s, ready state 4, no error |
+| Wikimedia Commons / 121118 | 104.018676 → 111.979475 s | Restored at 103.866789 s | duration 258.8 s, ready state 4, no error |
+
+The browser retained exactly one native video element, stayed on the Solanime
+origin, opened no external player or popup, and logged no warnings or errors.
+The player was paused after verification. These values are mapping-specific and
+do not certify any other provider or episode.
 
 ## Promotion and rollback gate
 

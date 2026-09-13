@@ -2,10 +2,12 @@
 
 Review origin: <https://cloud-release.solanime.pages.dev>
 
-The origin above still serves the superseded review until the current candidate is
-deployed and verified. This record describes the source and data package being
-prepared for that review deployment. It does not claim a canonical production
-promotion or complete commercial-provider playback.
+Immutable frontend: <https://fbe8c6a5.solanime.pages.dev>
+
+Source commit: `3d8ba38`. API Worker version:
+`80730f1d-1d3b-43d5-9b93-c5efc8594f5c`. The review origin now serves this
+candidate. This is not a canonical production promotion or a claim of complete
+commercial-provider playback.
 
 ## Catalogue and cloud package
 
@@ -46,13 +48,15 @@ refresh checkpoints, and fresher catalogue overlays.
 | Kiwi | 0 | Provider inventory only. |
 | VidPlay-1 | 0 | Provider inventory only. |
 
-Earlier deployed review evidence established real media progression and
-Archive-to-Commons switching for the two approved mappings on one public-domain
-film. It does not verify the new deployment, the other 134,824 episodes, or any
-original commercial provider. The current candidate must repeat progression,
-seek, cleanup, switching, and restoration checks on its deployed origin before
-production promotion. A successful HTTP response, iframe load, or adapter result
-is not counted as playback.
+The current deployed review was checked through the title-to-watch flow on the
+same origin. Internet Archive advanced from 90.220716 to 96.944256 seconds. The
+source switch restored compatible progress at 103.866789 seconds, and Wikimedia
+Commons advanced from 104.018676 to 111.979475 seconds. Both had ready state 4,
+no media error, and a single in-site native video element. The browser warning/
+error log was empty. This evidence covers only mappings 121117 and 121118 on one
+public-domain film; it does not verify the other 134,824 episodes or any original
+commercial provider. A successful HTTP response, iframe load, or adapter result
+alone is not counted as playback.
 
 ## Interface
 
@@ -77,11 +81,18 @@ Public episode comments are not claimed—episode notes are private to a profile
   across desktop/mobile Chromium and WebKit in 4.5 minutes; zero failures.
 - FMHY inventory suites: 17/17 and 10/10 passed in the isolated Python environment.
 - Cloud baseline preparation, pin validation, collision checks, link rejection,
-  file limits, and Wrangler dry-run passed.
+  file limits, Wrangler dry-run, and the real Worker upload passed.
+- Deployed health reports Workers runtime, schema 12, matching `0.7.0-alpha`, and
+  8,949 titles. Catalogue pagination reports 8,949 records; the verified title
+  returns its real episode, silent version, and two native choices. Private
+  baseline paths return 404 and unauthenticated admin requests return 401.
+- Desktop home/watch and 390px mobile title/watch views were inspected after
+  readiness. The title primary action now ranks an explicitly available native
+  version ahead of merely observed provider mappings.
 
 See the [cloud runbook](CLOUD_RELEASE.md), [release evidence](cloud-release-checklist.md),
 [data tooling](../scripts/cloud-data/README.md), and
-[native playback guidance](NATIVE_PLAYBACK.md). Production remains gated on a
-matching deployed frontend/API, full-baseline API checks, both approved native
-providers progressing in the in-site player, publication review, and visual
-acceptance.
+[native playback guidance](NATIVE_PLAYBACK.md). Production remains gated on
+broader provider coverage and user visual acceptance; the current review has
+passed its matching-version, full-baseline, publication, and two-provider native
+playback checks.
