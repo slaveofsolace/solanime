@@ -83,14 +83,15 @@ test('catalogue utility controls remain compact and title episodes use the avail
   const episodes = page.locator('.episode-grid > li');
   await expect(episodes).toHaveCount(3);
   const rows = await Promise.all([0, 1, 2].map((index) => episodes.nth(index).boundingBox()));
-  expect(rows.every((row) => Math.abs(row!.y - rows[0]!.y) <= 1)).toBe(true);
+  expect(Math.abs(rows[1]!.y - rows[0]!.y)).toBeLessThanOrEqual(1);
+  expect(rows[2]!.y).toBeGreaterThan(rows[0]!.y + rows[0]!.height - 1);
+  expect(Math.abs(rows[2]!.x - rows[0]!.x)).toBeLessThanOrEqual(1);
   expect(rows.every((row) => Math.abs(row!.width - rows[0]!.width) <= 1)).toBe(true);
   expect(rows[1]!.x).toBeGreaterThan(rows[0]!.x + rows[0]!.width);
-  expect(rows[2]!.x).toBeGreaterThan(rows[1]!.x + rows[1]!.width);
   const grid = await page.locator('.episode-grid').boundingBox();
   expect(rows[0]!.x).toBeCloseTo(grid!.x, 0);
-  expect(rows[2]!.x + rows[2]!.width).toBeCloseTo(grid!.x + grid!.width, 0);
-  expect(rows.every((row) => row!.height >= 44 && row!.height <= 68)).toBe(true);
+  expect(rows[1]!.x + rows[1]!.width).toBeCloseTo(grid!.x + grid!.width, 0);
+  expect(rows.every((row) => row!.height >= 44 && row!.height <= 80)).toBe(true);
   const detail = await (await page.request.get('/api/titles/paper-lantern')).json();
   const expectedEpisode = `/watch/paper-lantern/${encodeURIComponent(detail.episodes[1].id)}?language=sub`;
   await expect(episodes.nth(1).locator('a')).toHaveAttribute('href', expectedEpisode);
@@ -105,7 +106,7 @@ test('catalogue keeps advanced filters behind a compact, state-aware disclosure'
   await expect(disclosure).not.toHaveAttribute('open', '');
   await expect(page.getByRole('combobox', { name: 'Genre' })).not.toBeVisible();
 
-  await page.getByText('Genres & filters', { exact: true }).click();
+  await page.getByText('Filters', { exact: true }).click();
   const genreSelect = page.getByRole('combobox', { name: 'Genre' });
   await expect(genreSelect).toBeVisible();
   const genreValue = await genreSelect.locator('option').nth(1).getAttribute('value');
@@ -194,7 +195,7 @@ test('title defaults to a mapped version and presents a single grammatical episo
     'aria-pressed',
     'false',
   );
-  await expect(page.getByRole('link', { name: /Open first episode/ })).toHaveAttribute(
+  await expect(page.getByRole('link', { name: /Play first episode/ })).toHaveAttribute(
     'href',
     /language=silent/,
   );

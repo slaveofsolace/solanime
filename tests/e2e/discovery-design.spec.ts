@@ -11,7 +11,7 @@ test('browse keeps discovery controls compact and adjacent to the artwork', asyn
   await expect(page.getByRole('heading', { name: 'Browse', exact: true })).toBeVisible();
   await expect(page.getByText('Explore the catalogue', { exact: true })).toHaveCount(0);
   await expect(page.getByRole('searchbox', { name: 'Search catalogue' })).toBeVisible();
-  await expect(page.getByText('Genres & filters', { exact: true })).toBeVisible();
+  await expect(page.getByText('Filters', { exact: true })).toBeVisible();
   await expect(page.getByRole('combobox', { name: 'Sort titles' })).toBeVisible();
 
   const heading = await page.locator('.catalogue-heading').boundingBox();

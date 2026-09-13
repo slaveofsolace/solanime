@@ -655,10 +655,37 @@
 
 .catalogue-page .view-switcher button {
   position: relative;
+  width: 30px;
   min-height: calc(var(--catalogue-control-height) - 6px);
-  padding-inline: 2px;
+  padding: 0;
   border-radius: 0;
   color: var(--muted);
+}
+
+.view-switcher__icon {
+  display: grid;
+  width: 15px;
+  height: 13px;
+  margin: auto;
+  gap: 2px;
+  opacity: .82;
+}
+
+.view-switcher__icon::before,
+.view-switcher__icon::after {
+  display: block;
+  background: currentColor;
+  box-shadow: 8px 0 currentColor;
+  content: '';
+}
+
+.view-switcher__icon--compact {
+  height: 11px;
+}
+
+.view-switcher__icon--compact::before,
+.view-switcher__icon--compact::after {
+  box-shadow: 5px 0 currentColor, 10px 0 currentColor;
 }
 
 .catalogue-page .view-switcher button[aria-pressed='true'] {
@@ -959,10 +986,17 @@
 
   .catalogue-page .discovery-sort {
     grid-column: 2;
+    min-height: 44px;
   }
 
   .catalogue-page .view-switcher {
     grid-column: 1 / -1;
+  }
+
+  .catalogue-page .view-switcher button {
+    width: 44px;
+    min-height: 44px;
+    flex: 1;
   }
 
   .catalogue-page .title-grid,

@@ -221,11 +221,13 @@ export default function CataloguePage() {
           </div>
         </header>
 
-        <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
-          <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
-          <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
-          <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
-        </div>
+        {!queryScope && !searchView && (
+          <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
+            <button type="button" aria-pressed onClick={() => changeCollection('')}>All</button>
+            <button type="button" aria-pressed={false} onClick={() => changeCollection('anime')}>Anime</button>
+            <button type="button" aria-pressed={false} onClick={() => changeCollection('tv')}>TV Shows</button>
+          </div>
+        )}
       </div>
 
       <form
@@ -262,7 +264,7 @@ export default function CataloguePage() {
           <div className="discovery-actions">
             <details className="filter-disclosure">
               <summary>
-                <span>Genres &amp; filters</span>
+                <span>Filters</span>
                 {advancedFilters > 0 && <span>{advancedFilters} active</span>}
               </summary>
               <div className="filter-grid">
@@ -298,7 +300,7 @@ export default function CataloguePage() {
             </details>
 
             <label className="discovery-sort">
-              <span>Sort</span>
+              <span className="sr-only">Sort</span>
               <select
                 aria-label="Sort titles"
                 value={params.get('sort') ?? 'updated'}
@@ -317,14 +319,16 @@ export default function CataloguePage() {
                 aria-pressed={view === 'standard'}
                 onClick={() => updateParam('view', '')}
               >
-                Standard
+                <span className="view-switcher__icon view-switcher__icon--standard" aria-hidden="true" />
+                <span className="sr-only">Standard</span>
               </button>
               <button
                 type="button"
                 aria-pressed={view === 'compact'}
                 onClick={() => updateParam('view', 'compact')}
               >
-                Compact
+                <span className="view-switcher__icon view-switcher__icon--compact" aria-hidden="true" />
+                <span className="sr-only">Compact</span>
               </button>
             </div>
           </div>

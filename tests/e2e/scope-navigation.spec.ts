@@ -27,6 +27,10 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
     'aria-current',
     'page',
   );
+  await expect(page.getByRole('group', { name: 'Catalogue collection' })).toHaveCount(0);
+
+  await page.goto('/catalogue');
+  await expect(page.getByRole('group', { name: 'Catalogue collection' })).toBeVisible();
 });
 
 test('mobile bottom navigation keeps TV directly reachable without overflow', async ({ page }) => {
