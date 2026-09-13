@@ -7,6 +7,7 @@ import { api, errorMessage } from '../lib/api';
 import type { Episode, RelatedTitle, TitleDetail, TitleSummary } from '../types';
 import { InlineNotice, StatusPanel, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
+import '../styles/title-watch.css';
 
 function isLinkedRelated(
   item: RelatedTitle,
@@ -213,24 +214,26 @@ function TitleSession() {
               {saved ? 'Remove from watchlist' : 'Add to watchlist'}
             </button>
           </div>
-          <dl className="title-facts">
-            <div>
-              <dt>Status</dt>
-              <dd>{title.status ?? 'Unknown'}</dd>
-            </div>
-            <div>
-              <dt>Episodes</dt>
-              <dd>{episodes.length || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
-            </div>
-            <div>
-              <dt>Versions</dt>
-              <dd>{languages.join(' / ') || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
-            </div>
-          </dl>
-          {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}
-          {genres.length > 0 && <div className="tag-list" aria-label="Genres">
-            {genres.map((genre) => <span key={genre}>{genre}</span>)}
-          </div>}
+          <div className="title-hero__details">
+            <dl className="title-facts">
+              <div>
+                <dt>Status</dt>
+                <dd>{title.status ?? 'Unknown'}</dd>
+              </div>
+              <div>
+                <dt>Episodes</dt>
+                <dd>{episodes.length || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
+              </div>
+              <div>
+                <dt>Versions</dt>
+                <dd>{languages.join(' / ') || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
+              </div>
+            </dl>
+            {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}
+            {genres.length > 0 && <div className="tag-list" aria-label="Genres">
+              {genres.map((genre) => <span key={genre}>{genre}</span>)}
+            </div>}
+          </div>
           {title.source === 'tvmaze' && publicAttributionUrl(title.canonicalUrl) && (
             <p className="title-source-credit">
               Metadata and imagery:{' '}

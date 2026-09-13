@@ -9,6 +9,7 @@ import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
 import EpisodeCommunity from '../components/EpisodeCommunity';
+import '../styles/title-watch.css';
 
 function safeAttributionUrl(value: string) {
   try {
@@ -347,25 +348,9 @@ function WatchSession() {
           </select>
         </label>
       </div>
-      {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
-        <p className="source-attribution">
-          Source:{' '}
-          <a
-            href={safeAttributionUrl(resolution.attribution.url)!}
-            target="_blank"
-            rel="noreferrer nofollow"
-          >
-            {resolution.attribution.label}
-          </a>{' '}
-          ·{' '}
-          {/public domain/i.test(resolution.attribution.license)
-            ? 'Public domain'
-            : resolution.attribution.license}
-        </p>
-      )}
       <header className="watch-heading">
         <div>
-          <p>
+          <p className="watch-heading__episode">
             {episodeName(episode)} · {versionLabel}
           </p>
           <h1>{title.name}</h1>
@@ -380,6 +365,22 @@ function WatchSession() {
           {watchlist.has(title.id) ? 'Saved' : 'Save series'}
         </button>
       </header>
+      {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
+        <p className="source-attribution">
+          Playing from{' '}
+          <a
+            href={safeAttributionUrl(resolution.attribution.url)!}
+            target="_blank"
+            rel="noreferrer nofollow"
+          >
+            {resolution.attribution.label}
+          </a>{' '}
+          ·{' '}
+          {/public domain/i.test(resolution.attribution.license)
+            ? 'Public domain'
+            : resolution.attribution.license}
+        </p>
+      )}
       <details className="watch-about">
         <summary>About this title</summary>
         <p>
@@ -428,15 +429,20 @@ function WatchSession() {
               </button>
             </div>
           </form>
-          <ul className="comment-list">
-            {localNotes.map((n) => (
-              <li key={n.id}>
-                <p>{n.body}</p>
-                <button className="text-button" type="button" onClick={() => comments.remove(n.id)}>
-                  Delete note
-                </button>
+          <ul className="comment-list" aria-label="Saved episode notes">
+            {localNotes.length === 0 ? (
+              <li className="comment-list__empty">
+                <strong>No notes for this episode</strong>
+                <p>Anything you save stays private to this profile or device.</p>
               </li>
-            ))}
+            ) : localNotes.map((n) => (
+                <li key={n.id}>
+                  <p>{n.body}</p>
+                  <button className="text-button" type="button" onClick={() => comments.remove(n.id)}>
+                    Delete note
+                  </button>
+                </li>
+              ))}
           </ul>
         </div>
       </details>

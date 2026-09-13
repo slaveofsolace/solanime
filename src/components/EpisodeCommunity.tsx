@@ -155,7 +155,13 @@ export default function EpisodeCommunity({ episodeId }: { episodeId: string }) {
       ) : loadError ? (
         <div className="community-empty" role="alert"><p>{loadError}</p><button className="text-button" type="button" onClick={() => void load(1)}>Try again</button></div>
       ) : data.items.length === 0 ? (
-        <p className="community-empty">No comments yet. Start the conversation for this episode.</p>
+        <div className="community-empty">
+          <span className="community-empty__mark" aria-hidden="true" />
+          <div>
+            <strong>Be the first to comment</strong>
+            <p>No comments yet. Start the conversation for this episode.</p>
+          </div>
+        </div>
       ) : (
         <ol className="community-thread">
           {data.items.map((comment) => (
