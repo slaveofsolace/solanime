@@ -96,10 +96,10 @@ test('legacy iframe responses are refused without loading their document', async
   const e = await episode(page);
   await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
   await expect(
-    page.getByRole('heading', { name: 'Unsupported source', exact: true }),
+    page.getByRole('heading', { name: 'This source cannot play here', exact: true }),
   ).toBeVisible();
-  await page.getByRole('heading', { name: 'Unsupported source', exact: true }).click();
-  await page.getByRole('button', { name: 'Save series', exact: true }).click();
+  await page.getByRole('heading', { name: 'This source cannot play here', exact: true }).click();
+  await page.getByRole('button', { name: 'My List', exact: true }).click();
   await expect(page.locator('iframe,video')).toHaveCount(0);
   expect(requested).toBe(0);
   expect(popups).toBe(0);
@@ -110,7 +110,7 @@ test('legacy iframe responses are refused without loading their document', async
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('unsupported-source.png'), fullPage: true });
 });
-test('unregistered catalogue sources stay unsupported despite legacy compatibility settings', async ({
+test('provider mappings without a documented embed destination remain unavailable despite legacy compatibility settings', async ({
   page,
 }) => {
   await page.addInitScript(() =>
@@ -123,15 +123,15 @@ test('unregistered catalogue sources stay unsupported despite legacy compatibili
   });
   await page.goto(`/watch/fixture-title-2/${e.id}?language=sub`);
   await expect(
-    page.getByRole('heading', { name: 'Unsupported source', exact: true }),
+    page.getByRole('heading', { name: 'Video unavailable', exact: true }),
   ).toBeVisible();
   await expect(page.locator('iframe,video')).toHaveCount(0);
-  expect(resolutions).toBe(0);
+  expect(resolutions).toBe(1);
   await expect(
     page.getByRole('button', { name: 'Provider compatibility', exact: true }),
   ).toHaveCount(0);
   expect((await page.request.get('/')).headers()['content-security-policy']).toContain(
-    'frame-src https://megaplay.buzz',
+    "frame-src 'none'",
   );
 });
 test('native ended events update watched state and navigate when autoplay-next is enabled', async ({
