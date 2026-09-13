@@ -123,10 +123,10 @@ test('provider mappings without a documented embed destination remain unavailabl
   });
   await page.goto(`/watch/fixture-title-2/${e.id}?language=sub`);
   await expect(
-    page.getByRole('heading', { name: 'Video unavailable', exact: true }),
+    page.getByRole('heading', { name: 'No in-player stream', exact: true }),
   ).toBeVisible();
   await expect(page.locator('iframe,video')).toHaveCount(0);
-  expect(resolutions).toBe(1);
+  expect(resolutions).toBe(0);
   await expect(
     page.getByRole('button', { name: 'Provider compatibility', exact: true }),
   ).toHaveCount(0);

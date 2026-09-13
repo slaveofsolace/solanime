@@ -35,7 +35,7 @@ describe('unsupported playback state', () => {
     expect(screen.getByText('Why each source is unavailable')).toBeTruthy();
     expect(screen.getByRole('list', { name: 'Observed playback sources' })).toBeTruthy();
     expect(screen.getByText('Web mirror')).toBeTruthy();
-    expect(screen.getByText('Webpage-only source')).toBeTruthy();
+    expect(screen.getByText('Provider player blocked by safety policy')).toBeTruthy();
     expect(screen.getByText('Blocked upstream')).toBeTruthy();
     expect(screen.queryByText(/play now/i)).toBeNull();
   });
@@ -45,6 +45,7 @@ describe('unsupported playback state', () => {
       mappingId: 'map-native',
       providerId: 'native-provider',
       label: 'Native candidate',
+      kind: 'native',
       playbackType: 'hls',
       status: 'available',
       supported: true,

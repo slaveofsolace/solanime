@@ -6,8 +6,10 @@ function providerState(provider: ProviderChoice, rejectedMappingId?: string) {
   if (provider.status === 'unavailable') return 'Currently unavailable';
   if (provider.status === 'stale') return 'Needs re-verification';
   if (provider.mappingId === rejectedMappingId) return 'Selected response rejected';
-  if (provider.supported && provider.status === 'available') return 'Native adapter available';
-  if (provider.playbackType === 'external' || provider.playbackType === 'iframe') return 'Webpage-only source';
+  if (provider.supported && provider.status === 'available' && provider.kind === 'native')
+    return 'Native stream available';
+  if (provider.playbackType === 'iframe') return 'Provider player blocked by safety policy';
+  if (provider.playbackType === 'external') return 'Webpage-only source';
   return 'Observed, not natively playable';
 }
 
@@ -17,10 +19,16 @@ interface UnsupportedPlaybackProps {
 }
 
 export default function UnsupportedPlayback({ providers, selected }: UnsupportedPlaybackProps) {
-  const selectedWasRejected = selected?.supported && selected.status === 'available';
+  const selectedWasRejected =
+    selected?.supported &&
+    selected.status === 'available' &&
+    selected.kind !== 'embed' &&
+    selected.playbackType !== 'iframe' &&
+    selected.playbackType !== 'external';
   const mappedCount = providers.length;
   const nativeCount = providers.filter(
-    (provider) => provider.supported && provider.status === 'available',
+    (provider) =>
+      provider.kind === 'native' && provider.supported && provider.status === 'available',
   ).length;
   const webpageOnlyCount = providers.filter(
     (provider) => provider.playbackType === 'external' || provider.playbackType === 'iframe',
@@ -45,7 +53,7 @@ export default function UnsupportedPlayback({ providers, selected }: Unsupported
             ? selectedWasRejected
               ? 'The selected provider returned a format or origin the Solanime player cannot use. Choose another source or episode.'
               : webpageOnlyCount === mappedCount
-                ? 'These mappings lead to provider webpages or embeds, not a native video stream. Try another episode or check again after sources are refreshed.'
+                ? 'These mappings lead to provider webpages or embeds that cannot meet Solanime’s in-player safety requirements. They remain recorded, but are not offered as working video sources.'
                 : 'None of the mapped providers currently returns a supported native stream. Try another episode or check again after sources are refreshed.'
             : 'No provider mapping has been observed for this episode. Try another episode while synchronization continues.'}
         </p>

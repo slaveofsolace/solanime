@@ -160,7 +160,7 @@ describe('MegaPlay provider embed resolution', () => {
     });
   });
 
-  it('rebuilds fixed iframe policy and rejects incomplete injected embeds', () => {
+  it('rejects resolved embeds at the application playback boundary', () => {
     const safe = megaPlayEmbedResult(mapping(), 'https://megaplay.buzz/stream/s-2/12/sub');
     if (safe.kind !== 'embed') throw new Error('Expected embed fixture');
     const outer = legacyResolution(safe);
@@ -169,8 +169,9 @@ describe('MegaPlay provider embed resolution', () => {
       sandbox: [...outer.iframePolicy!.sandbox, 'allow-popups' as never],
     };
     expect(enforcePlaybackResolution(mapping(), outer)).toMatchObject({
-      kind: 'embed',
-      iframePolicy: { sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'] },
+      status: 'unsupported',
+      playbackType: 'iframe',
+      error: { code: 'PROVIDER_EMBED_ONLY' },
     });
     expect(
       enforcePlaybackResolution(mapping(), {

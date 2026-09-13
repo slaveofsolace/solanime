@@ -67,9 +67,18 @@ function WatchSession() {
     previous = versions[index - 1],
     next = index >= 0 ? versions[index + 1] : undefined;
   const requestedMapping = params.get('server');
-  const candidate = requestedMapping
+  const requestedProvider = requestedMapping
     ? providers.find((p) => p.mappingId === requestedMapping)
-    : providers.find((p) => p.supported === true && p.status === 'available');
+    : undefined;
+  const playableProviders = providers.filter(
+    (provider) =>
+      provider.kind === 'native' &&
+      provider.supported === true &&
+      provider.status === 'available',
+  );
+  const candidate = requestedMapping
+    ? playableProviders.find((p) => p.mappingId === requestedMapping)
+    : playableProviders[0];
   useEffect(() => {
     const abort = new AbortController();
     void api
@@ -290,7 +299,10 @@ function WatchSession() {
             />
           )
         ) : (
-          <UnsupportedPlayback providers={providers} selected={unsupported ? candidate : undefined} />
+          <UnsupportedPlayback
+            providers={providers}
+            selected={unsupported ? requestedProvider ?? candidate : undefined}
+          />
         )}
       </div>
       <div className="watch-selection">
@@ -333,7 +345,7 @@ function WatchSession() {
           <select
             aria-label="Playback source"
             value={candidate?.mappingId ?? ''}
-            disabled={loadingSources || !providers.some((p) => p.supported)}
+            disabled={loadingSources || playableProviders.length === 0}
             onChange={(e) =>
               setParams(
                 (current) => {
@@ -348,13 +360,14 @@ function WatchSession() {
           >
             {!candidate && (
               <option value="">
-                {providers.length ? 'No supported source' : 'No sources available'}
+                {providers.length
+                  ? `0 playable sources · ${providers.length} mapped`
+                  : 'No sources available'}
               </option>
             )}
-            {providers.map((p) => (
-              <option key={p.mappingId} value={p.mappingId} disabled={!p.supported}>
+            {playableProviders.map((p) => (
+              <option key={p.mappingId} value={p.mappingId}>
                 {p.label}
-                {p.supported ? '' : ' — unsupported'}
               </option>
             ))}
           </select>

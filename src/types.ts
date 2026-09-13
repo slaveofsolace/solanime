@@ -98,6 +98,7 @@ export interface TitleDetailResponse {
 
 export interface ProviderChoice {
   supported?: boolean;
+  kind?: 'native' | 'embed' | 'unsupported';
   mappingId: string;
   providerId: string;
   label: string;

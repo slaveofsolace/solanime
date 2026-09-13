@@ -419,7 +419,7 @@ describe('application HTTP API', () => {
         .get(String(mappingId)),
     ).toMatchObject({ stage: 'failed', result: 'unsupported' });
   });
-  it('advertises and resolves only explicit provider embeds without exposing opaque references', async () => {
+  it('preserves documented provider embeds without advertising them as playable', async () => {
     const { origin, db } = await app();
     db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url='https://megaplay.buzz/stream/s-2/123/sub' WHERE provider_id IN ('hd-1','hd-2')").run();
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
@@ -430,11 +430,11 @@ describe('application HTTP API', () => {
     for (const p of result.providers) {
       const embedOnly = p.providerId === 'hd-1' || p.providerId === 'hd-2';
       expect(p).toMatchObject({
-        supported: embedOnly,
-        kind: embedOnly ? 'embed' : 'unsupported',
-        status: embedOnly ? 'available' : 'unsupported',
+        supported: false,
+        kind: 'unsupported',
+        status: 'unsupported',
         playbackType: embedOnly ? 'iframe' : 'unknown',
-        reasonCode: embedOnly ? null : 'DOWNLOAD_ONLY_SOURCE',
+        reasonCode: embedOnly ? 'PROVIDER_EMBED_ONLY' : 'DOWNLOAD_ONLY_SOURCE',
       });
     }
     const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
@@ -442,19 +442,15 @@ describe('application HTTP API', () => {
       headers: { 'content-type': 'application/json' },
       body: '{"language":"sub"}',
     });
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(422);
     const body = await res.json();
     expect(body).toMatchObject({
-      kind: 'embed',
-      delivery: 'provider',
-      playbackType: 'iframe',
-      embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub',
-      allowedEmbedHosts: ['megaplay.buzz'],
-      iframePolicy: {
-        sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'],
-      },
+      kind: 'unsupported',
+      status: 'unsupported',
+      error: { code: 'PROVIDER_EMBED_ONLY' },
     });
     expect(body).not.toHaveProperty('url');
+    expect(body).not.toHaveProperty('embedUrl');
     expect(JSON.stringify(body)).not.toContain('private-opaque-reference');
     expect(
       (

@@ -29,7 +29,6 @@ import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
 import { providerSupportDiagnostic } from './providers/support-diagnostics.ts';
-import { hasSupportedMegaPlayEmbed, MEGAPLAY_EMBED_CAPABILITIES, resolveMegaPlayEmbed } from './providers/embed.ts';
 
 const MAX_BODY = 16 * 1024;
 const DEFAULT_MAX_PENDING_RESOLUTIONS = 8;
@@ -172,7 +171,6 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
       if (approved && ['internet-archive', 'wikimedia-commons'].includes(mapping.providerId)) return legacyResolution(await resolveApprovedNative(mapping, approved, signal));
       const registered = nativeSources(mapping);
       if (registered) return registered;
-      if (hasSupportedMegaPlayEmbed(mapping)) return legacyResolution(await resolveMegaPlayEmbed(mapping, signal));
       return unsupportedSource(mapping);
     });
 
@@ -356,25 +354,24 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
             const approved = hasEnabledNativeResource(mapping, resource);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
             const diagnostic = providerSupportDiagnostic(mapping);
-            const embed = !approved && !source && hasSupportedMegaPlayEmbed(mapping);
+            const embedObserved =
+              !approved && !source && diagnostic.state === 'documented-embed-only';
             return {
               ...provider,
-              supported: !!approved || source?.status === 'resolved' || embed,
-              kind: approved || source?.status === 'resolved' ? 'native' : embed ? 'embed' : 'unsupported',
-              playbackType: approved ? 'direct' : source?.playbackType ?? (embed ? 'iframe' : 'unknown'),
-              status: approved || embed ? 'available' : source
+              supported: !!approved || source?.status === 'resolved',
+              kind: approved || source?.status === 'resolved' ? 'native' : 'unsupported',
+              playbackType: approved ? 'direct' : source?.playbackType ?? (embedObserved ? 'iframe' : 'unknown'),
+              status: approved ? 'available' : source
                 ? source.status === 'resolved'
                   ? 'available'
                   : 'unavailable'
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source || approved || embed ? null : diagnostic.message),
-              reasonCode: source?.error?.code ?? (source || approved || embed ? null : diagnostic.code),
+                (source || approved ? null : diagnostic.message),
+              reasonCode: source?.error?.code ?? (source || approved ? null : diagnostic.code),
               capabilities:
-                embed
-                  ? MEGAPLAY_EMBED_CAPABILITIES
-                  : approved || source?.status === 'resolved'
+                approved || source?.status === 'resolved'
                   ? {
                       seek: true,
                       volume: true,

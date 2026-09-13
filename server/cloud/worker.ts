@@ -14,7 +14,6 @@ import { createSnapshotImportHandlers, createSnapshotImportRepository } from './
 import { legacyResolution, type ApprovedNativeResource } from '../providers/native.ts';
 import { hasEnabledNativeResource, resolveApprovedNative, NATIVE_RESEARCH_RECORDS } from '../providers/native-registry.ts';
 import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
-import { hasSupportedMegaPlayEmbed, MEGAPLAY_EMBED_CAPABILITIES, resolveMegaPlayEmbed } from '../providers/embed.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
 const apiHeaders = {
@@ -110,12 +109,28 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       return json({ ...result, providers: await Promise.all(result.providers.map(async provider => {
         const native = ids.has(String(provider.mappingId));
         const mapping = await catalogue.getMapping(Number(provider.mappingId));
-        const embed = !native && hasSupportedMegaPlayEmbed(mapping);
-        const supported = native || embed;
         const diagnostic = providerSupportDiagnostic({
           providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
         });
-        return { ...provider, supported, kind: native ? 'native' : embed ? 'embed' : 'unsupported', playbackType: native ? 'direct' : embed ? 'iframe' : 'unknown', status: supported ? 'available' : 'unsupported', reason: supported ? null : diagnostic.message, reasonCode: supported ? null : diagnostic.code, capabilities: embed ? MEGAPLAY_EMBED_CAPABILITIES : native ? { seek: true, volume: true, fullscreen: true, progressEvents: true, subtitles: false } : {} };
+        const embedObserved = !native && diagnostic.state === 'documented-embed-only';
+        return {
+          ...provider,
+          supported: native,
+          kind: native ? 'native' : 'unsupported',
+          playbackType: native ? 'direct' : embedObserved ? 'iframe' : 'unknown',
+          status: native ? 'available' : 'unsupported',
+          reason: native ? null : diagnostic.message,
+          reasonCode: native ? null : diagnostic.code,
+          capabilities: native
+            ? {
+                seek: true,
+                volume: true,
+                fullscreen: true,
+                progressEvents: true,
+                subtitles: false,
+              }
+            : {},
+        };
       })) });
     }
     const resolve = /^\/api\/providers\/(\d+)\/resolve$/.exec(path);
@@ -124,12 +139,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
       const resource = await env.CATALOGUE.prepare('SELECT * FROM native_resources WHERE mapping_id=?').bind(mapping.mappingId).first<ApprovedNativeResource>();
-      const nativeApproved = hasEnabledNativeResource(mapping, resource);
-      const result = nativeApproved
-        ? await resolveApprovedNative(mapping, resource, request.signal)
-        : hasSupportedMegaPlayEmbed(mapping)
-          ? await resolveMegaPlayEmbed(mapping, request.signal)
-          : await resolveApprovedNative(mapping, resource, request.signal);
+      const result = await resolveApprovedNative(mapping, resource, request.signal);
       // A resolution is not playback verification. Never store temporary media URLs.
       if (result.kind === 'native' || result.kind === 'embed') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
       return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'embed' ? 200 : 422);

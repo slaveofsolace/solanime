@@ -1,16 +1,15 @@
 import { isMediaKind } from '../../shared/playback.ts';
 import type { ProviderResolution, StoredProviderMapping } from './contract.ts';
-import { megaPlayEmbedResult, validateMegaPlayEmbedUrl } from './embed.ts';
-import { legacyResolution } from './native.ts';
 import { providerSupportDiagnostic } from './support-diagnostics.ts';
 export function unsupportedSource(
   mapping: Pick<StoredProviderMapping, 'mappingId' | 'providerId'>,
 ): ProviderResolution {
   const diagnostic = providerSupportDiagnostic(mapping);
   return {
+    kind: 'unsupported',
     mappingId: mapping.mappingId,
     providerId: mapping.providerId,
-    playbackType: 'unknown',
+    playbackType: diagnostic.state === 'documented-embed-only' ? 'iframe' : 'unknown',
     status: 'unsupported',
     error: {
       code: diagnostic.code,
@@ -37,34 +36,19 @@ export function enforceNativeResolution(
   return { ...value, embedUrl: undefined, headers: undefined };
 }
 
-/** Only the reviewed MegaPlay embed contract may cross the provider-page boundary. */
+/**
+ * Only native media crosses the application playback boundary.
+ *
+ * MegaPlay's documented page can be identified and resolved, but live browser
+ * verification established that it refuses Solanime's restricted sandbox. The
+ * unsandboxed form can open unrelated pages. Keep that mapping as evidence and
+ * reject it here instead of advertising a non-working or unsafe player.
+ */
 export function enforcePlaybackResolution(
   mapping: StoredProviderMapping,
   value: ProviderResolution,
 ): ProviderResolution {
-  if (value.kind !== 'embed' && value.delivery !== 'provider')
-    return enforceNativeResolution(mapping, value);
-  if (
-    value.status !== 'resolved' ||
-    value.kind !== 'embed' ||
-    value.delivery !== 'provider' ||
-    value.playbackType !== 'iframe' ||
-    !value.embedUrl ||
-    value.mappingId !== mapping.mappingId ||
-    value.providerId !== mapping.providerId ||
-    value.result?.kind !== 'embed' ||
-    value.result.mappingId !== String(mapping.mappingId) ||
-    value.result.providerId !== mapping.providerId ||
-    value.result.language !== mapping.language ||
-    value.result.embedUrl !== value.embedUrl
-  )
+  if (value.kind === 'embed' || value.delivery === 'provider' || value.playbackType === 'iframe')
     return unsupportedSource(mapping);
-  try {
-    validateMegaPlayEmbedUrl(value.embedUrl, mapping.language, mapping.providerId);
-    // Rebuild all policy fields locally rather than trusting an extension or
-    // upstream response to widen iframe permissions or accepted message origins.
-    return legacyResolution(megaPlayEmbedResult(mapping, value.embedUrl));
-  } catch {
-    return unsupportedSource(mapping);
-  }
+  return enforceNativeResolution(mapping, value);
 }

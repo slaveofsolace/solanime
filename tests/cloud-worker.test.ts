@@ -193,10 +193,10 @@ describe('Worker API against actual D1', () => {
     const detail = await (await request('/api/titles/test-1')).json();
     expect(detail).toMatchObject({ title: { id: '1' }, episodes: [{ id: '10', number: 'Special 0.5', versions: [{ id: '21', language: 'dub', providerCount: 1 }, { id: '20', language: 'sub', providerCount: 2 }] }] });
     const choices = await (await request('/api/episodes/10/providers?language=sub')).json();
-    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: true, kind: 'embed', playbackType: 'iframe' }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
+    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: false, kind: 'unsupported', playbackType: 'iframe', reasonCode: 'PROVIDER_EMBED_ONLY' }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
     expect(JSON.stringify(choices)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(JSON.stringify(choices)).not.toContain('test-public-item');
-    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null }] });
+    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: false, kind: 'unsupported', playbackType: 'iframe', reasonCode: 'PROVIDER_EMBED_ONLY' }] });
     expect((await request('/api/episodes/10/providers?language=other')).status).toBe(404);
   });
 
@@ -205,7 +205,7 @@ describe('Worker API against actual D1', () => {
       .bind('internet-archive', 'test-public-item', 'sub', 'Wrong mapping', 'Test', 'https://example.test/rights', 'https://example.test/identity', observed).run();
     try {
       const choices = await (await request('/api/episodes/10/providers?language=sub')).json() as { providers: Array<{ mappingId: string; supported: boolean; status: string }> };
-      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: true, kind: 'embed', status: 'available' });
+      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: false, kind: 'unsupported', status: 'unsupported', playbackType: 'iframe' });
     } finally { await env.CATALOGUE.prepare('DELETE FROM native_resources WHERE mapping_id=30').run(); }
   });
 
@@ -237,7 +237,7 @@ describe('Worker API against actual D1', () => {
     expect((await request('/api/providers/31/resolve', mutation({ language: 'dub' }))).status).toBe(400);
   });
 
-  it('resolves a documented provider embed without exposing resources or fetching the player document', async () => {
+  it('rejects a documented provider embed without fetching or exposing it', async () => {
     const send = vi.fn<typeof fetch>(async (input, init) => {
       const url = new URL(String(input));
       expect(url.origin + url.pathname).toBe('https://anikototv.to/ajax/server');
@@ -251,13 +251,14 @@ describe('Worker API against actual D1', () => {
     });
     vi.stubGlobal('fetch', send);
     const response = await request('/api/providers/30/resolve', mutation({ language: 'sub', url: 'http://127.0.0.1/private' }));
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(422);
     const result = await response.json();
-    expect(result).toMatchObject({ mappingId: '30', kind: 'embed', delivery: 'provider', playbackType: 'iframe', embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub', allowedEmbedHosts: ['megaplay.buzz'], result: { kind: 'embed', providerId: 'hd-1' } });
+    expect(result).toMatchObject({ mappingId: '30', kind: 'unsupported', status: 'unsupported', error: { code: 'PROVIDER_EMBED_ONLY' } });
+    expect(result).not.toHaveProperty('embedUrl');
     expect(JSON.stringify(result)).not.toContain('PRIVATE_STABLE_REFERENCE');
-    expect(send).toHaveBeenCalledTimes(1);
+    expect(send).not.toHaveBeenCalled();
     const stored = await env.CATALOGUE.prepare('SELECT last_successful_resolution_at,last_playback_verification_at,resolution_evidence_state FROM episode_provider_mappings WHERE id=30').first();
-    expect(stored).toMatchObject({ last_successful_resolution_at: expect.any(String), last_playback_verification_at: null, resolution_evidence_state: 'resolved' });
+    expect(stored).toMatchObject({ last_successful_resolution_at: null, last_playback_verification_at: null });
   });
 
   it('resolves an approved identity via metadata plus HEAD, without persisting temporary URLs or claiming playback', async () => {
