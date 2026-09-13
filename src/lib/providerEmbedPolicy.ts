@@ -7,6 +7,13 @@ export const PROVIDER_EMBED_ALLOW = 'autoplay; encrypted-media; fullscreen; pict
 const PROVIDER_IDS = new Set(['vidstream-2', 'hd-1', 'hd-2']);
 const EMBED_PATH = /^\/stream\/s-2\/([1-9]\d*)\/(sub|dub)\/?$/;
 
+function matchesProviderSelector(url: URL, providerId: string): boolean {
+  if (!url.search) return true;
+  if (providerId === 'hd-1') return url.search === '?s=tcdn';
+  if (providerId === 'hd-2') return url.search === '?s=bcdn';
+  return false;
+}
+
 export type ProviderEmbedResolution = Omit<
   PlaybackResolution,
   'kind' | 'delivery' | 'playbackType' | 'embedUrl'
@@ -47,7 +54,7 @@ export function providerEmbedUrl(
       url.port ||
       url.username ||
       url.password ||
-      url.search ||
+      !matchesProviderSelector(url, resolution.providerId) ||
       url.hash ||
       !match
     ) {

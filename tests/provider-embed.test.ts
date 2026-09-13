@@ -85,6 +85,14 @@ describe('MegaPlay provider embed resolution', () => {
         mapping({ providerResourceId: null, canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/12/sub' }),
       ),
     ).toBe(true);
+    expect(validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn', 'sub', 'hd-1').href)
+      .toBe('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn');
+    expect(validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=bcdn', 'sub', 'hd-2').href)
+      .toBe('https://megaplay.buzz/stream/s-2/12/sub?s=bcdn');
+    expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=bcdn', 'sub', 'hd-1'))
+      .toThrow('INVALID_PROVIDER_RESOURCE');
+    expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn&extra=1', 'sub', 'hd-1'))
+      .toThrow('INVALID_PROVIDER_RESOURCE');
   });
 
   it.each([

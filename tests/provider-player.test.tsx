@@ -31,6 +31,14 @@ describe('provider embed player', () => {
     expect(frame.getAttribute('referrerpolicy')).toBe('no-referrer');
   });
 
+  it('accepts only the observed provider-specific server selector', () => {
+    const hd1 = { ...(embed as unknown as Record<string, unknown>), embedUrl: 'https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn' } as unknown as PlaybackResolution;
+    const hd2 = { ...(embed as unknown as Record<string, unknown>), providerId: 'hd-2', embedUrl: 'https://megaplay.buzz/stream/s-2/12345/sub?s=bcdn' } as unknown as PlaybackResolution;
+    expect(providerEmbedUrl(hd1, 'sub')).toBe('https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn');
+    expect(providerEmbedUrl(hd2, 'sub')).toBe('https://megaplay.buzz/stream/s-2/12345/sub?s=bcdn');
+    expect(providerEmbedUrl({ ...hd1, embedUrl: 'https://megaplay.buzz/stream/s-2/12345/sub?s=bcdn' }, 'sub')).toBeNull();
+  });
+
   it.each([
     'https://evil.example/stream/s-2/12345/sub',
     'https://megaplay.buzz.evil.example/stream/s-2/12345/sub',

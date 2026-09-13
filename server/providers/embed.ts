@@ -62,7 +62,14 @@ function unsupported(
   };
 }
 
-export function validateMegaPlayEmbedUrl(value: string, language: string): URL {
+function matchesProviderSelector(url: URL, providerId: string): boolean {
+  if (!url.search) return true;
+  if (providerId === 'hd-1') return url.search === '?s=tcdn';
+  if (providerId === 'hd-2') return url.search === '?s=bcdn';
+  return false;
+}
+
+export function validateMegaPlayEmbedUrl(value: string, language: string, providerId = 'vidstream-2'): URL {
   let url: URL;
   try {
     url = new URL(value);
@@ -76,7 +83,7 @@ export function validateMegaPlayEmbedUrl(value: string, language: string): URL {
     url.username ||
     url.password ||
     url.port ||
-    url.search ||
+    !matchesProviderSelector(url, providerId) ||
     url.hash ||
     !match ||
     match[2] !== language
@@ -89,7 +96,7 @@ export function hasSupportedMegaPlayEmbed(mapping: EmbedMapping): boolean {
   if (!providerIds.has(mapping.providerId) || !['sub', 'dub'].includes(mapping.language)) return false;
   if (mapping.canonicalEmbedUrl) {
     try {
-      validateMegaPlayEmbedUrl(mapping.canonicalEmbedUrl, mapping.language);
+      validateMegaPlayEmbedUrl(mapping.canonicalEmbedUrl, mapping.language, mapping.providerId);
       return true;
     } catch {
       return false;
@@ -101,7 +108,7 @@ export function hasSupportedMegaPlayEmbed(mapping: EmbedMapping): boolean {
 export function megaPlayEmbedResult(mapping: EmbedMapping, rawUrl: string): PlaybackResult {
   if (!providerIds.has(mapping.providerId) || !['sub', 'dub'].includes(mapping.language))
     throw new Error('INVALID_PROVIDER_RESOURCE');
-  const url = validateMegaPlayEmbedUrl(rawUrl, mapping.language);
+  const url = validateMegaPlayEmbedUrl(rawUrl, mapping.language, mapping.providerId);
   return {
     kind: 'embed',
     mappingId: String(mapping.mappingId),

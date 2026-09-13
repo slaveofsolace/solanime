@@ -60,7 +60,7 @@ export function enforcePlaybackResolution(
   )
     return unsupportedSource(mapping);
   try {
-    validateMegaPlayEmbedUrl(value.embedUrl, mapping.language);
+    validateMegaPlayEmbedUrl(value.embedUrl, mapping.language, mapping.providerId);
     // Rebuild all policy fields locally rather than trusting an extension or
     // upstream response to widen iframe permissions or accepted message origins.
     return legacyResolution(megaPlayEmbedResult(mapping, value.embedUrl));
