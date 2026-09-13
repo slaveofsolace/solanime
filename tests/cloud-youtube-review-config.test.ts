@@ -53,7 +53,9 @@ describe('official YouTube review configuration', () => {
     expect(pages.env.production.services[0].service).toBe('solanime-api-preview');
     expect(pages.env.production.vars?.SOLANIME_REVIEW_MODE).toBeUndefined();
     expect(plan.commands.pagesDeployAfterWorkerReview).toContain('youtube-official-review');
-    expect(plan.commands.pagesDeployAfterWorkerReview).toContain('--env-file');
+    expect(plan.commands.pagesDeployAfterWorkerReview).not.toContain('--cwd');
+    expect(plan.commands.pagesDeployAfterWorkerReview.some((value: string) => value.startsWith('--config='))).toBe(true);
+    expect(plan.commands.pagesDeployAfterWorkerReview.some((value: string) => value.startsWith('--env-file='))).toBe(true);
     expect(plan.residualSharing.join(' ')).not.toContain('D1 databases');
   });
 

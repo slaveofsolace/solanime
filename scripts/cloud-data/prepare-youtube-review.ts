@@ -148,7 +148,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
     commands: {
       workerDryRun: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--dry-run', '--outdir', join(output, 'worker-dry-run')],
       workerDeployAfterReview: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--strict', '--keep-vars'],
-      pagesDeployAfterWorkerReview: ['pnpm', 'exec', 'wrangler', '--cwd', join(output, 'pages'), '--env-file', pagesAccountEnv, 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch],
+      pagesDeployAfterWorkerReview: ['pnpm', 'exec', 'wrangler', 'pages', 'deploy', portable(resolve(dirname(basePagesPath), '../../dist')), '--project-name', resources.pagesProject, '--branch', resources.pagesBranch, `--config=${portable(pagesConfig)}`, `--env-file=${portable(pagesAccountEnv)}`],
       forbidden: ['deploying the checked-in wrangler.jsonc', 'binding Pages preview to solanime-api-preview', ...(resources.storageMode === 'shared-preview-read-only' ? ['migrating, seeding, importing, or writing shared preview D1'] : ['using any existing D1 database ID']), 'deploying the Pages main or cloud-release branch'],
     },
   };
