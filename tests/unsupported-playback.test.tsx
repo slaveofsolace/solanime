@@ -64,4 +64,19 @@ describe('unsupported playback state', () => {
     expect(screen.getByText(/No provider mapping has been observed/i)).toBeTruthy();
     expect(screen.queryByRole('list', { name: 'Observed playback sources' })).toBeNull();
   });
+
+  it('uses title artwork as a decorative unavailable-state backdrop', () => {
+    render(
+      <UnsupportedPlayback
+        providers={providers}
+        artworkUrl="https://images.example.test/title-backdrop.jpg"
+      />,
+    );
+
+    const artwork = document.querySelector('.unsupported-playback__artwork');
+    expect(artwork).toBeInstanceOf(HTMLImageElement);
+    expect(artwork?.getAttribute('src')).toBe('https://images.example.test/title-backdrop.jpg');
+    expect(artwork?.getAttribute('alt')).toBe('');
+    expect(artwork?.getAttribute('aria-hidden')).toBe('true');
+  });
 });

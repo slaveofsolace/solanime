@@ -464,6 +464,7 @@
 }
 
 .unsupported-playback {
+  position: relative;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -477,6 +478,33 @@
   background:
     radial-gradient(circle at 24% 42%, rgb(255 158 84 / 10%), transparent 30%),
     linear-gradient(135deg, #101313, #050606 62%);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.unsupported-playback--artwork {
+  background: #050606;
+}
+
+.unsupported-playback--artwork::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: '';
+  background:
+    linear-gradient(90deg, rgb(3 5 5 / 98%) 0%, rgb(3 5 5 / 88%) 38%, rgb(3 5 5 / 38%) 76%, rgb(3 5 5 / 60%) 100%),
+    linear-gradient(0deg, rgb(3 5 5 / 78%), transparent 54%);
+}
+
+.unsupported-playback__artwork {
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 auto;
+  width: 72%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: saturate(.72) contrast(1.04) brightness(.68);
 }
 
 .unsupported-playback__icon {
@@ -1074,6 +1102,11 @@
     min-height: 280px;
     aspect-ratio: auto;
     padding: 28px var(--gutter);
+  }
+
+  .unsupported-playback__artwork {
+    width: 100%;
+    opacity: .5;
   }
 
   .unsupported-playback__sources {

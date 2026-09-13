@@ -16,9 +16,14 @@ function providerState(provider: ProviderChoice, rejectedMappingId?: string) {
 interface UnsupportedPlaybackProps {
   providers: ProviderChoice[];
   selected?: ProviderChoice;
+  artworkUrl?: string | null;
 }
 
-export default function UnsupportedPlayback({ providers, selected }: UnsupportedPlaybackProps) {
+export default function UnsupportedPlayback({
+  providers,
+  selected,
+  artworkUrl,
+}: UnsupportedPlaybackProps) {
   const selectedWasRejected =
     selected?.supported &&
     selected.status === 'available' &&
@@ -35,7 +40,18 @@ export default function UnsupportedPlayback({ providers, selected }: Unsupported
   ).length;
   const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} mapped · ${nativeCount} native streams`;
   return (
-    <section className="unsupported-playback" aria-labelledby="unsupported-playback-title">
+    <section
+      className={`unsupported-playback${artworkUrl ? ' unsupported-playback--artwork' : ''}`}
+      aria-labelledby="unsupported-playback-title"
+    >
+      {artworkUrl && (
+        <img
+          className="unsupported-playback__artwork"
+          src={artworkUrl}
+          alt=""
+          aria-hidden="true"
+        />
+      )}
       <Icon name="unavailable" className="unsupported-playback__icon" />
       <div className="unsupported-playback__copy">
         <p className="unsupported-playback__eyebrow">

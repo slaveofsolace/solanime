@@ -302,6 +302,13 @@ function WatchSession() {
           <UnsupportedPlayback
             providers={providers}
             selected={unsupported ? requestedProvider ?? candidate : undefined}
+            artworkUrl={
+              title.artwork?.backdrop?.url ??
+              title.backdropUrl ??
+              title.artwork?.poster?.url ??
+              title.imageUrl ??
+              title.posterUrl
+            }
           />
         )}
       </div>
