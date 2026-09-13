@@ -31,12 +31,23 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
     const copy = document.querySelector('.home-feature__copy')!.getBoundingClientRect();
     const poster = document.querySelector('.spotlight-art__poster > img')!.getBoundingClientRect();
     const rail = document.querySelector('.home-rail')!.getBoundingClientRect();
+    const railTrack = document.querySelector('.home-rail .rail-track')!.getBoundingClientRect();
+    const visibleRailCards = [...document.querySelectorAll('.home-rail .title-card')]
+      .map(element => element.getBoundingClientRect())
+      .filter(card => card.right > railTrack.left && card.left < railTrack.right).length;
+    const firstCard = document.querySelector('.home-rail .title-card')!.getBoundingClientRect();
+    const firstCardCopy = document.querySelector('.home-rail .title-card__copy')!.getBoundingClientRect();
     return {
       heroX: hero.x, heroWidth: hero.width, viewport: innerWidth,
       copyX: copy.x, copyY: copy.y, copyRight: copy.right,
       posterX: poster.x, posterBottom: poster.bottom, posterWidth: poster.width,
       fontSize: parseFloat(getComputedStyle(document.querySelector('#featured-title')!).fontSize),
       railY: rail.y,
+      visibleRailCards,
+      cardTop: firstCard.top,
+      cardBottom: firstCard.bottom,
+      cardCopyTop: firstCardCopy.top,
+      cardCopyBottom: firstCardCopy.bottom,
     };
   });
   expect(measurements.heroX).toBeCloseTo(0, 0);
@@ -49,11 +60,19 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
     // The first content row should read as part of the feature composition and
     // remain visible in the first viewport, rather than sitting below a tall
     // marketing-style hero.
-    expect(measurements.railY).toBeGreaterThan(670);
-    expect(measurements.railY).toBeLessThan(750);
+    expect(measurements.railY).toBeGreaterThan(550);
+    expect(measurements.railY).toBeLessThan(690);
+    expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(6);
+    const quickLook = page.locator('.home-rail .card-info').first();
+    await quickLook.focus();
+    await expect(quickLook).toHaveCSS('width', '92px');
+    expect(await quickLook.evaluate(element => getComputedStyle(element, '::after').content)).toBe('"Quick look"');
   } else {
     expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
+    expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(2);
   }
+  expect(measurements.cardCopyTop).toBeGreaterThanOrEqual(measurements.cardTop);
+  expect(measurements.cardCopyBottom).toBeLessThanOrEqual(measurements.cardBottom + .01);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('home-composition.png'), fullPage: true });
 });

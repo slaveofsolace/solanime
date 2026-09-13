@@ -207,23 +207,25 @@ export default function CataloguePage() {
       className={`catalogue-page${searchView ? ' catalogue-page--search' : ''}`}
       data-results-view={view}
     >
-      <header className="catalogue-heading">
-        <div className="catalogue-heading__copy">
-          <h1>{pageTitle}</h1>
-          <p className="catalogue-summary" aria-live="polite">
-            {loading
-              ? 'Loading titles…'
-              : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}${
-                  catalogue.pages > 1 ? ` · Page ${catalogue.page} of ${catalogue.pages}` : ''
-                }`}
-          </p>
-        </div>
-      </header>
+      <div className="catalogue-topline">
+        <header className="catalogue-heading">
+          <div className="catalogue-heading__copy">
+            <h1>{pageTitle}</h1>
+            <p className="catalogue-summary" aria-live="polite">
+              {loading
+                ? 'Loading titles…'
+                : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}${
+                    catalogue.pages > 1 ? ` · Page ${catalogue.page} of ${catalogue.pages}` : ''
+                  }`}
+            </p>
+          </div>
+        </header>
 
-      <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
-        <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
-        <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
-        <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
+        <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
+          <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
+          <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
+          <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
+        </div>
       </div>
 
       <form

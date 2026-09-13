@@ -15,7 +15,7 @@ function progress(entry: { position?: number; duration?: number }) {
 }
 
 function remaining(entry: { position?: number; duration?: number }) {
-  if (!Number.isFinite(entry.duration) || !Number.isFinite(entry.position) || !entry.duration || !entry.position) return 'Episode opened';
+  if (!Number.isFinite(entry.duration) || !Number.isFinite(entry.position) || !entry.duration || !entry.position) return null;
   const minutes = Math.max(1, Math.ceil((entry.duration - entry.position) / 60));
   return `${minutes} min left`;
 }
@@ -138,6 +138,7 @@ export default function HomePage() {
           <div className="continue-track">
             {continuing.slice(0, 8).map((entry) => {
               const percent = progress(entry);
+              const timeRemaining = remaining(entry);
               const knownTitle = latest.find(item => item.id === entry.titleId) ?? watchlist.items.find(item => item.id === entry.titleId);
               return (
                 <article className="continue-card" key={`${entry.episodeId}:${entry.language}`}>
@@ -172,7 +173,7 @@ export default function HomePage() {
                       >
                         <span style={{ width: `${percent}%` }} />
                       </span>}
-                      <small className="continue-remaining">{remaining(entry)}</small>
+                      {timeRemaining && <small className="continue-remaining">{timeRemaining}</small>}
                     </span>
                   </Link>
                   <button
