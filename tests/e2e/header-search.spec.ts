@@ -8,11 +8,11 @@ test('compact desktop search focuses, escapes, submits, and follows browser hist
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  const trigger = page.getByRole('button', { name: 'Search all anime', exact: true });
+  const trigger = page.getByRole('button', { name: 'Search all titles', exact: true });
   await expect(trigger).toBeVisible();
-  await expect(page.getByRole('searchbox', { name: 'Find anime', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('searchbox', { name: 'Find titles', exact: true })).toHaveCount(0);
   await trigger.click();
-  const input = page.getByRole('searchbox', { name: 'Find anime', exact: true });
+  const input = page.getByRole('searchbox', { name: 'Find titles', exact: true });
   await expect(input).toBeFocused();
   await input.fill('Paper');
   await input.press('Escape');
@@ -43,7 +43,7 @@ test('compact desktop search focuses, escapes, submits, and follows browser hist
 test('320px navigation retains a directly usable search entry without a hidden form taking space', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 760 });
   await page.goto('/');
-  await expect(page.getByRole('button', { name: 'Search all anime', exact: true })).toBeHidden();
+  await expect(page.getByRole('button', { name: 'Search all titles', exact: true })).toBeHidden();
   const entry = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Search', exact: true });
   await expect(entry).toBeVisible();
   await expect(entry.locator('.icon')).toBeVisible();
