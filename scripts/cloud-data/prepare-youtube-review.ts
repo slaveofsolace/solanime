@@ -79,6 +79,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
   const resources = validateResources(JSON.parse(readFileSync(resolve(options.resources), 'utf8')));
   if (resources.workerName === baseWorker.name) throw new Error('Review Worker must not reuse the existing API service name.');
   if (resources.pagesProject !== basePages.name) throw new Error('Review Pages project must match the reviewed project; isolation is provided by its non-production branch binding.');
+  if (typeof basePages.account_id !== 'string' || !/^[a-f0-9]{32}$/i.test(basePages.account_id)) throw new Error('Base Pages config must declare the reviewed Cloudflare account_id.');
   if (!object(baselinePlan.source) || baselinePlan.source.sha256 !== resources.expectedBaseline.sourceSha256 || !object(baselinePlan.baseline) || baselinePlan.baseline.counts == null || !object(baselinePlan.baseline.counts) || baselinePlan.baseline.counts.mappings !== resources.expectedBaseline.mappings) throw new Error('Review baseline does not match the explicitly approved source hash and mapping count.');
 
   const existingD1 = Array.isArray(baseWorker.d1_databases) ? baseWorker.d1_databases.filter(object) : [];

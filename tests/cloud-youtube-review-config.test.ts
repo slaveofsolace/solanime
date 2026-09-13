@@ -19,7 +19,7 @@ function fixture(storageMode: 'isolated' | 'shared-preview-read-only' = 'isolate
     { binding: 'RESEARCH', database_name: 'research-preview', database_id: previewIds[2] },
   ], ratelimits: [{ name: 'API_LIMITER', namespace_id: '1', simple: { limit: 180, period: 60 } }, { name: 'RESOLVE_LIMITER', namespace_id: '2', simple: { limit: 30, period: 60 } }], queues: { producers: [], consumers: [] }, triggers: { crons: ['* * * * *'] } });
   const baselinePlan = put(join(folder, 'preview-plan.json'), { kind: 'solanime-baseline-preview-plan', source: { sha256: baselineHash }, baseline: { counts: { mappings: 423_237 } }, preview: { config: baseWorker } });
-  const pagesConfig = put(join(folder, 'cloud', 'pages', 'wrangler.jsonc'), { name: 'solanime', pages_build_output_dir: '../../dist', env: { preview: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] }, production: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] } } });
+  const pagesConfig = put(join(folder, 'cloud', 'pages', 'wrangler.jsonc'), { name: 'solanime', account_id: 'dddddddddddddddddddddddddddddddd', pages_build_output_dir: '../../dist', env: { preview: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] }, production: { services: [{ binding: 'SOLANIME_API', service: 'solanime-api-preview', environment: 'production' }] } } });
   const base = { version: 1 as const, kind: 'solanime-youtube-review-resources' as const, workerName: 'solanime-api-youtube-review' as const, pagesProject: 'solanime', pagesBranch: 'youtube-official-review' as const, expectedBaseline: { sourceSha256: baselineHash, mappings: 423_237 }, rateLimits: { API_LIMITER: '2026091303', RESOLVE_LIMITER: '2026091304' } };
   const resources: YouTubeReviewResources = storageMode === 'isolated'
     ? { ...base, storageMode, d1: { CATALOGUE: { databaseName: 'solanime-catalogue-youtube-review', databaseId: ids[0] }, ACCOUNTS: { databaseName: 'solanime-accounts-youtube-review', databaseId: ids[1] }, RESEARCH: { databaseName: 'solanime-research-youtube-review', databaseId: ids[2] } } }
@@ -46,6 +46,7 @@ describe('official YouTube review configuration', () => {
     expect(worker).not.toHaveProperty('secrets'); expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
     expect(plan.worker.staticAssets).toMatchObject({ files: 0, freePlanFileLimit: 20_000, fileHeadroom: 20_000, perFileByteLimit: 25 * 1024 * 1024, paidPlanAssumed: false });
     const pages = JSON.parse(readFileSync(plan.pages.config, 'utf8'));
+    expect(pages.account_id).toBe('dddddddddddddddddddddddddddddddd');
     expect(pages.env.preview).toMatchObject({ vars: { SOLANIME_REVIEW_MODE: 'youtube-official' }, services: [{ binding: 'SOLANIME_API', service: 'solanime-api-youtube-review', environment: 'production' }] });
     expect(pages.env.production.services[0].service).toBe('solanime-api-preview');
     expect(pages.env.production.vars?.SOLANIME_REVIEW_MODE).toBeUndefined();
@@ -86,5 +87,13 @@ describe('official YouTube review configuration', () => {
     expect(() => prepareYouTubeReview({ baselinePlan: value.baselinePlan, resources: put(join(root, crypto.randomUUID(), 'stale.json'), stale), pagesConfig: value.pagesConfig, output: join(root, crypto.randomUUID(), 'out') })).toThrow('baseline');
     const repeated = { ...value.resources, d1: { CATALOGUE: { databaseName: 'should-not-be-here', databaseId: ids[0] } } };
     expect(() => prepareYouTubeReview({ baselinePlan: value.baselinePlan, resources: put(join(root, crypto.randomUUID(), 'repeated.json'), repeated), pagesConfig: value.pagesConfig, output: join(root, crypto.randomUUID(), 'out') })).toThrow('do not repeat');
+  });
+
+  it('rejects a base Pages config without an explicit reviewed account', () => {
+    const value = fixture();
+    const pages = JSON.parse(readFileSync(value.pagesConfig, 'utf8'));
+    delete pages.account_id;
+    writeFileSync(value.pagesConfig, JSON.stringify(pages));
+    expect(() => prepareYouTubeReview({ baselinePlan: value.baselinePlan, resources: value.resourcePath, pagesConfig: value.pagesConfig, output: join(root, crypto.randomUUID(), 'out') })).toThrow('account_id');
   });
 });
