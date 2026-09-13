@@ -1,11 +1,12 @@
 import type { ProviderChoice } from '../types';
 import Icon from './Icon';
 
-function providerState(provider: ProviderChoice) {
+function providerState(provider: ProviderChoice, rejectedMappingId?: string) {
   if (provider.status === 'blocked') return 'Blocked upstream';
   if (provider.status === 'unavailable') return 'Currently unavailable';
   if (provider.status === 'stale') return 'Needs re-verification';
-  if (provider.supported && provider.status === 'available') return 'Native response rejected';
+  if (provider.mappingId === rejectedMappingId) return 'Selected response rejected';
+  if (provider.supported && provider.status === 'available') return 'Native adapter available';
   if (provider.playbackType === 'external' || provider.playbackType === 'iframe') return 'Webpage-only source';
   return 'Observed, not natively playable';
 }
@@ -40,7 +41,7 @@ export default function UnsupportedPlayback({ providers, selected }: Unsupported
             {providers.map((provider) => (
               <li key={provider.mappingId}>
                 <strong>{provider.label}</strong>
-                <span>{providerState(provider)}</span>
+                <span>{providerState(provider, selectedWasRejected ? selected.mappingId : undefined)}</span>
               </li>
             ))}
           </ul>

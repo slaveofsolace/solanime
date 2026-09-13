@@ -49,7 +49,7 @@ describe('unsupported playback state', () => {
     render(<UnsupportedPlayback providers={[selected]} selected={selected} />);
 
     expect(screen.getByRole('heading', { name: 'This source cannot play safely' })).toBeTruthy();
-    expect(screen.getByText('Native response rejected')).toBeTruthy();
+    expect(screen.getByText('Selected response rejected')).toBeTruthy();
     expect(screen.getByText(/format or origin/i)).toBeTruthy();
   });
 
