@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import type { TitleSummary } from '../types';
 import { useAppState } from '../state';
@@ -12,6 +12,7 @@ import { markDialogTrigger } from './Dialog';
 export function SpotlightArtwork({ title, className = '' }: { title: TitleSummary; className?: string }) {
   const [bannerResult, setBannerResult] = useState<{ url: string; state: 'loaded' | 'failed' } | null>(null);
   const banner = title.backdropUrl || null;
+  const poster = title.posterUrl || title.imageUrl || null;
   const bannerState = !banner ? 'none' : bannerResult?.url === banner ? bannerResult.state : 'loading';
   const dimensions = title.artwork?.backdrop?.url === banner ? title.artwork.backdrop : undefined;
   return (
@@ -34,7 +35,11 @@ export function SpotlightArtwork({ title, className = '' }: { title: TitleSummar
           onError={() => setBannerResult({ url: banner, state: 'failed' })}
         />
       )}
-      <div className="spotlight-art__poster" hidden={bannerState === 'loaded'}>
+      <div
+        className="spotlight-art__poster"
+        hidden={bannerState === 'loaded'}
+        style={poster ? ({ '--spotlight-poster': `url(${JSON.stringify(poster)})` } as CSSProperties) : undefined}
+      >
         <CoverArt title={title} eager />
       </div>
     </div>

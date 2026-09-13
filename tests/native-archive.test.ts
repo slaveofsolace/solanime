@@ -45,6 +45,19 @@ describe('reviewed Internet Archive native adapter', () => {
       expect(await resolveInternetArchive(mapping, approved, undefined, transport([new Response(null, { status })]))).toMatchObject({ kind: 'unsupported', error: { code } });
     expect(await resolveInternetArchive(mapping, approved, undefined, transport([metadata(), new Response(null, { headers: { 'Content-Type': 'text/html' } })]))).toMatchObject({ error: { code: 'MEDIA_TYPE_CHANGED' } });
   });
+  it('reports a bounded upstream timeout separately from a generic provider outage', async () => {
+    const fetcher: typeof fetch = async () => {
+      throw new DOMException('The operation timed out.', 'TimeoutError');
+    };
+    expect(await resolveInternetArchive(mapping, approved, undefined, fetcher)).toMatchObject({
+      kind: 'unsupported',
+      error: {
+        code: 'UPSTREAM_TIMEOUT',
+        message: 'The archive did not respond before the playback-resolution timeout. Try again.',
+        retryable: true,
+      },
+    });
+  });
   it('bounds responses and propagates cancellation without returning a stale resolution', async () => {
     await expect(boundedPublicJson(new Response('{'.repeat(30), { headers: { 'Content-Type': 'application/json' } }), 20)).rejects.toThrow('UPSTREAM_RESPONSE_TOO_LARGE');
     const cancel = new AbortController();

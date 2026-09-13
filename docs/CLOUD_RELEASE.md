@@ -62,9 +62,11 @@ pnpm cloud:migrate:research
 
 Prepare the complete catalogue/research snapshot and pack its immutable assets
 using [the import guide](../scripts/cloud-data/README.md). Configure
-`assets.directory`, `IMPORT_MANIFEST_PATH` and `IMPORT_MANIFEST_SHA256` to that
-exact output. The default ignored directory is `build/cloud-import-assets`.
-Preserve all asset sets needed by unfinished jobs. Files are bounded under the
+`assets.directory` to the fully assembled ignored output and pin both the import
+and catalogue-baseline manifests. The current candidate uses
+`build/cloud-worker-assets`, containing the retained private import package and
+the complete immutable catalogue baseline. Preserve all asset sets needed by
+unfinished jobs. Files are bounded under the
 platform's per-asset limit; they never enter the Pages `dist` directory.
 
 Set the four secrets through private Wrangler secret input. Never paste their

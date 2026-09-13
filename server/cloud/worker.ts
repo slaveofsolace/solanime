@@ -3,6 +3,7 @@ import { timingSafeEqual } from 'node:crypto';
 import { AppError, asAppError } from '../errors.ts';
 import { createCloudAccounts } from './auth/index.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
+import { createPrivateBaselineReader } from './data/baseline.ts';
 import { createResearchRepository } from './data/research.ts';
 import { applyImportBatch, validateImportBatch } from './data/import.ts';
 import { getWriteBudget, QuotaExhaustedError, reserveWriteBudget } from './data/budget.ts';
@@ -51,6 +52,13 @@ async function admin(request: Request, env: CloudEnv) {
 }
 const budgetFor = (env: CloudEnv) => ({ dailyWrittenRows: number(env.SYNC_DAILY_WRITE_BUDGET, 75_000, 80_000), dailyQueueOperations: number(env.SYNC_DAILY_QUEUE_BUDGET, 2500, 8000) });
 const snapshotFor = (env: CloudEnv) => createSnapshotImportRepository(env.CATALOGUE, env.IMPORT_ASSETS, budgetFor(env));
+export function configuredBaseline(request: Request, env: CloudEnv) {
+  if (env.CATALOGUE_BASELINE_ENABLED !== 'true') return undefined;
+  return createPrivateBaselineReader(env.IMPORT_ASSETS, {
+    id: env.CATALOGUE_BASELINE_ID,
+    manifestSha256: env.CATALOGUE_BASELINE_MANIFEST_SHA256,
+  }, { signal: request.signal });
+}
 const sourceTaskTypes = ['catalogue_page', 'title_detail', 'sitemap_index', 'sitemap_page', 'sitemap_title', 'title_reconcile', 'episode_servers'];
 export function dispatchAllowance(usage: Awaited<ReturnType<typeof getWriteBudget>>, now = new Date()) {
   const minimumHeadroom = { writtenRows: 1500, queueOperations: 3 };
@@ -79,7 +87,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
     const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), { origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean), registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY, firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON } });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
-    const catalogue = createCatalogueRepository(env.CATALOGUE);
+    const catalogue = createCatalogueRepository(env.CATALOGUE, configuredBaseline(request, env));
     const research = createResearchRepository(env.RESEARCH);
     if (path.startsWith('/api/admin/') || path.startsWith('/api/exports/')) await admin(request, env);
     if (request.method === 'POST') sameOrigin(request, env);
@@ -231,6 +239,8 @@ export default {
     const cacheable = request.method === 'GET' && url.href.length <= 1500 && /^\/api\/(?:titles(?:\/[^/]+)?|meta\/filters|episodes\/\d+\/providers)$/.test(url.pathname);
     if (!cacheable) return handleCloudRequest(request, env);
     url.searchParams.set('__solanime_release', RELEASE);
+    if (env.CATALOGUE_BASELINE_ENABLED === 'true')
+      url.searchParams.set('__solanime_catalogue_baseline', `${env.CATALOGUE_BASELINE_ID}:${env.CATALOGUE_BASELINE_MANIFEST_SHA256}`);
     const key = new Request(url, { method: 'GET' });
     const edgeCache = (caches as CacheStorage & { default: Cache }).default;
     const hit = await edgeCache.match(key);

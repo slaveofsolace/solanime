@@ -1,70 +1,87 @@
-# Review release — 2026-09-13
+# Solanime cloud candidate — 2026-09-13
 
-Review: https://cloud-release.solanime.pages.dev
+Review origin: <https://cloud-release.solanime.pages.dev>
 
-Immutable frontend: https://6be5aea6.solanime.pages.dev
+The origin above still serves the superseded review until the current candidate is
+deployed and verified. This record describes the source and data package being
+prepared for that review deployment. It does not claim a canonical production
+promotion or complete commercial-provider playback.
 
-API Worker version: `6a917582-d63a-4518-92ce-a980aeea5ef5`, catalogue schema 12.
-This is an incomplete alpha, not a production promotion.
+## Catalogue and cloud package
 
-## Data and playback
-
-| Records | Local catalogue | Cloud review at verification |
+| Records | Verified local catalogue | Packaged cloud baseline |
 | --- | ---: | ---: |
 | Titles | 8,949 | 8,949 |
-| Episodes | 134,825 | 368 |
-| Language/version variants | 183,770 | 599 |
-| Provider mappings | 121,118 | 1,764 |
+| Episodes | 134,825 | 134,825 |
+| Language/version variants | 184,073 | 184,073 |
+| Provider mappings | 423,236 | 423,236 |
 
-The durable cloud snapshot is 341/28,364 batches. Dispatch pauses at the configured
-75,000 daily import-write allowance, preserving capacity for application traffic;
-73,951 writes were reserved at the last check. The next quota window is
-2026-09-14T00:00:00Z. The deployed scheduler retries the existing job; do not
-start a replacement snapshot or raise billing to accelerate it.
+The source is the completed schema-10 checkpoint at
+`catalogue-final-20260913T064052Z.sqlite`. Its SHA-256 and immutable baseline ID
+are `2ac4cd16f061cab1cb44cec53595f84661573b5b906b9a93be608ef9c5d2cc4e`.
+SQLite integrity and foreign-key checks pass. There are no duplicate natural
+keys or orphaned relationships. All 144,397 crawl tasks are complete; none are
+pending, running, retryable, or failed. Forty titles have an explicit verified
+empty-episode observation. A further 5,758 version rows have no provider mapping
+and remain accurately unavailable rather than being assigned a substitute.
 
-An additive artwork import contains 23 identity-reviewed matches, 18 banners and 22
-size-accepted posters. Exact title/episode identifiers corroborate new matches;
-unresolved matches are not guessed. This is partial enrichment, and reference-only
-artwork status does not assert redistribution clearance.
+The private Worker baseline contains 13,791 payload files and 636,631,933 payload
+bytes. Together with the retained private import package it stages 15,312 files,
+below the configured 20,000-file ceiling. Its manifest SHA-256 is
+`5bc07b44dd00a9b8fe7a358c184a4ccab7798087620facdb76ff8886c6e93a2d`.
+Worker-first routing and explicit `/__private-import/*` and
+`/__private-baseline/*` denials keep both packages unavailable as public assets.
+D1 remains authoritative for account data, research state, operator disables,
+refresh checkpoints, and fresher catalogue overlays.
 
-Only **The Dull Sword**, restored silent edition, is enabled natively through
-Internet Archive and Wikimedia Commons. Both were checked on the deployed review
-origin: media advanced, Archive seeking/pause worked, and Commons restored the
-saved position then advanced. No captions are supplied for that edition.
-These checks do not verify other episodes or legacy provider mappings.
+## Provider and playback truth
 
-Original webpage-only providers remain unsupported by the native player. Additional
-movie/TV catalogue integration still requires an authorized metadata source; Cinejoy's
-site credential is not reused. Its streaming-service filters are not playback servers.
-A further archival candidate, The Blossom Man, is held for an edition-specific
-reuse conflict rather than enabled solely from the original film's age.
+| Provider | Mappings | Native state |
+| --- | ---: | --- |
+| Vidstream-2 | 178,314 | Observable webpage/embed relationship retained; no verified supported native flow. |
+| HD-1 | 177,935 | Observable webpage/embed relationship retained; no verified supported native flow. |
+| HD-2 | 66,985 | Separate provider identity retained; no verified supported native flow. |
+| Internet Archive | 1 | Approved native MP4 adapter for the restored silent edition of *The Dull Sword*. |
+| Wikimedia Commons | 1 | Approved native WebM adapter for the same edition. |
+| Kiwi | 0 | Provider inventory only. |
+| VidPlay-1 | 0 | Provider inventory only. |
 
-## Interface and verification
+Earlier deployed review evidence established real media progression and
+Archive-to-Commons switching for the two approved mappings on one public-domain
+film. It does not verify the new deployment, the other 134,824 episodes, or any
+original commercial provider. The current candidate must repeat progression,
+seek, cleanup, switching, and restoration checks on its deployed origin before
+production promotion. A successful HTTP response, iframe load, or adapter result
+is not counted as playback.
 
-The reference-led layout uses a floating navigation dock, full-bleed artwork,
-consistent poster cards, verified-banner rows, compact episode navigation, and
-an adjacent desktop watch inventory. History supports search, continuation, removal,
-and pagination. Themes, saved accents, reduced motion, private notes and profiles
-remain available. Unknown playback positions are not represented as measured progress.
+## Interface
 
-- `pnpm check`: 537 tests across 50 files, typecheck and build passed.
-- Browser acceptance: 270 passed, 10 platform-specific skips across Chromium/WebKit
-  desktop and mobile. Deterministic media fixtures stay in tests.
-- FMHY inventory tests: 17 passed; curated evidence tests: 10 passed.
-- Deployed frontend: 47/47 served files matched the verified build.
+The candidate replaces the floating desktop dock and boxed catalogue composition
+with a conventional transparent-to-dark masthead, full-bleed artwork hero, dense
+16:9 rails, direct title/episode actions, compact mobile navigation, a flatter
+desktop episode inventory, and route-specific loading/error states. Home, Browse,
+TV Shows, Films, Dubbed, My List, title, watch, profiles, private notes, saved
+themes and reduced motion remain connected to application state.
 
-Remaining release gates: cloud dataset completion, broad supported provider coverage,
-non-anime catalogue integration, and user acceptance of the visual direction.
-No overall completion percentage or full-library playback claim is made.
+This is a reference-led independent implementation, not a pixel-identical Netflix
+copy. Its information hierarchy and density now follow the supplied Netflix and
+Cinejoy references, but source artwork is often poster-shaped or low resolution;
+the interface labels unavailable artwork instead of inventing replacements.
+Public episode comments are not claimed—episode notes are private to a profile.
 
-## Operation and rollback
+## Verification state
 
-Use the [setup commands](../README.md), [cloud runbook](CLOUD_RELEASE.md),
-[resumable import tooling](../scripts/cloud-data/README.md), and
-[native configuration guidance](NATIVE_PLAYBACK.md). The Git LFS catalogue is a
-separate data checkpoint; the source ZIP deliberately excludes database/private state.
+- `pnpm check`: typecheck, 599/599 tests across 58 files, and the production
+  build passed after the latest timeout-tolerance patch.
+- Browser matrix: 270 passed and 10 intentional platform-specific tests skipped
+  across desktop/mobile Chromium and WebKit in 4.5 minutes; zero failures.
+- FMHY inventory suites: 17/17 and 10/10 passed in the isolated Python environment.
+- Cloud baseline preparation, pin validation, collision checks, link rejection,
+  file limits, and Wrangler dry-run passed.
 
-For a frontend rollback, select a previously verified Pages review deployment in
-the existing project; do not promote it to production automatically. Worker rollback
-must preserve its D1 bindings, secrets, private snapshot assets and schema compatibility.
-Do not roll back catalogue data merely to revert CSS or frontend code.
+See the [cloud runbook](CLOUD_RELEASE.md), [release evidence](cloud-release-checklist.md),
+[data tooling](../scripts/cloud-data/README.md), and
+[native playback guidance](NATIVE_PLAYBACK.md). Production remains gated on a
+matching deployed frontend/API, full-baseline API checks, both approved native
+providers progressing in the in-site player, publication review, and visual
+acceptance.

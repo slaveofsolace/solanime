@@ -3,6 +3,7 @@ import type { BrowseParams } from '../../catalogue.ts';
 import type { StoredProviderMapping } from '../../providers/contract.ts';
 import { AppError } from '../../errors.ts';
 import { decorateCloudArtwork } from '../../artwork/catalogue.ts';
+import type { createPrivateBaselineReader } from './baseline.ts';
 
 type Row = Record<string, unknown>;
 export type CatalogueDatabase = Pick<D1Database, 'prepare' | 'batch'>;
@@ -13,8 +14,9 @@ const rows = async (db: CatalogueDatabase, sql: string, ...values: unknown[]) =>
   (await db.prepare(sql).bind(...values).all<Row>()).results;
 
 /** Request-scoped repository: no cross-request mutable cache or SQLite filesystem dependency. */
-export function createCatalogueRepository(db: CatalogueDatabase) {
+export function createCatalogueRepository(db: CatalogueDatabase, baseline?: ReturnType<typeof createPrivateBaselineReader>) {
   async function getFilters() {
+    if(baseline)return (await baseline.manifest()).facets;
     const result = await db.batch<Row>([
       db.prepare('SELECT g.slug AS value,g.name AS label,COUNT(*) AS count FROM genres g JOIN title_genres tg ON tg.genre_id=g.id GROUP BY g.id ORDER BY g.name'),
       db.prepare("SELECT LOWER(format) AS value,MIN(format) AS label,COUNT(*) AS count FROM titles WHERE format IS NOT NULL AND format<>'' GROUP BY format COLLATE NOCASE ORDER BY format COLLATE NOCASE"),
@@ -29,6 +31,21 @@ export function createCatalogueRepository(db: CatalogueDatabase) {
     if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100)
       throw new AppError(400, 'INVALID_QUERY', 'Choose a valid page and a page size between 1 and 100.');
     if (params.q && params.q.length > 200) throw new AppError(400, 'INVALID_QUERY', 'Search is limited to 200 characters.');
+    if (baseline) {
+      const page = await baseline.browseIds(params);
+      const stored = page.ids.length ? await rows(db, `SELECT CAST(t.id AS TEXT) AS id,t.source_id AS sourceId,t.slug,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
+      const byId = new Map(stored.map(row => [String(row.id),row]));
+      const items: Row[] = [];
+      for (const id of page.ids) {
+        const actual = byId.get(id);
+        if (actual) { items.push({...actual,episodeCount:Math.max(Number(actual.episodeCount),page.episodeCounts[id])}); continue; }
+        const fallback = await baseline.browseRow(id);
+        if (!fallback) throw new AppError(503,'UNAVAILABLE','A catalogue card is missing from its verified snapshot.');
+        const {card,aliases:_aliases,genres:_genres,languages:_languages,...summary} = fallback;
+        items.push({...summary,...card,imageUrl:card.artworkUrl,description:card.synopsis,format:card.type});
+      }
+      return {items:await decorateCloudArtwork(db,items),total:page.total,page:page.page,pageSize:page.pageSize,pages:page.pages,...(params.includeFacets !== false ? {facets:page.facets}:{})};
+    }
     const where = ['1=1'];
     const values: unknown[] = [];
     if (params.q) {
@@ -55,7 +72,7 @@ export function createCatalogueRepository(db: CatalogueDatabase) {
     return { items: await decorateCloudArtwork(db, result[1].results), total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), ...(params.includeFacets !== false ? { facets: await getFilters() } : {}) };
   }
 
-  async function getTitle(slug: string) {
+  async function getTitleD1(slug: string) {
     const title = await db.prepare('SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,slug,canonical_url AS canonicalUrl,name,description,description AS synopsis,format,format AS type,release_year AS releaseYear,status,artwork_url AS artworkUrl,artwork_url AS imageUrl,artwork_origin AS artworkOrigin,artwork_reuse_status AS artworkReuseStatus,availability_state AS availability,first_seen_at AS firstSeen,last_seen_at AS lastSeen,last_successful_import_at AS lastSuccessfulImport FROM titles WHERE slug=?').bind(slug).first<Row>();
     if (!title) throw new AppError(404, 'NOT_FOUND', 'Title was not found.');
     const id = Number(title.id);
@@ -81,7 +98,7 @@ export function createCatalogueRepository(db: CatalogueDatabase) {
     return { collectionState, title: { ...(await decorateCloudArtwork(db, [title]))[0], episodeCount: episodes.length, collectionState }, aliases: result[0].results, genres: result[1].results, related: await decorateCloudArtwork(db, result[2].results), episodes };
   }
 
-  async function getEpisodeProviders(episodeId: number, language?: string) {
+  async function getEpisodeProvidersD1(episodeId: number, language?: string) {
     const episode = await db.prepare('SELECT CAST(e.id AS TEXT) AS id,e.source_id AS sourceId,e.number_text AS number,e.label,e.slug,t.slug AS titleSlug,t.name AS titleName FROM episodes e JOIN titles t ON t.id=e.title_id WHERE e.id=?').bind(episodeId).first<Row>();
     if (!episode) throw new AppError(404, 'NOT_FOUND', 'Episode was not found.');
     const version = await db.prepare(`SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,language,version_label AS label,availability_state AS availability FROM episode_versions WHERE episode_id=? ${language ? 'AND language=?' : ''} ORDER BY CASE language WHEN 'sub' THEN 0 WHEN 'dub' THEN 1 ELSE 2 END,id LIMIT 1`).bind(episodeId, ...(language ? [language.toLowerCase()] : [])).first<Row>();
@@ -94,10 +111,83 @@ export function createCatalogueRepository(db: CatalogueDatabase) {
     return { episode: { ...episode, versions: [normalizedVersion] }, version: normalizedVersion, providers: result[0].results.map(row => ({ ...row, mappingId: String(row.mappingId), providerId: String(row.providerId), capabilities: json(row.capabilities), aliases: result[1].results.filter(alias => alias.providerId === row.providerId).map(alias => String(alias.alias)) })) };
   }
 
-  async function getMapping(mappingId: number): Promise<StoredProviderMapping> {
+  async function getMappingD1(mappingId: number): Promise<StoredProviderMapping> {
     const mapping = await db.prepare('SELECT m.id AS mappingId,m.provider_id AS providerId,p.label,v.language,m.provider_resource_id AS providerResourceId,m.canonical_embed_url AS canonicalEmbedUrl,m.availability_state AS availability,m.unavailable_reason AS unavailableReason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id JOIN episode_versions v ON v.id=m.version_id WHERE m.id=?').bind(mappingId).first<StoredProviderMapping>();
     if (!mapping) throw new AppError(404, 'NOT_FOUND', 'Provider mapping was not found.');
     return mapping;
+  }
+
+  function mergeFields(original: Row, overlay: Row): Row {
+    return {...original,...Object.fromEntries(Object.entries(overlay).filter(([,value])=>value !== null && value !== undefined && value !== ''))};
+  }
+  function mergeRows(original: Row[], overlay: Row[], key: (row: Row)=>string): Row[] {
+    const combined=new Map(original.map(row=>[key(row),row]));
+    for(const row of overlay) combined.set(key(row),mergeFields(combined.get(key(row)) ?? {},row));
+    return [...combined.values()];
+  }
+  function records(value: unknown): Row[] { return Array.isArray(value) ? value.filter((row):row is Row=>!!row && typeof row==='object' && !Array.isArray(row)) : []; }
+  async function absent<T>(operation:()=>Promise<T>):Promise<T|null> { try{return await operation();}catch(error){if(error instanceof AppError && error.status===404)return null;throw error;} }
+  async function getTitle(slug: string) {
+    if(!baseline)return getTitleD1(slug);
+    const frozen=await baseline.titleBySlug(slug);const actual=await absent(()=>getTitleD1(slug));
+    if(!frozen){if(actual)return actual;throw new AppError(404,'NOT_FOUND','Title was not found.');}
+    if(actual && (String((actual.title as Row).id)!==String(frozen.title.id) || String((actual.title as Row).sourceId)!==String(frozen.title.sourceId)))throw new AppError(409,'IMPORT_IDENTITY_CONFLICT','The title identity differs from its catalogue snapshot.');
+    const originalEpisodes:Row[]=[];
+    for(let index=0;index<frozen.episodePages.length;index++){
+      const page=await baseline.episodePage(String(frozen.title.id),index);
+      if(!page || page.total!==Number(frozen.title.episodeCount) || page.page!==index)throw new AppError(503,'UNAVAILABLE','The catalogue episode inventory failed snapshot verification.');
+      originalEpisodes.push(...page.episodes);
+    }
+    if(originalEpisodes.length!==Number(frozen.title.episodeCount) || new Set(originalEpisodes.map(row=>String(row.id))).size!==originalEpisodes.length)throw new AppError(503,'UNAVAILABLE','The catalogue episode inventory is incomplete.');
+    const episodeMap=new Map(originalEpisodes.map(row=>[String(row.id),row]));
+    for(const overlay of records(actual?.episodes)) {
+      const original=episodeMap.get(String(overlay.id)) ?? {};
+      const variants=mergeRows(records(original.versions),records(overlay.versions),row=>String(row.id)).map(version=>{
+        const prior=records(original.versions).find(row=>String(row.id)===String(version.id));
+        return {...version,providerCount:Math.max(Number(prior?.providerCount ?? 0),Number(version.providerCount ?? 0))};
+      });
+      episodeMap.set(String(overlay.id),{...mergeFields(original,overlay),versions:variants});
+    }
+    const episodes=[...episodeMap.values()].sort((a,b)=>{
+      const left=Number(a.number),right=Number(b.number);const aNumber=Number.isFinite(left),bNumber=Number.isFinite(right);
+      return aNumber && bNumber ? left-right || Number(a.id)-Number(b.id) : aNumber ? -1 : bNumber ? 1 : String(a.number).localeCompare(String(b.number)) || Number(a.id)-Number(b.id);
+    });
+    const collectionState=frozen.collectionState;
+    const title={...mergeFields(frozen.title,actual?.title ?? {}),episodeCount:episodes.length,collectionState};
+    const aliases=mergeRows(frozen.aliases,actual?.aliases ?? [],row=>JSON.stringify([row.name,row.language ?? null,row.type ?? null]));
+    const genres=mergeRows(frozen.genres,actual?.genres ?? [],row=>String(row.slug));
+    const related=mergeRows(frozen.related,actual?.related ?? [],row=>JSON.stringify([row.sourceId,row.relationshipType]));
+    return {collectionState,title:(await decorateCloudArtwork(db,[title]))[0],aliases,genres,related:await decorateCloudArtwork(db,related),episodes};
+  }
+  async function getEpisodeProviders(episodeId: number, language?: string) {
+    if(!baseline)return getEpisodeProvidersD1(episodeId,language);
+    if(!Number.isSafeInteger(episodeId) || episodeId<1)throw new AppError(400,'INVALID_QUERY','Invalid episode identifier.');
+    const frozen=await baseline.episode(episodeId);
+    if(!frozen)return getEpisodeProvidersD1(episodeId,language);
+    const actual=await absent(()=>getEpisodeProvidersD1(episodeId,language));
+    if(actual && String((actual.episode as Row).sourceId)!==String(frozen.episode.sourceId))throw new AppError(409,'IMPORT_IDENTITY_CONFLICT','The episode identity differs from its catalogue snapshot.');
+    const choices=frozen.versions.filter(item=>!language || item.version.language===language.toLowerCase()).sort((a,b)=>{
+      const rank=(value:unknown)=>value==='sub'?0:value==='dub'?1:2;
+      return rank(a.version.language)-rank(b.version.language) || Number(a.version.id)-Number(b.version.id);
+    });
+    let selected=choices[0];
+    const variantRank=(value:unknown)=>value==='sub'?0:value==='dub'?1:2;
+    if(actual && (!selected || variantRank(actual.version.language)<variantRank(selected.version.language) || (variantRank(actual.version.language)===variantRank(selected.version.language) && Number(actual.version.id)<Number(selected.version.id))))return actual;
+    if(!selected){if(actual)return actual;throw new AppError(404,'NOT_FOUND','Episode version was not found.');}
+    // A partial D1 version inventory must not make its DUB replace a known default SUB.
+    const candidate=actual && String(actual.version.id)===String(selected.version.id) ? actual : await absent(()=>getEpisodeProvidersD1(episodeId,String(selected.version.language)));
+    const overlay=candidate && String(candidate.version.id)===String(selected.version.id) ? candidate : null;
+    if(overlay && (String(overlay.version.language)!==String(selected.version.language) || String((overlay.version as Row).sourceId)!==String(selected.version.sourceId)))throw new AppError(409,'IMPORT_IDENTITY_CONFLICT','The episode version identity differs from its catalogue snapshot.');
+    const combined=new Map(selected.providers.map(row=>[String(row.mappingId),row]));
+    for(const row of overlay?.providers ?? [])combined.set(String(row.mappingId),{...combined.get(String(row.mappingId)),...row});
+    const providers=[...combined.values()].sort((a,b)=>String(a.label).localeCompare(String(b.label)) || Number(a.mappingId)-Number(b.mappingId));
+    const version={...mergeFields(selected.version,overlay?.version ?? {}),id:String(selected.version.id),language:String(selected.version.language),providerCount:providers.length};
+    return {episode:{...mergeFields(frozen.episode,overlay?.episode ?? {}),versions:[version]},version,providers};
+  }
+  async function getMapping(mappingId: number):Promise<StoredProviderMapping> {
+    const actual=await absent(()=>getMappingD1(mappingId));if(actual)return actual;
+    if(baseline){const frozen=await baseline.mapping(mappingId);if(frozen)return frozen.mapping;}
+    throw new AppError(404,'NOT_FOUND','Provider mapping was not found.');
   }
 
   async function adminStatus() {

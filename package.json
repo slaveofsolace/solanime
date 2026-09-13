@@ -43,6 +43,8 @@
     "cloud:deploy:preview": "node scripts/deploy-pages.mjs --branch=cloud-release",
     "cloud:import:prepare": "node --import tsx scripts/cloud-data/prepare.ts",
     "cloud:import:upload": "node --import tsx scripts/cloud-data/upload.ts",
+    "cloud:baseline:prepare": "node --import tsx scripts/cloud-data/prepare-baseline.ts",
+    "cloud:assets:stage": "node --import tsx scripts/cloud-data/stage-worker-assets.ts",
     "cloud:control": "node scripts/cloud-control.mjs",
     "fonts:sync": "node scripts/copy-manrope-fonts.mjs",
     "package:source": "node scripts/package-source.mjs"

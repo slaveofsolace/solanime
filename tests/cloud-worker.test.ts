@@ -84,6 +84,8 @@ beforeAll(async () => {
     FIREBASE_SERVICE_ACCOUNT_JSON: '', AUTH_CREDENTIAL_KEY: '', RELEASE_CHANNEL: 'test',
     SYNC_ENABLED: 'false', SYNC_DAILY_WRITE_BUDGET: '75000', SYNC_DAILY_QUEUE_BUDGET: '2500',
     SOURCE_REFRESH_ENABLED: 'false', IMPORT_MANIFEST_PATH: '/test-only-manifest.json', IMPORT_MANIFEST_SHA256: '0'.repeat(64),
+    CATALOGUE_BASELINE_ENABLED: 'false', CATALOGUE_BASELINE_ID: '0'.repeat(64),
+    CATALOGUE_BASELINE_MANIFEST_SHA256: '0'.repeat(64),
   };
   for (const [id, name] of [[1, 'Contract Alpha'], [2, 'Contract Beta']] as const) {
     await catalogue.prepare('INSERT INTO titles(id,source_id,slug,canonical_url,name,description,format,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)')
@@ -132,6 +134,21 @@ describe('Worker API against actual D1', () => {
     expect(await (await request('/api/titles?page=3&pageSize=1')).json()).toMatchObject({ total: 2, items: [] });
     expect(await (await request('/api/meta/filters')).json()).toMatchObject({ genres: [{ value: 'test-genre', count: 1 }], languages: [{ value: 'dub' }, { value: 'sub' }] });
     expect(await (await request('/api/titles?q=' + encodeURIComponent("' OR 1=1 --"))).json()).toMatchObject({ total: 0, items: [] });
+  });
+
+  it('uses only the configured private asset binding for an enabled catalogue baseline', async () => {
+    const fetch = vi.fn(async () => new Response(null, { status: 404 }));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const response = await request('/api/titles?facets=false', {}, {
+      IMPORT_ASSETS: { fetch, connect() { throw Error('No sockets in fixture.'); } },
+      CATALOGUE_BASELINE_ENABLED: 'true',
+      CATALOGUE_BASELINE_ID: 'a'.repeat(64),
+      CATALOGUE_BASELINE_MANIFEST_SHA256: 'b'.repeat(64),
+    });
+    expect(response.status).toBe(503);
+    expect(await response.json()).toMatchObject({ error: { code: 'UNAVAILABLE' } });
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledWith(`https://assets.local/__private-baseline/${'a'.repeat(64)}/manifest.json`, { redirect: 'manual' });
   });
 
   it.each(['/api/titles?page=0', '/api/titles?pageSize=101', '/api/titles?page=1.5', '/api/titles?q=%00', '/api/titles?q=' + 'x'.repeat(201), '/api/titles/%E0%A4%A', '/api/episodes/9007199254740992/providers'])('rejects malformed input: %s', async path => {

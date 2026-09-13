@@ -26,11 +26,12 @@ the original catalogue checkpoint are preserved.
 - Durable, checksummed catalogue/research import with D1 checkpoints, bounded
   Queues delivery, per-day free-plan budgets, and restart-safe progress.
 
-The local catalogue has **8,949 titles and 134,825 episodes**. It contains 183,769
-original versions and 121,116 original provider mappings, plus one explicitly
-reviewed restored-silent version and two independent mappings, Internet Archive
-and Wikimedia Commons. Source
-coverage and current cloud-import counts are separate; see the
+The completed local catalogue checkpoint has **8,949 titles, 134,825 episodes,
+184,073 language/version records, and 423,236 episode-provider mappings**. It
+also retains the explicitly reviewed restored-silent edition and its two native
+connections, Internet Archive and Wikimedia Commons. Imported provider mappings
+describe observed relationships; they do not imply native playback. Source
+coverage, native capability, and current cloud state are separate; see the
 [release record](docs/cloud-release-checklist.md).
 
 See the [dated review status](docs/RELEASE_STATUS.md) for current cloud counts,

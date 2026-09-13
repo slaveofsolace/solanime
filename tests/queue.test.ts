@@ -16,6 +16,22 @@ import {
 import { captureCoverage, runAnikotoWorker } from '../server/ingestion/anikoto.ts';
 
 describe('durable crawl queue', () => {
+  it('installs the pending-priority index idempotently without changing priority or future retries', () => {
+    const db = openDatabase(':memory:');
+    try {
+      migrate(db); migrate(db);
+      const runId = createRun(db, 'full');
+      enqueueTask(db, runId, 'server-first-id', 'episode_servers', {});
+      enqueueTask(db, runId, 'future-page', 'catalogue_page', {});
+      enqueueTask(db, runId, 'ready-title', 'title_detail', {});
+      db.prepare("UPDATE crawl_tasks SET status='retry',available_at='2099-01-01T00:00:00Z' WHERE task_key='future-page'").run();
+      expect(claimTask(db, runId)?.taskKey).toBe('ready-title');
+      expect(claimTask(db, runId)?.taskKey).toBe('server-first-id');
+      expect(claimTask(db, runId)).toBeNull();
+      expect(db.prepare("SELECT count(*) n FROM sqlite_master WHERE name='idx_tasks_pending_priority'").get()).toMatchObject({ n: 1 });
+      expect(db.prepare("SELECT count(*) n FROM crawl_tasks WHERE task_key='future-page' AND status='retry'").get()).toMatchObject({ n: 1 });
+    } finally { db.close(); }
+  });
   it('rejects a second live worker lease for the same crawl run', () => {
     const db = openDatabase(':memory:');
     try {

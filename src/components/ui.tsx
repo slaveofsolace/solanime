@@ -56,6 +56,7 @@ export function Layout({ children }: PropsWithChildren) {
     location.pathname.startsWith('/admin/');
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
+  const artworkHeader = home || location.pathname.startsWith('/title/');
   return (
     <div
       className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
@@ -65,7 +66,12 @@ export function Layout({ children }: PropsWithChildren) {
       </a>
       <header className="masthead">
         <Link className="wordmark" to="/" aria-label="Sol Anime home">
-          <SolanimeBrand variant="compact" motion="static" theme={theme} decorative />
+          <SolanimeBrand
+            variant="compact"
+            motion="static"
+            theme={artworkHeader ? 'dark' : theme}
+            decorative
+          />
         </Link>
         <div className="navigation-dock">
         <nav className="main-nav" aria-label="Primary navigation">
@@ -81,6 +87,15 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="search" />
             <span>Search</span>
           </NavLink>
+          <Link className="main-nav__category" to="/catalogue?type=tv">
+            TV Shows
+          </Link>
+          <Link className="main-nav__category" to="/catalogue?type=movie">
+            Films
+          </Link>
+          <Link className="main-nav__category" to="/catalogue?language=dub">
+            Dubbed
+          </Link>
           <NavLink
             to="/library"
             aria-label={`Library / My list, ${watchlist.ids.length} saved`}
@@ -245,13 +260,7 @@ export function CoverArt({
         className="cover-fallback"
         aria-label={`No artwork available for ${title.name ?? title.title}`}
       >
-        <span aria-hidden="true">
-          {title.name
-            ?.split(/\s+/)
-            .slice(0, 2)
-            .map((word) => word[0])
-            .join('') || 'SA'}
-        </span>
+        <SolanimeBrand variant="emblem" motion="static" theme="dark" decorative />
         <small>Artwork unavailable</small>
       </div>
     );

@@ -1,8 +1,8 @@
 import { AppError } from '../../errors.ts';
 import type { CatalogueDatabase } from './catalogue.ts';
-import { DEFAULT_SYNC_BUDGET, reserveWriteBudget, type SyncBudget } from './budget.ts';
-import { applyImportBatch, validateImportBatch } from './import.ts';
-import { groupImportRows } from './import-schema.ts';
+import { DEFAULT_SYNC_BUDGET, getWriteBudget, QuotaExhaustedError, reserveWriteBudget, type SyncBudget } from './budget.ts';
+import { applyImportBatch, applyImportBatchGroup, MAX_IMPORT_GROUP_BATCHES, validateImportBatch } from './import.ts';
+import { estimateImportWrites, groupImportRows, IMPORT_TABLES, type ImportBatch } from './import-schema.ts';
 import { withQueryBudget } from './query-budget.ts';
 import { SyncSourceError, type SyncHandlers, type SyncTask } from './sync.ts';
 import { MAX_SNAPSHOT_BUNDLE_BYTES, MAX_SNAPSHOT_MANIFEST_BYTES, validateSnapshotManifest, validateSnapshotPin, type SnapshotAssetBundle, type SnapshotAssetManifest, type SnapshotPin } from './snapshot-schema.ts';
@@ -67,8 +67,8 @@ export function createSnapshotImportRepository(db: CatalogueDatabase, assets: Im
 
 /** Import receipts are authoritative across the two D1 databases; cursor replay is always idempotent. */
 export function createSnapshotImportHandlers(catalogue: CatalogueDatabase, research: CatalogueDatabase, assets: ImportAssets, budget: SyncBudget = DEFAULT_SYNC_BUDGET, options: { maxBatchesPerDelivery?: number } = {}): SyncHandlers {
-  const maximumBatches = options.maxBatchesPerDelivery ?? 4;
-  if (!Number.isSafeInteger(maximumBatches) || maximumBatches < 1 || maximumBatches > 4) throw new AppError(400, 'BAD_REQUEST', 'Choose between one and four snapshot batches per leased delivery.');
+  const maximumBatches = options.maxBatchesPerDelivery ?? MAX_IMPORT_GROUP_BATCHES;
+  if (!Number.isSafeInteger(maximumBatches) || maximumBatches < 1 || maximumBatches > MAX_IMPORT_GROUP_BATCHES) throw new AppError(400, 'BAD_REQUEST', 'Choose between one and ten snapshot batches per leased delivery.');
   return { snapshot_import: async (task: SyncTask) => {
     // Reserve 14 SQL statements for the consumer's lease/finalization plus two asset reads.
     // At most 27 handler statements + those 16 operations fit the <=45 safety envelope.
@@ -84,29 +84,45 @@ export function createSnapshotImportHandlers(catalogue: CatalogueDatabase, resea
     if (!entry) throw new AppError(422, 'UPSTREAM_CHANGED', 'The snapshot cursor is not covered by a checked bundle.');
     const bundle = await readPrivateAsset(assets, entry.path, entry.sha256, MAX_SNAPSHOT_BUNDLE_BYTES) as SnapshotAssetBundle;
     if (!bundle || bundle.version !== 1 || bundle.snapshot !== manifest.id || bundle.startBatch !== entry.startBatch || !Array.isArray(bundle.batches) || bundle.batches.length !== entry.batches) throw new AppError(422, 'UPSTREAM_CHANGED', 'The private bundle shape differs from its manifest.');
-    let processed = 0; let checkpoint = task.checkpoint;
-    while (processed < maximumBatches && Number(cursor) < entry.startBatch + entry.batches) {
-      const selected = bundle.batches[Number(cursor) - entry.startBatch];
+    const allowance = await getWriteBudget(catalogueDb, budget);
+    const selectedBatches: ImportBatch[] = []; let rowCount = 0; let columns = '';
+    while (selectedBatches.length < maximumBatches && Number(cursor) + selectedBatches.length < entry.startBatch + entry.batches) {
+      const selected = bundle.batches[Number(cursor) + selectedBatches.length - entry.startBatch];
       if (!selected || typeof selected.sha256 !== 'string' || await sha256(JSON.stringify(selected.data)) !== selected.sha256) throw new AppError(422, 'UPSTREAM_CHANGED', 'The private batch checksum failed.');
       const batch = validateImportBatch(selected.data);
-      // Receipt lookup + reservation + normalized data/receipt + settlement + lease/cursor.
-      // Homogeneous generated batches cost at most 12 SQL statements; receipt replay costs fewer.
-      const worstQueries = groupImportRows(batch.rows).length + 11;
-      if (queries.used + worstQueries > queries.maximum) {
-        if (!processed) throw new AppError(422, 'UPSTREAM_CHANGED', 'This heterogeneous snapshot batch must be split to respect the free-tier query limit.');
+      const groups = groupImportRows(batch.rows); const shape = groups.length === 1 ? groups[0].columns.join(',') : '';
+      if (selectedBatches.length && (!shape || shape !== columns || batch.target !== selectedBatches[0].target || batch.table !== selectedBatches[0].table || batch.snapshotId !== selectedBatches[0].snapshotId)) break;
+      const estimate = estimateImportWrites(IMPORT_TABLES[batch.table], rowCount + batch.rows.length) + 2 * selectedBatches.length;
+      // Leave finalization capacity. A group is shortened near the daily boundary,
+      // never allowed to consume the application's reserved quota.
+      if (allowance.writtenRowsReserved + estimate + 32 > budget.dailyWrittenRows) {
+        if (!selectedBatches.length) throw new QuotaExhaustedError(new Date());
         break;
       }
-      const lease = await catalogueDb.prepare("SELECT t.id FROM crawl_tasks t JOIN crawl_runs r ON r.id=t.run_id WHERE t.id=? AND t.claimed_by=? AND t.lease_expires_at>? AND t.status='running' AND r.status IN ('queued','running')").bind(task.id, task.lease, new Date().toISOString()).first();
-      if (!lease) throw new SyncSourceError('The snapshot lease changed before import; its cursor was not advanced.', 'UNAVAILABLE', true, 300);
-      // If the Worker stops after this commit, a later delivery repeats the receipt before advancing.
-      const result = await applyImportBatch(catalogueDb, batch.target === 'catalogue' ? catalogueDb : researchDb, batch, budget);
-      cursor = Number(cursor) + 1;
-      checkpoint = { nextBatch: cursor, totalBatches: manifest.totalBatches, lastBatchId: batch.id, lastTarget: batch.target, lastTable: batch.table, lastResult: result.status };
-      // This write is covered by the snapshot consumer's 80-write control reservation.
-      const saved = await catalogueDb.prepare("UPDATE crawl_tasks SET checkpoint_json=?,updated_at=? WHERE id=? AND claimed_by=? AND status='running' AND lease_expires_at>? AND EXISTS(SELECT 1 FROM crawl_runs r WHERE r.id=crawl_tasks.run_id AND r.status IN ('queued','running'))").bind(JSON.stringify(checkpoint), new Date().toISOString(), task.id, task.lease, new Date().toISOString()).run();
-      if (!saved.meta.changes) throw new SyncSourceError('The snapshot lease changed after its data receipt; replay will recover the cursor.', 'UNAVAILABLE', true, 300);
-      task.checkpoint = checkpoint; processed++;
+      selectedBatches.push(batch); rowCount += batch.rows.length; columns = shape;
+      if (!shape) break;
     }
+    const first = selectedBatches[0];
+    // Grouped import: N receipt inserts + one normalized data insert, one shared
+    // reservation/settlement, and lease/cursor checks. Error diagnosis also fits.
+    const worstQueries = selectedBatches.length > 1 ? selectedBatches.length + 13 : groupImportRows(first.rows).length + 12;
+    if (queries.used + worstQueries > queries.maximum) throw new AppError(422, 'UPSTREAM_CHANGED', 'This snapshot group must be split to respect the free-tier query limit.');
+    const lease = await catalogueDb.prepare("SELECT t.id FROM crawl_tasks t JOIN crawl_runs r ON r.id=t.run_id WHERE t.id=? AND t.claimed_by=? AND t.lease_expires_at>? AND t.status='running' AND r.status IN ('queued','running')").bind(task.id, task.lease, new Date().toISOString()).first();
+    if (!lease) throw new SyncSourceError('The snapshot lease changed before import; its cursor was not advanced.', 'UNAVAILABLE', true, 300);
+    const targetDb = first.target === 'catalogue' ? catalogueDb : researchDb;
+    // Keep heterogeneous historical batches compatible. Normal generated batches
+    // use the grouped transaction, including single-batch catalogue lease guards.
+    const results = columns
+      ? (await applyImportBatchGroup(catalogueDb, targetDb, selectedBatches, budget, { taskId: task.id, runId: task.runId, lease: task.lease })).results
+      : [await applyImportBatch(catalogueDb, targetDb, first, budget)];
+    cursor = Number(cursor) + selectedBatches.length;
+    const last = selectedBatches.at(-1)!;
+    const checkpoint = { nextBatch: cursor, totalBatches: manifest.totalBatches, lastBatchId: last.id, lastTarget: last.target, lastTable: last.table, lastResult: results.at(-1)!.status };
+    // Receipt and rows commit atomically; a lost cursor write replays those exact
+    // receipts without rewriting data, even after this group size changes.
+    const saved = await catalogueDb.prepare("UPDATE crawl_tasks SET checkpoint_json=?,updated_at=? WHERE id=? AND claimed_by=? AND status='running' AND lease_expires_at>? AND EXISTS(SELECT 1 FROM crawl_runs r WHERE r.id=crawl_tasks.run_id AND r.status IN ('queued','running'))").bind(JSON.stringify(checkpoint), new Date().toISOString(), task.id, task.lease, new Date().toISOString()).run();
+    if (!saved.meta.changes) throw new SyncSourceError('The snapshot lease changed after its data receipt; replay will recover the cursor.', 'UNAVAILABLE', true, 300);
+    task.checkpoint = checkpoint;
     return { statements: [], estimatedWrittenRows: 0, checkpoint, complete: cursor === manifest.totalBatches, retryAfterSeconds: 1 };
   } };
 }

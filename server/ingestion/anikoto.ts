@@ -43,6 +43,9 @@ export interface ImportOptions {
   taskBudget?: number;
   maxTasksThisProcess?: number;
   includeProviders?: boolean;
+  /** One database owner; only independent episode-server tasks may overlap. */
+  concurrency?: number;
+  exitWhenPaused?: boolean;
 }
 
 interface EpisodeWork {
@@ -936,6 +939,14 @@ export async function runAnikotoWorker(
     }
     const recovered = recoverInterruptedTasks(db, runId, workerId);
     const client = new AnikotoSourceClient();
+    try {
+      const savedDelay = JSON.parse(existingRun?.checkpoint || '{}').sourceBackoffDelayMs;
+      if (Number.isInteger(savedDelay) && savedDelay >= 50 && savedDelay <= 60_000)
+        client.delayMs = Math.max(client.delayMs, savedDelay);
+    } catch { /* Legacy checkpoints have no saved host backoff. */ }
+    const concurrency = options.concurrency ?? 1;
+    if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 10)
+      throw new AppError(422, 'BAD_REQUEST', 'Source concurrency must be between 1 and 10.');
     let processed = 0;
     const maxTasks =
       options.maxTasksThisProcess && options.maxTasksThisProcess > 0
@@ -946,11 +957,12 @@ export async function runAnikotoWorker(
         throw new AppError(409, 'UNAVAILABLE', 'The importer lost its database worker lease.');
       const task = claimTask(db, runId, workerId);
       if (!task) {
-        const run = db.prepare('SELECT status FROM crawl_runs WHERE id=?').get(runId) as
-          | { status: string }
+        const run = db.prepare('SELECT status,checkpoint_json FROM crawl_runs WHERE id=?').get(runId) as
+          | { status: string; checkpoint_json: string }
           | undefined;
         if (!run || ['completed', 'failed', 'cancelled'].includes(run.status)) break;
         if (run.status === 'paused') {
+          if (options.exitWhenPaused) break;
           await new Promise((resolve) => setTimeout(resolve, 1_000));
           continue;
         }
@@ -960,41 +972,69 @@ export async function runAnikotoWorker(
           )
           .get(runId) as { availableAt: string | null; count: number };
         if (!pending.count) break;
+        let hostDeadline = 0;
+        try { hostDeadline = Date.parse(JSON.parse(run.checkpoint_json || '{}').sourceRetryAfterAt ?? '') || 0; }
+        catch { /* Legacy malformed checkpoints do not invent a source cooldown. */ }
         const nextDelay = pending.availableAt
-          ? new Date(pending.availableAt).getTime() - Date.now()
+          ? Math.max(new Date(pending.availableAt).getTime(), hostDeadline) - Date.now()
           : 1_000;
         await new Promise((resolve) =>
           setTimeout(resolve, Math.max(250, Math.min(30_000, nextDelay))),
         );
         continue;
       }
-      try {
-        await processTask(db, client, task);
-        completeTask(db, task);
-      } catch (error) {
-        if (error instanceof SourceRequestError && error.code === 'BLOCKED') {
-          blockTask(db, task, error.code, error.message, error.httpStatus);
-          setRunPaused(db, task.runId, true);
-        } else if (error instanceof SourceRequestError && !error.retryable)
-          terminalFailTask(db, task, error.code, error.message, error.httpStatus);
-        else if (error instanceof SourceRequestError)
-          failTask(db, task, error.code, error.message, error.httpStatus, error.retryAfterMs);
-        else {
-          const appError =
-            error instanceof AppError
-              ? error
-              : new AppError(
-                  500,
-                  'INTERNAL_ERROR',
-                  error instanceof Error ? error.message : 'Unknown ingestion error.',
-                );
-          failTask(db, task, appError.code, appError.message);
+      const batch = [task];
+      // Discovery mutates episode inventories: keep it serialized. Parallelism is
+      // enabled only after all discovery/reconciliation prerequisites have settled.
+      const discoveryPending =
+        concurrency > 1 && task.taskType === 'episode_servers'
+          ? db.prepare("SELECT 1 FROM crawl_tasks WHERE run_id=? AND task_type<>'episode_servers' AND status IN ('pending','retry','running') LIMIT 1").get(runId)
+          : true;
+      if (!discoveryPending) {
+        while (batch.length < concurrency && processed + batch.length < maxTasks) {
+          const next = claimTask(db, runId, workerId);
+          if (!next) break;
+          batch.push(next);
         }
       }
-      processed++;
-      if (processed % 25 === 0) {
+      const outcomes = await Promise.allSettled(batch.map(async task => {
+        try {
+          await processTask(db, client, task);
+          completeTask(db, task);
+        } catch (error) {
+          if (error instanceof SourceRequestError && error.code === 'BLOCKED') {
+            blockTask(db, task, error.code, error.message, error.httpStatus);
+            setRunPaused(db, task.runId, true);
+          } else if (error instanceof SourceRequestError && !error.retryable) {
+            terminalFailTask(db, task, error.code, error.message, error.httpStatus);
+          } else if (error instanceof SourceRequestError) {
+            if (error.retryAfterMs) {
+              const checkpoint = db.prepare('SELECT checkpoint_json FROM crawl_runs WHERE id=?').get(runId) as { checkpoint_json: string };
+              let previous = 0;
+              try { previous = Date.parse(JSON.parse(checkpoint.checkpoint_json || '{}').sourceRetryAfterAt ?? '') || 0; } catch { /* Keep other checkpoint fields through updateCheckpoint. */ }
+              updateCheckpoint(db, runId, {
+                sourceRetryAfterAt: new Date(Math.max(previous, Date.now() + error.retryAfterMs)).toISOString(),
+                sourceBackoffDelayMs: client.delayMs,
+              });
+            }
+            failTask(db, task, error.code, error.message, error.httpStatus, error.retryAfterMs);
+          } else {
+            const appError = error instanceof AppError ? error : new AppError(
+              500, 'INTERNAL_ERROR', error instanceof Error ? error.message : 'Unknown ingestion error.',
+            );
+            failTask(db, task, appError.code, appError.message);
+            if (appError.code === 'UPSTREAM_CHANGED') setRunPaused(db, task.runId, true);
+          }
+        }
+      }));
+      // Drain every in-flight task before releasing the lease/closing SQLite.
+      const unexpected = outcomes.find(outcome => outcome.status === 'rejected');
+      if (unexpected?.status === 'rejected') throw unexpected.reason;
+      const beforeProcessed = processed;
+      processed += batch.length;
+      if (Math.floor(beforeProcessed / 25) !== Math.floor(processed / 25)) {
         captureCoverage(db, runId);
-        console.log(JSON.stringify({ runId, processed, delayMs: client.delayMs }));
+        console.log(JSON.stringify({ runId, processed, delayMs: client.delayMs, concurrency }));
       }
     }
     return { runId, processed, recovered };

@@ -79,7 +79,6 @@ export default function HomePage() {
   );
   const featured =
     spotlightItems.find((item) => item.synopsis && (item.imageUrl || item.posterUrl)) ?? spotlightItems[0];
-  const wideTitles = latest.filter(item => item.backdropUrl && item.artwork?.backdrop);
   const continuing = history.entries.filter(
     (entry) => !entry.duration || !entry.position || entry.position / entry.duration < 0.95,
   );
@@ -183,16 +182,16 @@ export default function HomePage() {
           </div>
         </section>
       )}
-      {wideTitles.length >= 4 && <Rail title="In focus" to="/catalogue?sort=updated" items={wideTitles} format="landscape" />}
       <Rail
         title="Recent updates"
         to="/catalogue?sort=updated"
         items={latest.filter((item) => item.id !== featured?.id)}
+        format="landscape"
       />
-      <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} />
-      <Rail title="Films" to="/catalogue?type=movie&sort=year_desc" items={movies} />
+      <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} format="landscape" />
+      <Rail title="Films" to="/catalogue?type=movie&sort=year_desc" items={movies} format="landscape" />
       {collections.map(row => <Rail key={row.genre} title={row.label}
-        to={`/catalogue?genre=${encodeURIComponent(row.genre)}`} items={row.items} />)}
+        to={`/catalogue?genre=${encodeURIComponent(row.genre)}`} items={row.items} format="landscape" />)}
       {(facets.genres?.length ?? 0) > 0 && (
         <section className="genre-section" aria-labelledby="genres-title">
           <header className="rail-heading">

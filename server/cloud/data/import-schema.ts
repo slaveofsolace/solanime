@@ -71,12 +71,18 @@ export function upsertSql(tableName: string, columns: string[], values: string):
   const update = columns.filter(column => !spec.primaryKey.includes(column) && !spec.preserve?.includes(column) && !spec.identity?.includes(column));
   // An interrupted/older snapshot cannot blank good fields or downgrade newer title metadata.
   const descriptive = ['name', 'description', 'format', 'status', 'artwork_url', 'label', 'canonical_url', 'record_json', 'record_hash'];
-  const assignments = update.map(column => tableName === 'title_artwork' && column === 'last_error_code' ? `"${column}"=excluded."${column}"` : `"${column}"=COALESCE(${descriptive.includes(column) ? `NULLIF(excluded."${column}",'')` : `excluded."${column}"`},"${tableName}"."${column}")`);
+  const effectiveValues = update.map(column => ({ column, value: tableName === 'title_artwork' && column === 'last_error_code' ? `excluded."${column}"` : `COALESCE(${descriptive.includes(column) ? `NULLIF(excluded."${column}",'')` : `excluded."${column}"`},"${tableName}"."${column}")` }));
+  const assignments = effectiveValues.map(({ column, value }) => `"${column}"=${value}`);
   const freshnessColumn = columns.includes('updated_at') ? 'updated_at' : columns.includes('last_successful_verification_at') ? 'last_successful_verification_at' : columns.includes('last_successful_import_at') ? 'last_successful_import_at' : columns.includes('approved_at') ? 'approved_at' : null;
   const conditions = (spec.identity ?? []).filter(column => columns.includes(column)).map(column => `"${tableName}"."${column}" IS excluded."${column}"`);
   if (freshnessColumn) conditions.push(`("${tableName}"."${freshnessColumn}" IS NULL OR (excluded."${freshnessColumn}" IS NOT NULL AND julianday(excluded."${freshnessColumn}")>=julianday("${tableName}"."${freshnessColumn}")))`);
   // A replay of the same successful image cannot erase a later failed observation.
   if (tableName === 'title_artwork' && columns.includes('last_checked_at')) conditions.push(`julianday(excluded."last_checked_at")>=julianday("${tableName}"."last_checked_at")`);
+  // A new snapshot may contain a previously imported row under a new receipt.
+  // Compare the effective assignment (including null/empty preservation), not raw
+  // input, so identical metadata does not spend another row/index write. IS NOT
+  // remains null-safe; changed freshness and an intentionally cleared error count.
+  if (effectiveValues.length) conditions.push(`(${effectiveValues.map(({ column, value }) => `"${tableName}"."${column}" IS NOT ${value}`).join(' OR ')})`);
   return `INSERT INTO "${tableName}"(${columns.map(column => `"${column}"`).join(',')}) VALUES(${values}) ON CONFLICT(${spec.primaryKey.map(column => `"${column}"`).join(',')}) ${assignments.length ? `DO UPDATE SET ${assignments.join(',')}${conditions.length ? ` WHERE ${conditions.join(' AND ')}` : ''}` : 'DO NOTHING'}`;
 }
 

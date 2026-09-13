@@ -65,7 +65,7 @@ function archiveUrl(value: string): URL {
 export async function resolveInternetArchive(mapping: StoredProviderMapping, resource: ApprovedNativeResource, signal?: AbortSignal, fetcher: typeof fetch = fetch): Promise<PlaybackResult> {
   const invalid = approvalError(mapping, resource);
   if (invalid) return unsupportedNative(mapping, invalid, invalid === 'RESOURCE_IDENTITY_MISMATCH' ? 'The approved resource does not match this episode version.' : invalid === 'INVALID_RESOURCE_ID' ? 'The stored archive identifier is invalid.' : 'This resource has not been approved for native playback.');
-  const abort = signal ? AbortSignal.any([signal, AbortSignal.timeout(12_000)]) : AbortSignal.timeout(12_000);
+  const abort = signal ? AbortSignal.any([signal, AbortSignal.timeout(20_000)]) : AbortSignal.timeout(20_000);
   try {
     const metadata = await boundedPublicJson(await fetcher(`https://archive.org/metadata/${encodeURIComponent(resource.resource_id)}`, { signal: abort, redirect: 'manual', headers: { Accept: 'application/json' } }));
     if (!object(metadata) || !object(metadata.metadata) || metadata.metadata.identifier !== resource.resource_id || !Array.isArray(metadata.files)) throw new Error('UPSTREAM_SCHEMA_CHANGED');
@@ -92,9 +92,10 @@ export async function resolveInternetArchive(mapping: StoredProviderMapping, res
     return { kind: 'native', mappingId: String(mapping.mappingId), providerId: mapping.providerId, language: mapping.language, format: 'direct', url: url.href, allowedMediaHosts: [...allowedHosts], mediaCrossOrigin: 'none', capabilities: nativeCapabilities, captions: [], expiresAt: new Date(Date.now() + 15 * 60_000).toISOString(), attribution: { label: `Internet Archive · ${resource.edition}`, url: `https://archive.org/details/${resource.resource_id}`, license: resource.license } };
   } catch (error) {
     if (signal?.aborted) throw signal.reason ?? new DOMException('Cancelled', 'AbortError');
-    const code = error instanceof Error ? error.message : 'UPSTREAM_UNAVAILABLE';
+    const timeout = abort.aborted || (error instanceof DOMException && (error.name === 'TimeoutError' || error.name === 'AbortError'));
+    const code = timeout ? 'UPSTREAM_TIMEOUT' : error instanceof Error ? error.message : 'UPSTREAM_UNAVAILABLE';
     const known = /^[A-Z_]+$/.test(code) ? code : 'UPSTREAM_UNAVAILABLE';
-    return unsupportedNative(mapping, known, known === 'UPSTREAM_BLOCKED' || known === 'RESOURCE_RESTRICTED' || known === 'MEDIA_RESTRICTED' ? 'The archive restricts this resource. Solanime does not bypass that restriction.' : 'The archive could not supply a supported media resource. Try again later.', !['RESOURCE_RESTRICTED', 'MEDIA_RESTRICTED', 'UPSTREAM_BLOCKED', 'UNSAFE_MEDIA_DESTINATION', 'UPSTREAM_SCHEMA_CHANGED', 'NATIVE_FORMAT_UNAVAILABLE'].includes(known));
+    return unsupportedNative(mapping, known, known === 'UPSTREAM_BLOCKED' || known === 'RESOURCE_RESTRICTED' || known === 'MEDIA_RESTRICTED' ? 'The archive restricts this resource. Solanime does not bypass that restriction.' : known === 'UPSTREAM_TIMEOUT' ? 'The archive did not respond before the playback-resolution timeout. Try again.' : 'The archive could not supply a supported media resource. Try again later.', !['RESOURCE_RESTRICTED', 'MEDIA_RESTRICTED', 'UPSTREAM_BLOCKED', 'UNSAFE_MEDIA_DESTINATION', 'UPSTREAM_SCHEMA_CHANGED', 'NATIVE_FORMAT_UNAVAILABLE'].includes(known));
   }
 }
 

@@ -75,6 +75,8 @@ function apiEnvironment(overrides: Partial<CloudEnv> = {}): CloudEnv {
     SOLANIME_ADMIN_TOKEN: operatorToken, FIREBASE_PROJECT_ID: '', FIREBASE_API_KEY: '', FIREBASE_SERVICE_ACCOUNT_JSON: '', AUTH_CREDENTIAL_KEY: '', RELEASE_CHANNEL: 'test',
     SYNC_ENABLED: 'true', SOURCE_REFRESH_ENABLED: 'false', SYNC_DAILY_WRITE_BUDGET: '75000', SYNC_DAILY_QUEUE_BUDGET: '2500',
     IMPORT_MANIFEST_PATH: '/fixture-only-manifest.json', IMPORT_MANIFEST_SHA256: '0'.repeat(64),
+    CATALOGUE_BASELINE_ENABLED: 'false', CATALOGUE_BASELINE_ID: '0'.repeat(64),
+    CATALOGUE_BASELINE_MANIFEST_SHA256: '0'.repeat(64),
     ...overrides,
   };
 }

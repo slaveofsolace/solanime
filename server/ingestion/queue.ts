@@ -127,7 +127,17 @@ export function claimTask(db: SqliteDatabase, runId: number, workerId?: string):
       db.exec('COMMIT');
       throw new Error('The crawl run worker lease is not owned by this process.');
     }
-    if (run.budget != null && run.tasks_completed + run.tasks_failed >= run.budget) {
+    let sourceRetryAfterAt = 0;
+    try { sourceRetryAfterAt = Date.parse(JSON.parse(run.checkpoint_json || '{}').sourceRetryAfterAt ?? ''); }
+    catch { /* Preserve legacy malformed checkpoints; existing recovery handles them. */ }
+    if (sourceRetryAfterAt > Date.now()) {
+      db.exec('COMMIT');
+      return null;
+    }
+    const inFlight = run.budget == null ? 0 : Number((db.prepare(
+      "SELECT COUNT(*) AS n FROM crawl_tasks WHERE run_id=? AND status='running'",
+    ).get(runId) as { n: number }).n);
+    if (run.budget != null && run.tasks_completed + run.tasks_failed + inFlight >= run.budget) {
       let checkpoint: Record<string, unknown> = {};
       try {
         checkpoint = run.checkpoint_json

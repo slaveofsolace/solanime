@@ -29,7 +29,7 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   const measurements = await page.evaluate(() => {
     const hero = document.querySelector('.home-feature')!.getBoundingClientRect();
     const copy = document.querySelector('.home-feature__copy')!.getBoundingClientRect();
-    const poster = document.querySelector('.spotlight-art__poster')!.getBoundingClientRect();
+    const poster = document.querySelector('.spotlight-art__poster > img')!.getBoundingClientRect();
     const rail = document.querySelector('.home-rail')!.getBoundingClientRect();
     return {
       heroX: hero.x, heroWidth: hero.width, viewport: innerWidth,
@@ -46,8 +46,8 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   if (info.project.name.startsWith('desktop')) {
     expect(measurements.copyX).toBeCloseTo(47.52, 0);
     expect(measurements.copyRight).toBeLessThan(measurements.posterX);
-    expect(measurements.railY).toBeGreaterThan(780);
-    expect(measurements.railY).toBeLessThan(850);
+    expect(measurements.railY).toBeGreaterThan(720);
+    expect(measurements.railY).toBeLessThan(810);
   } else {
     expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
   }
@@ -168,7 +168,7 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
     return { x, y, width, height };
   }));
   const before = await measure();
-  const poster = await art.locator('.spotlight-art__poster').boundingBox();
+  const poster = await art.locator('.spotlight-art__poster > img').boundingBox();
   expect(poster!.y + poster!.height).toBeLessThanOrEqual(before[0]!.y);
   deliverBanner();
   await expect(art).toHaveAttribute('data-banner', 'loaded');

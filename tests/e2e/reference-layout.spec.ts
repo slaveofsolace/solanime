@@ -6,15 +6,15 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
 });
 
-test('the reference layout uses one dock and consistent original poster cards', async ({ page }, info) => {
+test('the viewing-room layout uses one header and dense landscape discovery cards', async ({ page }, info) => {
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   await expect(page.locator('.navigation-dock')).toHaveCount(1);
   await expect(page.locator('.category-nav')).toHaveCount(0);
-  await expect(page.locator('.home-rail .cover-composition')).toHaveCount(0);
+  expect(await page.locator('.home-rail .cover-composition').count()).toBeGreaterThan(0);
   const card = page.locator('.home-rail .title-card__art').first();
   const box = await card.boundingBox();
-  expect(box!.width / box!.height).toBeCloseTo(2 / 3, 2);
+  expect(box!.width / box!.height).toBeCloseTo(16 / 9, 2);
   const firstName = await page.locator('#featured-title').innerText();
   await page.locator('.feature-dots button').nth(1).click();
   await expect(page.locator('#featured-title')).not.toHaveText(firstName);
@@ -59,26 +59,16 @@ test('desktop episodes sit alongside the native player without remounting video 
   await noOverflow(page);
 });
 
-test('wide discovery rail uses only API-backed banners while retaining all recent records', async ({ page }) => {
-  let recentCount = 0;
-  await page.route('**/api/titles?*', async route => {
-    const response = await route.fetch(); const body = await response.json();
-    const query = new URL(route.request().url()).searchParams;
-    if (query.get('sort')==='updated' && query.get('pageSize')==='13') {
-      recentCount = body.items.length;
-      body.items = body.items.map((item: object, index: number) => index < 4 ? ({...item,
-        backdropUrl:'https://images.example.test/banner-test.svg',
-        artwork:{backdrop:{url:'https://images.example.test/banner-test.svg',width:1600,height:900,role:'backdrop',source:'anilist',identityReview:'source-id-verified'}},
-      }) : item);
-    }
-    await route.fulfill({response,json:body});
-  });
+test('the recent rail retains every non-featured record in one landscape row', async ({ page }) => {
+  const recentResponse = await page.request.get(
+    '/api/titles?facets=false&sort=updated&pageSize=13',
+  );
+  const recent = await recentResponse.json();
+  const recentCount = recent.items.length;
   await page.goto('/');
-  const wide = page.getByRole('region',{name:'In focus',exact:true});
-  await expect(wide.locator('.title-card')).toHaveCount(4);
-  await expect(wide.locator('.cover-composition')).toHaveCount(0);
+  const wide = page.getByRole('region',{name:'Recent updates',exact:true});
+  await expect(wide.locator('.title-card')).toHaveCount(recentCount - 1);
   const box = await wide.locator('.title-card__art').first().boundingBox();
   expect(box!.width / box!.height).toBeCloseTo(16/9,2);
-  await expect(page.getByRole('region',{name:'Recent updates',exact:true}).locator('.title-card')).toHaveCount(recentCount-1);
   await noOverflow(page);
 });

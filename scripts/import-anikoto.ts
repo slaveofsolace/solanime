@@ -31,6 +31,8 @@ const options: ImportOptions = {
   taskBudget: integer('task-budget'),
   maxTasksThisProcess: integer('max-tasks'),
   includeProviders: !process.argv.includes('--skip-providers'),
+  concurrency: integer('concurrency'),
+  exitWhenPaused: process.argv.includes('--exit-when-paused'),
 };
 
 const db = openDatabase();

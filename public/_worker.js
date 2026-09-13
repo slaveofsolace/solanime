@@ -46,7 +46,7 @@ export function apiOrigin(value, ownOrigin) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname.startsWith('/__private-import/')) return problem(404, 'NOT_FOUND', 'Route not found.');
+    if (url.pathname.startsWith('/__private-import/') || url.pathname.startsWith('/__private-baseline/')) return problem(404, 'NOT_FOUND', 'Route not found.');
     if (url.pathname === '/api') return problem(404, 'NOT_FOUND', 'API route not found.');
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     const bound = !!env.SOLANIME_API;

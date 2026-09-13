@@ -89,12 +89,37 @@ Configure the **API Worker**, not Pages, with:
 ```
 
 The Worker HTTP handler must never return `IMPORT_ASSETS.fetch(request)` and must
-return 404 for `/__private-import/*` on every public origin. `run_worker_first`
+return 404 for `/__private-import/*` and `/__private-baseline/*` on every public origin. `run_worker_first`
 is mandatory: the platform's default asset-first behavior would expose matching
 files before the Worker can deny them. Verify this against the deployed Worker
 and Pages origins before starting an import. The internal reader invokes only
 the asset binding at the synthetic `https://assets.local` origin; it is not a
 network proxy and accepts no user-supplied origin.
+
+The complete catalogue is served from a second immutable package in that same
+Worker-only asset binding, while D1 remains the authority for fresher rows,
+operator disables, account-independent diagnostics, and synchronization state.
+Prepare it from a completed, WAL-free SQLite checkpoint and then assemble both
+private packages into a fresh ignored upload directory:
+
+```sh
+pnpm cloud:baseline:prepare -- --source-db=/absolute/private/catalogue-final.sqlite --out=/absolute/private/catalogue-baseline --existing-assets=build/cloud-import-assets
+pnpm cloud:assets:stage -- --import-assets=build/cloud-import-assets --baseline-assets=/absolute/private/catalogue-baseline --out=build/cloud-worker-assets
+```
+
+`stage-worker-assets.ts` resolves the intentional import-root compatibility
+junction, rejects nested links and path collisions, checks both configured
+manifest pins, verifies every import bundle and baseline payload hash/byte count,
+reconciles the aggregate file count, keeps a 1,000-file reserve below the
+20,000-file ceiling, and refuses an existing output directory. The resulting
+`build/cloud-worker-assets` directory is the `wrangler.jsonc` asset source. It is
+never copied into `public/` or `dist/`.
+
+Set `CATALOGUE_BASELINE_ENABLED=true`, `CATALOGUE_BASELINE_ID` to the source
+database SHA-256 printed by preparation, and
+`CATALOGUE_BASELINE_MANIFEST_SHA256` to the printed manifest hash. Changing a
+pin also changes the Worker edge-cache namespace. The request-scoped reader has
+no arbitrary URL input and re-verifies every payload it actually consumes.
 
 Apply all catalogue migrations, including `009_cloud_snapshot_jobs.sql` and
 `010_cloud_sync_payloads.sql`, then

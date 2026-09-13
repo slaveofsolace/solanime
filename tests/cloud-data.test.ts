@@ -104,15 +104,15 @@ describe('private Worker snapshot assets and durable D1 cursors', () => {
   });
   it('keeps full-sized normalized imports below 45 queries and asset reads per queue invocation', async () => {
     const batches: ImportBatch[] = [];
-    for (let group = 0; group < 5; group++) batches.push(await batch('titles', Array.from({ length: 35 }, (_value, index) => titleRow(group * 35 + index + 1))));
+    for (let group = 0; group < 11; group++) batches.push(await batch('titles', Array.from({ length: 35 }, (_value, index) => titleRow(group * 35 + index + 1))));
     const fixture = await fixtureAssets(batches); const job = await createSnapshotImportRepository(db, fixture.assets).ensure(fixture.pin);
     await createSyncRepository(db).setEnabled(true);
     const queries = { used: 0, maximum: 45 }; const boundedCatalogue = withQueryBudget(db, queries); const boundedResearch = withQueryBudget(research, queries);
     fixture.requests.length = 0;
     expect((await consumeSyncMessage(message({ taskId: job.taskId }), boundedCatalogue, createSnapshotImportHandlers(boundedCatalogue, boundedResearch, fixture.assets))).status).toBe('checkpointed');
     expect(queries.used + fixture.requests.length).toBeLessThanOrEqual(45);
-    expect((await db.prepare('SELECT COUNT(*) AS count FROM titles').first())?.count).toBe(70);
-    expect((await createSnapshotImportRepository(db, fixture.assets).status()).jobs[0].importedBatches).toBe(2);
+    expect((await db.prepare('SELECT COUNT(*) AS count FROM titles').first())?.count).toBe(350);
+    expect((await createSnapshotImportRepository(db, fixture.assets).status()).jobs[0].importedBatches).toBe(10);
   }, 20_000);
   it('resumes the same cursor in the next UTC quota window without a PC-side uploader', async () => {
     vi.useFakeTimers({ toFake: ['Date'] });

@@ -52,10 +52,11 @@ function retryAfter(response: Response, maxRetryAfterMs: number): number | undef
 export class AnikotoSourceClient {
   private nextRequestAt = 0;
   private requestGate: Promise<void> = Promise.resolve();
-  readonly delayMs = positiveInteger(
+  private refusal?: SourceRequestError;
+  delayMs = positiveInteger(
     process.env.SOLANIME_SOURCE_DELAY_MS,
     DEFAULT_DELAY_MS,
-    250,
+    50,
     60_000,
   );
   readonly timeoutMs = positiveInteger(
@@ -73,19 +74,32 @@ export class AnikotoSourceClient {
 
   private waitTurn(signal?: AbortSignal): Promise<void> {
     const turn = this.requestGate.then(async () => {
-      const delay = Math.max(0, this.nextRequestAt - Date.now());
-      if (delay)
+      // A response in another lane can extend the cooldown while this waiter sleeps.
+      // Recheck the shared deadline instead of dispatching on an obsolete timer.
+      while (this.nextRequestAt > Date.now()) {
+        if (this.refusal) throw this.refusal;
+        signal?.throwIfAborted();
+        const delay = this.nextRequestAt - Date.now();
+        // Long cooldowns belong in the durable queue, not inside an active task
+        // that would outlive its worker lease or look like a hung collector.
+        if (delay > 5000)
+          throw new SourceRequestError('The public source is in a shared cooldown.', {
+            retryable: true, retryAfterMs: delay,
+          });
         await new Promise<void>((resolve, reject) => {
-          const timer = setTimeout(resolve, delay);
-          signal?.addEventListener(
-            'abort',
-            () => {
-              clearTimeout(timer);
-              reject(new DOMException('Source request cancelled', 'AbortError'));
-            },
-            { once: true },
-          );
+          const onAbort = () => {
+            clearTimeout(timer);
+            signal?.removeEventListener('abort', onAbort);
+            reject(new DOMException('Source request cancelled', 'AbortError'));
+          };
+          const timer = setTimeout(() => {
+            signal?.removeEventListener('abort', onAbort);
+            resolve();
+          }, delay);
+          signal?.addEventListener('abort', onAbort, { once: true });
         });
+      }
+      if (this.refusal) throw this.refusal;
       if (signal?.aborted) throw new DOMException('Source request cancelled', 'AbortError');
       this.nextRequestAt = Date.now() + this.delayMs;
     });
@@ -154,15 +168,17 @@ export class AnikotoSourceClient {
       );
     }
     if (response.status === 403 || response.status === 401 || response.status === 451) {
-      throw new SourceRequestError(
+      this.refusal = new SourceRequestError(
         `The public source refused the request with HTTP ${response.status}; no bypass was attempted.`,
         { code: 'BLOCKED', httpStatus: response.status, retryable: false },
       );
+      throw this.refusal;
     }
     if (response.status === 429 || response.status >= 500) {
-      const retryAfterMs = retryAfter(response, this.maxRetryAfterMs);
-      if (retryAfterMs != null)
-        this.nextRequestAt = Math.max(this.nextRequestAt, Date.now() + retryAfterMs);
+      // Never increase throughput automatically after an overload response.
+      this.delayMs = Math.min(60_000, Math.max(DEFAULT_DELAY_MS, this.delayMs * 2));
+      const retryAfterMs = retryAfter(response, this.maxRetryAfterMs) ?? this.delayMs;
+      this.nextRequestAt = Math.max(this.nextRequestAt, Date.now() + retryAfterMs);
       throw new SourceRequestError(
         `The public source returned retryable HTTP ${response.status}.`,
         { httpStatus: response.status, retryAfterMs, retryable: true },
