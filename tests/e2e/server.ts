@@ -64,6 +64,46 @@ importSnapshot(db, {
   observedAt: '2026-09-11T00:00:00.000Z',
   titles,
 });
+// Test-only external records prove that the public Movies/TV routes render
+// their persisted source namespaces. They are never part of a release import.
+importSnapshot(db, {
+  schemaVersion: 1,
+  source: 'wikipedia-movie',
+  observedAt: '2026-09-13T00:00:00.000Z',
+  titles: [{
+    sourceId: 'Q900001',
+    slug: 'fixture-screen-film',
+    canonicalUrl: 'https://en.wikipedia.org/wiki/Fixture_Screen_Film',
+    name: 'Fixture Screen Film',
+    description: 'A test-only non-animation movie catalogue record.',
+    format: 'Movie',
+    releaseYear: 2026,
+    artworkUrl: 'https://images.example.test/movie.svg',
+    artworkOrigin: 'test-fixture',
+    artworkReuseStatus: 'original',
+    genres: ['Drama'],
+    episodes: [],
+  }],
+});
+importSnapshot(db, {
+  schemaVersion: 1,
+  source: 'wikipedia-tv',
+  observedAt: '2026-09-13T00:00:00.000Z',
+  titles: [{
+    sourceId: 'Q900002',
+    slug: 'fixture-screen-series',
+    canonicalUrl: 'https://en.wikipedia.org/wiki/Fixture_Screen_Series',
+    name: 'Fixture Screen Series',
+    description: 'A test-only non-animation television catalogue record.',
+    format: 'TV',
+    releaseYear: 2026,
+    artworkUrl: 'https://images.example.test/tv.svg',
+    artworkOrigin: 'test-fixture',
+    artworkReuseStatus: 'original',
+    genres: ['Drama'],
+    episodes: [],
+  }],
+});
 const resolveTestSource = (
   mapping: import('../../server/providers/contract').StoredProviderMapping,
 ): import('../../server/providers/contract').ProviderResolution | null => {

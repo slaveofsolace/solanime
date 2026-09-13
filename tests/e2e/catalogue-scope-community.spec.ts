@@ -25,6 +25,7 @@ test('catalogue collection controls send a shareable source scope', async ({ pag
   await navigation.getByRole('link', { name: 'Movies', exact: true }).click();
   await expect(page).toHaveURL(/scope=movies/);
   await expect(page.getByRole('heading', { name: 'Movies', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open Fixture Screen Film', exact: true })).toBeVisible();
   await noOverflow(page);
 });
 

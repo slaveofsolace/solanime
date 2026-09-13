@@ -20,7 +20,12 @@ test('compact desktop search focuses, escapes, submits, and follows browser hist
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');
   await trigger.press('Enter');
   await expect(input).toHaveValue('Paper');
+  const globalSearch = page.waitForRequest((request) => {
+    const url = new URL(request.url());
+    return url.pathname === '/api/titles' && url.searchParams.get('scope') === 'all' && url.searchParams.get('q') === 'Paper';
+  });
   await input.press('Enter');
+  await globalSearch;
   await expect(page).toHaveURL(/\/search\?q=Paper$/);
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
   await expect(page.getByText('1 title', { exact: true })).toBeVisible();

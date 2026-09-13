@@ -38,6 +38,7 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
     'page',
   );
   await expect(page.getByRole('heading', { name: 'Movies', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open Fixture Screen Film', exact: true })).toBeVisible();
 });
 
 test('mobile bottom navigation keeps TV directly reachable without overflow', async ({ page }) => {
