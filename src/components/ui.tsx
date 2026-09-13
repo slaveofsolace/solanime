@@ -63,6 +63,13 @@ export function Layout({ children }: PropsWithChildren) {
     location.pathname === '/catalogue' && catalogueScope === 'anime';
   const onTvCatalogue = location.pathname === '/catalogue' && catalogueScope === 'tv';
   const onMovieCatalogue = location.pathname === '/catalogue' && catalogueScope === 'movies';
+  const accountServiceSurface =
+    location.pathname === '/login' ||
+    location.pathname === '/register' ||
+    location.pathname === '/recover' ||
+    location.pathname === '/profiles' ||
+    location.pathname === '/account' ||
+    location.pathname.startsWith('/account/');
   return (
     <div
       className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
@@ -157,7 +164,7 @@ export function Layout({ children }: PropsWithChildren) {
         </div>
       </header>
       <div className="content-shell">
-        {account.loadError && (
+        {account.loadError && accountServiceSurface && (
           <div className="account-service-notice" role="status">
             Account service unavailable. Browsing remains available.{' '}
             <button className="text-button" onClick={() => void account.refresh()}>
