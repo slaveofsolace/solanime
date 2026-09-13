@@ -55,13 +55,12 @@ export const claimArtworkHostSql = `INSERT INTO artwork_source_policy(hostname,n
   WHERE artwork_source_policy.blocked_status IS NULL AND artwork_source_policy.next_request_at<=excluded.updated_at RETURNING hostname`;
 
 /** Durable per-host pacing and explicit refusal retention, shared by local and cloud consumers. */
-export function policyArtworkFetch(port: ArtworkPolicyPort, send: typeof fetch = fetch, now: () => Date = () => new Date(), mode: 'artwork' | 'identity-discovery' = 'artwork', minimumIntervalMs = 2200): typeof fetch {
-  if (!Number.isSafeInteger(minimumIntervalMs) || minimumIntervalMs < 1000 || minimumIntervalMs > 60_000) throw new AppError(400, 'INVALID_QUERY', 'The source request interval must be between 1,000 and 60,000 milliseconds.');
+export function policyArtworkFetch(port: ArtworkPolicyPort, send: typeof fetch = fetch, now: () => Date = () => new Date(), mode: 'artwork' | 'identity-discovery' = 'artwork'): typeof fetch {
   return async (input, init) => {
     const url = new URL(String(input));
     const allowed = mode === 'identity-discovery' ? ['anime.vidy.st'] : ['graphql.anilist.co','s4.anilist.co'];
     if (url.protocol !== 'https:' || url.port || url.username || url.password || url.search || url.hash || !allowed.includes(url.hostname) || (mode === 'identity-discovery' && !/^\/api\/episodes\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(url.pathname))) throw new ArtworkSourceError('INVALID_DESTINATION', 'This artwork transport only supports its reviewed metadata and image hosts.');
-    const time = now(); const claimed = await port.claim(url.hostname, time.toISOString(), new Date(time.getTime() + minimumIntervalMs).toISOString());
+    const time = now(); const claimed = await port.claim(url.hostname, time.toISOString(), new Date(time.getTime() + 2200).toISOString());
     if (!claimed) {
       const state = await port.state(url.hostname);
       if (state?.blocked_status) throw new ArtworkSourceError('BLOCKED', 'The source has an explicit recorded refusal; operator review is required.', state.blocked_status);

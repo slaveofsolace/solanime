@@ -47,11 +47,6 @@ export function visibleArtworkTitleIds(db: SqliteDatabase): number[] {
   return [...new Set([...ids,...related.map(row => Number(row.id))])];
 }
 
-/** Explicit whole-source selection for operator-owned enrichment runs; unsupported catalogue sources remain excluded. */
-export function allAnikotoArtworkTitleIds(db: SqliteDatabase): number[] {
-  return db.prepare("SELECT id FROM titles WHERE source='anikoto' ORDER BY id").all().map(row => Number(row.id));
-}
-
 /** Idempotent queue creation for the entire existing dataset; never invents external IDs or changes source records. */
 export function seedArtworkEnrichment(db: SqliteDatabase, queue: SqliteDatabase, priorityIds = visibleArtworkTitleIds(db), now = new Date().toISOString()) {
   const priority = new Map(priorityIds.map((id,index) => [id,index]));
@@ -113,12 +108,11 @@ function meteredFetch(queue: SqliteDatabase, limit: number, titleId: number, cou
   };
 }
 
-export interface EnrichmentOptions { titleIds: number[]; dailyRequestLimit: number; identityOnly?: boolean; identityRequestIntervalMs?: number; fetch?: typeof fetch; now?: () => Date; }
+export interface EnrichmentOptions { titleIds: number[]; dailyRequestLimit: number; identityOnly?: boolean; fetch?: typeof fetch; now?: () => Date; }
 
 /** One ordinary request maximum per lease. Only the explicit selected IDs can advance beyond the durable pending inventory. */
 export async function runArtworkEnrichmentStep(db: SqliteDatabase, queue: SqliteDatabase, options: EnrichmentOptions) {
   if (!options.titleIds.length || options.titleIds.length > 10_000 || options.titleIds.some(id => !Number.isSafeInteger(id) || id < 1) || !Number.isSafeInteger(options.dailyRequestLimit) || options.dailyRequestLimit < 1 || options.dailyRequestLimit > 10_000) throw new AppError(400,'INVALID_QUERY','Provide explicit catalogue title IDs and a bounded daily request allowance.');
-  if (options.identityRequestIntervalMs !== undefined && (!Number.isSafeInteger(options.identityRequestIntervalMs) || options.identityRequestIntervalMs < 1000 || options.identityRequestIntervalMs > 60_000)) throw new AppError(400,'INVALID_QUERY','Provide an identity request interval between 1,000 and 60,000 milliseconds.');
   const now = options.now ?? (() => new Date()); const time = now().toISOString(); const lease = crypto.randomUUID();
   const job = queue.prepare(`UPDATE artwork_enrichment_tasks SET status='running',lease=?,lease_expires_at=?,attempt_count=attempt_count+1,updated_at=?
     WHERE title_id=(SELECT title_id FROM artwork_enrichment_tasks WHERE title_id IN (SELECT value FROM json_each(?))
@@ -127,7 +121,7 @@ export async function runArtworkEnrichmentStep(db: SqliteDatabase, queue: Sqlite
   if (!job) return { status: 'idle' as const, requests: 0 };
   const titleId = Number(job.title_id); let requests = 0;
   const counted = meteredFetch(queue,options.dailyRequestLimit,titleId,() => {requests++;},options.fetch ?? fetch,now);
-  const send = policyArtworkFetch(policyPort(db,now),counted,now,job.stage === 'identity' ? 'identity-discovery' : 'artwork',job.stage === 'identity' ? options.identityRequestIntervalMs ?? 2200 : 2200);
+  const send = policyArtworkFetch(policyPort(db,now),counted,now,job.stage === 'identity' ? 'identity-discovery' : 'artwork');
   const liveLease = () => !!queue.prepare("SELECT 1 FROM artwork_enrichment_tasks WHERE title_id=? AND status='running' AND lease=? AND lease_expires_at>?").get(titleId,lease,now().toISOString());
   try {
     const owner = artworkOwner(db,titleId);

@@ -3,7 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { migrate } from '../server/db.ts';
 import { browseTitles } from '../server/catalogue.ts';
 import { fetchSourceIdentity, inspectSourceIdentity, type ArtworkIdentityOwner } from '../server/artwork/identity.ts';
-import { allAnikotoArtworkTitleIds, artworkOwner, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment, visibleArtworkTitleIds } from '../server/artwork/enrichment.ts';
+import { artworkOwner, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment, visibleArtworkTitleIds } from '../server/artwork/enrichment.ts';
 import { fetchAniListMediaByMal, fetchArtworkResource, parseAniListMedia } from '../server/artwork/source.ts';
 import { sourceIdentityReview, validateArtworkReview } from '../server/artwork/model.ts';
 import { completeRaster } from '../server/artwork/raster.ts';
@@ -74,7 +74,6 @@ describe('whole-catalogue durable artwork queue and selected execution', () => {
     db.prepare("INSERT INTO titles(id,source,source_id,slug,canonical_url,name,format,release_year,first_seen_at,last_seen_at,created_at,updated_at) VALUES(3,'anikoto','1644','anime-film','https://anikototv.to/watch/anime-film','Anime Film','Movie',2027,?,?,?,?)").run(date,date,date,'2026-09-12T00:00:00.000Z');
     db.prepare("INSERT INTO related_titles(title_id,related_title_id,related_source_id,relationship_type,label,first_seen_at,last_seen_at) VALUES(1,2,'2','related','Other-source title',?,?)").run(date,date);
     expect(visibleArtworkTitleIds(db)).toEqual([1,3]);
-    expect(allAnikotoArtworkTitleIds(db)).toEqual([1,3]);
   });
   it('seeds all real titles idempotently and preserves identity/failure state on re-seed', () => {
     const {db,queue} = setup();
@@ -114,13 +113,6 @@ describe('whole-catalogue durable artwork queue and selected execution', () => {
     expect(await runArtworkEnrichmentStep(db,queue,options(refusal,1))).toMatchObject({status:'blocked',reason:'BLOCKED',requests:1});
     queue.prepare("UPDATE artwork_enrichment_tasks SET status='retry',available_at=?").run(date); advance();
     expect(await runArtworkEnrichmentStep(db,queue,options(refusal,1))).toMatchObject({status:'blocked',reason:'BLOCKED',requests:0}); expect(refusal).toHaveBeenCalledTimes(1);
-  });
-  it('keeps faster identity pacing explicit, bounded and durable', async () => {
-    vi.useFakeTimers(); vi.setSystemTime(new Date(date)); const {db,queue} = setup();
-    const send = vi.fn<typeof fetch>(async()=>Response.json(identity()));
-    expect(await runArtworkEnrichmentStep(db,queue,{...options(send),identityOnly:true,identityRequestIntervalMs:1000})).toMatchObject({status:'pending',stage:'metadata',requests:1});
-    expect(db.prepare("SELECT next_request_at FROM artwork_source_policy WHERE hostname='anime.vidy.st'").get()?.next_request_at).toBe('2026-09-13T00:00:01.000Z');
-    await expect(runArtworkEnrichmentStep(db,queue,{...options(send),identityOnly:true,identityRequestIntervalMs:999})).rejects.toThrow('between 1,000 and 60,000');
   });
   it('rejects stale lease responses without advancing identity checkpoints', async () => {
     vi.useFakeTimers(); vi.setSystemTime(new Date(date)); const {db,queue} = setup();
