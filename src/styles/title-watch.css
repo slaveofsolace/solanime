@@ -949,3 +949,20 @@
 :root[data-motion='reduced'] .episode-grid > li {
   transition: none;
 }
+
+/* Title artwork is always a dark cinema surface, including when the saved
+   application theme is light and a wide backdrop has not been imported. */
+:root[data-theme='light']
+  .title-hero:has(.spotlight-art:not([data-banner='loaded']))
+  .title-hero__content
+  :is(h1, .feature-meta, .title-facts dd) {
+  color: #fff;
+  text-shadow: 0 2px 22px rgb(0 0 0 / 72%);
+}
+
+:root[data-theme='light']
+  .title-hero:has(.spotlight-art:not([data-banner='loaded']))
+  .title-hero__content
+  :is(.title-facts dt, .title-hero__synopsis, .tag-list span) {
+  color: rgb(255 255 255 / 78%);
+}
