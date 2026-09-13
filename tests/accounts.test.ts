@@ -60,6 +60,24 @@ async function fixture(secure = false) {
         if (typeof json.csrfToken === 'string') csrf = json.csrfToken;
         return { response, body: json };
       },
+      async community(
+        path: string,
+        options: { method?: 'GET' | 'POST' | 'PATCH' | 'DELETE'; body?: unknown; headers?: Record<string, string> } = {},
+      ) {
+        const method = options.method ?? 'GET';
+        const mutation = method !== 'GET';
+        const response = await fetch(origin + '/api/episodes/' + path, {
+          method,
+          headers: {
+            ...(cookie ? { cookie } : {}),
+            ...(mutation ? { origin, 'content-type': 'application/json', 'x-solanime-intent': 'account',
+              'x-csrf-token': csrf } : {}),
+            ...options.headers,
+          },
+          ...(options.body === undefined ? {} : { body: JSON.stringify(options.body) }),
+        });
+        return { response, body: await response.json() as any };
+      },
     };
   };
   return {
@@ -307,4 +325,38 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
     expect(r.response.status).toBe(429);
     expect(Number(r.response.headers.get('retry-after'))).toBeGreaterThan(0);
   }, 15000);
+
+  it('serves the same profile-owned, revision-safe episode community contract locally', async () => {
+    const f = await fixture(), owner = f.user(), other = f.user(), guest = f.user();
+    const observed = new Date().toISOString();
+    f.catalog.prepare(`INSERT INTO titles(id,source_id,slug,canonical_url,name,first_seen_at,last_seen_at,created_at,updated_at)
+      VALUES(1,'community-title','community-title','https://example.test/community','Community fixture',?,?,?,?)`)
+      .run(observed, observed, observed, observed);
+    f.catalog.prepare(`INSERT INTO episodes(id,title_id,source_id,number_text,slug,canonical_url,first_seen_at,last_seen_at,created_at,updated_at)
+      VALUES(10,1,'community-episode','1','one','https://example.test/community/one',?,?,?,?)`)
+      .run(observed, observed, observed, observed);
+    const profileId = (await owner.call('register', { email: 'local-community@example.test', password })).body.profiles[0].id;
+    const otherId = (await other.call('register', { email: 'other-community@example.test', password })).body.profiles[0].id;
+    const created = await owner.community('10/comments', { method: 'POST', body: { profileId, body: 'Local public comment' } });
+    expect(created.response.status).toBe(201);
+    expect(created.body.comment).toMatchObject({ episodeId: '10', body: 'Local public comment', revision: 1,
+      author: { name: 'You', avatar: 'ruby' }, ownedByViewer: true });
+    const id = created.body.comment.id;
+    const listed = await guest.community('10/comments?page=1&pageSize=20');
+    expect(listed.body).toMatchObject({ total: 1, page: 1, pageSize: 20, pages: 1,
+      items: [{ id, ownedByViewer: false }] });
+    expect(JSON.stringify(listed.body)).not.toContain(profileId);
+    expect((await other.community(`10/comments/${id}`, { method: 'DELETE',
+      body: { profileId: otherId, revision: 1 } })).response.status).toBe(404);
+    f.advance(1);
+    const edited = await owner.community(`10/comments/${id}`, { method: 'PATCH',
+      body: { profileId, body: 'Edited locally', revision: 1 } });
+    expect(edited.body.comment).toMatchObject({ body: 'Edited locally', revision: 2 });
+    expect((await owner.community(`10/comments/${id}`, { method: 'DELETE',
+      body: { profileId, revision: 1 } })).response.status).toBe(409);
+    expect((await owner.community(`10/comments/${id}`, { method: 'DELETE',
+      body: { profileId, revision: 2 } })).response.status).toBe(200);
+    expect((await guest.community('10/comments')).body.total).toBe(0);
+    expect((await guest.community('999/comments')).response.status).toBe(404);
+  });
 });

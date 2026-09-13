@@ -1,4 +1,5 @@
 import { request } from '../lib/api';
+import type { CommunityComment, CommunityCommentsPage } from '../types';
 let csrf: string | null = null;
 export function setAccountCsrf(value: string | null) {
   csrf = value;
@@ -65,4 +66,72 @@ export async function accountRequest<T>(path: string, body?: unknown, signal?: A
   )
     invalid();
   return result;
+}
+
+const communityHeaders = () => ({
+  'x-solanime-intent': 'account',
+  ...(csrf ? { 'x-csrf-token': csrf } : {}),
+});
+
+function validCommunityComment(value: unknown): value is CommunityComment {
+  if (!value || typeof value !== 'object') return false;
+  const item = value as Partial<CommunityComment>;
+  return typeof item.id === 'string' && typeof item.episodeId === 'string' &&
+    !!item.author && typeof item.author.name === 'string' &&
+    ['ruby', 'ocean', 'violet', 'emerald', 'amber'].includes(String(item.author.avatar)) &&
+    typeof item.body === 'string' && Number.isSafeInteger(item.revision) &&
+    typeof item.createdAt === 'string' && typeof item.updatedAt === 'string' &&
+    typeof item.ownedByViewer === 'boolean';
+}
+
+export async function episodeComments(
+  episodeId: string,
+  options: { profileId?: string; page?: number; pageSize?: number } = {},
+  signal?: AbortSignal,
+) {
+  const params = new URLSearchParams();
+  if (options.profileId) params.set('profile', options.profileId);
+  if (options.page) params.set('page', String(options.page));
+  if (options.pageSize) params.set('pageSize', String(options.pageSize));
+  const result = await request<CommunityCommentsPage>(
+    `/api/episodes/${encodeURIComponent(episodeId)}/comments${params.size ? `?${params}` : ''}`,
+    { signal },
+  );
+  if (!Array.isArray(result.items) || !result.items.every(validCommunityComment) ||
+    !Number.isSafeInteger(result.total) || !Number.isSafeInteger(result.page) ||
+    !Number.isSafeInteger(result.pageSize) || !Number.isSafeInteger(result.pages))
+    throw new Error('The episode community response is incomplete. Reload and check the API version.');
+  return result;
+}
+
+async function commentMutation(
+  episodeId: string,
+  method: 'POST' | 'PATCH' | 'DELETE',
+  commentId: string | undefined,
+  value: Record<string, unknown>,
+  signal?: AbortSignal,
+) {
+  const result = await request<{ comment?: CommunityComment; deleted?: boolean; id?: string }>(
+    `/api/episodes/${encodeURIComponent(episodeId)}/comments${commentId ? `/${encodeURIComponent(commentId)}` : ''}`,
+    { method, headers: communityHeaders(), body: JSON.stringify(value), signal },
+  );
+  if (method === 'DELETE') {
+    if (result.deleted !== true || result.id !== commentId)
+      throw new Error('The comment deletion response is incomplete. Reload and check the API version.');
+  } else if (!validCommunityComment(result.comment)) {
+    throw new Error('The comment response is incomplete. Reload and check the API version.');
+  }
+  return result;
+}
+
+export function createEpisodeComment(episodeId: string, profileId: string, body: string, signal?: AbortSignal) {
+  return commentMutation(episodeId, 'POST', undefined, { profileId, body }, signal);
+}
+
+export function updateEpisodeComment(episodeId: string, commentId: string, profileId: string, body: string, revision: number, signal?: AbortSignal) {
+  return commentMutation(episodeId, 'PATCH', commentId, { profileId, body, revision }, signal);
+}
+
+export function deleteEpisodeComment(episodeId: string, commentId: string, profileId: string, revision: number, signal?: AbortSignal) {
+  return commentMutation(episodeId, 'DELETE', commentId, { profileId, revision }, signal);
 }

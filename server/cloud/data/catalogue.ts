@@ -15,6 +15,11 @@ const rows = async (db: CatalogueDatabase, sql: string, ...values: unknown[]) =>
 
 /** Request-scoped repository: no cross-request mutable cache or SQLite filesystem dependency. */
 export function createCatalogueRepository(db: CatalogueDatabase, baseline?: ReturnType<typeof createPrivateBaselineReader>) {
+  async function hasEpisode(episodeId: number) {
+    if (!Number.isSafeInteger(episodeId) || episodeId < 1) return false;
+    if (baseline && await baseline.episode(episodeId)) return true;
+    return Boolean(await db.prepare('SELECT 1 FROM episodes WHERE id=?').bind(episodeId).first());
+  }
   async function getFilters() {
     if(baseline)return (await baseline.manifest()).facets;
     const result = await db.batch<Row>([
@@ -211,5 +216,5 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     return { exportSchemaVersion: 2, items, nextCursor: hasMore ? items.at(-1)?.id : null, note: 'Catalogue fields only; authentication, resolver resources and temporary playback references are excluded.' };
   }
 
-  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, adminStatus, exportTitlesPage };
+  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, hasEpisode, adminStatus, exportTitlesPage };
 }

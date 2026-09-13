@@ -7,6 +7,8 @@ import { RELEASE } from '../shared/release';
 import { importHash } from '../server/cloud/data/import';
 import { IMPORT_TABLES } from '../server/cloud/data/import-schema';
 import { NATIVE_RESEARCH_RECORDS } from '../server/providers/native-registry';
+import { encodeBytes } from '../server/cloud/auth/crypto';
+import { generatedTestApiKey } from './helpers/auth-material';
 
 // These rows live only in isolated, ephemeral D1 databases. They are transport and
 // SQL fixtures, not imported catalogue records or evidence of live media playback.
@@ -28,6 +30,19 @@ function statements(sql: string): string[] {
     if (char === ';') { if (current.trim()) result.push(current.trim()); current = ''; } else current += char;
   }
   if (current.trim()) result.push(current.trim());
+  return result;
+}
+
+function accountStatements(sql: string): string[] {
+  const result: string[] = [];
+  const trigger = /CREATE\s+TRIGGER[\s\S]*?\bEND\s*;/gi;
+  let offset = 0;
+  for (const match of sql.matchAll(trigger)) {
+    result.push(...statements(sql.slice(offset, match.index)));
+    result.push(match[0].trim().replace(/;\s*$/, ''));
+    offset = (match.index ?? 0) + match[0].length;
+  }
+  result.push(...statements(sql.slice(offset)));
   return result;
 }
 
@@ -64,8 +79,11 @@ beforeAll(async () => {
   }
   schemaVersion = migrations.length;
   for (const sql of statements(readFileSync(new URL('../migrations/cloud/research/001_research.sql', import.meta.url), 'utf8'))) await research.prepare(sql).run();
-  const accountMigration = readFileSync(new URL('../migrations/cloud/accounts/0001_accounts.sql', import.meta.url), 'utf8');
-  await accounts.batch(accountMigration.split(/;\s*\n(?=(?:CREATE|INSERT))/).filter(sql => sql.trim()).map(sql => accounts.prepare(sql)));
+  const accountMigrations = readdirSync(new URL('../migrations/cloud/accounts/', import.meta.url)).filter(file => file.endsWith('.sql')).sort();
+  for (const file of accountMigrations) {
+    const migration = readFileSync(new URL(`../migrations/cloud/accounts/${file}`, import.meta.url), 'utf8');
+    for (const sql of accountStatements(migration)) await accounts.prepare(sql).run();
+  }
   env = {
     CATALOGUE: catalogue, RESEARCH: research, ACCOUNTS: accounts,
     API_LIMITER: { async limit() { return { success: true }; } },
@@ -125,6 +143,21 @@ describe('Worker API against actual D1', () => {
     const session = await request('/api/account/session');
     expect(session.status).toBe(503);
     expect(await session.json()).toMatchObject({ error: { code: 'UNAVAILABLE', details: { reason: 'AUTH_NOT_CONFIGURED' } } });
+  });
+
+  it('routes public episode community reads through the private accounts database with catalogue validation', async () => {
+    const configured = {
+      FIREBASE_PROJECT_ID: 'solanime-community-contract',
+      FIREBASE_API_KEY: generatedTestApiKey(),
+      AUTH_CREDENTIAL_KEY: encodeBytes(new Uint8Array(32).fill(21)),
+    };
+    const response = await request('/api/episodes/10/comments?page=1&pageSize=20', {}, configured);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ items: [], total: 0, page: 1, pageSize: 20, pages: 1 });
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect((await request('/api/episodes/999/comments', {}, configured)).status).toBe(404);
+    expect((await env.ACCOUNTS.prepare('SELECT version FROM account_schema ORDER BY version').all()).results)
+      .toEqual([{ version: 1 }, { version: 2 }]);
   });
 
   it('uses database search, shareable filters and genuine pagination exhaustion', async () => {

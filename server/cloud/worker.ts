@@ -85,9 +85,9 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
   try {
     if (url.href.length > 4096) throw new AppError(414, 'INVALID_QUERY', 'The request URL is too long.');
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
-    const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), { origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean), registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY, firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON } });
-    const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const catalogue = createCatalogueRepository(env.CATALOGUE, configuredBaseline(request, env));
+    const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), { origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean), registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY, firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON }, episodeExists: catalogue.hasEpisode });
+    const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);
     if (path.startsWith('/api/admin/') || path.startsWith('/api/exports/')) await admin(request, env);
     if (request.method === 'POST') sameOrigin(request, env);

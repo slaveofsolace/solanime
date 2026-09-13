@@ -1,5 +1,6 @@
 import { AppError } from '../../errors.ts';
-import type { AccountDatabase, CloudAccount, CloudProfile, CloudSession, IdentityUser } from './types.ts';
+import { publicComment } from '../../community.ts';
+import type { AccountDatabase, CloudAccount, CloudEpisodeComment, CloudProfile, CloudSession, IdentityUser } from './types.ts';
 
 const DAY = 86400000;
 const sessionGuard = `EXISTS(SELECT 1 FROM sessions guard_session JOIN accounts guard_account
@@ -10,6 +11,7 @@ const sessionGuard = `EXISTS(SELECT 1 FROM sessions guard_session JOIN accounts 
 const guardValues = (s: CloudSession, now: number) => [s.token_hash, s.account_id, now, now - 7 * DAY];
 const unauthenticated = () => new AppError(401, 'UNAUTHORIZED', 'Sign in to continue.');
 const conflict = () => new AppError(409, 'BAD_REQUEST', 'This profile changed in another tab. Reload it before saving again.');
+const commentConflict = () => new AppError(409, 'BAD_REQUEST', 'This comment changed in another tab. Reload comments before trying again.');
 
 /** Every state-changing invariant is enforced by one SQL statement or an atomic D1 batch. */
 export class D1AccountsRepository {
@@ -193,6 +195,92 @@ export class D1AccountsRepository {
       if (error instanceof Error && error.message.includes('PROFILE_DATA_LIMIT'))
         throw new AppError(413, 'BAD_REQUEST', 'This profile has reached its saved-data limit. Remove old saved items before trying again.');
       throw error;
+    }
+  }
+  async comments(episodeId: number, page: number, pageSize: number, viewerProfileId?: string) {
+    const offset = (page - 1) * pageSize;
+    const viewer = viewerProfileId ?? '';
+    const [count, rows] = await Promise.all([
+      this.db.prepare("SELECT COUNT(*) AS total FROM episode_comments WHERE episode_id=? AND moderation_state='visible'")
+        .bind(episodeId).first<{ total: number }>(),
+      this.db.prepare(`SELECT c.id,c.episode_id,p.name AS author_name,p.avatar AS author_avatar,
+        c.body,c.revision,c.created_at,c.updated_at,CASE WHEN c.profile_id=? THEN 1 ELSE 0 END AS viewer_owned
+        FROM episode_comments c JOIN profiles p ON p.id=c.profile_id
+        WHERE c.episode_id=? AND c.moderation_state='visible'
+        ORDER BY c.created_at DESC,c.id DESC LIMIT ? OFFSET ?`)
+        .bind(viewer, episodeId, pageSize, offset).all<CloudEpisodeComment>(),
+    ]);
+    const total = Number(count?.total ?? 0);
+    return { items: rows.results.map(publicComment), total, page, pageSize,
+      pages: Math.max(1, Math.ceil(total / pageSize)) };
+  }
+  async comment(id: string, episodeId: number, viewerProfileId?: string) {
+    const row = await this.db.prepare(`SELECT c.id,c.episode_id,p.name AS author_name,p.avatar AS author_avatar,
+      c.body,c.revision,c.created_at,c.updated_at,CASE WHEN c.profile_id=? THEN 1 ELSE 0 END AS viewer_owned
+      FROM episode_comments c JOIN profiles p ON p.id=c.profile_id
+      WHERE c.id=? AND c.episode_id=? AND c.moderation_state='visible'`)
+      .bind(viewerProfileId ?? '', id, episodeId).first<CloudEpisodeComment>();
+    if (!row) throw new AppError(404, 'NOT_FOUND', 'Comment not found.');
+    return publicComment(row);
+  }
+  async commentsForProfile(profileId: string, accountId: string) {
+    await this.ownedProfile(profileId, accountId);
+    return (await this.db.prepare(`SELECT id,CAST(episode_id AS TEXT) AS episodeId,body,revision,
+      moderation_state AS moderationState,created_at AS createdAt,updated_at AS updatedAt
+      FROM episode_comments WHERE profile_id=? ORDER BY created_at,id`)
+      .bind(profileId).all()).results;
+  }
+  async createComment(s: CloudSession, episodeId: number, profileId: string, body: string, now: number) {
+    const id = crypto.randomUUID();
+    try {
+      const row = await this.db.prepare(`INSERT INTO episode_comments
+        (id,episode_id,profile_id,body,revision,created_at,updated_at)
+        SELECT ?,?,?,?,1,?,? WHERE EXISTS(SELECT 1 FROM profiles WHERE id=? AND account_id=?)
+        AND ${sessionGuard} RETURNING id`)
+        .bind(id, episodeId, profileId, body, now, now, profileId, s.account_id, ...guardValues(s, now))
+        .first<{ id: string }>();
+      if (row?.id !== id) {
+        if (!(await this.session(s.token_hash, now))) throw unauthenticated();
+        await this.ownedProfile(profileId, s.account_id);
+        throw unauthenticated();
+      }
+      return this.comment(id, episodeId, profileId);
+    } catch (error) {
+      if (error instanceof Error && error.message.includes('COMMENT_LIMIT'))
+        throw new AppError(409, 'BAD_REQUEST', 'This profile has reached its community comment limit. Remove an older comment before posting again.');
+      throw error;
+    }
+  }
+  async updateComment(s: CloudSession, episodeId: number, id: string, profileId: string, body: string, revision: number, now: number) {
+    const changed = await this.db.prepare(`UPDATE episode_comments SET body=?,revision=revision+1,updated_at=?
+      WHERE id=? AND episode_id=? AND profile_id=? AND revision=? AND moderation_state='visible'
+      AND EXISTS(SELECT 1 FROM profiles WHERE id=? AND account_id=?) AND ${sessionGuard} RETURNING id`)
+      .bind(body, now, id, episodeId, profileId, revision, profileId, s.account_id, ...guardValues(s, now))
+      .first<{ id: string }>();
+    if (changed?.id !== id) {
+      if (!(await this.session(s.token_hash, now))) throw unauthenticated();
+      await this.ownedProfile(profileId, s.account_id);
+      const existing = await this.db.prepare(`SELECT revision FROM episode_comments
+        WHERE id=? AND episode_id=? AND profile_id=? AND moderation_state='visible'`)
+        .bind(id, episodeId, profileId).first<{ revision: number }>();
+      if (!existing) throw new AppError(404, 'NOT_FOUND', 'Comment not found.');
+      throw commentConflict();
+    }
+    return this.comment(id, episodeId, profileId);
+  }
+  async deleteComment(s: CloudSession, episodeId: number, id: string, profileId: string, revision: number, now: number) {
+    const removed = await this.db.prepare(`DELETE FROM episode_comments
+      WHERE id=? AND episode_id=? AND profile_id=? AND revision=?
+      AND EXISTS(SELECT 1 FROM profiles WHERE id=? AND account_id=?) AND ${sessionGuard} RETURNING id`)
+      .bind(id, episodeId, profileId, revision, profileId, s.account_id, ...guardValues(s, now))
+      .first<{ id: string }>();
+    if (removed?.id !== id) {
+      if (!(await this.session(s.token_hash, now))) throw unauthenticated();
+      await this.ownedProfile(profileId, s.account_id);
+      const existing = await this.db.prepare('SELECT revision FROM episode_comments WHERE id=? AND episode_id=? AND profile_id=?')
+        .bind(id, episodeId, profileId).first<{ revision: number }>();
+      if (!existing) throw new AppError(404, 'NOT_FOUND', 'Comment not found.');
+      throw commentConflict();
     }
   }
   async rotateRecovery(s: CloudSession, hash: string, now: number) {

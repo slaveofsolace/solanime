@@ -23,6 +23,17 @@ export type CloudAccount = {
   operation_error: string | null;
 };
 export type CloudProfile = { id: string; name: string; avatar: string };
+export type CloudEpisodeComment = {
+  id: string;
+  episode_id: number;
+  author_name: string;
+  author_avatar: string;
+  body: string;
+  revision: number;
+  created_at: number;
+  updated_at: number;
+  viewer_owned: number;
+};
 export type CloudSession = {
   token_hash: string;
   account_id: string;

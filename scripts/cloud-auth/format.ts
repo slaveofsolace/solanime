@@ -1,13 +1,16 @@
 import { createHash } from 'node:crypto';
 import { object, emailAddress, profileInput, validateData } from '../../server/accounts/validation.ts';
+import { communityCommentBody } from '../../server/community.ts';
 
 export class MigrationError extends Error {}
 export const STANDARD_SCRYPT = { algorithm: 'STANDARD_SCRYPT', memoryCost: 131072, parallelization: 1, blockSize: 8, derivedKeyLength: 64 } as const;
 export type PrivateAccount = { id: string; firebase_uid: string; email: string; recovery_hash: string; email_verified: number; created_at: number };
 export type PrivateProfile = { id: string; account_id: string; name: string; avatar: string; created_at: number };
 export type PrivateProfileData = { profile_id: string; key: string; value: string; revision: number; updated_at: number };
+export type PrivateEpisodeComment = { id: string; episode_id: number; profile_id: string; body: string; revision: number;
+  moderation_state: 'visible' | 'hidden'; created_at: number; updated_at: number };
 export type PrivateState = { schemaVersion: 1; firebaseProjectId: string; sourceBackupSha256: string;
-  accounts: PrivateAccount[]; profiles: PrivateProfile[]; profileData: PrivateProfileData[] };
+  accounts: PrivateAccount[]; profiles: PrivateProfile[]; profileData: PrivateProfileData[]; episodeComments: PrivateEpisodeComment[] };
 const id = (value: unknown): value is string => typeof value === 'string' && /^[\w-]{36}$/.test(value);
 const integer = (value: unknown): value is number => typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
 export const sha256 = (value: string | Uint8Array) => createHash('sha256').update(value).digest('hex');
@@ -31,7 +34,8 @@ export function validatePrivateState(value: unknown): PrivateState {
   try {
     if (!object(value) || value.schemaVersion !== 1 || typeof value.firebaseProjectId !== 'string' || !validProject(value.firebaseProjectId) ||
       typeof value.sourceBackupSha256 !== 'string' || !/^[\da-f]{64}$/.test(value.sourceBackupSha256) ||
-      !Array.isArray(value.accounts) || !Array.isArray(value.profiles) || !Array.isArray(value.profileData)) throw new Error();
+      !Array.isArray(value.accounts) || !Array.isArray(value.profiles) || !Array.isArray(value.profileData) ||
+      (value.episodeComments !== undefined && !Array.isArray(value.episodeComments))) throw new Error();
     const accountIds = new Set<string>(), emails = new Set<string>();
     const accounts = value.accounts.map((row): PrivateAccount => {
       if (!object(row) || !id(row.id) || row.firebase_uid !== row.id || typeof row.email !== 'string' ||
@@ -63,7 +67,23 @@ export function validatePrivateState(value: unknown): PrivateState {
       if (dataCounts.get(row.profile_id)! > 2005 || dataBytes.get(row.profile_id)! > 2 * 1024 * 1024) throw new Error();
       return { profile_id: row.profile_id, key: row.key, value: row.value, revision: row.revision, updated_at: row.updated_at };
     });
-    return { schemaVersion: 1, firebaseProjectId: value.firebaseProjectId, sourceBackupSha256: value.sourceBackupSha256, accounts, profiles, profileData };
+    const commentIds = new Set<string>(), commentTotals = new Map<string, number>(), commentEpisodeTotals = new Map<string, number>();
+    const episodeComments = (value.episodeComments ?? []).map((row): PrivateEpisodeComment => {
+      if (!object(row) || !id(row.id) || commentIds.has(row.id) || !integer(row.episode_id) || row.episode_id < 1 ||
+        typeof row.profile_id !== 'string' || !profileIds.has(row.profile_id) || typeof row.body !== 'string' ||
+        communityCommentBody(row.body) !== row.body || !integer(row.revision) || row.revision < 1 ||
+        (row.moderation_state !== 'visible' && row.moderation_state !== 'hidden') ||
+        !integer(row.created_at) || !integer(row.updated_at) || row.updated_at < row.created_at) throw new Error();
+      commentIds.add(row.id);
+      commentTotals.set(row.profile_id, (commentTotals.get(row.profile_id) ?? 0) + 1);
+      const episodeKey = `${row.profile_id}:${row.episode_id}`;
+      commentEpisodeTotals.set(episodeKey, (commentEpisodeTotals.get(episodeKey) ?? 0) + 1);
+      if (commentTotals.get(row.profile_id)! > 5000 || commentEpisodeTotals.get(episodeKey)! > 100) throw new Error();
+      return { id: row.id, episode_id: row.episode_id, profile_id: row.profile_id, body: row.body,
+        revision: row.revision, moderation_state: row.moderation_state, created_at: row.created_at, updated_at: row.updated_at };
+    });
+    return { schemaVersion: 1, firebaseProjectId: value.firebaseProjectId, sourceBackupSha256: value.sourceBackupSha256,
+      accounts, profiles, profileData, episodeComments };
   } catch (error) {
     if (error instanceof MigrationError) throw error;
     throw new MigrationError('Private migration data failed identity, ownership, quota, or schema validation. Nothing was imported.');

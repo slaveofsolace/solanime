@@ -301,6 +301,8 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     try {
       const url = new URL(request.url ?? '/', 'http://127.0.0.1');
       const method = request.method ?? 'GET';
+      if (await accounts.handleCommunity(request, response, url, (episodeId) =>
+        Boolean(db.prepare('SELECT 1 FROM episodes WHERE id=?').get(episodeId)))) return;
       if (await accounts.handle(request, response, url)) return;
       if (method === 'GET' && url.pathname === '/api/health')
         return json(response, 200, {

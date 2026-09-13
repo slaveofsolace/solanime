@@ -181,6 +181,25 @@ export interface EpisodeComment {
   createdAt: string;
 }
 
+export interface CommunityComment {
+  id: string;
+  episodeId: string;
+  author: { name: string; avatar: 'ruby' | 'ocean' | 'violet' | 'emerald' | 'amber' };
+  body: string;
+  revision: number;
+  createdAt: string;
+  updatedAt: string;
+  ownedByViewer: boolean;
+}
+
+export interface CommunityCommentsPage {
+  items: CommunityComment[];
+  total: number;
+  page: number;
+  pageSize: number;
+  pages: number;
+}
+
 export interface WatchedEpisode {
   episodeId: string;
   language: string;

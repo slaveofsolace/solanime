@@ -56,19 +56,25 @@ export async function prepareMigration(source: string, out: string, firebaseProj
     const accounts = snapshot.prepare('SELECT id,email,password_hash,recovery_hash,email_verified,created_at FROM accounts ORDER BY id').all();
     const profiles = snapshot.prepare('SELECT id,account_id,name,avatar,created_at FROM profiles ORDER BY account_id,created_at,id').all();
     const profileData = snapshot.prepare('SELECT profile_id,key,value,revision,updated_at FROM profile_data ORDER BY profile_id,key').all();
+    const hasComments = Boolean(snapshot.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='episode_comments'").get());
+    const episodeComments = hasComments ? snapshot.prepare(`SELECT id,episode_id,profile_id,body,revision,moderation_state,created_at,updated_at
+      FROM episode_comments ORDER BY profile_id,created_at,id`).all() : [];
     const users = accounts.map(firebaseUser);
     const state = validatePrivateState({ schemaVersion: 1, firebaseProjectId, sourceBackupSha256: await fileHash(snapshotPath),
-      accounts: accounts.map(({ password_hash: _password, ...account }) => ({ ...account, firebase_uid: account.id })), profiles, profileData });
+      accounts: accounts.map(({ password_hash: _password, ...account }) => ({ ...account, firebase_uid: account.id })),
+      profiles, profileData, episodeComments });
     const files = { 'firebase-users.json': JSON.stringify({ users }), 'private-state.json': JSON.stringify(state) };
     for (const [name, data] of Object.entries(files)) await writeFile(resolve(output, name), data, { encoding: 'utf8', mode: 0o600, flag: 'wx' });
     const manifest = { schemaVersion: 1, firebaseProjectId, preparedAt: new Date().toISOString(), passwordHashAlgorithm: STANDARD_SCRYPT,
-      sourceBackupSha256: state.sourceBackupSha256, accounts: accounts.length, profiles: profiles.length, profileValues: profileData.length,
+      sourceBackupSha256: state.sourceBackupSha256, accounts: accounts.length, profiles: profiles.length,
+      profileValues: profileData.length, episodeComments: episodeComments.length,
       sessionsMigrated: 0, requiresFreshSignIn: true,
       files: Object.fromEntries(Object.entries(files).map(([name, data]) => [name, { bytes: Buffer.byteLength(data), sha256: sha256(data) }])),
       firebaseCommand: ['firebase', ...firebaseImportArguments(resolve(output, 'firebase-users.json'), firebaseProjectId)],
       privacy: 'Every file in this directory is private. Never commit, publish, or add it to a source release archive.' };
     await writeFile(resolve(output, 'manifest.json'), JSON.stringify(manifest, null, 2), { encoding: 'utf8', mode: 0o600, flag: 'wx' });
-    return { output, accounts: accounts.length, profiles: profiles.length, profileValues: profileData.length };
+    return { output, accounts: accounts.length, profiles: profiles.length,
+      profileValues: profileData.length, episodeComments: episodeComments.length };
   } finally { snapshot.close(); }
 }
 async function main() {

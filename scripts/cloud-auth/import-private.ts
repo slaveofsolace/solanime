@@ -6,7 +6,7 @@ import { object } from '../../server/accounts/validation.ts';
 import { MigrationError, sha256, validatePrivateState, type PrivateState } from './format.ts';
 import { PrivateD1Client } from './d1-client.ts';
 
-type Row = { table: 'accounts' | 'profiles' | 'profile_data'; columns: string[]; keys: string[]; values: (string | number)[]; estimatedWrites: number };
+type Row = { table: 'accounts' | 'profiles' | 'profile_data' | 'episode_comments'; columns: string[]; keys: string[]; values: (string | number)[]; estimatedWrites: number };
 export function privateImportRows(state: PrivateState): Row[] {
   return [
     ...state.accounts.map((row): Row => ({ table: 'accounts', keys: ['id'], columns: ['id', 'firebase_uid', 'email', 'recovery_hash', 'email_verified', 'created_at'],
@@ -15,6 +15,10 @@ export function privateImportRows(state: PrivateState): Row[] {
       values: [row.id, row.account_id, row.name, row.avatar, row.created_at], estimatedWrites: 3 })),
     ...state.profileData.map((row): Row => ({ table: 'profile_data', keys: ['profile_id', 'key'], columns: ['profile_id', 'key', 'value', 'revision', 'updated_at'],
       values: [row.profile_id, row.key, row.value, row.revision, row.updated_at], estimatedWrites: 2 })),
+    ...state.episodeComments.map((row): Row => ({ table: 'episode_comments', keys: ['id'],
+      columns: ['id', 'episode_id', 'profile_id', 'body', 'revision', 'moderation_state', 'created_at', 'updated_at'],
+      values: [row.id, row.episode_id, row.profile_id, row.body, row.revision, row.moderation_state, row.created_at, row.updated_at],
+      estimatedWrites: 3 })),
   ];
 }
 type Checkpoint = { schemaVersion: 1; artifactSha256: string; databaseId: string; nextRecord: number; completed: boolean };

@@ -1,18 +1,20 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { DatabaseSync, type SQLInputValue } from 'node:sqlite';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { createCloudAccounts, type CloudAccountConfig } from '../server/cloud/auth/index';
 import { FirebaseAuthError } from '../server/cloud/auth/firebase';
 import { digest, encodeBytes, openCredentials, randomToken, sealCredentials } from '../server/cloud/auth/crypto';
 import type { AccountDatabase, AccountStatement, CloudProfile, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from '../server/cloud/auth/types';
 import { generatedTestPassphrase, generatedTestToken } from './helpers/auth-material';
+import type { CommunityComment, CommunityCommentsPage } from '../src/types';
 
 // Real SQLite executes the D1 contract SQL. Network identity is deterministic and test-only.
 class SQLiteD1 implements AccountDatabase {
   readonly raw = new DatabaseSync(':memory:');
   constructor() {
     this.raw.exec('PRAGMA foreign_keys=ON');
-    this.raw.exec(readFileSync(new URL('../migrations/cloud/accounts/0001_accounts.sql', import.meta.url), 'utf8'));
+    for (const file of readdirSync(new URL('../migrations/cloud/accounts/', import.meta.url)).filter((item) => item.endsWith('.sql')).sort())
+      this.raw.exec(readFileSync(new URL(`../migrations/cloud/accounts/${file}`, import.meta.url), 'utf8'));
   }
   prepare(sql: string) { return new Statement(this.raw, sql); }
   async batch(statements: AccountStatement[]) {
@@ -139,6 +141,25 @@ function fixture(overrides: Partial<CloudAccountConfig> = {}) {
         const body = await r.json() as Body;
         if (body.csrfToken) csrf = body.csrfToken;
         return { response: r, body };
+      },
+      async community<T = Record<string, unknown>>(
+        path: string,
+        options: { method?: 'GET' | 'POST' | 'PATCH' | 'DELETE'; body?: unknown; headers?: Record<string, string> } = {},
+      ) {
+        const method = options.method ?? 'GET';
+        const mutation = method !== 'GET';
+        const r = await service.handle(new Request(origin + '/api/episodes/' + path, {
+          method,
+          headers: {
+            ...(cookie ? { cookie } : {}),
+            ...(mutation ? { origin, 'content-type': 'application/json', 'x-solanime-intent': 'account',
+              'x-csrf-token': csrf, 'sec-fetch-site': 'same-origin' } : {}),
+            ...options.headers,
+          },
+          ...(options.body === undefined ? {} : { body: JSON.stringify(options.body) }),
+        }));
+        if (!r) throw Error('Community handler did not match');
+        return { response: r, body: await r.json() as T };
       },
     };
   };
@@ -353,6 +374,86 @@ describe('D1 managed account bridge', () => {
     const profile = (await a.call('register', { email: 'valid@example.test', password })).body.profiles[0].id;
     expect((await a.call(`profiles/${profile}/data`, { key: '__proto__', value: {}, revision: 0 })).response.status).toBe(400);
     expect((await a.call('profiles', { name: 'x'.repeat(280000), avatar: 'ruby' })).response.status).toBe(413);
+  });
+
+  it('publishes paginated episode comments without exposing private account or profile identifiers', async () => {
+    const f = fixture({ episodeExists: async (id) => id === 10 }), a = f.client(), guest = f.client();
+    const registered = await a.call('register', { email: 'community-owner@example.test', password });
+    const profileId = registered.body.profiles[0].id;
+    for (const body of ['First public thought', 'Second public thought', 'Third public thought']) {
+      const created = await a.community<{ comment: CommunityComment }>('10/comments', {
+        method: 'POST', body: { profileId, body },
+      });
+      expect(created.response.status).toBe(201);
+      expect(created.body.comment).toMatchObject({ episodeId: '10', body, revision: 1,
+        ownedByViewer: true, author: { name: 'You', avatar: 'ruby' } });
+    }
+    const first = await guest.community<CommunityCommentsPage>('10/comments?page=1&pageSize=2');
+    const second = await guest.community<CommunityCommentsPage>('10/comments?page=2&pageSize=2');
+    expect(first.response.status).toBe(200);
+    expect(first.body).toMatchObject({ total: 3, page: 1, pageSize: 2, pages: 2 });
+    expect(first.body.items).toHaveLength(2);
+    expect(second.body.items).toHaveLength(1);
+    expect(first.body.items.every((comment) => !comment.ownedByViewer)).toBe(true);
+    const publicJson = JSON.stringify(first.body);
+    expect(publicJson).not.toContain('community-owner@example.test');
+    expect(publicJson).not.toContain(profileId);
+    expect(publicJson).not.toMatch(/firebase|account_id|profile_id|csrf|token/i);
+    const owned = await a.community<CommunityCommentsPage>(`10/comments?profile=${profileId}`);
+    expect(owned.body.items.every((comment) => comment.ownedByViewer)).toBe(true);
+    expect((await guest.community('10/comments?page=0')).response.status).toBe(400);
+    expect((await guest.community('10/comments?pageSize=51')).response.status).toBe(400);
+    expect((await guest.community('11/comments')).response.status).toBe(404);
+  });
+
+  it('requires an owned current profile, exact CSRF, and matching revisions to edit or delete comments', async () => {
+    const f = fixture({ episodeExists: async (id) => id === 10 }), owner = f.client(), other = f.client(), guest = f.client();
+    const ownerProfile = (await owner.call('register', { email: 'comment-owner@example.test', password })).body.profiles[0].id;
+    const otherProfile = (await other.call('register', { email: 'comment-other@example.test', password })).body.profiles[0].id;
+    const created = await owner.community<{ comment: CommunityComment }>('10/comments', {
+      method: 'POST', body: { profileId: ownerProfile, body: 'Original comment' },
+    });
+    const id = created.body.comment.id;
+    expect((await guest.community('10/comments', { method: 'POST', body: { profileId: ownerProfile, body: 'No session' } })).response.status).toBe(401);
+    expect((await owner.community('10/comments', { method: 'POST', body: { profileId: ownerProfile, body: 'Bad CSRF' },
+      headers: { 'x-csrf-token': 'invalid' } })).response.status).toBe(403);
+    expect((await owner.community('10/comments', { method: 'POST', body: { profileId: ownerProfile, body: 'Bad intent' },
+      headers: { 'x-solanime-intent': '' } })).response.status).toBe(403);
+    expect((await other.community(`10/comments/${id}`, { method: 'PATCH',
+      body: { profileId: otherProfile, body: 'Not mine', revision: 1 } })).response.status).toBe(404);
+    f.advance(1);
+    const edited = await owner.community<{ comment: CommunityComment }>(`10/comments/${id}`, {
+      method: 'PATCH', body: { profileId: ownerProfile, body: 'Edited comment', revision: 1 },
+    });
+    expect(edited.response.status).toBe(200);
+    expect(edited.body.comment).toMatchObject({ id, body: 'Edited comment', revision: 2, ownedByViewer: true });
+    expect(Date.parse(edited.body.comment.updatedAt)).toBeGreaterThan(Date.parse(edited.body.comment.createdAt));
+    expect((await owner.community(`10/comments/${id}`, { method: 'PATCH',
+      body: { profileId: ownerProfile, body: 'Stale edit', revision: 1 } })).response.status).toBe(409);
+    expect((await owner.community(`10/comments/${id}`, { method: 'DELETE',
+      body: { profileId: ownerProfile, revision: 1 } })).response.status).toBe(409);
+    const removed = await owner.community<{ deleted: boolean; id: string }>(`10/comments/${id}`, {
+      method: 'DELETE', body: { profileId: ownerProfile, revision: 2 },
+    });
+    expect(removed.response.status).toBe(200);
+    expect(removed.body).toEqual({ deleted: true, id });
+    expect((await guest.community<CommunityCommentsPage>('10/comments')).body.total).toBe(0);
+  });
+
+  it('rejects deceptive controls, oversized comments, invalid IDs, and hidden-row mutations', async () => {
+    const f = fixture({ episodeExists: async (id) => id === 10 }), a = f.client();
+    const profileId = (await a.call('register', { email: 'comment-validation@example.test', password })).body.profiles[0].id;
+    for (const body of ['', 'x'.repeat(1001), 'hidden\u202eevil'])
+      expect((await a.community('10/comments', { method: 'POST', body: { profileId, body } })).response.status).toBe(400);
+    const created = await a.community<{ comment: CommunityComment }>('10/comments', {
+      method: 'POST', body: { profileId, body: 'Visible before review' },
+    });
+    f.db.raw.prepare("UPDATE episode_comments SET moderation_state='hidden' WHERE id=?").run(created.body.comment.id);
+    expect((await a.community<CommunityCommentsPage>('10/comments')).body.total).toBe(0);
+    expect((await a.community(`10/comments/${created.body.comment.id}`, { method: 'PATCH',
+      body: { profileId, body: 'Cannot unhide it', revision: 1 } })).response.status).toBe(404);
+    expect((await a.community(`10/comments/${'0'.repeat(36)}`, { method: 'PATCH',
+      body: { profileId, body: 'Invalid', revision: 1 } })).response.status).toBe(400);
   });
 });
 

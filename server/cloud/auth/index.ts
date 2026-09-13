@@ -1,4 +1,5 @@
 import { AppError } from '../../errors.ts';
+import { COMMUNITY_PAGE_SIZE_MAX, communityCommentBody, communityPositiveInteger, communityRevision, communityUuid } from '../../community.ts';
 import { emailAddress, profileInput, validateData } from '../../accounts/validation.ts';
 import { FirebaseAuthError, FirebaseRestIdentity, type FirebaseAuthOptions } from './firebase.ts';
 import { digest, equalToken, openCredentials, randomToken, sealCredentials, validCredentialKey } from './crypto.ts';
@@ -16,6 +17,8 @@ export type CloudAccountConfig = {
   now?: () => number;
   /** Tests may inject an identity implementation. No request or environment flag enables a mock. */
   identity?: ManagedIdentity;
+  /** Cross-database existence proof supplied by the catalogue repository. */
+  episodeExists?: (episodeId: number) => Promise<boolean>;
 };
 const DAY = 86400000;
 const REMOTE_CHECK_INTERVAL = 5 * 60000;
@@ -56,7 +59,8 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
   }
   async function handle(request: Request): Promise<Response | null> {
     const url = new URL(request.url);
-    if (!url.pathname.startsWith('/api/account/')) return null;
+    const commentRoute = /^\/api\/episodes\/(\d+)\/comments(?:\/([0-9a-f-]{36}))?$/.exec(url.pathname);
+    if (!url.pathname.startsWith('/api/account/') && !commentRoute) return null;
     try {
       const { identity, key, origins } = configuration();
       const path = url.pathname, method = request.method;
@@ -148,6 +152,39 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         digest(bucket).then((hash) => repository.rate(hash, maximum, windowMs, now()));
       if (method !== 'GET') await rate('ip:' + ip, 150, 60000);
 
+      if (commentRoute) {
+        const episodeId = Number(commentRoute[1]);
+        if (!Number.isSafeInteger(episodeId) || episodeId < 1 || !config.episodeExists || !(await config.episodeExists(episodeId)))
+          throw new AppError(404, 'NOT_FOUND', 'Episode was not found.');
+        const requestedProfile = url.searchParams.get('profile');
+        let viewerProfileId: string | undefined;
+        if (requestedProfile !== null) {
+          const auth = required(s);
+          viewerProfileId = communityUuid(requestedProfile, 'profile');
+          await repository.ownedProfile(viewerProfileId, auth.account_id);
+        }
+        if (method === 'GET' && !commentRoute[2]) {
+          const page = communityPositiveInteger(url.searchParams.get('page'), 1, 100_000);
+          const pageSize = communityPositiveInteger(url.searchParams.get('pageSize'), 20, COMMUNITY_PAGE_SIZE_MAX);
+          return accountReply(200, await repository.comments(episodeId, page, pageSize, viewerProfileId));
+        }
+        if (!['POST', 'PATCH', 'DELETE'].includes(method) || (method === 'POST' && commentRoute[2]) || (method !== 'POST' && !commentRoute[2]))
+          throw new AppError(404, 'NOT_FOUND', 'Community route not found.');
+        const auth = required(s);
+        const input = await boundedJson(request, 16_384);
+        const profileId = communityUuid(input.profileId, 'profile');
+        await repository.ownedProfile(profileId, auth.account_id);
+        await rate('community:' + auth.account_id, 20, 60000);
+        if (method === 'POST')
+          return accountReply(201, { comment: await repository.createComment(auth, episodeId, profileId, communityCommentBody(input.body), now()) });
+        const commentId = communityUuid(commentRoute[2], 'comment');
+        const revision = communityRevision(input.revision);
+        if (method === 'PATCH')
+          return accountReply(200, { comment: await repository.updateComment(auth, episodeId, commentId, profileId, communityCommentBody(input.body), revision, now()) });
+        await repository.deleteComment(auth, episodeId, commentId, profileId, revision, now());
+        return accountReply(200, { deleted: true, id: commentId });
+      }
+
       if (method === 'POST' && (path === '/api/account/register' || path === '/api/account/login')) {
         const body = await boundedJson(request), email = emailAddress(body.email);
         await rate('sign:' + email + ':' + ip, 12, 15 * 60000);
@@ -214,7 +251,8 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       if (method === 'GET' && path === '/api/account/export') {
         const profiles = await repository.profiles(a.id);
         const exported = [];
-        for (const profile of profiles) exported.push({ ...profile, data: await repository.dataFor(profile.id, a.id) });
+        for (const profile of profiles) exported.push({ ...profile, data: await repository.dataFor(profile.id, a.id),
+          communityComments: await repository.commentsForProfile(profile.id, a.id) });
         return accountReply(200, { account: publicAccount(a), profiles: exported, exportedAt: new Date(now()).toISOString() },
           { 'Content-Disposition': 'attachment; filename="solanime-account.json"' });
       }

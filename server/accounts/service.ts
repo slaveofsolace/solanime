@@ -13,6 +13,14 @@ import {
 } from './passwords.ts';
 import { emailAddress, profileInput, validateData } from './validation.ts';
 import { readBody, reply, cookieValue } from './http.ts';
+import {
+  COMMUNITY_PAGE_SIZE_MAX,
+  communityCommentBody,
+  communityPositiveInteger,
+  communityRevision,
+  communityUuid,
+  publicComment,
+} from '../community.ts';
 
 type Account = {
   id: string;
@@ -211,6 +219,96 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     if (account(a.id).password_hash !== a.password_hash)
       throw new AppError(409, 'UNAUTHORIZED', 'The account changed. Sign in again.');
   }
+  async function handleCommunity(
+    req: IncomingMessage,
+    res: ServerResponse,
+    url: URL,
+    episodeExists: (episodeId: number) => boolean | Promise<boolean>,
+  ): Promise<boolean> {
+    const route = /^\/api\/episodes\/(\d+)\/comments(?:\/([0-9a-f-]{36}))?$/.exec(url.pathname);
+    if (!route) return false;
+    prune();
+    const method = req.method ?? 'GET';
+    const episodeId = Number(route[1]);
+    if (!Number.isSafeInteger(episodeId) || episodeId < 1 || !(await episodeExists(episodeId)))
+      throw new AppError(404, 'NOT_FOUND', 'Episode was not found.');
+    const session = readSession(req);
+    const requestedProfile = url.searchParams.get('profile');
+    let viewerProfileId: string | undefined;
+    if (requestedProfile !== null) {
+      if (!session) throw new AppError(401, 'UNAUTHORIZED', 'Sign in to continue.');
+      viewerProfileId = communityUuid(requestedProfile, 'profile');
+      ownedProfile(viewerProfileId, session.account_id);
+    }
+    if (method === 'GET' && !route[2]) {
+      const page = communityPositiveInteger(url.searchParams.get('page'), 1, 100_000);
+      const pageSize = communityPositiveInteger(url.searchParams.get('pageSize'), 20, COMMUNITY_PAGE_SIZE_MAX);
+      const total = Number((db.prepare("SELECT COUNT(*) AS total FROM episode_comments WHERE episode_id=? AND moderation_state='visible'")
+        .get(episodeId) as { total: number }).total);
+      const rows = db.prepare(`SELECT c.id,c.episode_id,p.name AS author_name,p.avatar AS author_avatar,
+        c.body,c.revision,c.created_at,c.updated_at,CASE WHEN c.profile_id=? THEN 1 ELSE 0 END AS viewer_owned
+        FROM episode_comments c JOIN profiles p ON p.id=c.profile_id
+        WHERE c.episode_id=? AND c.moderation_state='visible'
+        ORDER BY c.created_at DESC,c.id DESC LIMIT ? OFFSET ?`)
+        .all(viewerProfileId ?? '', episodeId, pageSize, (page - 1) * pageSize) as Parameters<typeof publicComment>[0][];
+      reply(res, 200, { items: rows.map(publicComment), total, page, pageSize,
+        pages: Math.max(1, Math.ceil(total / pageSize)) });
+      return true;
+    }
+    if (!['POST', 'PATCH', 'DELETE'].includes(method) || (method === 'POST' && route[2]) || (method !== 'POST' && !route[2]))
+      throw new AppError(404, 'NOT_FOUND', 'Community route not found.');
+    mutation(req, session);
+    const auth = requireSession(req);
+    const input = await readBody(req);
+    // Re-read after the asynchronous body so a concurrently revoked session cannot mutate.
+    if (!readSession(req)) throw new AppError(401, 'UNAUTHORIZED', 'Sign in to continue.');
+    const profileId = communityUuid(input.profileId, 'profile');
+    ownedProfile(profileId, auth.account_id);
+    rate('community:' + auth.account_id, 20, 60000);
+    if (method === 'POST') {
+      const id = randomUUID(), body = communityCommentBody(input.body), timestamp = now();
+      try {
+        db.prepare(`INSERT INTO episode_comments(id,episode_id,profile_id,body,revision,created_at,updated_at)
+          VALUES(?,?,?,?,1,?,?)`).run(id, episodeId, profileId, body, timestamp, timestamp);
+      } catch (error) {
+        if (error instanceof Error && error.message.includes('COMMENT_LIMIT'))
+          throw new AppError(409, 'BAD_REQUEST', 'This profile has reached its community comment limit. Remove an older comment before posting again.');
+        throw error;
+      }
+      const row = db.prepare(`SELECT c.id,c.episode_id,p.name AS author_name,p.avatar AS author_avatar,
+        c.body,c.revision,c.created_at,c.updated_at,1 AS viewer_owned FROM episode_comments c
+        JOIN profiles p ON p.id=c.profile_id WHERE c.id=? AND c.episode_id=?`).get(id, episodeId) as Parameters<typeof publicComment>[0];
+      reply(res, 201, { comment: publicComment(row) });
+      return true;
+    }
+    const id = communityUuid(route[2], 'comment');
+    const revision = communityRevision(input.revision);
+    const existing = db.prepare(`SELECT revision FROM episode_comments WHERE id=? AND episode_id=? AND profile_id=?
+      ${method === 'PATCH' ? "AND moderation_state='visible'" : ''}`)
+      .get(id, episodeId, profileId) as { revision: number } | undefined;
+    if (!existing) throw new AppError(404, 'NOT_FOUND', 'Comment not found.');
+    if (existing.revision !== revision)
+      throw new AppError(409, 'BAD_REQUEST', 'This comment changed in another tab. Reload comments before trying again.');
+    if (method === 'DELETE') {
+      const result = db.prepare('DELETE FROM episode_comments WHERE id=? AND episode_id=? AND profile_id=? AND revision=?')
+        .run(id, episodeId, profileId, revision);
+      if (result.changes !== 1)
+        throw new AppError(409, 'BAD_REQUEST', 'This comment changed in another tab. Reload comments before trying again.');
+      reply(res, 200, { deleted: true, id });
+      return true;
+    }
+    const body = communityCommentBody(input.body), timestamp = now();
+    const result = db.prepare(`UPDATE episode_comments SET body=?,revision=revision+1,updated_at=?
+      WHERE id=? AND episode_id=? AND profile_id=? AND revision=? AND moderation_state='visible'`)
+      .run(body, timestamp, id, episodeId, profileId, revision);
+    if (result.changes !== 1)
+      throw new AppError(409, 'BAD_REQUEST', 'This comment changed in another tab. Reload comments before trying again.');
+    const row = db.prepare(`SELECT c.id,c.episode_id,p.name AS author_name,p.avatar AS author_avatar,
+      c.body,c.revision,c.created_at,c.updated_at,1 AS viewer_owned FROM episode_comments c
+      JOIN profiles p ON p.id=c.profile_id WHERE c.id=? AND c.episode_id=?`).get(id, episodeId) as Parameters<typeof publicComment>[0];
+    reply(res, 200, { comment: publicComment(row) });
+    return true;
+  }
   async function handle(req: IncomingMessage, res: ServerResponse, url: URL): Promise<boolean> {
     if (!url.pathname.startsWith('/api/account/')) return false;
     prune();
@@ -403,7 +501,10 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
         200,
         {
           account: publicAccount(a),
-          profiles: profiles(a.id).map((p) => ({ ...p, data: dataFor(String(p.id)) })),
+          profiles: profiles(a.id).map((p) => ({ ...p, data: dataFor(String(p.id)),
+            communityComments: db.prepare(`SELECT id,CAST(episode_id AS TEXT) AS episodeId,body,revision,
+              moderation_state AS moderationState,created_at AS createdAt,updated_at AS updatedAt
+              FROM episode_comments WHERE profile_id=? ORDER BY created_at,id`).all(String(p.id)) })),
           exportedAt: new Date(now()).toISOString(),
         },
         { 'Content-Disposition': 'attachment; filename="solanime-account.json"' },
@@ -509,6 +610,6 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     }
     throw new AppError(404, 'NOT_FOUND', 'Account route not found.');
   }
-  return { handle, db, readSession, ownedProfile, name, close: () => db.close() };
+  return { handle, handleCommunity, db, readSession, ownedProfile, name, close: () => db.close() };
 }
 export type AccountsService = ReturnType<typeof createAccounts>;
