@@ -37,7 +37,7 @@ export interface ProviderResolution {
   headers?: Record<string, string>;
   expiresAt?: string;
   status: 'resolved' | 'unavailable' | 'blocked' | 'unsupported';
-  error?: { code: string; message: string };
+  error?: { code: string; message: string; retryable?: boolean };
 }
 
 export interface ProviderAdapter {

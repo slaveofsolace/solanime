@@ -108,6 +108,7 @@ export interface ProviderChoice {
   lastSuccessfulResolution?: string | null;
   lastPlaybackVerification?: string | null;
   reason?: string | null;
+  reasonCode?: string | null;
 }
 
 export interface ProvidersResponse {

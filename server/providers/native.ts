@@ -1,5 +1,6 @@
 import type { PlaybackResult, NativeCapabilities } from '../../shared/playback.ts';
 import type { StoredProviderMapping, ProviderResolution } from './contract.ts';
+import { providerSupportDiagnostic } from './support-diagnostics.ts';
 
 export type ApprovedNativeResource = {
   mapping_id: number;
@@ -30,8 +31,9 @@ function approvalError(mapping: NativeMappingIdentity, resource: ApprovedNativeR
 export function hasApprovedNativeResource(mapping: NativeMappingIdentity, resource: ApprovedNativeResource | null | undefined): boolean {
   return !!resource && approvalError(mapping, resource) === null;
 }
-export function unsupportedNative(mapping: StoredProviderMapping, code = 'NATIVE_INTEGRATION_UNAVAILABLE', message = 'This provider has no verified native playback connection for this episode.', retryable = false): PlaybackResult {
-  return { kind: 'unsupported', mappingId: String(mapping.mappingId), providerId: mapping.providerId, language: mapping.language, error: { code, message, retryable } };
+export function unsupportedNative(mapping: StoredProviderMapping, code?: string, message?: string, retryable?: boolean): PlaybackResult {
+  const diagnostic = providerSupportDiagnostic(mapping);
+  return { kind: 'unsupported', mappingId: String(mapping.mappingId), providerId: mapping.providerId, language: mapping.language, error: { code: code ?? diagnostic.code, message: message ?? diagnostic.message, retryable: retryable ?? diagnostic.retryable } };
 }
 export async function boundedPublicJson(response: Response, maxBytes = 1024 * 1024): Promise<unknown> {
   if (!response.ok) {

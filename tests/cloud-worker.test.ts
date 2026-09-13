@@ -196,7 +196,7 @@ describe('Worker API against actual D1', () => {
     expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: false }, { mappingId: '31', providerId: 'internet-archive', supported: true }] });
     expect(JSON.stringify(choices)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(JSON.stringify(choices)).not.toContain('test-public-item');
-    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: false }] });
+    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: false, reasonCode: 'PROVIDER_EMBED_ONLY' }] });
     expect((await request('/api/episodes/10/providers?language=other')).status).toBe(404);
   });
 
@@ -241,7 +241,7 @@ describe('Worker API against actual D1', () => {
     const send = vi.fn(); vi.stubGlobal('fetch', send);
     const response = await request('/api/providers/30/resolve', mutation({ language: 'sub', url: 'http://127.0.0.1/private' }));
     expect(response.status).toBe(422);
-    expect(await response.json()).toMatchObject({ mappingId: '30', kind: 'unsupported', result: { providerId: 'hd-1', error: { code: 'NATIVE_INTEGRATION_UNAVAILABLE' } } });
+    expect(await response.json()).toMatchObject({ mappingId: '30', kind: 'unsupported', result: { providerId: 'hd-1', error: { code: 'PROVIDER_EMBED_ONLY', retryable: false } } });
     expect(send).not.toHaveBeenCalled();
   });
 

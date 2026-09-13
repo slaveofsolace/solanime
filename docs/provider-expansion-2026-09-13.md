@@ -167,6 +167,41 @@ or identity approval.
 
 ## Verification and nonclaims
 
+### Provider-specific application diagnostics
+
+The application now derives unsupported reasons from the stored provider ID
+without contacting the provider or exposing opaque resource references:
+
+| Stored provider IDs | API reason code | Meaning |
+| --- | --- | --- |
+| `vidstream-2`, `hd-1`, `hd-2` | `PROVIDER_EMBED_ONLY` | A provider-hosted iframe is documented, but no verified native-media interface is available to the selected player. |
+| `kiwi` | `DOWNLOAD_ONLY_SOURCE` | The retained relationship was observed as a download option, not a supported streaming integration. |
+| `vidplay-1` | `PROVIDER_BACKEND_UNVERIFIED` | The visible identity is retained, but the backend and supported interface are not verified. |
+| Any other unapproved provider | `NATIVE_INTEGRATION_UNAVAILABLE` | No reviewed native playback connection exists for this mapping. |
+
+The same classification is returned by local provider choices, local resolution,
+Cloudflare provider choices, and Cloudflare resolution. Unsupported results remain
+HTTP 422, are non-retryable, and omit `url`, `embedUrl`, and private provider
+references. This is a diagnostics improvement, not an enabled provider or a
+playback-verification claim.
+
+Focused verification for this update:
+
+```text
+pnpm typecheck
+passed
+
+pnpm exec vitest run tests/provider-support-diagnostics.test.ts \
+  tests/native-policy.test.ts tests/api.test.ts tests/cloud-worker.test.ts
+4 files passed; 75 tests passed
+
+pnpm exec vitest run tests/providers.test.ts \
+  tests/native-archive.test.ts tests/native-commons.test.ts \
+  tests/native-policy.test.ts tests/native-sources.test.ts \
+  tests/native-observation.test.ts tests/provider-support-diagnostics.test.ts
+7 files passed; 112 tests passed
+```
+
 The provider-policy suite passed on this checkout:
 
 ```text

@@ -375,7 +375,7 @@ describe('application HTTP API', () => {
     expect(response.status).toBe(422);
     await expect(response.json()).resolves.toMatchObject({
       status: 'unsupported',
-      error: { code: 'UNSUPPORTED_SOURCE' },
+      error: { code: 'DOWNLOAD_ONLY_SOURCE', retryable: false },
       mappingId: String(mappingId),
     });
     expect(
@@ -391,10 +391,17 @@ describe('application HTTP API', () => {
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
     const result = await (
       await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)
-    ).json<{ providers: Array<{ mappingId: string }> }>();
+    ).json<{ providers: Array<{ mappingId: string; providerId: string }> }>();
     expect(result.providers).toHaveLength(3);
-    for (const p of result.providers)
-      expect(p).toMatchObject({ supported: false, status: 'unsupported', playbackType: 'unknown' });
+    for (const p of result.providers) {
+      const embedOnly = p.providerId === 'hd-1' || p.providerId === 'hd-2';
+      expect(p).toMatchObject({
+        supported: false,
+        status: 'unsupported',
+        playbackType: 'unknown',
+        reasonCode: embedOnly ? 'PROVIDER_EMBED_ONLY' : 'DOWNLOAD_ONLY_SOURCE',
+      });
+    }
     const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -402,7 +409,7 @@ describe('application HTTP API', () => {
     });
     expect(res.status).toBe(422);
     const body = await res.json<{ error: { code: string } }>();
-    expect(body.error.code).toBe('UNSUPPORTED_SOURCE');
+    expect(body.error.code).toBe('PROVIDER_EMBED_ONLY');
     expect(body).not.toHaveProperty('embedUrl');
     expect(body).not.toHaveProperty('url');
     expect(

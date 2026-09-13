@@ -1,14 +1,20 @@
-import { isMediaKind, UNSUPPORTED_SOURCE } from '../../shared/playback.ts';
+import { isMediaKind } from '../../shared/playback.ts';
 import type { ProviderResolution, StoredProviderMapping } from './contract.ts';
+import { providerSupportDiagnostic } from './support-diagnostics.ts';
 export function unsupportedSource(
   mapping: Pick<StoredProviderMapping, 'mappingId' | 'providerId'>,
 ): ProviderResolution {
+  const diagnostic = providerSupportDiagnostic(mapping);
   return {
     mappingId: mapping.mappingId,
     providerId: mapping.providerId,
     playbackType: 'unknown',
     status: 'unsupported',
-    error: { code: 'UNSUPPORTED_SOURCE', message: UNSUPPORTED_SOURCE },
+    error: {
+      code: diagnostic.code,
+      message: diagnostic.message,
+      retryable: diagnostic.retryable,
+    },
   };
 }
 /** A resolver extension cannot accidentally restore legacy iframe fallback. */

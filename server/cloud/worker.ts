@@ -13,6 +13,7 @@ import { createAnikotoRefreshRepository } from './data/anikoto-refresh.ts';
 import { createSnapshotImportHandlers, createSnapshotImportRepository } from './data/snapshot.ts';
 import { legacyResolution, type ApprovedNativeResource } from '../providers/native.ts';
 import { hasEnabledNativeResource, resolveApprovedNative, NATIVE_RESEARCH_RECORDS } from '../providers/native-registry.ts';
+import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
 const apiHeaders = {
@@ -107,7 +108,13 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const result = await catalogue.getEpisodeProviders(number(episodes[1], 0, Number.MAX_SAFE_INTEGER), bounded(p.get('language')));
       const approved = await env.CATALOGUE.prepare('SELECT r.*,m.id AS mappingId,m.provider_id AS providerId,m.provider_resource_id AS providerResourceId,v.language AS mappingLanguage FROM native_resources r JOIN episode_provider_mappings m ON m.id=r.mapping_id JOIN episode_versions v ON v.id=m.version_id WHERE m.version_id=?').bind(Number(result.version.id)).all<ApprovedNativeResource & { mappingId: number; providerId: string; providerResourceId: string | null; mappingLanguage: string }>();
       const ids = new Set(approved.results.filter(r => hasEnabledNativeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
-      return json({ ...result, providers: result.providers.map(provider => ({ ...provider, supported: ids.has(String(provider.mappingId)), playbackType: ids.has(String(provider.mappingId)) ? 'direct' : 'unknown', status: ids.has(String(provider.mappingId)) ? 'available' : 'unsupported', reason: ids.has(String(provider.mappingId)) ? null : 'No verified native connection is available for this source.', capabilities: ids.has(String(provider.mappingId)) ? { seek: true, volume: true, fullscreen: true, progressEvents: true, subtitles: false } : {} })) });
+      return json({ ...result, providers: result.providers.map(provider => {
+        const supported = ids.has(String(provider.mappingId));
+        const diagnostic = providerSupportDiagnostic({
+          providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
+        });
+        return { ...provider, supported, playbackType: supported ? 'direct' : 'unknown', status: supported ? 'available' : 'unsupported', reason: supported ? null : diagnostic.message, reasonCode: supported ? null : diagnostic.code, capabilities: supported ? { seek: true, volume: true, fullscreen: true, progressEvents: true, subtitles: false } : {} };
+      }) });
     }
     const resolve = /^\/api\/providers\/(\d+)\/resolve$/.exec(path);
     if (request.method === 'POST' && resolve) {

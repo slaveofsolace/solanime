@@ -28,6 +28,7 @@ import { unsupportedSource, enforceNativeResolution } from './providers/playback
 import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.ts';
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
+import { providerSupportDiagnostic } from './providers/support-diagnostics.ts';
 
 const MAX_BODY = 16 * 1024;
 const DEFAULT_MAX_PENDING_RESOLUTIONS = 8;
@@ -350,6 +351,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
             const resource = db.prepare('SELECT * FROM native_resources WHERE mapping_id=?').get(mapping.mappingId) as ApprovedNativeResource | undefined;
             const approved = hasEnabledNativeResource(mapping, resource);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
+            const diagnostic = providerSupportDiagnostic(mapping);
             return {
               ...provider,
               supported: !!approved || source?.status === 'resolved',
@@ -361,7 +363,8 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source || approved ? null : 'No authorized native integration is configured for this source.'),
+                (source || approved ? null : diagnostic.message),
+              reasonCode: source?.error?.code ?? (source || approved ? null : diagnostic.code),
               capabilities:
                 approved || source?.status === 'resolved'
                   ? {
