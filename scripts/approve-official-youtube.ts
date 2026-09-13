@@ -4,7 +4,7 @@ import { migrate, openDatabase, projectRoot } from '../server/db.ts';
 import {
   applyOfficialYouTubeApproval,
   locateOfficialYouTubeEpisode,
-  REMOW_EPISODE_APPROVALS,
+  OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   verifyOfficialYouTubeOEmbed,
 } from '../server/ingestion/youtubeOfficial.ts';
 
@@ -18,7 +18,7 @@ const db = apply ? openDatabase(databasePath) : new DatabaseSync(databasePath, {
 try {
   if (apply) migrate(db);
   const results = [];
-  for (const approval of REMOW_EPISODE_APPROVALS) {
+  for (const approval of OFFICIAL_YOUTUBE_EPISODE_APPROVALS) {
     const identity = locateOfficialYouTubeEpisode(db, approval);
     const provider = await verifyOfficialYouTubeOEmbed(approval);
     results.push({

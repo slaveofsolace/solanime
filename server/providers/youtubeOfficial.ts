@@ -2,18 +2,18 @@ import type { NativeCapabilities, PlaybackResult } from '../../shared/playback.t
 import type { ApprovedNativeResource } from './native.ts';
 import type { StoredProviderMapping } from './contract.ts';
 import { unsupportedNative } from './native.ts';
+import {
+  isExactOfficialYouTubePublisher,
+  officialYouTubePublisherPolicyForChannel,
+  officialYouTubePublisherPolicyForChannelUrl,
+} from '../../shared/youtubeOfficialPublishers.ts';
+
+export { GUNDAM_INFO_PUBLISHER, REMOW_PUBLISHER } from '../../shared/youtubeOfficialPublishers.ts';
 
 export const OFFICIAL_YOUTUBE_PROVIDER_ID = 'youtube-official' as const;
 export const OFFICIAL_YOUTUBE_EMBED_HOST = 'www.youtube-nocookie.com' as const;
 export const OFFICIAL_YOUTUBE_EMBED_BASIS =
   'Official publisher-hosted YouTube embed; copyright retained by the owner' as const;
-export const REMOW_PUBLISHER = Object.freeze({
-  label: "It's Anime powered by REMOW",
-  channelId: 'UCsj_CYajUSQ2ca8bYCMan9g',
-  channelUrl: 'https://www.youtube.com/channel/UCsj_CYajUSQ2ca8bYCMan9g',
-  handleUrl: 'https://www.youtube.com/@ItsAnimeJP',
-});
-
 const VIDEO_ID = /^[A-Za-z0-9_-]{11}$/;
 const capabilities: NativeCapabilities = Object.freeze({
   seek: true,
@@ -49,13 +49,17 @@ export function officialYouTubeApprovalError(
     resource.language !== mapping.language
   )
     return 'RESOURCE_IDENTITY_MISMATCH';
+  const publisherPolicy = officialYouTubePublisherPolicyForChannelUrl(
+    resource.identity_evidence_url,
+  );
   if (!VIDEO_ID.test(resource.resource_id)) return 'INVALID_YOUTUBE_VIDEO_ID';
   if (
     resource.enabled !== 1 ||
     !Number.isFinite(Date.parse(resource.approved_at)) ||
     !resource.edition.trim() ||
     resource.license !== OFFICIAL_YOUTUBE_EMBED_BASIS ||
-    !exactHttps(resource.identity_evidence_url, REMOW_PUBLISHER.channelUrl) ||
+    !publisherPolicy ||
+    !exactHttps(resource.identity_evidence_url, publisherPolicy.publisher.channelUrl) ||
     !exactHttps(
       resource.rights_evidence_url,
       `https://www.youtube.com/watch?v=${resource.resource_id}`,
@@ -88,6 +92,9 @@ export function resolveOfficialYouTube(
           : 'This YouTube upload has not passed the official-publisher approval gate.',
       false,
     );
+  const publisher = officialYouTubePublisherPolicyForChannelUrl(
+    resource.identity_evidence_url,
+  )!.publisher;
   return {
     kind: 'official-youtube',
     mappingId: String(mapping.mappingId),
@@ -97,10 +104,10 @@ export function resolveOfficialYouTube(
     videoId: resource.resource_id,
     allowedEmbedHosts: [OFFICIAL_YOUTUBE_EMBED_HOST],
     capabilities,
-    publisher: REMOW_PUBLISHER,
+    publisher,
     expiresAt: null,
     attribution: {
-      label: `${REMOW_PUBLISHER.label} · YouTube`,
+      label: `${publisher.label} · YouTube`,
       url: resource.rights_evidence_url,
       license: OFFICIAL_YOUTUBE_EMBED_BASIS,
     },
@@ -122,9 +129,7 @@ export function sanitizeOfficialYouTubeResolution(
     value.mappingId !== mapping.mappingId ||
     value.videoId !== expectedVideoId ||
     !VIDEO_ID.test(value.videoId) ||
-    value.publisher?.channelId !== REMOW_PUBLISHER.channelId ||
-    value.publisher?.channelUrl !== REMOW_PUBLISHER.channelUrl ||
-    value.publisher?.handleUrl !== REMOW_PUBLISHER.handleUrl ||
+    !isExactOfficialYouTubePublisher(value.publisher) ||
     value.allowedEmbedHosts?.length !== 1 ||
     value.allowedEmbedHosts[0] !== OFFICIAL_YOUTUBE_EMBED_HOST
   )
@@ -140,6 +145,7 @@ export function sanitizeOfficialYouTubeResolution(
         retryable: false,
       },
     };
+  const publisher = officialYouTubePublisherPolicyForChannel(value.publisher.channelId)!.publisher;
   return {
     kind: 'official-youtube',
     mappingId: mapping.mappingId,
@@ -150,10 +156,10 @@ export function sanitizeOfficialYouTubeResolution(
     videoId: value.videoId,
     allowedEmbedHosts: [OFFICIAL_YOUTUBE_EMBED_HOST],
     capabilities,
-    publisher: REMOW_PUBLISHER,
+    publisher,
     expiresAt: undefined,
     attribution: {
-      label: `${REMOW_PUBLISHER.label} · YouTube`,
+      label: `${publisher.label} · YouTube`,
       url: `https://www.youtube.com/watch?v=${value.videoId}`,
       license: OFFICIAL_YOUTUBE_EMBED_BASIS,
     },

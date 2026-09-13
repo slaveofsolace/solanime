@@ -1,9 +1,13 @@
 import type { PlaybackResolution } from '../types';
+import {
+  isExactOfficialYouTubePublisher,
+  REMOW_PUBLISHER,
+} from '../../shared/youtubeOfficialPublishers';
 
 export const YOUTUBE_OFFICIAL_PROVIDER_ID = 'youtube-official' as const;
 export const YOUTUBE_PRIVACY_HOST = 'www.youtube-nocookie.com' as const;
-export const REMOW_CHANNEL_ID = 'UCsj_CYajUSQ2ca8bYCMan9g' as const;
-export const REMOW_PUBLISHER_LABEL = "It's Anime powered by REMOW" as const;
+export const REMOW_CHANNEL_ID = REMOW_PUBLISHER.channelId;
+export const REMOW_PUBLISHER_LABEL = REMOW_PUBLISHER.label;
 export const YOUTUBE_IFRAME_ALLOW =
   'autoplay; encrypted-media; fullscreen; picture-in-picture' as const;
 export const YOUTUBE_IFRAME_SANDBOX =
@@ -31,10 +35,7 @@ export function isOfficialYouTubeResolution(
     /^[A-Za-z0-9_-]{11}$/.test(value.videoId ?? '') &&
     value.allowedEmbedHosts?.length === 1 &&
     value.allowedEmbedHosts[0] === YOUTUBE_PRIVACY_HOST &&
-    value.publisher?.label === REMOW_PUBLISHER_LABEL &&
-    value.publisher?.channelId === REMOW_CHANNEL_ID &&
-    value.publisher.channelUrl === `https://www.youtube.com/channel/${REMOW_CHANNEL_ID}` &&
-    value.publisher.handleUrl === 'https://www.youtube.com/@ItsAnimeJP' &&
+    isExactOfficialYouTubePublisher(value.publisher) &&
     !value.url &&
     !value.embedUrl;
 }

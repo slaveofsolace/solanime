@@ -4,6 +4,7 @@ import { createApp } from '../server/app.ts';
 import { migrate, openDatabase, type SqliteDatabase } from '../server/db.ts';
 import {
   applyOfficialYouTubeApproval,
+  GUNDAM_INFO_EPISODE_APPROVALS,
   locateOfficialYouTubeEpisode,
   REMOW_EPISODE_APPROVALS,
   verifyOfficialYouTubeOEmbed,
@@ -13,6 +14,7 @@ import { getMapping } from '../server/catalogue.ts';
 import {
   OFFICIAL_YOUTUBE_EMBED_BASIS,
   OFFICIAL_YOUTUBE_EMBED_HOST,
+  GUNDAM_INFO_PUBLISHER,
   REMOW_PUBLISHER,
   resolveOfficialYouTube,
   sanitizeOfficialYouTubeResolution,
@@ -28,28 +30,29 @@ import {
 const databases: SqliteDatabase[] = [];
 const servers: Array<{ close: () => Promise<void> }> = [];
 const approval = REMOW_EPISODE_APPROVALS[0];
+const gundamApproval = GUNDAM_INFO_EPISODE_APPROVALS[0];
 
-function database(): SqliteDatabase {
+function database(candidate = approval): SqliteDatabase {
   const db = openDatabase(':memory:');
   databases.push(db);
   migrate(db);
   importSnapshot(db, {
     schemaVersion: 1,
     source: 'anikoto',
-    observedAt: approval.observedAt,
+    observedAt: candidate.observedAt,
     titles: [{
-      sourceId: approval.catalogue.titleSourceId,
-      slug: approval.catalogue.titleSlug,
-      canonicalUrl: `https://anikototv.to/watch/${approval.catalogue.titleSlug}`,
-      name: 'B-Project: Netsuretsu*Love Call',
+      sourceId: candidate.catalogue.titleSourceId,
+      slug: candidate.catalogue.titleSlug,
+      canonicalUrl: `https://anikototv.to/watch/${candidate.catalogue.titleSlug}`,
+      name: candidate === gundamApproval ? 'Gundam Reconguista in G' : 'B-Project: Netsuretsu*Love Call',
       episodes: [{
-        sourceId: approval.catalogue.episodeSourceId,
-        number: approval.catalogue.episodeNumber,
+        sourceId: candidate.catalogue.episodeSourceId,
+        number: candidate.catalogue.episodeNumber,
         slug: '1',
-        canonicalUrl: `https://anikototv.to/watch/${approval.catalogue.titleSlug}/1`,
+        canonicalUrl: `https://anikototv.to/watch/${candidate.catalogue.titleSlug}/1`,
         versions: [{
-          sourceId: approval.catalogue.versionSourceId,
-          language: approval.catalogue.language,
+          sourceId: candidate.catalogue.versionSourceId,
+          language: candidate.catalogue.language,
           providers: [],
         }],
       }],
@@ -58,14 +61,15 @@ function database(): SqliteDatabase {
   return db;
 }
 
-function oEmbed(value: Record<string, unknown> = {}): Response {
+function oEmbed(value: Record<string, unknown> = {}, candidate = approval): Response {
+  const publisher = candidate === gundamApproval ? GUNDAM_INFO_PUBLISHER : REMOW_PUBLISHER;
   return Response.json({
     type: 'video',
     provider_name: 'YouTube',
-    title: approval.video.title,
-    author_name: REMOW_PUBLISHER.label,
-    author_url: REMOW_PUBLISHER.handleUrl,
-    html: `<iframe src="https://www.youtube.com/embed/${approval.video.id}"></iframe>`,
+    title: candidate.video.title,
+    author_name: publisher.label,
+    author_url: publisher.handleUrl,
+    html: `<iframe src="https://www.youtube.com/embed/${candidate.video.id}"></iframe>`,
     ...value,
   });
 }
@@ -111,6 +115,64 @@ describe('official YouTube approval and resolution', () => {
       new Uint8Array(65 * 1024),
       { headers: { 'content-type': 'application/json', 'content-length': String(65 * 1024) } },
     ))).rejects.toThrow('YOUTUBE_OEMBED_TOO_LARGE');
+  });
+
+  it('allows the one exact Gundam first-episode museum crosswalk without widening the channel policy', async () => {
+    const db = database(gundamApproval);
+    await expect(verifyOfficialYouTubeOEmbed(
+      gundamApproval,
+      async () => oEmbed({}, gundamApproval),
+    )).resolves.toEqual({
+      title: gundamApproval.video.title,
+      author: GUNDAM_INFO_PUBLISHER.label,
+    });
+    await expect(verifyOfficialYouTubeOEmbed(
+      gundamApproval,
+      async () => oEmbed({ author_name: REMOW_PUBLISHER.label }, gundamApproval),
+    )).rejects.toThrow('YOUTUBE_PUBLISHER_OR_IDENTITY_MISMATCH');
+
+    const applied = applyOfficialYouTubeApproval(
+      db,
+      gundamApproval,
+      '2026-09-13T23:30:00.000Z',
+    );
+    expect(locateOfficialYouTubeEpisode(db, gundamApproval)).toEqual({
+      titleId: applied.titleId,
+      episodeId: applied.episodeId,
+      versionId: applied.versionId,
+    });
+    const mapping = getMapping(db, applied.mappingId);
+    const resource = db.prepare('SELECT * FROM native_resources WHERE mapping_id=?')
+      .get(applied.mappingId) as ApprovedNativeResource;
+    expect(resolveOfficialYouTube(mapping, resource)).toMatchObject({
+      kind: 'official-youtube',
+      videoId: 'TEp52IJvERA',
+      publisher: GUNDAM_INFO_PUBLISHER,
+      attribution: {
+        label: `${GUNDAM_INFO_PUBLISHER.label} · YouTube`,
+        url: gundamApproval.video.watchUrl,
+      },
+    });
+    const browserResolution: PlaybackResolution = {
+      kind: 'official-youtube',
+      mappingId: String(applied.mappingId),
+      providerId: 'youtube-official',
+      language: 'sub',
+      playbackType: 'iframe',
+      status: 'resolved',
+      delivery: 'provider',
+      videoId: gundamApproval.video.id,
+      allowedEmbedHosts: [OFFICIAL_YOUTUBE_EMBED_HOST],
+      publisher: GUNDAM_INFO_PUBLISHER,
+    };
+    expect(isOfficialYouTubeResolution(browserResolution)).toBe(true);
+    expect(new URL(officialYouTubeEmbedUrl(
+      browserResolution,
+      'https://youtube-official-review.solanime.pages.dev',
+    )!).pathname).toBe('/embed/TEp52IJvERA');
+    expect(resource.identity_evidence_url).toBe(GUNDAM_INFO_PUBLISHER.channelUrl);
+    expect(db.prepare("SELECT COUNT(*) AS count FROM episode_provider_mappings WHERE provider_id='youtube-official'").get())
+      .toEqual({ count: 1 });
   });
 
   it('applies one idempotent allowlisted mapping and fails closed on an identity conflict', () => {

@@ -3,8 +3,12 @@ import {
   OFFICIAL_YOUTUBE_EMBED_HOST,
   OFFICIAL_YOUTUBE_EMBED_BASIS,
   OFFICIAL_YOUTUBE_PROVIDER_ID,
-  REMOW_PUBLISHER,
 } from '../providers/youtubeOfficial.ts';
+import {
+  GUNDAM_INFO_PUBLISHER,
+  officialYouTubePublisherPolicyForChannel,
+  REMOW_PUBLISHER,
+} from '../../shared/youtubeOfficialPublishers.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
@@ -60,6 +64,38 @@ export const REMOW_EPISODE_APPROVALS: readonly OfficialYouTubeEpisodeApproval[] 
   },
 ] as const;
 
+export const GUNDAM_INFO_EPISODE_APPROVALS: readonly OfficialYouTubeEpisodeApproval[] = [
+  {
+    id: 'gundam-info-reconguista-in-g-episode-1',
+    catalogue: {
+      source: 'anikoto',
+      titleSourceId: '5301',
+      titleSlug: 'gundam-reconguista-in-g-lcjdy',
+      episodeSourceId: '82950',
+      episodeNumber: '1',
+      versionSourceId: '82950:sub',
+      language: 'sub',
+    },
+    video: {
+      id: 'TEp52IJvERA',
+      title: 'Gundam Reconguista in G - Episode 1（EN,KR sub）',
+      watchUrl: 'https://www.youtube.com/watch?v=TEp52IJvERA',
+      channelId: GUNDAM_INFO_PUBLISHER.channelId,
+      channelUrl: GUNDAM_INFO_PUBLISHER.channelUrl,
+      handleUrl: GUNDAM_INFO_PUBLISHER.handleUrl,
+    },
+    publisherIdentityUrl: 'https://en.gundam-official.com/feature/gwoy/',
+    titleIdentityUrl: 'https://en.gundam-official.com/feature/gwoy/',
+    episodeIdentityUrl: 'https://en.gundam-official.com/feature/gwoy/',
+    observedAt: '2026-09-13T23:22:06.629Z',
+  },
+] as const;
+
+export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisodeApproval[] = [
+  ...REMOW_EPISODE_APPROVALS,
+  ...GUNDAM_INFO_EPISODE_APPROVALS,
+];
+
 type OEmbed = {
   type?: unknown;
   provider_name?: unknown;
@@ -70,13 +106,14 @@ type OEmbed = {
 };
 
 function validateApproval(approval: OfficialYouTubeEpisodeApproval): void {
+  const publisherPolicy = officialYouTubePublisherPolicyForChannel(approval.video.channelId);
   if (
     approval.catalogue.source !== 'anikoto' ||
-    approval.video.channelId !== REMOW_PUBLISHER.channelId ||
-    approval.video.channelUrl !== REMOW_PUBLISHER.channelUrl ||
-    approval.video.handleUrl !== REMOW_PUBLISHER.handleUrl ||
+    !publisherPolicy ||
+    approval.video.channelUrl !== publisherPolicy.publisher.channelUrl ||
+    approval.video.handleUrl !== publisherPolicy.publisher.handleUrl ||
     approval.video.watchUrl !== `https://www.youtube.com/watch?v=${approval.video.id}` ||
-    approval.publisherIdentityUrl !== 'https://www.remow.com/en/service/' ||
+    approval.publisherIdentityUrl !== publisherPolicy.identityUrl ||
     !/^[A-Za-z0-9_-]{11}$/.test(approval.video.id) ||
     !Number.isFinite(Date.parse(approval.observedAt))
   )
@@ -117,6 +154,7 @@ export async function verifyOfficialYouTubeOEmbed(
   fetcher: typeof fetch = fetch,
 ): Promise<{ title: string; author: string }> {
   validateApproval(approval);
+  const publisher = officialYouTubePublisherPolicyForChannel(approval.video.channelId)!.publisher;
   const endpoint = new URL('https://www.youtube.com/oembed');
   endpoint.searchParams.set('url', approval.video.watchUrl);
   endpoint.searchParams.set('format', 'json');
@@ -140,8 +178,8 @@ export async function verifyOfficialYouTubeOEmbed(
     value.type !== 'video' ||
     value.provider_name !== 'YouTube' ||
     value.title !== approval.video.title ||
-    value.author_name !== REMOW_PUBLISHER.label ||
-    value.author_url !== REMOW_PUBLISHER.handleUrl ||
+    value.author_name !== publisher.label ||
+    value.author_url !== publisher.handleUrl ||
     typeof value.html !== 'string' ||
     !value.html.includes(`/embed/${approval.video.id}`)
   )
@@ -177,6 +215,8 @@ export function applyOfficialYouTubeApproval(
   appliedAt = new Date().toISOString(),
 ): { titleId: number; episodeId: number; versionId: number; mappingId: number } {
   validateApproval(approval);
+  const publisherPolicy = officialYouTubePublisherPolicyForChannel(approval.video.channelId)!;
+  const publisher = publisherPolicy.publisher;
   if (!Number.isFinite(Date.parse(appliedAt))) throw new Error('INVALID_APPROVAL_TIME');
   const identity = locateOfficialYouTubeEpisode(db, approval);
   db.exec('BEGIN IMMEDIATE');
@@ -207,7 +247,7 @@ export function applyOfficialYouTubeApproval(
         approval.observedAt,
         appliedAt,
       );
-    for (const alias of ['YouTube', REMOW_PUBLISHER.label, 'REMOW'])
+    for (const alias of ['YouTube', publisher.label, ...publisherPolicy.aliases])
       db.prepare("INSERT INTO provider_aliases(provider_id,alias,alias_type) VALUES(?,?,'verified_publisher') ON CONFLICT(provider_id,alias) DO NOTHING")
         .run(OFFICIAL_YOUTUBE_PROVIDER_ID, alias);
     for (const connection of [
@@ -215,7 +255,7 @@ export function applyOfficialYouTubeApproval(
       ['www.youtube.com', '/oembed', 'public_identity_metadata'],
       ['www.youtube.com', '/iframe_api', 'official_player_api'],
       [OFFICIAL_YOUTUBE_EMBED_HOST, '/embed/', 'privacy_enhanced_player'],
-      ['www.remow.com', '/en/service/', 'publisher_channel_evidence'],
+      [new URL(publisherPolicy.identityUrl).hostname, new URL(publisherPolicy.identityUrl).pathname, 'publisher_channel_evidence'],
     ] as const)
       db.prepare(`INSERT INTO provider_connections(provider_id,hostname,path_pattern,relationship,
         evidence_state,observation_scope,first_seen_at,last_seen_at)
@@ -226,7 +266,7 @@ export function applyOfficialYouTubeApproval(
           connection[0],
           connection[1],
           connection[2],
-          `${approval.video.title}; publisher ${REMOW_PUBLISHER.channelId}; standard YouTube embed only.`,
+          `${approval.video.title}; publisher ${publisher.channelId}; standard YouTube embed only.`,
           approval.observedAt,
           approval.observedAt,
         );
@@ -269,7 +309,7 @@ export function applyOfficialYouTubeApproval(
           approval.video.title,
           OFFICIAL_YOUTUBE_EMBED_BASIS,
           approval.video.watchUrl,
-          REMOW_PUBLISHER.channelUrl,
+          publisher.channelUrl,
           appliedAt,
         );
     const approved = db.prepare(`SELECT provider_id,resource_id,language,license,
@@ -290,7 +330,7 @@ export function applyOfficialYouTubeApproval(
       approved.language !== approval.catalogue.language ||
       approved.license !== OFFICIAL_YOUTUBE_EMBED_BASIS ||
       approved.rights_evidence_url !== approval.video.watchUrl ||
-      approved.identity_evidence_url !== REMOW_PUBLISHER.channelUrl ||
+      approved.identity_evidence_url !== publisher.channelUrl ||
       approved.enabled !== 1
     )
       throw new Error('OFFICIAL_YOUTUBE_RESOURCE_IDENTITY_CONFLICT');
