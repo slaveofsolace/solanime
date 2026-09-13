@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "shardCount": 500,
+  "playbackPolicies": [
+    {
+      "id": "remow-reviewed-v1",
+      "channelId": "UCsj_CYajUSQ2ca8bYCMan9g",
+      "sourceIds": ["remow-its-anime"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "REMOW_EPISODE_APPROVALS"
+    }
+  ],
+  "sources": [
+    {
+      "id": "remow-its-anime",
+      "kind": "channel",
+      "publisher": "It's Anime powered by REMOW",
+      "channelId": "UCsj_CYajUSQ2ca8bYCMan9g",
+      "channelUrl": "https://www.youtube.com/channel/UCsj_CYajUSQ2ca8bYCMan9g",
+      "evidenceUrls": ["https://www.remow.com/en/service/"],
+      "fullEpisodeEvidenceUrl": "https://www.remow.com/en/service/",
+      "territoryNote": "Availability varies by title, country, and observation time; publisher identity does not establish a reusable licence.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [
+        {
+          "aliases": ["B-PROJECT Passion Love Call", "B-PROJECT Netsuretsu Love Call"],
+          "titleSourceId": "6771",
+          "episodeOffset": 0
+        }
+      ],
+      "authoritativeMappings": [
+        {
+          "videoId": "_3Gcm-iGAQk",
+          "titleSourceId": "6771",
+          "episodeSourceId": "104039",
+          "versionSourceId": "104039:sub",
+          "language": "sub",
+          "identityEvidenceUrls": [
+            "https://www.youtube.com/watch?v=_3Gcm-iGAQk",
+            "https://www.remow.com/en/service/"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tms-anime-official",
+      "kind": "channel",
+      "publisher": "TMS Entertainment",
+      "channelId": "UCzGf0DdUJVrsbcWL3e_tK1Q",
+      "channelUrl": "https://www.youtube.com/channel/UCzGf0DdUJVrsbcWL3e_tK1Q",
+      "evidenceUrls": ["https://tmsanime.com/links"],
+      "fullEpisodeEvidenceUrl": "https://tmsanime.com/anime-on-tms-official-channel",
+      "territoryNote": "Availability and permitted uses vary by title and territory; discovery remains manual-review only.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "tms-god-mars-playlist",
+      "kind": "playlist",
+      "publisher": "TMS Entertainment",
+      "channelId": "UCzGf0DdUJVrsbcWL3e_tK1Q",
+      "channelUrl": "https://www.youtube.com/channel/UCzGf0DdUJVrsbcWL3e_tK1Q",
+      "playlistId": "PLj2Ugc-vxcWGDWFMIlD5i-gz3u2s4tMa-",
+      "evidenceUrls": [
+        "https://tmsanime.com/links",
+        "https://tmsanime.com/anime-on-tms-official-channel"
+      ],
+      "fullEpisodeEvidenceUrl": "https://tmsanime.com/anime-on-tms-official-channel",
+      "territoryNote": "Playlist is public evidence of TMS publication, not a licence grant; every match remains review-only.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [
+        {
+          "aliases": ["GOD MARS", "Six God Combination Godmars"],
+          "episodeOffset": 0
+        }
+      ]
+    },
+    {
+      "id": "gundam-info",
+      "kind": "channel",
+      "publisher": "GUNDAM.INFO",
+      "channelId": "UCejtUitnpnf8Be-v5NuDSLw",
+      "channelUrl": "https://www.youtube.com/channel/UCejtUitnpnf8Be-v5NuDSLw",
+      "evidenceUrls": ["https://en.gundam-official.com/witch-from-mercury/onair/"],
+      "fullEpisodeEvidenceUrl": "https://en.gundam-official.com/witch-from-mercury/onair/",
+      "territoryNote": "The official page limits YouTube distribution by region and schedule; probes are observations from the runtime region only.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "ani-one-asia",
+      "kind": "channel",
+      "publisher": "Ani-One Asia / Medialink",
+      "channelId": "UC0wNSTMWIL3qaorLx0jie6A",
+      "channelUrl": "https://www.youtube.com/channel/UC0wNSTMWIL3qaorLx0jie6A",
+      "evidenceUrls": ["https://www.medialink.com.hk/en/Anione.aspx"],
+      "fullEpisodeEvidenceUrl": "https://www.medialink.com.hk/en/Anione.aspx",
+      "territoryNote": "Ani-One distribution includes territory and membership limitations; public metadata is inventoried without assuming access or licensing.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only"
+    }
+  ]
+}
