@@ -204,6 +204,19 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
         const accepted = new Set(values); ids = ids.filter(id => accepted.has(id));
       }
     }
+    const scopedIds = new Set(ids);
+    const scopedFacets = params.scope
+      ? Object.fromEntries((['genres', 'types', 'statuses', 'languages'] as const).map(kind => {
+          const group = own(postings, kind);
+          if (!record(group)) throw changed();
+          return [kind, info.facets[kind].map(row => {
+            const value = String(row.value ?? '');
+            const values = own(group, value) ?? [];
+            if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
+            return { ...row, count: values.reduce((count, id) => count + Number(scopedIds.has(id)), 0) };
+          }).filter(row => Number(row.count) > 0)];
+        }))
+      : info.facets;
     for (const [kind, value] of [['genres', params.genre], ['types', params.type?.toLowerCase()], ['statuses', params.status?.toLowerCase()], ['languages', params.language?.toLowerCase()]] as const) {
       if (!value) continue; const group = own(postings, kind); if (!record(group)) throw changed();
       const values = own(group, value) ?? []; if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
@@ -225,7 +238,7 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
       if (!Number.isSafeInteger(count) || Number(count) < 0) throw changed();
       episodeCounts[id] = Number(count);
     }
-    return { ids: selected, episodeCounts, total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), facets: info.facets };
+    return { ids: selected, episodeCounts, total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), facets: scopedFacets };
   }
   return { manifest, titleById, titleBySlug, episodePage, episode, mapping, browseRow, browseIds, diagnostics: () => ({ reads, bytesRead }) };
 }

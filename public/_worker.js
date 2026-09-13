@@ -1,12 +1,15 @@
 /** Pages routes API traffic through a private Worker service binding.
  * The fixed-origin mode remains available for existing self-hosted installations. */
-const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
+const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
 const operatorRead = /^\/api\/(?:admin\/(?:sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
 const operatorWrite = /^\/api\/admin\/(?:sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/data)$/;
 const accountWrite =
   /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete))?)?)$/;
+const communityRead = /^\/api\/episodes\/\d+\/comments$/;
+const communityCreate = /^\/api\/episodes\/\d+\/comments$/;
+const communityItem = /^\/api\/episodes\/\d+\/comments\/[0-9a-f-]{36}$/i;
 const limit = 256 * 1024;
 function problem(status, code, message) {
   return Response.json(
@@ -51,10 +54,12 @@ export default {
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     const bound = !!env.SOLANIME_API;
     const operatorRoute = bound && (operatorRead.test(url.pathname) || operatorWrite.test(url.pathname));
-    const accountRoute = accountRead.test(url.pathname) || accountWrite.test(url.pathname);
+    const accountRoute = accountRead.test(url.pathname) || accountWrite.test(url.pathname) ||
+      communityRead.test(url.pathname) || communityItem.test(url.pathname);
     const mutation =
-      request.method === 'POST' &&
-      (resolvePath.test(url.pathname) || accountWrite.test(url.pathname) || (bound && operatorWrite.test(url.pathname)));
+      (request.method === 'POST' &&
+        (resolvePath.test(url.pathname) || accountWrite.test(url.pathname) || communityCreate.test(url.pathname) || (bound && operatorWrite.test(url.pathname)))) ||
+      ((request.method === 'PATCH' || request.method === 'DELETE') && communityItem.test(url.pathname));
     if (
       !(
         request.method === 'GET' &&

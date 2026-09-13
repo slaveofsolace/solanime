@@ -156,10 +156,11 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
       });
       episodeMap.set(String(overlay.id),{...mergeFields(original,overlay),versions:variants});
     }
-    const episodes=[...episodeMap.values()].sort((a,b)=>{
-      const left=Number(a.number),right=Number(b.number);const aNumber=Number.isFinite(left),bNumber=Number.isFinite(right);
-      return aNumber && bNumber ? left-right || Number(a.id)-Number(b.id) : aNumber ? -1 : bNumber ? 1 : String(a.number).localeCompare(String(b.number)) || Number(a.id)-Number(b.id);
-    });
+    // Snapshot pages are already ordered by the source's numeric number_sort.
+    // Map replacement preserves that order, while genuinely new D1 episodes
+    // append in their own numeric query order. Re-sorting display labels such as
+    // "S1 E10" lexicographically would incorrectly place them before "S1 E2".
+    const episodes=[...episodeMap.values()];
     const collectionState=frozen.collectionState;
     const title={...mergeFields(frozen.title,actual?.title ?? {}),episodeCount:episodes.length,collectionState};
     const aliases=mergeRows(frozen.aliases,actual?.aliases ?? [],row=>JSON.stringify([row.name,row.language ?? null,row.type ?? null]));

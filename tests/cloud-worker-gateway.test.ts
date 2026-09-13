@@ -103,6 +103,32 @@ describe('private Pages gateway forwarding contract', () => {
     expect(response.headers.get('set-cookie')).toBe(accountCookie);
   });
 
+  it('forwards public episode comments and authenticated comment mutations without opening a generic proxy', async () => {
+    const { env, service } = setup();
+    const episodePath = '/api/episodes/152288/comments';
+    const read = await pages.fetch(new Request(origin + episodePath, {
+      headers: { cookie: `tracking=ignore; __Host-solanime_session=${sessionToken}` },
+    }), env);
+    expect(read.status).toBe(200);
+    expect(service.mock.calls[0][0].headers.get('cookie')).toBe('__Host-solanime_session=' + sessionToken);
+
+    const created = await pages.fetch(post(episodePath, { profileId: 'p'.repeat(36), body: 'Hello' }, {
+      cookie: `__Host-solanime_session=${sessionToken}`, 'x-csrf-token': 'test-csrf', 'x-solanime-intent': 'account',
+    }), env);
+    expect(created.status).toBe(200);
+    expect(service.mock.calls[1][0].method).toBe('POST');
+
+    const itemPath = episodePath + '/123e4567-e89b-42d3-a456-426614174000';
+    for (const method of ['PATCH', 'DELETE']) {
+      const response = await pages.fetch(new Request(origin + itemPath, {
+        method, headers: { origin, 'sec-fetch-site': 'same-origin', 'content-type': 'application/json', cookie: `__Host-solanime_session=${sessionToken}`, 'x-csrf-token': 'test-csrf', 'x-solanime-intent': 'account' }, body: JSON.stringify({ profileId: 'p'.repeat(36), revision: 1 }),
+      }), env);
+      expect(response.status).toBe(200);
+      expect(service.mock.calls.at(-1)?.[0].method).toBe(method);
+    }
+    expect((await pages.fetch(new Request(origin + '/api/episodes/152288/comments/not-a-comment'), env)).status).toBe(404);
+  });
+
   it('rejects ambiguous cookies and never forwards private response cookies from catalogue endpoints', async () => {
     const { env, service } = setup();
     await pages.fetch(new Request(origin + '/api/account/session', { headers: { cookie: `__Host-solanime_session=${sessionToken}; solanime_session=${'x'.repeat(43)}` } }), env);

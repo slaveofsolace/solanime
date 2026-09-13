@@ -85,7 +85,8 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
   try {
     if (url.href.length > 4096) throw new AppError(414, 'INVALID_QUERY', 'The request URL is too long.');
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
-    const catalogue = createCatalogueRepository(env.CATALOGUE, configuredBaseline(request, env));
+    const baseline = configuredBaseline(request, env);
+    const catalogue = createCatalogueRepository(env.CATALOGUE, baseline);
     const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), { origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean), registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY, firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON }, episodeExists: catalogue.hasEpisode });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);
@@ -94,7 +95,8 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (request.method === 'GET' && path === '/api/health') {
       const state = await env.CATALOGUE.prepare('SELECT COUNT(*) AS titles FROM titles').first<{ titles: number }>();
       const migration = await env.CATALOGUE.prepare('SELECT COUNT(*) AS count FROM d1_migrations').first<{ count: number }>();
-      return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: state?.titles ?? 0, now: new Date().toISOString() });
+      const baselineTitles = baseline ? Number((await baseline.manifest()).counts.titles ?? 0) : 0;
+      return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: Math.max(Number(state?.titles ?? 0), baselineTitles), now: new Date().toISOString() });
     }
     if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), scope: bounded(p.get('scope')), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
     if (request.method === 'GET' && path === '/api/meta/filters') return json(await catalogue.getFilters());
