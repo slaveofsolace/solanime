@@ -318,6 +318,19 @@
   margin: 44px 0;
 }
 
+@media (min-width: 1540px) {
+  .catalogue-page .title-grid {
+    /* Keep legacy 225px source thumbnails near their natural size while the
+       verified 460px artwork lane fills in. This also restores the dense,
+       scan-first desktop rhythm of the approved references. */
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .catalogue-page .title-grid--compact {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1180px) {
   .catalogue-page .title-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));

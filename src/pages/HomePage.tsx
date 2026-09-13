@@ -20,6 +20,29 @@ function remaining(entry: { position?: number; duration?: number }) {
   return `${minutes} min left`;
 }
 
+function artworkFidelity(title: TitleSummary) {
+  const backdrop = title.artwork?.backdrop;
+  const poster = title.artwork?.poster;
+  const verifiedBackdrop = Boolean(
+    backdrop &&
+      backdrop.url === title.backdropUrl &&
+      backdrop.width >= 1000 &&
+      backdrop.height >= 250 &&
+      backdrop.width / backdrop.height >= 2,
+  );
+  const verifiedPoster = Boolean(
+    poster &&
+      poster.url === title.posterUrl &&
+      poster.width >= 300 &&
+      poster.height >= 400,
+  );
+  return (
+    (verifiedBackdrop ? 100 : title.backdropUrl ? 40 : 0) +
+    (verifiedPoster ? 20 : title.posterUrl ? 8 : title.imageUrl ? 4 : 0) +
+    (backdrop?.freshness === 'verified' ? 2 : 0)
+  );
+}
+
 export default function HomePage() {
   const { history, watchlist, preferences } = useAppState();
   const [prefs] = preferences;
@@ -80,10 +103,7 @@ export default function HomePage() {
     return () => controller.abort();
   }, [retry]);
   // Editorial artwork preference, not a claim about popularity or watch counts.
-  const spotlightItems = [...latest].sort((a, b) =>
-    Number(Boolean(b.backdropUrl)) - Number(Boolean(a.backdropUrl)) ||
-    Number(Boolean(b.posterUrl)) - Number(Boolean(a.posterUrl)),
-  );
+  const spotlightItems = [...latest].sort((a, b) => artworkFidelity(b) - artworkFidelity(a));
   const featured =
     spotlightItems.find((item) => item.synopsis && (item.imageUrl || item.posterUrl)) ?? spotlightItems[0];
   const continuing = history.entries.filter(

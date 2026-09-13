@@ -35,10 +35,15 @@ export function artworkOwner(db: SqliteDatabase, titleId: number): ArtworkIdenti
 
 /** Mirrors actual home rows and their existing relationships; all remaining titles are still queued. */
 export function visibleArtworkTitleIds(db: SqliteDatabase): number[] {
-  const rows = [...db.prepare('SELECT id FROM titles ORDER BY updated_at DESC,id ASC LIMIT 13').all(),
-    ...db.prepare("SELECT id FROM titles WHERE LOWER(format)='movie' ORDER BY release_year DESC,name COLLATE NOCASE,id ASC LIMIT 12").all()];
+  // The current artwork crosswalk is deliberately source-specific. Keep the
+  // visible checkpoint aligned with the anime rows rendered on Home instead of
+  // letting newer metadata-only imports consume its highest priorities.
+  const rows = [...db.prepare("SELECT id FROM titles WHERE source='anikoto' ORDER BY updated_at DESC,id ASC LIMIT 13").all(),
+    ...db.prepare("SELECT id FROM titles WHERE source='anikoto' AND LOWER(format)='movie' ORDER BY release_year DESC,name COLLATE NOCASE,id ASC LIMIT 12").all()];
   const ids = rows.map(row => Number(row.id));
-  const related = db.prepare('SELECT related_title_id AS id FROM related_titles WHERE title_id IN (SELECT value FROM json_each(?)) AND related_title_id IS NOT NULL ORDER BY title_id,related_title_id').all(JSON.stringify(ids));
+  const related = db.prepare(`SELECT r.related_title_id AS id FROM related_titles r
+    JOIN titles related ON related.id=r.related_title_id AND related.source='anikoto'
+    WHERE r.title_id IN (SELECT value FROM json_each(?)) ORDER BY r.title_id,r.related_title_id`).all(JSON.stringify(ids));
   return [...new Set([...ids,...related.map(row => Number(row.id))])];
 }
 

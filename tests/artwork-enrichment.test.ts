@@ -3,7 +3,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { migrate } from '../server/db.ts';
 import { browseTitles } from '../server/catalogue.ts';
 import { fetchSourceIdentity, inspectSourceIdentity, type ArtworkIdentityOwner } from '../server/artwork/identity.ts';
-import { artworkOwner, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment } from '../server/artwork/enrichment.ts';
+import { artworkOwner, migrateArtworkEnrichment, runArtworkEnrichmentStep, seedArtworkEnrichment, visibleArtworkTitleIds } from '../server/artwork/enrichment.ts';
 import { fetchAniListMediaByMal, fetchArtworkResource, parseAniListMedia } from '../server/artwork/source.ts';
 import { sourceIdentityReview, validateArtworkReview } from '../server/artwork/model.ts';
 import { completeRaster } from '../server/artwork/raster.ts';
@@ -68,6 +68,13 @@ describe('exact source identity artwork crosswalk', () => {
 });
 
 describe('whole-catalogue durable artwork queue and selected execution', () => {
+  it('prioritizes the source-specific home rows instead of newer unsupported metadata imports', () => {
+    const {db} = setup();
+    db.prepare("INSERT INTO titles(id,source,source_id,slug,canonical_url,name,format,release_year,first_seen_at,last_seen_at,created_at,updated_at) VALUES(2,'tvmaze','2','newer-tv-show','https://www.tvmaze.com/shows/2/newer-tv-show','Newer TV Show','TV',2026,?,?,?,?)").run(date,date,date,'2026-09-14T00:00:00.000Z');
+    db.prepare("INSERT INTO titles(id,source,source_id,slug,canonical_url,name,format,release_year,first_seen_at,last_seen_at,created_at,updated_at) VALUES(3,'anikoto','1644','anime-film','https://anikototv.to/watch/anime-film','Anime Film','Movie',2027,?,?,?,?)").run(date,date,date,'2026-09-12T00:00:00.000Z');
+    db.prepare("INSERT INTO related_titles(title_id,related_title_id,related_source_id,relationship_type,label,first_seen_at,last_seen_at) VALUES(1,2,'2','related','Other-source title',?,?)").run(date,date);
+    expect(visibleArtworkTitleIds(db)).toEqual([1,3]);
+  });
   it('seeds all real titles idempotently and preserves identity/failure state on re-seed', () => {
     const {db,queue} = setup();
     db.prepare("INSERT INTO titles(id,source,source_id,slug,canonical_url,name,format,release_year,first_seen_at,last_seen_at,created_at,updated_at) VALUES(2,'anikoto','1643','title-two','https://anikototv.to/watch/title-two','Title Two','TV',2026,?,?,?,?)").run(date,date,date,date);
