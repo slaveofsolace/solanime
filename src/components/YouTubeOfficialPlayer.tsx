@@ -215,7 +215,12 @@ export default function YouTubeOfficialPlayer({
       cancelled = true;
       if (isYouTubePlayer(player)) player.destroy();
     };
-  }, [attempt, initialPosition, source, sourceApproved]);
+  // Resume position is a one-time input for a given player instance. Progress
+  // persistence updates it while playback is active; rebuilding here would
+  // tear down the iframe immediately after the first progress/open callback.
+  // A source change still creates a fresh instance and captures the latest
+  // position for the newly selected episode.
+  }, [attempt, source, sourceApproved]);
 
   if (!source || !officialResolution)
     return (

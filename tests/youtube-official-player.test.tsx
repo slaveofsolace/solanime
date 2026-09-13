@@ -143,7 +143,7 @@ describe('official YouTube player', () => {
     expect(progress).toHaveBeenCalledWith(8, 24);
   });
 
-  it('does not rebuild a playing iframe when an equivalent resolution object is rerendered', async () => {
+  it('does not rebuild a playing iframe when equivalent resolution or persisted progress rerenders', async () => {
     const destroy = vi.fn();
     const construct = vi.fn();
     const player = {
@@ -161,11 +161,11 @@ describe('official YouTube player', () => {
       } as unknown as NonNullable<typeof window.YT>['Player'],
     };
 
-    const view = render(<YouTubeOfficialPlayer resolution={resolution} />);
+    const view = render(<YouTubeOfficialPlayer resolution={resolution} initialPosition={4} />);
     await act(async () => { await Promise.resolve(); });
     expect(construct).toHaveBeenCalledTimes(1);
 
-    view.rerender(<YouTubeOfficialPlayer resolution={{ ...resolution }} />);
+    view.rerender(<YouTubeOfficialPlayer resolution={{ ...resolution }} initialPosition={9} />);
     await act(async () => { await Promise.resolve(); });
     expect(construct).toHaveBeenCalledTimes(1);
     expect(destroy).not.toHaveBeenCalled();
