@@ -14,7 +14,7 @@ Options:
   --media=movie|tv             Category lane (default: movie)
   --year=<year>                Release/debut category year (default: current UTC year)
   --batch-limit=<number>       Continuation batches in this run (default: 1)
-  --page-size=<number>         Article members per batch, 1-50 (default: 25)
+  --page-size=<number>         Complete article members per batch, 1-20 (default: 20)
   --request-interval-ms=<ms>   Minimum delay between requests (default: 1000)
   --retries=<number>           Bounded retry count (default: 3)
   --help, -h                   Print this help without opening the database
@@ -52,7 +52,7 @@ async function main() {
       media: media(),
       year: integer('year', new Date().getUTCFullYear()),
       batchLimit: integer('batch-limit', 1),
-      pageSize: integer('page-size', 25),
+      pageSize: integer('page-size', 20),
       requestIntervalMs: integer('request-interval-ms', 1_000),
       retries: integer('retries', 3),
       onBatch: (progress) => console.log(JSON.stringify({ event: 'batch_imported', ...progress })),

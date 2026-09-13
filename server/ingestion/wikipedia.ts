@@ -6,6 +6,11 @@ import { importSnapshot } from './snapshot.ts';
 
 const API_ENDPOINT = 'https://en.wikipedia.org/w/api.php';
 const MAX_RESPONSE_BYTES = 5 * 1024 * 1024;
+// Anonymous MediaWiki `prop=extracts` responses complete at most 20 generated
+// pages at once. Keeping the generator batch within that boundary prevents a
+// single catalogue batch from being split into partial property responses that
+// cannot be committed as a complete title snapshot.
+const MAX_COMPLETE_GENERATOR_BATCH = 20;
 const COMMONS_HOST = 'upload.wikimedia.org';
 const QID = /^Q[1-9]\d*$/;
 const GENRES = [
@@ -185,8 +190,8 @@ export function buildWikipediaUrl(
   if (media !== 'movie' && media !== 'tv') throw new Error('Wikipedia media must be movie or tv.');
   if (!Number.isSafeInteger(year) || year < 1900 || year > 2200)
     throw new Error('Wikipedia year must be between 1900 and 2200.');
-  if (!Number.isSafeInteger(pageSize) || pageSize < 1 || pageSize > 50)
-    throw new Error('Wikipedia pageSize must be between 1 and 50.');
+  if (!Number.isSafeInteger(pageSize) || pageSize < 1 || pageSize > MAX_COMPLETE_GENERATOR_BATCH)
+    throw new Error(`Wikipedia pageSize must be between 1 and ${MAX_COMPLETE_GENERATOR_BATCH}.`);
   const url = new URL(API_ENDPOINT);
   const parameters: Record<string, string> = {
     action: 'query',
@@ -284,15 +289,26 @@ export function parseWikipediaResponse(
 
   let nextContinue: WikipediaContinuation | null = null;
   if (response.continue !== undefined) {
+    const continuationKeys = Object.keys(response.continue).sort();
     const gcmcontinue = response.continue.gcmcontinue;
     const genericContinue = response.continue.continue;
     if (
+      response.batchcomplete !== true ||
+      continuationKeys.length !== 2 ||
+      continuationKeys[0] !== 'continue' ||
+      continuationKeys[1] !== 'gcmcontinue' ||
       typeof gcmcontinue !== 'string' ||
       !gcmcontinue.trim() ||
       typeof genericContinue !== 'string' ||
       !genericContinue.trim()
-    )
-      throw new AppError(422, 'UPSTREAM_CHANGED', 'Wikipedia continuation token is invalid.');
+    ) {
+      const continuationSummary = continuationKeys.join(', ') || 'none';
+      throw new AppError(
+        422,
+        'UPSTREAM_CHANGED',
+        `Wikipedia returned an incomplete property batch (${continuationSummary}); no partial title snapshot was imported.`,
+      );
+    }
     nextContinue = { gcmcontinue, continue: genericContinue };
   }
   return {
@@ -384,7 +400,7 @@ export async function syncWikipedia(
   const media = options.media ?? 'movie';
   const year = options.year ?? new Date().getUTCFullYear();
   const batchLimit = options.batchLimit ?? 1;
-  const pageSize = options.pageSize ?? 25;
+  const pageSize = options.pageSize ?? MAX_COMPLETE_GENERATOR_BATCH;
   const intervalMs = options.requestIntervalMs ?? 1_000;
   const retries = options.retries ?? 3;
   buildWikipediaUrl(media, year, pageSize);

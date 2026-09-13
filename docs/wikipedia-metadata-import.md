@@ -9,11 +9,11 @@ Imported fields are limited to the stable Q-ID, English Wikipedia source URL, ar
 Example bounded runs against a separate database:
 
 ```text
-pnpm import:wikipedia -- --db=E:\CodexProjects\solanime-imports\catalogue.sqlite --media=movie --year=2026 --batch-limit=1 --page-size=25
-pnpm import:wikipedia -- --db=E:\CodexProjects\solanime-imports\catalogue.sqlite --media=tv --year=2026 --batch-limit=1 --page-size=25
+pnpm import:wikipedia -- --db=E:\CodexProjects\solanime-imports\catalogue.sqlite --media=movie --year=2026 --batch-limit=1 --page-size=20
+pnpm import:wikipedia -- --db=E:\CodexProjects\solanime-imports\catalogue.sqlite --media=tv --year=2026 --batch-limit=1 --page-size=20
 ```
 
-This is not a full Movies/TV catalogue. Coverage is only the selected public category, year, and fetched continuation batches. The importer adds no episodes, provider mappings, embeds, playback media URLs, account data, source-site keys, or media bytes. It sends an identifying user agent, paces requests, honors `Retry-After`, bounds retries and response size, and caps an individual API response at 50 article members.
+This is not a full Movies/TV catalogue. Coverage is only the selected public category, year, and fetched continuation batches. The importer adds no episodes, provider mappings, embeds, playback media URLs, account data, source-site keys, or media bytes. It sends an identifying user agent, paces requests, honors `Retry-After`, bounds retries and response size, and caps an individual API response at 20 article members. That cap matches the anonymous MediaWiki Extracts module's complete-response limit so a committed batch never contains only part of a title's requested metadata.
 
 References:
 

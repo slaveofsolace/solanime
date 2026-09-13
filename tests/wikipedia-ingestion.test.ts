@@ -22,7 +22,7 @@ function article(id: number, qid: string | undefined, title: string, extra: Part
 function api(pages: WikipediaPage[], continuation: string | null = null, status = 200) {
   return new Response(
     JSON.stringify({
-      batchcomplete: !continuation,
+      batchcomplete: true,
       ...(continuation ? { continue: { gcmcontinue: continuation, continue: 'gcmcontinue||' } } : {}),
       query: { pages },
     }),
@@ -44,14 +44,50 @@ describe('Wikipedia Movie and TV metadata ingestion', () => {
     expect(movie.searchParams.get('gcmlimit')).toBe('5');
     expect(movie.searchParams.get('gcmcontinue')).toBe('opaque cursor');
     expect(movie.searchParams.get('continue')).toBe('gcmcontinue||');
-    expect(new URL(buildWikipediaUrl('tv', 2026, 25)).searchParams.get('gcmtitle')).toBe(
+    expect(new URL(buildWikipediaUrl('tv', 2026, 20)).searchParams.get('gcmtitle')).toBe(
       'Category:2026 television series debuts',
     );
+    expect(() => buildWikipediaUrl('movie', 2026, 21)).toThrow(
+      'Wikipedia pageSize must be between 1 and 20.',
+    );
+  });
+
+  it('rejects partial property continuations before importing an incomplete title snapshot', () => {
+    expect(() =>
+      parseWikipediaResponse(
+        {
+          continue: {
+            excontinue: 20,
+            continue: '||pageprops|pageimages|categories',
+          },
+          query: { pages: [article(1, 'Q42', 'Partial Film')] },
+        },
+        { media: 'movie', year: 2026 },
+      ),
+    ).toThrow('Wikipedia returned an incomplete property batch (continue, excontinue)');
+  });
+
+  it('rejects a generator cursor accompanied by any unfinished property module', () => {
+    expect(() =>
+      parseWikipediaResponse(
+        {
+          batchcomplete: true,
+          continue: {
+            gcmcontinue: 'next-generator-page',
+            excontinue: 20,
+            continue: 'gcmcontinue||pageprops|pageimages|categories',
+          },
+          query: { pages: [article(1, 'Q42', 'Mixed Continuation Film')] },
+        },
+        { media: 'movie', year: 2026 },
+      ),
+    ).toThrow('Wikipedia returned an incomplete property batch (continue, excontinue, gcmcontinue)');
   });
 
   it('parses stable Q-IDs, metadata, genres and aspect-ratio artwork provenance', () => {
     const parsed = parseWikipediaResponse(
       {
+        batchcomplete: true,
         continue: { gcmcontinue: 'next-token', continue: 'gcmcontinue||' },
         query: {
           pages: [
