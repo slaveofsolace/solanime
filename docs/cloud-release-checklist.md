@@ -28,23 +28,23 @@ preserved.
 
 | Surface | Identifier | Verification |
 | --- | --- | --- |
-| Source | `3d8ba38` on `sol/cloud-release` | Pushed to the private `slaveofsolace/solanime` repository. |
-| Frontend | [fbe8c6a5](https://fbe8c6a5.solanime.pages.dev) | Stable alias: [cloud-release.solanime.pages.dev](https://cloud-release.solanime.pages.dev). |
-| API Worker | `80730f1d-1d3b-43d5-9b93-c5efc8594f5c` | Complete baseline assets, three D1 bindings, Queue producer/consumer, rate limits, and minute schedule deployed. |
+| Source | Through `1264bc0` on `sol/cloud-release` | Private `slaveofsolace/solanime` integration; final evidence commit follows this checklist update. |
+| Frontend | [aadc4fe2](https://aadc4fe2.solanime.pages.dev) | Stable alias: [cloud-release.solanime.pages.dev](https://cloud-release.solanime.pages.dev). |
+| API Worker | `b9fcc0c7-a471-409c-af6e-c69c7e849b5b` | Complete baseline assets, three D1 bindings, Queue producer/consumer, rate limits, and minute schedule deployed. |
 
 ## Data evidence
 
 | Scope | Titles | Episodes | Versions | Provider mappings |
 | --- | ---: | ---: | ---: | ---: |
-| Completed SQLite checkpoint | 8,949 | 134,825 | 184,073 | 423,236 |
-| Immutable Worker baseline | 8,949 | 134,825 | 184,073 | 423,236 |
+| Completed anime checkpoint | 8,949 | 134,825 | 184,073 | 423,236 |
+| Hosted combined baseline | 9,185 | 165,913 | 215,161 | 423,236 |
 
 - Source database: `catalogue-final-20260913T064052Z.sqlite`, 492,740,608 bytes.
 - Source SHA-256/baseline ID:
   `2ac4cd16f061cab1cb44cec53595f84661573b5b906b9a93be608ef9c5d2cc4e`.
 - Schema version 10; `PRAGMA integrity_check` is `ok`; foreign-key violations,
   structural duplicates, and orphaned rows are zero.
-- All 144,397 crawl tasks are complete. The task table records 144,532 attempts
+- All 144,367 crawl tasks are complete. The task table records 144,532 attempts
   and has no pending, running, retry, or failed work.
 - Forty titles without episodes reconcile exactly with forty explicit empty
   observations. Failed requests were not converted into deletions.
@@ -92,7 +92,7 @@ block bypass, credential reuse, media copying, or unrelated substitute is used.
 - Worker asset staging validates both configured manifest pins, every payload
   hash/byte count, collisions, links, aggregate file count, and reserved headroom.
 - Wrangler upload dry-run passed with the complete ignored staging tree.
-- `pnpm check` passed: TypeScript, 599/599 tests across 58 files, and the
+- `pnpm check` passed: TypeScript, 620/620 tests across 63 files, and the
   production build. HLS and DASH remain lazy player chunks; the size notices are
   build warnings rather than failed checks.
 - Full Playwright matrix: 270 passed, 10 intentional platform-specific skips,
@@ -101,8 +101,9 @@ block bypass, credential reuse, media copying, or unrelated substitute is used.
 - `pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed:
   matching frontend/API `0.7.0-alpha`, framing blocked, and no parent-sandbox
   compatibility policy.
-- Deployed `/api/health` returns JSON, Workers runtime, schema 12, and 8,949 titles.
-  `/api/titles?page=1&pageSize=2` returns a 8,949-record denominator; the real
+- Deployed `/api/health` returns JSON, Workers runtime, schema 12, and 9,185 titles.
+  Scoped catalogue checks return 8,949 Anikoto anime records and 236 TVmaze TV
+  records; the real
   title returns episode 58614 and versions 75701/183770; the provider route returns
   mappings 121117 and 121118 as supported native choices.
 - The exact private baseline manifest path returns 404. An unauthenticated
