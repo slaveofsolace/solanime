@@ -20,8 +20,8 @@ test('branding follows primary readiness and does not replay after route navigat
   await expect(navBrand.locator('svg')).toHaveCount(0);
 
   await page.getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: 'Browse', exact: true }).click();
-  await expect(page).toHaveURL('/catalogue');
+    .getByRole('link', { name: 'Anime', exact: true }).click();
+  await expect(page).toHaveURL('/catalogue?scope=anime');
   await page.getByRole('navigation', { name: 'Primary navigation' })
     .getByRole('link', { name: 'Home', exact: true }).click();
   await expect(page).toHaveURL('/');
