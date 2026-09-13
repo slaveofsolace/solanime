@@ -14,7 +14,6 @@ import ProviderPlayer from '../components/ProviderPlayer';
 import { isProviderEmbedResolution } from '../lib/providerEmbedPolicy';
 import YouTubeOfficialPlayer from '../components/YouTubeOfficialPlayer';
 import { isOfficialYouTubeResolution } from '../lib/youtubeOfficialPolicy';
-import '../styles/title-watch.css';
 
 function safeAttributionUrl(value: string) {
   try {

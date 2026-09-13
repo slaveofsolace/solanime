@@ -20,13 +20,48 @@
 .content-shell { width: 100%; margin: 0; padding: 0; }
 main { min-height: 68svh; max-width: none; margin: 0 auto; padding: 0 0 48px; }
 main:focus { outline: none; }
-.site-shell--home:has(.home-feature):not(:has(.account-service-notice, .inline-notice--error)) .masthead,
-.site-shell:has(.title-hero):not(:has(.account-service-notice)) .masthead { margin-bottom: -96px; }
+.site-shell--home:has(.home-feature) .masthead,
+.site-shell:has(.title-hero) .masthead { margin-bottom: -96px; }
 .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 24px var(--gutter) 0; padding: 24px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
 .site-footer p, .site-footer nav { display: flex; gap: 16px; }
 .release-tag { font-variant-numeric: tabular-nums; }
-.account-service-notice { margin: 0 var(--gutter) 16px; padding: 12px 0; color: var(--muted); font-size: 12px; }
-.account-service-notice a { color: var(--accent-ink); text-decoration: underline; }
+.account-service-notice {
+  position: absolute;
+  z-index: 36;
+  top: 10px;
+  right: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(420px, calc(100% - var(--gutter) - var(--gutter)));
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 10px;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 5px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--bg) 91%, transparent);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 24%);
+  backdrop-filter: blur(14px);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.account-service-notice a,
+.account-service-notice .text-button { color: var(--accent-ink); text-decoration: none; }
+.account-service-notice .text-button {
+  min-height: 28px;
+  padding: 3px 5px;
+  font-size: 11px;
+}
+.account-service-notice[role='status'] {
+  font-size: 0;
+}
+.account-service-notice[role='status']::before {
+  content: 'Account features offline';
+  font-size: 11px;
+}
+.site-shell--home .account-service-notice,
+.site-shell:has(.title-hero) .account-service-notice { top: 82px; }
 .account-readiness { position: fixed; z-index: 50; right: var(--gutter); bottom: 18px; display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: var(--surface); color: var(--muted); border-radius: 8px; font-size: 11px; }
 .site-shell--focused .main-nav { display: none; }
 .site-shell--focused .masthead-actions { border: 0; margin: 0; padding: 0; }
@@ -41,10 +76,16 @@ main:focus { outline: none; }
   .main-nav__search, .main-nav__movies { display: flex !important; }
   .main-nav small { display: none; }
   .main-nav .icon { width: 18px; height: 18px; }
-  .site-shell--home:has(.home-feature):not(:has(.account-service-notice, .inline-notice--error)) .masthead,
-  .site-shell:has(.title-hero):not(:has(.account-service-notice)) .masthead { margin-bottom: -76px; }
+  .site-shell--home:has(.home-feature) .masthead,
+  .site-shell:has(.title-hero) .masthead { margin-bottom: -76px; }
   .site-footer { margin-bottom: calc(80px + env(safe-area-inset-bottom)); flex-wrap: wrap; gap: 12px; }
   .site-shell--focused .site-footer { margin-bottom: 0; }
   .account-readiness { bottom: 90px; left: 14px; right: 14px; }
+  .account-service-notice {
+    right: 12px;
+    max-width: calc(100% - 24px);
+  }
+  .site-shell--home .account-service-notice,
+  .site-shell:has(.title-hero) .account-service-notice { top: 68px; }
 }
 @media (max-width: 360px) { .wordmark { width: 118px; } .masthead { padding-inline: 12px; } }

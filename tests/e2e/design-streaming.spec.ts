@@ -237,12 +237,13 @@ test('touch cards keep original posters and full accessible title links without 
   await expect(title.locator('a')).toBeVisible();
   await expect(art).toBeVisible();
   await expect(poster).toBeVisible();
-  await expect(title).toHaveCSS('white-space', 'nowrap');
+  await expect(title).toHaveCSS('white-space', 'normal');
+  await expect(card.locator('.title-card__actions')).toBeHidden();
   await expect(art).toHaveAttribute('aria-label', `Open ${longName}`);
   const artBox = await art.boundingBox();
   const titleBox = await title.boundingBox();
   const posterBox = await poster.boundingBox();
-  expect(titleBox!.height).toBeLessThan(24);
+  expect(titleBox!.height).toBeLessThanOrEqual(36);
   expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(posterBox!.x + posterBox!.width);
   expect(titleBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   expect(artBox!.width / artBox!.height).toBeCloseTo(2 / 3, 2);

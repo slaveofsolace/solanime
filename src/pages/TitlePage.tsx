@@ -7,7 +7,6 @@ import { api, errorMessage } from '../lib/api';
 import type { Episode, RelatedTitle, TitleDetail, TitleSummary } from '../types';
 import { InlineNotice, StatusPanel, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
-import '../styles/title-watch.css';
 
 function isLinkedRelated(
   item: RelatedTitle,
@@ -207,7 +206,7 @@ function TitleSession() {
               </Link>
             ) : firstEpisode ? (
               <a className="button button--primary" href="#episodes-title">
-                Browse episodes <Icon name="arrow" />
+                Choose episode <Icon name="arrow" />
               </a>
             ) : null}
             <button

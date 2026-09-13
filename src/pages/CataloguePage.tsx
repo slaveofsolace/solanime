@@ -3,6 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
 import { Pager, StatusPanel, TitleCard } from '../components/ui';
+import Icon from '../components/Icon';
 import { isCatalogueScope, type CatalogueScope } from '../../shared/catalogue-scope';
 
 const EMPTY_RESULT: CatalogueResponse = { items: [], total: 0, page: 1, pageSize: 24, pages: 0 };
@@ -261,7 +262,10 @@ export default function CataloguePage() {
               placeholder="Titles, aliases, keywords"
               autoComplete="off"
             />
-            <button type="submit">Search</button>
+            <button type="submit" aria-label="Search catalogue">
+              <Icon name="search" />
+              <span>Search</span>
+            </button>
           </label>
 
           <div className="discovery-actions">

@@ -4,7 +4,6 @@ import { TitleCard } from './ui';
 import Icon from './Icon';
 import { motionReduced } from '../lib/motion';
 import type { TitleSummary } from '../types';
-import '../styles/fidelity-pass.css';
 export default function CatalogueRail({
   title,
   to,

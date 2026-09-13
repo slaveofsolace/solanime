@@ -8,3 +8,8 @@
 @import './styles/header-search.css';
 @import './styles/discovery.css';
 @import './styles/experience.css';
+/* Route components used to inject these layers on first visit, which made the
+   visual result depend on navigation order. Keep the final composition global
+   and deterministic for direct links, refreshes, and browser back/forward. */
+@import './styles/fidelity-pass.css';
+@import './styles/title-watch.css';

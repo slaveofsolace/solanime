@@ -115,8 +115,8 @@
   background: color-mix(in srgb, var(--text) 10%, transparent);
 }
 
-.site-shell--home:has(.home-feature):not(:has(.account-service-notice, .inline-notice--error)) .masthead,
-.site-shell:has(.title-hero):not(:has(.account-service-notice)) .masthead {
+.site-shell--home:has(.home-feature) .masthead,
+.site-shell:has(.title-hero) .masthead {
   margin-bottom: -72px;
 }
 
@@ -556,8 +556,8 @@
     background: #dfddd7;
   }
 
-  .site-shell--home:has(.home-feature):not(:has(.account-service-notice, .inline-notice--error)) .masthead,
-  .site-shell:has(.title-hero):not(:has(.account-service-notice)) .masthead {
+  .site-shell--home:has(.home-feature) .masthead,
+  .site-shell:has(.title-hero) .masthead {
     margin-bottom: -64px;
   }
 
@@ -665,18 +665,6 @@
     width: 40px;
     min-height: 44px;
     flex: none;
-  }
-}
-
-@media (max-width: 420px) {
-  .site-shell--watch .watch-selection {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .site-shell--watch .watch-selection .episode-nav,
-  .site-shell--watch .watch-selection > .source-choice,
-  .site-shell--watch .watch-selection > .version-choice {
-    grid-column: 1;
   }
 }
 
