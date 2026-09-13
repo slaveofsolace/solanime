@@ -110,6 +110,9 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
     ? requiredBindings.map(binding => ({ binding, database_name: resources.d1[binding].databaseName, database_id: resources.d1[binding].databaseId, migrations_dir: portable(resolve(dirname(baseWorker.main as string), '../../migrations/cloud', binding.toLowerCase())) }))
     : structuredClone(existingD1);
   worker.ratelimits = (['API_LIMITER', 'RESOLVE_LIMITER'] as const).map(binding => ({ name: binding, namespace_id: resources.rateLimits[binding], simple: binding === 'API_LIMITER' ? { limit: 180, period: 60 } : { limit: 30, period: 60 } }));
+  // The fail-closed review surface cannot reach account, admin, import, or sync
+  // handlers, so it must not inherit their production-only secret requirements.
+  delete worker.secrets;
   delete worker.queues;
   delete worker.triggers;
 
@@ -136,7 +139,7 @@ export function prepareYouTubeReview(options: PrepareYouTubeReviewOptions) {
     isolation: { workerService: true, d1Databases: resources.storageMode === 'isolated', d1ApplicationWrites: false, rateLimitNamespaces: true, pagesPreviewBinding: true, backgroundTriggers: false, backgroundQueues: false, registrationOpen: false },
     residualSharing: ['Cloudflare account', 'Pages project', 'completed immutable Worker asset package', 'Pages env.preview binding (applies to every preview deployment made with the generated config)', ...(resources.storageMode === 'shared-preview-read-only' ? ['existing preview D1 databases (read-only application access)'] : [])],
     prerequisites: resources.storageMode === 'isolated'
-      ? ['Provision and migrate the three manifest-named review D1 databases.', 'Do not seed resolver state; the approved official mapping is served from the immutable baseline.', 'Configure review-service secrets without copying credentials into this plan.', 'Deploy the review Worker before the Pages preview because Service binding targets must already exist.']
+      ? ['Provision and migrate the three manifest-named review D1 databases.', 'Do not seed resolver state; the approved official mapping is served from the immutable baseline.', 'Do not configure account, admin, import, or sync secrets on the fail-closed review service.', 'Deploy the review Worker before the Pages preview because Service binding targets must already exist.']
       : ['Do not migrate, seed, import, or otherwise mutate the shared preview D1 databases.', 'The approved official mapping must be present in the pinned immutable baseline.', 'Deploy the review Worker before the Pages preview because Service binding targets must already exist.'],
     commands: {
       workerDryRun: ['pnpm', 'exec', 'wrangler', 'deploy', '--config', workerConfig, '--dry-run', '--outdir', join(output, 'worker-dry-run')],

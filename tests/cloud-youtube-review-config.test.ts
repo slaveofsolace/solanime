@@ -13,7 +13,7 @@ const baselineHash = 'd'.repeat(64);
 function fixture(storageMode: 'isolated' | 'shared-preview-read-only' = 'isolated') {
   const folder = join(root, crypto.randomUUID()), assets = join(folder, 'assets'); mkdirSync(assets, { recursive: true });
   const main = put(join(folder, 'worker.ts'), 'const hasEnabledOfficialYouTubeResource=true; const resolveApprovedPlayback=true; export default {};');
-  const baseWorker = put(join(folder, 'wrangler.preview.json'), { name: 'solanime-api-preview', main, workers_dev: false, preview_urls: true, assets: { directory: assets, binding: 'IMPORT_ASSETS', run_worker_first: true }, vars: { RELEASE_CHANNEL: 'preview' }, d1_databases: [
+  const baseWorker = put(join(folder, 'wrangler.preview.json'), { name: 'solanime-api-preview', main, workers_dev: false, preview_urls: true, assets: { directory: assets, binding: 'IMPORT_ASSETS', run_worker_first: true }, vars: { RELEASE_CHANNEL: 'preview' }, secrets: { required: ['SOLANIME_ADMIN_TOKEN', 'FIREBASE_API_KEY', 'FIREBASE_SERVICE_ACCOUNT_JSON', 'AUTH_CREDENTIAL_KEY'] }, d1_databases: [
     { binding: 'CATALOGUE', database_name: 'catalogue-preview', database_id: previewIds[0] },
     { binding: 'ACCOUNTS', database_name: 'accounts-preview', database_id: previewIds[1] },
     { binding: 'RESEARCH', database_name: 'research-preview', database_id: previewIds[2] },
@@ -43,7 +43,7 @@ describe('official YouTube review configuration', () => {
     const worker = JSON.parse(readFileSync(plan.worker.config, 'utf8'));
     expect(worker).toMatchObject({ name: 'solanime-api-youtube-review', workers_dev: false, preview_urls: false, vars: { SOLANIME_REGISTRATION: 'closed', SOLANIME_READ_ONLY_REVIEW: 'true', SYNC_ENABLED: 'false', SOURCE_REFRESH_ENABLED: 'false' } });
     expect(worker.d1_databases.map((item: { database_id: string }) => item.database_id)).toEqual(ids);
-    expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
+    expect(worker).not.toHaveProperty('secrets'); expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
     expect(plan.worker.staticAssets).toMatchObject({ files: 0, freePlanFileLimit: 20_000, fileHeadroom: 20_000, perFileByteLimit: 25 * 1024 * 1024, paidPlanAssumed: false });
     const pages = JSON.parse(readFileSync(plan.pages.config, 'utf8'));
     expect(pages.env.preview).toMatchObject({ vars: { SOLANIME_REVIEW_MODE: 'youtube-official' }, services: [{ binding: 'SOLANIME_API', service: 'solanime-api-youtube-review', environment: 'production' }] });
@@ -61,7 +61,7 @@ describe('official YouTube review configuration', () => {
     const worker = JSON.parse(readFileSync(plan.worker.config, 'utf8'));
     expect(worker.d1_databases.map((item: { database_id: string }) => item.database_id)).toEqual(previewIds);
     expect(worker.vars.SOLANIME_READ_ONLY_REVIEW).toBe('true');
-    expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
+    expect(worker).not.toHaveProperty('secrets'); expect(worker).not.toHaveProperty('queues'); expect(worker).not.toHaveProperty('triggers');
     expect(plan.storage.mode).toBe('shared-preview-read-only');
     expect(plan.isolation).toMatchObject({ workerService: true, d1Databases: false, d1ApplicationWrites: false, rateLimitNamespaces: true });
     expect(plan.residualSharing).toContain('existing preview D1 databases (read-only application access)');
