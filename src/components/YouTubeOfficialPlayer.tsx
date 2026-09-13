@@ -118,11 +118,15 @@ export default function YouTubeOfficialPlayer({
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<'loading' | 'ready' | 'playing' | 'error'>('loading');
   const [error, setError] = useState<{ code: string; message: string } | null>(null);
-  const source = officialYouTubeEmbedUrl(resolution, window.location.origin);
+  const officialResolution = isOfficialYouTubeResolution(resolution) ? resolution : null;
+  const source = officialResolution
+    ? officialYouTubeEmbedUrl(officialResolution, window.location.origin)
+    : null;
+  const sourceApproved = Boolean(source);
 
   useEffect(() => {
     const frame = iframe.current;
-    if (!frame || !source || !isOfficialYouTubeResolution(resolution)) return;
+    if (!frame || !source || !sourceApproved) return;
     let cancelled = false;
     let player: YouTubePlayer | null = null;
     let progressTimer: number | undefined;
@@ -211,9 +215,9 @@ export default function YouTubeOfficialPlayer({
       cancelled = true;
       if (isYouTubePlayer(player)) player.destroy();
     };
-  }, [attempt, initialPosition, resolution, source]);
+  }, [attempt, initialPosition, source, sourceApproved]);
 
-  if (!source || !isOfficialYouTubeResolution(resolution))
+  if (!source || !officialResolution)
     return (
       <div className="provider-player provider-player--rejected" role="alert">
         <div>
@@ -229,13 +233,13 @@ export default function YouTubeOfficialPlayer({
         ref={iframe}
         key={`${source}:${attempt}`}
         src={source}
-        title={`Official YouTube player — ${resolution.publisher.label}`}
+        title={`Official YouTube player — ${officialResolution.publisher.label}`}
         sandbox={YOUTUBE_IFRAME_SANDBOX}
         allow={YOUTUBE_IFRAME_ALLOW}
         allowFullScreen
         referrerPolicy="strict-origin-when-cross-origin"
       />
-      <p className="provider-player__label">Official upload · {resolution.publisher.label}</p>
+      <p className="provider-player__label">Official upload · {officialResolution.publisher.label}</p>
       {state === 'loading' && <span className="sr-only" role="status">Loading official YouTube player</span>}
       {state === 'error' && error && (
         <div className="provider-player__error" role="alert" data-error-code={error.code}>

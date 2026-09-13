@@ -143,6 +143,34 @@ describe('official YouTube player', () => {
     expect(progress).toHaveBeenCalledWith(8, 24);
   });
 
+  it('does not rebuild a playing iframe when an equivalent resolution object is rerendered', async () => {
+    const destroy = vi.fn();
+    const construct = vi.fn();
+    const player = {
+      destroy,
+      seekTo: vi.fn(),
+      getCurrentTime: vi.fn(() => 4),
+      getDuration: vi.fn(() => 24),
+    };
+    window.YT = {
+      Player: class {
+        constructor() {
+          construct();
+          return player;
+        }
+      } as unknown as NonNullable<typeof window.YT>['Player'],
+    };
+
+    const view = render(<YouTubeOfficialPlayer resolution={resolution} />);
+    await act(async () => { await Promise.resolve(); });
+    expect(construct).toHaveBeenCalledTimes(1);
+
+    view.rerender(<YouTubeOfficialPlayer resolution={{ ...resolution }} />);
+    await act(async () => { await Promise.resolve(); });
+    expect(construct).toHaveBeenCalledTimes(1);
+    expect(destroy).not.toHaveBeenCalled();
+  });
+
   it('removes a failed API script so Retry can start with a clean loader', async () => {
     render(<YouTubeOfficialPlayer resolution={resolution} />);
     const failedScript = document.getElementById('solanime-youtube-iframe-api') as HTMLScriptElement;
