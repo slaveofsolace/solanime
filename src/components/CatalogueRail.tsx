@@ -4,6 +4,7 @@ import { TitleCard } from './ui';
 import Icon from './Icon';
 import { motionReduced } from '../lib/motion';
 import type { TitleSummary } from '../types';
+import '../styles/fidelity-pass.css';
 export default function CatalogueRail({
   title,
   to,
@@ -48,7 +49,12 @@ export default function CatalogueRail({
   };
   if (!items.length) return null;
   return (
-    <section className={`home-rail home-rail--${format}`} aria-labelledby={id}>
+    <section
+      className={`home-rail home-rail--${format}`}
+      aria-labelledby={id}
+      data-at-start={edges.start}
+      data-at-end={edges.end}
+    >
       <header className="rail-heading">
         <div className="rail-heading__title">
           <h2 id={id}>{title}</h2>

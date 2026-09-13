@@ -5,6 +5,7 @@ import { useAppState } from '../state';
 import { CoverArt } from './ui';
 import Icon from './Icon';
 import { markDialogTrigger } from './Dialog';
+import { SolanimeBrand } from '../branding';
 
 /** A loaded banner is the single, proportionally cropped artwork surface.
  * Keep the original poster visible until the banner has actually loaded.
@@ -63,6 +64,16 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
       <div className="spotlight-scene" key={item.id}>
         <SpotlightArtwork title={item} />
         <div className="home-feature__copy">
+          <p className="feature-kicker">
+            <SolanimeBrand
+              className="feature-kicker__mark"
+              variant="emblem"
+              motion="static"
+              theme="dark"
+              decorative
+            />
+            Solanime feature
+          </p>
           <h2 id="featured-title">{item.name}</h2>
           <p className="feature-meta">
             {[
@@ -73,7 +84,7 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
                 : null,
             ]
               .filter(Boolean)
-              .join(' · ')}
+              .map((fact) => <span key={fact}>{fact}</span>)}
           </p>
           {item.synopsis && <p className="feature-synopsis">{item.synopsis}</p>}
           <div className="button-row">

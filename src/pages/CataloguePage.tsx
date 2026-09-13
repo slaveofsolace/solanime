@@ -181,16 +181,21 @@ export default function CataloguePage() {
   ].filter((filter): filter is { key: string; name: string; value: string } => filter !== null);
 
   return (
-    <div className="catalogue-page">
+    <div
+      className={`catalogue-page${searchView ? ' catalogue-page--search' : ''}`}
+      data-results-view={view}
+    >
       <header className="catalogue-heading">
-        <h1>{pageTitle}</h1>
-        <p className="catalogue-summary" aria-live="polite">
-          {loading
-            ? 'Loading titles…'
-            : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}${
-                catalogue.pages > 1 ? ` · Page ${catalogue.page} of ${catalogue.pages}` : ''
-              }`}
-        </p>
+        <div className="catalogue-heading__copy">
+          <h1>{pageTitle}</h1>
+          <p className="catalogue-summary" aria-live="polite">
+            {loading
+              ? 'Loading titles…'
+              : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}${
+                  catalogue.pages > 1 ? ` · Page ${catalogue.page} of ${catalogue.pages}` : ''
+                }`}
+          </p>
+        </div>
       </header>
 
       <form

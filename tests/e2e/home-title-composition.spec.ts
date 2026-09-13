@@ -46,8 +46,11 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   if (info.project.name.startsWith('desktop')) {
     expect(measurements.copyX).toBeCloseTo(47.52, 0);
     expect(measurements.copyRight).toBeLessThan(measurements.posterX);
-    expect(measurements.railY).toBeGreaterThan(720);
-    expect(measurements.railY).toBeLessThan(810);
+    // The first content row should read as part of the feature composition and
+    // remain visible in the first viewport, rather than sitting below a tall
+    // marketing-style hero.
+    expect(measurements.railY).toBeGreaterThan(670);
+    expect(measurements.railY).toBeLessThan(750);
   } else {
     expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
   }

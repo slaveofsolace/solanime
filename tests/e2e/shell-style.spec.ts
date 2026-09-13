@@ -48,8 +48,10 @@ test('desktop home artwork continues behind navigation without covering feature 
   expect(scene!.y).toBeCloseTo(0, 0);
   expect(header!.y).toBeCloseTo(0, 0);
   expect(copy!.y).toBeGreaterThan(header!.y + header!.height + 40);
-  expect(rail!.y).toBeGreaterThan(720);
-  expect(rail!.y).toBeLessThan(810);
+  // Keep discovery visibly attached to the artwork field; this is a catalogue
+  // shell, not a landing-page hero followed by content below the fold.
+  expect(rail!.y).toBeGreaterThan(670);
+  expect(rail!.y).toBeLessThan(750);
   await page.getByRole('link', { name: 'View episodes', exact: true }).click();
   await expect(page.locator('.title-hero')).toBeVisible();
   expect(await page.locator('.masthead').evaluate(element => getComputedStyle(element).marginBottom)).toBe('-72px');
