@@ -2,6 +2,7 @@ import { currentSchemaVersion, type SqliteDatabase } from './db.ts';
 import { AppError } from './errors.ts';
 import type { StoredProviderMapping } from './providers/contract.ts';
 import { decorateLocalArtwork } from './artwork/catalogue.ts';
+import { isCatalogueScope, sourcesForCatalogueScope } from '../shared/catalogue-scope.ts';
 
 const parseJson = (value: unknown, fallback: unknown) => {
   try {
@@ -28,10 +29,13 @@ export function browseTitles(db: SqliteDatabase, params: BrowseParams) {
   const where: string[] = ['1=1'];
   const bindings: Array<string | number> = [];
   if (params.scope) {
-    if (params.scope !== 'anime' && params.scope !== 'tv')
-      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
-    where.push('t.source=?');
-    bindings.push(params.scope === 'anime' ? 'anikoto' : 'tvmaze');
+    if (!isCatalogueScope(params.scope))
+      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
+    const sources = sourcesForCatalogueScope(params.scope);
+    if (sources.length) {
+      where.push(`t.source IN (${sources.map(() => '?').join(',')})`);
+      bindings.push(...sources);
+    }
   }
   if (params.q) {
     where.push(

@@ -59,11 +59,10 @@ export function Layout({ children }: PropsWithChildren) {
   const artworkHeader = home || location.pathname.startsWith('/title/');
   const catalogueQuery = new URLSearchParams(location.search);
   const catalogueScope = catalogueQuery.get('scope');
-  const catalogueType = catalogueQuery.get('type');
   const onAnimeCatalogue =
-    location.pathname === '/catalogue' && catalogueScope !== 'tv' && catalogueType !== 'movie';
+    location.pathname === '/catalogue' && catalogueScope === 'anime';
   const onTvCatalogue = location.pathname === '/catalogue' && catalogueScope === 'tv';
-  const onMovieCatalogue = location.pathname === '/catalogue' && catalogueType === 'movie';
+  const onMovieCatalogue = location.pathname === '/catalogue' && catalogueScope === 'movies';
   return (
     <div
       className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
@@ -108,12 +107,13 @@ export function Layout({ children }: PropsWithChildren) {
             <span>Search</span>
           </NavLink>
           <Link
-            className="main-nav__category"
-            to="/catalogue?scope=anime&type=movie"
+            className="main-nav__movies"
+            to="/catalogue?scope=movies"
             aria-label="Movies"
             aria-current={onMovieCatalogue ? 'page' : undefined}
           >
-            Movies
+            <Icon name="theater" />
+            <span>Movies</span>
           </Link>
           <Link className="main-nav__category" to="/catalogue?language=dub">
             Dubbed
@@ -189,7 +189,7 @@ export function Layout({ children }: PropsWithChildren) {
           <nav aria-label="Footer navigation">
             <Link to="/catalogue?scope=anime">Anime</Link>
             <Link to="/catalogue?scope=tv">TV Shows</Link>
-            <Link to="/catalogue?scope=anime&type=movie">Movies</Link>
+            <Link to="/catalogue?scope=movies">Movies</Link>
             <Link to="/library">My List</Link>
             {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
           </nav>

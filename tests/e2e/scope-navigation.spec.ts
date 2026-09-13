@@ -21,7 +21,7 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
   );
   await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveAttribute(
     'href',
-    '/catalogue?scope=anime&type=movie',
+    '/catalogue?scope=movies',
   );
   await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).not.toHaveAttribute(
     'aria-current',
@@ -31,6 +31,13 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
 
   await page.goto('/catalogue');
   await expect(page.getByRole('group', { name: 'Catalogue collection' })).toBeVisible();
+
+  await page.goto('/catalogue?scope=movies');
+  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
+  );
+  await expect(page.getByRole('heading', { name: 'Movies', exact: true })).toBeVisible();
 });
 
 test('mobile bottom navigation keeps TV directly reachable without overflow', async ({ page }) => {
@@ -41,6 +48,7 @@ test('mobile bottom navigation keeps TV directly reachable without overflow', as
   await expect(navigation.getByRole('link', { name: 'Home', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'Search', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
   await noOverflow(page);

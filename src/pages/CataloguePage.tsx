@@ -3,6 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
 import { Pager, StatusPanel, TitleCard } from '../components/ui';
+import { isCatalogueScope, type CatalogueScope } from '../../shared/catalogue-scope';
 
 const EMPTY_RESULT: CatalogueResponse = { items: [], total: 0, page: 1, pageSize: 24, pages: 0 };
 
@@ -55,9 +56,8 @@ export default function CataloguePage() {
   const queryType = params.get('type') ?? undefined;
   const queryStatus = params.get('status') ?? undefined;
   const queryLanguage = params.get('language') ?? undefined;
-  const queryScope = params.get('scope') === 'anime' || params.get('scope') === 'tv'
-    ? params.get('scope') as 'anime' | 'tv'
-    : undefined;
+  const requestedScope = params.get('scope');
+  const queryScope = isCatalogueScope(requestedScope) ? requestedScope : undefined;
   const querySort = params.get('sort') ?? 'updated';
   const searchInput = useRef<HTMLInputElement>(null);
   const [draftQuery, setDraftQuery] = useState(params.get('q') ?? '');
@@ -76,7 +76,7 @@ export default function CataloguePage() {
       type: queryType,
       status: queryStatus,
       language: queryLanguage,
-      scope: queryScope,
+      scope: queryScope ?? (searchView ? 'all' : undefined),
       sort: querySort,
       page,
       pageSize: 24,
@@ -153,7 +153,7 @@ export default function CataloguePage() {
       setParams(next);
   };
 
-  const changeCollection = (scope: '' | 'anime' | 'tv') => {
+  const changeCollection = (scope: '' | Exclude<CatalogueScope, 'all'>) => {
     const next = new URLSearchParams(pendingParams.current);
     next.delete('focus');
     next.delete('page');
@@ -171,6 +171,8 @@ export default function CataloguePage() {
   const view = params.get('view') === 'compact' ? 'compact' : 'standard';
   const pageTitle = searchView
     ? 'Search'
+    : queryScope === 'movies'
+      ? 'Movies'
     : queryScope === 'tv'
       ? 'TV Shows'
       : queryScope === 'anime' && params.get('type')?.toLowerCase() === 'movie'
@@ -226,6 +228,7 @@ export default function CataloguePage() {
             <button type="button" aria-pressed onClick={() => changeCollection('')}>All</button>
             <button type="button" aria-pressed={false} onClick={() => changeCollection('anime')}>Anime</button>
             <button type="button" aria-pressed={false} onClick={() => changeCollection('tv')}>TV Shows</button>
+            <button type="button" aria-pressed={false} onClick={() => changeCollection('movies')}>Movies</button>
           </div>
         )}
       </div>

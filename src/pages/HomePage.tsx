@@ -48,7 +48,8 @@ export default function HomePage() {
   const [prefs] = preferences;
   const [bootDismissed, setBootDismissed] = useState(() => isBrandSessionResolved('solanime-home-boot'));
   const [latest, setLatest] = useState<TitleSummary[]>([]);
-  const [movies, setMovies] = useState<TitleSummary[]>([]);
+  const [animeMovies, setAnimeMovies] = useState<TitleSummary[]>([]);
+  const [screenMovies, setScreenMovies] = useState<TitleSummary[]>([]);
   const [tvShows, setTvShows] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
   const [collections, setCollections] = useState<Array<{ label: string; genre: string; items: TitleSummary[] }>>([]);
@@ -73,7 +74,13 @@ export default function HomePage() {
     void api
       .catalogue({ scope: 'anime', type: 'movie', sort: 'year_desc', pageSize: 12 }, controller.signal)
       .then((films) => {
-        if (!controller.signal.aborted) setMovies(films.items);
+        if (!controller.signal.aborted) setAnimeMovies(films.items);
+      })
+      .catch(() => undefined);
+    void api
+      .catalogue({ scope: 'movies', sort: 'year_desc', pageSize: 12 }, controller.signal)
+      .then((films) => {
+        if (!controller.signal.aborted) setScreenMovies(films.items);
       })
       .catch(() => undefined);
     void api
@@ -217,8 +224,9 @@ export default function HomePage() {
         format="landscape"
       />
       <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} format="landscape" />
-      <Rail title="Anime films" to="/catalogue?scope=anime&type=movie&sort=year_desc" items={movies} format="landscape" />
+      <Rail title="Movies" to="/catalogue?scope=movies&sort=year_desc" items={screenMovies} format="landscape" />
       <Rail title="TV shows" to="/catalogue?scope=tv&sort=updated" items={tvShows} format="landscape" />
+      <Rail title="Anime films" to="/catalogue?scope=anime&type=movie&sort=year_desc" items={animeMovies} format="landscape" />
       {collections.map(row => <Rail key={row.genre} title={row.label}
         to={`/catalogue?scope=anime&genre=${encodeURIComponent(row.genre)}`} items={row.items} format="landscape" />)}
       {(facets.genres?.length ?? 0) > 0 && (

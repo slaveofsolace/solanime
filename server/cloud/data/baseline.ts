@@ -1,4 +1,5 @@
 import { AppError } from '../../errors.ts';
+import { isCatalogueScope, sourcesForCatalogueScope } from '../../../shared/catalogue-scope.ts';
 import type { BrowseParams } from '../../catalogue.ts';
 import type { AvailabilityState } from '../../types.ts';
 import {
@@ -193,15 +194,22 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     if (!Array.isArray(order) || order.some(id => typeof id !== 'string')) throw changed();
     let ids: string[] = order;
     if (params.scope) {
-      if (params.scope !== 'anime' && params.scope !== 'tv') throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
+      if (!isCatalogueScope(params.scope)) throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
+      const requestedSources = sourcesForCatalogueScope(params.scope);
       const sources = own(postings, 'sources');
       if (sources === undefined) {
-        if (params.scope === 'tv') ids = [];
+        if (params.scope !== 'anime' && params.scope !== 'all') ids = [];
       } else {
         if (!record(sources)) throw changed();
-        const values = own(sources, params.scope === 'anime' ? 'anikoto' : 'tvmaze') ?? [];
-        if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
-        const accepted = new Set(values); ids = ids.filter(id => accepted.has(id));
+        if (requestedSources.length) {
+          const accepted = new Set<string>();
+          for (const source of requestedSources) {
+            const values = own(sources, source) ?? [];
+            if (!Array.isArray(values) || values.some(id => typeof id !== 'string')) throw changed();
+            for (const id of values) accepted.add(id);
+          }
+          ids = ids.filter(id => accepted.has(id));
+        }
       }
     }
     const scopedIds = new Set(ids);

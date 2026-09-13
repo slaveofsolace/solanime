@@ -7,6 +7,7 @@ import type {
   TitleDetailResponse,
   ImportStatus,
 } from '../types';
+import type { CatalogueScope } from '../../shared/catalogue-scope';
 
 export class ApiError extends Error {
   readonly problem: ApiProblem;
@@ -103,7 +104,7 @@ export async function request<T>(
 
 export interface CatalogueQuery {
   q?: string;
-  scope?: 'anime' | 'tv';
+  scope?: CatalogueScope;
   genre?: string;
   type?: string;
   status?: string;

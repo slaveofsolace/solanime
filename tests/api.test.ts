@@ -93,7 +93,7 @@ describe('application HTTP API', () => {
     );
   });
 
-  it('separates anime and non-animation TV records with a stable scope query', async () => {
+  it('separates anime, non-animation TV, and movie records with stable scope queries', async () => {
     const { origin, db } = await app();
     importSnapshot(db, {
       schemaVersion: 1,
@@ -108,11 +108,44 @@ describe('application HTTP API', () => {
         episodes: [],
       }],
     });
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'wikipedia-tv',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: 'Q100',
+        slug: 'wikipedia-tv-show-q100',
+        canonicalUrl: 'https://en.wikipedia.org/wiki/Wikipedia_TV_Show',
+        name: 'Wikipedia TV Show',
+        format: 'TV',
+        episodes: [],
+      }],
+    });
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'wikipedia-movie',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: 'Q200',
+        slug: 'wikipedia-movie-q200',
+        canonicalUrl: 'https://en.wikipedia.org/wiki/Wikipedia_Movie',
+        name: 'Wikipedia Movie',
+        format: 'Movie',
+        episodes: [],
+      }],
+    });
     const anime = await fetch(`${origin}/api/titles?scope=anime`).then((response) => response.json<{ items: Array<{ source: string }> }>());
     const tv = await fetch(`${origin}/api/titles?scope=tv`).then((response) => response.json<{ items: Array<{ source: string; name: string }> }>());
+    const movies = await fetch(`${origin}/api/titles?scope=movies`).then((response) => response.json<{ items: Array<{ source: string; name: string }> }>());
+    const all = await fetch(`${origin}/api/titles?scope=all&q=Wikipedia`).then((response) => response.json<{ items: Array<{ source: string }> }>());
     expect(anime.items).toMatchObject([{ source: 'anikoto' }]);
-    expect(tv.items).toMatchObject([{ source: 'tvmaze', name: 'Example Show' }]);
-    const invalid = await fetch(`${origin}/api/titles?scope=movies`);
+    expect(tv.items).toEqual(expect.arrayContaining([
+      expect.objectContaining({ source: 'tvmaze', name: 'Example Show' }),
+      expect.objectContaining({ source: 'wikipedia-tv', name: 'Wikipedia TV Show' }),
+    ]));
+    expect(movies.items).toMatchObject([{ source: 'wikipedia-movie', name: 'Wikipedia Movie' }]);
+    expect(all.items.map((item) => item.source).sort()).toEqual(['wikipedia-movie', 'wikipedia-tv']);
+    const invalid = await fetch(`${origin}/api/titles?scope=games`);
     expect(invalid.status).toBe(400);
   });
 

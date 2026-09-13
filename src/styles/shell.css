@@ -38,7 +38,7 @@ main:focus { outline: none; }
   .masthead-actions { margin: 0; padding: 0; border: 0; }
   .main-nav { position: fixed; inset: auto 12px 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 45; padding: 5px; justify-content: space-around; border: 1px solid var(--line); background: var(--bg); border-radius: 99px; box-shadow: 0 4px 24px #0006; }
   .main-nav > a { flex: 1; padding: 6px; min-height: 48px; flex-direction: column; gap: 2px; font-size: 10px; }
-  .main-nav__search { display: flex !important; }
+  .main-nav__search, .main-nav__movies { display: flex !important; }
   .main-nav small { display: none; }
   .main-nav .icon { width: 18px; height: 18px; }
   .site-shell--home:has(.home-feature):not(:has(.account-service-notice, .inline-notice--error)) .masthead,

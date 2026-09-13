@@ -14,12 +14,17 @@ test('catalogue collection controls send a shareable source scope', async ({ pag
   await page.goto('/catalogue?scope=tv');
   await tvRequest;
   await expect(page.getByRole('heading', { name: 'TV Shows', exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'TV Shows', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
+  await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toHaveAttribute('aria-current', 'page');
 
-  await page.getByRole('button', { name: 'Anime', exact: true }).click();
+  await navigation.getByRole('link', { name: 'Anime', exact: true }).click();
   await expect(page).toHaveURL(/scope=anime/);
-  await expect(page.getByRole('button', { name: 'Anime', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(page.locator('.title-card').first()).toBeVisible();
+
+  await navigation.getByRole('link', { name: 'Movies', exact: true }).click();
+  await expect(page).toHaveURL(/scope=movies/);
+  await expect(page.getByRole('heading', { name: 'Movies', exact: true })).toBeVisible();
   await noOverflow(page);
 });
 

@@ -4,6 +4,7 @@ import type { StoredProviderMapping } from '../../providers/contract.ts';
 import { AppError } from '../../errors.ts';
 import { decorateCloudArtwork } from '../../artwork/catalogue.ts';
 import type { createPrivateBaselineReader } from './baseline.ts';
+import { isCatalogueScope, sourcesForCatalogueScope } from '../../../shared/catalogue-scope.ts';
 
 type Row = Record<string, unknown>;
 export type CatalogueDatabase = Pick<D1Database, 'prepare' | 'batch'>;
@@ -36,9 +37,14 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     if (!Number.isSafeInteger(params.page) || params.page < 1 || params.page > 100_000 || !Number.isSafeInteger(params.pageSize) || params.pageSize < 1 || params.pageSize > 100)
       throw new AppError(400, 'INVALID_QUERY', 'Choose a valid page and a page size between 1 and 100.');
     if (params.q && params.q.length > 200) throw new AppError(400, 'INVALID_QUERY', 'Search is limited to 200 characters.');
-    if (params.scope && params.scope !== 'anime' && params.scope !== 'tv')
-      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be anime or tv.');
-    if (baseline) {
+    const scope = params.scope;
+    if (scope && !isCatalogueScope(scope))
+      throw new AppError(400, 'INVALID_QUERY', 'Catalogue scope must be all, anime, tv, or movies.');
+    // The immutable baseline is authoritative for the large anime catalogue and
+    // legacy unscoped browse page. External Movies/TV rows live in D1 overlays,
+    // so those scopes (and global search) must query D1 to remain discoverable.
+    const useBaselineBrowse = baseline && (!scope || scope === 'anime');
+    if (useBaselineBrowse) {
       const page = await baseline.browseIds(params);
       const stored = page.ids.length ? await rows(db, `SELECT CAST(t.id AS TEXT) AS id,t.source,t.source_id AS sourceId,t.slug,t.canonical_url AS canonicalUrl,t.name,t.description,t.description AS synopsis,t.format,t.format AS type,t.release_year AS releaseYear,t.status,t.updated_at AS updatedAt,t.artwork_url AS artworkUrl,t.artwork_url AS imageUrl,t.availability_state AS availability,(SELECT COUNT(*) FROM episodes e WHERE e.title_id=t.id) AS episodeCount FROM titles t WHERE t.id IN (SELECT CAST(value AS INTEGER) FROM json_each(?))`, JSON.stringify(page.ids)) : [];
       const byId = new Map(stored.map(row => [String(row.id),row]));
@@ -55,7 +61,13 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     }
     const where = ['1=1'];
     const values: unknown[] = [];
-    if (params.scope) { where.push('t.source=?'); values.push(params.scope === 'anime' ? 'anikoto' : 'tvmaze'); }
+    if (scope && isCatalogueScope(scope)) {
+      const sources = sourcesForCatalogueScope(scope);
+      if (sources.length) {
+        where.push(`t.source IN (${sources.map(() => '?').join(',')})`);
+        values.push(...sources);
+      }
+    }
     if (params.q) {
       // INSTR keeps literal search semantics without D1's 50-byte LIKE-pattern limit.
       where.push('(INSTR(LOWER(t.name),LOWER(?))>0 OR EXISTS (SELECT 1 FROM title_aliases a WHERE a.title_id=t.id AND INSTR(LOWER(a.alias),LOWER(?))>0))');

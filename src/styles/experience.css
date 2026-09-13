@@ -91,6 +91,10 @@
   display: inline-flex;
 }
 
+.main-nav__movies {
+  display: inline-flex;
+}
+
 .masthead-actions {
   gap: 3px;
   margin-left: auto;
@@ -510,7 +514,7 @@
   }
 
   .main-nav {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     border-radius: 12px;
     pointer-events: auto;
   }
@@ -530,6 +534,10 @@
   }
 
   .main-nav__search {
+    display: flex !important;
+  }
+
+  .main-nav > .main-nav__movies {
     display: flex !important;
   }
 
