@@ -57,6 +57,13 @@ export function Layout({ children }: PropsWithChildren) {
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
   const artworkHeader = home || location.pathname.startsWith('/title/');
+  const catalogueQuery = new URLSearchParams(location.search);
+  const catalogueScope = catalogueQuery.get('scope');
+  const catalogueType = catalogueQuery.get('type');
+  const onAnimeCatalogue =
+    location.pathname === '/catalogue' && catalogueScope !== 'tv' && catalogueType !== 'movie';
+  const onTvCatalogue = location.pathname === '/catalogue' && catalogueScope === 'tv';
+  const onMovieCatalogue = location.pathname === '/catalogue' && catalogueType === 'movie';
   return (
     <div
       className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
@@ -79,19 +86,34 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="home" />
             <span>Home</span>
           </NavLink>
-          <NavLink to="/catalogue?scope=anime" aria-label="Anime">
+          <Link
+            to="/catalogue?scope=anime"
+            aria-label="Anime"
+            aria-current={onAnimeCatalogue ? 'page' : undefined}
+          >
             <Icon name="browse" />
             <span>Anime</span>
-          </NavLink>
+          </Link>
+          <Link
+            className="main-nav__tv"
+            to="/catalogue?scope=tv"
+            aria-label="TV Shows"
+            aria-current={onTvCatalogue ? 'page' : undefined}
+          >
+            <Icon name="tv" />
+            <span>TV</span>
+          </Link>
           <NavLink className="main-nav__search" to="/search" aria-label="Search">
             <Icon name="search" />
             <span>Search</span>
           </NavLink>
-          <Link className="main-nav__category" to="/catalogue?scope=tv">
-            TV Shows
-          </Link>
-          <Link className="main-nav__category" to="/catalogue?scope=anime&type=movie">
-            Anime Films
+          <Link
+            className="main-nav__category"
+            to="/catalogue?scope=anime&type=movie"
+            aria-label="Movies"
+            aria-current={onMovieCatalogue ? 'page' : undefined}
+          >
+            Movies
           </Link>
           <Link className="main-nav__category" to="/catalogue?language=dub">
             Dubbed
@@ -167,6 +189,7 @@ export function Layout({ children }: PropsWithChildren) {
           <nav aria-label="Footer navigation">
             <Link to="/catalogue?scope=anime">Anime</Link>
             <Link to="/catalogue?scope=tv">TV Shows</Link>
+            <Link to="/catalogue?scope=anime&type=movie">Movies</Link>
             <Link to="/library">My List</Link>
             {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
           </nav>
