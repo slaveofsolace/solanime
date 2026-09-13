@@ -4,6 +4,7 @@ import { dirname, join, resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { pathToFileURL } from 'node:url';
 import { BASELINE_EPISODE_PAGE_SIZE, BASELINE_MAX_BUCKET_SIZE, BASELINE_MAX_FILES, BASELINE_MAX_FILE_BYTES, BASELINE_MAX_INDEX_BYTES, baselineHashBucket, baselineNumericBucket, baselinePath, validateBaselineManifest, type BaselineBrowseRow, type BaselineEpisode, type BaselineEpisodePage, type BaselineFileRef, type BaselineManifest, type BaselineMapping, type BaselinePostings, type BaselineRow, type BaselineTitle } from '../../server/cloud/data/baseline-schema.ts';
+import type { ApprovedNativeResource } from '../../server/providers/native.ts';
 
 type SqlRow = Record<string, string | number | null>;
 const hash = (bytes: string) => createHash('sha256').update(bytes).digest('hex');
@@ -12,6 +13,7 @@ const text = (value: unknown): string | null => value == null ? null : String(va
 const dictionary = <T>(): Record<string,T> => Object.create(null) as Record<string,T>;
 const group = <T>(rows: T[], key: (row: T) => string) => { const map = new Map<string, T[]>(); for (const row of rows) { const id = key(row); const items = map.get(id) ?? []; items.push(row); map.set(id, items); } return map; };
 function stableUrl(value: unknown) { if (!value) return null; try { const url = new URL(String(value)); return ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password && !url.search && !url.hash ? url.href : null; } catch { return null; } }
+function stableEvidenceUrl(value: unknown) { if (!value) return null; try { const url = new URL(String(value)); return url.protocol === 'https:' && !url.username && !url.password && !url.port && !url.hash && url.href.length <= 2048 ? url.href : null; } catch { return null; } }
 function stableResource(value: unknown) { if (value == null) return null; const item = String(value); if (item.length > 4096 || /[\r\n]/.test(item)) return null; return /^https?:/i.test(item) ? stableUrl(item) : item; }
 const capabilities = (value: unknown) => { let parsed: Record<string, unknown> = {}; try { parsed = JSON.parse(String(value)); } catch { /* No unknown capabilities are enabled. */ } return Object.fromEntries(['embed','seek','volume','fullscreen','subtitles','qualitySelection','progressEvents'].map(key => [key, parsed?.[key] === true])); };
 function countFiles(path: string): number { return readdirSync(path, { withFileTypes: true }).reduce((sum, item) => { if (item.isSymbolicLink()) throw new Error('Asset directories must not contain symbolic links.'); return sum + (item.isDirectory() ? countFiles(join(path, item.name)) : 1); }, 0); }
@@ -45,6 +47,7 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
     const episodeRows = all('SELECT id,title_id,source_id,number_text,number_sort,label,slug,episode_type,availability_state FROM episodes ORDER BY number_sort IS NULL,number_sort,number_text,id');
     const versionRows = all('SELECT id,episode_id,source_id,language,version_label,availability_state FROM episode_versions ORDER BY CASE language WHEN \'sub\' THEN 0 WHEN \'dub\' THEN 1 ELSE 2 END,id');
     const mappingRows = all('SELECT m.id,m.version_id,m.provider_id,m.source_mapping_id,m.provider_resource_id,m.canonical_embed_url,m.mapping_origin,m.availability_state,m.unavailable_reason,m.first_seen_at,m.last_seen_at,m.last_successful_import_at,m.last_successful_resolution_at,m.last_playback_verification_at,p.label,p.playback_type,p.capabilities_json FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id ORDER BY p.label,m.id');
+    const resourceRows = new Map(all('SELECT mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled,content_sha1 FROM native_resources ORDER BY mapping_id').map(row => [String(row.mapping_id), row]));
     const aliases = group(all('SELECT title_id,alias,language,alias_type FROM title_aliases ORDER BY alias'), row => String(row.title_id));
     const genres = group(all('SELECT tg.title_id,g.slug,g.name FROM title_genres tg JOIN genres g ON g.id=tg.genre_id ORDER BY g.name'), row => String(row.title_id));
     const related = group(all('SELECT rt.title_id,rt.related_source_id AS sourceId,rt.relationship_type AS relationshipType,rt.label,rt.source_url AS sourceUrl,CAST(t.id AS TEXT) AS id,t.slug,t.name,t.format AS type,t.release_year AS releaseYear,t.status,t.artwork_url AS imageUrl,t.availability_state AS availability FROM related_titles rt LEFT JOIN titles t ON t.id=rt.related_title_id ORDER BY rt.relationship_type,COALESCE(t.name,rt.label,rt.related_source_id)'), row => String(row.title_id));
@@ -55,7 +58,18 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
     for (const row of mappingRows) {
       const version = versionLookup.get(String(row.version_id)); if (!version) throw new Error('Mapping references an absent version.');
       const resource = stableResource(row.provider_resource_id); const embed = stableUrl(row.canonical_embed_url);
-      mappings[String(row.id)] = { mapping: { mappingId: Number(row.id), providerId: String(row.provider_id), label: String(row.label), language: String(version.language), providerResourceId: resource, canonicalEmbedUrl: embed, availability: String(row.availability_state) as BaselineMapping['mapping']['availability'], unavailableReason: text(row.unavailable_reason) }, provenance: { sourceMappingId: text(row.source_mapping_id), mappingOrigin: text(row.mapping_origin), firstSeen: text(row.first_seen_at), lastSeen: text(row.last_seen_at), lastSuccessfulImport: text(row.last_successful_import_at), resourceOmittedReason: (row.provider_resource_id && !resource) || (row.canonical_embed_url && !embed) ? 'UNSTABLE_OR_UNSAFE_RESOURCE_REFERENCE' : null } };
+      const approval = resourceRows.get(String(row.id));
+      const rightsEvidenceUrl = approval ? stableEvidenceUrl(approval.rights_evidence_url) : null;
+      const identityEvidenceUrl = approval ? stableEvidenceUrl(approval.identity_evidence_url) : null;
+      const approvedResource: ApprovedNativeResource | null = approval && resource && rightsEvidenceUrl && identityEvidenceUrl
+        ? { mapping_id: Number(approval.mapping_id), provider_id: String(approval.provider_id), resource_id: resource, language: String(approval.language), edition: String(approval.edition), license: String(approval.license), rights_evidence_url: rightsEvidenceUrl, identity_evidence_url: identityEvidenceUrl, approved_at: String(approval.approved_at), enabled: Number(approval.enabled), content_sha1: text(approval.content_sha1) }
+        : null;
+      const resourceOmittedReason = approval && !approvedResource
+        ? 'UNSTABLE_OR_UNSAFE_APPROVAL_REFERENCE'
+        : (row.provider_resource_id && !resource) || (row.canonical_embed_url && !embed)
+          ? 'UNSTABLE_OR_UNSAFE_RESOURCE_REFERENCE'
+          : null;
+      mappings[String(row.id)] = { mapping: { mappingId: Number(row.id), providerId: String(row.provider_id), label: String(row.label), language: String(version.language), providerResourceId: resource, canonicalEmbedUrl: embed, availability: String(row.availability_state) as BaselineMapping['mapping']['availability'], unavailableReason: text(row.unavailable_reason) }, resource: approvedResource, provenance: { sourceMappingId: text(row.source_mapping_id), mappingOrigin: text(row.mapping_origin), firstSeen: text(row.first_seen_at), lastSeen: text(row.last_seen_at), lastSuccessfulImport: text(row.last_successful_import_at), resourceOmittedReason } };
     }
     const observedEmpty = new Set(all("SELECT entity_id FROM verification_observations WHERE entity_type='title' AND result='empty_episode_inventory'").map(row => String(row.entity_id)));
     const pendingInventory = new Set(all("SELECT json_extract(payload_json,'$.sourceId') AS sourceId FROM crawl_tasks WHERE task_type='title_detail' AND status<>'completed'").map(row => String(row.sourceId)));
@@ -119,7 +133,7 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
     const schema = Number(db.prepare('SELECT MAX(version) AS version FROM schema_migrations').get()?.version ?? 0);
     db.exec('COMMIT');
     if (await fileHash(sourcePath) !== sourceHash || (existsSync(`${sourcePath}-wal`) && statSync(`${sourcePath}-wal`).size > 0)) throw new Error('Source changed during baseline preparation; no output was published.');
-    const manifest: BaselineManifest = { version:1,kind:'solanime-private-catalogue-baseline',id:sourceHash,createdAt:options.createdAt ?? new Date().toISOString(),sourceDatabaseSha256:sourceHash,sourceSchemaVersion:schema,counts,bucketSpans,episodePageSize:100,maxFileBytes:BASELINE_MAX_FILE_BYTES,files:files.size+1,aggregateFiles:files.size+1+existing,bytes:[...files.values()].reduce((sum,body)=>sum+Buffer.byteLength(body),0),referenceShards,fastRefs:Object.fromEntries(Object.entries(refs).filter(([path])=>path.includes('/browse/'))),postings:postingsRef,search:searchRef,facets,exclusions:['accounts','authentication credentials','crawl tasks','research dump','temporary playback resolutions','native enablement configuration'] };
+    const manifest: BaselineManifest = { version:1,kind:'solanime-private-catalogue-baseline',id:sourceHash,createdAt:options.createdAt ?? new Date().toISOString(),sourceDatabaseSha256:sourceHash,sourceSchemaVersion:schema,counts,bucketSpans,episodePageSize:100,maxFileBytes:BASELINE_MAX_FILE_BYTES,files:files.size+1,aggregateFiles:files.size+1+existing,bytes:[...files.values()].reduce((sum,body)=>sum+Buffer.byteLength(body),0),referenceShards,fastRefs:Object.fromEntries(Object.entries(refs).filter(([path])=>path.includes('/browse/'))),postings:postingsRef,search:searchRef,facets,exclusions:['accounts','authentication credentials','crawl tasks','research dump','temporary playback resolutions','mutable native enablement overrides'] };
     if (manifest.aggregateFiles + reserve > BASELINE_MAX_FILES) throw new Error('Baseline plus preserved assets exceeds the reserved free asset allowance.');
     validateBaselineManifest(manifest);
     const body = JSON.stringify(manifest); if (Buffer.byteLength(body)>BASELINE_MAX_FILE_BYTES) throw new Error('Baseline root manifest exceeds its runtime bound.');

@@ -1,6 +1,7 @@
 import type { D1Database } from '@cloudflare/workers-types';
 import type { BrowseParams } from '../../catalogue.ts';
 import type { StoredProviderMapping } from '../../providers/contract.ts';
+import type { ApprovedNativeResource } from '../../providers/native.ts';
 import { AppError } from '../../errors.ts';
 import { decorateCloudArtwork } from '../../artwork/catalogue.ts';
 import type { createPrivateBaselineReader } from './baseline.ts';
@@ -266,6 +267,13 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     return mapping;
   }
 
+  async function getApprovedResource(mappingId: number): Promise<ApprovedNativeResource | null> {
+    const actual = await db.prepare('SELECT * FROM native_resources WHERE mapping_id=?').bind(mappingId).first<ApprovedNativeResource>();
+    if (actual) return actual;
+    if (baseline) return (await baseline.mapping(mappingId))?.resource ?? null;
+    return null;
+  }
+
   function mergeFields(original: Row, overlay: Row): Row {
     return {...original,...Object.fromEntries(Object.entries(overlay).filter(([,value])=>value !== null && value !== undefined && value !== ''))};
   }
@@ -361,5 +369,5 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     return { exportSchemaVersion: 2, items, nextCursor: hasMore ? items.at(-1)?.id : null, note: 'Catalogue fields only; authentication, resolver resources and temporary playback references are excluded.' };
   }
 
-  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, hasEpisode, titleCount, adminStatus, exportTitlesPage };
+  return { browseTitles, getFilters, getTitle, getEpisodeProviders, getMapping, getApprovedResource, hasEpisode, titleCount, adminStatus, exportTitlesPage };
 }

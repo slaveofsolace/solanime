@@ -44,9 +44,15 @@ describe('private catalogue baseline preparation',()=>{
   expect(files+Object.keys(result.manifest.referenceShards).length+1).toBe(result.manifest.files);
  });
  it('keeps provider identity but excludes expiring URLs and credential-bearing resource references',async()=>{
-  const source=fixture('private-refs',1),db=new DatabaseSync(source);db.prepare('UPDATE episode_provider_mappings SET provider_resource_id=?,canonical_embed_url=?').run('https://example.invalid/video?token=test-expiring','https://user:pass@example.invalid/embed/1');db.close();
+  const credentialUrl=new URL('https://example.invalid/embed/1');credentialUrl.username='fixture-user';
+  const source=fixture('private-refs',1),db=new DatabaseSync(source);db.prepare('UPDATE episode_provider_mappings SET provider_resource_id=?,canonical_embed_url=?').run('https://example.invalid/video?token=test-expiring',credentialUrl.href);db.close();
   const output=join(root,'private-ref-assets'),{manifest}=await prepareBaseline(source,output);const record=readAsset(output,baselinePath(manifest.id,`mappings/${baselineNumericBucket(1,manifest.bucketSpans.mappings)}.json`))['1'];
   expect(record.mapping.providerResourceId).toBeNull();expect(record.mapping.canonicalEmbedUrl).toBeNull();expect(record.mapping.mappingId).toBe(1);expect(record.provenance.mappingOrigin).toBe('native');expect(record.provenance.resourceOmittedReason).toBe('UNSTABLE_OR_UNSAFE_RESOURCE_REFERENCE');
+ });
+ it('includes stable immutable native approval records with their exact mapping identity',async()=>{
+  const source=fixture('approved-resource',1),db=new DatabaseSync(source);db.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(1,?,?,?,?,?,?,?,?,1)').run('hd-1','resource-1','sub','Reviewed test edition','Reviewed test rights','https://example.invalid/rights','https://example.invalid/identity','2026-09-13T00:00:00Z');db.close();
+  const output=join(root,'approved-resource-assets'),{manifest}=await prepareBaseline(source,output);const record=readAsset(output,baselinePath(manifest.id,`mappings/${baselineNumericBucket(1,manifest.bucketSpans.mappings)}.json`))['1'];
+  expect(record.resource).toEqual({mapping_id:1,provider_id:'hd-1',resource_id:'resource-1',language:'sub',edition:'Reviewed test edition',license:'Reviewed test rights',rights_evidence_url:'https://example.invalid/rights',identity_evidence_url:'https://example.invalid/identity',approved_at:'2026-09-13T00:00:00Z',enabled:1,content_sha1:null});expect(record.provenance.resourceOmittedReason).toBeNull();
  });
  it('fails closed on broken foreign-key relationships before output exists',async()=>{
   const source=fixture('broken',1),db=new DatabaseSync(source,{enableForeignKeyConstraints:false});db.exec('PRAGMA foreign_keys=OFF;UPDATE episode_provider_mappings SET version_id=999');db.close();const output=join(root,'broken-assets');await expect(prepareBaseline(source,output)).rejects.toThrow('integrity');expect(existsSync(output)).toBe(false);

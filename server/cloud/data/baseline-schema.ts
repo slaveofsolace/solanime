@@ -1,4 +1,5 @@
 import type { StoredProviderMapping } from '../../providers/contract.ts';
+import type { ApprovedNativeResource } from '../../providers/native.ts';
 
 /** Private immutable read model. Coverage is not D1 hydration or playback verification. */
 export const BASELINE_VERSION = 1;
@@ -34,6 +35,8 @@ export interface BaselineEpisode {
 }
 export interface BaselineMapping {
   mapping: StoredProviderMapping;
+  /** Immutable approval data; a present D1 row remains the runtime overlay. */
+  resource?: ApprovedNativeResource | null;
   provenance: { sourceMappingId: string | null; mappingOrigin: string | null; firstSeen: string | null; lastSeen: string | null; lastSuccessfulImport: string | null; resourceOmittedReason: string | null };
 }
 export interface BaselineBrowseRow {

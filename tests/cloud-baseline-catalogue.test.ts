@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DatabaseSync } from 'node:sqlite';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -7,6 +7,8 @@ import { migrate } from '../server/db.ts';
 import { prepareBaseline } from '../scripts/cloud-data/prepare-baseline.ts';
 import { createPrivateBaselineReader } from '../server/cloud/data/baseline.ts';
 import { createCatalogueRepository } from '../server/cloud/data/catalogue.ts';
+import { handleCloudRequest } from '../server/cloud/worker.ts';
+import { OFFICIAL_YOUTUBE_EMBED_BASIS, REMOW_PUBLISHER, officialYouTubeApprovalError } from '../server/providers/youtubeOfficial.ts';
 
 const parent=resolve('../solanime-cloud-artifacts/tmp');mkdirSync(parent,{recursive:true});const root=mkdtempSync(join(parent,'baseline-catalogue-'));
 const date='2026-09-13T00:00:00Z';const source=join(root,'source.sqlite'),output=join(root,'assets');
@@ -16,10 +18,14 @@ function statements(sql:string){const result:string[]=[];let part='',quote='',co
 function title(id:number,name:string,source='anikoto'){local.prepare('INSERT INTO titles(id,source,source_id,slug,canonical_url,name,description,format,release_year,status,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)').run(id,source,`source-${id}`,`title-${id}`,`https://example.invalid/title-${id}`,name,'Full source description','TV',2020+id,'Finished',date,date,date,date);}
 function episode(id:number,titleId:number){local.prepare('INSERT INTO episodes(id,title_id,source_id,number_text,number_sort,label,slug,canonical_url,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run(id,titleId,`episode-${id}`,`S1 E${id}`,10_000+id,`Episode ${id}`,`ep-${id}`,`https://example.invalid/ep/${id}`,date,date,date,date);local.prepare('INSERT INTO episode_versions(id,episode_id,source_id,language,version_label,first_seen_at,last_seen_at) VALUES(?,?,?,?,?,?,?)').run(id,id,`version-${id}`,'sub','Subtitled',date,date);local.prepare('INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,first_seen_at,last_seen_at,updated_at) VALUES(?,?,?,?,?,?,?,?)').run(id,id,'hd-1',`mapping-${id}`,`private-resource-${id}`,date,date,date);}
 async function copyRows(table:string,where=''){for(const row of local.prepare(`SELECT * FROM ${table} ${where}`).all()){const keys=Object.keys(row);await db.prepare(`INSERT INTO ${table}(${keys.join(',')}) VALUES(${keys.map(()=>'?').join(',')})`).bind(...keys.map(key=>row[key])).run();}}
-function reader(corrupt?:string){const requests:string[]=[];const baseline=createPrivateBaselineReader({async fetch(url){requests.push(url);const parsed=new URL(url);if(parsed.origin!=='https://assets.local')throw new Error('Unexpected network fetch.');const path=join(output,parsed.pathname);return new Response(parsed.pathname.includes(corrupt ?? '\u0000')?'corrupted':existsSync(path)?readFileSync(path,'utf8'):null,{status:existsSync(path)?200:404});}},{id:prepared.manifest.id,manifestSha256:prepared.manifestSha256});return {baseline,requests};}
+function assets(corrupt?:string){const requests:string[]=[];const binding={async fetch(url:string){requests.push(url);const parsed=new URL(url);if(parsed.origin!=='https://assets.local')throw new Error('Unexpected network fetch.');const path=join(output,parsed.pathname);return new Response(parsed.pathname.includes(corrupt ?? '\u0000')?'corrupted':existsSync(path)?readFileSync(path,'utf8'):null,{status:existsSync(path)?200:404});},connect(){throw new Error('Sockets are outside this fixture.');}};return {binding,requests};}
+function reader(corrupt?:string){const test=assets(corrupt);return {baseline:createPrivateBaselineReader(test.binding,{id:prepared.manifest.id,manifestSha256:prepared.manifestSha256}),requests:test.requests};}
 beforeAll(async()=>{
  local=new DatabaseSync(source);migrate(local);title(1,'Alpha series');title(2,'Beta series','tvmaze');title(3,'Zero episodes');for(let id=1;id<=103;id++)episode(id,1);episode(205,2);
  local.exec("INSERT INTO genres(id,slug,name) VALUES(1,'adventure','Adventure');INSERT INTO title_genres(title_id,genre_id) VALUES(1,1);INSERT INTO title_aliases(title_id,alias,language) VALUES(1,'Alternative Alpha','en')");
+ local.prepare("INSERT INTO providers(id,label,identity_state,playback_type,adapter_state,hostname,updated_at) VALUES('youtube-official','YouTube · Official publisher','confirmed','iframe','implemented','www.youtube-nocookie.com',?)").run(date);
+ local.prepare("INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,first_seen_at,last_seen_at,updated_at) VALUES(423237,1,'youtube-official','remow-b-project-episode-1',?,?,?,?)").run('_3Gcm-iGAQk',date,date,date);
+ local.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(423237,?,?,?,?,?,?,?,?,1)').run('youtube-official','_3Gcm-iGAQk','sub','B-PROJECT Passion*Love Call episode 1',OFFICIAL_YOUTUBE_EMBED_BASIS,'https://www.youtube.com/watch?v=_3Gcm-iGAQk',REMOW_PUBLISHER.channelUrl,date);
  local.close();prepared=await prepareBaseline(source,output);local=new DatabaseSync(source,{readOnly:true});
  runtime=new Miniflare(convertV4MiniflareOptions({name:'baseline-catalogue-contract',modules:true,script:'export default {fetch(){return new Response("test-only")}}',compatibilityDate:'2026-09-12',d1Databases:{CATALOGUE:'baseline-catalogue-test'}}));db=await runtime.getD1Database('CATALOGUE');
  for(const file of readdirSync(new URL('../migrations/cloud/catalogue/',import.meta.url)).filter(file=>file.endsWith('.sql')).sort())for(const sql of statements(readFileSync(new URL(`../migrations/cloud/catalogue/${file}`,import.meta.url),'utf8')))await db.prepare(sql).run();
@@ -85,6 +91,18 @@ describe('private baseline with a partially hydrated actual D1 catalogue',()=>{
  });
  it('serves a missing episode/provider inventory and never exposes private resolver references in choices',async()=>{
   const repository=createCatalogueRepository(db,reader().baseline);const result=await repository.getEpisodeProviders(2,'sub');expect(result.episode).toMatchObject({id:'2',titleSlug:'title-1'});expect(result.providers).toMatchObject([{mappingId:'2',providerId:'hd-1'}]);expect(JSON.stringify(result)).not.toContain('private-resource');expect((await repository.getMapping(2)).providerResourceId).toBe('private-resource-2');
+ });
+ it('serves and resolves mapping 423237 from the immutable baseline with no YouTube D1 overlay or write',async()=>{
+  expect((await db.prepare("SELECT COUNT(*) AS count FROM episode_provider_mappings WHERE id=423237 OR provider_id='youtube-official'").first())?.count).toBe(0);
+  expect((await db.prepare('SELECT COUNT(*) AS count FROM native_resources WHERE mapping_id=423237').first())?.count).toBe(0);
+  const asset=assets();const frozen=createPrivateBaselineReader(asset.binding,{id:prepared.manifest.id,manifestSha256:prepared.manifestSha256});const exact=await frozen.mapping(423237);expect(exact?.resource).not.toBeNull();expect(officialYouTubeApprovalError(exact!.mapping,exact!.resource!)).toBeNull();const origin='https://youtube-review.example.test';
+  const workerEnv={CATALOGUE:db,ACCOUNTS:db,RESEARCH:db,IMPORT_ASSETS:asset.binding,API_LIMITER:{async limit(){return {success:true};}},RESOLVE_LIMITER:{async limit(){return {success:true};}},SYNC_QUEUE:{},SOLANIME_APP_ORIGIN:origin,SOLANIME_ALLOWED_ORIGINS:'',SOLANIME_REGISTRATION:'closed',SOLANIME_ADMIN_TOKEN:'',FIREBASE_PROJECT_ID:'',FIREBASE_API_KEY:'',FIREBASE_SERVICE_ACCOUNT_JSON:'',AUTH_CREDENTIAL_KEY:'',RELEASE_CHANNEL:'preview',SYNC_ENABLED:'false',SOURCE_REFRESH_ENABLED:'false',SYNC_DAILY_WRITE_BUDGET:'75000',SYNC_DAILY_QUEUE_BUDGET:'2500',IMPORT_MANIFEST_PATH:'/unused.json',IMPORT_MANIFEST_SHA256:'0'.repeat(64),CATALOGUE_BASELINE_ENABLED:'true',CATALOGUE_BASELINE_ID:prepared.manifest.id,CATALOGUE_BASELINE_MANIFEST_SHA256:prepared.manifestSha256,SOLANIME_READ_ONLY_REVIEW:'true'} as unknown as CloudEnv;
+  const choices=await handleCloudRequest(new Request(`${origin}/api/episodes/1/providers?language=sub`),workerEnv);expect(choices.status).toBe(200);
+  expect((await choices.json() as {providers:Array<Record<string,unknown>>}).providers.find(provider=>provider.mappingId==='423237')).toMatchObject({providerId:'youtube-official',supported:true,kind:'official-youtube'});
+  const network=vi.fn();vi.stubGlobal('fetch',network);
+  const resolution=await handleCloudRequest(new Request(`${origin}/api/providers/423237/resolve`,{method:'POST',headers:{origin,'sec-fetch-site':'same-origin','content-type':'application/json'},body:'{"language":"sub"}'}),workerEnv);
+  expect(resolution.status).toBe(200);expect(await resolution.json()).toMatchObject({mappingId:'423237',providerId:'youtube-official',kind:'official-youtube',videoId:'_3Gcm-iGAQk'});expect(network).not.toHaveBeenCalled();
+  expect((await db.prepare("SELECT COUNT(*) AS count FROM episode_provider_mappings WHERE id=423237 OR provider_id='youtube-official'").first())?.count).toBe(0);
  });
  it('keeps D1 disabled mappings authoritative, including null reasons and stable-resource changes',async()=>{
   const repository=createCatalogueRepository(db,reader().baseline);expect((await repository.getEpisodeProviders(1,'sub')).providers[0]).toMatchObject({mappingId:'1',status:'blocked',reason:'Operator disabled this resource'});expect(await repository.getMapping(1)).toMatchObject({availability:'blocked',providerResourceId:'newer-private-resource'});

@@ -2,7 +2,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { mkdirSync, mkdtempSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { handleCloudRequest } from '../server/cloud/worker';
+import { handleCloudRequest, isReadOnlyReviewRoute } from '../server/cloud/worker';
 import { RELEASE } from '../shared/release';
 import { importHash } from '../server/cloud/data/import';
 import { IMPORT_TABLES } from '../server/cloud/data/import-schema';
@@ -50,7 +50,8 @@ function accountStatements(sql: string): string[] {
   return result;
 }
 
-function request(path: string, init: RequestInit = {}, overrides: Partial<CloudEnv> = {}) {
+type WorkerOverrides = Partial<CloudEnv> & { SOLANIME_READ_ONLY_REVIEW?: string };
+function request(path: string, init: RequestInit = {}, overrides: WorkerOverrides = {}) {
   return handleCloudRequest(new Request(origin + path, init), { ...env, ...overrides });
 }
 function mutation(value: unknown, headers: HeadersInit = {}): RequestInit {
@@ -147,6 +148,42 @@ describe('Worker API against actual D1', () => {
     const session = await request('/api/account/session');
     expect(session.status).toBe(503);
     expect(await session.json()).toMatchObject({ error: { code: 'UNAVAILABLE', details: { reason: 'AUTH_NOT_CONFIGURED' } } });
+  });
+
+  it('makes read-only review a default-deny surface and resolves without recording evidence', async () => {
+    const review = { SOLANIME_READ_ONLY_REVIEW: 'true' };
+    expect([
+      ['GET', '/api/health'], ['GET', '/api/meta/filters'], ['GET', '/api/titles'],
+      ['GET', '/api/titles/test-1'], ['GET', '/api/episodes/10/providers'], ['POST', '/api/providers/31/resolve'],
+    ].every(([method, path]) => isReadOnlyReviewRoute(method, path))).toBe(true);
+    expect([
+      ['GET', '/api/account/session'], ['POST', '/api/account/register'], ['POST', '/api/account/login'],
+      ['POST', '/api/account/recover'], ['POST', '/api/account/logout'], ['POST', '/api/account/revoke-other-sessions'],
+      ['POST', '/api/account/password'], ['POST', '/api/account/recovery-code'], ['POST', '/api/account/delete'],
+      ['POST', '/api/account/profiles'], ['POST', '/api/episodes/10/comments'], ['DELETE', '/api/episodes/10/comments/11111111-1111-4111-8111-111111111111'],
+      ['POST', '/api/admin/providers/31/verification'], ['POST', '/api/admin/sources/test-source/review'],
+      ['POST', '/api/admin/import/start'], ['POST', '/api/admin/import/batch'], ['POST', '/api/admin/import/dispatch'],
+      ['POST', '/api/admin/import/1/pause'], ['POST', '/api/admin/import/1/resume'], ['POST', '/api/admin/import/1/retry'],
+      ['POST', '/api/admin/sync/start'], ['POST', '/api/admin/sync/control'], ['POST', '/api/admin/artwork/refresh'],
+      ['GET', '/api/admin/sources'], ['GET', '/api/exports/catalogue.json'], ['DELETE', '/api/health'],
+    ].some(([method, path]) => isReadOnlyReviewRoute(method, path))).toBe(false);
+    for (const [method, path] of [
+      ['POST', '/api/account/register'], ['POST', '/api/episodes/10/comments'], ['POST', '/api/admin/import/batch'],
+      ['POST', '/api/admin/sync/control'], ['POST', '/api/admin/providers/31/verification'], ['GET', '/api/exports/catalogue.json'],
+    ]) {
+      const response = await request(path, method === 'GET' ? { method } : mutation({ enabled: true }), review);
+      expect(response.status, `${method} ${path}`).toBe(404);
+    }
+    const before = await env.CATALOGUE.prepare('SELECT last_successful_resolution_at,last_playback_verification_at,resolution_evidence_state FROM episode_provider_mappings WHERE id=31').first();
+    const send = vi.fn<typeof fetch>(async (input, init) => {
+      if (String(input) === 'https://archive.org/metadata/test-public-item') return Response.json({ metadata: { identifier: 'test-public-item' }, files: [{ name: 'test movie.mp4', format: 'h.264 IA' }] });
+      expect(init?.method).toBe('HEAD'); return new Response(null, { headers: { 'content-type': 'video/mp4' } });
+    });
+    vi.stubGlobal('fetch', send);
+    const resolution = await request('/api/providers/31/resolve', mutation({ language: 'sub' }), review);
+    expect(resolution.status).toBe(200);
+    expect(await resolution.json()).toMatchObject({ mappingId: '31', kind: 'native', status: 'resolved' });
+    expect(await env.CATALOGUE.prepare('SELECT last_successful_resolution_at,last_playback_verification_at,resolution_evidence_state FROM episode_provider_mappings WHERE id=31').first()).toEqual(before);
   });
 
   it('routes public episode community reads through the private accounts database with catalogue validation', async () => {

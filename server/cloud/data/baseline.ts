@@ -2,6 +2,7 @@ import { AppError } from '../../errors.ts';
 import { isCatalogueScope, sourcesForCatalogueScope } from '../../../shared/catalogue-scope.ts';
 import type { BrowseParams } from '../../catalogue.ts';
 import type { AvailabilityState } from '../../types.ts';
+import type { ApprovedNativeResource } from '../../providers/native.ts';
 import {
   BASELINE_MAX_FILE_BYTES, BASELINE_MAX_INDEX_BYTES, baselineHashBucket, baselineNumericBucket,
   baselinePath, validateBaselineManifest,
@@ -170,7 +171,12 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     if (item === null) return null;
     if (!record(item) || !record(item.mapping) || String(item.mapping.mappingId) !== id || typeof item.mapping.providerId !== 'string' || typeof item.mapping.language !== 'string' || typeof item.mapping.label !== 'string' || !record(item.provenance)) throw changed();
     const source = item.mapping, origin = item.provenance;
-    return { mapping: { mappingId: Number(id), providerId: String(source.providerId), language: String(source.language), label: String(source.label), providerResourceId: nullableString(source.providerResourceId), canonicalEmbedUrl: nullableString(source.canonicalEmbedUrl), availability: availability(source.availability), unavailableReason: nullableString(source.unavailableReason) }, provenance: { sourceMappingId: nullableString(origin.sourceMappingId), mappingOrigin: nullableString(origin.mappingOrigin), firstSeen: nullableString(origin.firstSeen), lastSeen: nullableString(origin.lastSeen), lastSuccessfulImport: nullableString(origin.lastSuccessfulImport), resourceOmittedReason: nullableString(origin.resourceOmittedReason) } };
+    let resource: ApprovedNativeResource | null = null;
+    if (item.resource !== undefined && item.resource !== null) {
+      if (!record(item.resource) || Number(item.resource.mapping_id) !== Number(id) || item.resource.provider_id !== source.providerId || item.resource.resource_id !== source.providerResourceId || item.resource.language !== source.language || typeof item.resource.edition !== 'string' || typeof item.resource.license !== 'string' || typeof item.resource.rights_evidence_url !== 'string' || typeof item.resource.identity_evidence_url !== 'string' || typeof item.resource.approved_at !== 'string' || (item.resource.enabled !== 0 && item.resource.enabled !== 1) || (item.resource.content_sha1 !== null && item.resource.content_sha1 !== undefined && typeof item.resource.content_sha1 !== 'string')) throw changed();
+      resource = { mapping_id: Number(id), provider_id: String(item.resource.provider_id), resource_id: String(item.resource.resource_id), language: String(item.resource.language), edition: String(item.resource.edition), license: String(item.resource.license), rights_evidence_url: String(item.resource.rights_evidence_url), identity_evidence_url: String(item.resource.identity_evidence_url), approved_at: String(item.resource.approved_at), enabled: Number(item.resource.enabled), content_sha1: item.resource.content_sha1 == null ? null : String(item.resource.content_sha1) };
+    }
+    return { mapping: { mappingId: Number(id), providerId: String(source.providerId), language: String(source.language), label: String(source.label), providerResourceId: nullableString(source.providerResourceId), canonicalEmbedUrl: nullableString(source.canonicalEmbedUrl), availability: availability(source.availability), unavailableReason: nullableString(source.unavailableReason) }, resource, provenance: { sourceMappingId: nullableString(origin.sourceMappingId), mappingOrigin: nullableString(origin.mappingOrigin), firstSeen: nullableString(origin.firstSeen), lastSeen: nullableString(origin.lastSeen), lastSuccessfulImport: nullableString(origin.lastSuccessfulImport), resourceOmittedReason: nullableString(origin.resourceOmittedReason) } };
   }
   async function browseRow(value: number | string): Promise<BaselineBrowseRow | null> {
     const id = positiveId(value); const item = await entry('browse', id);

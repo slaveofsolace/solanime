@@ -66,6 +66,17 @@ export function configuredBaseline(request: Request, env: CloudEnv) {
   }, { signal: request.signal });
 }
 const sourceTaskTypes = ['catalogue_page', 'title_detail', 'sitemap_index', 'sitemap_page', 'sitemap_title', 'title_reconcile', 'episode_servers'];
+type ReviewCloudEnv = CloudEnv & { SOLANIME_READ_ONLY_REVIEW?: string };
+export const isReadOnlyReview = (env: CloudEnv) => (env as ReviewCloudEnv).SOLANIME_READ_ONLY_REVIEW === 'true';
+export function isReadOnlyReviewRoute(method: string, path: string) {
+  return (method === 'GET' && (
+    path === '/api/health' ||
+    path === '/api/meta/filters' ||
+    path === '/api/titles' ||
+    /^\/api\/titles\/[^/]+$/.test(path) ||
+    /^\/api\/episodes\/\d+\/providers$/.test(path)
+  )) || (method === 'POST' && /^\/api\/providers\/\d+\/resolve$/.test(path));
+}
 export function dispatchAllowance(usage: Awaited<ReturnType<typeof getWriteBudget>>, now = new Date()) {
   const minimumHeadroom = { writtenRows: 1500, queueOperations: 3 };
   const paused = usage.writtenRowsReserved + minimumHeadroom.writtenRows > usage.limits.dailyWrittenRows || usage.queueOperationsReserved + minimumHeadroom.queueOperations > usage.limits.dailyQueueOperations;
@@ -90,6 +101,8 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
   const url = new URL(request.url); const path = url.pathname; const p = url.searchParams;
   try {
     if (url.href.length > 4096) throw new AppError(414, 'INVALID_QUERY', 'The request URL is too long.');
+    const readOnlyReview = isReadOnlyReview(env);
+    if (readOnlyReview && !isReadOnlyReviewRoute(request.method, path)) return json({ error: { code: 'NOT_FOUND', message: 'API route not found.' } }, 404);
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
     const baseline = configuredBaseline(request, env);
     const catalogue = createCatalogueRepository(env.CATALOGUE, baseline);
@@ -109,13 +122,11 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     const episodes = /^\/api\/episodes\/(\d+)\/providers$/.exec(path);
     if (request.method === 'GET' && episodes) {
       const result = await catalogue.getEpisodeProviders(number(episodes[1], 0, Number.MAX_SAFE_INTEGER), bounded(p.get('language')));
-      const approved = await env.CATALOGUE.prepare('SELECT r.*,m.id AS mappingId,m.provider_id AS providerId,m.provider_resource_id AS providerResourceId,v.language AS mappingLanguage FROM native_resources r JOIN episode_provider_mappings m ON m.id=r.mapping_id JOIN episode_versions v ON v.id=m.version_id WHERE m.version_id=?').bind(Number(result.version.id)).all<ApprovedNativeResource & { mappingId: number; providerId: string; providerResourceId: string | null; mappingLanguage: string }>();
-      const nativeIds = new Set(approved.results.filter(r => hasEnabledNativeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
-      const youtubeIds = new Set(approved.results.filter(r => hasEnabledOfficialYouTubeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
       return json({ ...result, providers: await Promise.all(result.providers.map(async provider => {
-        const native = nativeIds.has(String(provider.mappingId));
-        const officialYouTube = youtubeIds.has(String(provider.mappingId));
         const mapping = await catalogue.getMapping(Number(provider.mappingId));
+        const resource = await catalogue.getApprovedResource(mapping.mappingId);
+        const native = hasEnabledNativeResource(mapping, resource);
+        const officialYouTube = hasEnabledOfficialYouTubeResource(mapping, resource);
         const diagnostic = providerSupportDiagnostic({
           providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
         });
@@ -146,10 +157,10 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       if (!(await env.RESOLVE_LIMITER.limit({ key: 'resolve:' + (request.headers.get('cf-connecting-ip') ?? 'unknown') })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Wait a moment before switching sources again.' } }, 429, { 'Retry-After': '60' });
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
-      const resource = await env.CATALOGUE.prepare('SELECT * FROM native_resources WHERE mapping_id=?').bind(mapping.mappingId).first<ApprovedNativeResource>();
+      const resource = await catalogue.getApprovedResource(mapping.mappingId);
       const result = await resolveApprovedPlayback(mapping, resource, request.signal);
       // A resolution is not playback verification. Never store temporary media URLs.
-      if (result.kind === 'native' || result.kind === 'official-youtube') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
+      if (!readOnlyReview && (result.kind === 'native' || result.kind === 'official-youtube')) await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
       return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'official-youtube' ? 200 : 422);
     }
     if (request.method === 'GET' && path === '/api/admin/sources') return json(await research.browseSources({ q: bounded(p.get('q')), category: bounded(p.get('category')), kind: bounded(p.get('kind')), status: bounded(p.get('status')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 30, 100) }));
@@ -267,6 +278,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
 
 export default {
   async fetch(request, env, ctx) {
+    if (isReadOnlyReview(env)) return handleCloudRequest(request, env);
     const url = new URL(request.url);
     // Public catalogue responses contain no account or operator information.
     // Cache only successful reads, briefly, in a release-specific namespace.
@@ -290,6 +302,7 @@ export default {
     return response;
   },
   async scheduled(controller, env) {
+    if (isReadOnlyReview(env)) return;
     // One daily refresh reuses any unfinished source run. Creating a refresh does
     // not bypass an operator pause, a source refusal, or the snapshot barrier.
     const scheduledAt = new Date(controller.scheduledTime);
@@ -300,6 +313,7 @@ export default {
     await dispatch(env);
   },
   async queue(batch, env) {
+    if (isReadOnlyReview(env)) return;
     if (env.SYNC_ENABLED !== 'true') { batch.ackAll(); return; }
     const handlers = { ...(env.SOURCE_REFRESH_ENABLED === 'true' ? createAnikotoSyncHandlers(env.CATALOGUE) : {}), ...createArtworkSyncHandlers(env.CATALOGUE, { budget: budgetFor(env) }), ...createSnapshotImportHandlers(env.CATALOGUE, env.RESEARCH, env.IMPORT_ASSETS, budgetFor(env)) };
     for (const message of batch.messages) await consumeSyncMessage(message, env.CATALOGUE, handlers, budgetFor(env));
