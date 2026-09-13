@@ -6,6 +6,7 @@ import {
   unsupportedNative,
   type ApprovedNativeResource,
 } from './native.ts';
+import { hasApprovedOfficialYouTubeResource, resolveOfficialYouTube } from './youtubeOfficial.ts';
 
 type MappingIdentity = Pick<StoredProviderMapping, 'mappingId' | 'providerId' | 'providerResourceId' | 'language'>;
 
@@ -25,4 +26,14 @@ export async function resolveApprovedNative(mapping: StoredProviderMapping, reso
   if (resource && mapping.providerId === 'internet-archive') return resolveInternetArchive(mapping, resource, signal);
   if (resource && mapping.providerId === 'wikimedia-commons') return resolveWikimediaCommons(mapping, resource, signal);
   return unsupportedNative(mapping);
+}
+
+export function hasEnabledOfficialYouTubeResource(mapping: MappingIdentity, resource: ApprovedNativeResource | null | undefined) {
+  return hasApprovedOfficialYouTubeResource(mapping, resource);
+}
+
+export async function resolveApprovedPlayback(mapping: StoredProviderMapping, resource: ApprovedNativeResource | null | undefined, signal?: AbortSignal) {
+  if (resource && hasApprovedOfficialYouTubeResource(mapping, resource))
+    return resolveOfficialYouTube(mapping, resource);
+  return resolveApprovedNative(mapping, resource, signal);
 }

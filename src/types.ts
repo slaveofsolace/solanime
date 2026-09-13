@@ -98,7 +98,7 @@ export interface TitleDetailResponse {
 
 export interface ProviderChoice {
   supported?: boolean;
-  kind?: 'native' | 'embed' | 'unsupported';
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
   mappingId: string;
   providerId: string;
   label: string;
@@ -119,7 +119,7 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
-  kind?: 'native' | 'embed' | 'unsupported';
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
   language?: string;
   format?: import('../shared/playback').MediaKind | 'iframe';
   captions?: import('../shared/playback').CaptionSource[];
@@ -128,6 +128,8 @@ export interface PlaybackResolution {
   attribution?: { label: string; url: string; license: string };
   allowedMediaHosts?: string[];
   allowedEmbedHosts?: string[];
+  videoId?: string;
+  publisher?: import('../shared/playback').OfficialYouTubePublisher;
   capabilities?: import('../shared/playback').NativeCapabilities | import('../shared/playback').EmbedCapabilities;
   iframePolicy?: import('../shared/playback').EmbedIframePolicy;
   messageProtocol?: import('../shared/playback').EmbedMessageProtocol;

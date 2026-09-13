@@ -1,6 +1,7 @@
 /** Pages routes API traffic through a private Worker service binding.
  * The fixed-origin mode remains available for existing self-hosted installations. */
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
+const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
 const operatorRead = /^\/api\/(?:admin\/(?:sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
 const operatorWrite = /^\/api\/admin\/(?:sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
@@ -52,6 +53,10 @@ export default {
     if (url.pathname.startsWith('/__private-import/') || url.pathname.startsWith('/__private-baseline/')) return problem(404, 'NOT_FOUND', 'Route not found.');
     if (url.pathname === '/api') return problem(404, 'NOT_FOUND', 'API route not found.');
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
+    if (env.SOLANIME_REVIEW_MODE === 'youtube-official' && !(
+      (request.method === 'GET' && reviewRead.test(url.pathname)) ||
+      (request.method === 'POST' && resolvePath.test(url.pathname))
+    )) return problem(404, 'NOT_FOUND', 'This API route is not exposed by the review gateway.');
     const bound = !!env.SOLANIME_API;
     const operatorRoute = bound && (operatorRead.test(url.pathname) || operatorWrite.test(url.pathname));
     const accountRoute = accountRead.test(url.pathname) || accountWrite.test(url.pathname) ||

@@ -24,12 +24,14 @@ export interface ProviderCapabilities {
 export interface ProviderResolution {
   attribution?: { label: string; url: string; license: string };
   mediaCrossOrigin?: 'anonymous' | 'none';
-  kind?: 'native' | 'embed' | 'unsupported';
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
   result?: import('../../shared/playback').PlaybackResult;
   captions?: import('../../shared/playback').CaptionSource[];
   delivery?: 'native' | 'provider';
   allowedMediaHosts?: string[];
   allowedEmbedHosts?: string[];
+  videoId?: string;
+  publisher?: import('../../shared/playback').OfficialYouTubePublisher;
   capabilities?: import('../../shared/playback').NativeCapabilities | import('../../shared/playback').EmbedCapabilities;
   iframePolicy?: import('../../shared/playback').EmbedIframePolicy;
   messageProtocol?: import('../../shared/playback').EmbedMessageProtocol;

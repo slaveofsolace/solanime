@@ -35,6 +35,12 @@ export interface EmbedMessageProtocol {
   events: Array<'time' | 'complete' | 'error'>;
   types: Array<'watching-log'>;
 }
+export interface OfficialYouTubePublisher {
+  label: string;
+  channelId: string;
+  channelUrl: string;
+  handleUrl: string;
+}
 export type PlaybackResult = {
   kind: 'native';
   mappingId: string;
@@ -61,6 +67,19 @@ export type PlaybackResult = {
   iframePolicy: EmbedIframePolicy;
   messageProtocol: EmbedMessageProtocol;
   expiresAt: string | null;
+} | {
+  /** Publisher-owned YouTube upload rendered by YouTube's standard player. */
+  kind: 'official-youtube';
+  mappingId: string;
+  providerId: 'youtube-official';
+  language: string;
+  format: 'iframe';
+  videoId: string;
+  allowedEmbedHosts: ['www.youtube-nocookie.com'];
+  capabilities: NativeCapabilities;
+  publisher: OfficialYouTubePublisher;
+  expiresAt: null;
+  attribution: { label: string; url: string; license: string };
 } | {
   kind: 'unsupported';
   mappingId: string;

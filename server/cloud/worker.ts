@@ -12,7 +12,12 @@ import { createAnikotoSyncHandlers } from './data/anikoto-sync.ts';
 import { createAnikotoRefreshRepository } from './data/anikoto-refresh.ts';
 import { createSnapshotImportHandlers, createSnapshotImportRepository } from './data/snapshot.ts';
 import { legacyResolution, type ApprovedNativeResource } from '../providers/native.ts';
-import { hasEnabledNativeResource, resolveApprovedNative, NATIVE_RESEARCH_RECORDS } from '../providers/native-registry.ts';
+import {
+  hasEnabledNativeResource,
+  hasEnabledOfficialYouTubeResource,
+  resolveApprovedPlayback,
+  NATIVE_RESEARCH_RECORDS,
+} from '../providers/native-registry.ts';
 import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
@@ -105,29 +110,32 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (request.method === 'GET' && episodes) {
       const result = await catalogue.getEpisodeProviders(number(episodes[1], 0, Number.MAX_SAFE_INTEGER), bounded(p.get('language')));
       const approved = await env.CATALOGUE.prepare('SELECT r.*,m.id AS mappingId,m.provider_id AS providerId,m.provider_resource_id AS providerResourceId,v.language AS mappingLanguage FROM native_resources r JOIN episode_provider_mappings m ON m.id=r.mapping_id JOIN episode_versions v ON v.id=m.version_id WHERE m.version_id=?').bind(Number(result.version.id)).all<ApprovedNativeResource & { mappingId: number; providerId: string; providerResourceId: string | null; mappingLanguage: string }>();
-      const ids = new Set(approved.results.filter(r => hasEnabledNativeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
+      const nativeIds = new Set(approved.results.filter(r => hasEnabledNativeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
+      const youtubeIds = new Set(approved.results.filter(r => hasEnabledOfficialYouTubeResource({ ...r, language: r.mappingLanguage }, r)).map(r => String(r.mapping_id)));
       return json({ ...result, providers: await Promise.all(result.providers.map(async provider => {
-        const native = ids.has(String(provider.mappingId));
+        const native = nativeIds.has(String(provider.mappingId));
+        const officialYouTube = youtubeIds.has(String(provider.mappingId));
         const mapping = await catalogue.getMapping(Number(provider.mappingId));
         const diagnostic = providerSupportDiagnostic({
           providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
         });
-        const embedObserved = !native && diagnostic.state === 'documented-embed-only';
+        const embedObserved = !native && !officialYouTube && diagnostic.state === 'documented-embed-only';
         return {
           ...provider,
-          supported: native,
-          kind: native ? 'native' : 'unsupported',
-          playbackType: native ? 'direct' : embedObserved ? 'iframe' : 'unknown',
-          status: native ? 'available' : 'unsupported',
-          reason: native ? null : diagnostic.message,
-          reasonCode: native ? null : diagnostic.code,
-          capabilities: native
+          supported: native || officialYouTube,
+          kind: officialYouTube ? 'official-youtube' : native ? 'native' : 'unsupported',
+          playbackType: native ? 'direct' : officialYouTube || embedObserved ? 'iframe' : 'unknown',
+          status: native || officialYouTube ? 'available' : 'unsupported',
+          reason: native || officialYouTube ? null : diagnostic.message,
+          reasonCode: native || officialYouTube ? null : diagnostic.code,
+          capabilities: native || officialYouTube
             ? {
                 seek: true,
                 volume: true,
                 fullscreen: true,
                 progressEvents: true,
-                subtitles: false,
+                subtitles: officialYouTube,
+                qualitySelection: officialYouTube,
               }
             : {},
         };
@@ -139,10 +147,10 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
       const resource = await env.CATALOGUE.prepare('SELECT * FROM native_resources WHERE mapping_id=?').bind(mapping.mappingId).first<ApprovedNativeResource>();
-      const result = await resolveApprovedNative(mapping, resource, request.signal);
+      const result = await resolveApprovedPlayback(mapping, resource, request.signal);
       // A resolution is not playback verification. Never store temporary media URLs.
-      if (result.kind === 'native' || result.kind === 'embed') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
-      return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'embed' ? 200 : 422);
+      if (result.kind === 'native' || result.kind === 'official-youtube') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
+      return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'official-youtube' ? 200 : 422);
     }
     if (request.method === 'GET' && path === '/api/admin/sources') return json(await research.browseSources({ q: bounded(p.get('q')), category: bounded(p.get('category')), kind: bounded(p.get('kind')), status: bounded(p.get('status')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 30, 100) }));
     const verification = /^\/api\/admin\/providers\/(\d+)\/verification$/.exec(path);

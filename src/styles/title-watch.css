@@ -408,6 +408,25 @@
   font-size: 11px;
 }
 
+.youtube-official-player .provider-player__error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.youtube-official-player .provider-player__error button {
+  flex: none;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 3px;
+  color: #fff;
+  background: rgb(255 255 255 / 8%);
+  font: inherit;
+  cursor: pointer;
+}
+
 .provider-player__timeout {
   position: absolute;
   z-index: 3;

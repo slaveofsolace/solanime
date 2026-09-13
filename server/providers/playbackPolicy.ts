@@ -1,6 +1,7 @@
 import { isMediaKind } from '../../shared/playback.ts';
 import type { ProviderResolution, StoredProviderMapping } from './contract.ts';
 import { providerSupportDiagnostic } from './support-diagnostics.ts';
+import { sanitizeOfficialYouTubeResolution } from './youtubeOfficial.ts';
 export function unsupportedSource(
   mapping: Pick<StoredProviderMapping, 'mappingId' | 'providerId'>,
 ): ProviderResolution {
@@ -48,6 +49,8 @@ export function enforcePlaybackResolution(
   mapping: StoredProviderMapping,
   value: ProviderResolution,
 ): ProviderResolution {
+  if (value.kind === 'official-youtube')
+    return sanitizeOfficialYouTubeResolution(mapping, value);
   if (value.kind === 'embed' || value.delivery === 'provider' || value.playbackType === 'iframe')
     return unsupportedSource(mapping);
   return enforceNativeResolution(mapping, value);

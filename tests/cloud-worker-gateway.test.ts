@@ -68,6 +68,20 @@ describe('Pages service binding in the actual Worker runtime', () => {
 });
 
 describe('private Pages gateway forwarding contract', () => {
+  it('limits official YouTube review deployments to public catalogue reads and playback resolution', async () => {
+    const { env, service, assets } = setup();
+    const review = { ...env, SOLANIME_REVIEW_MODE: 'youtube-official' };
+    expect((await pages.fetch(new Request(origin + '/api/titles'), review)).status).toBe(200);
+    expect((await pages.fetch(post('/api/providers/31/resolve', { language: 'sub' }), review)).status).toBe(200);
+    for (const path of ['/api/account/session', '/api/episodes/152288/comments', '/api/admin/sources', '/api/exports/catalogue.json'])
+      expect((await pages.fetch(new Request(origin + path), review)).status).toBe(404);
+    expect((await pages.fetch(post('/api/account/login'), review)).status).toBe(404);
+    expect((await pages.fetch(post('/api/episodes/152288/comments'), review)).status).toBe(404);
+    expect((await pages.fetch(post('/api/admin/sync/start'), review)).status).toBe(404);
+    expect(service).toHaveBeenCalledTimes(2);
+    expect(assets).not.toHaveBeenCalled();
+  });
+
   it('drops user and operator credentials from public reads and upstream response cookies', async () => {
     const { env, service, externalFetch } = setup(async () => Response.json({ items: [] }, { headers: { 'set-cookie': accountCookie, 'x-private-debug': 'test-private', 'content-disposition': 'attachment; filename=private.json' } }));
     const response = await pages.fetch(new Request(origin + '/api/titles?q=literal%25&page=2', { headers: {

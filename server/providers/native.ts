@@ -108,5 +108,7 @@ export function legacyResolution(result: PlaybackResult): ProviderResolution & {
     return { ...base, status: 'resolved', playbackType: result.format, delivery: 'native', url: result.url, allowedMediaHosts: result.allowedMediaHosts, mediaCrossOrigin: result.mediaCrossOrigin, captions: result.captions, attribution: result.attribution, expiresAt: result.expiresAt ?? undefined };
   if (result.kind === 'embed')
     return { ...base, status: 'resolved', playbackType: 'iframe', delivery: 'provider', embedUrl: result.embedUrl, allowedEmbedHosts: result.allowedEmbedHosts, capabilities: result.capabilities, iframePolicy: result.iframePolicy, messageProtocol: result.messageProtocol, expiresAt: result.expiresAt ?? undefined };
+  if (result.kind === 'official-youtube')
+    return { ...base, status: 'resolved', playbackType: 'iframe', delivery: 'provider', videoId: result.videoId, allowedEmbedHosts: result.allowedEmbedHosts, capabilities: result.capabilities, publisher: result.publisher, attribution: result.attribution };
   return { ...base, status: 'unsupported', playbackType: 'unknown', error: result.error };
 }

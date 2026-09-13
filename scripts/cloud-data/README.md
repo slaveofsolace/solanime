@@ -154,6 +154,40 @@ the preview-only boundary. Preview URLs are public unless the Worker is covered
 by Cloudflare Access, so verify the Worker's private-asset denial routes before
 sharing the alias.
 
+An uploaded Worker version cannot be selected by a Pages Service binding: Pages
+binds to a deployed Worker service. For an official-YouTube review, prepare a
+separately named private Worker and a preview-branch-only Pages binding:
+
+```sh
+node --import tsx scripts/cloud-data/prepare-youtube-review.ts \
+  --baseline-plan=/absolute/private/completed-baseline/preview-plan.json \
+  --resources=/absolute/private/isolated-youtube-review-resources.json \
+  --out=/absolute/private/fresh-youtube-review-plan
+```
+
+The resource manifest must name `solanime-api-youtube-review`, branch
+`youtube-official-review`, three already provisioned and mutually distinct
+review D1 databases (`CATALOGUE`, `ACCOUNTS`, and `RESEARCH`), and two distinct
+numeric rate-limit namespaces. The generator rejects every D1 ID and namespace
+used by the existing API config. It produces a no-route/no-preview-URL Worker
+config and a Pages preview binding with `SOLANIME_REVIEW_MODE=youtube-official`.
+That gateway mode exposes only public catalogue reads and the playback resolver;
+account, community, operator, export, import, and sync routes fail closed.
+It also counts regular static-asset files itself and rejects packages above the
+20,000-file Workers Free ceiling or the 25 MiB per-file ceiling; no paid plan is
+assumed. Wrangler 4.130's `Read ... files` line counts directories as recursive
+entries before filtering them, so use the plan's `worker.staticAssets.files`
+value for this quota check.
+
+Configuration generation is local-only. A functional deployment still requires
+separate review D1 provisioning/migrations, the reviewed YouTube approval in the
+review catalogue, review-service secrets, an explicitly approved deployment of
+the review Worker, and only then the Pages preview branch. Do not reuse the
+existing preview D1 databases: playback resolution records a resolution timestamp
+and therefore is not a read-only D1 operation. The generated plan lists local
+Worker dry-run, later review-Worker deployment, and later Pages-preview commands
+separately.
+
 Apply all catalogue migrations, including `009_cloud_snapshot_jobs.sql` and
 `010_cloud_sync_payloads.sql`, then
 wire these exports from `server/cloud/data/index.ts`:

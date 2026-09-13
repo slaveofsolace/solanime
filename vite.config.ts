@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     'X-Frame-Options': 'DENY',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Content-Security-Policy':
-      "frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
+      "script-src 'self' https://www.youtube.com; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
   };
   return {
     plugins: [react()],

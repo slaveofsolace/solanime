@@ -12,6 +12,8 @@ import EpisodeCommunity from '../components/EpisodeCommunity';
 import UnsupportedPlayback from '../components/UnsupportedPlayback';
 import ProviderPlayer from '../components/ProviderPlayer';
 import { isProviderEmbedResolution } from '../lib/providerEmbedPolicy';
+import YouTubeOfficialPlayer from '../components/YouTubeOfficialPlayer';
+import { isOfficialYouTubeResolution } from '../lib/youtubeOfficialPolicy';
 import '../styles/title-watch.css';
 
 function safeAttributionUrl(value: string) {
@@ -72,7 +74,7 @@ function WatchSession() {
     : undefined;
   const playableProviders = providers.filter(
     (provider) =>
-      provider.kind === 'native' &&
+      (provider.kind === 'native' || provider.kind === 'official-youtube') &&
       provider.supported === true &&
       provider.status === 'available',
   );
@@ -132,7 +134,7 @@ function WatchSession() {
       .resolve(candidate.mappingId, language, abort.signal)
       .then((source) => {
         if (abort.signal.aborted) return;
-        if (isProviderEmbedResolution(source, language)) {
+        if (isOfficialYouTubeResolution(source) || isProviderEmbedResolution(source, language)) {
           setResolution(source);
           setResolving(false);
           return;
@@ -252,7 +254,25 @@ function WatchSession() {
             {failure}
           </PlayerMessage>
         ) : resolution ? (
-          isProviderEmbedResolution(resolution, language) ? (
+          isOfficialYouTubeResolution(resolution) ? (
+            <YouTubeOfficialPlayer
+              key={`${episode.id}:${resolution.mappingId}`}
+              resolution={resolution}
+              initialPosition={
+                carriedProgress.current?.position ??
+                (preferences.rememberProgress ? historyEntry?.position : undefined)
+              }
+              onOpen={() => remember()}
+              onProgress={(position, duration) => {
+                carriedProgress.current = { position, duration };
+                if (preferences.rememberProgress) remember(position, duration);
+              }}
+              onEnded={() => {
+                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (preferences.autoplayNext && next) go(next.id);
+              }}
+            />
+          ) : isProviderEmbedResolution(resolution, language) ? (
             <ProviderPlayer
               key={`${episode.id}:${resolution.mappingId}`}
               resolution={resolution}

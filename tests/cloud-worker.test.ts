@@ -7,6 +7,10 @@ import { RELEASE } from '../shared/release';
 import { importHash } from '../server/cloud/data/import';
 import { IMPORT_TABLES } from '../server/cloud/data/import-schema';
 import { NATIVE_RESEARCH_RECORDS } from '../server/providers/native-registry';
+import {
+  OFFICIAL_YOUTUBE_EMBED_BASIS,
+  REMOW_PUBLISHER,
+} from '../server/providers/youtubeOfficial';
 import { encodeBytes } from '../server/cloud/auth/crypto';
 import { generatedTestApiKey } from './helpers/auth-material';
 
@@ -293,6 +297,50 @@ describe('Worker API against actual D1', () => {
     expect(await response.json()).toMatchObject({ result: { error: { code: 'UNSAFE_MEDIA_DESTINATION' } } });
     expect(unsafe).toHaveBeenCalledTimes(2);
     expect(unsafe.mock.calls.every(([input]) => new URL(String(input)).hostname === 'archive.org')).toBe(true);
+  });
+
+  it('keeps the exact official YouTube approval playable through D1 without exposing a media URL', async () => {
+    const videoId = '_3Gcm-iGAQk';
+    await env.CATALOGUE.prepare("INSERT INTO providers(id,label,identity_state,playback_type,adapter_state,hostname,updated_at) VALUES('youtube-official','YouTube · Official publisher','confirmed','iframe','implemented','www.youtube-nocookie.com',?)").bind(observed).run();
+    await env.CATALOGUE.prepare("INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,first_seen_at,last_seen_at,updated_at) VALUES(34,20,'youtube-official','test-remow-b-project',?,?,?,?)")
+      .bind(videoId, observed, observed, observed).run();
+    await env.CATALOGUE.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(34,?,?,?,?,?,?,?,?,1)')
+      .bind('youtube-official', videoId, 'sub', 'Test-only REMOW reviewed episode', OFFICIAL_YOUTUBE_EMBED_BASIS,
+        `https://www.youtube.com/watch?v=${videoId}`, REMOW_PUBLISHER.channelUrl, observed).run();
+    try {
+      const choices = await (await request('/api/episodes/10/providers?language=sub')).json() as { providers: Array<{ mappingId: string; supported: boolean; kind: string }> };
+      expect(choices.providers.find(provider => provider.mappingId === '34')).toMatchObject({
+        supported: true,
+        kind: 'official-youtube',
+      });
+      const network = vi.fn();
+      vi.stubGlobal('fetch', network);
+      const response = await request('/api/providers/34/resolve', mutation({ language: 'sub' }));
+      expect(response.status).toBe(200);
+      const result = await response.json();
+      expect(result).toMatchObject({
+        mappingId: '34',
+        kind: 'official-youtube',
+        providerId: 'youtube-official',
+        delivery: 'provider',
+        playbackType: 'iframe',
+        videoId,
+        allowedEmbedHosts: ['www.youtube-nocookie.com'],
+        publisher: REMOW_PUBLISHER,
+      });
+      expect(result).not.toHaveProperty('url');
+      expect(result).not.toHaveProperty('embedUrl');
+      expect(network).not.toHaveBeenCalled();
+      expect(await env.CATALOGUE.prepare('SELECT resolution_evidence_state,last_playback_verification_at FROM episode_provider_mappings WHERE id=34').first())
+        .toMatchObject({ resolution_evidence_state: 'resolved', last_playback_verification_at: null });
+      await env.CATALOGUE.prepare("UPDATE native_resources SET identity_evidence_url='https://www.youtube.com/channel/UC-not-allowlisted' WHERE mapping_id=34").run();
+      const rejected = await (await request('/api/episodes/10/providers?language=sub')).json() as { providers: Array<{ mappingId: string; supported: boolean }> };
+      expect(rejected.providers.find(provider => provider.mappingId === '34')).toMatchObject({ supported: false });
+    } finally {
+      await env.CATALOGUE.prepare('DELETE FROM native_resources WHERE mapping_id=34').run();
+      await env.CATALOGUE.prepare('DELETE FROM episode_provider_mappings WHERE id=34').run();
+      await env.CATALOGUE.prepare("DELETE FROM providers WHERE id='youtube-official'").run();
+    }
   });
 
   it('routes Commons through its own reviewed file/hash approval and does not confuse resolution with playback', async () => {

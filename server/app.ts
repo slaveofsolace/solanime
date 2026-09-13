@@ -3,7 +3,11 @@ import { createAccounts, type AccountsService } from './accounts/service.ts';
 import { openAccountsDatabase } from './accounts/database.ts';
 import { nativeSourceResolver } from './providers/nativeSources.ts';
 import { legacyResolution, type ApprovedNativeResource } from './providers/native.ts';
-import { hasEnabledNativeResource, resolveApprovedNative } from './providers/native-registry.ts';
+import {
+  hasEnabledNativeResource,
+  hasEnabledOfficialYouTubeResource,
+  resolveApprovedPlayback,
+} from './providers/native-registry.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { backup, type DatabaseSync } from 'node:sqlite';
 import { resolve } from 'node:path';
@@ -168,7 +172,11 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     options.resolveProvider ??
     (async (mapping: StoredProviderMapping, signal: AbortSignal) => {
       const approved = db.prepare('SELECT * FROM native_resources WHERE mapping_id=? AND enabled=1').get(mapping.mappingId) as ApprovedNativeResource | undefined;
-      if (approved && ['internet-archive', 'wikimedia-commons'].includes(mapping.providerId)) return legacyResolution(await resolveApprovedNative(mapping, approved, signal));
+      if (
+        approved &&
+        ['internet-archive', 'wikimedia-commons', 'youtube-official'].includes(mapping.providerId)
+      )
+        return legacyResolution(await resolveApprovedPlayback(mapping, approved, signal));
       const registered = nativeSources(mapping);
       if (registered) return registered;
       return unsupportedSource(mapping);
@@ -351,33 +359,44 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
             const mapping = getMapping(db, Number((provider as Record<string, unknown>).mappingId));
             const registered = nativeSources(mapping);
             const resource = db.prepare('SELECT * FROM native_resources WHERE mapping_id=?').get(mapping.mappingId) as ApprovedNativeResource | undefined;
-            const approved = hasEnabledNativeResource(mapping, resource);
+            const approvedNative = hasEnabledNativeResource(mapping, resource);
+            const approvedYouTube = hasEnabledOfficialYouTubeResource(mapping, resource);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
             const diagnostic = providerSupportDiagnostic(mapping);
             const embedObserved =
-              !approved && !source && diagnostic.state === 'documented-embed-only';
+              !approvedNative && !approvedYouTube && !source && diagnostic.state === 'documented-embed-only';
             return {
               ...provider,
-              supported: !!approved || source?.status === 'resolved',
-              kind: approved || source?.status === 'resolved' ? 'native' : 'unsupported',
-              playbackType: approved ? 'direct' : source?.playbackType ?? (embedObserved ? 'iframe' : 'unknown'),
-              status: approved ? 'available' : source
+              supported: approvedNative || approvedYouTube || source?.status === 'resolved',
+              kind: approvedYouTube
+                ? 'official-youtube'
+                : approvedNative || source?.status === 'resolved'
+                  ? 'native'
+                  : 'unsupported',
+              playbackType: approvedNative
+                ? 'direct'
+                : approvedYouTube
+                  ? 'iframe'
+                  : source?.playbackType ?? (embedObserved ? 'iframe' : 'unknown'),
+              status: approvedNative || approvedYouTube ? 'available' : source
                 ? source.status === 'resolved'
                   ? 'available'
                   : 'unavailable'
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source || approved ? null : diagnostic.message),
-              reasonCode: source?.error?.code ?? (source || approved ? null : diagnostic.code),
+                (source || approvedNative || approvedYouTube ? null : diagnostic.message),
+              reasonCode: source?.error?.code ??
+                (source || approvedNative || approvedYouTube ? null : diagnostic.code),
               capabilities:
-                approved || source?.status === 'resolved'
+                approvedNative || approvedYouTube || source?.status === 'resolved'
                   ? {
                       seek: true,
                       volume: true,
                       fullscreen: true,
                       progressEvents: true,
-                      subtitles: !!source?.captions?.length,
+                      subtitles: approvedYouTube || !!source?.captions?.length,
+                      qualitySelection: approvedYouTube,
                     }
                   : {},
             };
