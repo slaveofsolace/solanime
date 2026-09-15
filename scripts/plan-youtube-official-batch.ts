@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 import { basename, dirname, isAbsolute, relative, resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { planOfficialYouTubeBatchApprovals } from '../server/ingestion/youtubeOfficialBatchApproval.ts';
-import { applyOfficialYouTubeApproval, REMOW_EPISODE_APPROVALS } from '../server/ingestion/youtubeOfficial.ts';
+import { applyOfficialYouTubeApproval, OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from '../server/ingestion/youtubeOfficial.ts';
 import type {
   OfficialYouTubeDiscoveryConfig,
   OfficialYouTubeReviewCandidate,
@@ -171,7 +171,7 @@ function main(): void {
   database.exec('PRAGMA foreign_keys=ON');
   const applied = [] as Array<{ videoId: string; mappingId: number }>;
   for (const entry of eligible) {
-    const approval = REMOW_EPISODE_APPROVALS.find((item) => item.video.id === entry.videoId);
+    const approval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((item) => item.video.id === entry.videoId);
     if (!approval) throw new Error(`ELIGIBLE_APPROVAL_RECORD_MISSING:${entry.videoId}`);
     const result = applyOfficialYouTubeApproval(database, approval, evaluatedAt);
     applied.push({ videoId: entry.videoId, mappingId: result.mappingId });

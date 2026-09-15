@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
 import { REMOW_PUBLISHER, OFFICIAL_YOUTUBE_PROVIDER_ID } from '../providers/youtubeOfficial.ts';
-import { REMOW_EPISODE_APPROVALS } from './youtubeOfficial.ts';
+import { OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficial.ts';
 import {
   validateOfficialPublisherSource,
   type OfficialPublisherSource,
@@ -139,7 +139,7 @@ export function planOfficialYouTubeBatchApprovals(
       || configuredMapping.versionSourceId !== candidate.match.versionSourceId
       || configuredMapping.language !== candidate.match.language))
       reasons.push('authoritative-evidence-crosswalk-mismatch');
-    const reviewedApproval = REMOW_EPISODE_APPROVALS.find((approval) => approval.video.id === candidate.video.videoId);
+    const reviewedApproval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((approval) => approval.video.id === candidate.video.videoId);
     if (candidate.match?.method === 'authoritative' && (!reviewedApproval
       || reviewedApproval.catalogue.titleSourceId !== candidate.match.titleSourceId
       || reviewedApproval.catalogue.episodeSourceId !== candidate.match.episodeSourceId
