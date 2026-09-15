@@ -9,6 +9,7 @@ import {
   officialYouTubePublisherPolicyForChannel,
   REMOW_PUBLISHER,
 } from '../../shared/youtubeOfficialPublishers.ts';
+import { EXPANDED_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialExpandedApprovals.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
@@ -187,6 +188,7 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...REMOW_EPISODE_APPROVALS,
   ...GUNDAM_INFO_EPISODE_APPROVALS,
   ...AFTER_WAR_GUNDAM_X_EPISODE_APPROVALS,
+  ...EXPANDED_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
