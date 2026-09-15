@@ -1,0 +1,78 @@
+{
+  "scope": "Complete inventory of the tracked GitHub checkpoint; not the newer PC database and not production",
+  "source_commit": "f06c18f605baeb70d4e32e101f616277907edb32",
+  "source_lfs_sha256": "70010385d696b0d039ab0d0bd0a24297451192bceb4861050035595bfa8ff9a6",
+  "inventory_run_id": 34928304083,
+  "inventory_job_id": 104250977439,
+  "inventory_artifact_id": 10380801471,
+  "inventory_artifact_sha256": "120d43a675c0ba6b1450c64ca58f84c3bdd6886ff5653c076c7e81f3de5e6e44",
+  "source_hash_unchanged": true,
+  "sqlite_integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "counts": {
+    "titles": 8949,
+    "episodes": 134825,
+    "episode_versions": 183770,
+    "provider_mappings": 121118,
+    "episodes_with_at_least_one_mapping": 38016,
+    "episodes_without_any_mapping_on_any_version": 96809,
+    "versions_without_any_mapping": 134913,
+    "titles_without_episodes": 40
+  },
+  "sub_dub_versions_by_number_of_distinct_triad_labels": {
+    "0": 134897,
+    "1": 316,
+    "2": 24820,
+    "3": 23720
+  },
+  "provider_mapping_counts": {
+    "vidstream-2": 48856,
+    "hd-1": 48477,
+    "hd-2": 23783,
+    "internet-archive": 1,
+    "wikimedia-commons": 1
+  },
+  "stored_legacy_playback_verification_timestamps": 0,
+  "stored_native_playback_verification_timestamps": 2,
+  "official_youtube_mapping_rows_in_this_checkpoint": 0,
+  "historical_episode_servers_task_states": {
+    "completed": 38512,
+    "pending": 96338,
+    "running": 1
+  },
+  "historical_ci": {
+    "run_id": 34791005916,
+    "conclusion": "cancelled",
+    "browser_artifact_id": 10328771371,
+    "downloaded_failure_context_files": 25,
+    "distinct_test_locations_with_failure_contexts": 16,
+    "confirmed_stale_assertion": "native-player.spec.ts:113 expects frame-src 'none'; the observed policy permits only https://www.youtube-nocookie.com. Earlier no-unapproved-player/resolution assertions were reached successfully.",
+    "account_test_caveat": "A fixed two-second session delay does not guarantee the session remains unresolved at the click; reproduce with a request barrier before claiming a privacy leak."
+  },
+  "deployed_health_observation": {
+    "run_id": 34928648634,
+    "observed_at_utc": "2026-09-15T04:24:17Z",
+    "production": {"origin": "https://solanime.pages.dev", "status": 200, "titles": 9185, "schemaVersion": 12},
+    "review": {"origin": "https://cloud-release.solanime.pages.dev", "status": 200, "titles": 9185, "schemaVersion": 12},
+    "qualification": "Public health responses only; not full production data reconciliation or playback verification."
+  },
+  "current_catalogue_playback_certified": false,
+  "pc_working_tree_compared": false,
+  "production_promoted": false,
+  "preservation": {
+    "active_release_branch_modified": false,
+    "pc_database_accessed": false,
+    "pc_agent_owned_files_modified": false,
+    "cloudflare_deployments_performed": false,
+    "sqlite_files_in_new_artifact": false,
+    "opaque_provider_references": "SHA-256 only; no temporary media URLs exported"
+  },
+  "interpretation": [
+    "Three provider slots do not assert that three upstream sources exist for every episode.",
+    "Vidstream-2, HD-1 and HD-2 have a documented shared embed-only backend, not three verified native transports.",
+    "A missing mapping in this incomplete checkpoint is not proof of upstream unavailability.",
+    "Never replace the 9,185-title production catalogue with this 8,949-title checkpoint.",
+    "Stored historical playback timestamps do not establish current availability.",
+    "Archive provenance and all source identities must remain attached to any derived report."
+  ]
+}
