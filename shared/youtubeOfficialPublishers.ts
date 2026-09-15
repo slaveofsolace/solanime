@@ -21,6 +21,13 @@ export const GUNDAM_INFO_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@GundamInfo',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const TMS_PUBLISHER = Object.freeze({
+  label: 'Anime! on TMS Official Channel',
+  channelId: 'UCzGf0DdUJVrsbcWL3e_tK1Q',
+  channelUrl: 'https://www.youtube.com/channel/UCzGf0DdUJVrsbcWL3e_tK1Q',
+  handleUrl: 'https://www.youtube.com/@AnimeonTMSOfficialChannel',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
 export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublisherPolicy[] =
   Object.freeze([
     Object.freeze({
@@ -34,6 +41,12 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: GUNDAM_INFO_PUBLISHER,
       identityUrl: 'https://en.gundam-official.com/feature/gwoy/',
       aliases: Object.freeze(['GUNDAM.INFO', 'GundamInfo']),
+    }),
+    Object.freeze({
+      id: 'tms-anime-official',
+      publisher: TMS_PUBLISHER,
+      identityUrl: 'https://tmsanime.com/anime-on-tms-official-channel',
+      aliases: Object.freeze(['TMS Entertainment', 'TMS Anime']),
     }),
   ]);
 
