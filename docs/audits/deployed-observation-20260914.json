@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-09-15T04:26:53Z through 2026-09-15T04:27:39Z",
+  "workflow_run_id": 34928814758,
+  "artifact_id": 10380947089,
+  "artifact_sha256": "a86c2bf0425baec42ce8a1225282a08d8fdcc2573408162d56bc4d4e1f9a669a",
+  "observer_source_commit": "7b8d96af1272478b019461f8c84ab26772f60d41",
+  "deployed_source_commit": "not established",
+  "environment": {"browser": "Playwright 1.63 Chromium", "viewport": "1280x800", "egress_region": "not independently established", "authenticated_account_used": false},
+  "health": [
+    {"origin": "https://solanime.pages.dev", "http_status": 200, "reported_titles": 9185, "schema_version": 12, "release": "0.7.0-alpha"},
+    {"origin": "https://cloud-release.solanime.pages.dev", "http_status": 200, "reported_titles": 9185, "schema_version": 12, "release": "0.7.0-alpha"}
+  ],
+  "review_cases": [
+    {"title": "B-Project: Netsuretsu*Love Call", "title_source_id": "6771", "episode_source_id": "104039", "episode_id": "40765", "language": "sub", "origin": "https://cloud-release.solanime.pages.dev", "route": "/watch/b-project-netsuretsu-love-call-27sfl/40765?language=sub", "providers_api_status": 200, "settled_ui": "No in-player stream", "source_control": "0 playable sources · 2 mapped", "official_youtube_option_observed": false, "youtube_frame_observed": false, "page_errors": [], "popups": 0},
+    {"title": "Gundam Reconguista in G", "title_source_id": "5301", "episode_source_id": "82950", "episode_id": "58093", "language": "sub", "origin": "https://cloud-release.solanime.pages.dev", "route": "/watch/gundam-reconguista-in-g-lcjdy/58093?language=sub", "providers_api_status": 200, "settled_ui": "No in-player stream", "source_control": "0 playable sources · 2 mapped", "official_youtube_option_observed": false, "youtube_frame_observed": false, "page_errors": [], "popups": 0}
+  ],
+  "interpretation": "Both exact episode routes reached a settled unsupported-source state after a bounded readiness wait. These are application source-availability blockers, not evidence that the official upstream YouTube uploads themselves are broken.",
+  "progression": "not tested: no approved source was offered",
+  "seek": "not tested: no approved source was offered",
+  "captions": "not tested: no approved source was offered",
+  "player_cleanup": "not tested: no player was initialized",
+  "production_origin_playback_tested": false,
+  "all_catalogue_playback_certified": false,
+  "superseded_attempt": {"run_id": 34928648634, "reason": "Initial source-control sampling occurred during loading; it is not used as absence evidence."},
+  "mutations": {"pc_files": false, "release_branch": false, "cloudflare_deployments": false, "database_writes": false, "account_writes": false}
+}
