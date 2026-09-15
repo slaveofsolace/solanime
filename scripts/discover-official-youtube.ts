@@ -214,6 +214,7 @@ async function main(): Promise<void> {
     if (!isOwned(shard, args)) continue;
     const path = inventoryPath(args, source);
     const existing = existsSync(path) ? readJson<SourceInventoryCheckpoint>(path) : null;
+    if (existing?.completed) continue;
     await withLock(`${path}.lock`, async () => {
       const state = await inventoryOfficialPublisherSource(source, client, existing, {
         shardCount: args.shardCount, maxPages: args.maxPages, requestBudget: args.requestBudget,
@@ -239,6 +240,7 @@ async function main(): Promise<void> {
         if (!owned.length) continue;
         const output = probePath(args, source, shard);
         const existing = existsSync(output) ? readJson<ProbeShardCheckpoint>(output) : null;
+        if (existing?.completed) continue;
         await withLock(`${output}.lock`, async () => {
           const before = existing?.requests ?? 0;
           const state = await probeOfficialYouTubeShard(shard, owned, client, existing, {
