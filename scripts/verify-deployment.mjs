@@ -28,9 +28,15 @@ export async function inspectDeployment(address, fetcher = fetch) {
     ? await api.json()
     : null;
   const csp = page.headers.get('content-security-policy') ?? '';
+  const frameSources = /(?:^|;)\s*frame-src\s+([^;]+)\s*(?:;|$)/i
+    .exec(csp)?.[1]
+    ?.trim()
+    .split(/\s+/)
+    .filter(Boolean) ?? [];
   const checks = {
     page: page.ok,
-    framesBlocked: /(?:^|;)\s*frame-src\s+'none'\s*(?:;|$)/i.test(csp),
+    framesRestrictedToOfficialYouTube:
+      frameSources.length === 1 && frameSources[0] === 'https://www.youtube-nocookie.com',
     frontendCurrent: frontend === release,
     apiCurrent: api.ok && json?.status === 'ok' && json?.release === release,
     noParentSandboxPolicy: !/(?:^|;)\s*sandbox(?:\s|;|$)/i.test(csp),
@@ -42,7 +48,7 @@ export async function inspectDeployment(address, fetcher = fetch) {
     backend: json?.release ?? null,
     checks,
     passed: Object.values(checks).every(Boolean),
-    note: 'This checks the deployed application version and its headers; it does not certify media availability or playbacks. Webpage players must remain disabled.',
+    note: 'This checks the deployed application version and its headers; it does not certify media availability or playback. The only permitted iframe host is the reviewed privacy-enhanced YouTube player; unreviewed webpage players remain disabled.',
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

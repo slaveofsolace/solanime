@@ -50,7 +50,7 @@ describe('motion and release diagnostics', () => {
     (
       backend = RELEASE,
       frontend = RELEASE,
-      csp = "default-src 'self'; frame-src 'none'; frame-ancestors 'none'",
+      csp = "default-src 'self'; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'",
     ) =>
     async (url: string) =>
       url.includes('/api/')
@@ -65,6 +65,18 @@ describe('motion and release diagnostics', () => {
     expect(
       (await inspectDeployment('https://app.example', response(RELEASE, '0.4.0'))).passed,
     ).toBe(false);
+  });
+  it.each([
+    "default-src 'self'; frame-src 'none'; frame-ancestors 'none'",
+    "default-src 'self'; frame-src https://www.youtube.com; frame-ancestors 'none'",
+    "default-src 'self'; frame-src https://www.youtube-nocookie.com https://example.com; frame-ancestors 'none'",
+  ])('rejects an iframe policy outside the exact reviewed player allowlist: %s', async (csp) => {
+    const result = await inspectDeployment(
+      'https://app.example',
+      response(RELEASE, RELEASE, csp),
+    );
+    expect(result.checks.framesRestrictedToOfficialYouTube).toBe(false);
+    expect(result.passed).toBe(false);
   });
   it('reports inherited document sandbox headers', async () =>
     expect(
