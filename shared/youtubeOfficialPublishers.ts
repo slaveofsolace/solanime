@@ -35,6 +35,16 @@ export const BEYBLADE_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@BeybladeOfficial',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const NOZOMI_PUBLISHER = Object.freeze({
+  label: 'Nozomi Entertainment',
+  channelId: 'UCUlvYyW7UVtNJQ1KTv_Bsdg',
+  channelUrl: 'https://www.youtube.com/channel/UCUlvYyW7UVtNJQ1KTv_Bsdg',
+  handleUrl: 'https://www.youtube.com/@nozomient',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const NOZOMI_PUBLISHER_IDENTITY_URL =
+  'https://www.crunchyroll.com/news/announcements/2022/8/4/crunchyroll-closes-deal-to-acquire-anime-superstore-right-stuf';
+
 export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublisherPolicy[] =
   Object.freeze([
     Object.freeze({
@@ -60,6 +70,12 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: BEYBLADE_PUBLISHER,
       identityUrl: 'https://beyblade.com/episodes/',
       aliases: Object.freeze(['BEYBLADE Official', 'BEYBLADE English']),
+    }),
+    Object.freeze({
+      id: 'nozomi-entertainment',
+      publisher: NOZOMI_PUBLISHER,
+      identityUrl: NOZOMI_PUBLISHER_IDENTITY_URL,
+      aliases: Object.freeze(['Nozomi Entertainment', 'Right Stuf', 'Nozomi']),
     }),
   ]);
 

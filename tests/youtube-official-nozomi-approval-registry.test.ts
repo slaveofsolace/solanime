@@ -12,6 +12,15 @@ import {
   NOZOMI_CHANNEL_URL,
   NOZOMI_PUBLISHER_LABEL,
 } from '../server/ingestion/youtubeOfficialNozomiReview.ts';
+import {
+  NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+} from '../server/ingestion/youtubeOfficial.ts';
+import {
+  NOZOMI_PUBLISHER,
+  NOZOMI_PUBLISHER_IDENTITY_URL,
+  officialYouTubePublisherPolicyForChannel,
+} from '../shared/youtubeOfficialPublishers.ts';
 
 const EXPECTED_SERIES_BREAKDOWN = {
   'Aria the Animation|sub': ['1', '5', '7', '8', '9', '10', '11', '12', '13'],
@@ -93,6 +102,29 @@ describe('Nozomi explicit official YouTube approval registry', () => {
       approvalIds.add(candidate.approvalId);
       videoIds.add(candidate.video.id);
       versionIdentities.add(versionIdentity);
+    }
+  });
+
+  it('activates every strict candidate through the shared fail-closed publisher policy', () => {
+    expect(officialYouTubePublisherPolicyForChannel(NOZOMI_PUBLISHER.channelId)).toMatchObject({
+      id: 'nozomi-entertainment',
+      identityUrl: NOZOMI_PUBLISHER_IDENTITY_URL,
+      publisher: NOZOMI_PUBLISHER,
+    });
+    expect(NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS).toHaveLength(51);
+    expect(new Set(NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => approval.id))).toEqual(
+      new Set(NOZOMI_OFFICIAL_YOUTUBE_APPROVAL_CANDIDATES.map((candidate) => candidate.approvalId)),
+    );
+    for (const approval of NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS) {
+      expect(OFFICIAL_YOUTUBE_EPISODE_APPROVALS).toContain(approval);
+      expect(approval.video).toMatchObject({
+        channelId: NOZOMI_PUBLISHER.channelId,
+        channelUrl: NOZOMI_PUBLISHER.channelUrl,
+        handleUrl: NOZOMI_PUBLISHER.handleUrl,
+      });
+      expect(approval.publisherIdentityUrl).toBe(NOZOMI_PUBLISHER_IDENTITY_URL);
+      expect(approval.titleIdentityUrl).toBe(approval.video.watchUrl);
+      expect(approval.episodeIdentityUrl).toBe(approval.video.watchUrl);
     }
   });
 

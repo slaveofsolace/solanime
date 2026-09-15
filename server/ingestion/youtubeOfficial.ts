@@ -6,12 +6,15 @@ import {
 } from '../providers/youtubeOfficial.ts';
 import {
   GUNDAM_INFO_PUBLISHER,
+  NOZOMI_PUBLISHER,
+  NOZOMI_PUBLISHER_IDENTITY_URL,
   officialYouTubePublisherPolicyForChannel,
   REMOW_PUBLISHER,
 } from '../../shared/youtubeOfficialPublishers.ts';
 import { EXPANDED_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialExpandedApprovals.ts';
 import { SECOND_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialSecondWaveApprovals.ts';
 import { BEYBLADE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBeybladeApprovals.ts';
+import { NOZOMI_OFFICIAL_YOUTUBE_APPROVAL_CANDIDATES } from './youtubeOfficialNozomiApprovalRegistry.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
@@ -186,6 +189,32 @@ export const AFTER_WAR_GUNDAM_X_EPISODE_APPROVALS: readonly OfficialYouTubeEpiso
     observedAt,
   }));
 
+export const NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisodeApproval[] =
+  NOZOMI_OFFICIAL_YOUTUBE_APPROVAL_CANDIDATES.map((candidate) => ({
+    id: candidate.approvalId,
+    catalogue: {
+      source: 'anikoto',
+      titleSourceId: candidate.catalogue.titleSourceId,
+      titleSlug: candidate.catalogue.titleSlug,
+      episodeSourceId: candidate.catalogue.episodeSourceId,
+      episodeNumber: candidate.catalogue.episodeNumber,
+      versionSourceId: candidate.catalogue.versionSourceId,
+      language: candidate.catalogue.language,
+    },
+    video: {
+      id: candidate.video.id,
+      title: candidate.video.title,
+      watchUrl: candidate.video.watchUrl,
+      channelId: NOZOMI_PUBLISHER.channelId,
+      channelUrl: NOZOMI_PUBLISHER.channelUrl,
+      handleUrl: NOZOMI_PUBLISHER.handleUrl,
+    },
+    publisherIdentityUrl: NOZOMI_PUBLISHER_IDENTITY_URL,
+    titleIdentityUrl: candidate.video.watchUrl,
+    episodeIdentityUrl: candidate.video.watchUrl,
+    observedAt: candidate.evidence.oEmbedCheckedAt,
+  }));
+
 export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisodeApproval[] = [
   ...REMOW_EPISODE_APPROVALS,
   ...GUNDAM_INFO_EPISODE_APPROVALS,
@@ -193,6 +222,7 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...EXPANDED_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...SECOND_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...BEYBLADE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
