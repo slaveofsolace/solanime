@@ -51,6 +51,7 @@ export interface OfficialSeriesApprovalProposal {
   channelId: string;
   identityEvidenceUrls: string[];
   language: string;
+  publishedAudioLanguage: 'sub' | 'dub';
   titleId: number | null;
   titleSourceId: string | null;
   catalogueTitle: string | null;
@@ -58,6 +59,8 @@ export interface OfficialSeriesApprovalProposal {
   observedSingleEpisodes: number[];
   missingCatalogueEpisodes: number[];
   rejectedRangeOrSpecialVideos: number;
+  rejectedSingleEpisodes: number[];
+  rejectedReasons: Record<string, number>;
   status: 'proposed-not-applied' | 'hold';
   heldReasons: string[];
   warnings: string[];
@@ -79,12 +82,37 @@ export interface OfficialSeriesApprovalProposal {
   }>;
 }
 
-const SERIES_REVIEW_DEFINITIONS = [
-  { seriesId: 'god-mars', label: 'God Mars', sourceId: 'tms-god-mars-playlist', language: 'sub', catalogueAliases: ['God Mars', 'Six God Combination Godmars'], family: /\bGOD MARS\b/i, single: /^GOD MARS\s*-\s*EP(\d{1,3})\b/i },
-  { seriesId: 'after-war-gundam-x', label: 'After War Gundam X', sourceId: 'gundam-info', language: 'sub', catalogueAliases: ['After War Gundam X'], family: /\bAfter War Gundam X\b/i, single: /^After War Gundam X\s*-\s*Episode\s*(\d{1,3})\b/i },
-  { seriesId: 'yakitate-japan', label: 'Yakitate!! Japan / Freshly Baked Japan', sourceId: 'remow-its-anime', language: 'sub', catalogueAliases: ['Yakitate!! Japan', 'Freshly Baked!! Ja-pan'], family: /\bYakitate!!\s*JAPAN\b/i, single: /^Full Episode\s*(\d{1,3})\s*\|\s*Yakitate!!\s*JAPAN\b/i },
-  { seriesId: 'gundam-reconguista-in-g', label: 'Gundam Reconguista in G', sourceId: 'gundam-info', language: 'sub', catalogueAliases: ['Gundam Reconguista in G'], family: /\bGundam Reconguista in G\b/i, single: /^Gundam Reconguista in G\s*-\s*Episode\s*(\d{1,3})\b/i },
-] as const;
+interface OfficialSeriesReviewDefinition {
+  seriesId: string;
+  label: string;
+  sourceId: string;
+  language: 'sub';
+  publishedAudioLanguage: 'sub' | 'dub';
+  catalogueAliases: readonly string[];
+  family: RegExp;
+  single: RegExp;
+  audioLabel: RegExp;
+  excludedReason?: string;
+}
+
+const SERIES_REVIEW_DEFINITIONS: readonly OfficialSeriesReviewDefinition[] = [
+  { seriesId: 'god-mars', label: 'God Mars', sourceId: 'tms-god-mars-playlist', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['God Mars', 'Six God Combination Godmars'], family: /\bGOD MARS\b/i, single: /^GOD MARS\s*-\s*EP(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'after-war-gundam-x', label: 'After War Gundam X', sourceId: 'gundam-info', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['After War Gundam X'], family: /\bAfter War Gundam X\b/i, single: /^After War Gundam X\s*-\s*Episode\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub(?:\s*\|\s*Full Episode)?\s*$/i },
+  { seriesId: 'yakitate-japan', label: 'Yakitate!! Japan / Freshly Baked Japan', sourceId: 'remow-its-anime', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Yakitate!! Japan', 'Freshly Baked!! Ja-pan'], family: /\bYakitate!!\s*JAPAN\b/i, single: /^Full Episode\s*(\d{1,3})\s*\|\s*Yakitate!!\s*JAPAN\b/i, audioLabel: /Multi-Subs/i },
+  { seriesId: 'gundam-reconguista-in-g', label: 'Gundam Reconguista in G', sourceId: 'gundam-info', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Gundam Reconguista in G'], family: /\bGundam Reconguista in G\b/i, single: /^Gundam Reconguista in G\s*-\s*Episode\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub(?:\s*\|\s*Full Episode)?\s*$/i },
+  { seriesId: 'sonic-x', label: 'Sonic X', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'dub', catalogueAliases: ['Sonic X'], family: /^SONIC X\s*-/i, single: /^SONIC X\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Dub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'the-devil-lady', label: 'The Devil Lady', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'dub', catalogueAliases: ['The Devil Lady', 'Devilman Lady'], family: /^Go Nagai['’]s\s+["“]The Devil Lady["”]\s*-/i, single: /^Go Nagai['’]s\s+["“]The Devil Lady["”]\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Dub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'sherlock-hound', label: 'Sherlock Hound', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'dub', catalogueAliases: ['Sherlock Hound'], family: /^Sherlock Hound\s*-/i, single: /^Sherlock Hound\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Dub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'new-tetsujin-28', label: 'New Tetsujin 28', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Tetsujin 28', 'New Tetsujin 28'], family: /^New Tetsujin 28\s*-/i, single: /^New Tetsujin 28\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'god-mazinger', label: 'God Mazinger', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['God Mazinger'], family: /^GOD MAZINGER\s*-/i, single: /^GOD MAZINGER\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'cybersix', label: 'Cybersix', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'dub', catalogueAliases: ['Cybersix'], family: /^CYBERSIX\s*-/i, single: /^CYBERSIX\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Dub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'actually-i-am', label: 'Actually, I am...', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Actually, I am...', 'Jitsu wa Watashi wa'], family: /^Actually, I am(?:\.{3}|…)?\s*-/i, single: /^Actually, I am(?:\.{3}|…)?\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'we-rent-tsukumogami', label: 'We Rent Tsukumogami', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['We Rent Tsukumogami'], family: /^We Rent Tsukumogami\s*-/i, single: /^We Rent Tsukumogami\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'brave-10', label: 'Brave 10', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Brave 10'], family: /^BRAVE 10\s*-/i, single: /^BRAVE 10\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i },
+  { seriesId: 'boogiepop-phantom', label: 'Boogiepop Phantom', sourceId: 'remow-its-anime', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Boogiepop Phantom'], family: /\bBOOGIEPOP PHANTOM\b/i, single: /^Full Episode\s*(\d{1,3})\s*\|\s*BOOGIEPOP PHANTOM\b/i, audioLabel: /Multi-Subs?/i },
+  { seriesId: 'saint-seiya-lost-canvas-excluded', label: 'Saint Seiya: The Lost Canvas (excluded)', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['Saint Seiya: The Lost Canvas'], family: /^SAINT SEIYA\s*-\s*THE LOST CANVAS\s*-/i, single: /^SAINT SEIYA\s*-\s*THE LOST CANVAS\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*\|\s*Full Episode\s*$/i, excludedReason: 'excluded-fuzzy-target-is-knights-of-the-zodiac' },
+  { seriesId: 'the-gutsy-frog-excluded', label: 'The Gutsy Frog (excluded)', sourceId: 'tms-anime-official', language: 'sub', publishedAudioLanguage: 'sub', catalogueAliases: ['The Gutsy Frog'], family: /^The Gutsy Frog\s*-/i, single: /^The Gutsy Frog\s*-\s*EP\s*(\d{1,3})\b/i, audioLabel: /\|\s*English Sub\s*$/i, excludedReason: 'excluded-ambiguous-fuzzy-catalogue-hits' },
+];
 
 export function buildOfficialSeriesApprovalProposals(
   config: OfficialYouTubeDiscoveryConfig,
@@ -106,8 +134,10 @@ export function buildOfficialSeriesApprovalProposals(
     const reasons = new Set<string>();
     const warnings = new Set<string>();
     const matcherDisagreements: OfficialSeriesApprovalProposal['matcherDisagreements'] = [];
-    if (!source.evidenceUrls.length) reasons.add('publisher-identity-evidence-missing');
+    if (definition.excludedReason) reasons.add(definition.excludedReason);
+    if (!source.evidenceUrls.length || !source.fullEpisodeEvidenceUrl) reasons.add('publisher-identity-evidence-missing');
     if (!selected.length) reasons.add('no-single-episode-videos');
+    if (definition.publishedAudioLanguage !== definition.language) reasons.add('published-audio-language-catalogue-version-mismatch');
     const acceptedAliases = new Set(definition.catalogueAliases.map(normalizeAnimeTitle));
     const matchingTitles = new Map(catalogueAliases.filter((row) => acceptedAliases.has(normalizeAnimeTitle(row.alias))).map((row) => [row.id, { id: row.id, sourceId: row.sourceId, name: row.name }]));
     if (matchingTitles.size !== 1) reasons.add('catalogue-title-not-unique');
@@ -116,23 +146,29 @@ export function buildOfficialSeriesApprovalProposals(
     const catalogueRows = titleId ? db.prepare(`SELECT e.id AS episodeId,e.number_sort AS numberSort,e.episode_type AS episodeType,v.id AS versionId,v.language
       FROM episodes e JOIN episode_versions v ON v.episode_id=e.id WHERE e.title_id=? ORDER BY e.number_sort,e.id,v.id`).all(titleId) as Array<{ episodeId: number; numberSort: number | null; episodeType: string; versionId: number; language: string }> : [];
     const regularNumbers = [...new Set(catalogueRows.filter((row) => row.episodeType === 'regular' && Number.isFinite(row.numberSort)).map((row) => row.numberSort!))].sort((left, right) => left - right);
-    const episodeOwners = new Map<number, string>();
+    const observedEpisodes = new Set(selected.map((item) => item.episodeNumber));
+    const episodeOwners = new Map<number, string[]>();
+    for (const item of selected) episodeOwners.set(item.episodeNumber, [...(episodeOwners.get(item.episodeNumber) ?? []), item.candidate.video.videoId]);
     const entries: OfficialSeriesApprovalProposal['entries'] = [];
+    const rejectedSingleEpisodes = new Set<number>();
+    const rejectedReasonList: string[] = [];
     for (const { candidate, episodeNumber } of selected) {
       const match = candidate.match;
-      if (!Number.isSafeInteger(episodeNumber) || episodeNumber < 1) reasons.add('invalid-episode-number');
-      if (!candidate.fullEpisodeCandidate || (candidate.probe?.durationSeconds ?? candidate.video.durationSeconds ?? 0) < 15 * 60) reasons.add('not-full-episode');
-      if (candidate.channelId !== source.channelId || candidate.video.channelId !== source.channelId || candidate.probe?.channelId !== source.channelId) reasons.add('publisher-channel-mismatch');
-      if (candidate.probe?.availability !== 'playable' || candidate.probe.playableInEmbed !== true) reasons.add('embed-not-playable');
-      if (!candidate.probe?.availableCountries.includes('US')) reasons.add('not-observed-in-us');
+      const entryReasons = new Set<string>();
+      if (!Number.isSafeInteger(episodeNumber) || episodeNumber < 1) entryReasons.add('invalid-episode-number');
+      if (!definition.audioLabel.test(candidate.video.title)) entryReasons.add('published-audio-label-mismatch');
+      if (!candidate.fullEpisodeCandidate || (candidate.probe?.durationSeconds ?? candidate.video.durationSeconds ?? 0) <= 15 * 60) entryReasons.add('not-full-episode');
+      if (candidate.channelId !== source.channelId || candidate.video.channelId !== source.channelId || candidate.probe?.channelId !== source.channelId) entryReasons.add('publisher-channel-mismatch');
+      if (candidate.probe?.availability !== 'playable' || candidate.probe.playableInEmbed !== true) entryReasons.add('embed-not-playable');
+      if (!candidate.probe?.availableCountries.includes('US')) entryReasons.add('not-observed-in-us');
       const catalogueMatches = catalogueRows.filter((row) => row.numberSort === episodeNumber && row.episodeType === 'regular' && row.language === definition.language);
-      if (catalogueMatches.length !== 1) reasons.add('catalogue-episode-version-not-unique');
+      if (catalogueMatches.length !== 1) entryReasons.add('catalogue-episode-version-not-unique');
       const catalogue = catalogueMatches.length === 1 ? catalogueMatches[0] : undefined;
       const matcherIssues: string[] = [];
       if (match?.titleId && match.titleId !== titleId) matcherIssues.push('title');
       if (catalogue && match?.episodeId && (match.episodeId !== catalogue.episodeId || match.versionId !== catalogue.versionId || match.language !== definition.language)) matcherIssues.push('episode-version');
       if (catalogue && match && matcherIssues.length > 0) {
-        if (match.method === 'authoritative') reasons.add('authoritative-matcher-disagreement');
+        if (match.method === 'authoritative') entryReasons.add('authoritative-matcher-disagreement');
         else warnings.add('non-authoritative-matcher-disagreement-ignored');
         matcherDisagreements.push({
           episodeNumber,
@@ -143,24 +179,31 @@ export function buildOfficialSeriesApprovalProposals(
           expected: { titleId: titleId!, episodeId: catalogue.episodeId, versionId: catalogue.versionId, language: definition.language },
         });
       }
-      const prior = episodeOwners.get(episodeNumber);
-      if (prior && prior !== candidate.video.videoId) reasons.add('duplicate-video-for-episode');
-      else episodeOwners.set(episodeNumber, candidate.video.videoId);
-      const duplicate = catalogue ? db.prepare("SELECT 1 FROM episode_provider_mappings WHERE version_id=? AND provider_id='youtube-official' AND provider_resource_id=? LIMIT 1").get(catalogue.versionId, candidate.video.videoId) : undefined;
-      if (duplicate) reasons.add('existing-official-youtube-duplicate');
-      if (candidate.probe && catalogue) entries.push({ candidateId: candidate.candidateId, videoId: candidate.video.videoId, episodeNumber, episodeId: catalogue.episodeId, versionId: catalogue.versionId, observedAt: candidate.probe.observedAt });
+      if ((episodeOwners.get(episodeNumber)?.length ?? 0) !== 1) entryReasons.add('duplicate-video-for-episode');
+      const duplicate = catalogue ? db.prepare("SELECT 1 FROM episode_provider_mappings WHERE version_id=? AND provider_id='youtube-official' LIMIT 1").get(catalogue.versionId) : undefined;
+      if (duplicate) entryReasons.add('existing-official-youtube-mapping');
+      if (entryReasons.size > 0) {
+        rejectedSingleEpisodes.add(episodeNumber);
+        rejectedReasonList.push(...entryReasons);
+      } else if (candidate.probe && catalogue) {
+        entries.push({ candidateId: candidate.candidateId, videoId: candidate.video.videoId, episodeNumber, episodeId: catalogue.episodeId, versionId: catalogue.versionId, observedAt: candidate.probe.observedAt });
+      }
     }
-    const observedSingleEpisodes = [...episodeOwners.keys()].sort((left, right) => left - right);
-    const missingCatalogueEpisodes = regularNumbers.filter((number) => !episodeOwners.has(number));
-    const status = reasons.size === 0 ? 'proposed-not-applied' : 'hold';
+    const observedSingleEpisodes = [...observedEpisodes].sort((left, right) => left - right);
+    const missingCatalogueEpisodes = regularNumbers.filter((number) => !observedEpisodes.has(number));
+    const rejectedReasons = increments(rejectedReasonList);
+    if (entries.length === 0) for (const reason of Object.keys(rejectedReasons)) reasons.add(reason);
+    if (entries.length === 0 && selected.length > 0 && reasons.size === 0) reasons.add('no-eligible-single-episode-videos');
+    const status = reasons.size === 0 && entries.length > 0 ? 'proposed-not-applied' : 'hold';
     return {
       seriesId: definition.seriesId,
       label: definition.label,
       sourceId: definition.sourceId,
       publisher: source.publisher,
       channelId: source.channelId,
-      identityEvidenceUrls: [...source.evidenceUrls],
+      identityEvidenceUrls: [...new Set([...source.evidenceUrls, source.fullEpisodeEvidenceUrl].filter((value): value is string => Boolean(value)))],
       language: definition.language,
+      publishedAudioLanguage: definition.publishedAudioLanguage,
       titleId: title?.id ?? null,
       titleSourceId: title?.sourceId ?? null,
       catalogueTitle: title?.name ?? null,
@@ -168,6 +211,8 @@ export function buildOfficialSeriesApprovalProposals(
       observedSingleEpisodes,
       missingCatalogueEpisodes,
       rejectedRangeOrSpecialVideos,
+      rejectedSingleEpisodes: [...rejectedSingleEpisodes].sort((left, right) => left - right),
+      rejectedReasons,
       status,
       heldReasons: [...reasons].sort(),
       warnings: [...warnings].sort(),
