@@ -1,0 +1,47 @@
+name: Episode map audit
+on:
+  push:
+    branches: ['audit/episode-map-20260914']
+    paths: ['.github/workflows/episode-map-audit.yml', '.github/scripts/export-github-checkpoint.py']
+permissions:
+  contents: read
+concurrency:
+  group: episode-map-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          lfs: false
+          fetch-depth: 1
+          persist-credentials: true
+      - name: Fetch only the existing catalogue LFS object
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs fetch origin "$GITHUB_SHA" --include='data/solanime.sqlite' --exclude=''
+          git lfs checkout data/solanime.sqlite
+          echo '70010385d696b0d039ab0d0bd0a24297451192bceb4861050035595bfa8ff9a6  data/solanime.sqlite' | sha256sum --check --status
+          test ! -e data/solanime.sqlite-wal
+          test ! -e data/solanime.sqlite-shm
+          test ! -e data/solanime.sqlite-journal
+          cp data/solanime.sqlite "$RUNNER_TEMP/catalogue-github-f06c18f.sqlite"
+      - name: Export every stored episode/version without resolving media
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .github/scripts/export-github-checkpoint.py "$RUNNER_TEMP/catalogue-github-f06c18f.sqlite" "$RUNNER_TEMP/episode-map"
+          echo '70010385d696b0d039ab0d0bd0a24297451192bceb4861050035595bfa8ff9a6  data/solanime.sqlite' | sha256sum --check --status
+          git rev-parse HEAD > "$RUNNER_TEMP/episode-map/audit-source-commit.txt"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: episode-map-github-f06c18f
+          path: ${{ runner.temp }}/episode-map/
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: false
