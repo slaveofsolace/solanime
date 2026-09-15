@@ -1,0 +1,45 @@
+name: Deployed playback observation
+on:
+  push:
+    branches: ['audit/episode-map-20260914']
+    paths: ['.github/workflows/deployed-playback-audit.yml', '.github/scripts/deployed-playback-audit.mjs']
+permissions:
+  contents: read
+concurrency:
+  group: deployed-playback-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          lfs: false
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned browser tooling outside the source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir "$RUNNER_TEMP/browser-tools"
+          npm install --prefix "$RUNNER_TEMP/browser-tools" --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.63.0
+          node "$RUNNER_TEMP/browser-tools/node_modules/playwright/cli.js" install --with-deps chromium
+          cp .github/scripts/deployed-playback-audit.mjs "$RUNNER_TEMP/browser-tools/deployed-playback-audit.mjs"
+      - name: Observe two exact catalogue episodes on the stable review origin
+        shell: bash
+        run: |
+          set -euo pipefail
+          node "$RUNNER_TEMP/browser-tools/deployed-playback-audit.mjs" "$RUNNER_TEMP/deployed-playback-observation"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: deployed-playback-observation
+          path: ${{ runner.temp }}/deployed-playback-observation/
+          if-no-files-found: warn
+          retention-days: 7
