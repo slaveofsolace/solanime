@@ -24,11 +24,12 @@ for(const origin of origins){
 const browser=await chromium.launch();
 try{
  for(const c of cases){
-  const origin=origins[1],result={...c,origin,livePlayback:'not_verified',errors:[],popups:0};
+  const origin=origins[1],result={...c,origin,livePlayback:'not_verified',errors:[],popups:0,apiResponses:[]};
   const context=await browser.newContext({viewport:report.viewport});const page=await context.newPage();
   page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(30000);
   page.on('console',m=>{if(m.type()==='error')result.errors.push(clean(m.text()));});
   page.on('pageerror',e=>result.errors.push(clean(e.message)));
+  page.on('response',r=>{const u=new URL(r.url());if(u.origin===origin&&u.pathname.startsWith('/api/'))result.apiResponses.push({path:u.pathname,status:r.status()});});
   context.on('page',p=>{if(p!==page){result.popups++;p.close().catch(()=>{});}});
   try{
    const {data}=await getJson(origin+'/api/titles/'+c.slug);
@@ -44,10 +45,15 @@ try{
    if(new URL(page.url()).origin!==origin)throw new Error('Unexpected parent-origin navigation');
    await page.locator('main').waitFor();
    const source=page.getByLabel('Playback source');await source.waitFor();
-   const options=await source.locator('option').evaluateAll(es=>es.map(e=>({value:e.value,text:e.textContent,disabled:e.disabled})));
+   let options=[],official=null;
+   for(let attempt=0;attempt<40;attempt++){
+     options=await source.locator('option').evaluateAll(es=>es.map(e=>({value:e.value,text:e.textContent,disabled:e.disabled})));
+     official=options.find(o=>/youtube|remow|gundam|it's anime/i.test(o.text??'')&&!o.disabled);
+     if(official)break;
+     await page.waitForTimeout(500);
+   }
    result.sourceOptions=options;
-   const official=options.find(o=>/youtube|remow|gundam|it's anime/i.test(o.text??'')&&!o.disabled);
-   if(!official)throw new Error('No selectable official YouTube source on the deployed episode/version');
+   if(!official)throw new Error('No selectable official YouTube source observed within the 20-second readiness window; inspect final UI/API state');
    await source.selectOption(official.value);result.selectedSource=official;
    const iframe=page.locator('iframe[src^="https://www.youtube-nocookie.com/embed/"]');await iframe.waitFor({timeout:20000});
    const src=await iframe.getAttribute('src');const u=new URL(src);result.videoId=u.pathname.split('/').pop();
