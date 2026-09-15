@@ -28,6 +28,13 @@ export const TMS_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@AnimeonTMSOfficialChannel',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const BEYBLADE_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE English - Official Channel',
+  channelId: 'UCktgoAFaL39_rYfiMZiD9jw',
+  channelUrl: 'https://www.youtube.com/channel/UCktgoAFaL39_rYfiMZiD9jw',
+  handleUrl: 'https://www.youtube.com/@BeybladeOfficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
 export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublisherPolicy[] =
   Object.freeze([
     Object.freeze({
@@ -47,6 +54,12 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: TMS_PUBLISHER,
       identityUrl: 'https://tmsanime.com/anime-on-tms-official-channel',
       aliases: Object.freeze(['TMS Entertainment', 'TMS Anime']),
+    }),
+    Object.freeze({
+      id: 'beyblade-english',
+      publisher: BEYBLADE_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Official', 'BEYBLADE English']),
     }),
   ]);
 
