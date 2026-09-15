@@ -164,8 +164,8 @@ describe('official YouTube discovery', () => {
   it('loads the expanded publisher inventory without widening playback policy', () => {
     const config = JSON.parse(readFileSync(new URL('../config/official-youtube-discovery.json', import.meta.url), 'utf8'));
     expect(() => validateOfficialYouTubeDiscoveryConfig(config)).not.toThrow();
-    expect(config.sources).toHaveLength(31);
-    expect(new Set(config.sources.map((entry: OfficialPublisherSource) => entry.id)).size).toBe(31);
+    expect(config.sources).toHaveLength(35);
+    expect(new Set(config.sources.map((entry: OfficialPublisherSource) => entry.id)).size).toBe(35);
     expect(config.sources.every((entry: OfficialPublisherSource) => entry.disposition === 'reference-only')).toBe(true);
     expect(config.playbackPolicies).toEqual([expect.objectContaining({
       id: 'remow-reviewed-v1',
