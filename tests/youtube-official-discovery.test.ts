@@ -153,6 +153,7 @@ describe('official YouTube discovery', () => {
     expect(isEpisodePackOrRange('Full Episode 1～3 | My Deer Friend Nokotan')).toBe(true);
     expect(isEpisodePackOrRange('Episode 1, 2 & 3')).toBe(true);
     expect(isEpisodePackOrRange('BEYBLADE BURST EVOLUTION | Ép.1, 2 & 3 | 60 Minutes !')).toBe(true);
+    expect(isEpisodePackOrRange("BEYBLADE BURST EVOLUTION | Ép.1 Nouveau Départ ! | Ép.2 L'Esprit Combatif !")).toBe(true);
     expect(isFullEpisodeCandidate({ ...full, title: 'BEYBLADE | Ep.33 First | Ep.34 Second' })).toBe(false);
     expect(stableShard(full.videoId, 500)).toBe(stableShard(full.videoId, 500));
     expect(stableShard(full.videoId, 500)).toBeLessThan(500);

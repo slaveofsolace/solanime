@@ -515,9 +515,8 @@ export function inferEpisodeLanguage(title: string, fallback: string): string {
 export function isEpisodePackOrRange(title: string): boolean {
   return /\b(?:all\s+episodes|full\s+season|binge(?:-watch)?|marathon|recap|digest|compilation|watch\s+party)\b/i.test(title)
     || /(?:^|\s)(?:episodes?|eps?\.?|e|ép\.?)\s*[-#:]*\s*\d+(?:\.\d+)?\s*(?:-|–|—|~|〜|～|&|\+|,|\/|to)\s*(?:(?:episodes?|eps?\.?|e|ép\.?)\s*[-#:]*\s*)?\d+/i.test(title)
-    || /\b(?:episodes?|eps?\.?|e)\s*\d+.{0,40}\b(?:episodes?|eps?\.?|e)\s*\d+/i.test(title)
+    || /(?:^|\s)(?:episodes?|eps?\.?|e|ép\.?)\s*[-#:]*\s*\d+(?:\.\d+)?[\s\S]{0,240}(?:^|\s)(?:episodes?|eps?\.?|e|ép\.?)\s*[-#:]*\s*\d+(?:\.\d+)?/i.test(title)
     || /\bs\d+\s*:\s*e\s*\d+\s*(?:-|–|—|~|〜|～|&|\+|,|\/)\s*(?:s\d+\s*:\s*)?e?\s*\d+/i.test(title)
-    || /(?:^|\s)ép\.?\s*\d+.{0,18}(?:^|\s)ép\.?\s*\d+/i.test(title)
     || /第\s*\d+(?:\.\d+)?\s*話.{0,12}第\s*\d+(?:\.\d+)?\s*話/.test(title);
 }
 

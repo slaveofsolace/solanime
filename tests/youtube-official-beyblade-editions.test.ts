@@ -11,13 +11,13 @@ import {
 import { officialYouTubePublisherPolicyForChannel } from '../shared/youtubeOfficialPublishers.ts';
 
 describe('multilingual BEYBLADE official YouTube editions', () => {
-  it('preserves 716 unique reviewed videos with a distinct locale and catalogue crosswalk', () => {
-    expect(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS).toHaveLength(716);
-    expect(new Set(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => approval.id)).size).toBe(716);
-    expect(new Set(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => approval.video.id)).size).toBe(716);
+  it('preserves 599 unique reviewed single-episode videos with a distinct locale and catalogue crosswalk', () => {
+    expect(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS).toHaveLength(599);
+    expect(new Set(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => approval.id)).size).toBe(599);
+    expect(new Set(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => approval.video.id)).size).toBe(599);
     expect(new Set(BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map(
       (approval) => `${approval.video.channelId}:${approval.catalogue.versionSourceId}`,
-    )).size).toBe(716);
+    )).size).toBe(599);
   });
 
   it('keeps the six audio editions separate while targeting the existing dub inventory', () => {
