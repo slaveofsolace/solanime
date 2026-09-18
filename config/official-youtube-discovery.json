@@ -9,6 +9,46 @@
       "adapter": "youtube-official",
       "state": "implemented",
       "approvalRegistry": "REMOW_EPISODE_APPROVALS"
+    },
+    {
+      "id": "gundam-reviewed-v1",
+      "channelId": "UCejtUitnpnf8Be-v5NuDSLw",
+      "sourceIds": ["gundam-info"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "GUNDAM_INFO_EPISODE_APPROVALS"
+    },
+    {
+      "id": "tms-reviewed-v1",
+      "channelId": "UCzGf0DdUJVrsbcWL3e_tK1Q",
+      "sourceIds": ["tms-anime-official", "tms-god-mars-playlist"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "EXPANDED_AND_SECOND_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS"
+    },
+    {
+      "id": "beyblade-reviewed-v1",
+      "channelId": "UCktgoAFaL39_rYfiMZiD9jw",
+      "sourceIds": ["beyblade-english"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "BEYBLADE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS"
+    },
+    {
+      "id": "nozomi-reviewed-v1",
+      "channelId": "UCUlvYyW7UVtNJQ1KTv_Bsdg",
+      "sourceIds": ["nozomi-entertainment"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS"
+    },
+    {
+      "id": "tv-tokyo-reviewed-v1",
+      "channelId": "UC0OXPEQRKArB_EVyFMwDbAQ",
+      "sourceIds": ["tv-tokyo-anime"],
+      "adapter": "youtube-official",
+      "state": "implemented",
+      "approvalRegistry": "TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS"
     }
   ],
   "sources": [
@@ -78,7 +118,14 @@
       "fullEpisodeEvidenceUrl": "https://www.tv-tokyo.co.jp/information/202603/5536.html",
       "territoryNote": "TV Tokyo publishes selected full episodes and catch-up programming, often for short promotional windows; each video requires current expiry, territory, and embed verification.",
       "defaultLanguage": "sub",
-      "disposition": "reference-only"
+      "disposition": "reference-only",
+      "seriesHints": [
+        {
+          "aliases": ["BIRDIE WING", "Birdie Wing: Golf Girls' Story"],
+          "titleSourceId": "7075",
+          "episodeOffset": 0
+        }
+      ]
     },
     {
       "id": "tv-tokyo-anime-kids",
@@ -112,6 +159,117 @@
       ]
     },
     {
+      "id": "viz-anime-movies",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9jC2PAB-Gnz-DsM5vUlpJqs",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ identifies this as its official anime-movie playlist; every title still requires exact catalogue identity, territory, availability, and embed review.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "viz-death-note",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9hzlWtnCSla1DicLZkllriY",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that all 37 episodes are included; current availability and embedding remain per-video observations.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Death Note"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-hunter-x-hunter",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9izDhrHzKo4gdKwHRQGYbhn",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that episodes 1 through 148 are included; current availability and embedding remain per-video observations.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Hunter x Hunter", "Hunter × Hunter", "Hunter Hunter"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-inuyasha",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9he_kx6d1U0_ZFpmU-4L44i",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that all 193 episodes including The Final Act are included; season boundaries require strict catalogue crosswalk review.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Inuyasha", "InuYasha"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-mr-osomatsu",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9gdfcw_7W9ODHPXWbifOQ5t",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that seasons 1 and 2, episodes 1 through 50, are included; season boundaries and numbering require exact review.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Mr. Osomatsu", "Osomatsu-san"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-naruto",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9hNru7WoTa26dpn6o9-AEJK",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that Naruto episodes 1 through 220 are included; current availability and embedding remain per-video observations.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Naruto"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-sailor-moon",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9g-9QS1CgfAnP5kHwc--qYO",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ identifies this as the complete Sailor Moon anime playlist; seasons and specials require exact catalogue crosswalk review.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Sailor Moon", "Pretty Guardian Sailor Moon"], "episodeOffset": 0 }]
+    },
+    {
+      "id": "viz-vampire-knight",
+      "kind": "playlist",
+      "publisher": "VIZ Media",
+      "channelId": "UCV1da9peoqEwqr45bpTJsbQ",
+      "channelUrl": "https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ",
+      "playlistId": "PLDDFkfLheQ9ifWVF4gnDxtkfc5Vh6oiYD",
+      "evidenceUrls": ["https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube"],
+      "fullEpisodeEvidenceUrl": "https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube",
+      "territoryNote": "VIZ states that all 26 episodes are included; current availability and embedding remain per-video observations.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only",
+      "seriesHints": [{ "aliases": ["Vampire Knight"], "episodeOffset": 0 }]
+    },
+    {
       "id": "tms-god-mars-playlist",
       "kind": "playlist",
       "publisher": "TMS Entertainment",
@@ -142,6 +300,22 @@
       "evidenceUrls": ["https://en.gundam-official.com/witch-from-mercury/onair/"],
       "fullEpisodeEvidenceUrl": "https://en.gundam-official.com/witch-from-mercury/onair/",
       "territoryNote": "The official page limits YouTube distribution by region and schedule; probes are observations from the runtime region only.",
+      "defaultLanguage": "sub",
+      "disposition": "reference-only"
+    },
+    {
+      "id": "nozomi-entertainment",
+      "kind": "channel",
+      "discoveryMode": "inventory-only",
+      "publisher": "Nozomi Entertainment / Crunchyroll",
+      "channelId": "UCUlvYyW7UVtNJQ1KTv_Bsdg",
+      "channelUrl": "https://www.youtube.com/channel/UCUlvYyW7UVtNJQ1KTv_Bsdg",
+      "evidenceUrls": [
+        "https://www.crunchyroll.com/news/announcements/2022/8/4/crunchyroll-closes-deal-to-acquire-anime-superstore-right-stuf",
+        "https://www.crunchyroll.com/news/latest/2011/11/1/right-stuf-streams-revolutionary-girl-utena-animes-student-council-saga"
+      ],
+      "fullEpisodeEvidenceUrl": "https://www.crunchyroll.com/news/latest/2011/11/1/right-stuf-streams-revolutionary-girl-utena-animes-student-council-saga",
+      "territoryNote": "Mixed sub and dub inventory uses the dedicated exact Nozomi crosswalk instead of generic language inference; availability remains title-, territory-, and time-specific.",
       "defaultLanguage": "sub",
       "disposition": "reference-only"
     },

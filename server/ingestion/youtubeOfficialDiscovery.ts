@@ -1,6 +1,7 @@
 import type { DatabaseSync } from 'node:sqlite';
 
 export const DEFAULT_YOUTUBE_SHARD_COUNT = 500;
+export const OFFICIAL_YOUTUBE_MATCHER_REVISION = '2026-09-18-series-segment-v5';
 const VIDEO_ID = /^[A-Za-z0-9_-]{11}$/;
 const CHANNEL_ID = /^UC[A-Za-z0-9_-]{22}$/;
 const PLAYLIST_ID = /^[A-Za-z0-9_-]{10,64}$/;
@@ -8,6 +9,7 @@ const PLAYLIST_ID = /^[A-Za-z0-9_-]{10,64}$/;
 export interface OfficialPublisherSource {
   id: string;
   kind: 'channel' | 'playlist';
+  discoveryMode?: 'generic' | 'inventory-only';
   publisher: string;
   channelId: string;
   channelUrl: string;
@@ -159,6 +161,7 @@ export interface SourceInventoryCheckpoint {
 
 export interface ProbeShardCheckpoint {
   version: 1;
+  matcherRevision?: string;
   shard: number;
   completed: boolean;
   probes: Record<string, YouTubeVideoProbe>;
@@ -204,6 +207,8 @@ export function validateOfficialPublisherSource(source: OfficialPublisherSource)
     try { return new URL(value).protocol !== 'https:'; } catch { return true; }
   })) throw new Error('INVALID_SOURCE_EVIDENCE');
   if (source.disposition !== 'reference-only') throw new Error('INVALID_SOURCE_DISPOSITION');
+  if (source.discoveryMode && !['generic', 'inventory-only'].includes(source.discoveryMode))
+    throw new Error('INVALID_SOURCE_DISCOVERY_MODE');
   if (source.fullEpisodeEvidenceUrl) {
     try { if (new URL(source.fullEpisodeEvidenceUrl).protocol !== 'https:') throw new Error(); }
     catch { throw new Error('INVALID_FULL_EPISODE_EVIDENCE'); }
@@ -493,15 +498,77 @@ export function parseEpisodeIdentity(title: string): { kind: 'regular' | 'specia
   const special = title.match(/\b(?:special|ova|oad|sp)(?:\s+special)?\s*(?:episode\s*)?(\d+(?:\.\d+)?)?/i);
   if (special) return { kind: 'special', number: special[1] ? Number(special[1]) : null };
   const regular = title.match(/\b(?:full\s*)?(?:episode|ep\.?|e)\s*[-#:]*\s*(\d+(?:\.\d+)?)/i)
-    ?? title.match(/(?:^|\s)#(\d+(?:\.\d+)?)(?:\s|$)/);
+    ?? title.match(/\bs\d+\s*:\s*e\s*(\d+(?:\.\d+)?)/i)
+    ?? title.match(/\bride\s*[-#:]*\s*(\d+(?:\.\d+)?)/i)
+    ?? title.match(/(?:^|\s)ép\.?\s*[-#:]*\s*(\d+(?:\.\d+)?)/i)
+    ?? title.match(/(?:^|\s)#(\d+(?:\.\d+)?)(?:\s|$)/)
+    ?? title.match(/第\s*(\d+(?:\.\d+)?)\s*話/);
   return regular ? { kind: 'regular', number: Number(regular[1]) } : null;
+}
+
+export function inferEpisodeLanguage(title: string, fallback: string): string {
+  if (/\b(?:english|eng)\s*dub\b|\bdual\s*audio\b|\bdubbed\b/i.test(title)) return 'dub';
+  if (/\b(?:english|eng)\s*sub\b|\bmulti[-\s]*subs?\b|\bsubbed\b|\bw\/?\s*subtitles\b/i.test(title)) return 'sub';
+  return fallback;
+}
+
+export function isEpisodePackOrRange(title: string): boolean {
+  return /\b(?:all\s+episodes|full\s+season|binge(?:-watch)?|marathon|recap|digest|compilation|watch\s+party)\b/i.test(title)
+    || /\b(?:episodes?|eps?\.?|e)\s*\d+\s*(?:-|–|—|~|〜|～|&|\+|,|\/|to)\s*(?:episodes?|eps?\.?|e)?\s*\d+/i.test(title)
+    || /\b(?:episodes?|eps?\.?|e)\s*\d+.{0,40}\b(?:episodes?|eps?\.?|e)\s*\d+/i.test(title)
+    || /\bs\d+\s*:\s*e\s*\d+\s*(?:-|–|—|~|〜|～|&|\+|,|\/)\s*(?:s\d+\s*:\s*)?e?\s*\d+/i.test(title)
+    || /(?:^|\s)ép\.?\s*\d+.{0,18}(?:^|\s)ép\.?\s*\d+/i.test(title)
+    || /第\s*\d+(?:\.\d+)?\s*話.{0,12}第\s*\d+(?:\.\d+)?\s*話/.test(title);
+}
+
+const EPISODE_IDENTITY_MARKERS = [
+  /\b(?:full\s*)?(?:episode|ep\.?|e)\s*[-#:]*\s*\d+(?:\.\d+)?/i,
+  /\bs\d+\s*:\s*e\s*\d+(?:\.\d+)?/i,
+  /\bride\s*[-#:]*\s*\d+(?:\.\d+)?/i,
+  /(?:^|\s)ép\.?\s*[-#:]*\s*\d+(?:\.\d+)?/i,
+  /第\s*\d+(?:\.\d+)?\s*話/,
+] as const;
+
+function firstEpisodeMarkerIndex(value: string): number {
+  let index = -1;
+  for (const pattern of EPISODE_IDENTITY_MARKERS) {
+    const match = pattern.exec(value);
+    if (match?.index !== undefined && (index < 0 || match.index < index)) index = match.index;
+  }
+  return index;
+}
+
+/**
+ * Return only the title-bearing portions of a publisher label. Episode
+ * subtitles are intentionally excluded so words such as "Kingdom" or
+ * "Strange" inside a synopsis cannot be mistaken for a different series.
+ * A pipe-delimited series label after a leading "Full Episode N" remains
+ * eligible (for example, "Full Episode 14 | Yakitate!! JAPAN").
+ */
+export function extractSeriesIdentitySegments(videoTitle: string): string[] {
+  const segments: string[] = [];
+  for (const raw of videoTitle.split('|')) {
+    const value = raw.trim();
+    if (!value) continue;
+    const markerIndex = firstEpisodeMarkerIndex(value);
+    const candidate = (markerIndex >= 0 ? value.slice(0, markerIndex) : value)
+      .replace(/[\s\-–—:•·]+$/u, '')
+      .trim();
+    if (!candidate || /^(?:(?:english|eng)\s+(?:sub|dub)|multi[-\s]*subs?|subbed|dubbed|dual\s*audio|full\s*episode|hd\s*remaster|6\s*audio)$/i.test(candidate))
+      continue;
+    segments.push(candidate);
+  }
+  return [...new Set(segments)];
 }
 
 export function isFullEpisodeCandidate(video: ListedYouTubeVideo, probe?: YouTubeVideoProbe | null): boolean {
   const duration = probe?.durationSeconds ?? video.durationSeconds;
   if (!duration || duration < 15 * 60) return false;
   if (/\b(?:trailer|teaser|preview|clip|opening|ending|creditless|music video|shorts?|pv)\b/i.test(video.title)) return false;
-  return /\b(?:full\s*(?:episode|ep)|episode\s*\d+|ep\.?\s*\d+|prologue|special\s*(?:episode\s*)?\d*)\b/i.test(video.title);
+  if (isEpisodePackOrRange(video.title)) return false;
+  return /\b(?:full\s*(?:episode|ep)|episode\s*\d+|ep\.?\s*\d+|s\d+\s*:\s*e\s*\d+|ride\s*\d+|prologue|special\s*(?:episode\s*)?\d*)\b/i.test(video.title)
+    || /(?:^|\s)ép\.?\s*\d+/i.test(video.title)
+    || /第\s*\d+(?:\.\d+)?\s*話/.test(video.title);
 }
 
 export function normalizeAnimeTitle(value: string): string {
@@ -573,9 +640,15 @@ export class OfficialYouTubeCatalogueMatcher {
       confidence = title ? 1 : 0;
       if (!title) reasons.push('authoritative-title-missing');
     } else {
-      const hints = (source.seriesHints ?? []).filter((hint) => hint.aliases.some((alias) => normalizeAnimeTitle(video.title).includes(normalizeAnimeTitle(alias))));
+      const identitySegments = extractSeriesIdentitySegments(video.title);
+      const normalizedIdentitySegments = identitySegments.map(normalizeAnimeTitle);
+      const identityText = identitySegments.join(' ');
+      const hints = (source.seriesHints ?? []).filter((hint) => hint.aliases.some((alias) => {
+        const normalizedAlias = normalizeAnimeTitle(alias);
+        return normalizedAlias.length >= 5 && normalizedIdentitySegments.some((segment) => segment.includes(normalizedAlias));
+      }));
       const hinted = hints.map((hint) => hint.titleSourceId ? this.bySourceId.get(hint.titleSourceId) : undefined).filter((item): item is CatalogueTitleRecord => !!item);
-      const tokens = titleTokens(video.title);
+      const tokens = titleTokens(identityText);
       const pool = new Set<CatalogueTitleRecord>(hinted);
       for (const token of tokens) for (const candidate of this.tokenIndex.get(token) ?? []) pool.add(candidate);
       const ranked = [...pool].map((candidate) => {
@@ -583,9 +656,8 @@ export class OfficialYouTubeCatalogueMatcher {
         let exact = false;
         for (const alias of candidate.aliases) {
           const normalizedAlias = normalizeAnimeTitle(alias);
-          const normalizedVideo = normalizeAnimeTitle(video.title);
-          const contained = normalizedAlias.length >= 5 && normalizedVideo.includes(normalizedAlias);
-          exact ||= normalizedVideo === normalizedAlias;
+          const contained = normalizedAlias.length >= 5 && normalizedIdentitySegments.some((segment) => segment.includes(normalizedAlias));
+          exact ||= normalizedIdentitySegments.some((segment) => segment === normalizedAlias);
           best = Math.max(best, exact ? .9 : contained ? .82 : tokenScore(tokens, titleTokens(alias)) * .78);
         }
         if (hinted.includes(candidate)) best = Math.min(.97, best + .12);
@@ -602,7 +674,7 @@ export class OfficialYouTubeCatalogueMatcher {
     }
     let episode: CatalogueEpisodeRecord | undefined;
     let version: CatalogueVersionRecord | undefined;
-    const language = authoritative?.language ?? source.defaultLanguage;
+    const language = authoritative?.language ?? inferEpisodeLanguage(video.title, source.defaultLanguage);
     if (title && authoritative) {
       episode = title.episodes.find((item) => item.sourceId === authoritative.episodeSourceId);
       version = episode?.versions.find((item) => item.sourceId === authoritative.versionSourceId && item.language === authoritative.language);
@@ -952,6 +1024,7 @@ export interface ProbeOptions {
   requestBudget: number;
   source: OfficialPublisherSource;
   matcher: OfficialYouTubeCatalogueMatcher;
+  matcherRevision?: string;
   checkpoint: (state: ProbeShardCheckpoint) => Promise<void> | void;
   now?: () => string;
 }
@@ -965,6 +1038,14 @@ export async function probeOfficialYouTubeShard(
 ): Promise<ProbeShardCheckpoint> {
   const now = options.now ?? (() => new Date().toISOString());
   const state: ProbeShardCheckpoint = existing ? structuredClone(existing) : { version: 1, shard, completed: false, probes: {}, candidates: {}, requests: 0, retryCount: 0, errors: [], startedAt: now(), updatedAt: now() };
+  if (state.matcherRevision !== options.matcherRevision) {
+    for (const video of videos) {
+      const probe = state.probes[video.videoId];
+      if (probe) state.candidates[video.videoId] = options.matcher.match(options.source, video, probe);
+    }
+    state.matcherRevision = options.matcherRevision;
+    state.completed = false;
+  }
   const pending = videos.filter((video) => !state.probes[video.videoId] && !state.errors.some((error) => error.videoId === video.videoId)).slice(0, Math.max(0, options.requestBudget - state.requests));
   let cursor = 0;
   const workers = Array.from({ length: Math.max(1, Math.min(options.concurrency, pending.length || 1)) }, async () => {

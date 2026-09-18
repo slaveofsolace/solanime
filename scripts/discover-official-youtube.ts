@@ -4,6 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import {
   AdaptiveRequestScheduler,
   DEFAULT_YOUTUBE_SHARD_COUNT,
+  OFFICIAL_YOUTUBE_MATCHER_REVISION,
   OfficialYouTubeCatalogueMatcher,
   PublicYouTubeMetadataClient,
   inventoryOfficialPublisherSource,
@@ -134,16 +135,31 @@ function probePath(args: Args, source: OfficialPublisherSource, shard: number): 
 }
 
 function aggregate(args: Args, sources: OfficialPublisherSource[]): Record<string, unknown> {
-  const inventories = sources.map((source) => existsSync(inventoryPath(args, source)) ? readJson<SourceInventoryCheckpoint>(inventoryPath(args, source)) : null);
-  const probeStates: ProbeShardCheckpoint[] = [];
+  const inventoryBySource = new Map(sources.map((source) => [
+    source.id,
+    existsSync(inventoryPath(args, source)) ? readJson<SourceInventoryCheckpoint>(inventoryPath(args, source)) : null,
+  ]));
+  const inventories = sources.map((source) => inventoryBySource.get(source.id) ?? null);
+  const eligibleVideoIdsBySource = new Map(sources.map((source) => [
+    source.id,
+    new Set(Object.values(inventoryBySource.get(source.id)?.videos ?? {})
+      .filter((video) => isFullEpisodeCandidate(video))
+      .map((video) => video.videoId)),
+  ]));
+  const probeStates: Array<{ sourceId: string; state: ProbeShardCheckpoint }> = [];
   for (const source of sources) for (let shard = 0; shard < args.shardCount; shard += 1) {
     const path = probePath(args, source, shard);
-    if (existsSync(path)) probeStates.push(readJson<ProbeShardCheckpoint>(path));
+    if (existsSync(path)) probeStates.push({ sourceId: source.id, state: readJson<ProbeShardCheckpoint>(path) });
   }
   const unique = new Set(inventories.flatMap((state) => state ? Object.keys(state.videos) : []));
-  const probes = probeStates.flatMap((state) => Object.values(state.probes));
-  const candidates = probeStates.flatMap((state) => Object.values(state.candidates));
-  const started = [...inventories.filter(Boolean).map((state) => state!.startedAt), ...probeStates.map((state) => state.startedAt)].sort()[0] ?? new Date().toISOString();
+  const probes = probeStates.flatMap(({ state }) => Object.values(state.probes));
+  // Checkpoints intentionally retain prior observations, but the aggregate
+  // must not resurrect candidates that newer rules no longer classify as one
+  // complete episode (for example, an EP1-3 pack). Filter against the current
+  // inventory-derived eligibility set on every aggregate rebuild.
+  const candidates = probeStates.flatMap(({ sourceId, state }) => Object.values(state.candidates)
+    .filter((candidate) => eligibleVideoIdsBySource.get(sourceId)?.has(candidate.video.videoId)));
+  const started = [...inventories.filter(Boolean).map((state) => state!.startedAt), ...probeStates.map(({ state }) => state.startedAt)].sort()[0] ?? new Date().toISOString();
   const elapsedMinutes = Math.max((Date.now() - Date.parse(started)) / 60_000, 1 / 60);
   const estimated = inventories.reduce((sum, state) => sum + (state?.estimatedTotalVideos ?? Object.keys(state?.videos ?? {}).length), 0);
   const listingRate = unique.size / elapsedMinutes;
@@ -189,7 +205,8 @@ async function main(): Promise<void> {
   const args = parseArgs();
   const config = readJson<OfficialYouTubeDiscoveryConfig>(args.config);
   validateOfficialYouTubeDiscoveryConfig(config);
-  const sources = config.sources.filter((source) => !args.source || source.id === args.source);
+  const allSources = config.sources;
+  const sources = allSources.filter((source) => !args.source || source.id === args.source);
   if (!sources.length) throw new Error('NO_CONFIGURED_SOURCES');
   mkdirSync(args.out, { recursive: true });
   atomicJson(resolve(args.out, 'run-config.json'), { ...args, configVersion: config.version, sources: sources.map((source) => source.id), startedAt: new Date().toISOString(), rightsDisposition: 'reference-only', autoEnable: false, mediaDownloads: false });
@@ -218,7 +235,7 @@ async function main(): Promise<void> {
     await withLock(`${path}.lock`, async () => {
       const state = await inventoryOfficialPublisherSource(source, client, existing, {
         shardCount: args.shardCount, maxPages: args.maxPages, requestBudget: args.requestBudget,
-        checkpoint: (value) => { value.retryCount = retryEvents; atomicJson(path, value); aggregate(args, sources); },
+        checkpoint: (value) => { value.retryCount = retryEvents; atomicJson(path, value); aggregate(args, allSources); },
       });
       process.stdout.write(`${JSON.stringify({ event: 'inventory', source: source.id, pages: state.pages, videos: Object.keys(state.videos).length, completed: state.completed })}\n`);
     });
@@ -230,6 +247,7 @@ async function main(): Promise<void> {
     database.close();
     let remainingProbes = args.probeBudget;
     probeSources: for (const source of sources) {
+      if (source.discoveryMode === 'inventory-only') continue;
       const path = inventoryPath(args, source);
       if (!existsSync(path)) continue;
       const inventory = readJson<SourceInventoryCheckpoint>(path);
@@ -240,12 +258,16 @@ async function main(): Promise<void> {
         if (!owned.length) continue;
         const output = probePath(args, source, shard);
         const existing = existsSync(output) ? readJson<ProbeShardCheckpoint>(output) : null;
-        if (existing?.completed) continue;
+        if (existing?.completed && existing.matcherRevision === OFFICIAL_YOUTUBE_MATCHER_REVISION) continue;
         await withLock(`${output}.lock`, async () => {
           const before = existing?.requests ?? 0;
           const state = await probeOfficialYouTubeShard(shard, owned, client, existing, {
             concurrency: args.globalConcurrency, requestBudget: before + Math.min(remainingProbes, Math.max(0, owned.length - before)), source, matcher,
-            checkpoint: (value) => { value.retryCount = retryEvents; atomicJson(output, value); aggregate(args, sources); },
+            matcherRevision: OFFICIAL_YOUTUBE_MATCHER_REVISION,
+            // The shard is the durable source of truth. Rebuilding the global
+            // aggregate after every video made a large run quadratic in its
+            // candidate count; aggregate once when this process completes.
+            checkpoint: (value) => { value.retryCount = retryEvents; atomicJson(output, value); },
           });
           remainingProbes -= Math.max(0, state.requests - before);
           process.stdout.write(`${JSON.stringify({ event: 'probe', source: source.id, shard, probed: state.requests, candidates: Object.keys(state.candidates).length, completed: state.completed })}\n`);
@@ -253,7 +275,7 @@ async function main(): Promise<void> {
       }
     }
   }
-  process.stdout.write(`${JSON.stringify({ event: 'complete', coverage: aggregate(args, sources) })}\n`);
+  process.stdout.write(`${JSON.stringify({ event: 'complete', coverage: aggregate(args, allSources) })}\n`);
 }
 
 main().catch((error) => {

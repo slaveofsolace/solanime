@@ -52,6 +52,13 @@ describe('official YouTube batch approval gate', () => {
     expect(plan.entries[0]).toMatchObject({ decision: 'eligible', reasonCodes: [] });
   });
 
+  it('reconciles an exact reviewed approval even when discovery used a scored alias', () => {
+    db = database();
+    const scored = candidate({ match: { ...candidate().match!, method: 'scored-alias' } });
+    const plan = planOfficialYouTubeBatchApprovals(db, [scored], [source], '2026-09-13T20:00:00.000Z');
+    expect(plan.entries[0]).toMatchObject({ decision: 'eligible', reasonCodes: [] });
+  });
+
   it('holds an otherwise valid record when the video is already mapped', () => {
     db = database();
     db.prepare("INSERT INTO episode_provider_mappings VALUES(1,'youtube-official','_3Gcm-iGAQk','youtube:_3Gcm-iGAQk')").run();

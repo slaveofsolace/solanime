@@ -4,6 +4,8 @@ import { REMOW_PUBLISHER, OFFICIAL_YOUTUBE_PROVIDER_ID } from '../providers/yout
 import { OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficial.ts';
 import {
   validateOfficialPublisherSource,
+  inferEpisodeLanguage,
+  isEpisodePackOrRange,
   type OfficialPublisherSource,
   type OfficialYouTubeReviewCandidate,
 } from './youtubeOfficialDiscovery.ts';
@@ -40,12 +42,6 @@ export interface OfficialYouTubeBatchApprovalPlan {
   rightsDisposition: 'reference-only-pending-explicit-approval';
   autoApplied: false;
   entries: OfficialYouTubeApprovalLedgerEntry[];
-}
-
-function isPackRangeOrNonEpisode(title: string): boolean {
-  return /\b(?:all\s+episodes|full\s+season|binge(?:-watch)?|marathon|recap|digest|compilation)\b/i.test(title)
-    || /\b(?:episodes?|eps?\.?|e)\s*\d+\s*(?:-|–|—|~|&|\+|,|\/|to)\s*\d+/i.test(title)
-    || /\b(?:episodes?|eps?\.?)\s*\d+.{0,12}\b(?:episodes?|eps?\.?)\s*\d+/i.test(title);
 }
 
 function exactCrosswalk(db: DatabaseSync, candidate: OfficialYouTubeReviewCandidate): { count: number; language: string | null } {
@@ -128,29 +124,33 @@ export function planOfficialYouTubeBatchApprovals(
     if (!availableInUnitedStates) reasons.push('us-availability-unconfirmed');
     if (candidate.parsedEpisode?.kind !== 'regular' || !Number.isSafeInteger(candidate.parsedEpisode.number) || Number(candidate.parsedEpisode.number) < 1)
       reasons.push('not-exact-single-regular-episode');
-    if (isPackRangeOrNonEpisode(candidate.video.title)) reasons.push('episode-pack-range-recap-or-binge');
+    if (isEpisodePackOrRange(candidate.video.title)) reasons.push('episode-pack-range-recap-or-binge');
     if (!candidate.match?.versionId || !candidate.match.episodeId) reasons.push('catalogue-crosswalk-incomplete');
-    if (candidate.match?.method === 'exact-alias') reasons.push('exact-alias-requires-independent-evidence');
-    else if (candidate.match?.method !== 'authoritative') reasons.push('non-authoritative-match-held');
     const configuredMapping = source?.authoritativeMappings?.find((mapping) => mapping.videoId === candidate.video.videoId);
+    const reviewedApproval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((approval) => approval.video.id === candidate.video.videoId);
+    const reviewedApprovalMatches = !!reviewedApproval
+      && reviewedApproval.catalogue.titleSourceId === candidate.match?.titleSourceId
+      && reviewedApproval.catalogue.episodeSourceId === candidate.match?.episodeSourceId
+      && reviewedApproval.catalogue.versionSourceId === candidate.match?.versionSourceId
+      && reviewedApproval.catalogue.language === candidate.match?.language
+      && reviewedApproval.video.channelId === candidate.channelId
+      && reviewedApproval.video.title === candidate.video.title;
+    if (!reviewedApprovalMatches) {
+      if (candidate.match?.method === 'exact-alias') reasons.push('exact-alias-requires-independent-evidence');
+      else if (candidate.match?.method !== 'authoritative') reasons.push('non-authoritative-match-held');
+    }
     if (candidate.match?.method === 'authoritative' && (!configuredMapping
       || configuredMapping.titleSourceId !== candidate.match.titleSourceId
       || configuredMapping.episodeSourceId !== candidate.match.episodeSourceId
       || configuredMapping.versionSourceId !== candidate.match.versionSourceId
       || configuredMapping.language !== candidate.match.language))
       reasons.push('authoritative-evidence-crosswalk-mismatch');
-    const reviewedApproval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((approval) => approval.video.id === candidate.video.videoId);
-    if (candidate.match?.method === 'authoritative' && (!reviewedApproval
-      || reviewedApproval.catalogue.titleSourceId !== candidate.match.titleSourceId
-      || reviewedApproval.catalogue.episodeSourceId !== candidate.match.episodeSourceId
-      || reviewedApproval.catalogue.versionSourceId !== candidate.match.versionSourceId
-      || reviewedApproval.catalogue.language !== candidate.match.language
-      || reviewedApproval.video.channelId !== candidate.channelId
-      || reviewedApproval.video.title !== candidate.video.title))
+    if (!reviewedApprovalMatches)
       reasons.push('reviewed-approval-record-missing-or-mismatched');
     const crosswalk = exactCrosswalk(db, candidate);
     if (crosswalk.count !== 1) reasons.push('catalogue-crosswalk-not-unique');
-    if (!candidate.match?.language || crosswalk.language !== candidate.match.language || source?.defaultLanguage !== candidate.match.language)
+    if (!candidate.match?.language || crosswalk.language !== candidate.match.language
+      || !source || inferEpisodeLanguage(candidate.video.title, source.defaultLanguage) !== candidate.match.language)
       reasons.push('language-version-incompatible');
     if ((videoCounts.get(candidate.video.videoId) ?? 0) !== 1) reasons.push('duplicate-video-candidate');
     if (candidate.match?.versionId && (targetCounts.get(String(candidate.match.versionId)) ?? 0) !== 1) reasons.push('duplicate-version-candidate');

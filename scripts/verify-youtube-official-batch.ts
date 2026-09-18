@@ -4,6 +4,7 @@ import { isAbsolute, relative, resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import type { OfficialYouTubeApprovalLedgerEntry, OfficialYouTubeBatchApprovalPlan } from '../server/ingestion/youtubeOfficialBatchApproval.ts';
 import type { OfficialPublisherSource, OfficialYouTubeReviewCandidate } from '../server/ingestion/youtubeOfficialDiscovery.ts';
+import { OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from '../server/ingestion/youtubeOfficial.ts';
 
 interface Config { sources: OfficialPublisherSource[] }
 const root = resolve(import.meta.dirname, '..');
@@ -70,6 +71,13 @@ function main(): void {
       ) as { count: number } : { count: 0 };
     const existing = db.prepare(`SELECT COUNT(*) AS count FROM episode_provider_mappings
       WHERE provider_id='youtube-official' AND (provider_resource_id=? OR source_mapping_id=?)`).get(entry.videoId, `youtube:${entry.videoId}`) as { count: number };
+    const reviewedApproval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((approval) =>
+      approval.video.id === entry.videoId &&
+      approval.catalogue.titleSourceId === raw.match?.titleSourceId &&
+      approval.catalogue.episodeSourceId === raw.match?.episodeSourceId &&
+      approval.catalogue.versionSourceId === raw.match?.versionSourceId &&
+      approval.catalogue.language === raw.match?.language,
+    );
     const checks = {
       ledgerEvidenceHashMatches: entry.evidenceHash === createHash('sha256').update(JSON.stringify(raw)).digest('hex'),
       stableVideoId: /^[A-Za-z0-9_-]{11}$/.test(entry.videoId),
@@ -81,10 +89,14 @@ function main(): void {
       exactCatalogueRowCount: crosswalk.count,
       existingOfficialMappingCount: existing.count,
       heldHasReason: entry.decision !== 'hold' || entry.reasonCodes.length > 0,
-      nonAuthoritativeHeld: raw.match?.method === 'authoritative' || entry.decision === 'hold',
+      nonAuthoritativeHeldOrReviewed:
+        raw.match?.method === 'authoritative' || entry.decision === 'hold' || reviewedApproval !== undefined,
     };
-    if (Object.entries(checks).some(([key, value]) => key !== 'existingOfficialMappingCount' && key !== 'exactCatalogueRowCount' && value === false))
-      throw new Error(`SANITY_CHECK_FAILED:${entry.sourceId}:${entry.videoId}`);
+    const failedChecks = Object.entries(checks)
+      .filter(([key, value]) => key !== 'existingOfficialMappingCount' && key !== 'exactCatalogueRowCount' && value === false)
+      .map(([key]) => key);
+    if (failedChecks.length > 0)
+      throw new Error(`SANITY_CHECK_FAILED:${entry.sourceId}:${entry.videoId}:${failedChecks.join(',')}`);
     if (checks.exactCatalogueRowCount !== 1) throw new Error(`SANITY_CROSSWALK_FAILED:${entry.sourceId}:${entry.videoId}`);
     if (entry.reasonCodes.includes('existing-official-youtube-duplicate') !== (checks.existingOfficialMappingCount > 0))
       throw new Error(`SANITY_DUPLICATE_REASON_MISMATCH:${entry.sourceId}:${entry.videoId}`);

@@ -42,6 +42,16 @@ export const NOZOMI_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@nozomient',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const TV_TOKYO_ANIME_PUBLISHER = Object.freeze({
+  label: 'テレ東アニメ',
+  channelId: 'UC0OXPEQRKArB_EVyFMwDbAQ',
+  channelUrl: 'https://www.youtube.com/channel/UC0OXPEQRKArB_EVyFMwDbAQ',
+  handleUrl: 'https://www.youtube.com/@anitele_tx',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const TV_TOKYO_ANIME_PUBLISHER_IDENTITY_URL =
+  'https://www.tv-tokyo.co.jp/information/202603/5536.html';
+
 export const NOZOMI_PUBLISHER_IDENTITY_URL =
   'https://www.crunchyroll.com/news/announcements/2022/8/4/crunchyroll-closes-deal-to-acquire-anime-superstore-right-stuf';
 
@@ -76,6 +86,12 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: NOZOMI_PUBLISHER,
       identityUrl: NOZOMI_PUBLISHER_IDENTITY_URL,
       aliases: Object.freeze(['Nozomi Entertainment', 'Right Stuf', 'Nozomi']),
+    }),
+    Object.freeze({
+      id: 'tv-tokyo-anime',
+      publisher: TV_TOKYO_ANIME_PUBLISHER,
+      identityUrl: TV_TOKYO_ANIME_PUBLISHER_IDENTITY_URL,
+      aliases: Object.freeze(['TV Tokyo Anime', 'テレ東アニメ']),
     }),
   ]);
 

@@ -4,8 +4,12 @@ import {
   AdaptiveRequestScheduler,
   DiscoveryHttpError,
   OfficialYouTubeCatalogueMatcher,
+  OFFICIAL_YOUTUBE_MATCHER_REVISION,
   PublicYouTubeMetadataClient,
   inventoryOfficialPublisherSource,
+  extractSeriesIdentitySegments,
+  inferEpisodeLanguage,
+  isEpisodePackOrRange,
   isFullEpisodeCandidate,
   parseEpisodeIdentity,
   parseYouTubeContinuation,
@@ -97,6 +101,16 @@ describe('official YouTube discovery', () => {
   it('parses specials and offsets while holding ambiguous matches', () => {
     expect(parseEpisodeIdentity('Series OVA Special Episode 2')).toEqual({ kind: 'special', number: 2 });
     expect(parseEpisodeIdentity('Series Prologue')).toEqual({ kind: 'prologue', number: null });
+    expect(parseEpisodeIdentity('【公式】BIRDIE WING 第1話「レインボーバレット」')).toEqual({ kind: 'regular', number: 1 });
+    expect(parseEpisodeIdentity('Hell Teacher S1:E26 • Secret of the Demon Hand')).toEqual({ kind: 'regular', number: 26 });
+    expect(parseEpisodeIdentity('Cardfight!! Vanguard - Ride 19 Showdown!')).toEqual({ kind: 'regular', number: 19 });
+    expect(parseEpisodeIdentity('BEYBLADE X | NOUVEL ÉPISODE ! | Ép.29 Masque et Petits Pains')).toEqual({ kind: 'regular', number: 29 });
+    expect(inferEpisodeLanguage('SONIC X EP01 | English Dub | Full Episode', 'sub')).toBe('dub');
+    expect(inferEpisodeLanguage('BIRDIE WING 第1話 | English Sub', 'dub')).toBe('sub');
+    expect(inferEpisodeLanguage('No explicit language', 'sub')).toBe('sub');
+    expect(extractSeriesIdentitySegments('Full Episode 14 | Yakitate!! JAPAN | English Sub')).toEqual(['Yakitate!! JAPAN']);
+    expect(extractSeriesIdentitySegments('The Gutsy Frog - EP28 The Kingdom of Frogs / Blow Away the Cold | English Sub')).toEqual(['The Gutsy Frog']);
+    expect(extractSeriesIdentitySegments('True Cooking Master Boy S1:E3 • The Strange Invitation | ENG SUB')).toEqual(['True Cooking Master Boy']);
     const offsetSource = { ...source, seriesHints: [{ aliases: ['Series Name'], titleSourceId: 'title-1', episodeOffset: -1 }] };
     const video = parseYouTubeContinuation({ item: renderer('_3Gcm-iGAQk', 'Series Name Full Episode 02') }).videos[0];
     const probe = parseYouTubePlayerProbe(watchHtml(), '_3Gcm-iGAQk', 'test');
@@ -107,11 +121,38 @@ describe('official YouTube discovery', () => {
     expect(ambiguous.reasonCodes).toContain('ambiguous-title');
   });
 
+  it('does not match a catalogue title found only inside an episode subtitle', () => {
+    const falsePositiveCatalogue: CatalogueTitleRecord[] = [{
+      id: 4,
+      sourceId: 'kingdom',
+      slug: 'kingdom',
+      name: 'Kingdom',
+      aliases: ['Kingdom'],
+      episodes: [{ id: 5, sourceId: 'kingdom-28', numberText: '28', numberSort: 28, label: 'Episode 28', versions: [{ id: 6, sourceId: 'kingdom-28:sub', language: 'sub' }] }],
+    }];
+    const video = parseYouTubeContinuation({ item: renderer('_3Gcm-iGAQk', 'The Gutsy Frog - EP28 The Kingdom of Frogs | English Sub') }).videos[0];
+    const probe = parseYouTubePlayerProbe(watchHtml(), '_3Gcm-iGAQk', 'test');
+    const result = new OfficialYouTubeCatalogueMatcher(falsePositiveCatalogue).match(source, video, probe);
+    expect(result.match).toBeNull();
+    expect(result.decision).toBe('hold');
+    expect(result.reasonCodes).toContain('title-not-matched');
+  });
+
   it('filters clips, assigns one of 500 stable shards, and resumes probe checkpoints', async () => {
     const full = parseYouTubeContinuation({ item: renderer() }).videos[0];
     const clip = { ...full, title: 'Series Name preview clip', durationSeconds: 120 };
     expect(isFullEpisodeCandidate(full)).toBe(true);
     expect(isFullEpisodeCandidate(clip)).toBe(false);
+    expect(isFullEpisodeCandidate({ ...full, title: '【公式】BIRDIE WING 第1話「レインボーバレット」' })).toBe(true);
+    expect(isFullEpisodeCandidate({ ...full, title: '【公式】進撃の巨人 第23話〜第25話' })).toBe(false);
+    expect(isFullEpisodeCandidate({ ...full, title: 'Hell Teacher S1:E26 • Secret of the Demon Hand' })).toBe(true);
+    expect(isFullEpisodeCandidate({ ...full, title: 'Cardfight!! Vanguard - Ride 19 Showdown!' })).toBe(true);
+    expect(isFullEpisodeCandidate({ ...full, title: 'BEYBLADE X | NOUVEL ÉPISODE ! | Ép.29 Masque et Petits Pains' })).toBe(true);
+    expect(isEpisodePackOrRange('BEYBLADE | Ep.33 First | Ep.34 Second')).toBe(true);
+    expect(isEpisodePackOrRange('TASOKARE HOTEL EP1-12 | FULL EPISODE')).toBe(true);
+    expect(isEpisodePackOrRange('Full Episode 1～3 | My Deer Friend Nokotan')).toBe(true);
+    expect(isEpisodePackOrRange('Episode 1, 2 & 3')).toBe(true);
+    expect(isFullEpisodeCandidate({ ...full, title: 'BEYBLADE | Ep.33 First | Ep.34 Second' })).toBe(false);
     expect(stableShard(full.videoId, 500)).toBe(stableShard(full.videoId, 500));
     expect(stableShard(full.videoId, 500)).toBeLessThan(500);
     const probe = parseYouTubePlayerProbe(watchHtml(), '_3Gcm-iGAQk', 'test');
@@ -119,6 +160,37 @@ describe('official YouTube discovery', () => {
     const client = { probe: vi.fn() };
     const result = await probeOfficialYouTubeShard(1, [full], client, existing, { concurrency: 2, requestBudget: 10, source, matcher: new OfficialYouTubeCatalogueMatcher(catalogue), checkpoint: vi.fn() });
     expect(client.probe).not.toHaveBeenCalled();
+    expect(result.completed).toBe(true);
+  });
+
+  it('rematches completed probe checkpoints when the matcher revision changes without refetching', async () => {
+    const full = parseYouTubeContinuation({ item: renderer() }).videos[0];
+    const probe = parseYouTubePlayerProbe(watchHtml(), '_3Gcm-iGAQk', 'test');
+    const stale = {
+      version: 1 as const,
+      matcherRevision: 'older-rules',
+      shard: 1,
+      completed: true,
+      probes: { [full.videoId]: probe },
+      candidates: {},
+      requests: 1,
+      retryCount: 0,
+      errors: [],
+      startedAt: '2026-09-01T00:00:00.000Z',
+      updatedAt: '2026-09-01T00:00:00.000Z',
+    };
+    const client = { probe: vi.fn() };
+    const result = await probeOfficialYouTubeShard(1, [full], client, stale, {
+      concurrency: 2,
+      requestBudget: 1,
+      source,
+      matcher: new OfficialYouTubeCatalogueMatcher(catalogue),
+      matcherRevision: OFFICIAL_YOUTUBE_MATCHER_REVISION,
+      checkpoint: vi.fn(),
+    });
+    expect(client.probe).not.toHaveBeenCalled();
+    expect(result.matcherRevision).toBe(OFFICIAL_YOUTUBE_MATCHER_REVISION);
+    expect(result.candidates[full.videoId]?.match?.versionSourceId).toBe('episode-1:sub');
     expect(result.completed).toBe(true);
   });
 
@@ -161,17 +233,20 @@ describe('official YouTube discovery', () => {
     expect(() => validateOfficialYouTubeDiscoveryConfig({ version: 1, shardCount: 500, sources: [source, discoveryOnly], playbackPolicies: [{ id: 'bad-policy', channelId: source.channelId, sourceIds: [discoveryOnly.id], adapter: 'youtube-official', state: 'implemented', approvalRegistry: 'UNREVIEWED' }] })).toThrow('PLAYBACK_POLICY_SOURCE_MISMATCH');
   });
 
-  it('loads the expanded publisher inventory without widening playback policy', () => {
+  it('loads the expanded publisher inventory with only reviewed playback policies', () => {
     const config = JSON.parse(readFileSync(new URL('../config/official-youtube-discovery.json', import.meta.url), 'utf8'));
     expect(() => validateOfficialYouTubeDiscoveryConfig(config)).not.toThrow();
-    expect(config.sources).toHaveLength(35);
-    expect(new Set(config.sources.map((entry: OfficialPublisherSource) => entry.id)).size).toBe(35);
+    expect(config.sources).toHaveLength(44);
+    expect(new Set(config.sources.map((entry: OfficialPublisherSource) => entry.id)).size).toBe(44);
     expect(config.sources.every((entry: OfficialPublisherSource) => entry.disposition === 'reference-only')).toBe(true);
-    expect(config.playbackPolicies).toEqual([expect.objectContaining({
-      id: 'remow-reviewed-v1',
-      channelId: 'UCsj_CYajUSQ2ca8bYCMan9g',
-      sourceIds: ['remow-its-anime'],
-    })]);
-    expect(config.playbackPolicies).toHaveLength(1);
+    expect(config.sources.find((entry: OfficialPublisherSource) => entry.id === 'nozomi-entertainment')).toMatchObject({ discoveryMode: 'inventory-only' });
+    expect(config.playbackPolicies.map((policy: { id: string }) => policy.id)).toEqual([
+      'remow-reviewed-v1',
+      'gundam-reviewed-v1',
+      'tms-reviewed-v1',
+      'beyblade-reviewed-v1',
+      'nozomi-reviewed-v1',
+      'tv-tokyo-reviewed-v1',
+    ]);
   });
 });

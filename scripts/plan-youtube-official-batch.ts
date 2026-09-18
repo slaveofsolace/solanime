@@ -20,7 +20,7 @@ import type {
   ProbeShardCheckpoint,
   SourceInventoryCheckpoint,
 } from '../server/ingestion/youtubeOfficialDiscovery.ts';
-import { validateOfficialYouTubeDiscoveryConfig } from '../server/ingestion/youtubeOfficialDiscovery.ts';
+import { isFullEpisodeCandidate, validateOfficialYouTubeDiscoveryConfig } from '../server/ingestion/youtubeOfficialDiscovery.ts';
 
 interface Coverage {
   sourceCount: number;
@@ -73,15 +73,23 @@ function validateCrawlerArtifacts(runDir: string, config: OfficialYouTubeDiscove
   const forbidden = files.filter((path) => /\.(?:html?|mp4|m4v|webm|m3u8|mpd|ts|part|tmp|lock)$/i.test(path));
   if (forbidden.length) throw new Error(`FORBIDDEN_CRAWL_ARTIFACT:${forbidden.map((path) => relative(runDir, path)).join(',')}`);
   const inventories = config.sources.map((source) => readJson<SourceInventoryCheckpoint>(resolve(runDir, 'inventory', `${source.id}.json`)));
+  const eligibleVideoIdsBySource = new Map(config.sources.map((source, index) => [
+    source.id,
+    new Set(Object.values(inventories[index].videos).filter((video) => isFullEpisodeCandidate(video)).map((video) => video.videoId)),
+  ]));
   if (inventories.some((state) => !state.completed)) throw new Error('INVENTORY_CHECKPOINT_INCOMPLETE');
   const listedOccurrences = inventories.reduce((sum, state) => sum + Object.keys(state.videos).length, 0);
   const uniqueVideos = new Set(inventories.flatMap((state) => Object.keys(state.videos))).size;
   const pages = inventories.reduce((sum, state) => sum + state.pages, 0);
   const probeFiles = files.filter((path) => /[\\/]probes[\\/].+\.json$/i.test(path));
-  const probes = probeFiles.map((path) => readJson<ProbeShardCheckpoint>(path));
-  if (probes.some((state) => !state.completed)) throw new Error('PROBE_CHECKPOINT_INCOMPLETE');
-  const probeRecords = probes.flatMap((state) => Object.values(state.probes));
-  const checkpointCandidates = probes.flatMap((state) => Object.values(state.candidates));
+  const probes = probeFiles.map((path) => ({
+    sourceId: relative(runDir, path).split(/[\\/]/)[1],
+    state: readJson<ProbeShardCheckpoint>(path),
+  }));
+  if (probes.some(({ state }) => !state.completed)) throw new Error('PROBE_CHECKPOINT_INCOMPLETE');
+  const probeRecords = probes.flatMap(({ state }) => Object.values(state.probes));
+  const checkpointCandidates = probes.flatMap(({ sourceId, state }) => Object.values(state.candidates)
+    .filter((candidate) => eligibleVideoIdsBySource.get(sourceId)?.has(candidate.video.videoId)));
   const counts = {
     sourceCount: config.sources.length,
     completedSources: inventories.filter((state) => state.completed).length,
