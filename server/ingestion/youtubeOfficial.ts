@@ -18,6 +18,7 @@ import { NOZOMI_OFFICIAL_YOUTUBE_APPROVAL_CANDIDATES } from './youtubeOfficialNo
 import { TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialTvTokyoApprovals.ts';
 import { THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialThirdWaveApprovals.ts';
 import { BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBeybladeEditionApprovals.ts';
+import { TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialLostCanvasApprovals.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
@@ -231,6 +232,7 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
