@@ -42,6 +42,15 @@ test('320px controls stay on one row and episode labels remain readable', async 
   for (const row of rows) expect(row.height).toBeLessThanOrEqual(72);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-title-320.png'), fullPage: true });
+
+  await watch(page);
+  const sourceControl = await page.locator('.source-choice').boundingBox();
+  const versionControl = await page.locator('.version-choice').boundingBox();
+  expect(sourceControl!.width).toBeGreaterThan(280);
+  expect(versionControl!.width).toBeGreaterThan(280);
+  expect(versionControl!.y).toBeGreaterThan(sourceControl!.y + sourceControl!.height - 1);
+  await noOverflow(page);
+  await page.screenshot({ path: info.outputPath('reference-watch-320.png'), fullPage: true });
 });
 
 test('desktop episodes sit alongside the native player without remounting video for theater', async ({ page }) => {
