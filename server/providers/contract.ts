@@ -4,6 +4,8 @@ export interface StoredProviderMapping {
   mappingId: number;
   providerId: string;
   label: string;
+  /** Optional reviewed edition/audio/publisher label for distinct mappings. */
+  edition?: string | null;
   language: string;
   providerResourceId: string | null;
   canonicalEmbedUrl: string | null;

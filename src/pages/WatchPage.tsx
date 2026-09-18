@@ -393,7 +393,11 @@ function WatchSession() {
             )}
             {playableProviders.map((p) => (
               <option key={p.mappingId} value={p.mappingId}>
-                {p.label}
+                {p.edition
+                  ? p.providerId === 'youtube-official'
+                    ? `YouTube · ${p.edition}`
+                    : `${p.label} · ${p.edition}`
+                  : p.label}
               </option>
             ))}
           </select>

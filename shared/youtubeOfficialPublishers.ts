@@ -35,6 +35,48 @@ export const BEYBLADE_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@BeybladeOfficial',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const BEYBLADE_FRENCH_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Français - Chaîne Officielle',
+  channelId: 'UCP-PhaZQo-LRd2IPYscwHfw',
+  channelUrl: 'https://www.youtube.com/channel/UCP-PhaZQo-LRd2IPYscwHfw',
+  handleUrl: 'https://www.youtube.com/@francebeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const BEYBLADE_GERMAN_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Deutsch - Offizieller Kanal',
+  channelId: 'UC9nF-dFALMX6i_Hh4fh_6hg',
+  channelUrl: 'https://www.youtube.com/channel/UC9nF-dFALMX6i_Hh4fh_6hg',
+  handleUrl: 'https://www.youtube.com/@germanybeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const BEYBLADE_SPANISH_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Español - Canal Oficial',
+  channelId: 'UCYrAJQbEYs7frHpMse6ooBA',
+  channelUrl: 'https://www.youtube.com/channel/UCYrAJQbEYs7frHpMse6ooBA',
+  handleUrl: 'https://www.youtube.com/@spanishbeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const BEYBLADE_DUTCH_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Nederland - Officiële Kanaal',
+  channelId: 'UClvbCNlaZ_49rgbzk8Kv0iQ',
+  channelUrl: 'https://www.youtube.com/channel/UClvbCNlaZ_49rgbzk8Kv0iQ',
+  handleUrl: 'https://www.youtube.com/@nederlandbeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const BEYBLADE_PORTUGUESE_BRAZIL_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Português Brasil - Canal Oficial',
+  channelId: 'UCu-y0qIAKh3gPnr5E8W0Nbg',
+  channelUrl: 'https://www.youtube.com/channel/UCu-y0qIAKh3gPnr5E8W0Nbg',
+  handleUrl: 'https://www.youtube.com/@brasilbeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
+export const BEYBLADE_ITALIAN_PUBLISHER = Object.freeze({
+  label: 'BEYBLADE Italiano - Canale Ufficiale',
+  channelId: 'UCcairGqF9QdVa8LIA5loCrw',
+  channelUrl: 'https://www.youtube.com/channel/UCcairGqF9QdVa8LIA5loCrw',
+  handleUrl: 'https://www.youtube.com/@italybeybladeofficial',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
 export const NOZOMI_PUBLISHER = Object.freeze({
   label: 'Nozomi Entertainment',
   channelId: 'UCUlvYyW7UVtNJQ1KTv_Bsdg',
@@ -80,6 +122,42 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: BEYBLADE_PUBLISHER,
       identityUrl: 'https://beyblade.com/episodes/',
       aliases: Object.freeze(['BEYBLADE Official', 'BEYBLADE English']),
+    }),
+    Object.freeze({
+      id: 'beyblade-french',
+      publisher: BEYBLADE_FRENCH_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE France', 'BEYBLADE Français']),
+    }),
+    Object.freeze({
+      id: 'beyblade-german',
+      publisher: BEYBLADE_GERMAN_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Deutschland', 'BEYBLADE Deutsch']),
+    }),
+    Object.freeze({
+      id: 'beyblade-spanish',
+      publisher: BEYBLADE_SPANISH_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Español', 'BEYBLADE Spanish']),
+    }),
+    Object.freeze({
+      id: 'beyblade-dutch',
+      publisher: BEYBLADE_DUTCH_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Nederland', 'BEYBLADE Dutch']),
+    }),
+    Object.freeze({
+      id: 'beyblade-portuguese-brazil',
+      publisher: BEYBLADE_PORTUGUESE_BRAZIL_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Português Brasil', 'BEYBLADE Portuguese Brazil']),
+    }),
+    Object.freeze({
+      id: 'beyblade-italian',
+      publisher: BEYBLADE_ITALIAN_PUBLISHER,
+      identityUrl: 'https://beyblade.com/episodes/',
+      aliases: Object.freeze(['BEYBLADE Italiano', 'BEYBLADE Italy']),
     }),
     Object.freeze({
       id: 'nozomi-entertainment',

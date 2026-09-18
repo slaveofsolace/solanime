@@ -242,7 +242,7 @@ export function getEpisodeProviders(db: SqliteDatabase, episodeId: number, langu
   if (!version) throw new AppError(404, 'NOT_FOUND', 'Episode version was not found.');
   const rows = db
     .prepare(
-      `SELECT CAST(m.id AS TEXT) AS mappingId,p.id AS providerId,p.label,p.playback_type AS playbackType,m.availability_state AS status,p.capabilities_json AS capabilities,m.last_successful_resolution_at AS lastSuccessfulResolution,m.last_playback_verification_at AS lastPlaybackVerification,m.unavailable_reason AS reason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id WHERE m.version_id=? ORDER BY p.label`,
+      `SELECT CAST(m.id AS TEXT) AS mappingId,p.id AS providerId,p.label,n.edition,p.playback_type AS playbackType,m.availability_state AS status,p.capabilities_json AS capabilities,m.last_successful_resolution_at AS lastSuccessfulResolution,m.last_playback_verification_at AS lastPlaybackVerification,m.unavailable_reason AS reason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id LEFT JOIN native_resources n ON n.mapping_id=m.id WHERE m.version_id=? ORDER BY p.label,COALESCE(n.edition,''),m.id`,
     )
     .all(Number((version as Record<string, unknown>).id)) as Array<Record<string, unknown>>;
   const aliasQuery = db.prepare(
@@ -265,7 +265,7 @@ export function getEpisodeProviders(db: SqliteDatabase, episodeId: number, langu
 export function getMapping(db: SqliteDatabase, mappingId: number): StoredProviderMapping {
   const row = db
     .prepare(
-      `SELECT m.id AS mappingId,m.provider_id AS providerId,p.label,v.language,m.provider_resource_id AS providerResourceId,m.canonical_embed_url AS canonicalEmbedUrl,m.availability_state AS availability,m.unavailable_reason AS unavailableReason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id JOIN episode_versions v ON v.id=m.version_id WHERE m.id=?`,
+      `SELECT m.id AS mappingId,m.provider_id AS providerId,p.label,n.edition,v.language,m.provider_resource_id AS providerResourceId,m.canonical_embed_url AS canonicalEmbedUrl,m.availability_state AS availability,m.unavailable_reason AS unavailableReason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id JOIN episode_versions v ON v.id=m.version_id LEFT JOIN native_resources n ON n.mapping_id=m.id WHERE m.id=?`,
     )
     .get(mappingId);
   if (!row) throw new AppError(404, 'NOT_FOUND', 'Provider mapping was not found.');

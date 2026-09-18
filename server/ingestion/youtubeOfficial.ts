@@ -17,9 +17,12 @@ import { BEYBLADE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBe
 import { NOZOMI_OFFICIAL_YOUTUBE_APPROVAL_CANDIDATES } from './youtubeOfficialNozomiApprovalRegistry.ts';
 import { TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialTvTokyoApprovals.ts';
 import { THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialThirdWaveApprovals.ts';
+import { BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBeybladeEditionApprovals.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
+  /** Concise, user-facing edition label such as a publisher or audio locale. */
+  editionLabel?: string;
   catalogue: {
     source: 'anikoto';
     titleSourceId: string;
@@ -227,6 +230,7 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...NOZOMI_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
@@ -248,7 +252,11 @@ function validateApproval(approval: OfficialYouTubeEpisodeApproval): void {
     approval.video.watchUrl !== `https://www.youtube.com/watch?v=${approval.video.id}` ||
     approval.publisherIdentityUrl !== publisherPolicy.identityUrl ||
     !/^[A-Za-z0-9_-]{11}$/.test(approval.video.id) ||
-    !Number.isFinite(Date.parse(approval.observedAt))
+    !Number.isFinite(Date.parse(approval.observedAt)) ||
+    (approval.editionLabel != null &&
+      (approval.editionLabel !== approval.editionLabel.trim() ||
+        approval.editionLabel.length < 1 ||
+        approval.editionLabel.length > 80))
   )
     throw new Error('INVALID_OFFICIAL_YOUTUBE_APPROVAL');
 }
@@ -311,13 +319,14 @@ export async function verifyOfficialYouTubeOEmbed(
     value.type !== 'video' ||
     value.provider_name !== 'YouTube' ||
     value.title !== approval.video.title ||
-    value.author_name !== publisher.label ||
+    typeof value.author_name !== 'string' ||
+    value.author_name.trim() !== publisher.label ||
     value.author_url !== publisher.handleUrl ||
     typeof value.html !== 'string' ||
     !value.html.includes(`/embed/${approval.video.id}`)
   )
     throw new Error('YOUTUBE_PUBLISHER_OR_IDENTITY_MISMATCH');
-  return { title: value.title, author: value.author_name };
+  return { title: value.title, author: value.author_name.trim() };
 }
 
 export function locateOfficialYouTubeEpisode(
@@ -340,6 +349,36 @@ export function locateOfficialYouTubeEpisode(
   if (!row)
     throw new Error(`CATALOGUE_IDENTITY_NOT_FOUND:${approval.id}`);
   return row;
+}
+
+export function reconcileOfficialYouTubeEdition(
+  db: DatabaseSync,
+  approval: OfficialYouTubeEpisodeApproval,
+): { mappingId: number; updated: boolean } | null {
+  validateApproval(approval);
+  const publisher = officialYouTubePublisherPolicyForChannel(approval.video.channelId)!.publisher;
+  const identity = locateOfficialYouTubeEpisode(db, approval);
+  const mapping = db.prepare(`SELECT m.id,n.provider_id AS providerId,n.resource_id AS resourceId,
+    n.language,n.edition
+    FROM episode_provider_mappings m
+    LEFT JOIN native_resources n ON n.mapping_id=m.id
+    WHERE m.version_id=? AND m.provider_id=? AND m.source_mapping_id=?`).get(
+      identity.versionId,
+      OFFICIAL_YOUTUBE_PROVIDER_ID,
+      `youtube:${approval.video.id}`,
+    ) as { id: number; providerId: string | null; resourceId: string | null; language: string | null; edition: string | null } | undefined;
+  if (!mapping) return null;
+  if (
+    mapping.providerId !== OFFICIAL_YOUTUBE_PROVIDER_ID ||
+    mapping.resourceId !== approval.video.id ||
+    mapping.language !== approval.catalogue.language
+  ) throw new Error('OFFICIAL_YOUTUBE_RESOURCE_IDENTITY_CONFLICT');
+  const edition = approval.editionLabel ?? publisher.label;
+  if (mapping.edition === edition) return { mappingId: mapping.id, updated: false };
+  const result = db.prepare('UPDATE native_resources SET edition=? WHERE mapping_id=? AND provider_id=? AND resource_id=? AND language=?')
+    .run(edition, mapping.id, OFFICIAL_YOUTUBE_PROVIDER_ID, approval.video.id, approval.catalogue.language);
+  if (result.changes !== 1) throw new Error('OFFICIAL_YOUTUBE_EDITION_RECONCILIATION_FAILED');
+  return { mappingId: mapping.id, updated: true };
 }
 
 export function applyOfficialYouTubeApproval(
@@ -439,7 +478,7 @@ export function applyOfficialYouTubeApproval(
           OFFICIAL_YOUTUBE_PROVIDER_ID,
           approval.video.id,
           approval.catalogue.language,
-          approval.video.title,
+          approval.editionLabel ?? publisher.label,
           OFFICIAL_YOUTUBE_EMBED_BASIS,
           approval.video.watchUrl,
           publisher.channelUrl,

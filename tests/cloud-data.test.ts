@@ -159,11 +159,12 @@ describe('asynchronous catalogue repository on real local D1', () => {
     await applyImportBatch(db, db, await batch('episodes', [{ id: 2, title_id: 1, source_id: 'test-ep', number_text: 'Special 0.5', number_sort: 0.5, slug: 'special', canonical_url: 'https://anikototv.to/watch/fixture-1/special', first_seen_at: date, last_seen_at: date, created_at: date, updated_at: date }]));
     await applyImportBatch(db, db, await batch('episode_versions', [{ id: 3, episode_id: 2, source_id: 'test-sub', language: 'sub', first_seen_at: date, last_seen_at: date }]));
     await applyImportBatch(db, db, await batch('episode_provider_mappings', [{ id: 4, version_id: 3, provider_id: 'hd-1', source_mapping_id: 'test-hash', provider_resource_id: 'PRIVATE_STABLE_REFERENCE', first_seen_at: date, last_seen_at: date, updated_at: date }]));
+    await applyImportBatch(db, db, await batch('native_resources', [{ mapping_id: 4, provider_id: 'hd-1', resource_id: 'PRIVATE_STABLE_REFERENCE', language: 'sub', edition: 'English dub', license: 'test-only', rights_evidence_url: 'https://example.invalid/rights', identity_evidence_url: 'https://example.invalid/identity', approved_at: date, enabled: 1, content_sha1: null }]));
     const repository = createCatalogueRepository(db);
     const detail = await repository.getTitle('fixture-1');
     expect(detail.episodes[0]).toMatchObject({ id: '2', number: 'Special 0.5', versions: [{ id: '3', language: 'sub', providerCount: 1 }] });
     const choices = await repository.getEpisodeProviders(2, 'SUB');
-    expect(choices.providers[0]).toMatchObject({ mappingId: '4', providerId: 'hd-1', aliases: ['HD-1'] });
+    expect(choices.providers[0]).toMatchObject({ mappingId: '4', providerId: 'hd-1', edition: 'English dub', aliases: ['HD-1'] });
     expect(JSON.stringify(choices)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect((await repository.getMapping(4)).providerResourceId).toBe('PRIVATE_STABLE_REFERENCE');
     expect(JSON.stringify(await repository.exportTitlesPage())).not.toContain('PRIVATE_STABLE_REFERENCE');

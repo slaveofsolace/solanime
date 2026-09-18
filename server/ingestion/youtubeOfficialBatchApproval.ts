@@ -101,6 +101,17 @@ export function planOfficialYouTubeBatchApprovals(
   const manual = candidates.filter((candidate) => candidate.decision === 'manual-review');
   const videoCounts = new Map<string, number>();
   const targetCounts = new Map<string, number>();
+  const reviewedApprovalsByVideo = new Map(OFFICIAL_YOUTUBE_EPISODE_APPROVALS.map((approval) => [approval.video.id, approval]));
+  const matchesReviewedApproval = (candidate: OfficialYouTubeReviewCandidate): boolean => {
+    const approval = reviewedApprovalsByVideo.get(candidate.video.videoId);
+    return !!approval
+      && approval.catalogue.titleSourceId === candidate.match?.titleSourceId
+      && approval.catalogue.episodeSourceId === candidate.match?.episodeSourceId
+      && approval.catalogue.versionSourceId === candidate.match?.versionSourceId
+      && approval.catalogue.language === candidate.match?.language
+      && approval.video.channelId === candidate.channelId
+      && approval.video.title === candidate.video.title;
+  };
   for (const candidate of manual) {
     videoCounts.set(candidate.video.videoId, (videoCounts.get(candidate.video.videoId) ?? 0) + 1);
     if (candidate.match?.versionId) targetCounts.set(String(candidate.match.versionId), (targetCounts.get(String(candidate.match.versionId)) ?? 0) + 1);
@@ -127,14 +138,7 @@ export function planOfficialYouTubeBatchApprovals(
     if (isEpisodePackOrRange(candidate.video.title)) reasons.push('episode-pack-range-recap-or-binge');
     if (!candidate.match?.versionId || !candidate.match.episodeId) reasons.push('catalogue-crosswalk-incomplete');
     const configuredMapping = source?.authoritativeMappings?.find((mapping) => mapping.videoId === candidate.video.videoId);
-    const reviewedApproval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((approval) => approval.video.id === candidate.video.videoId);
-    const reviewedApprovalMatches = !!reviewedApproval
-      && reviewedApproval.catalogue.titleSourceId === candidate.match?.titleSourceId
-      && reviewedApproval.catalogue.episodeSourceId === candidate.match?.episodeSourceId
-      && reviewedApproval.catalogue.versionSourceId === candidate.match?.versionSourceId
-      && reviewedApproval.catalogue.language === candidate.match?.language
-      && reviewedApproval.video.channelId === candidate.channelId
-      && reviewedApproval.video.title === candidate.video.title;
+    const reviewedApprovalMatches = matchesReviewedApproval(candidate);
     if (!reviewedApprovalMatches) {
       if (candidate.match?.method === 'exact-alias') reasons.push('exact-alias-requires-independent-evidence');
       else if (candidate.match?.method !== 'authoritative') reasons.push('non-authoritative-match-held');
@@ -152,8 +156,11 @@ export function planOfficialYouTubeBatchApprovals(
     if (!candidate.match?.language || crosswalk.language !== candidate.match.language
       || !source || inferEpisodeLanguage(candidate.video.title, source.defaultLanguage) !== candidate.match.language)
       reasons.push('language-version-incompatible');
-    if ((videoCounts.get(candidate.video.videoId) ?? 0) !== 1) reasons.push('duplicate-video-candidate');
-    if (candidate.match?.versionId && (targetCounts.get(String(candidate.match.versionId)) ?? 0) !== 1) reasons.push('duplicate-version-candidate');
+    if (!reviewedApprovalMatches && (videoCounts.get(candidate.video.videoId) ?? 0) !== 1)
+      reasons.push('duplicate-video-candidate');
+    if (!reviewedApprovalMatches && candidate.match?.versionId
+      && (targetCounts.get(String(candidate.match.versionId)) ?? 0) !== 1)
+      reasons.push('duplicate-version-candidate');
     if (existingResourceCount(db, candidate.video.videoId) > 0) reasons.push('existing-official-youtube-duplicate');
     const reasonCodes = [...new Set(reasons)].sort();
     return {

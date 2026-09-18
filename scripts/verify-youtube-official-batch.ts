@@ -53,6 +53,8 @@ function main(): void {
   const repoRelative = relative(root, batch);
   if (!repoRelative.startsWith('..') && !isAbsolute(repoRelative)) throw new Error('BATCH_MUST_BE_OUTSIDE_REPOSITORY');
   const plan = json<OfficialYouTubeBatchApprovalPlan>(resolve(batch, 'approval-ledger.json'));
+  const application = json<{ applied: Array<{ videoId: string; mappingId: number }> }>(resolve(batch, 'application-report.json'));
+  const appliedVideoIds = new Set(application.applied.map((item) => item.videoId));
   const candidates = json<OfficialYouTubeReviewCandidate[]>(candidatesPath);
   const config = json<Config>(configPath);
   const sourceById = new Map(config.sources.map((source) => [source.id, source]));
@@ -98,8 +100,11 @@ function main(): void {
     if (failedChecks.length > 0)
       throw new Error(`SANITY_CHECK_FAILED:${entry.sourceId}:${entry.videoId}:${failedChecks.join(',')}`);
     if (checks.exactCatalogueRowCount !== 1) throw new Error(`SANITY_CROSSWALK_FAILED:${entry.sourceId}:${entry.videoId}`);
-    if (entry.reasonCodes.includes('existing-official-youtube-duplicate') !== (checks.existingOfficialMappingCount > 0))
+    const existedBeforeApplication = checks.existingOfficialMappingCount > 0 && !appliedVideoIds.has(entry.videoId);
+    if (entry.reasonCodes.includes('existing-official-youtube-duplicate') !== existedBeforeApplication)
       throw new Error(`SANITY_DUPLICATE_REASON_MISMATCH:${entry.sourceId}:${entry.videoId}`);
+    if (entry.decision === 'eligible' && (!appliedVideoIds.has(entry.videoId) || checks.existingOfficialMappingCount !== 1))
+      throw new Error(`SANITY_APPLIED_MAPPING_MISMATCH:${entry.sourceId}:${entry.videoId}`);
     return { entry, rawMatchMethod: raw.match?.method ?? null, checks };
   });
   db.close();

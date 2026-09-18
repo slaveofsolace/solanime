@@ -254,7 +254,7 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     const version = await db.prepare(`SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,language,version_label AS label,availability_state AS availability FROM episode_versions WHERE episode_id=? ${language ? 'AND language=?' : ''} ORDER BY CASE language WHEN 'sub' THEN 0 WHEN 'dub' THEN 1 ELSE 2 END,id LIMIT 1`).bind(episodeId, ...(language ? [language.toLowerCase()] : [])).first<Row>();
     if (!version) throw new AppError(404, 'NOT_FOUND', 'Episode version was not found.');
     const result = await db.batch<Row>([
-      db.prepare('SELECT CAST(m.id AS TEXT) AS mappingId,p.id AS providerId,p.label,p.playback_type AS playbackType,m.availability_state AS status,p.capabilities_json AS capabilities,m.last_successful_resolution_at AS lastSuccessfulResolution,m.last_playback_verification_at AS lastPlaybackVerification,m.unavailable_reason AS reason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id WHERE m.version_id=? ORDER BY p.label,m.id').bind(Number(version.id)),
+      db.prepare("SELECT CAST(m.id AS TEXT) AS mappingId,p.id AS providerId,p.label,n.edition,p.playback_type AS playbackType,m.availability_state AS status,p.capabilities_json AS capabilities,m.last_successful_resolution_at AS lastSuccessfulResolution,m.last_playback_verification_at AS lastPlaybackVerification,m.unavailable_reason AS reason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id LEFT JOIN native_resources n ON n.mapping_id=m.id WHERE m.version_id=? ORDER BY p.label,COALESCE(n.edition,''),m.id").bind(Number(version.id)),
       db.prepare('SELECT a.provider_id AS providerId,a.alias FROM provider_aliases a WHERE EXISTS (SELECT 1 FROM episode_provider_mappings m WHERE m.provider_id=a.provider_id AND m.version_id=?) ORDER BY a.alias').bind(Number(version.id)),
     ]);
     const normalizedVersion = { ...version, id: String(version.id), language: String(version.language), providerCount: result[0].results.length };
@@ -262,7 +262,7 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
   }
 
   async function getMappingD1(mappingId: number): Promise<StoredProviderMapping> {
-    const mapping = await db.prepare('SELECT m.id AS mappingId,m.provider_id AS providerId,p.label,v.language,m.provider_resource_id AS providerResourceId,m.canonical_embed_url AS canonicalEmbedUrl,m.availability_state AS availability,m.unavailable_reason AS unavailableReason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id JOIN episode_versions v ON v.id=m.version_id WHERE m.id=?').bind(mappingId).first<StoredProviderMapping>();
+    const mapping = await db.prepare('SELECT m.id AS mappingId,m.provider_id AS providerId,p.label,n.edition,v.language,m.provider_resource_id AS providerResourceId,m.canonical_embed_url AS canonicalEmbedUrl,m.availability_state AS availability,m.unavailable_reason AS unavailableReason FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id JOIN episode_versions v ON v.id=m.version_id LEFT JOIN native_resources n ON n.mapping_id=m.id WHERE m.id=?').bind(mappingId).first<StoredProviderMapping>();
     if (!mapping) throw new AppError(404, 'NOT_FOUND', 'Provider mapping was not found.');
     return mapping;
   }

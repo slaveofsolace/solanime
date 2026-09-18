@@ -86,7 +86,8 @@ describe('official YouTube batch approval gate', () => {
     const second = candidate({ candidateId: 'youtube:abcdefghijk', video: { ...candidate().video, videoId: 'abcdefghijk' }, probe: { ...candidate().probe!, videoId: 'abcdefghijk' } });
     const plan = planOfficialYouTubeBatchApprovals(db, [first, second], [source], '2026-09-13T20:00:00.000Z');
     expect(plan.eligibleCount).toBe(0);
-    expect(plan.entries[0].reasonCodes).toEqual(expect.arrayContaining(['embed-not-playable', 'us-availability-unconfirmed', 'not-exact-single-regular-episode', 'duplicate-version-candidate']));
+    expect(plan.entries[0].reasonCodes).toEqual(expect.arrayContaining(['embed-not-playable', 'us-availability-unconfirmed', 'not-exact-single-regular-episode']));
+    expect(plan.entries[0].reasonCodes).not.toContain('duplicate-version-candidate');
     expect(plan.entries[1].reasonCodes).toEqual(expect.arrayContaining(['authoritative-evidence-crosswalk-mismatch', 'reviewed-approval-record-missing-or-mismatched', 'duplicate-version-candidate']));
   });
 });

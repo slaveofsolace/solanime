@@ -102,6 +102,7 @@ export interface ProviderChoice {
   mappingId: string;
   providerId: string;
   label: string;
+  edition?: string | null;
   aliases?: string[];
   playbackType: PlaybackType;
   status: AvailabilityStatus;

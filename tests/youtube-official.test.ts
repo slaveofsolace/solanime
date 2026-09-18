@@ -6,6 +6,7 @@ import {
   applyOfficialYouTubeApproval,
   GUNDAM_INFO_EPISODE_APPROVALS,
   locateOfficialYouTubeEpisode,
+  reconcileOfficialYouTubeEdition,
   REMOW_EPISODE_APPROVALS,
   verifyOfficialYouTubeOEmbed,
 } from '../server/ingestion/youtubeOfficial.ts';
@@ -107,6 +108,9 @@ describe('official YouTube approval and resolution', () => {
       title: approval.video.title,
       author: REMOW_PUBLISHER.label,
     });
+    await expect(verifyOfficialYouTubeOEmbed(approval, async () => oEmbed({
+      author_name: ` ${REMOW_PUBLISHER.label} `,
+    }))).resolves.toMatchObject({ author: REMOW_PUBLISHER.label });
     expect(requests[0]).toContain(encodeURIComponent(approval.video.watchUrl));
     await expect(verifyOfficialYouTubeOEmbed(approval, async () => oEmbed({
       author_name: 'Unrelated uploader',
@@ -182,6 +186,11 @@ describe('official YouTube approval and resolution', () => {
     expect(second.mappingId).toBe(first.mappingId);
     expect(db.prepare("SELECT COUNT(*) AS count FROM episode_provider_mappings WHERE provider_id='youtube-official'").get()).toEqual({ count: 1 });
     expect(db.prepare("SELECT COUNT(*) AS count FROM native_resources WHERE provider_id='youtube-official'").get()).toEqual({ count: 1 });
+    expect(db.prepare('SELECT edition FROM native_resources WHERE mapping_id=?').get(first.mappingId))
+      .toEqual({ edition: REMOW_PUBLISHER.label });
+    db.prepare('UPDATE native_resources SET edition=? WHERE mapping_id=?').run(approval.video.title, first.mappingId);
+    expect(reconcileOfficialYouTubeEdition(db, approval)).toEqual({ mappingId: first.mappingId, updated: true });
+    expect(reconcileOfficialYouTubeEdition(db, approval)).toEqual({ mappingId: first.mappingId, updated: false });
     expect(db.prepare("SELECT COUNT(*) AS count FROM verification_observations WHERE reason_code='OFFICIAL_YOUTUBE_REVIEWED'").get()).toEqual({ count: 1 });
 
     const mapping = getMapping(db, first.mappingId);
@@ -273,6 +282,7 @@ describe('official YouTube approval and resolution', () => {
     expect(list.providers).toEqual([expect.objectContaining({
       mappingId: String(applied.mappingId),
       providerId: 'youtube-official',
+      edition: REMOW_PUBLISHER.label,
       kind: 'official-youtube',
       playbackType: 'iframe',
       supported: true,

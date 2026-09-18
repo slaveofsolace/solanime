@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 import { basename, dirname, isAbsolute, relative, resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { planOfficialYouTubeBatchApprovals } from '../server/ingestion/youtubeOfficialBatchApproval.ts';
-import { applyOfficialYouTubeApproval, OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from '../server/ingestion/youtubeOfficial.ts';
+import { applyOfficialYouTubeApproval, OFFICIAL_YOUTUBE_EPISODE_APPROVALS, reconcileOfficialYouTubeEdition } from '../server/ingestion/youtubeOfficial.ts';
 import type {
   OfficialYouTubeDiscoveryConfig,
   OfficialYouTubeReviewCandidate,
@@ -177,6 +177,11 @@ function main(): void {
   if (beforeApplyHash !== sourceHash) throw new Error('COPIED_DATABASE_HASH_MISMATCH');
   const database = new DatabaseSync(destinationDb);
   database.exec('PRAGMA foreign_keys=ON');
+  const reconciled = [] as Array<{ videoId: string; mappingId: number }>;
+  for (const approval of OFFICIAL_YOUTUBE_EPISODE_APPROVALS) {
+    const result = reconcileOfficialYouTubeEdition(database, approval);
+    if (result?.updated) reconciled.push({ videoId: approval.video.id, mappingId: result.mappingId });
+  }
   const applied = [] as Array<{ videoId: string; mappingId: number }>;
   for (const entry of eligible) {
     const approval = OFFICIAL_YOUTUBE_EPISODE_APPROVALS.find((item) => item.video.id === entry.videoId);
@@ -197,13 +202,15 @@ function main(): void {
     copiedSha256: beforeApplyHash,
     appliedCount: applied.length,
     applied,
+    reconciledCount: reconciled.length,
+    reconciled,
     postAudit,
     destinationSha256: destinationHash,
-    idempotentNoop: applied.length === 0 && destinationHash === sourceHash,
+    idempotentNoop: applied.length === 0 && reconciled.length === 0 && destinationHash === sourceHash,
   });
   const outputManifest = filesRecursively(output).filter((path) => path !== resolve(output, 'package-manifest.json')).map((path) => ({ path: relative(output, path).replaceAll('\\', '/'), bytes: statSync(path).size, sha256: sha256(path) })).sort((left, right) => left.path.localeCompare(right.path));
   atomicJson(resolve(output, 'package-manifest.json'), { version: 1, generatedAt: evaluatedAt, files: outputManifest });
-  process.stdout.write(`${JSON.stringify({ output, inputCandidates: validation.candidates.length, manualReview: plan.inputManualReviewCandidates, eligible: plan.eligibleCount, held: plan.heldCount, applied: applied.length, sourceHash, destinationHash, sourceAudit, postAudit, reasonCounts: plan.reasonCounts })}\n`);
+  process.stdout.write(`${JSON.stringify({ output, inputCandidates: validation.candidates.length, manualReview: plan.inputManualReviewCandidates, eligible: plan.eligibleCount, held: plan.heldCount, applied: applied.length, reconciled: reconciled.length, sourceHash, destinationHash, sourceAudit, postAudit, reasonCounts: plan.reasonCounts })}\n`);
 }
 
 try { main(); } catch (error) {
