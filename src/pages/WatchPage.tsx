@@ -73,7 +73,7 @@ function WatchSession() {
     : undefined;
   const playableProviders = providers.filter(
     (provider) =>
-      (provider.kind === 'native' || provider.kind === 'official-youtube') &&
+      (provider.kind === 'native' || provider.kind === 'official-youtube' || provider.kind === 'embed') &&
       provider.supported === true &&
       provider.status === 'available',
   );

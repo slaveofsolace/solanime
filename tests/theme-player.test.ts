@@ -12,6 +12,12 @@ import {
   settings,
 } from '../extensions/solanime-guard/policy.js';
 import { readFileSync } from 'node:fs';
+const credentialed = (value: string) => {
+  const url = new URL(value);
+  url.username = 'user';
+  url.password = 'pass';
+  return url.href;
+};
 describe('cinema accent tokens', () => {
   it.each([undefined, null, {}, '#fff', 'red', '#12ABCD;display:none', '#ZZZZZZ'])(
     'rejects unsafe stored accent: %j',
@@ -74,7 +80,7 @@ describe('player boundary', () => {
     'data:text/html,bad',
     'http://megaplay.buzz/stream/x',
     'https://megaplay.buzz.evil.test/stream/x',
-    'https://user:pass@megaplay.buzz/stream/x',
+    credentialed('https://megaplay.buzz/stream/x'),
     'https://megaplay.buzz:8443/stream/x',
     '/local-player',
     'https://megaplay.buzz/not-stream/x',
@@ -111,23 +117,29 @@ describe('Guard permissions and scoped policy', () => {
     'http://127.0.0.1:9999',
     'http://localhost:5173',
     'https://another.pages.dev',
-    'https://user:pass@solanime.pages.dev',
+    credentialed('https://solanime.pages.dev'),
     'https://solanime.pages.dev:8443',
   ])('leaves unrelated origin untouched %s', (url) => expect(isProjectUrl(url)).toBe(false));
   it('requires the verified provider path', () => {
     expect(isProviderUrl('https://megaplay.buzz/stream/x')).toBe(true);
     expect(isProviderUrl('https://megaplay.buzz/account')).toBe(false);
   });
-  it('never creates global rules and disables cleanly', () => {
-    expect(buildRules([], settings({}))).toEqual([]);
+  it('keeps filtering tab-scoped while blocking provider-origin popup navigation globally', () => {
+    expect(buildRules([], settings({}))).toEqual([
+      expect.objectContaining({
+        id: 3,
+        condition: { initiatorDomains: ['megaplay.buzz'], resourceTypes: ['main_frame'] },
+      }),
+    ]);
     expect(buildRules([5], settings({ enabled: false }))).toEqual([]);
     const rules = buildRules([5, 5, -1], settings({}));
     expect(rules).toHaveLength(3);
-    for (const rule of rules) {
+    for (const rule of rules.filter((rule) => rule.id !== 3)) {
       expect(rule.condition.tabIds).toEqual([5]);
       expect(rule.condition.initiatorDomains).toEqual(['megaplay.buzz']);
       expect(rule.action.type).toBe('block');
     }
+    expect(rules.find((rule) => rule.id === 3)?.condition).not.toHaveProperty('tabIds');
   });
   it('makes strict mode opt-in with bounded domain exceptions', () => {
     const rules = buildRules([5], settings({ strict: true, mediaHosts: ['cdn.example.com'] }));

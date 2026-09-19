@@ -419,7 +419,7 @@ describe('application HTTP API', () => {
         .get(String(mappingId)),
     ).toMatchObject({ stage: 'failed', result: 'unsupported' });
   });
-  it('preserves documented provider embeds without advertising them as playable', async () => {
+  it('advertises canonical provider embeds as Guard-required playback', async () => {
     const { origin, db } = await app();
     db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url='https://megaplay.buzz/stream/s-2/123/sub' WHERE provider_id IN ('hd-1','hd-2')").run();
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
@@ -430,11 +430,12 @@ describe('application HTTP API', () => {
     for (const p of result.providers) {
       const embedOnly = p.providerId === 'hd-1' || p.providerId === 'hd-2';
       expect(p).toMatchObject({
-        supported: false,
-        kind: 'unsupported',
-        status: 'unsupported',
+        supported: embedOnly,
+        kind: embedOnly ? 'embed' : 'unsupported',
+        status: embedOnly ? 'available' : 'unsupported',
         playbackType: embedOnly ? 'iframe' : 'unknown',
-        reasonCode: embedOnly ? 'PROVIDER_EMBED_ONLY' : 'DOWNLOAD_ONLY_SOURCE',
+        reasonCode: embedOnly ? null : 'DOWNLOAD_ONLY_SOURCE',
+        requiresGuard: embedOnly,
       });
     }
     const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
@@ -442,15 +443,16 @@ describe('application HTTP API', () => {
       headers: { 'content-type': 'application/json' },
       body: '{"language":"sub"}',
     });
-    expect(res.status).toBe(422);
+    expect(res.status).toBe(200);
     const body = await res.json();
     expect(body).toMatchObject({
-      kind: 'unsupported',
-      status: 'unsupported',
-      error: { code: 'PROVIDER_EMBED_ONLY' },
+      kind: 'embed',
+      status: 'resolved',
+      playbackType: 'iframe',
+      embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub',
+      iframePolicy: { requiresGuard: true, sandbox: [], referrerPolicy: 'strict-origin-when-cross-origin' },
     });
     expect(body).not.toHaveProperty('url');
-    expect(body).not.toHaveProperty('embedUrl');
     expect(JSON.stringify(body)).not.toContain('private-opaque-reference');
     expect(
       (

@@ -2,13 +2,13 @@
 
 This guide supersedes the older patch-installation instructions. Use the private
 `sol/cloud-release` integration, not an unrelated historical branch. The current
-application version is `0.7.0-alpha`; exact deployment and verification results
+application version is `0.8.0-alpha`; exact deployment and verification results
 belong in [the release record](cloud-release-checklist.md).
 
 ## Hosting and privacy
 
 ```text
-Browser → Cloudflare Pages (React + native video controls)
+Browser → Cloudflare Pages (React player)
              │ same-origin /api; explicit route allowlist
              ▼ private SOLANIME_API service binding
           API Worker
@@ -16,8 +16,10 @@ Browser → Cloudflare Pages (React + native video controls)
              ├─ ACCOUNTS D1: private profiles, revisions, sessions, recovery
              │       └─ Firebase Spark: password authentication
              ├─ RESEARCH D1: FMHY evidence and operator reviews
-             └─ approved native adapter → metadata → validated media destination
-                                                Browser video → media host
+             ├─ approved native adapter → metadata → validated media destination
+             │                                  Browser video → media host
+             └─ validated stored embed → exact MegaPlay iframe URL
+                                                Chromium + Solanime Guard
 
 Minute cron → D1 due-task lookup → Queue {taskId} → leased import/refresh
                    ▲                                  │
@@ -64,8 +66,8 @@ Prepare the complete catalogue/research snapshot and pack its immutable assets
 using [the import guide](../scripts/cloud-data/README.md). Configure
 `assets.directory` to the fully assembled ignored output and pin both the import
 and catalogue-baseline manifests. The current candidate uses
-`build/cloud-worker-assets`, containing the retained private import package and
-the complete immutable catalogue baseline. Preserve all asset sets needed by
+`build/cloud-worker-assets-playback-v1`, containing the retained private import
+package and the complete immutable catalogue baseline. Preserve all asset sets needed by
 unfinished jobs. Files are bounded under the
 platform's per-asset limit; they never enter the Pages `dist` directory.
 
@@ -137,7 +139,35 @@ counts and completed cloud counts must not be added together. Priority upserts
 overlap deliberately. Metadata-only related-title records are not complete
 episode libraries; unavailable or unimported mappings are not playable sources.
 
-## Native-player acceptance
+## Player acceptance
+
+### Guarded provider embeds
+
+HD-1, HD-2, and Vidstream-2 mappings are eligible only when the database row has
+an exact canonical `https://megaplay.buzz/stream/s-2/...` reference. The API
+reconstructs and compares the provider, mapping identity, and resource path; it
+does not accept an arbitrary caller URL. The frontend creates that iframe only
+after the unpacked `extensions/solanime-guard` companion reports an active
+handshake. The content policy admits only YouTube's privacy-enhanced host and
+MegaPlay's exact HTTPS host.
+
+The Guard blocks provider-origin top-level navigation and closes navigation
+targets created by the approved provider frame. It does not rewrite media,
+extract temporary URLs, proxy traffic, or make an unsafe source safe by label.
+Run its exact Chromium acceptance before any provider claim:
+
+```sh
+pnpm exec playwright install chromium
+pnpm test:guard
+```
+
+For a real mapping, verify the selected database mapping and provider shown in
+the UI, a stable parent URL, no unexpected pages, and actual provider progress or
+provider progress events. An API `200`, iframe load, or Guard test by itself is
+not media-playback evidence. Keep the Guard absent/disabled state in the campaign:
+it must show an actionable Guard-required message and create no provider frame.
+
+### Native media
 
 Test an actual imported identity, not fixture media. The currently approved
 restored-silent film is:
@@ -160,7 +190,8 @@ are additionally tested with deterministic fixtures on capable browsers.
 The [provider evidence](native-provider-evidence.md) documents the reviewed
 identity, public-domain source chain, normal metadata/HEAD flow, direct-video
 CORS behavior and precise scope. Other provider labels remain unsupported unless
-their own approved native connection and playback evidence exist.
+their own validated native or Guarded-embed connection exists. A canonical
+stored embed is not a native source.
 
 For bounded resolution-only diagnostics (no temporary URL is printed):
 

@@ -12,6 +12,14 @@
   if (!allowed) return;
   let timer;
   let last = '';
+  const markGuard = (active, version = '') => {
+    const root = document.documentElement;
+    if (!root) return;
+    root.dataset.solanimeGuard = active ? 'active' : 'inactive';
+    if (active && version) root.dataset.solanimeGuardVersion = version;
+    else delete root.dataset.solanimeGuardVersion;
+    window.dispatchEvent(new Event('solanime-guard-status'));
+  };
   const publish = () => {
     if (!document.documentElement) return;
     const root = document.documentElement;
@@ -23,8 +31,12 @@
     const signature = JSON.stringify(value);
     if (signature === last) return;
     last = signature;
-    chrome.runtime.sendMessage({ type: 'theme', value }).catch(() => {
+    chrome.runtime.sendMessage({ type: 'theme', value }).then((response) => {
+      const guard = response?.guard;
+      markGuard(guard?.enabled === true && guard?.navigationBlock === true, guard?.version);
+    }).catch(() => {
       last = '';
+      markGuard(false);
     });
   };
   const observe = () => {

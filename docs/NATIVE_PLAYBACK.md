@@ -1,4 +1,4 @@
-# Native playback contract and provider findings
+# Playback contracts and provider findings
 
 > Current investigation correction (2026-09-12): the older iframe adapters stop
 > before the media-resolution step. MegaPlay now has directly verified public
@@ -6,16 +6,22 @@
 > lead. Native-only rejection is not proof of upstream impossibility. See
 > [the current investigation](provider-investigation-current.md).
 
-## Integrated 0.7 release
+## Integrated 0.8 release
 
-The local operator registry described below remains supported, but is no longer
-the only native path. The hosted/local APIs also resolve explicitly approved
-stable resources from `native_resources`, with a shared identity/rights gate and
-a discriminated `native | unsupported` result. The Internet Archive connection
-for the reviewed restored-silent *The Dull Sword* edition is implemented; see
-[current provider evidence](native-provider-evidence.md) and
-[cloud deployment](CLOUD_RELEASE.md). Earlier candidate observations below are
-historical, not the current release verification matrix.
+Solanime now keeps two playback contracts distinct:
+
+1. `native`: the application receives a validated direct/HLS/DASH resource and
+   controls its own media element.
+2. `embed`: the application receives an exact canonical provider-player URL.
+   MegaPlay embeds are rendered only after the Solanime Guard extension proves
+   its containment rules are active.
+
+The local operator registry and approved `native_resources` path remain
+supported. The Internet Archive connection for the reviewed restored-silent
+*The Dull Sword* edition is implemented; see [current provider evidence](native-provider-evidence.md)
+and [cloud deployment](CLOUD_RELEASE.md). An embed does not inherit native-media
+capabilities, and neither kind is called playback-verified until media progress
+has been observed.
 
 ## What the supplied code establishes
 
@@ -23,11 +29,11 @@ The inspected PR #4 base was `4fd60a177f06afd2e43a79e1521c4888b4eda545`. Its `se
 
 That is evidence about **our integration**, not proof that these operators can never provide another API. No source permission, verified native SDK contract or direct-media registration for those library mappings was supplied. Public SDK searches did not establish one. No authentication, anti-bot, DRM, sandbox or provider access restriction was bypassed to manufacture a media address.
 
-| Stored source | Previously implemented path | Current production behavior without native registration |
+| Stored source | Validated path | Current player behavior |
 |---|---|---|
-| HD-1 | MegaPlay webpage embed | Unsupported; no resolver call or provider document load |
-| HD-2 | MegaPlay webpage embed | Unsupported; no resolver call or provider document load |
-| Vidstream-2 | MegaPlay webpage embed | Unsupported; no resolver call or provider document load |
+| HD-1 | Canonical MegaPlay `/stream/s-2/` embed | In-site embed when Guard is active; otherwise no iframe |
+| HD-2 | Canonical MegaPlay `/stream/s-2/` embed | In-site embed when Guard is active; otherwise no iframe |
+| Vidstream-2 | Canonical MegaPlay `/stream/s-2/` embed | In-site embed when Guard is active; otherwise no iframe |
 | VidPlay-1 | Unknown supported backend | Unsupported |
 | Kiwi | Download-only/unintegrated entry | Unsupported |
 
@@ -35,12 +41,31 @@ Records and source identifiers remain intact. `getProviderAdapter` is retained f
 
 ## Enforcement layers
 
-1. The backend uses approved native adapters, plus the separately configured local native registry. Unsupported mappings return typed errors with no embed URL. A plugin/test resolver returning an iframe is rejected by `enforceNativeResolution` before caching or recording successful resolution.
-2. The frontend requires a resolved native delivery, a supported media kind and a valid media URL. A legacy or malicious `200 OK` iframe response still becomes Unsupported source. No fallback frame, external launch or compatibility switch exists.
-3. Production Node, Vite development/preview and Pages asset policies specify `frame-src 'none'` and block object embedding. The deployment check verifies the release and frame policy.
-4. Solanime controls operate on the actual media element. The only central overlay is a native play button over `<video>`; no webpage is hidden underneath.
+1. The backend accepts approved native adapters, the local native registry, and
+   validated stored MegaPlay embeds. Embed resolution reconstructs the canonical
+   URL from the mapping and requires exact provider/resource/URL agreement.
+2. The frontend validates the resolved kind and URL. Native media uses the
+   Solanime media element. A provider embed is not created until the page receives
+   the active Guard handshake; a missing or disabled Guard produces a typed,
+   actionable state.
+3. Production Node, Vite development/preview, and Pages policies restrict
+   `frame-src` to `https://www.youtube-nocookie.com` and
+   `https://megaplay.buzz`; objects remain blocked. Deployment verification checks
+   this exact host set, but does not call it playback proof.
+4. The Guard blocks provider-origin top-level navigation and removes navigation
+   targets created by the provider frame. It does not extract media, spoof the
+   provider origin, or relay arbitrary URLs.
+5. Native controls operate on the actual media element. Opaque embeds expose only
+   the progress/events the provider documents; Solanime does not fake unsupported
+   seek, caption, quality, or seamless-switching capabilities.
 
-These defenses prevent provider-page advertising scripts from being included through the playback path. They are not a browser extension or a universal network filter. An approved media host still sees requests and can log them. Native HLS and DASH can load their referenced segments; operator permissions and CORS must cover every required resource. The HLS JavaScript loader restricts configured request hosts, but no claim is made that this intercepts every browser-native HLS/DASH redirect. Do not treat a hostname allowlist as independent content-rights verification.
+These defenses limit the approved provider-player path; they do not make the
+extension a universal network filter. The provider and approved media hosts still
+receive requests and may log them. Native HLS and DASH can load referenced
+segments; operator permissions and CORS must cover every required resource. The
+HLS JavaScript loader restricts configured request hosts, but no claim is made
+that it intercepts every browser-native HLS/DASH redirect. Do not treat a
+hostname allowlist as playback or rights verification.
 
 ## Register authorized media
 
@@ -81,7 +106,14 @@ Supported controls: play/pause, native-center play, seek slider, ±10 seconds, m
 
 ## Evidence and limits
 
-The candidate's local unit/API tests reject old iframe resolutions and confirm no production upstream fetch for unsupported records. Offline Chromium exercised real MP4/HLS/DASH decoding, frame changes, controls, captions and no extra windows or provider document requests with original fixture footage. Tests do not certify every external media URL, licensing, deployed cookies, WebKit or the full library.
+Unit/API tests validate canonical embed reconstruction and reject mismatched
+provider data. Chromium Guard acceptance verifies the handshake, disabled-state
+cleanup, tracker request blocking, and no surviving provider-created page for its
+controlled fixture. Offline Chromium also exercises MP4/HLS/DASH decoding,
+controls, captions, and stale-response cleanup with deterministic footage. Those
+tests do not certify every external media URL, deployed cookies, WebKit, or the
+full library. Random live mappings require a separate, dated campaign whose
+results report actual progress independently from successful resolution.
 
 Primary implementation references:
 - MDN frame-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-src

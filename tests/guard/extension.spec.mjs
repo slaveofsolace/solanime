@@ -17,17 +17,18 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
   const id = new URL(worker.url()).host;
   const page = await context.newPage();
   const fixture =
-    '<!doctype html><html lang="en" data-accent="#24BFA5" data-theme="dark" style="--player-accent:#24BFA5"><head><title>Guard test</title></head><body><h1>Solanime fixture</h1><iframe sandbox="allow-scripts allow-same-origin" src="https://megaplay.buzz/stream/fixture" title="Controlled provider"></iframe></body></html>';
+    '<!doctype html><html lang="en" data-accent="#24BFA5" data-theme="dark" style="--player-accent:#24BFA5"><head><title>Guard test</title></head><body><h1>Solanime fixture</h1><iframe src="https://megaplay.buzz/stream/fixture" title="Controlled provider"></iframe></body></html>';
   await page.route('http://127.0.0.1:18787/__guard', (route) =>
     route.fulfill({ contentType: 'text/html', body: fixture }),
   );
   await page.route('https://megaplay.buzz/**', (route) =>
     route.fulfill({
       contentType: 'text/html',
-      body: '<!doctype html><html><head><title>Provider fixture</title><style>.jw-progress{height:10px;background:blue}</style></head><body><div class="jwplayer"><div class="jw-slider-horizontal"><div class="jw-progress"></div></div><button class="jw-icon">Play</button></div></body></html>',
+      body: '<!doctype html><html><head><title>Provider fixture</title><style>.jw-progress{height:10px;background:blue}</style></head><body><div class="jwplayer"><div class="jw-slider-horizontal"><div class="jw-progress"></div></div><button class="jw-icon">Play</button><button id="popup" onclick="window.open(\'https://popads.net/guard-popup\')">Popup</button></div></body></html>',
     }),
   );
   await page.goto('http://127.0.0.1:18787/__guard');
+  await expect(page.locator('html')).toHaveAttribute('data-solanime-guard', 'active');
   const frame = page.frameLocator('iframe');
   await expect(frame.locator('.jw-progress')).toHaveCSS('background-color', 'rgb(36, 191, 165)');
   const rules = await worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules());
@@ -55,6 +56,15 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
     { tabId },
   );
   expect(unrelated.matchedRules).toEqual([]);
+  const navigation = await worker.evaluate(async () =>
+    chrome.declarativeNetRequest.testMatchOutcome({
+      url: 'https://popads.net/guard-popup',
+      initiator: 'https://megaplay.buzz',
+      type: 'main_frame',
+      tabId: 999999,
+    }),
+  );
+  expect(navigation.matchedRules.some((rule) => rule.ruleId === 3)).toBe(true);
   // Observe a genuine failed network request, not just rule syntax or a synthetic counter.
   const failure = page.waitForEvent('requestfailed', {
     predicate: (request) => request.url().startsWith('https://google-analytics.com/collect'),
@@ -65,6 +75,10 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
   );
   const failed = await failure;
   expect(failed.failure().errorText).toContain('ERR_BLOCKED_BY_CLIENT');
+  const pagesBeforePopup = context.pages().length;
+  await frame.locator('#popup').click();
+  await expect.poll(() => context.pages().length).toBe(pagesBeforePopup);
+  expect(context.pages().some((candidate) => candidate.url().includes('popads.net'))).toBe(false);
   await page.evaluate(() => {
     document.documentElement.dataset.accent = '#A78BFA';
     document.documentElement.style.setProperty('--player-accent', '#A78BFA');
@@ -118,5 +132,5 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
   await page.close();
   await expect
     .poll(() => worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules()))
-    .toEqual([]);
+    .toEqual([expect.objectContaining({ id: 3 })]);
 });

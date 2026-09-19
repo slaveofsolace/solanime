@@ -122,9 +122,9 @@ beforeAll(async () => {
   await catalogue.prepare('INSERT INTO episode_versions(id,episode_id,source_id,language,first_seen_at,last_seen_at) VALUES(20,10,?,?,?,?),(21,10,?,?,?,?)')
     .bind('test-sub', 'sub', observed, observed, 'test-dub', 'dub', observed, observed).run();
   await catalogue.prepare("INSERT INTO providers(id,label,identity_state,playback_type,adapter_state,updated_at) VALUES('internet-archive','Internet Archive','confirmed','direct','implemented',?)").bind(observed).run();
-  for (const [id, version, provider, resource] of [[30, 20, 'hd-1', 'PRIVATE_STABLE_REFERENCE'], [31, 20, 'internet-archive', 'test-public-item'], [32, 21, 'hd-2', 'private-dub-ref']] as const) {
-    await catalogue.prepare('INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,first_seen_at,last_seen_at,updated_at) VALUES(?,?,?,?,?,?,?,?)')
-      .bind(id, version, provider, `test-mapping-${id}`, resource, observed, observed, observed).run();
+  for (const [id, version, provider, resource, embed] of [[30, 20, 'hd-1', 'PRIVATE_STABLE_REFERENCE', 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn'], [31, 20, 'internet-archive', 'test-public-item', null], [32, 21, 'hd-2', 'private-dub-ref', 'https://megaplay.buzz/stream/s-2/124/dub?s=bcdn']] as const) {
+    await catalogue.prepare('INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,canonical_embed_url,first_seen_at,last_seen_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)')
+      .bind(id, version, provider, `test-mapping-${id}`, resource, embed, observed, observed, observed).run();
   }
   await catalogue.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(31,?,?,?,?,?,?,?,?,1)')
     .bind('internet-archive', 'test-public-item', 'sub', 'Test edition', 'Test rights declaration', 'https://example.test/rights', 'https://example.test/identity', observed).run();
@@ -234,19 +234,19 @@ describe('Worker API against actual D1', () => {
     const detail = await (await request('/api/titles/test-1')).json();
     expect(detail).toMatchObject({ title: { id: '1' }, episodes: [{ id: '10', number: 'Special 0.5', versions: [{ id: '21', language: 'dub', providerCount: 1 }, { id: '20', language: 'sub', providerCount: 2 }] }] });
     const choices = await (await request('/api/episodes/10/providers?language=sub')).json();
-    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: false, kind: 'unsupported', playbackType: 'iframe', reasonCode: 'PROVIDER_EMBED_ONLY' }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
+    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: true }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
     expect(JSON.stringify(choices)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(JSON.stringify(choices)).not.toContain('test-public-item');
-    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: false, kind: 'unsupported', playbackType: 'iframe', reasonCode: 'PROVIDER_EMBED_ONLY' }] });
+    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: true }] });
     expect((await request('/api/episodes/10/providers?language=other')).status).toBe(404);
   });
 
-  it('does not advertise an enabled but unrelated provider approval as supported playback', async () => {
+  it('does not misclassify a guarded embed as native because of an unrelated approval', async () => {
     await env.CATALOGUE.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(30,?,?,?,?,?,?,?,?,1)')
       .bind('internet-archive', 'test-public-item', 'sub', 'Wrong mapping', 'Test', 'https://example.test/rights', 'https://example.test/identity', observed).run();
     try {
       const choices = await (await request('/api/episodes/10/providers?language=sub')).json() as { providers: Array<{ mappingId: string; supported: boolean; status: string }> };
-      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: false, kind: 'unsupported', status: 'unsupported', playbackType: 'iframe' });
+      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: true, kind: 'embed', status: 'available', playbackType: 'iframe', requiresGuard: true });
     } finally { await env.CATALOGUE.prepare('DELETE FROM native_resources WHERE mapping_id=30').run(); }
   });
 
@@ -278,7 +278,7 @@ describe('Worker API against actual D1', () => {
     expect((await request('/api/providers/31/resolve', mutation({ language: 'dub' }))).status).toBe(400);
   });
 
-  it('rejects a documented provider embed without fetching or exposing it', async () => {
+  it('resolves a stored canonical provider embed without fetching or exposing its opaque reference', async () => {
     const send = vi.fn<typeof fetch>(async (input, init) => {
       const url = new URL(String(input));
       expect(url.origin + url.pathname).toBe('https://anikototv.to/ajax/server');
@@ -292,14 +292,13 @@ describe('Worker API against actual D1', () => {
     });
     vi.stubGlobal('fetch', send);
     const response = await request('/api/providers/30/resolve', mutation({ language: 'sub', url: 'http://127.0.0.1/private' }));
-    expect(response.status).toBe(422);
+    expect(response.status).toBe(200);
     const result = await response.json();
-    expect(result).toMatchObject({ mappingId: '30', kind: 'unsupported', status: 'unsupported', error: { code: 'PROVIDER_EMBED_ONLY' } });
-    expect(result).not.toHaveProperty('embedUrl');
+    expect(result).toMatchObject({ mappingId: '30', kind: 'embed', status: 'resolved', playbackType: 'iframe', embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn', iframePolicy: { requiresGuard: true } });
     expect(JSON.stringify(result)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(send).not.toHaveBeenCalled();
     const stored = await env.CATALOGUE.prepare('SELECT last_successful_resolution_at,last_playback_verification_at,resolution_evidence_state FROM episode_provider_mappings WHERE id=30').first();
-    expect(stored).toMatchObject({ last_successful_resolution_at: null, last_playback_verification_at: null });
+    expect(stored).toMatchObject({ last_successful_resolution_at: expect.any(String), last_playback_verification_at: null, resolution_evidence_state: 'resolved' });
   });
 
   it('resolves an approved identity via metadata plus HEAD, without persisting temporary URLs or claiming playback', async () => {

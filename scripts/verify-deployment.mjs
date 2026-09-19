@@ -35,8 +35,10 @@ export async function inspectDeployment(address, fetcher = fetch) {
     .filter(Boolean) ?? [];
   const checks = {
     page: page.ok,
-    framesRestrictedToOfficialYouTube:
-      frameSources.length === 1 && frameSources[0] === 'https://www.youtube-nocookie.com',
+    framesRestrictedToApprovedPlayers:
+      frameSources.length === 2 &&
+      frameSources.includes('https://www.youtube-nocookie.com') &&
+      frameSources.includes('https://megaplay.buzz'),
     frontendCurrent: frontend === release,
     apiCurrent: api.ok && json?.status === 'ok' && json?.release === release,
     noParentSandboxPolicy: !/(?:^|;)\s*sandbox(?:\s|;|$)/i.test(csp),
@@ -48,7 +50,7 @@ export async function inspectDeployment(address, fetcher = fetch) {
     backend: json?.release ?? null,
     checks,
     passed: Object.values(checks).every(Boolean),
-    note: 'This checks the deployed application version and its headers; it does not certify media availability or playback. The only permitted iframe host is the reviewed privacy-enhanced YouTube player; unreviewed webpage players remain disabled.',
+    note: 'This checks the deployed application version and exact frame-host policy; it does not certify media availability or playback. MegaPlay frames remain gated on the separately tested Solanime Guard handshake.',
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

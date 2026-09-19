@@ -1,19 +1,20 @@
 # Solanime
 
-An independently built anime catalogue and native player. React/TypeScript on
+An independently built anime catalogue and in-site player. React/TypeScript on
 Cloudflare Pages, a Workers API, separate D1 catalogue/accounts/research stores,
 and Firebase Spark email/password authentication. Node/SQLite remains supported
 locally. No paid service or always-on personal computer is required by the hosted
 application.
 
-Current integration: **0.7.0-alpha**, based on `feat/studio-v05@632a82a`, with only
+Current integration: **0.8.0-alpha**, based on `feat/studio-v05@632a82a`, with only
 `data-dump/` imported from `data-dump/fmhy-video@3e53fb2`. Historical branches and
 the original catalogue checkpoint are preserved.
 
 ## What is available
 
 - Search, filters, title/episode/version navigation, watchlist, Continue Watching,
-  real native playback progress, private episode notes, and up to five profiles.
+  real playback progress where the selected source exposes it, private episode
+  notes, and up to five profiles.
 - Charcoal and warm-ivory themes, an orange default accent, locally hosted fonts,
   responsive navigation, keyboard controls, and reduced-motion support. Existing
   saved themes and custom accents are retained.
@@ -26,23 +27,28 @@ the original catalogue checkpoint are preserved.
 - Durable, checksummed catalogue/research import with D1 checkpoints, bounded
   Queues delivery, per-day free-plan budgets, and restart-safe progress.
 
-The completed local catalogue checkpoint has **8,949 titles, 134,825 episodes,
-184,073 language/version records, and 423,236 episode-provider mappings**. It
-also retains the explicitly reviewed restored-silent edition and its two native
-connections, Internet Archive and Wikimedia Commons. Imported provider mappings
-describe observed relationships; they do not imply native playback. Source
-coverage, native capability, and current cloud state are separate; see the
-[release record](docs/cloud-release-checklist.md).
+The immutable 2026-09-18 catalogue checkpoint has **9,185 titles, 165,944
+episodes, 215,331 language/version records, and 428,103 episode-provider
+mappings**. Of those mappings, **423,552** contain a canonical MegaPlay embed
+reference reconstructed from the completed resolver run. It also retains the
+explicitly reviewed restored-silent edition and its two native connections,
+Internet Archive and Wikimedia Commons. Imported mappings and canonical embed
+references describe source relationships; they are not blanket playback
+verification. Source coverage, player support, observed media progress, and
+current cloud state are separate; see the [release record](docs/cloud-release-checklist.md).
 
 See the [dated review status](docs/RELEASE_STATUS.md) for current cloud counts,
 verified functionality and remaining blockers; local and hosted coverage differ.
 
-**Imported does not mean playable.** Webpage-only providers are retained but
-unavailable in the native player. No iframe, ad script, sandbox bypass, open media
-proxy, or episode copy is shipped. Approved connections for *The Dull Sword*
-use documented metadata APIs and ordinary MP4/WebM delivery. The restored
-edition is distinct from the original SUB inventory. See
-[identity, rights, and playback evidence](docs/native-provider-evidence.md).
+**Imported or resolved does not mean playback verified.** HD-1, HD-2, and
+Vidstream-2 use their canonical provider player only when the companion Solanime
+Guard extension proves that its popup/navigation containment is active. Without
+that handshake Solanime does not create the provider iframe. This path does not
+extract, proxy, re-host, or label the provider page as native media. Approved
+native connections for *The Dull Sword* use documented metadata APIs and
+ordinary MP4/WebM delivery; that restored edition is distinct from the original
+SUB inventory. See the [playback contract](docs/NATIVE_PLAYBACK.md) and
+[identity, rights, and native playback evidence](docs/native-provider-evidence.md).
 
 ## Run locally
 
@@ -93,6 +99,11 @@ The Python inventory tools need the dependencies in `data-dump/requirements.txt`
 Browser fixtures test direct/HLS/DASH behavior and failure handling; they are not
 production catalogue records or evidence of a live provider. Browsers without a
 delivery capability must show a useful unavailable state, not simulated playback.
+
+Provider-embed testing additionally requires loading
+`extensions/solanime-guard` as an unpacked Chromium extension. The Guard is a
+narrow companion for the private provider-player path; it is not a general ad
+blocker and its presence is mandatory before Solanime inserts a provider iframe.
 
 ```sh
 pnpm backup /absolute/private/catalogue-backups

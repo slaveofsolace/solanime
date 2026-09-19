@@ -1,11 +1,17 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import ProviderPlayer from '../src/components/ProviderPlayer';
 import { providerEmbedUrl } from '../src/lib/providerEmbedPolicy';
 import type { PlaybackResolution } from '../src/types';
 
-afterEach(cleanup);
+beforeEach(() => {
+  document.documentElement.dataset.solanimeGuard = 'active';
+});
+afterEach(() => {
+  delete document.documentElement.dataset.solanimeGuard;
+  cleanup();
+});
 
 const embed = {
   kind: 'embed',
@@ -21,14 +27,20 @@ const embed = {
 } as unknown as PlaybackResolution;
 
 describe('provider embed player', () => {
-  it('renders only the exact observed MegaPlay route with a restrictive sandbox', () => {
+  it('renders only the exact observed MegaPlay route after the Guard handshake', () => {
     render(<ProviderPlayer resolution={embed} language="sub" />);
     const frame = screen.getByTitle('MegaPlay provider player') as HTMLIFrameElement;
     expect(frame.src).toBe('https://megaplay.buzz/stream/s-2/12345/sub');
-    expect(frame.getAttribute('sandbox')).toBe('allow-scripts allow-same-origin allow-presentation');
-    expect(frame.getAttribute('sandbox')).not.toMatch(/popup|top-navigation|download|forms/);
+    expect(frame.hasAttribute('sandbox')).toBe(false);
     expect(frame.getAttribute('allow')).toBe('autoplay; encrypted-media; fullscreen; picture-in-picture');
-    expect(frame.getAttribute('referrerpolicy')).toBe('no-referrer');
+    expect(frame.getAttribute('referrerpolicy')).toBe('strict-origin-when-cross-origin');
+  });
+
+  it('does not create an unsandboxed provider frame without an active Guard handshake', () => {
+    delete document.documentElement.dataset.solanimeGuard;
+    render(<ProviderPlayer resolution={embed} language="sub" />);
+    expect(screen.queryByTitle('MegaPlay provider player')).toBeNull();
+    expect(screen.getByRole('alert').textContent).toContain('Solanime Guard required');
   });
 
   it('accepts only the observed provider-specific server selector', () => {

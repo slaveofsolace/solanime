@@ -21,9 +21,10 @@ describe('provider adapters', () => {
         playbackType: 'iframe',
         allowedEmbedHosts: ['megaplay.buzz'],
         iframePolicy: {
-          sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'],
+          sandbox: [],
           allow: ['autoplay', 'fullscreen'],
-          referrerPolicy: 'no-referrer',
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          requiresGuard: true,
         },
         messageProtocol: {
           origin: 'https://megaplay.buzz',

@@ -33,6 +33,7 @@ import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
 import { providerSupportDiagnostic } from './providers/support-diagnostics.ts';
+import { hasSupportedMegaPlayEmbed, megaPlayEmbedResult, resolveMegaPlayEmbed } from './providers/embed.ts';
 
 const MAX_BODY = 16 * 1024;
 const DEFAULT_MAX_PENDING_RESOLUTIONS = 8;
@@ -179,6 +180,12 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         return legacyResolution(await resolveApprovedPlayback(mapping, approved, signal));
       const registered = nativeSources(mapping);
       if (registered) return registered;
+      if (hasSupportedMegaPlayEmbed(mapping)) {
+        const result = mapping.canonicalEmbedUrl
+          ? megaPlayEmbedResult(mapping, mapping.canonicalEmbedUrl)
+          : await resolveMegaPlayEmbed(mapping, signal);
+        return legacyResolution(result);
+      }
       return unsupportedSource(mapping);
     });
 
@@ -361,44 +368,50 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
             const resource = db.prepare('SELECT * FROM native_resources WHERE mapping_id=?').get(mapping.mappingId) as ApprovedNativeResource | undefined;
             const approvedNative = hasEnabledNativeResource(mapping, resource);
             const approvedYouTube = hasEnabledOfficialYouTubeResource(mapping, resource);
+            const supportedEmbed = hasSupportedMegaPlayEmbed(mapping);
             const source = registered ? enforceNativeResolution(mapping, registered) : null;
             const diagnostic = providerSupportDiagnostic(mapping);
             const embedObserved =
               !approvedNative && !approvedYouTube && !source && diagnostic.state === 'documented-embed-only';
             return {
               ...provider,
-              supported: approvedNative || approvedYouTube || source?.status === 'resolved',
+              supported: approvedNative || approvedYouTube || supportedEmbed || source?.status === 'resolved',
               kind: approvedYouTube
                 ? 'official-youtube'
                 : approvedNative || source?.status === 'resolved'
                   ? 'native'
+                  : supportedEmbed
+                    ? 'embed'
                   : 'unsupported',
               playbackType: approvedNative
                 ? 'direct'
                 : approvedYouTube
                   ? 'iframe'
-                  : source?.playbackType ?? (embedObserved ? 'iframe' : 'unknown'),
-              status: approvedNative || approvedYouTube ? 'available' : source
+                  : supportedEmbed
+                    ? 'iframe'
+                    : source?.playbackType ?? (embedObserved ? 'iframe' : 'unknown'),
+              status: approvedNative || approvedYouTube || supportedEmbed ? 'available' : source
                 ? source.status === 'resolved'
                   ? 'available'
                   : 'unavailable'
                 : 'unsupported',
               reason:
                 source?.error?.message ??
-                (source || approvedNative || approvedYouTube ? null : diagnostic.message),
+                (source || approvedNative || approvedYouTube || supportedEmbed ? null : diagnostic.message),
               reasonCode: source?.error?.code ??
-                (source || approvedNative || approvedYouTube ? null : diagnostic.code),
+                (source || approvedNative || approvedYouTube || supportedEmbed ? null : diagnostic.code),
               capabilities:
-                approvedNative || approvedYouTube || source?.status === 'resolved'
+                approvedNative || approvedYouTube || supportedEmbed || source?.status === 'resolved'
                   ? {
-                      seek: true,
-                      volume: true,
+                      seek: !supportedEmbed,
+                      volume: !supportedEmbed,
                       fullscreen: true,
                       progressEvents: true,
                       subtitles: approvedYouTube || !!source?.captions?.length,
                       qualitySelection: approvedYouTube,
                     }
                   : {},
+              requiresGuard: supportedEmbed,
             };
           }),
         });

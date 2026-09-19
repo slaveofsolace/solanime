@@ -60,9 +60,10 @@ describe('MegaPlay provider embed resolution', () => {
         volume: false,
       },
       iframePolicy: {
-        sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'],
+        sandbox: [],
         allow: ['autoplay', 'fullscreen'],
-        referrerPolicy: 'no-referrer',
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        requiresGuard: true,
       },
       messageProtocol: {
         origin: 'https://megaplay.buzz',
@@ -160,7 +161,7 @@ describe('MegaPlay provider embed resolution', () => {
     });
   });
 
-  it('rejects resolved embeds at the application playback boundary', () => {
+  it('reconstructs a valid resolved embed with the guarded canonical policy', () => {
     const safe = megaPlayEmbedResult(mapping(), 'https://megaplay.buzz/stream/s-2/12/sub');
     if (safe.kind !== 'embed') throw new Error('Expected embed fixture');
     const outer = legacyResolution(safe);
@@ -169,9 +170,13 @@ describe('MegaPlay provider embed resolution', () => {
       sandbox: [...outer.iframePolicy!.sandbox, 'allow-popups' as never],
     };
     expect(enforcePlaybackResolution(mapping(), outer)).toMatchObject({
-      status: 'unsupported',
+      status: 'resolved',
       playbackType: 'iframe',
-      error: { code: 'PROVIDER_EMBED_ONLY' },
+      iframePolicy: {
+        sandbox: [],
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        requiresGuard: true,
+      },
     });
     expect(
       enforcePlaybackResolution(mapping(), {
@@ -183,6 +188,6 @@ describe('MegaPlay provider embed resolution', () => {
         status: 'resolved',
         embedUrl: 'https://megaplay.buzz/stream/s-2/12/sub',
       }),
-    ).toMatchObject({ status: 'unsupported' });
+    ).toMatchObject({ status: 'resolved', kind: 'embed' });
   });
 });

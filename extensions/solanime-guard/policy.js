@@ -68,11 +68,19 @@ export function settings(value) {
 }
 export function buildRules(tabIds, options) {
   const ids = [...new Set(tabIds.filter((id) => Number.isInteger(id) && id >= 0))];
-  if (!options.enabled || !ids.length) return [];
+  if (!options.enabled) return [];
   const common = { tabIds: ids, initiatorDomains: [PROVIDER] };
   // Omitting resourceTypes covers every subresource, including stylesheets and fonts.
-  // Top-frame navigation has its own explicit rule below.
+  // A popup gets a new tab id, so its top-frame block cannot be scoped to the opener.
   const rules = [
+    {
+      id: 3,
+      priority: 100,
+      action: { type: 'block' },
+      condition: { initiatorDomains: [PROVIDER], resourceTypes: ['main_frame'] },
+    },
+  ];
+  if (ids.length) rules.unshift(
     {
       id: 1,
       priority: 10,
@@ -88,15 +96,9 @@ export function buildRules(tabIds, options) {
       action: { type: 'block' },
       condition: { ...common, resourceTypes: ['ping'], domainType: 'thirdParty' },
     },
-    {
-      id: 3,
-      priority: 10,
-      action: { type: 'block' },
-      condition: { ...common, resourceTypes: ['main_frame'] },
-    },
-  ];
+  );
   // Strict mode is explicitly opt-in: unknown media/CDN hosts will also be blocked.
-  if (options.strict)
+  if (options.strict && ids.length)
     rules.push({
       id: 4,
       priority: 1,

@@ -111,6 +111,7 @@ export interface ProviderChoice {
   lastPlaybackVerification?: string | null;
   reason?: string | null;
   reasonCode?: string | null;
+  requiresGuard?: boolean;
 }
 
 export interface ProvidersResponse {

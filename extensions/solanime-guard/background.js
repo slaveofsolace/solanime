@@ -81,6 +81,17 @@ chrome.tabs.onRemoved.addListener((tabId) => {
     await refreshRules();
   });
 });
+chrome.webNavigation.onCreatedNavigationTarget.addListener((details) => {
+  void enqueue(async () => {
+    if (!(await topIsProject(details.sourceTabId))) return;
+    const source = await chrome.webNavigation.getFrame({
+      tabId: details.sourceTabId,
+      frameId: details.sourceFrameId,
+    });
+    if (!source || !isProviderUrl(source.url)) return;
+    await chrome.tabs.remove(details.tabId).catch(() => {});
+  });
+});
 chrome.webNavigation.onCommitted.addListener((details) => {
   void enqueue(async () => {
     if (details.frameId === 0) {
@@ -134,7 +145,15 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
       await chrome.storage.session.set({ [`theme:${tabId}`]: theme(message.value) });
       await refreshRules();
       await applyToTab(tabId);
-      return { ok: true };
+      const options = await currentOptions();
+      return {
+        ok: true,
+        guard: {
+          version: chrome.runtime.getManifest().version,
+          enabled: options.enabled,
+          navigationBlock: options.enabled,
+        },
+      };
     }
     if (message?.type === 'player-ready' && sender.frameId > 0 && isProviderUrl(sender.url)) {
       const frame = await chrome.webNavigation.getFrame({ tabId, frameId: sender.frameId });

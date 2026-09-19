@@ -25,9 +25,10 @@ export const MEGAPLAY_EMBED_CAPABILITIES: EmbedCapabilities = Object.freeze({
   qualitySelection: false,
 });
 export const MEGAPLAY_IFRAME_POLICY: EmbedIframePolicy = Object.freeze({
-  sandbox: ['allow-scripts', 'allow-same-origin', 'allow-presentation'] as EmbedIframePolicy['sandbox'],
+  sandbox: [] as EmbedIframePolicy['sandbox'],
   allow: ['autoplay', 'fullscreen'] as EmbedIframePolicy['allow'],
-  referrerPolicy: 'no-referrer',
+  referrerPolicy: 'strict-origin-when-cross-origin',
+  requiresGuard: true,
 });
 export const MEGAPLAY_MESSAGE_PROTOCOL: EmbedMessageProtocol = Object.freeze({
   origin: MEGAPLAY_EMBED_ORIGIN,

@@ -1,8 +1,13 @@
 import type { PlaybackResolution } from '../types';
 
 export const PROVIDER_EMBED_ORIGIN = 'https://megaplay.buzz';
-export const PROVIDER_EMBED_SANDBOX = 'allow-scripts allow-same-origin allow-presentation';
 export const PROVIDER_EMBED_ALLOW = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+export const PROVIDER_EMBED_REFERRER_POLICY = 'strict-origin-when-cross-origin' as const;
+export const SOLANIME_GUARD_EVENT = 'solanime-guard-status';
+
+export function solanimeGuardActive(root: HTMLElement | null = document.documentElement): boolean {
+  return root?.dataset.solanimeGuard === 'active';
+}
 
 const PROVIDER_IDS = new Set(['vidstream-2', 'hd-1', 'hd-2']);
 const EMBED_PATH = /^\/stream\/s-2\/([1-9]\d*)\/(sub|dub)\/?$/;

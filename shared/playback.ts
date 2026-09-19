@@ -27,7 +27,9 @@ export interface EmbedCapabilities {
 export interface EmbedIframePolicy {
   sandbox: Array<'allow-scripts' | 'allow-same-origin' | 'allow-presentation'>;
   allow: Array<'autoplay' | 'fullscreen'>;
-  referrerPolicy: 'no-referrer';
+  referrerPolicy: 'no-referrer' | 'strict-origin-when-cross-origin';
+  /** The provider rejects sandboxed frames, so an active Solanime Guard is required. */
+  requiresGuard?: boolean;
 }
 export interface EmbedMessageProtocol {
   origin: 'https://megaplay.buzz';

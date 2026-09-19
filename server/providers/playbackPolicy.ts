@@ -2,6 +2,8 @@ import { isMediaKind } from '../../shared/playback.ts';
 import type { ProviderResolution, StoredProviderMapping } from './contract.ts';
 import { providerSupportDiagnostic } from './support-diagnostics.ts';
 import { sanitizeOfficialYouTubeResolution } from './youtubeOfficial.ts';
+import { legacyResolution } from './native.ts';
+import { hasSupportedMegaPlayEmbed, megaPlayEmbedResult } from './embed.ts';
 export function unsupportedSource(
   mapping: Pick<StoredProviderMapping, 'mappingId' | 'providerId'>,
 ): ProviderResolution {
@@ -37,21 +39,32 @@ export function enforceNativeResolution(
   return { ...value, embedUrl: undefined, headers: undefined };
 }
 
-/**
- * Only native media crosses the application playback boundary.
- *
- * MegaPlay's documented page can be identified and resolved, but live browser
- * verification established that it refuses Solanime's restricted sandbox. The
- * unsandboxed form can open unrelated pages. Keep that mapping as evidence and
- * reject it here instead of advertising a non-working or unsafe player.
- */
 export function enforcePlaybackResolution(
   mapping: StoredProviderMapping,
   value: ProviderResolution,
 ): ProviderResolution {
   if (value.kind === 'official-youtube')
     return sanitizeOfficialYouTubeResolution(mapping, value);
-  if (value.kind === 'embed' || value.delivery === 'provider' || value.playbackType === 'iframe')
-    return unsupportedSource(mapping);
+  if (value.kind === 'embed' || value.delivery === 'provider' || value.playbackType === 'iframe') {
+    if (
+      value.kind !== 'embed' ||
+      value.status !== 'resolved' ||
+      value.delivery !== 'provider' ||
+      value.playbackType !== 'iframe' ||
+      value.mappingId !== mapping.mappingId ||
+      value.providerId !== mapping.providerId ||
+      !value.embedUrl ||
+      !hasSupportedMegaPlayEmbed(mapping)
+    ) return unsupportedSource(mapping);
+    try {
+      const canonical = mapping.canonicalEmbedUrl
+        ? new URL(mapping.canonicalEmbedUrl).href
+        : null;
+      if (canonical && new URL(value.embedUrl).href !== canonical) return unsupportedSource(mapping);
+      return legacyResolution(megaPlayEmbedResult(mapping, value.embedUrl));
+    } catch {
+      return unsupportedSource(mapping);
+    }
+  }
   return enforceNativeResolution(mapping, value);
 }

@@ -1,6 +1,6 @@
 {
   "name": "solanime",
-  "version": "0.7.0-alpha",
+  "version": "0.8.0-alpha",
   "private": true,
   "type": "module",
   "engines": {
@@ -22,6 +22,8 @@
     "import:wikipedia": "node --env-file-if-exists=.env --import tsx scripts/import-wikipedia.ts",
     "import:detached": "node --env-file-if-exists=.env --import tsx scripts/start-full-import.ts",
     "import:status": "node --env-file-if-exists=.env --import tsx scripts/import-status.ts",
+    "resolve:sources": "node --env-file-if-exists=.env --import tsx scripts/resolve-episode-sources.ts",
+    "resolve:sources:detached": "node scripts/start-source-resolution.mjs",
     "export:data": "node --env-file-if-exists=.env --import tsx scripts/export-data.ts",
     "backup": "node --env-file-if-exists=.env --import tsx scripts/backup.ts",
     "restore": "node --env-file-if-exists=.env --import tsx scripts/restore.ts",
@@ -41,6 +43,7 @@
     "check": "pnpm typecheck && pnpm test && pnpm build",
     "doctor": "node --env-file-if-exists=.env --import tsx scripts/doctor.ts",
     "test:guard": "pnpm build && playwright test --config playwright.guard.config.ts",
+    "verify:provider-playback": "node scripts/verify-provider-playback.mjs",
     "backup:accounts": "node --env-file-if-exists=.env --import tsx scripts/backup-accounts.ts",
     "verify:deployment": "node scripts/verify-deployment.mjs",
     "cloud:types": "wrangler types --env-interface CloudEnv --strict-vars=false",

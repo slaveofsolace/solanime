@@ -19,6 +19,8 @@ import {
   NATIVE_RESEARCH_RECORDS,
 } from '../providers/native-registry.ts';
 import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
+import { hasSupportedMegaPlayEmbed, megaPlayEmbedResult } from '../providers/embed.ts';
+import { enforcePlaybackResolution } from '../providers/playbackPolicy.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
 const apiHeaders = {
@@ -127,28 +129,30 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
         const resource = await catalogue.getApprovedResource(mapping.mappingId);
         const native = hasEnabledNativeResource(mapping, resource);
         const officialYouTube = hasEnabledOfficialYouTubeResource(mapping, resource);
+        const supportedEmbed = hasSupportedMegaPlayEmbed(mapping);
         const diagnostic = providerSupportDiagnostic({
           providerId: String((provider as { providerId?: unknown }).providerId ?? ''),
         });
         const embedObserved = !native && !officialYouTube && diagnostic.state === 'documented-embed-only';
         return {
           ...provider,
-          supported: native || officialYouTube,
-          kind: officialYouTube ? 'official-youtube' : native ? 'native' : 'unsupported',
-          playbackType: native ? 'direct' : officialYouTube || embedObserved ? 'iframe' : 'unknown',
-          status: native || officialYouTube ? 'available' : 'unsupported',
-          reason: native || officialYouTube ? null : diagnostic.message,
-          reasonCode: native || officialYouTube ? null : diagnostic.code,
-          capabilities: native || officialYouTube
+          supported: native || officialYouTube || supportedEmbed,
+          kind: officialYouTube ? 'official-youtube' : native ? 'native' : supportedEmbed ? 'embed' : 'unsupported',
+          playbackType: native ? 'direct' : officialYouTube || supportedEmbed || embedObserved ? 'iframe' : 'unknown',
+          status: native || officialYouTube || supportedEmbed ? 'available' : 'unsupported',
+          reason: native || officialYouTube || supportedEmbed ? null : diagnostic.message,
+          reasonCode: native || officialYouTube || supportedEmbed ? null : diagnostic.code,
+          capabilities: native || officialYouTube || supportedEmbed
             ? {
-                seek: true,
-                volume: true,
+                seek: !supportedEmbed,
+                volume: !supportedEmbed,
                 fullscreen: true,
                 progressEvents: true,
                 subtitles: officialYouTube,
                 qualitySelection: officialYouTube,
               }
             : {},
+          requiresGuard: supportedEmbed,
         };
       })) });
     }
@@ -158,10 +162,13 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
       const resource = await catalogue.getApprovedResource(mapping.mappingId);
-      const result = await resolveApprovedPlayback(mapping, resource, request.signal);
+      const resolved = hasSupportedMegaPlayEmbed(mapping) && mapping.canonicalEmbedUrl
+        ? megaPlayEmbedResult(mapping, mapping.canonicalEmbedUrl)
+        : await resolveApprovedPlayback(mapping, resource, request.signal);
+      const result = enforcePlaybackResolution(mapping, legacyResolution(resolved));
       // A resolution is not playback verification. Never store temporary media URLs.
-      if (!readOnlyReview && (result.kind === 'native' || result.kind === 'official-youtube')) await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
-      return json({ ...legacyResolution(result), mappingId: result.mappingId }, result.kind === 'native' || result.kind === 'official-youtube' ? 200 : 422);
+      if (!readOnlyReview && result.status === 'resolved') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
+      return json({ ...result, mappingId: String(result.mappingId) }, result.status === 'resolved' ? 200 : 422);
     }
     if (request.method === 'GET' && path === '/api/admin/sources') return json(await research.browseSources({ q: bounded(p.get('q')), category: bounded(p.get('category')), kind: bounded(p.get('kind')), status: bounded(p.get('status')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 30, 100) }));
     const verification = /^\/api\/admin\/providers\/(\d+)\/verification$/.exec(path);
