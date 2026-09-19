@@ -66,7 +66,7 @@ Prepare the complete catalogue/research snapshot and pack its immutable assets
 using [the import guide](../scripts/cloud-data/README.md). Configure
 `assets.directory` to the fully assembled ignored output and pin both the import
 and catalogue-baseline manifests. The current candidate uses
-`build/cloud-worker-assets-playback-v1`, containing the retained private import
+`build/cloud-worker-assets-playback-v2`, containing the retained private import
 package and the complete immutable catalogue baseline. Preserve all asset sets needed by
 unfinished jobs. Files are bounded under the
 platform's per-asset limit; they never enter the Pages `dist` directory.

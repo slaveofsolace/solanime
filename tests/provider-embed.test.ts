@@ -37,7 +37,7 @@ describe('MegaPlay provider embed resolution', () => {
       expect(headers.has('user-agent')).toBe(false);
       return Response.json({
         status: 200,
-        result: { url: 'https://megaplay.buzz/stream/s-2/92975/sub' },
+        result: { url: 'https://megaplay.buzz/stream/s-2/92975/sub?s=tcdn' },
       });
     });
 
@@ -49,7 +49,7 @@ describe('MegaPlay provider embed resolution', () => {
       providerId: 'hd-1',
       language: 'sub',
       format: 'iframe',
-      embedUrl: 'https://megaplay.buzz/stream/s-2/92975/sub',
+      embedUrl: 'https://megaplay.buzz/stream/s-2/92975/sub?s=tcdn',
       allowedEmbedHosts: ['megaplay.buzz'],
       capabilities: {
         fullscreen: true,
@@ -83,7 +83,7 @@ describe('MegaPlay provider embed resolution', () => {
     expect(hasSupportedMegaPlayEmbed(mapping({ language: 'raw' }))).toBe(false);
     expect(
       hasSupportedMegaPlayEmbed(
-        mapping({ providerResourceId: null, canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/12/sub' }),
+        mapping({ providerId: 'vidstream-2', providerResourceId: null, canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/12/sub' }),
       ),
     ).toBe(true);
     expect(validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn', 'sub', 'hd-1').href)
@@ -93,6 +93,12 @@ describe('MegaPlay provider embed resolution', () => {
     expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=bcdn', 'sub', 'hd-1'))
       .toThrow('INVALID_PROVIDER_RESOURCE');
     expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn&extra=1', 'sub', 'hd-1'))
+      .toThrow('INVALID_PROVIDER_RESOURCE');
+    expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub', 'sub', 'hd-1'))
+      .toThrow('INVALID_PROVIDER_RESOURCE');
+    expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub', 'sub', 'hd-2'))
+      .toThrow('INVALID_PROVIDER_RESOURCE');
+    expect(() => validateMegaPlayEmbedUrl('https://megaplay.buzz/stream/s-2/12/sub?s=tcdn', 'sub', 'vidstream-2'))
       .toThrow('INVALID_PROVIDER_RESOURCE');
   });
 
@@ -162,7 +168,7 @@ describe('MegaPlay provider embed resolution', () => {
   });
 
   it('reconstructs a valid resolved embed with the guarded canonical policy', () => {
-    const safe = megaPlayEmbedResult(mapping(), 'https://megaplay.buzz/stream/s-2/12/sub');
+    const safe = megaPlayEmbedResult(mapping(), 'https://megaplay.buzz/stream/s-2/12/sub?s=tcdn');
     if (safe.kind !== 'embed') throw new Error('Expected embed fixture');
     const outer = legacyResolution(safe);
     outer.iframePolicy = {
@@ -186,7 +192,7 @@ describe('MegaPlay provider embed resolution', () => {
         delivery: 'provider',
         playbackType: 'iframe',
         status: 'resolved',
-        embedUrl: 'https://megaplay.buzz/stream/s-2/12/sub',
+        embedUrl: 'https://megaplay.buzz/stream/s-2/12/sub?s=tcdn',
       }),
     ).toMatchObject({ status: 'resolved', kind: 'embed' });
   });

@@ -10,7 +10,11 @@ describe('provider adapters', () => {
         label: providerId,
         language: 'sub',
         providerResourceId: null,
-        canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/123/sub',
+        canonicalEmbedUrl: providerId === 'hd-1'
+          ? 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn'
+          : providerId === 'hd-2'
+            ? 'https://megaplay.buzz/stream/s-2/123/sub?s=bcdn'
+            : 'https://megaplay.buzz/stream/s-2/123/sub',
         availability: 'observed',
         unavailableReason: null,
       });

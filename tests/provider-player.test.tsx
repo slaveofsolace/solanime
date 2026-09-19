@@ -21,7 +21,7 @@ const embed = {
   language: 'sub',
   playbackType: 'iframe',
   status: 'resolved',
-  embedUrl: 'https://megaplay.buzz/stream/s-2/12345/sub',
+  embedUrl: 'https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn',
   allowedEmbedHosts: ['megaplay.buzz'],
   expiresAt: new Date(Date.now() + 60_000).toISOString(),
 } as unknown as PlaybackResolution;
@@ -30,7 +30,7 @@ describe('provider embed player', () => {
   it('renders only the exact observed MegaPlay route after the Guard handshake', () => {
     render(<ProviderPlayer resolution={embed} language="sub" />);
     const frame = screen.getByTitle('MegaPlay provider player') as HTMLIFrameElement;
-    expect(frame.src).toBe('https://megaplay.buzz/stream/s-2/12345/sub');
+    expect(frame.src).toBe('https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn');
     expect(frame.hasAttribute('sandbox')).toBe(false);
     expect(frame.getAttribute('allow')).toBe('autoplay; encrypted-media; fullscreen; picture-in-picture');
     expect(frame.getAttribute('referrerpolicy')).toBe('strict-origin-when-cross-origin');

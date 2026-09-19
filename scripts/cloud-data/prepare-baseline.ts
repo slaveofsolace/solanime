@@ -5,6 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { pathToFileURL } from 'node:url';
 import { BASELINE_EPISODE_PAGE_SIZE, BASELINE_MAX_BUCKET_SIZE, BASELINE_MAX_FILES, BASELINE_MAX_FILE_BYTES, BASELINE_MAX_INDEX_BYTES, baselineHashBucket, baselineNumericBucket, baselinePath, validateBaselineManifest, type BaselineBrowseRow, type BaselineEpisode, type BaselineEpisodePage, type BaselineFileRef, type BaselineManifest, type BaselineMapping, type BaselinePostings, type BaselineRow, type BaselineTitle } from '../../server/cloud/data/baseline-schema.ts';
 import type { ApprovedNativeResource } from '../../server/providers/native.ts';
+import { validateMegaPlayEmbedUrl } from '../../server/providers/embed.ts';
 
 type SqlRow = Record<string, string | number | null>;
 const hash = (bytes: string) => createHash('sha256').update(bytes).digest('hex');
@@ -15,6 +16,11 @@ const group = <T>(rows: T[], key: (row: T) => string) => { const map = new Map<s
 function stableUrl(value: unknown) { if (!value) return null; try { const url = new URL(String(value)); return ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password && !url.search && !url.hash ? url.href : null; } catch { return null; } }
 function stableEvidenceUrl(value: unknown) { if (!value) return null; try { const url = new URL(String(value)); return url.protocol === 'https:' && !url.username && !url.password && !url.port && !url.hash && url.href.length <= 2048 ? url.href : null; } catch { return null; } }
 function stableResource(value: unknown) { if (value == null) return null; const item = String(value); if (item.length > 4096 || /[\r\n]/.test(item)) return null; return /^https?:/i.test(item) ? stableUrl(item) : item; }
+function stableProviderEmbed(value: unknown, providerId: unknown, language: unknown) {
+  if (!value) return null;
+  try { return validateMegaPlayEmbedUrl(String(value), String(language), String(providerId)).href; }
+  catch { return null; }
+}
 const capabilities = (value: unknown) => { let parsed: Record<string, unknown> = {}; try { parsed = JSON.parse(String(value)); } catch { /* No unknown capabilities are enabled. */ } return Object.fromEntries(['embed','seek','volume','fullscreen','subtitles','qualitySelection','progressEvents'].map(key => [key, parsed?.[key] === true])); };
 function countFiles(path: string): number { return readdirSync(path, { withFileTypes: true }).reduce((sum, item) => { if (item.isSymbolicLink()) throw new Error('Asset directories must not contain symbolic links.'); return sum + (item.isDirectory() ? countFiles(join(path, item.name)) : 1); }, 0); }
 
@@ -57,7 +63,7 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
     const versionLookup = new Map(versionRows.map(row => [String(row.id), row]));
     for (const row of mappingRows) {
       const version = versionLookup.get(String(row.version_id)); if (!version) throw new Error('Mapping references an absent version.');
-      const resource = stableResource(row.provider_resource_id); const embed = stableUrl(row.canonical_embed_url);
+      const resource = stableResource(row.provider_resource_id); const embed = stableProviderEmbed(row.canonical_embed_url, row.provider_id, version.language);
       const approval = resourceRows.get(String(row.id));
       const rightsEvidenceUrl = approval ? stableEvidenceUrl(approval.rights_evidence_url) : null;
       const identityEvidenceUrl = approval ? stableEvidenceUrl(approval.identity_evidence_url) : null;

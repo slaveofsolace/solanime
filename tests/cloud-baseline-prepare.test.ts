@@ -19,7 +19,7 @@ function fixture(name:string, count=103) {
  const episode=db.prepare('INSERT INTO episodes(id,title_id,source_id,number_text,number_sort,label,slug,canonical_url,first_seen_at,last_seen_at,created_at,updated_at) VALUES(?,1,?,?,?,?,?,?,?,?,?,?)');
  const version=db.prepare('INSERT INTO episode_versions(id,episode_id,source_id,language,version_label,first_seen_at,last_seen_at) VALUES(?,?,?,?,?,?,?)');
  const mapping=db.prepare('INSERT INTO episode_provider_mappings(id,version_id,provider_id,source_mapping_id,provider_resource_id,canonical_embed_url,first_seen_at,last_seen_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)');
- for(let id=1;id<=count;id++){episode.run(id,`episode-${id}`,id===2?'1.5':String(id),id,`Episode ${id}`,`ep-${id}`,`https://example.invalid/ep/${id}`,at,at,at,at);version.run(id,id,`version-${id}`,'sub','Subtitled',at,at);mapping.run(id,id,'hd-1',`mapping-${id}`,`resource-${id}`,`https://example.invalid/embed/${id}`,at,at,at);}
+ for(let id=1;id<=count;id++){episode.run(id,`episode-${id}`,id===2?'1.5':String(id),id,`Episode ${id}`,`ep-${id}`,`https://example.invalid/ep/${id}`,at,at,at,at);version.run(id,id,`version-${id}`,'sub','Subtitled',at,at);mapping.run(id,id,'hd-1',`mapping-${id}`,`resource-${id}`,`https://megaplay.buzz/stream/s-2/${id}/sub?s=tcdn`,at,at,at);}
  db.exec("CREATE TABLE private_account_test(password TEXT); INSERT INTO private_account_test VALUES('PRIVATE_SENTINEL_NOT_A_REAL_PASSWORD')");db.close();return source;
 }
 const readAsset=(output:string,path:string)=>JSON.parse(readFileSync(join(output,path.slice(1)),'utf8'));
@@ -47,7 +47,12 @@ describe('private catalogue baseline preparation',()=>{
   const credentialUrl=new URL('https://example.invalid/embed/1');credentialUrl.username='fixture-user';
   const source=fixture('private-refs',1),db=new DatabaseSync(source);db.prepare('UPDATE episode_provider_mappings SET provider_resource_id=?,canonical_embed_url=?').run('https://example.invalid/video?token=test-expiring',credentialUrl.href);db.close();
   const output=join(root,'private-ref-assets'),{manifest}=await prepareBaseline(source,output);const record=readAsset(output,baselinePath(manifest.id,`mappings/${baselineNumericBucket(1,manifest.bucketSpans.mappings)}.json`))['1'];
-  expect(record.mapping.providerResourceId).toBeNull();expect(record.mapping.canonicalEmbedUrl).toBeNull();expect(record.mapping.mappingId).toBe(1);expect(record.provenance.mappingOrigin).toBe('native');expect(record.provenance.resourceOmittedReason).toBe('UNSTABLE_OR_UNSAFE_RESOURCE_REFERENCE');
+ expect(record.mapping.providerResourceId).toBeNull();expect(record.mapping.canonicalEmbedUrl).toBeNull();expect(record.mapping.mappingId).toBe(1);expect(record.provenance.mappingOrigin).toBe('native');expect(record.provenance.resourceOmittedReason).toBe('UNSTABLE_OR_UNSAFE_RESOURCE_REFERENCE');
+ });
+ it('preserves only the exact stable provider selector in canonical embed references',async()=>{
+  const source=fixture('provider-selector',1),db=new DatabaseSync(source);db.prepare('UPDATE episode_provider_mappings SET canonical_embed_url=?').run('https://megaplay.buzz/stream/s-2/42/sub?s=tcdn');db.close();
+  const output=join(root,'provider-selector-assets'),{manifest}=await prepareBaseline(source,output);const record=readAsset(output,baselinePath(manifest.id,`mappings/${baselineNumericBucket(1,manifest.bucketSpans.mappings)}.json`))['1'];
+  expect(record.mapping.canonicalEmbedUrl).toBe('https://megaplay.buzz/stream/s-2/42/sub?s=tcdn');
  });
  it('includes stable immutable native approval records with their exact mapping identity',async()=>{
   const source=fixture('approved-resource',1),db=new DatabaseSync(source);db.prepare('INSERT INTO native_resources(mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled) VALUES(1,?,?,?,?,?,?,?,?,1)').run('hd-1','resource-1','sub','Reviewed test edition','Reviewed test rights','https://example.invalid/rights','https://example.invalid/identity','2026-09-13T00:00:00Z');db.close();

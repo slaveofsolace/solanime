@@ -421,7 +421,7 @@ describe('application HTTP API', () => {
   });
   it('advertises canonical provider embeds as Guard-required playback', async () => {
     const { origin, db } = await app();
-    db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url='https://megaplay.buzz/stream/s-2/123/sub' WHERE provider_id IN ('hd-1','hd-2')").run();
+    db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url=CASE provider_id WHEN 'hd-1' THEN 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn' ELSE 'https://megaplay.buzz/stream/s-2/123/sub?s=bcdn' END WHERE provider_id IN ('hd-1','hd-2')").run();
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
     const result = await (
       await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)
@@ -449,7 +449,7 @@ describe('application HTTP API', () => {
       kind: 'embed',
       status: 'resolved',
       playbackType: 'iframe',
-      embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub',
+      embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn',
       iframePolicy: { requiresGuard: true, sandbox: [], referrerPolicy: 'strict-origin-when-cross-origin' },
     });
     expect(body).not.toHaveProperty('url');

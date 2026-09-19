@@ -64,10 +64,9 @@ function unsupported(
 }
 
 function matchesProviderSelector(url: URL, providerId: string): boolean {
-  if (!url.search) return true;
   if (providerId === 'hd-1') return url.search === '?s=tcdn';
   if (providerId === 'hd-2') return url.search === '?s=bcdn';
-  return false;
+  return !url.search;
 }
 
 export function validateMegaPlayEmbedUrl(value: string, language: string, providerId = 'vidstream-2'): URL {
