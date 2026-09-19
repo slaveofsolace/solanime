@@ -20,11 +20,26 @@ import { THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficial
 import { BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBeybladeEditionApprovals.ts';
 import { TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialLostCanvasApprovals.ts';
 import { GUNDAM_SEED_DESTINY_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialSeedDestinyApprovals.ts';
+import {
+  TMS_CARDFIGHT_VANGUARD_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  TMS_SHERLOCK_HOUND_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+} from './youtubeOfficialTmsDubApprovals.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
   /** Concise, user-facing edition label such as a publisher or audio locale. */
   editionLabel?: string;
+  /**
+   * An explicit, narrow opt-in for a publisher edition absent from the source
+   * catalogue. This may only add the reviewed English-dub identity below; it
+   * never rewrites or reuses the existing subtitle version.
+   */
+  supplementalVersion?: {
+    createIfMissing: true;
+    versionLabel: 'Dubbed';
+    audioLanguage: 'en';
+    subtitleLanguage: null;
+  };
   catalogue: {
     source: 'anikoto';
     titleSourceId: string;
@@ -235,6 +250,8 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...GUNDAM_SEED_DESTINY_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...TMS_SHERLOCK_HOUND_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...TMS_CARDFIGHT_VANGUARD_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
@@ -248,6 +265,15 @@ type OEmbed = {
 
 function validateApproval(approval: OfficialYouTubeEpisodeApproval): void {
   const publisherPolicy = officialYouTubePublisherPolicyForChannel(approval.video.channelId);
+  const supplementalVersion = approval.supplementalVersion;
+  const supplementalVersionIsValid = supplementalVersion == null || (
+    supplementalVersion.createIfMissing === true &&
+    supplementalVersion.versionLabel === 'Dubbed' &&
+    supplementalVersion.audioLanguage === 'en' &&
+    supplementalVersion.subtitleLanguage === null &&
+    approval.catalogue.language === 'dub' &&
+    approval.catalogue.versionSourceId === `${approval.catalogue.episodeSourceId}:dub`
+  );
   if (
     approval.catalogue.source !== 'anikoto' ||
     !publisherPolicy ||
@@ -257,6 +283,7 @@ function validateApproval(approval: OfficialYouTubeEpisodeApproval): void {
     approval.publisherIdentityUrl !== publisherPolicy.identityUrl ||
     !/^[A-Za-z0-9_-]{11}$/.test(approval.video.id) ||
     !Number.isFinite(Date.parse(approval.observedAt)) ||
+    !supplementalVersionIsValid ||
     (approval.editionLabel != null &&
       (approval.editionLabel !== approval.editionLabel.trim() ||
         approval.editionLabel.length < 1 ||
@@ -336,23 +363,28 @@ export async function verifyOfficialYouTubeOEmbed(
 export function locateOfficialYouTubeEpisode(
   db: DatabaseSync,
   approval: OfficialYouTubeEpisodeApproval,
-): { titleId: number; episodeId: number; versionId: number } {
+): { titleId: number; episodeId: number; versionId: number | null } {
   validateApproval(approval);
-  const row = db.prepare(`SELECT t.id AS titleId,e.id AS episodeId,v.id AS versionId
-    FROM titles t JOIN episodes e ON e.title_id=t.id JOIN episode_versions v ON v.episode_id=e.id
-    WHERE t.source=? AND t.source_id=? AND t.slug=? AND e.source_id=? AND e.number_text=?
-      AND v.source_id=? AND v.language=?`).get(
+  const episode = db.prepare(`SELECT t.id AS titleId,e.id AS episodeId
+    FROM titles t JOIN episodes e ON e.title_id=t.id
+    WHERE t.source=? AND t.source_id=? AND t.slug=? AND e.source_id=? AND e.number_text=?`).get(
       approval.catalogue.source,
       approval.catalogue.titleSourceId,
       approval.catalogue.titleSlug,
       approval.catalogue.episodeSourceId,
       approval.catalogue.episodeNumber,
+    ) as { titleId: number; episodeId: number } | undefined;
+  if (!episode)
+    throw new Error(`CATALOGUE_IDENTITY_NOT_FOUND:${approval.id}`);
+  const version = db.prepare(`SELECT id AS versionId FROM episode_versions
+    WHERE episode_id=? AND source_id=? AND language=?`).get(
+      episode.episodeId,
       approval.catalogue.versionSourceId,
       approval.catalogue.language,
-    ) as { titleId: number; episodeId: number; versionId: number } | undefined;
-  if (!row)
+    ) as { versionId: number } | undefined;
+  if (!version && !approval.supplementalVersion)
     throw new Error(`CATALOGUE_IDENTITY_NOT_FOUND:${approval.id}`);
-  return row;
+  return { ...episode, versionId: version?.versionId ?? null };
 }
 
 export function reconcileOfficialYouTubeEdition(
@@ -362,6 +394,7 @@ export function reconcileOfficialYouTubeEdition(
   validateApproval(approval);
   const publisher = officialYouTubePublisherPolicyForChannel(approval.video.channelId)!.publisher;
   const identity = locateOfficialYouTubeEpisode(db, approval);
+  if (identity.versionId === null) return null;
   const mapping = db.prepare(`SELECT m.id,n.provider_id AS providerId,n.resource_id AS resourceId,
     n.language,n.edition
     FROM episode_provider_mappings m
@@ -394,9 +427,45 @@ export function applyOfficialYouTubeApproval(
   const publisherPolicy = officialYouTubePublisherPolicyForChannel(approval.video.channelId)!;
   const publisher = publisherPolicy.publisher;
   if (!Number.isFinite(Date.parse(appliedAt))) throw new Error('INVALID_APPROVAL_TIME');
-  const identity = locateOfficialYouTubeEpisode(db, approval);
+  const locatedIdentity = locateOfficialYouTubeEpisode(db, approval);
   db.exec('BEGIN IMMEDIATE');
   try {
+    if (locatedIdentity.versionId === null) {
+      const supplementalVersion = approval.supplementalVersion!;
+      db.prepare(`INSERT INTO episode_versions(episode_id,source_id,language,version_label,
+        audio_language,subtitle_language,availability_state,first_seen_at,last_seen_at,last_successful_import_at)
+        VALUES(?,?,?,?,?,?,'observed',?,?,?)
+        ON CONFLICT(episode_id,source_id,language) DO NOTHING`).run(
+          locatedIdentity.episodeId,
+          approval.catalogue.versionSourceId,
+          approval.catalogue.language,
+          supplementalVersion.versionLabel,
+          supplementalVersion.audioLanguage,
+          supplementalVersion.subtitleLanguage,
+          approval.observedAt,
+          approval.observedAt,
+          appliedAt,
+        );
+    }
+    const version = db.prepare(`SELECT id AS versionId,version_label AS versionLabel,
+      audio_language AS audioLanguage,subtitle_language AS subtitleLanguage
+      FROM episode_versions WHERE episode_id=? AND source_id=? AND language=?`).get(
+        locatedIdentity.episodeId,
+        approval.catalogue.versionSourceId,
+        approval.catalogue.language,
+      ) as {
+        versionId: number;
+        versionLabel: string | null;
+        audioLanguage: string | null;
+        subtitleLanguage: string | null;
+      } | undefined;
+    if (!version) throw new Error('OFFICIAL_YOUTUBE_VERSION_IDENTITY_CONFLICT');
+    if (approval.supplementalVersion && (
+      version.versionLabel !== approval.supplementalVersion.versionLabel ||
+      version.audioLanguage !== approval.supplementalVersion.audioLanguage ||
+      version.subtitleLanguage !== approval.supplementalVersion.subtitleLanguage
+    )) throw new Error('OFFICIAL_YOUTUBE_VERSION_IDENTITY_CONFLICT');
+    const identity = { ...locatedIdentity, versionId: version.versionId };
     const capabilities = JSON.stringify({
       embed: true,
       seek: true,
