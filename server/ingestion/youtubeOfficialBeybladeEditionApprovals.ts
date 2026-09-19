@@ -262,6 +262,7 @@ export const BEYBLADE_GERMAN_EPISODE_APPROVALS = buildApprovals({
 const BEYBLADE_SPANISH_ROWS = [
   ["3351", "beyblade-burst-evolution-ylr1c", "51", "56513", "56513:dub", "zm6uHDsLVdo", "BEYBLADE BURST EVOLUTION | Ep.51 ¡Se corona al campeón! | BEYBLADE BURST EVOLUTION Tema de Apertura", "2026-09-13T23:54:38.431Z"],
   ["3754", "beyblade-metal-fusion-bdh7k", "20", "62325", "62325:dub", "RRi-p8TRqyM", "BEYBLADE METAL FUSION | Ep.20 ¡Que comience el combate de supervivencia! | Español", "2026-09-13T23:55:59.394Z"],
+  ["4540", "beyblade-burst-tulpp", "51", "74393", "74393:dub", "1ecGw5C9hrM", "BEYBLADE BURST | Ep.51 ¡Duelo final! ¡Victory Valtryek! | BEYBLADE BURST Tema de Apertura", "2026-09-13T23:56:49.708Z"],
   ["6414", "beyblade-x-aj6fn", "4", "98986", "98986:dub", "-hoj0VOozO4", "BEYBLADE X | Ep.4 ¡EL PATROCINADOR! | Español", "2026-09-13T23:56:46.464Z"],
   ["6414", "beyblade-x-aj6fn", "6", "98988", "98988:dub", "5hyH8eFrQws", "BEYBLADE X | Ep. 6 La Jungla del león | Español Latino", "2026-09-13T23:56:19.733Z"],
   ["6414", "beyblade-x-aj6fn", "7", "98989", "98989:dub", "zvyY9zZX2ug", "BEYBLADE X | Ep.7 El Equipo Zooganico | Español Latino", "2026-09-13T23:54:04.797Z"],
