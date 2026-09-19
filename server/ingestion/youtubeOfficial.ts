@@ -19,6 +19,7 @@ import { TV_TOKYO_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialTv
 import { THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialThirdWaveApprovals.ts';
 import { BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialBeybladeEditionApprovals.ts';
 import { TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialLostCanvasApprovals.ts';
+import { GUNDAM_SEED_DESTINY_OFFICIAL_YOUTUBE_EPISODE_APPROVALS } from './youtubeOfficialSeedDestinyApprovals.ts';
 
 export interface OfficialYouTubeEpisodeApproval {
   id: string;
@@ -233,6 +234,7 @@ export const OFFICIAL_YOUTUBE_EPISODE_APPROVALS: readonly OfficialYouTubeEpisode
   ...THIRD_WAVE_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...BEYBLADE_MULTILINGUAL_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
   ...TMS_LOST_CANVAS_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
+  ...GUNDAM_SEED_DESTINY_OFFICIAL_YOUTUBE_EPISODE_APPROVALS,
 ];
 
 type OEmbed = {
