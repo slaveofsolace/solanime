@@ -218,8 +218,10 @@ Before promotion, require all of the following:
 
 - Current source/type/API/data tests and browser acceptance pass.
 - Frontend and API versions match on the stable preview origin.
-- A real catalogue episode progresses in the native player there; every enabled
-  provider has its own dated evidence. Loaded elements and HTTP 200 do not count.
+- A real catalogue episode progresses in its supported Solanime player mode;
+  every enabled provider has its own dated evidence. Native media and guarded
+  provider embeds remain separate capabilities. Loaded elements and HTTP 200
+  responses do not count as playback.
 - Registration/login, profile isolation, private recovery, API authorization,
   public private-asset denial and import pause/resume have been checked live.
 - Review the exact staged/outgoing source and archive contents; keep account
