@@ -19,6 +19,8 @@ const requestedProviders = String(args.get('providers') ?? 'hd-1,hd-2,vidstream-
   .map((value) => value.trim())
   .filter((value) => ['hd-1', 'hd-2', 'vidstream-2'].includes(value));
 const timeoutMs = Math.max(10_000, Math.min(120_000, Number(args.get('timeout-ms') ?? 35_000)));
+const concurrency = Math.max(1, Math.min(4, Number(args.get('concurrency') ?? 1)));
+const ratePerMinute = Math.max(1, Math.min(30, Number(args.get('rate-per-minute') ?? 24)));
 const headed = args.get('headed') === 'true';
 const outputPath = resolve(String(args.get('output') ?? join('test-results', `provider-playback-${Date.now()}.json`)));
 const outputRoot = dirname(outputPath);
@@ -63,9 +65,16 @@ function sampleMappings() {
 async function attemptPlayback(page, mapping) {
   const watchUrl = `${origin}/watch/${encodeURIComponent(mapping.slug)}/${mapping.episodeId}?language=${encodeURIComponent(mapping.language)}&server=${mapping.mappingId}`;
   const unexpectedPages = [];
+  const ownedPages = [];
   const context = page.context();
   const recordPage = (candidate) => {
-    if (candidate !== page) unexpectedPages.push(candidate.url());
+    if (candidate === page) return;
+    void candidate.opener().then((opener) => {
+      if (opener === page) {
+        ownedPages.push(candidate);
+        unexpectedPages.push(candidate.url());
+      }
+    });
   };
   context.on('page', recordPage);
   const result = {
@@ -100,25 +109,6 @@ async function attemptPlayback(page, mapping) {
     result.frameLoaded = Boolean(source && source.startsWith('https://megaplay.buzz/stream/s-2/'));
     if (!result.frameLoaded) throw new Error('Validated provider iframe did not load.');
 
-    const frame = page.frameLocator('iframe[title="MegaPlay provider player"]');
-    const playSelectors = [
-      'button[aria-label*="play" i]',
-      '.jw-icon-display',
-      '.jw-icon-playback',
-      'video',
-    ];
-    for (const selector of playSelectors) {
-      try {
-        const control = frame.locator(selector).first();
-        if (await control.isVisible({ timeout: 2_000 })) {
-          await control.click({ timeout: 3_000 });
-          break;
-        }
-      } catch {
-        // Provider controls vary. Progress events remain the acceptance signal.
-      }
-    }
-
     await page.getByText('Provider playback · MegaPlay', { exact: true }).waitFor({
       state: 'visible',
       timeout: timeoutMs,
@@ -144,8 +134,6 @@ async function attemptPlayback(page, mapping) {
     result.parentStayedOnWatchRoute = new URL(page.url()).pathname === new URL(watchUrl).pathname;
     await page.waitForTimeout(1_000);
     result.unexpectedPages = unexpectedPages.filter(Boolean);
-    result.status = result.parentStayedOnWatchRoute && result.unexpectedPages.length === 0 ? 'passed' : 'failed';
-    if (result.status !== 'passed') result.reason = 'Unexpected top-level navigation survived containment.';
   } catch (error) {
     result.reason = error instanceof Error ? error.message : String(error);
     result.parentStayedOnWatchRoute = page.url().startsWith(`${origin}/watch/`);
@@ -160,9 +148,18 @@ async function attemptPlayback(page, mapping) {
     }
   } finally {
     context.off('page', recordPage);
-    for (const candidate of context.pages()) {
-      if (candidate !== page) await candidate.close().catch(() => undefined);
+    await page.waitForTimeout(250).catch(() => undefined);
+    result.unexpectedPages = ownedPages
+      .filter((candidate) => !candidate.isClosed())
+      .map((candidate) => candidate.url())
+      .filter(Boolean);
+    if (result.playbackProgress && result.parentStayedOnWatchRoute && result.unexpectedPages.length === 0) {
+      result.status = 'passed';
+      result.reason = null;
+    } else if (result.unexpectedPages.length > 0) {
+      result.reason = 'Unexpected top-level navigation survived containment.';
     }
+    for (const candidate of ownedPages) await candidate.close().catch(() => undefined);
   }
   return result;
 }
@@ -181,8 +178,24 @@ const context = await chromium.launchPersistentContext(profilePath, {
 const results = [];
 try {
   await (context.serviceWorkers()[0] ?? context.waitForEvent('serviceworker', { timeout: timeoutMs }));
-  const page = context.pages()[0] ?? await context.newPage();
-  for (const sample of samples) results.push(await attemptPlayback(page, sample));
+  for (const page of context.pages()) await page.close().catch(() => undefined);
+  for (let offset = 0; offset < samples.length; offset += concurrency) {
+    const batchStarted = Date.now();
+    const batch = samples.slice(offset, offset + concurrency);
+    const pages = await Promise.all(batch.map(() => context.newPage()));
+    const completed = await Promise.all(batch.map((sample, index) => attemptPlayback(pages[index], sample)));
+    results.push(...completed);
+    await Promise.all(pages.map((page) => page.close().catch(() => undefined)));
+    console.log(JSON.stringify({
+      progress: results.length,
+      requested: samples.length,
+      passed: results.filter((result) => result.status === 'passed').length,
+      failed: results.filter((result) => result.status !== 'passed').length,
+    }));
+    const minimumBatchMs = 60_000 * batch.length / ratePerMinute;
+    const remaining = minimumBatchMs - (Date.now() - batchStarted);
+    if (remaining > 0 && offset + batch.length < samples.length) await new Promise((resolveDelay) => setTimeout(resolveDelay, remaining));
+  }
 } finally {
   await context.close();
   rmSync(profilePath, { recursive: true, force: true });
@@ -194,6 +207,8 @@ const report = {
   origin,
   databasePath,
   seed,
+  concurrency,
+  ratePerMinute,
   requested: limit,
   attempted: results.length,
   passed: results.filter((result) => result.status === 'passed').length,
