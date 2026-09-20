@@ -50,6 +50,7 @@ function failureClass(result) {
 const results = report.results.map((result) => ({
   ...result,
   contentType: normalizeContentType(formatStatement.get(result.episodeId)?.format),
+  selectedSourceMatched: result.selectedSourceMatched ?? result.embedUrl === result.providerFrameUrl,
 }));
 const failed = results.filter((result) => result.status !== 'passed');
 const summary = {
@@ -69,6 +70,7 @@ const summary = {
   containment: {
     guardActive: results.filter((result) => result.guardActive).length,
     validatedFrameLoaded: results.filter((result) => result.frameLoaded).length,
+    exactSelectedSourceMatches: results.filter((result) => result.selectedSourceMatched).length,
     parentRouteStable: results.filter((result) => result.parentStayedOnWatchRoute).length,
     zeroSurvivingUnexpectedPages: results.filter((result) => result.unexpectedPages?.length === 0).length,
   },

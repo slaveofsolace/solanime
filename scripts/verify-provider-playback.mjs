@@ -83,6 +83,7 @@ async function attemptPlayback(page, mapping) {
     startedAt: new Date().toISOString(),
     guardActive: false,
     frameLoaded: false,
+    selectedSourceMatched: false,
     playbackProgress: false,
     progressFrom: null,
     progressTo: null,
@@ -106,8 +107,9 @@ async function attemptPlayback(page, mapping) {
     await providerFrame.waitFor({ state: 'visible', timeout: timeoutMs });
     const source = await providerFrame.getAttribute('src');
     result.providerFrameUrl = source;
-    result.frameLoaded = Boolean(source && source.startsWith('https://megaplay.buzz/stream/s-2/'));
-    if (!result.frameLoaded) throw new Error('Validated provider iframe did not load.');
+    result.selectedSourceMatched = source === mapping.embedUrl;
+    result.frameLoaded = Boolean(result.selectedSourceMatched && source?.startsWith('https://megaplay.buzz/stream/s-2/'));
+    if (!result.frameLoaded) throw new Error('The loaded provider iframe did not exactly match the selected mapping.');
 
     await page.getByText('Provider playback · MegaPlay', { exact: true }).waitFor({
       state: 'visible',
@@ -153,7 +155,7 @@ async function attemptPlayback(page, mapping) {
       .filter((candidate) => !candidate.isClosed())
       .map((candidate) => candidate.url())
       .filter(Boolean);
-    if (result.playbackProgress && result.parentStayedOnWatchRoute && result.unexpectedPages.length === 0) {
+    if (result.selectedSourceMatched && result.playbackProgress && result.parentStayedOnWatchRoute && result.unexpectedPages.length === 0) {
       result.status = 'passed';
       result.reason = null;
     } else if (result.unexpectedPages.length > 0) {
@@ -213,7 +215,7 @@ const report = {
   attempted: results.length,
   passed: results.filter((result) => result.status === 'passed').length,
   failed: results.filter((result) => result.status !== 'passed').length,
-  definition: 'Passed requires Guard handshake, validated iframe, two increasing provider time values, stable watch route, and no surviving unexpected page.',
+  definition: 'Passed requires Guard handshake, an iframe URL exactly matching the selected mapping, two increasing provider time values, a stable watch route, and no surviving unexpected page.',
   results,
 };
 writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
