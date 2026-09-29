@@ -1,0 +1,69 @@
+/* Keep Solanime notices out of the provider's picture, captions and controls. */
+.provider-player.provider-player--framed {
+  aspect-ratio: auto;
+  min-height: 0;
+}
+.provider-player--framed > iframe {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.provider-player__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 10px 14px;
+  border-top: 1px solid #252525;
+  background: #101010;
+  color: #c8c8c8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.provider-player--framed .provider-player__label {
+  position: static;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: normal;
+}
+.provider-player__notice {
+  max-width: 50ch;
+}
+.provider-player__notice summary {
+  min-height: 32px;
+  display: list-item;
+  align-content: center;
+  cursor: pointer;
+}
+.provider-player__notice[open] > div {
+  padding-top: 6px;
+}
+.provider-player__notice a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.provider-player--framed .provider-player__timeout,
+.provider-player--framed .provider-player__error {
+  position: static;
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 12px;
+}
+.provider-player--framed .provider-player__timeout button {
+  min-height: 44px;
+  font-size: 12px;
+}
+.provider-player__notice summary:focus-visible,
+.provider-player__notice a:focus-visible,
+.provider-player--framed .provider-player__timeout button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .provider-player__footer { gap: 2px; }
+  .provider-player__footer > * { flex-basis: 100%; }
+}

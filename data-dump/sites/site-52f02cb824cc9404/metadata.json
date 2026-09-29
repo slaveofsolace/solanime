@@ -1,0 +1,72 @@
+{
+  "availability": {
+    "observed_at": "2026-09-12T07:43:47.181437+00:00",
+    "reason": "robots_disallow_or_unavailable",
+    "robots_evidence": {
+      "content_type": "text/html",
+      "final_url": "https://images.defence.gov.au/assets<LOCAL_HOME>",
+      "headers": {
+        "content-type": "text/html",
+        "x-frame-options": "SAMEORIGIN"
+      },
+      "http_status": 500,
+      "reason": "http_500",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://images.defence.gov.au/assets/robots.txt",
+          "url": "https://images.defence.gov.au/robots.txt"
+        },
+        {
+          "http_status": 302,
+          "location": "https://images.defence.gov.au/assets<LOCAL_HOME>",
+          "url": "https://images.defence.gov.au/assets/robots.txt"
+        }
+      ],
+      "status": "unavailable"
+    },
+    "status": "blocked",
+    "url": "https://images.defence.gov.au/assets/"
+  },
+  "categories": [
+    [
+      "Specialty Streaming",
+      "Film Archives"
+    ]
+  ],
+  "depth": {
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false
+  },
+  "domain_ids": [
+    "domain-3998d29b09300e45"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-cece92db0d6fdb48"
+  ],
+  "frameworks": [],
+  "id": "site-52f02cb824cc9404",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "Australian Defence Imagery",
+  "observations": [
+    {
+      "observed_at": "2026-09-12T07:43:47.181437+00:00",
+      "reason": "robots_disallow_or_unavailable",
+      "status": "blocked",
+      "url": "https://images.defence.gov.au/assets/"
+    }
+  ],
+  "observed_at": "2026-09-12T07:43:47.181437+00:00",
+  "provider_ids": [],
+  "references": [],
+  "repository_ids": [],
+  "research_status": "blocked",
+  "roles": [
+    "listed_related"
+  ],
+  "url": "https://images.defence.gov.au/assets/"
+}

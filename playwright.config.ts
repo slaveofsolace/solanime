@@ -1,27 +1,53 @@
 import { defineConfig, devices } from '@playwright/test';
-
 export default defineConfig({
   testDir: './tests/e2e',
-  // Every project exercises the same live, rate-limited provider resolver. Keep
-  // these acceptance journeys serial so the test runner honors per-host pacing.
-  workers: 1,
-  outputDir: './evidence/playwright-results',
-  reporter: [['list'], ['html', { outputFolder: 'evidence/playwright-report', open: 'never' }]],
+  testMatch: '**/*.spec.ts',
+  timeout: 30000,
+  expect: { timeout: 10000 },
+  workers: 2,
+  retries: process.env.CI ? 1 : 0,
+  fullyParallel: true,
+  outputDir: './test-results',
+  reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:5173',
+    baseURL: 'http://127.0.0.1:18787',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
   webServer: {
-    command: 'pnpm dev',
-    url: 'http://127.0.0.1:5173/api/health',
-    reuseExistingServer: true,
-    timeout: 120_000,
+    command: 'node --import tsx tests/e2e/server.ts',
+    url: 'http://127.0.0.1:18787/api/health',
+    reuseExistingServer: process.env.PLAYWRIGHT_REUSE_SERVER === '1',
+    timeout: 30000,
   },
   projects: [
-    { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1080 } } },
-    { name: 'laptop-chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1366, height: 768 } } },
-    { name: 'tablet-chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 820, height: 1180 }, isMobile: true, hasTouch: true } },
-    { name: 'mobile-chromium', use: { ...devices['Pixel 5'] } },
+    {
+      name: 'desktop-chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1440, height: 1000 },
+        ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+          ? { launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } }
+          : {}),
+      },
+    },
+    {
+      name: 'mobile-chromium',
+      use: {
+        ...devices['Pixel 5'],
+        viewport: { width: 390, height: 844 },
+        ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+          ? { launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } }
+          : {}),
+      },
+    },
+    {
+      name: 'desktop-webkit',
+      use: { ...devices['Desktop Safari'], viewport: { width: 1440, height: 1000 } },
+    },
+    {
+      name: 'mobile-webkit',
+      use: { ...devices['iPhone 13'], viewport: { width: 390, height: 844 } },
+    },
   ],
 });

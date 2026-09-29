@@ -1,138 +1,134 @@
-# Sol Anime
+# Solanime
 
-Sol Anime is an independent, local-first catalogue and watch interface reconstructed from Anikoto's publicly observable browsing, episode, language-version, and provider relationships. It is not operated by or endorsed by Anikoto. It does not copy Anikoto's application bundles, advertisements, trackers, cookies, or episode media.
+An independently built anime catalogue and in-site player. React/TypeScript on
+Cloudflare Pages, a Workers API, separate D1 catalogue/accounts/research stores,
+and Firebase Spark email/password authentication. Node/SQLite remains supported
+locally. No paid service or always-on personal computer is required by the hosted
+application.
 
-The delivered SQLite database is populated by the same durable ingestion worker used for refreshes. Catalogue pages, search, title detail, episode/version selection, and provider choices all read from that database; test fixtures are confined to tests.
+Current integration: **0.8.4-alpha**, based on `feat/studio-v05@632a82a`, with only
+`data-dump/` imported from `data-dump/fmhy-video@3e53fb2`. Historical branches and
+the original catalogue checkpoint are preserved.
 
-## Requirements
+## What is available
 
-- Node.js 24 or newer (`node:sqlite` is used directly)
-- pnpm 11
-- Windows, macOS, or Linux for the application; the checked-in database path defaults to `data/solanime.sqlite`
+- Search, filters, title/episode/version navigation, watchlist, Continue Watching,
+  real playback progress where the selected source exposes it, private episode
+  notes, and up to five profiles.
+- Charcoal and warm-ivory themes, an orange default accent, locally hosted fonts,
+  responsive navigation, keyboard controls, and reduced-motion support. Existing
+  saved themes and custom accents are retained.
+- A shared ribbon/sun identity, readiness-driven opening animation, quiet loading
+  loop and static navigation assets. The [branding studio](docs/BRANDING.md)
+  documents component states, reduced motion and reproducible GIF/WebM exports.
+- Restricted `/admin` import controls and `/admin/sources` research search.
+  Research reviews do not enable playback. The ordinary frontend never downloads
+  the research inventory or account database.
+- Durable, checksummed catalogue/research import with D1 checkpoints, bounded
+  Queues delivery, per-day free-plan budgets, and restart-safe progress.
 
-The dependency choices follow the current official guidance for [Node SQLite](https://nodejs.org/api/sqlite.html), [Vite](https://vite.dev/guide/), [React Router](https://reactrouter.com/home), and [Playwright](https://playwright.dev/docs/intro).
+The immutable 2026-09-18 catalogue checkpoint has **9,185 titles, 165,944
+episodes, 215,331 language/version records, and 428,103 episode-provider
+mappings**. Of those mappings, **423,552** contain a canonical MegaPlay embed
+reference reconstructed from the completed resolver run. It also retains the
+explicitly reviewed restored-silent edition and its two native connections,
+Internet Archive and Wikimedia Commons. Imported mappings and canonical embed
+references describe source relationships; they are not blanket playback
+verification. Source coverage, player support, observed media progress, and
+current cloud state are separate; see the [release record](docs/cloud-release-checklist.md).
 
-## Start locally
+See the [dated review status](docs/RELEASE_STATUS.md) for current cloud counts,
+verified functionality and remaining blockers; local and hosted coverage differ.
 
-```bash
+**Imported or resolved does not mean playback verified.** HD-1, HD-2, and
+Vidstream-2 may load their canonical provider iframe in compatible mode. The
+optional desktop Guard extension provides additional filtering when active;
+the ordinary website and installable web app cannot promise popup containment
+inside that cross-origin player. This path does not
+extract, proxy, re-host, or label the provider page as native media. Approved
+native connections for *The Dull Sword* use documented metadata APIs and
+ordinary MP4/WebM delivery; that restored edition is distinct from the original
+SUB inventory. See the [playback contract](docs/NATIVE_PLAYBACK.md) and
+[identity, rights, and native playback evidence](docs/native-provider-evidence.md).
+
+## Run locally
+
+Use Node **24.10+** (24 LTS recommended), Git LFS, and **pnpm 11.19.0**. Clone the
+private repository into a new directory; do not extract over an existing running
+installation or replace newer catalogue/private data with this checkpoint.
+
+```sh
+git lfs pull
 pnpm install --frozen-lockfile
 pnpm db:migrate
-pnpm dev
-```
-
-Open `http://127.0.0.1:5173`. The frontend proxies `/api` to the local API at `127.0.0.1:8787`.
-
-For administrative controls, set `SOLANIME_ADMIN_TOKEN` before starting the API and open `/admin`. The token is kept in browser session storage, not local storage. Copy `.env.example` only as a reference; this project does not auto-load or commit secrets.
-
-## Ingestion
-
-Validate a bounded real-data slice:
-
-```bash
-pnpm import:anikoto --mode=slice --title-limit=3
-```
-
-Start full discovery and enrichment in the foreground:
-
-```bash
-pnpm import:anikoto --mode=full
-```
-
-Resume an existing durable run:
-
-```bash
-pnpm import:anikoto --mode=full --run-id=<run-id>
-```
-
-On Windows, resume it as a detached worker with the same durable run ID:
-
-```bash
-pnpm import:detached <run-id>
-```
-
-The detached launcher records its exact PID and log paths in `data/logs/full-import.pid.json` and refuses to start while that PID is still active.
-
-Inspect progress or control a run locally:
-
-```bash
-pnpm import:status
-pnpm tsx scripts/control-import.ts <run-id> pause
-pnpm tsx scripts/control-import.ts <run-id> resume
-pnpm tsx scripts/control-import.ts <run-id> retry
-pnpm audit:provider-failures -- --limit=5
-pnpm audit:empty-episodes
-```
-
-The worker is sequential per source host, defaults to a 1.2-second start-to-start delay, uses timeouts and bounded retries, respects `Retry-After`, stops on explicit access refusals, and never turns a failed fetch into a deletion. Set `SOLANIME_SOURCE_DELAY_MS`, `SOLANIME_SOURCE_TIMEOUT_MS`, and task/process budgets explicitly when needed. There is no hidden "full" cap.
-
-The queue stores filter-catalogue, sitemap-index/page/title, title-detail, and per-episode server-list tasks. Full discovery reconciles the public `/filter` pagination with every same-origin child of `/sitemap.xml` before the long provider-enrichment tail. Claims, attempts, retry timestamps, errors, checkpoints, and run state survive process restarts. Interrupted running tasks are re-queued as idempotent work.
-
-## Data and provider boundaries
-
-- Source IDs, routes, titles, aliases, genres, episodes, language variants, and provider mappings are persisted.
-- Opaque provider references remain private inside SQLite because they are needed for on-demand resolution. They are excluded from default JSON/CSV exports and logs.
-- Temporary embed URLs are resolved only when a user selects a stored mapping. They are not retained in public exports.
-- The resolver accepts only database-backed mapping IDs, calls only the exact allowlisted first-party endpoint, and validates returned embeds against provider-specific hostname and path allowlists. It is not an open proxy.
-- Provider buttons remain distinct even when their observed backend hostname is shared.
-- "Mapping imported", "source resolved", "provider document responded", and "playback verified" are separate states.
-- No episode files, DRM bypass, access-block bypass, private APIs, credentials, or session captures are included.
-
-## Routes and APIs
-
-Frontend routes:
-
-- `/catalogue` and `/search` — database-backed browsing, filtering, sorting, and pagination
-- `/title/:slug` — metadata, aliases, genres, versions, and scalable episode directory
-- `/watch/:slug/:episodeId?language=...&server=...` — refresh-safe watch workflow and provider selection
-- `/library` — local watchlist, history, preferences, and theme
-- `/admin` — token-gated import diagnostics and controls
-
-Primary APIs:
-
-- `GET /api/health`
-- `GET /api/titles?q=&genre=&type=&status=&language=&page=&pageSize=&sort=`
-- `GET /api/titles/:slug`
-- `GET /api/episodes/:episodeId/providers?language=`
-- `POST /api/providers/:mappingId/resolve`
-- `GET /api/meta/filters`
-- `GET /api/exports/catalogue.json`
-- `GET /api/exports/catalogue.csv`
-- `GET /api/exports/coverage.csv`
-- token-gated `/api/admin/import/*` and `/api/admin/backup`
-
-## Verification, exports, backup, and restore
-
-```bash
-pnpm test
-pnpm typecheck
-pnpm build
 pnpm verify:database
-pnpm verify:providers
-pnpm test:e2e
-pnpm export:data
-pnpm backup
-pnpm restore -- <backup.sqlite> --replace
+pnpm build
+pnpm start
 ```
 
-Set `PLAYWRIGHT_BROWSERS_PATH` to a task-owned D: or E: directory before installing/running Playwright on Windows.
+Open `http://127.0.0.1:8787`. `pnpm dev` starts the frontend on port 5173 and its
+local API. `pnpm preview` alone is not the database backend. Optional environment
+settings are described in `.env.example`; copy it only if `.env` does not exist:
 
-`restore --replace` is intentionally explicit. It validates the source database and preserves the current database as a timestamped pre-restore backup before replacement. Stop API/import writers first.
+```powershell
+# Windows PowerShell
+if (-not (Test-Path -LiteralPath .env)) { Copy-Item -LiteralPath .env.example -Destination .env }
+```
 
-`verify:providers` performs a bounded current SUB/DUB resolution check for every implemented provider adapter. Its output intentionally excludes temporary player URLs and opaque upstream references, and it never promotes source resolution to a playback claim. `pnpm audit:empty-episodes` rechecks titles with zero episode rows and records valid empty public inventories separately from loading/error states. `pnpm audit:provider-failures -- --limit=<n>` is a read-only, paced diagnosis for terminal server-list failures and requires the run to be paused.
+```sh
+# macOS / POSIX shell
+test -f .env || cp .env.example .env
+```
 
-More detail:
+Keep canonical projects, temporary outputs, and browser profiles on the project's
+established storage volume. Private local accounts use `data/private/accounts.sqlite`;
+operator native-source configuration is ignored by Git and must be preserved.
 
-- [Architecture](docs/ARCHITECTURE.md)
-- [Operations](docs/OPERATIONS.md)
-- [Upstream observations](docs/UPSTREAM_OBSERVATIONS.md)
-- [Provider inventory](docs/PROVIDER_INVENTORY.md)
-- [Interface system](docs/DESIGN_SYSTEM.md)
-- [Evidence ledger](docs/EVIDENCE_LEDGER.md)
-- [Documentary outline](docs/DOCUMENTARY_OUTLINE.md)
-- [Resource registry](docs/RESOURCE_REGISTRY.json)
+## Verify and maintain
 
-## Cloudflare alpha
+```sh
+pnpm check
+pnpm exec playwright install chromium webkit
+pnpm test:e2e
+pnpm verify:database
+pnpm verify:deployment -- http://127.0.0.1:8787
+python -m unittest discover -s data-dump/tests -v
+python -m unittest discover -s data-dump/curated/tests -v
+```
 
-The current authorized Cloudflare Pages alpha is `https://solanime.pages.dev`. It deploys the built React frontend from `dist/` for public visual/navigation review. The checked-in database and Node SQLite API remain the authoritative working runtime, so production catalogue APIs on Pages are a tracked loose end until a Cloudflare D1/Functions backend is added and imported from the SQLite checkpoint.
+The Python inventory tools need the dependencies in `data-dump/requirements.txt`.
+Browser fixtures test direct/HLS/DASH behavior and failure handling; they are not
+production catalogue records or evidence of a live provider. Browsers without a
+delivery capability must show a useful unavailable state, not simulated playback.
 
-Provider playback remains evidence-gated. SolAnime no longer adds a sandbox attribute to the in-site MegaPlay iframe, but current MegaPlay player behavior still appears parent-origin allowlist restricted; source resolution, provider document load, and playback verification are recorded separately.
+Provider-embed testing should cover both ordinary browser mode and the optional
+`extensions/solanime-guard` Chromium extension. The Guard is a narrow desktop
+companion, not a general ad blocker or a requirement for the compatible iframe.
+For Mac and iPhone web-app installation, see [install steps](docs/WEB_APP_INSTALL.md).
+
+```sh
+pnpm backup /absolute/private/catalogue-backups
+pnpm backup:accounts
+pnpm export:data
+pnpm import:status
+pnpm package:source --out=/absolute/private/solanime-source.zip --include-research
+```
+
+See [cloud deployment, rollback and operation](docs/CLOUD_RELEASE.md),
+[catalogue import and resume](scripts/cloud-data/README.md), and
+[managed authentication and legacy migration](scripts/cloud-auth/README.md).
+Cloud sign-in keeps the existing interface and recovery-code flow; this release
+does not send password-reset or verification email. Missing legacy private data
+is not treated as a completed account migration.
+
+The private-site candidate adds an approval gate for *new* accounts. When
+`SOLANIME_PRIVATE_SITE=true`, catalogue and watch APIs require an approved
+session; when `SOLANIME_APPROVAL_REQUIRED=true`, registration creates a pending
+account and does not sign it in. The operator reviews requests in `/admin`.
+FormSubmit is configured to send an owner notification and, after approval, an applicant copy;
+delivery is a separate verification step and neither email nor a frontend flag
+grants access. See the [approval operating notes](docs/CLOUD_RELEASE.md#private-account-approval).
+
+Production promotion requires real catalogue playback on the deployed origin,
+current integrated tests, and per-enabled-provider evidence. A successful build,
+HTTP 200, or loaded video element alone does not meet that gate.

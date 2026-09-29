@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "observedDateUtc": "2026-09-13",
+  "scope": "Bounded continuation of ordinary reference-site browsing. Public observations, not copied databases or enabled playback integrations.",
+  "disposition": "REFERENCE ONLY",
+  "cinejoy": {
+    "canonicalOrigin": "https://cinejoy.to",
+    "browser": "Chrome",
+    "braveObservation": "Homepage remained blank in the inspected Brave session. Intentional Brave blocking was not established.",
+    "movieDiscovery": {
+      "trigger": "Home -> Movies",
+      "method": "GET",
+      "endpoint": "https://api.themoviedb.org/3/discover/movie",
+      "parameterNames": ["language", "include_adult", "watch_region", "page", "sort_by", "api_key"],
+      "responseKeys": ["page", "results", "total_pages", "total_results"],
+      "observedPage": 1,
+      "returnedRows": 20,
+      "reportedPages": 1001,
+      "reportedResults": 20001,
+      "denominatorCaveat": "The delivered result is scoped to this discover query; neither its global completeness nor availability of every reported page was established.",
+      "rowKeys": ["adult", "backdrop_path", "genre_ids", "id", "title", "original_language", "original_title", "overview", "popularity", "poster_path", "release_date", "softcore", "video", "vote_average", "vote_count"],
+      "credentialBoundary": "No source-site API key was copied. An independent TMDB client requires project-supplied credentials.",
+      "relatedRequests": ["/3/genre/movie/list", "/3/movie/{tmdbId}/images"],
+      "controls": ["Genre", "Year", "Popular", "Provider", "Country", "Random"]
+    },
+    "movieWorkflow": {
+      "title": "The Odyssey",
+      "tmdbMovieId": "1368337",
+      "titleRoute": "/movie/1368337-the-odyssey-2026",
+      "observedControls": ["Play", "Add to list", "Trailers", "Comments", "Newest", "Login to leave a comment", "You Might Also Like"],
+      "playbackControls": ["Seek Video", "Pause", "Rewind 10s", "Forward 10s", "Mute", "Volume", "Picture in Picture", "Servers", "Subtitles", "Settings", "Fullscreen"],
+      "serverLabels": ["Lisbon", "Nebula", "Solara", "Athens", "Joy", "Castle", "Sakura", "Canaias"],
+      "observedMediaHost": "info.movieboxnoob.cc",
+      "observedDurationSeconds": 9986.794859999954,
+      "observedMediaDimensions": { "width": 1383, "height": 720 },
+      "observedTimeSeconds": [1.262938, 21.753265, 70.359504],
+      "endState": "Paused through the visible player control",
+      "verificationScope": "Media progression on the reference origin only. Film/edition identity, cross-origin integration rights, and Solanime-origin native playback were not established.",
+      "privacy": "No media bytes, temporary media paths, tokens, or user comments retained. Existing 2026-09-12 resolver evidence remains separate."
+    },
+    "layoutObservations": [
+      "Compact navigation floats over a full-width landscape image.",
+      "Movie details have a lower-left title/action cluster, short synopsis, cast and recommendation rows.",
+      "Streaming-service logos are catalogue availability filters, not the player server selector."
+    ]
+  },
+  "movy": {
+    "canonicalOrigin": "https://www.movy.sx",
+    "browserObservations": ["Homepage and API documentation link inspected in Brave", "Anime browse JSON captured in Chrome"],
+    "apiDocumentationLink": "https://vidy.st/",
+    "animeDiscovery": {
+      "trigger": "Home -> Anime",
+      "method": "GET",
+      "observedRoute": "/_next/data/UKiNeZgteF1XQOWa2I5zu/en/browse/anime.json?type=anime",
+      "buildIdCaveat": "Deployment-specific observed build ID, not a stable endpoint to hardcode.",
+      "status": 200,
+      "responseKeys": ["pageProps", "__N_SSG"],
+      "pagePropsKeys": ["type", "hero", "nowPlaying", "topRated", "topAiring", "genreRows", "messages"],
+      "heroCount": 5,
+      "topAiringCount": 9,
+      "genreRowCount": 37,
+      "countCaveat": "Section counts overlap and are not a unique catalogue denominator. Hero sub/dub counts of zero are not authoritative episode inventories.",
+      "observedGenreRoute": "/genre/action?type=anime",
+      "malformedArtworkExample": "One returned hero background field was a single apostrophe; it must be rejected as an image URL."
+    },
+    "onePieceRequests": {
+      "trigger": "Anime browse -> One Piece",
+      "requests": [
+        { "method": "GET", "url": "https://anime.vidy.st/api/info?id=one-piece-odmau", "status": 200 },
+        { "method": "GET", "url": "https://anime.vidy.st/api/episodes/one-piece-odmau", "status": 200 },
+        { "method": "GET", "url": "https://anime.vidy.st/api/search?keyword=One%20Piece&page=1", "status": 200 }
+      ],
+      "limitation": "The detail page inspection initially timed out. Later response-body retrieval returned No resource with given identifier found. Prior full episode-body evidence is not represented as recaptured here.",
+      "laterUiRecovery": "A subsequent ordinary inspection rendered the One Piece detail page and its reported 1,177 episodes, episode search, list/card controls, and SUB/DUB labels.",
+      "laterPlaybackAttempt": {
+        "route": "/anime/one-piece-odmau/1?play=true",
+        "trigger": "Click the visible first episode link",
+        "observedState": "Finding the best server for you...; 0:00 / 0:00; no audio tracks or subtitles listed",
+        "captureLimitation": "The attached network event reader returned no matching events in this attempt. No resolver endpoint is inferred from that absence.",
+        "verification": "No media progression established in this attempt; not a provider-wide impossibility claim"
+      }
+    },
+    "vidyPublishedContract": {
+      "documentation": "https://vidy.st/",
+      "delivery": "iframe",
+      "routes": ["/movie/{tmdbId}", "/tv/{tmdbId}/{season}/{episode}", "/anime/{anilistId}/{episode}"],
+      "queryOptions": ["color", "progress", "autoplay", "nextEpisode", "episodeSelector", "autoplayNextEpisode"],
+      "events": ["timeupdate", "play", "pause", "ended", "MEDIA_DATA"],
+      "integrationCaveats": [
+        "This is published embedding behavior, not a documented direct-media resolution API or a catalogue export.",
+        "Any implementation must validate postMessage origin, sender window, payload schema and selected mapping; the abbreviated documentation listener is not sufficient.",
+        "Do not ingest serialized provider-local history from MEDIA_DATA as Solanime account data.",
+        "The existing native-only release gate remains unchanged. No Vidy native adapter or Solanime-origin playback was verified."
+      ]
+    }
+  },
+  "otherReferences": [
+    { "url": "https://bingebox.ac/", "browser": "Chrome", "observedState": "Security verification page, then blank inspection result; no catalogue or provider conclusions", "bypassAttempted": false },
+    { "url": "https://popcornmovies.ac/", "browser": "Chrome", "observedState": "Security verification page, then blank inspection result; no catalogue or provider conclusions", "bypassAttempted": false }
+  ],
+  "nonclaims": ["No private database access", "No full catalogue export", "No new enabled playback provider", "No copied proprietary scripts", "No security-setting changes", "No authentication or access-block bypass"]
+}

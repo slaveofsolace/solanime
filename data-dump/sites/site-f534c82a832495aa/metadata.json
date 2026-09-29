@@ -1,0 +1,247 @@
+{
+  "availability": {
+    "bytes_read": 11173,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://tvnow.st/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-frame-options": "DENY"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:33:10.400349+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://tvnow.st/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 2,
+    "linked_scripts_discovered": 5,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-53230faa9c5f2675"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-fd90294336d82df7"
+  ],
+  "frameworks": [],
+  "id": "site-f534c82a832495aa",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "⁠TVNow",
+  "observations": [
+    {
+      "bytes_read": 11173,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://tvnow.st/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "nginx",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tvnow.st/"
+    },
+    {
+      "bytes_read": 404,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://tvnow.st/assets/js/theme-init.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "nginx",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:11.283682+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "423442fb47ced6155e942b5b9deb799098e3bc7a6b764fd54a24c919350260d4",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tvnow.st/assets/js/theme-init.js"
+    },
+    {
+      "bytes_read": 291,
+      "content_type": "application/javascript; charset=utf-8",
+      "final_url": "https://tvnow.st/assets/js/analytics-init.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript; charset=utf-8",
+        "server": "nginx",
+        "x-frame-options": "DENY"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:33:12.393056+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "31e2474c6b789d63d08b86fde6243eed1c35de88cab2f1dfb165c7a4ad617b89",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://tvnow.st/assets/js/analytics-init.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:33:10.400349+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/js/theme-init.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/js/analytics-init.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/analytics/script.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/js/site.js?v=20260821b",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/js/app.js?v=20260821e",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/tvnow-logo-v1.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/mediapass-mark.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/go/mediapass",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/favicon.svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/assets/css/site.css?v=20260830c",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "d5055136f5fb8452bf0b9586b46bd86275be966e42956c5aac1bfad233dcea0e",
+      "evidence_url": "https://tvnow.st/",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:33:10.400349+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://tvnow.st/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://tvnow.st/"
+}

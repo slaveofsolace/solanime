@@ -1,77 +1,231 @@
+import FeatureSpotlight from '../components/FeatureSpotlight';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { TitleCard } from '../components/ui';
+import Rail from '../components/CatalogueRail';
+import { CoverArt, InlineNotice } from '../components/ui';
+import Icon from '../components/Icon';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
 import type { CatalogueFacets, TitleSummary } from '../types';
+import { useInitialReadiness } from '../branding/ApplicationReadiness';
+import { useContinueWatching } from '../lib/useContinueWatching';
 
-function Rail({ title, to, items }: { title: string; to: string; items: TitleSummary[] }) {
-  if (!items.length) return null;
+function progress(entry: { position?: number; duration?: number }) {
+  if (!Number.isFinite(entry.duration) || !Number.isFinite(entry.position) || !entry.duration || !entry.position) return 0;
+  return Math.max(0, Math.min(100, (entry.position / entry.duration) * 100));
+}
+
+function remaining(entry: { position?: number; duration?: number }) {
+  if (!Number.isFinite(entry.duration) || !Number.isFinite(entry.position) || !entry.duration || !entry.position) return null;
+  const minutes = Math.max(1, Math.ceil((entry.duration - entry.position) / 60));
+  return `${minutes} min left`;
+}
+
+function artworkFidelity(title: TitleSummary) {
+  const backdrop = title.artwork?.backdrop;
+  const poster = title.artwork?.poster;
+  const verifiedBackdrop = Boolean(
+    backdrop &&
+      backdrop.url === title.backdropUrl &&
+      backdrop.width >= 1000 &&
+      backdrop.height >= 250 &&
+      backdrop.width / backdrop.height >= 2,
+  );
+  const verifiedPoster = Boolean(
+    poster &&
+      poster.url === title.posterUrl &&
+      poster.width >= 300 &&
+      poster.height >= 400,
+  );
   return (
-    <section className="home-rail" aria-labelledby={`rail-${title.replace(/\W+/g, '-').toLowerCase()}`}>
-      <header className="rail-heading"><h2 id={`rail-${title.replace(/\W+/g, '-').toLowerCase()}`}>{title}</h2><Link to={to}>View all <span aria-hidden="true">→</span></Link></header>
-      <div className="rail-track">{items.map((item, index) => <TitleCard key={item.id} title={item} index={index} />)}</div>
-    </section>
+    (verifiedBackdrop ? 100 : title.backdropUrl ? 40 : 0) +
+    (verifiedPoster ? 20 : title.posterUrl ? 8 : title.imageUrl ? 4 : 0) +
+    (backdrop?.freshness === 'verified' ? 2 : 0)
   );
 }
 
 export default function HomePage() {
-  const { history, watchlist } = useAppState();
+  const { history, watchlist, preferences } = useAppState();
+  const [prefs] = preferences;
   const [latest, setLatest] = useState<TitleSummary[]>([]);
-  const [alphabetical, setAlphabetical] = useState<TitleSummary[]>([]);
+  const [tvShows, setTvShows] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
+  const [collections, setCollections] = useState<Array<{ label: string; genre: string; items: TitleSummary[] }>>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [retry, setRetry] = useState(0);
+  useInitialReadiness(!loading && !error, error, () => setRetry(value => value + 1));
   useEffect(() => {
     const controller = new AbortController();
-    Promise.all([
-      api.catalogue({ sort: 'updated', pageSize: 12 }, controller.signal),
-      api.catalogue({ sort: 'title', pageSize: 12 }, controller.signal),
-      api.filters(controller.signal),
-    ]).then(([newest, az, nextFacets]) => {
-      setLatest(newest.items);
-      setAlphabetical(az.items);
-      setFacets(nextFacets);
-    }).catch((cause) => {
-      if (!controller.signal.aborted) setError(errorMessage(cause));
-    });
+    setLoading(latest.length === 0);
+    setError(null);
+    void api
+      .catalogue({ scope: 'anime', sort: 'updated', pageSize: 48 }, controller.signal)
+      .then((recent) => {
+        if (!controller.signal.aborted) setLatest(recent.items);
+      })
+      .catch((cause) => {
+        if (!controller.signal.aborted) setError(errorMessage(cause));
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setLoading(false);
+      });
+    void api
+      .catalogue({ scope: 'tv', sort: 'updated', pageSize: 12 }, controller.signal)
+      .then((shows) => {
+        if (!controller.signal.aborted) setTvShows(shows.items);
+      })
+      .catch(() => undefined);
+    void api
+      .filters(controller.signal)
+      .then(async (filters) => {
+        if (controller.signal.aborted) return;
+        setFacets(filters);
+        const selected = ['Action', 'Comedy', 'Romance'].flatMap(label => {
+          const genre = filters.genres?.find(item => item.label.toLowerCase() === label.toLowerCase());
+          return genre ? [{ label, genre: genre.value }] : [];
+        });
+        const rows = await Promise.all(selected.map(async row => {
+          try {
+            const result = await api.catalogue({ scope: 'anime', genre: row.genre, sort: 'updated', pageSize: 12 }, controller.signal);
+            return { ...row, items: result.items };
+          } catch { return { ...row, items: [] }; }
+        }));
+        if (!controller.signal.aborted) setCollections(rows);
+      })
+      .catch(() => undefined);
     return () => controller.abort();
-  }, []);
-
+  }, [retry]);
+  // Editorial artwork preference, not a claim about popularity or watch counts.
+  const spotlightItems = [...latest].sort((a, b) => artworkFidelity(b) - artworkFidelity(a));
+  const featured =
+    spotlightItems.find((item) => item.synopsis && (item.imageUrl || item.posterUrl)) ?? spotlightItems[0];
+  const continuing = useContinueWatching(history.entries);
   return (
-    <div className="home-page">
-      {history.entries.length > 0 && (
-        <section className="continue-section" aria-labelledby="continue-title">
-          <header className="rail-heading"><div><p className="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2 id="continue-title">Continue watching</h2></div><Link to="/library">History <span aria-hidden="true">→</span></Link></header>
+    <div className={`home-page${continuing.length > 0 ? ' home-page--returning' : ''}`}>
+      <h1 className="sr-only">Explore anime</h1>
+      {error && (
+        <InlineNotice tone="error">
+          <strong>Catalogue unavailable.</strong> {error}
+          <button
+            className="text-button"
+            type="button"
+            onClick={() => setRetry((value) => value + 1)}
+          >
+            Try again
+          </button>
+        </InlineNotice>
+      )}
+      {loading ? (
+        <section className="home-loading" aria-busy="true" aria-label="Loading catalogue">
+          <div className="skeleton-feature" />
+          <span className="sr-only">Loading catalogue…</span>
+        </section>
+      ) : featured ? (
+        <FeatureSpotlight items={spotlightItems} />
+      ) : !error ? (
+        <InlineNotice>
+          No titles have been imported yet. Saved titles remain available in your list.
+        </InlineNotice>
+      ) : null}
+      {continuing.length > 0 && (
+        <section className="continue-section continue-section--home" aria-labelledby="continue-title">
+          <header className="rail-heading">
+            <div className="rail-heading__title">
+              <h2 id="continue-title">Continue watching</h2>
+              <Link to="/library#history-title">
+                Full history <Icon name="arrow" />
+              </Link>
+            </div>
+          </header>
           <div className="continue-track">
-            {history.entries.slice(0, 8).map((entry) => (
-              <article className="continue-card" key={`${entry.episodeId}:${entry.language}`}>
-                <Link to={`/watch/${encodeURIComponent(entry.slug)}/${encodeURIComponent(entry.episodeId)}?language=${encodeURIComponent(entry.language)}`}>
-                  <span className="continue-card__art">{entry.imageUrl ? <img src={entry.imageUrl} alt="" referrerPolicy="no-referrer" /> : <span aria-hidden="true">SOL</span>}<b aria-hidden="true">▶</b></span>
-                  <span className="continue-card__copy"><strong>{entry.title}</strong><small>{entry.episodeLabel} · {entry.language.toUpperCase()}</small></span>
-                </Link>
-              </article>
-            ))}
+            {continuing.slice(0, 8).map((entry) => {
+              const percent = progress(entry);
+              const timeRemaining = remaining(entry);
+              const knownTitle = latest.find(item => item.id === entry.titleId) ?? watchlist.items.find(item => item.id === entry.titleId);
+              return (
+                <article className="continue-card" key={`${entry.episodeId}:${entry.language}`}>
+                  <Link
+                    to={`/watch/${encodeURIComponent(entry.slug)}/${encodeURIComponent(entry.episodeId)}?language=${encodeURIComponent(entry.language)}`}
+                  >
+                    <span className="continue-card__art">
+                      <CoverArt
+                        variant={knownTitle?.backdropUrl ? 'landscape' : 'poster'}
+                        title={{
+                          ...knownTitle,
+                          id: entry.titleId,
+                          slug: entry.slug,
+                          name: entry.title,
+                          imageUrl: entry.imageUrl,
+                        }}
+                      />
+                      <Icon name="play" />
+                    </span>
+                    <span className="continue-card__copy">
+                      <strong>{entry.title}</strong>
+                      <small>
+                        {entry.nextUp ? 'Up next · ' : ''}{entry.episodeLabel} · {entry.language.toUpperCase()}
+                      </small>
+                      {percent > 0 && <span
+                        className="continue-progress"
+                        role="progressbar"
+                        aria-label={`${entry.title} viewing progress`}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-valuenow={Math.round(percent)}
+                      >
+                        <span style={{ width: `${percent}%` }} />
+                      </span>}
+                      {timeRemaining && <small className="continue-remaining">{timeRemaining}</small>}
+                    </span>
+                  </Link>
+                  <button
+                    type="button"
+                    className="continue-remove"
+                    aria-label={`Remove ${entry.title} from Continue watching`}
+                    onClick={() => history.dismissSeries(entry.titleId)}
+                  >
+                    Remove
+                  </button>
+                </article>
+              );
+            })}
           </div>
         </section>
       )}
-
-      <section className="home-browse" aria-labelledby="browse-title">
-        <div><p className="eyebrow">SYNCHRONIZED CATALOGUE</p><h1 id="browse-title">Browse anime</h1></div>
-        <form action="/catalogue" role="search"><label className="sr-only" htmlFor="home-search">Search titles</label><input id="home-search" name="q" type="search" placeholder="Search titles and aliases" /><button type="submit">Search</button></form>
-        <nav className="browse-shortcuts" aria-label="Browse shortcuts">
-          <Link to="/catalogue?sort=updated">Recently updated</Link><Link to="/catalogue?sort=title">A–Z</Link><Link to="/catalogue?language=dub">Dubbed</Link>
-        </nav>
-      </section>
-
-      {error && <p className="home-error" role="status">Catalogue rails are temporarily unavailable: {error}</p>}
-      <Rail title="Recently synchronized" to="/catalogue?sort=updated" items={latest} />
-      <Rail title="My watchlist" to="/library" items={watchlist.items.slice(0, 12)} />
-
+      <Rail
+        title="Recent updates"
+        to="/catalogue?scope=anime&sort=updated"
+        items={latest.filter((item) => item.id !== featured?.id).slice(0, 18)}
+      />
+      <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} />
+      {collections.map(row => <Rail key={row.genre} title={row.label}
+        to={`/catalogue?scope=anime&genre=${encodeURIComponent(row.genre)}`} items={row.items} />)}
+      {tvShows.length > 0 && <section className="screen-collection" aria-label="Television">
+        <Rail title="TV shows" to="/catalogue?scope=tv&sort=updated" items={tvShows} />
+      </section>}
       {(facets.genres?.length ?? 0) > 0 && (
-        <section className="genre-section" aria-labelledby="genres-title"><header className="rail-heading"><h2 id="genres-title">Browse by genre</h2><Link to="/catalogue">All filters <span aria-hidden="true">→</span></Link></header><div className="genre-grid">{facets.genres?.slice(0, 12).map((genre) => <Link key={genre.value} to={`/catalogue?genre=${encodeURIComponent(genre.value)}`}><strong>{genre.label}</strong><small>{genre.count?.toLocaleString()} titles</small></Link>)}</div></section>
+        <section className="genre-section" aria-labelledby="genres-title">
+          <header className="rail-heading">
+            <h2 id="genres-title">Browse genres</h2>
+            <Link to="/catalogue">
+              All genres <Icon name="arrow" />
+            </Link>
+          </header>
+          <div className="genre-grid">
+            {[...(facets.genres ?? [])]
+              .sort((a, b) => (b.count ?? 0) - (a.count ?? 0))
+              .slice(0, 8)
+              .map((genre) => (
+                <Link key={genre.value} to={`/catalogue?scope=anime&genre=${encodeURIComponent(genre.value)}`}>
+                  <strong>{genre.label}</strong>
+                  {typeof genre.count === 'number' && <small>{genre.count.toLocaleString()} titles</small>}
+                  <Icon name="arrow" />
+                </Link>
+              ))}
+          </div>
+        </section>
       )}
-      <Rail title="From A–Z" to="/catalogue?sort=title" items={alphabetical} />
     </div>
   );
 }

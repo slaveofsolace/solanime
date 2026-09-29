@@ -1,0 +1,216 @@
+import {
+  buildRules,
+  isProjectUrl,
+  isProviderUrl,
+  playerCss,
+  settings,
+  theme,
+  validateHosts,
+} from './policy.js';
+let chain = Promise.resolve();
+function enqueue(operation) {
+  const task = chain.then(operation);
+  chain = task.catch(() => {});
+  return task;
+}
+async function currentOptions() {
+  const data = await chrome.storage.local.get('options');
+  return settings(data.options);
+}
+async function projectTabs() {
+  return (await chrome.tabs.query({}))
+    .filter((tab) => tab.id !== undefined && isProjectUrl(tab.url))
+    .map((tab) => tab.id);
+}
+async function refreshRules() {
+  const options = await currentOptions();
+  const ids = await projectTabs();
+  const old = await chrome.declarativeNetRequest.getSessionRules();
+  await chrome.declarativeNetRequest.updateSessionRules({
+    removeRuleIds: old.map((rule) => rule.id),
+    addRules: buildRules(ids, options),
+  });
+}
+async function topIsProject(tabId) {
+  try {
+    return isProjectUrl((await chrome.webNavigation.getFrame({ tabId, frameId: 0 }))?.url);
+  } catch {
+    return false;
+  }
+}
+async function setFrameTheme(tabId, frame, value) {
+  if (!frame.documentId || !isProviderUrl(frame.url) || !(await topIsProject(tabId))) return;
+  const options = await currentOptions();
+  // Run in the provider's main world so page scripts see the same window.open.
+  // This is deliberately scoped to a verified player frame, not every website.
+  await chrome.scripting.executeScript({
+    target: { tabId, documentIds: [frame.documentId] },
+    world: 'MAIN',
+    args: [options.enabled],
+    func: (enabled) => {
+      const key = '__solanimePopupGate';
+      const existing = window[key];
+      if (existing) { existing.set(enabled); return; }
+      const original = window.open;
+      let active = enabled;
+      const gate = function (url, target, features) {
+        if (!active) return original.call(window, url, target, features);
+        // A same-frame stream route is ordinary player navigation. New windows,
+        // top-frame targets and opaque about:blank popunders are not required.
+        try {
+          const destination = new URL(String(url ?? ''), location.href);
+          if (target === '_self' && destination.origin === location.origin &&
+              destination.pathname.startsWith('/stream/')) {
+            return original.call(window, url, target, features);
+          }
+        } catch { /* Invalid destinations are not opened. */ }
+        return null;
+      };
+      Object.defineProperty(window, key, {
+        value: { set(value) { active = Boolean(value); } }, configurable: false,
+      });
+      window.open = gate;
+    },
+  }).catch(() => { /* A frame may have navigated before injection. */ });
+  const key = `css:${tabId}:${frame.documentId}`;
+  const previous = (await chrome.storage.session.get(key))[key];
+  const css = options.enabled ? playerCss(value) : null;
+  if (previous === css) return;
+  const target = { tabId, documentIds: [frame.documentId] };
+  try {
+    if (previous) await chrome.scripting.removeCSS({ target, css: previous, origin: 'USER' });
+    if (css) {
+      await chrome.scripting.insertCSS({ target, css, origin: 'USER' });
+      await chrome.storage.session.set({ [key]: css });
+    } else await chrome.storage.session.remove(key);
+  } catch {
+    await chrome.storage.session.remove(key); /* The frame may have navigated away. */
+  }
+}
+async function applyToTab(tabId) {
+  if (!(await topIsProject(tabId))) return;
+  const value = (await chrome.storage.session.get(`theme:${tabId}`))[`theme:${tabId}`];
+  const frames = await chrome.webNavigation.getAllFrames({ tabId });
+  for (const frame of frames ?? [])
+    if (frame.frameId !== 0) await setFrameTheme(tabId, frame, value);
+}
+async function purgeTab(tabId) {
+  const data = await chrome.storage.session.get(null);
+  await chrome.storage.session.remove(
+    Object.keys(data).filter((key) => key === `theme:${tabId}` || key.startsWith(`css:${tabId}:`)),
+  );
+}
+chrome.runtime.onInstalled.addListener(() => {
+  void enqueue(refreshRules);
+});
+chrome.runtime.onStartup.addListener(() => {
+  void enqueue(refreshRules);
+});
+chrome.tabs.onRemoved.addListener((tabId) => {
+  void enqueue(async () => {
+    await purgeTab(tabId);
+    await refreshRules();
+  });
+});
+chrome.webNavigation.onCreatedNavigationTarget.addListener((details) => {
+  void enqueue(async () => {
+    if (!(await topIsProject(details.sourceTabId))) return;
+    const source = await chrome.webNavigation.getFrame({
+      tabId: details.sourceTabId,
+      frameId: details.sourceFrameId,
+    });
+    if (!source || !isProviderUrl(source.url)) return;
+    await chrome.tabs.remove(details.tabId).catch(() => {});
+  });
+});
+chrome.webNavigation.onCommitted.addListener((details) => {
+  void enqueue(async () => {
+    if (details.frameId === 0) {
+      await purgeTab(details.tabId);
+      await refreshRules();
+    } else {
+      const data = await chrome.storage.session.get(null);
+      const active = new Set(
+        ((await chrome.webNavigation.getAllFrames({ tabId: details.tabId })) ?? []).map(
+          (frame) => `css:${details.tabId}:${frame.documentId}`,
+        ),
+      );
+      await chrome.storage.session.remove(
+        Object.keys(data).filter(
+          (key) => key.startsWith(`css:${details.tabId}:`) && !active.has(key),
+        ),
+      );
+    }
+  });
+});
+chrome.runtime.onMessage.addListener((message, sender, respond) => {
+  enqueue(async () => {
+    const popup =
+      sender.id === chrome.runtime.id &&
+      sender.url === chrome.runtime.getURL('popup.html');
+    if (popup) {
+      if (message?.type === 'get-options')
+        return { options: await currentOptions(), tabs: (await projectTabs()).length };
+      if (message?.type === 'set-options') {
+        const value = message.value;
+        if (!value || typeof value.enabled !== 'boolean' || typeof value.strict !== 'boolean')
+          throw new Error('Invalid settings.');
+        const options = {
+          enabled: value.enabled,
+          strict: value.strict,
+          mediaHosts: validateHosts(value.mediaHosts),
+        };
+        await chrome.storage.local.set({ options });
+        await refreshRules();
+        for (const tabId of await projectTabs()) {
+          await applyToTab(tabId);
+          // The site reflects Guard state, but compatible provider playback
+          // remains an unsandboxed frame even when this optional extension is off.
+          await chrome.tabs.sendMessage(tabId, {
+            type: 'guard-status',
+            guard: {
+              version: chrome.runtime.getManifest().version,
+              enabled: options.enabled,
+              navigationBlock: options.enabled,
+            },
+          }, { frameId: 0 }).catch(() => {});
+        }
+        return { options };
+      }
+    }
+    const tabId = sender.tab?.id;
+    if (!Number.isInteger(tabId) || !(await topIsProject(tabId)))
+      throw new Error('Not a Solanime tab.');
+    if (message?.type === 'theme' && sender.frameId === 0 && isProjectUrl(sender.url)) {
+      // Reject messages from a top document replaced by navigation since it sent them.
+      const current = await chrome.webNavigation.getFrame({ tabId, frameId: 0 });
+      if (current?.documentId !== sender.documentId) throw new Error('Stale document.');
+      await chrome.storage.session.set({ [`theme:${tabId}`]: theme(message.value) });
+      await refreshRules();
+      await applyToTab(tabId);
+      const options = await currentOptions();
+      return {
+        ok: true,
+        guard: {
+          version: chrome.runtime.getManifest().version,
+          enabled: options.enabled,
+          navigationBlock: options.enabled,
+        },
+      };
+    }
+    if (message?.type === 'player-ready' && sender.frameId > 0 && isProviderUrl(sender.url)) {
+      const frame = await chrome.webNavigation.getFrame({ tabId, frameId: sender.frameId });
+      if (frame?.documentId !== sender.documentId) throw new Error('Stale frame.');
+      const value = (await chrome.storage.session.get(`theme:${tabId}`))[`theme:${tabId}`];
+      await setFrameTheme(tabId, frame, value);
+      return { ok: true, enabled: (await currentOptions()).enabled };
+    }
+    throw new Error('Unsupported message.');
+  }).then(
+    (result) => respond(result),
+    (error) => respond({ error: error.message }),
+  );
+  return true;
+});
+// Session rules survive worker suspension but not browser restart.
+void enqueue(refreshRules);

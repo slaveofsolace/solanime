@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-09-12",
+  "collection": "browser-observations",
+  "method": "Normal public navigation in the user's Chrome, accessibility/DOM inspection, supported request/response inspection; no protection changes.",
+  "scope": "Bounded representative workflows, not a full catalogue crawl or a native-provider release.",
+  "reuseDisposition": "HOLD",
+  "rights": "No rights to import proprietary code or redistribute episode media established. Independently implemented behavior and factual observations are separate from payload reuse.",
+  "redaction": "No cookies, credentials, third-party API keys, opaque resolver payloads, server_ids, media bodies or temporary media resource paths are included.",
+  "sites": [
+    {
+      "id": "cinejoy",
+      "requestedUrl": "https://cinejoy.to/",
+      "observedOrigin": "https://cinejoy.to",
+      "accessState": "representative-workflows-observed",
+      "routes": ["/", "/movies", "/series", "/lists", "/provider/{tmdbWatchProviderId}", "/movie/{tmdbId}-{slug}-{year}", "/watch/movie/{tmdbId}"],
+      "featuresObserved": ["search", "settings entry", "hero with manual slide controls", "provider-filter rail", "movie and series collections", "title details", "cast and collection rails", "trailers", "sign-in-required comments", "native video controls", "server selection"],
+      "metadataChain": {
+        "sample": "Netflix tile -> /provider/8 -> Spider-Man: Homecoming -> /movie/315635-spider-man-homecoming-2017 -> /watch/movie/315635",
+        "request": {"method": "GET", "origin": "https://api.themoviedb.org", "path": "/3/discover/movie", "parameterNames": ["language", "include_adult", "watch_region", "with_watch_providers", "sort_by", "page", "api_key"], "nonSensitiveSample": {"watch_region": "US", "with_watch_providers": "8", "page": "1"}},
+        "response": {"keys": ["page", "results", "total_pages", "total_results"], "page": 1, "recordsOnPage": 20, "totalPages": 236, "totalResults": 4707},
+        "denominatorScope": "US Netflix movie availability filter at observation; not Cinejoy's complete catalogue or native-playback coverage.",
+        "integrationRequirement": "Use the project's own authorized TMDB credentials and observe TMDB terms; never reuse a source site's key."
+      },
+      "platformFilters": [
+        {"label": "Netflix", "tmdbWatchProviderId": 8},
+        {"label": "Amazon Prime Video", "tmdbWatchProviderId": 9},
+        {"label": "Disney Plus", "tmdbWatchProviderId": 337},
+        {"label": "Apple TV+", "tmdbWatchProviderId": 350},
+        {"label": "Apple TV", "tmdbWatchProviderId": 2},
+        {"label": "Hulu", "tmdbWatchProviderId": 15},
+        {"label": "HBO Max", "tmdbWatchProviderId": 1899},
+        {"label": "Paramount Plus", "tmdbWatchProviderId": 2303},
+        {"label": "Peacock Premium", "tmdbWatchProviderId": 386},
+        {"label": "Crunchyroll", "tmdbWatchProviderId": 283},
+        {"label": "Starz", "tmdbWatchProviderId": 43},
+        {"label": "AMC+", "tmdbWatchProviderId": 526},
+        {"label": "MGM Plus", "tmdbWatchProviderId": 34},
+        {"label": "YouTube Premium", "tmdbWatchProviderId": 188},
+        {"label": "YouTube", "tmdbWatchProviderId": 192},
+        {"label": "Tubi TV", "tmdbWatchProviderId": 73},
+        {"label": "Pluto TV", "tmdbWatchProviderId": 300}
+      ],
+      "platformFilterRole": "Catalogue availability metadata. These are not the player server menu and grant no access to a service's media.",
+      "artwork": {"observedOrigin": "https://image.tmdb.org", "backdrop": {"pathPattern": "/t/p/w1280/{resource}", "observedWidth": 1280, "observedHeight": 720}, "blurPlaceholder": {"pathPattern": "/t/p/w300/{resource}", "observedWidth": 300, "observedHeight": 169}, "titleLogo": {"pathPattern": "/t/p/w500/{resource}", "observedWidth": 499, "observedHeight": 151}, "platformIcon": {"pathPattern": "/t/p/w154/{resource}", "observedWidth": 154, "observedHeight": 154}, "reuseStatus": "not-established"},
+      "player": {
+        "sampleTmdbId": 315635,
+        "sampleTitle": "Spider-Man: Homecoming",
+        "videoElements": 1,
+        "iframeElements": 0,
+        "deliveryObserved": "native HTML video with blob source",
+        "videoDimensions": {"width": 2586, "height": 1080},
+        "durationSeconds": 8008.04423,
+        "controlsObserved": ["play/pause", "seek", "volume", "subtitles menu", "settings", "picture-in-picture", "fullscreen", "cast entry"],
+        "notVerified": ["captions", "quality switching", "casting", "cross-origin resolution", "Solanime playback", "content-display permission"],
+        "resolver": {"method": "POST", "origin": "https://api.shegu.st", "path": "/g", "requestContentType": "text/plain;charset=UTF-8", "requestShape": "Opaque non-JSON body; protocol not decoded", "responseStatus": 200, "responseContentType": "application/octet-stream", "cacheControl": "no-store", "accessControlAllowOrigin": "*", "serverHeader": "cloudflare", "transformLocation": "A public client chunk initiates fetch; encoding/decoding contract remains unverified", "limitations": "Successful HTTP and permissive CORS do not establish API entitlement, a playable source or an independent adapter."},
+        "servers": [
+          {"label": "Lisbon", "internalId": null, "selectionExercised": true, "state": "media-progress-observed-on-source-origin", "mediaHost": "info.movieboxnoob.cc", "progressSeconds": [92.774732, 114.661649], "solanimeAdapter": "not-implemented"},
+          {"label": "Nebula", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"},
+          {"label": "Solara", "internalId": null, "selectionExercised": true, "state": "media-progress-observed-on-source-origin", "mediaHost": "lol.movieboxnoob.cc", "progressSeconds": [190.559843, 208.005218], "solanimeAdapter": "not-implemented"},
+          {"label": "Athens", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"},
+          {"label": "Joy", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"},
+          {"label": "Castle", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"},
+          {"label": "Sakura", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"},
+          {"label": "Canaias", "internalId": null, "selectionExercised": true, "state": "binary-resolution-response-observed-no-new-source-proof", "solanimeAdapter": "not-implemented"}
+        ],
+        "lastCheck": {"at": "2026-09-12T23:02:03Z", "paused": true, "timeSeconds": 208.005218, "error": null, "meaning": "The earlier paused position remained after other server attempts. This does not verify those selections."},
+        "ownershipInference": "Shared host families do not establish common backend or ownership. Preserve every visible label.",
+        "publicClientInspection": {
+          "url": "https://cinejoy.to/_app/immutable/chunks/ChMTQF2U.js",
+          "access": "The already-observed module URL opened as public source text in Chrome after the earlier resource-content tool read failed.",
+          "characters": 93261,
+          "observed": ["WebAssembly is loaded and called in request preparation", "The input envelope contains path and payload", "The prepared envelope has responseKey, keyId, ephemeralPublic and body fields", "The ordinary flow POSTs the encoded body to /g and processes a binary response"],
+          "notEstablished": ["Complete encoding/decoding protocol", "Provider-specific internal IDs", "Cross-origin API entitlement", "Media redistribution rights"],
+          "handling": "Read-only source inspection; no module, WebAssembly or key material imported or executed in Solanime. No external decryptor service used."
+        }
+      },
+      "excludedScripts": ["a.shegu.st analytics", "Cloudflare Insights and RUM"],
+      "remaining": ["Determine provider-specific stable IDs and resource mapping through permitted ordinary flows", "Verify request/response transformations without third-party decryptors or protection bypass", "Establish supported independent integration and content-display permission", "Test every enabled mapping on Solanime's deployed origin"],
+      "coverage": {"platformTilesObserved": 17, "serverChoicesExercised": 8, "sourceOriginProgressVerified": 2, "solanimeIntegrationsEnabled": 0, "fullCatalogueImported": false}
+    },
+    {
+      "id": "movy",
+      "requestedUrl": "https://www.movy.sx/",
+      "observedOrigin": "https://www.movy.sx",
+      "accessState": "representative-workflows-observed",
+      "routes": ["/", "/browse/movie", "/browse/tv", "/browse/anime", "/movie/{tmdbId}", "/tv/{tmdbId}", "/anime/{slug}", "/anime/{slug}/{episodeSlug}?play=true"],
+      "featuresObserved": ["separate Movies, Shows and Anime navigation", "search", "hero", "episode calendar", "platform-filter collections", "genre collections", "episode search", "episode sort", "list/card episode views", "bounded rendered episode ranges", "native player controls"],
+      "identifierChain": {"titleRoute": "/anime/one-piece-odmau", "animeId": 1642, "animeSlug": "one-piece-odmau", "malId": "21", "firstEpisodeId": "30298", "firstEpisodeNumber": 1, "firstEpisodeSlug": "1", "watchRoute": "/anime/one-piece-odmau/1?play=true", "namespaces": "Movies/TV use numeric TMDB routes; anime uses a separate slug namespace. Do not assume interchangeable IDs."},
+      "requests": [
+        {"method": "GET", "origin": "https://anime.vidy.st", "path": "/api/info", "parameters": {"id": "one-piece-odmau"}, "status": 200, "responseType": "JSON"},
+        {"method": "GET", "origin": "https://anime.vidy.st", "path": "/api/episodes/one-piece-odmau", "status": 200, "responseType": "JSON", "responseKeys": ["success", "results"], "resultsKeys": ["animeId", "slug", "totalEpisodes", "episodes"], "episodeKeys": ["id", "episode_no", "slug", "title", "active", "href", "server_ids", "timestamp", "mal_id"], "opaqueFieldExcluded": "server_ids"},
+        {"method": "GET", "origin": "https://anime.vidy.st", "path": "/api/search", "parameterNames": ["keyword", "page"], "status": 200, "responseType": "JSON"}
+      ],
+      "episodeCoverage": {"sourceTitle": "One Piece", "sourceReportedTotal": 1177, "recordsInNormalResponse": 1177, "initialRenderedRange": "0-500", "loadingWasObservedBeforeData": true, "importedIntoSolanime": 0, "meaning": "One title only, not a full site denominator. Initial Loading and the rendered 500-record range must not become empty/exhausted inventory."},
+      "playback": {"videoElements": 1, "iframeElements": 0, "timeSeconds": 0, "durationSeconds": null, "visibleError": "Unable to play media.", "resolutionChain": "not-captured-completely", "verification": "failed-representative-attempt-not-provider-wide-impossibility", "solanimeAdapter": "not-implemented"},
+      "excludedScripts": ["users.vidy.st tracking", "geo/IP lookups", "dearthsongman.shop", "mocked.peggingbrimingpika.cyou"],
+      "remaining": ["Capture the normal watch resolution request from its actual trigger", "Diagnose failure before assigning a provider-wide state", "Verify stable matching and supported independent delivery"]
+    },
+    {
+      "id": "bingebox",
+      "requestedUrl": "https://bingebox.ac/",
+      "observedOrigin": "https://bingebox.ac",
+      "accessState": "home-rendered-then-tab-became-blank",
+      "routes": ["/", "/browse", "/list", "/settings", "/login", "/credits", "/privacy", "/terms", "/dmca"],
+      "featuresObserved": ["search", "Continue Watching", "Trending This Week", "Popular Movies", "Top Rated Movies", "Top Rated TV Shows"],
+      "termsUrl": "https://bingebox.ac/terms",
+      "termsClaim": "Client-side aggregation/personal use; no hosting; rights retained by owners. These are source claims, not independently established content rights.",
+      "sourceRightsDisposition": "No copying grant established; keep code/assets out of the product tree.",
+      "remaining": ["Diagnose the blank-page behavior without weakening browser protections", "Inspect a title and normal playback chain"],
+      "coverage": {"homeObserved": true, "titlePlaybackInspected": false, "nativePlaybackVerified": false, "solanimeIntegrationsEnabled": 0}
+    },
+    {
+      "id": "popcornmovies",
+      "requestedUrl": "https://popcornmovies.ac/",
+      "observedOrigin": "https://popcornmovies.ac",
+      "accessState": "verification-challenge-after-earlier-home-observation",
+      "featuresObserved": ["Home", "Browse", "Films", "Series", "Anime", "Trending", "Moods", "Calendar", "Networks", "People", "Leaderboard", "search", "sign-in", "hero with manual slides", "Popular Movies", "Popular Series", "Top Rated Movies"],
+      "lastCheck": {"date": "2026-09-12", "meaning": "Normal navigation in the reconnected Chrome showed Cloudflare Performing security verification; the tab later returned to about:blank. No challenge was bypassed or protection setting changed."},
+      "remaining": ["Wait for ordinary authorized browser access; do not work around the verification challenge", "Inspect title, episode and server workflows if access becomes available"],
+      "coverage": {"homeObserved": true, "titlePlaybackInspected": false, "nativePlaybackVerified": false, "solanimeIntegrationsEnabled": 0}
+    }
+  ],
+  "implementationContract": {
+    "catalogueFacets": "Separate anime/movie/TV namespaces and provider-availability filters from playback sources. Do not display a working filter until imported rows power it.",
+    "artwork": "Use verified banner dimensions for large placements and separate posters/logos; never fill a large hero with an enlarged thumbnail. Preserve explicit fallbacks and provenance.",
+    "episodes": "Treat delayed loading distinctly from empty data; reconcile response totals and UI windows; preserve numbering and source IDs.",
+    "playback": "Select stored episode-version mappings; resolve only on user intent; cancel old work and media; native and unsupported are separate results. HTTP success, binary responses and player menus do not prove playback.",
+    "restrictions": "No source advertising, analytics, forced redirects, arbitrary URL proxy, captured temporary-source registry, API-key reuse or protection bypass."
+  },
+  "primaryReferences": ["https://cinejoy.to/", "https://www.movy.sx/", "https://bingebox.ac/terms", "https://popcornmovies.ac/", "https://developer.themoviedb.org/reference/discover-movie"],
+  "separateFrom": {"fmhySnapshotCommit": "3e53fb21443de076c4df59acc149c648583b6a24", "reason": "These are later dated observations, not a change to the pinned original research dump or an increase to its site count."}
+}

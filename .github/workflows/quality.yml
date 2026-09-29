@@ -1,0 +1,86 @@
+name: Quality
+on:
+  push:
+    branches: [main, 'sol/**', fix/solanime-quality-pass, feat/solanime-cinema, feat/accounts-built-in-player, feat/studio-v05]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: quality-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - name: Types, unit/API regressions and build
+        run: |
+          set -o pipefail
+          pnpm check 2>&1 | tee check.log
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: FMHY inventory and supplemental regression suites
+        run: |
+          python -m pip install -r data-dump/requirements.txt
+          python -m unittest discover -s data-dump/tests -v
+          python -m unittest discover -s data-dump/curated/tests -v
+      - name: Publication-safe reproducible source snapshot
+        if: runner.os == 'Linux'
+        run: |
+          git rev-parse HEAD > source-commit.txt
+          pnpm package:source --include-research --out=review-source.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: checks-${{ runner.os }}
+          path: check.log
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Linux' && success()
+        with:
+          name: reviewed-source
+          path: |
+            source-commit.txt
+            review-source.zip
+          retention-days: 7
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Website browser acceptance
+        run: |
+          set -o pipefail
+          pnpm build
+          pnpm exec playwright test --retries=0 2>&1 | tee browser.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: |
+            browser.log
+            playwright-report/
+            test-results/
+          retention-days: 7

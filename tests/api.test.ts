@@ -19,40 +19,134 @@ async function app(options: Parameters<typeof createApp>[1] = {}) {
     schemaVersion: 1,
     source: 'anikoto',
     observedAt: '2026-09-10T00:00:00.000Z',
-    titles: [{
-      sourceId: 'api-title', slug: 'api-title', canonicalUrl: 'https://anikototv.to/watch/api-title', name: 'API Title', episodes: [{
-        sourceId: 'api-episode', number: '1', slug: 'ep-1', canonicalUrl: 'https://anikototv.to/watch/api-title/ep-1', versions: [{
-          sourceId: 'api-episode:sub', language: 'sub', providers: [
-            { sourceMappingId: 'safe-hash', providerId: 'hd-1', providerResourceId: 'private-opaque-reference' },
-            { sourceMappingId: 'safe-hd2-hash', providerId: 'hd-2', providerResourceId: 'second-private-reference' },
-            { sourceMappingId: 'safe-kiwi-hash', providerId: 'kiwi', providerResourceId: 'download-only-reference' },
-          ],
-        }],
-      }],
-    }],
+    titles: [
+      {
+        sourceId: 'api-title',
+        slug: 'api-title',
+        canonicalUrl: 'https://anikototv.to/watch/api-title',
+        name: 'API Title',
+        episodes: [
+          {
+            sourceId: 'api-episode',
+            number: '1',
+            slug: 'ep-1',
+            canonicalUrl: 'https://anikototv.to/watch/api-title/ep-1',
+            versions: [
+              {
+                sourceId: 'api-episode:sub',
+                language: 'sub',
+                providers: [
+                  {
+                    sourceMappingId: 'safe-hash',
+                    providerId: 'hd-1',
+                    providerResourceId: 'private-opaque-reference',
+                  },
+                  {
+                    sourceMappingId: 'safe-hd2-hash',
+                    providerId: 'hd-2',
+                    providerResourceId: 'second-private-reference',
+                  },
+                  {
+                    sourceMappingId: 'safe-kiwi-hash',
+                    providerId: 'kiwi',
+                    providerResourceId: 'download-only-reference',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   });
   const server = createApp(db, options);
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
   const origin = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
-  const close = () => new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
+  const close = () =>
+    new Promise<void>((resolve, reject) =>
+      server.close((error) => (error ? reject(error) : resolve())),
+    );
   servers.push({ close, db });
   return { origin, db };
 }
 
 afterEach(async () => {
-  for (const item of servers.splice(0)) { await item.close(); item.db.close(); }
+  for (const item of servers.splice(0)) {
+    await item.close();
+    item.db.close();
+  }
   const temporaryRoot = resolve(tmpdir());
   for (const path of temporaryDirectories.splice(0)) {
-    if (!resolve(path).startsWith(`${temporaryRoot}${process.platform === 'win32' ? '\\' : '/'}`)) throw new Error(`Refusing to remove non-temporary test directory: ${path}`);
+    if (!resolve(path).startsWith(`${temporaryRoot}${process.platform === 'win32' ? '\\' : '/'}`))
+      throw new Error(`Refusing to remove non-temporary test directory: ${path}`);
     rmSync(path, { recursive: true, force: true });
   }
   vi.unstubAllEnvs();
 });
 
 describe('application HTTP API', () => {
-  it('keeps the operational source allowlist on the canonical Anikoto hosts', () => {
+  it('keeps catalogue ingestion on the exact approved source hosts', () => {
     expect(validatePublicSourceUrl('https://anikototv.to/filter').hostname).toBe('anikototv.to');
-    expect(() => validatePublicSourceUrl('https://anikotoapi.site/filter')).toThrow(/not allowlisted/i);
+    expect(validatePublicSourceUrl('https://www.tvmaze.com/shows/1/example').hostname).toBe('www.tvmaze.com');
+    expect(() => validatePublicSourceUrl('https://anikotoapi.site/filter')).toThrow(
+      /not allowlisted/i,
+    );
+  });
+
+  it('separates anime, non-animation TV, and movie records with stable scope queries', async () => {
+    const { origin, db } = await app();
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'tvmaze',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: '42',
+        slug: 'example-show-tvmaze-42',
+        canonicalUrl: 'https://www.tvmaze.com/shows/42/example-show',
+        name: 'Example Show',
+        format: 'TV',
+        episodes: [],
+      }],
+    });
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'wikipedia-tv',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: 'Q100',
+        slug: 'wikipedia-tv-show-q100',
+        canonicalUrl: 'https://en.wikipedia.org/wiki/Wikipedia_TV_Show',
+        name: 'Wikipedia TV Show',
+        format: 'TV',
+        episodes: [],
+      }],
+    });
+    importSnapshot(db, {
+      schemaVersion: 1,
+      source: 'wikipedia-movie',
+      observedAt: '2026-09-13T00:00:00.000Z',
+      titles: [{
+        sourceId: 'Q200',
+        slug: 'wikipedia-movie-q200',
+        canonicalUrl: 'https://en.wikipedia.org/wiki/Wikipedia_Movie',
+        name: 'Wikipedia Movie',
+        format: 'Movie',
+        episodes: [],
+      }],
+    });
+    const anime = await fetch(`${origin}/api/titles?scope=anime`).then((response) => response.json<{ items: Array<{ source: string }> }>());
+    const tv = await fetch(`${origin}/api/titles?scope=tv`).then((response) => response.json<{ items: Array<{ source: string; name: string }> }>());
+    const movies = await fetch(`${origin}/api/titles?scope=movies`).then((response) => response.json<{ items: Array<{ source: string; name: string }> }>());
+    const all = await fetch(`${origin}/api/titles?scope=all&q=Wikipedia`).then((response) => response.json<{ items: Array<{ source: string }> }>());
+    expect(anime.items).toMatchObject([{ source: 'anikoto' }]);
+    expect(tv.items).toEqual(expect.arrayContaining([
+      expect.objectContaining({ source: 'tvmaze', name: 'Example Show' }),
+      expect.objectContaining({ source: 'wikipedia-tv', name: 'Wikipedia TV Show' }),
+    ]));
+    expect(movies.items).toMatchObject([{ source: 'wikipedia-movie', name: 'Wikipedia Movie' }]);
+    expect(all.items.map((item) => item.source).sort()).toEqual(['wikipedia-movie', 'wikipedia-tv']);
+    const invalid = await fetch(`${origin}/api/titles?scope=games`);
+    expect(invalid.status).toBe(400);
   });
 
   it('serves database-backed browse data and typed input errors', async () => {
@@ -62,12 +156,19 @@ describe('application HTTP API', () => {
     expect(catalogueResponse.headers.get('permissions-policy')).toContain('camera=()');
     const catalogue = await catalogueResponse.json();
     expect(catalogue).toMatchObject({ total: 1, items: [{ name: 'API Title' }] });
-    const episodeId = String((db.prepare("SELECT id FROM episodes WHERE source_id='api-episode'").get() as { id: number }).id);
-    const providerResponse = await fetch(`${origin}/api/episodes/${episodeId}/providers?language=sub`).then((response) => response.json());
+    const episodeId = String(
+      (db.prepare("SELECT id FROM episodes WHERE source_id='api-episode'").get() as { id: number })
+        .id,
+    );
+    const providerResponse = await fetch(
+      `${origin}/api/episodes/${episodeId}/providers?language=sub`,
+    ).then((response) => response.json<{ version: { id: string } }>());
     expect(providerResponse).toMatchObject({
       episode: { id: episodeId, versions: [{ language: 'sub', providerCount: 3 }] },
       version: { language: 'sub', providerCount: 3 },
-      providers: expect.arrayContaining([expect.objectContaining({ mappingId: expect.any(String) })]),
+      providers: expect.arrayContaining([
+        expect.objectContaining({ mappingId: expect.any(String) }),
+      ]),
     });
     expect(providerResponse.version.id).toEqual(expect.any(String));
     const bad = await fetch(`${origin}/api/titles?pageSize=999`);
@@ -83,8 +184,17 @@ describe('application HTTP API', () => {
     const { origin } = await app();
     const diagnostics = await fetch(`${origin}/api/admin/import/status`);
     expect(diagnostics.status).toBe(503);
-    await expect(diagnostics.json()).resolves.toMatchObject({ error: { code: 'ADMIN_UNCONFIGURED' } });
-    const exported = JSON.stringify(await fetch(`${origin}/api/exports/catalogue.json`).then((response) => response.json()));
+    await expect(diagnostics.json()).resolves.toMatchObject({
+      error: { code: 'ADMIN_UNCONFIGURED' },
+    });
+    expect((await fetch(`${origin}/api/exports/catalogue.json`)).status).toBe(503);
+    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'export-test-token');
+    expect((await fetch(`${origin}/api/exports/catalogue.csv`)).status).toBe(401);
+    const exported = JSON.stringify(
+      await fetch(`${origin}/api/exports/catalogue.json`, {
+        headers: { 'x-admin-token': 'export-test-token' },
+      }).then((response) => response.json()),
+    );
     expect(exported).toContain('safe-hash');
     expect(exported).not.toContain('private-opaque-reference');
   });
@@ -92,7 +202,9 @@ describe('application HTTP API', () => {
   it('accepts the configured local admin token without exposing it in responses', async () => {
     vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'unit-test-admin-token');
     const { origin } = await app();
-    const response = await fetch(`${origin}/api/admin/import/status`, { headers: { 'x-admin-token': 'unit-test-admin-token' } });
+    const response = await fetch(`${origin}/api/admin/import/status`, {
+      headers: { 'x-admin-token': 'unit-test-admin-token' },
+    });
     expect(response.status).toBe(200);
     expect(JSON.stringify(await response.json())).not.toContain('unit-test-admin-token');
   });
@@ -102,24 +214,37 @@ describe('application HTTP API', () => {
     const backupDirectory = mkdtempSync(join(tmpdir(), 'solanime-api-'));
     temporaryDirectories.push(backupDirectory);
     const { origin, db } = await app({ backupDirectory });
-    const wrong = await fetch(`${origin}/api/admin/import/status`, { headers: { 'x-admin-token': 'wrong-token' } });
+    const wrong = await fetch(`${origin}/api/admin/import/status`, {
+      headers: { 'x-admin-token': 'wrong-token' },
+    });
     expect(wrong.status).toBe(401);
 
     const runId = createRun(db, 'full');
     enqueueTask(db, runId, 'title:admin-test', 'title_detail', { sourceId: 'admin-test' });
     const headers = { 'x-admin-token': 'unit-test-admin-token' };
-    const paused = await fetch(`${origin}/api/admin/import/${runId}/pause`, { method: 'POST', headers });
+    const paused = await fetch(`${origin}/api/admin/import/${runId}/pause`, {
+      method: 'POST',
+      headers,
+    });
     await expect(paused.json()).resolves.toMatchObject({ runId, status: 'paused' });
-    const resumed = await fetch(`${origin}/api/admin/import/${runId}/resume`, { method: 'POST', headers });
+    const resumed = await fetch(`${origin}/api/admin/import/${runId}/resume`, {
+      method: 'POST',
+      headers,
+    });
     await expect(resumed.json()).resolves.toMatchObject({ runId, status: 'queued' });
 
-    db.prepare("UPDATE crawl_tasks SET status='failed',last_error_code='TEST_FAILURE' WHERE run_id=?").run(runId);
-    const retried = await fetch(`${origin}/api/admin/import/${runId}/retry`, { method: 'POST', headers });
+    db.prepare(
+      "UPDATE crawl_tasks SET status='failed',last_error_code='TEST_FAILURE' WHERE run_id=?",
+    ).run(runId);
+    const retried = await fetch(`${origin}/api/admin/import/${runId}/retry`, {
+      method: 'POST',
+      headers,
+    });
     await expect(retried.json()).resolves.toMatchObject({ runId, retried: 1 });
 
     const backupResponse = await fetch(`${origin}/api/admin/backup`, { method: 'POST', headers });
     expect(backupResponse.status).toBe(201);
-    const backup = await backupResponse.json() as { path: string; schemaVersion: number };
+    const backup = (await backupResponse.json()) as { path: string; schemaVersion: number };
     expect(resolve(backup.path).startsWith(resolve(backupDirectory))).toBe(true);
     expect(existsSync(backup.path)).toBe(true);
     expect(backup.schemaVersion).toBeGreaterThan(0);
@@ -127,34 +252,76 @@ describe('application HTTP API', () => {
 
   it('rejects cross-origin and non-JSON provider mutation requests before resolution', async () => {
     const { origin, db } = await app();
-    const mappingId = Number((db.prepare("SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-kiwi-hash'").get() as { id: number }).id);
+    const mappingId = Number(
+      (
+        db
+          .prepare(
+            "SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-kiwi-hash'",
+          )
+          .get() as { id: number }
+      ).id,
+    );
     const crossOrigin = await fetch(`${origin}/api/providers/${mappingId}/resolve`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json', origin: 'https://example.invalid', 'sec-fetch-site': 'cross-site' },
+      headers: {
+        'content-type': 'application/json',
+        origin: 'https://example.invalid',
+        'sec-fetch-site': 'cross-site',
+      },
       body: JSON.stringify({ language: 'sub' }),
     });
     expect(crossOrigin.status).toBe(403);
     const wrongType = await fetch(`${origin}/api/providers/${mappingId}/resolve`, {
-      method: 'POST', headers: { 'content-type': 'text/plain' }, body: '{}',
+      method: 'POST',
+      headers: { 'content-type': 'text/plain' },
+      body: '{}',
     });
     expect(wrongType.status).toBe(415);
-    expect((db.prepare("SELECT COUNT(*) AS count FROM verification_observations WHERE entity_type='mapping'").get() as { count: number }).count).toBe(0);
+    expect(
+      (
+        db
+          .prepare(
+            "SELECT COUNT(*) AS count FROM verification_observations WHERE entity_type='mapping'",
+          )
+          .get() as { count: number }
+      ).count,
+    ).toBe(0);
   });
 
   it('coalesces matching resolutions, applies a short cooldown, and bounds distinct work', async () => {
     let releaseFirst!: () => void;
     let calls = 0;
-    const firstGate = new Promise<void>((resolveGate) => { releaseFirst = resolveGate; });
+    const firstGate = new Promise<void>((resolveGate) => {
+      releaseFirst = resolveGate;
+    });
     const firstApp = await app({
       resolutionCooldownMs: 5_000,
       resolveProvider: async (mapping) => {
         calls++;
         await firstGate;
-        return { mappingId: mapping.mappingId, providerId: mapping.providerId, playbackType: 'iframe', status: 'resolved', embedUrl: 'https://megaplay.buzz/stream/s-2/test' };
+        return {
+          mappingId: mapping.mappingId,
+          providerId: mapping.providerId,
+          playbackType: 'direct',
+          status: 'resolved',
+          delivery: 'native',
+          url: 'https://media.example.test/owned.mp4',
+        };
       },
     });
-    const mappingId = Number((firstApp.db.prepare("SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-hash'").get() as { id: number }).id);
-    const resolveRequest = () => fetch(`${firstApp.origin}/api/providers/${mappingId}/resolve`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ language: 'sub' }) });
+    const mappingId = Number(
+      (
+        firstApp.db
+          .prepare("SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-hash'")
+          .get() as { id: number }
+      ).id,
+    );
+    const resolveRequest = () =>
+      fetch(`${firstApp.origin}/api/providers/${mappingId}/resolve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ language: 'sub' }),
+      });
     const first = resolveRequest();
     const second = resolveRequest();
     await vi.waitFor(() => expect(calls).toBe(1));
@@ -163,37 +330,202 @@ describe('application HTTP API', () => {
     expect((await second).status).toBe(200);
     expect((await resolveRequest()).status).toBe(200);
     expect(calls).toBe(1);
-    expect((firstApp.db.prepare("SELECT COUNT(*) AS count FROM verification_observations WHERE entity_type='mapping' AND entity_id=?").get(String(mappingId)) as { count: number }).count).toBe(1);
+    expect(
+      (
+        firstApp.db
+          .prepare(
+            "SELECT COUNT(*) AS count FROM verification_observations WHERE entity_type='mapping' AND entity_id=?",
+          )
+          .get(String(mappingId)) as { count: number }
+      ).count,
+    ).toBe(1);
 
     const releases: Array<() => void> = [];
     let capacityCalls = 0;
     const capacityApp = await app({
       maxPendingResolutions: 2,
       resolutionCooldownMs: 0,
-      resolveProvider: (mapping) => new Promise((resolveResolution) => {
-        capacityCalls++;
-        releases.push(() => resolveResolution({ mappingId: mapping.mappingId, providerId: mapping.providerId, playbackType: 'iframe', status: 'resolved', embedUrl: 'https://megaplay.buzz/stream/s-2/test' }));
-      }),
+      resolveProvider: (mapping) =>
+        new Promise((resolveResolution) => {
+          capacityCalls++;
+          releases.push(() =>
+            resolveResolution({
+              mappingId: mapping.mappingId,
+              providerId: mapping.providerId,
+              playbackType: 'direct',
+              status: 'resolved',
+              delivery: 'native',
+              url: 'https://media.example.test/owned.mp4',
+            }),
+          );
+        }),
     });
-    const mappingIds = (capacityApp.db.prepare('SELECT id FROM episode_provider_mappings ORDER BY id LIMIT 3').all() as Array<{ id: number }>).map((row) => row.id);
-    const pending = mappingIds.slice(0, 2).map((id) => fetch(`${capacityApp.origin}/api/providers/${id}/resolve`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' }));
+    const mappingIds = (
+      capacityApp.db
+        .prepare('SELECT id FROM episode_provider_mappings ORDER BY id LIMIT 3')
+        .all() as Array<{ id: number }>
+    ).map((row) => row.id);
+    const pending = mappingIds.slice(0, 2).map((id) =>
+      fetch(`${capacityApp.origin}/api/providers/${id}/resolve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: '{}',
+      }),
+    );
     await vi.waitFor(() => expect(capacityCalls).toBe(2));
-    const limited = await fetch(`${capacityApp.origin}/api/providers/${mappingIds[2]}/resolve`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
+    const limited = await fetch(`${capacityApp.origin}/api/providers/${mappingIds[2]}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
     expect(limited.status).toBe(429);
     expect(limited.headers.get('retry-after')).toBe('1');
-    await expect(limited.json()).resolves.toMatchObject({ error: { code: 'UNAVAILABLE', details: { retryAfterSeconds: 1 } } });
+    await expect(limited.json()).resolves.toMatchObject({
+      error: { code: 'UNAVAILABLE', details: { retryAfterSeconds: 1 } },
+    });
     releases.forEach((release) => release());
     await Promise.all(pending);
   });
 
   it('records unavailable provider resolutions as failed verification observations', async () => {
     const { origin, db } = await app();
-    const mappingId = Number((db.prepare("SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-kiwi-hash'").get() as { id: number }).id);
+    const mappingId = Number(
+      (
+        db
+          .prepare(
+            "SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-kiwi-hash'",
+          )
+          .get() as { id: number }
+      ).id,
+    );
 
-    const response = await fetch(`${origin}/api/providers/${mappingId}/resolve`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ language: 'sub' }) });
+    const response = await fetch(`${origin}/api/providers/${mappingId}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ language: 'sub' }),
+    });
 
     expect(response.status).toBe(422);
-    await expect(response.json()).resolves.toMatchObject({ status: 'unavailable', mappingId: String(mappingId) });
-    expect(db.prepare("SELECT stage,result FROM verification_observations WHERE entity_type='mapping' AND entity_id=? ORDER BY id DESC LIMIT 1").get(String(mappingId))).toMatchObject({ stage: 'failed', result: 'unavailable' });
+    await expect(response.json()).resolves.toMatchObject({
+      status: 'unsupported',
+      error: { code: 'DOWNLOAD_ONLY_SOURCE', retryable: false },
+      mappingId: String(mappingId),
+    });
+    expect(
+      db
+        .prepare(
+          "SELECT stage,result FROM verification_observations WHERE entity_type='mapping' AND entity_id=? ORDER BY id DESC LIMIT 1",
+        )
+        .get(String(mappingId)),
+    ).toMatchObject({ stage: 'failed', result: 'unsupported' });
+  });
+  it('advertises canonical provider embeds with optional Desktop Guard', async () => {
+    const { origin, db } = await app();
+    db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url=CASE provider_id WHEN 'hd-1' THEN 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn' ELSE 'https://megaplay.buzz/stream/s-2/123/sub?s=bcdn' END WHERE provider_id IN ('hd-1','hd-2')").run();
+    const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
+    const result = await (
+      await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)
+    ).json<{ providers: Array<{ mappingId: string; providerId: string; supported: boolean; kind: string; playbackType: string }> }>();
+    expect(result.providers).toHaveLength(3);
+    for (const p of result.providers) {
+      const embedOnly = p.providerId === 'hd-1' || p.providerId === 'hd-2';
+      expect(p).toMatchObject({
+        supported: embedOnly,
+        kind: embedOnly ? 'embed' : 'unsupported',
+        status: embedOnly ? 'available' : 'unsupported',
+        playbackType: embedOnly ? 'iframe' : 'unknown',
+        reasonCode: embedOnly ? null : 'DOWNLOAD_ONLY_SOURCE',
+        requiresGuard: false,
+      });
+    }
+    const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{"language":"sub"}',
+    });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body).toMatchObject({
+      kind: 'embed',
+      status: 'resolved',
+      playbackType: 'iframe',
+      embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn',
+      iframePolicy: { requiresGuard: false, sandbox: [], referrerPolicy: 'strict-origin-when-cross-origin' },
+    });
+    expect(body).not.toHaveProperty('url');
+    expect(JSON.stringify(body)).not.toContain('private-opaque-reference');
+    expect(
+      (
+        db.prepare('SELECT COUNT(*) AS count FROM episode_provider_mappings').get() as {
+          count: number;
+        }
+      ).count,
+    ).toBe(3);
+  });
+  it('does not accept a legacy iframe even when an adapter labels it resolved', async () => {
+    const { origin, db } = await app({
+      resolveProvider: async (m) => ({
+        mappingId: m.mappingId,
+        providerId: m.providerId,
+        playbackType: 'iframe',
+        status: 'resolved',
+        embedUrl: 'https://unwanted.example/player',
+      }),
+    });
+    const id = (
+      db.prepare('SELECT id FROM episode_provider_mappings LIMIT 1').get() as { id: number }
+    ).id;
+    const res = await fetch(`${origin}/api/providers/${id}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
+    expect(res.status).toBe(422);
+    const body = await res.json<{ status: string }>();
+    expect(body.status).toBe('unsupported');
+    expect(body).not.toHaveProperty('embedUrl');
+    expect(
+      (
+        db
+          .prepare(
+            "SELECT COUNT(*) AS count FROM verification_observations WHERE stage='source_resolved' AND evidence_class='local_runtime'",
+          )
+          .get() as { count: number }
+      ).count,
+    ).toBe(0);
+  });
+  it('advertises and resolves a registered native resource without exposing an embed', async () => {
+    const { origin, db } = await app({
+      nativeSources: (m) =>
+        m.providerId === 'hd-1'
+          ? {
+              mappingId: m.mappingId,
+              providerId: m.providerId,
+              status: 'resolved',
+              delivery: 'native',
+              playbackType: 'direct',
+              url: 'https://media.example.test/owned.mp4',
+              captions: [
+                { url: 'https://media.example.test/en.vtt', label: 'English', language: 'en' },
+              ],
+            }
+          : null,
+    });
+    const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
+    const list = await (await fetch(`${origin}/api/episodes/${id}/providers?language=sub`)).json<{
+      providers: Array<{ supported: boolean; kind: string; mappingId: string; capabilities: { subtitles: boolean } }>;
+    }>();
+    const supported = list.providers.filter((p) => p.supported && p.kind === 'native');
+    expect(supported).toHaveLength(1);
+    expect(supported[0].capabilities.subtitles).toBe(true);
+    const res = await fetch(`${origin}/api/providers/${supported[0].mappingId}/resolve`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body).toMatchObject({ delivery: 'native', playbackType: 'direct', status: 'resolved' });
+    expect(body).not.toHaveProperty('embedUrl');
   });
 });

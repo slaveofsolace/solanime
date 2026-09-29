@@ -1,0 +1,273 @@
+{
+  "availability": {
+    "bytes_read": 636,
+    "content_type": "text/html",
+    "final_url": "https://oha.to/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:43:33.933404+00:00",
+    "redirects": [],
+    "request_kind": "page",
+    "sha256": "8cf1bd4818932294905f3e9131300d5e5565633b2a7dbe6505e721139bdf9400",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://oha.to/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 1
+  },
+  "domain_ids": [
+    "domain-cfaad51b44aa3a87",
+    "domain-1a2e36cc692d119d",
+    "domain-bb3e4bfe40af9b89"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-c29e398db996fb17"
+  ],
+  "frameworks": [
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "verification_scope": "signature_present_only"
+    }
+  ],
+  "id": "site-cc9a976f534ede55",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "oha.to",
+  "observations": [
+    {
+      "bytes_read": 636,
+      "content_type": "text/html",
+      "final_url": "https://oha.to/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:33.933404+00:00",
+      "redirects": [],
+      "request_kind": "page",
+      "sha256": "8cf1bd4818932294905f3e9131300d5e5565633b2a7dbe6505e721139bdf9400",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://oha.to/"
+    },
+    {
+      "bytes_read": 456586,
+      "content_type": "application/javascript",
+      "final_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://oha.to/assets/index-DIN2IM4r.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:43:33.933404+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8cf1bd4818932294905f3e9131300d5e5565633b2a7dbe6505e721139bdf9400",
+      "evidence_url": "https://oha.to/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:43:33.933404+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8cf1bd4818932294905f3e9131300d5e5565633b2a7dbe6505e721139bdf9400",
+      "evidence_url": "https://oha.to/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.933404+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://oha.to/assets/favicon-BZQyHbeh.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "8cf1bd4818932294905f3e9131300d5e5565633b2a7dbe6505e721139bdf9400",
+      "evidence_url": "https://oha.to/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:43:33.933404+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://oha.to/assets/index-in684hpW.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${t}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${n}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${e.logo}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${i}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${e.icon}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${yt(n,300)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${e}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${e.url}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "url-template",
+      "url": "https://oha.to/assets/${e.url||e.src}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "e6ce58d09ef5cbac4a1fd21ca2abd407b6d30727b5e014cc4afebe0616e01297",
+      "evidence_url": "https://oha.to/assets/index-DIN2IM4r.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:43:35.869031+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "listed_related"
+  ],
+  "url": "https://oha.to/"
+}

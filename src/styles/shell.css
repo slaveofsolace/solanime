@@ -1,0 +1,91 @@
+/* A single floating navigation dock, independent of cinematic artwork. */
+.site-shell { min-height: 100svh; }
+.masthead { position: sticky; top: 0; z-index: 40; min-height: 96px; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 24px; pointer-events: none; }
+.masthead > * { pointer-events: auto; }
+.wordmark { display: inline-flex; flex: none; align-items: center; width: 148px; min-height: 48px; }
+.wordmark > .sol-brand { width: 100%; }
+.navigation-dock { display: flex; align-items: center; padding: 5px 7px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent); border-radius: 99px; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(18px); box-shadow: 0 4px 24px #0002; }
+.main-nav { display: flex; align-items: center; gap: 2px; }
+.main-nav > a { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 0 20px; min-height: 44px; border-radius: 99px; color: var(--muted); font-size: 13px; font-weight: 650; white-space: nowrap; }
+.main-nav > a:hover { color: var(--text); background: var(--surface-2); }
+.main-nav > a[aria-current='page'] { color: var(--bg); background: var(--text); box-shadow: none; }
+.main-nav .icon { width: 16px; height: 16px; }
+.main-nav small { font-size: 10px; }
+.main-nav__search { display: none !important; }
+.masthead-actions { display: flex; align-items: center; position: relative; margin-left: 10px; padding-left: 6px; border-left: 1px solid var(--line); }
+.theme-toggle, .account-jump { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 44px; min-height: 44px; padding: 10px; color: var(--text); border-radius: 50%; }
+.theme-toggle:hover, .account-jump:hover { background: var(--surface-2); }
+.appearance-jump span, .account-jump > span:not(.profile-avatar), .account-jump > .icon:last-child:not(:first-child) { display: none; }
+.account-jump .profile-avatar { width: 28px; height: 28px; }
+.content-shell { width: 100%; margin: 0; padding: 0; }
+main { min-height: 68svh; max-width: none; margin: 0 auto; padding: 0 0 48px; }
+main:focus { outline: none; }
+.site-shell--home:has(.home-feature) .masthead,
+.site-shell:has(.title-hero) .masthead { margin-bottom: -96px; }
+.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 24px var(--gutter) 0; padding: 24px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.site-footer p, .site-footer nav { display: flex; gap: 16px; }
+.release-tag { font-variant-numeric: tabular-nums; }
+.account-service-notice {
+  position: absolute;
+  z-index: 36;
+  top: 10px;
+  right: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(420px, calc(100% - var(--gutter) - var(--gutter)));
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 10px;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 5px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--bg) 91%, transparent);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 24%);
+  backdrop-filter: blur(14px);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.account-service-notice a,
+.account-service-notice .text-button { color: var(--accent-ink); text-decoration: none; }
+.account-service-notice .text-button {
+  min-height: 28px;
+  padding: 3px 5px;
+  font-size: 11px;
+}
+.account-service-notice[role='status'] {
+  font-size: 0;
+}
+.account-service-notice[role='status']::before {
+  content: 'Account features offline';
+  font-size: 11px;
+}
+.site-shell--home .account-service-notice,
+.site-shell:has(.title-hero) .account-service-notice { top: 82px; }
+.account-readiness { position: fixed; z-index: 50; right: var(--gutter); bottom: 18px; display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: var(--surface); color: var(--muted); border-radius: 8px; font-size: 11px; }
+.site-shell--focused .main-nav { display: none; }
+.site-shell--focused .masthead-actions { border: 0; margin: 0; padding: 0; }
+.site-shell--focused main { min-height: calc(100svh - 150px); }
+@media (max-width: 820px) {
+  .masthead { min-height: 76px; padding: 12px var(--gutter); gap: 8px; }
+  .wordmark { width: 136px; }
+  .navigation-dock { padding: 2px; backdrop-filter: none; }
+  .masthead-actions { margin: 0; padding: 0; border: 0; }
+  .main-nav { position: fixed; inset: auto 12px 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 45; padding: 5px; justify-content: space-around; border: 1px solid var(--line); background: var(--bg); border-radius: 99px; box-shadow: 0 4px 24px #0006; }
+  .main-nav > a { flex: 1; padding: 6px; min-height: 48px; flex-direction: column; gap: 2px; font-size: 10px; }
+  .main-nav__search, .main-nav__movies { display: flex !important; }
+  .main-nav small { display: none; }
+  .main-nav .icon { width: 18px; height: 18px; }
+  .site-shell--home:has(.home-feature) .masthead,
+  .site-shell:has(.title-hero) .masthead { margin-bottom: -76px; }
+  .site-footer { margin-bottom: calc(80px + env(safe-area-inset-bottom)); flex-wrap: wrap; gap: 12px; }
+  .site-shell--focused .site-footer { margin-bottom: 0; }
+  .account-readiness { bottom: 90px; left: 14px; right: 14px; }
+  .account-service-notice {
+    right: 12px;
+    max-width: calc(100% - 24px);
+  }
+  .site-shell--home .account-service-notice,
+  .site-shell:has(.title-hero) .account-service-notice { top: 68px; }
+}
+@media (max-width: 360px) { .wordmark { width: 118px; } .masthead { padding-inline: 12px; } }

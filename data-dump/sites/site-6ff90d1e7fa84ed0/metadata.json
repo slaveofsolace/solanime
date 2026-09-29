@@ -1,0 +1,100 @@
+{
+  "availability": {
+    "bytes_read": 2597,
+    "content_type": "text/html",
+    "final_url": "https://hkmdb.com/chal.html",
+    "hash_scope": "response_body",
+    "headers": {
+      "access-control-allow-origin": "*",
+      "content-type": "text/html",
+      "server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:27.486118+00:00",
+    "redirects": [
+      {
+        "http_status": 302,
+        "location": "https://hkmdb.com/chal.html",
+        "url": "https://hkmdb.com/db/index.php"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "697788da7d1eafe5ca01a29e0eea89b84ea296e467225a550b356ef077014a71",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://hkmdb.com/db/index.php"
+  },
+  "categories": [
+    [
+      "Tracking / Databases"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 0,
+    "linked_scripts_discovered": 0,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-8b7d1ce882eda8d9"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-5535ff859fa62fe8"
+  ],
+  "frameworks": [],
+  "id": "site-6ff90d1e7fa84ed0",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "HKMDB",
+  "observations": [
+    {
+      "bytes_read": 2597,
+      "content_type": "text/html",
+      "final_url": "https://hkmdb.com/chal.html",
+      "hash_scope": "response_body",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "content-type": "text/html",
+        "server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:27.486118+00:00",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://hkmdb.com/chal.html",
+          "url": "https://hkmdb.com/db/index.php"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "697788da7d1eafe5ca01a29e0eea89b84ea296e467225a550b356ef077014a71",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://hkmdb.com/db/index.php"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:27.486118+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "697788da7d1eafe5ca01a29e0eea89b84ea296e467225a550b356ef077014a71",
+      "evidence_url": "https://hkmdb.com/chal.html",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:27.486118+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://hkmdb.com/",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://hkmdb.com/db/index.php"
+}

@@ -1,57 +1,197 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { useEffect, useRef, type CSSProperties, type PropsWithChildren, type ReactNode } from 'react';
+import { useAccount } from '../account/AccountProvider';
+import Avatar from '../account/Avatar';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import {
+  useEffect,
+  useLayoutEffect,
+  lazy,
+  Suspense,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react';
 import type { TitleSummary } from '../types';
 import { useAppState } from '../state';
-
-function Mark() {
-  return (
-    <svg className="brand-mark" viewBox="0 0 42 42" aria-hidden="true">
-      <path d="M6 20.8 21 6l15 14.8L21 36Z" />
-      <path d="m13 21 8-8 8 8-8 8Z" />
-    </svg>
-  );
-}
+import Icon from './Icon';
+import { applyTheme } from '../lib/theme';
+import HeaderSearch from './HeaderSearch';
+import CategoryNavigation from './CategoryNavigation';
+import { markDialogTrigger } from './Dialog';
+import { useRouteMotion } from '../lib/motion';
+import { RELEASE } from '../../shared/release';
+import { SolanimeBrand } from '../branding';
+import { api } from '../lib/api';
+import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
+const TitlePreview = lazy(() => import('./TitlePreview'));
 
 export function Layout({ children }: PropsWithChildren) {
+  const account = useAccount();
   const location = useLocation();
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
-  const { watchlist, preferences } = useAppState();
-  const [prefs, setPrefs] = preferences;
+  const { watchlist, preferences, preview, setPreview } = useAppState();
+  const [prefs] = preferences;
   const theme = prefs.theme ?? 'dark';
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    return () => { delete document.documentElement.dataset.theme; };
-  }, [theme]);
+  useRouteMotion(main, location.pathname);
+  useLayoutEffect(() => {
+    document.documentElement.dataset.motion = prefs.motion === 'reduced' ? 'reduced' : 'system';
+  }, [prefs.motion]);
+  useLayoutEffect(() => {
+    applyTheme(prefs.accent, theme);
+  }, [prefs.accent, theme]);
   useEffect(() => {
     if (previousPath.current === location.pathname) return;
     previousPath.current = location.pathname;
+    setPreview(null);
     main.current?.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [location.pathname]);
-  const catalogueActive = location.pathname.startsWith('/catalogue') || location.pathname.startsWith('/search');
+  const focused =
+    ['/login', '/register', '/recover', '/profiles', '/account/recovery-code'].includes(
+      location.pathname,
+    ) ||
+    location.pathname === '/admin' ||
+    location.pathname.startsWith('/admin/');
+  const watching = location.pathname.startsWith('/watch/');
+  const home = location.pathname === '/';
+  const catalogueQuery = new URLSearchParams(location.search);
+  const catalogueScope = catalogueQuery.get('scope');
+  const onAnimeCatalogue =
+    location.pathname === '/catalogue' && catalogueScope === 'anime';
+  const onTvCatalogue = location.pathname === '/catalogue' && catalogueScope === 'tv';
+  const accountServiceSurface =
+    location.pathname === '/login' ||
+    location.pathname === '/register' ||
+    location.pathname === '/recover' ||
+    location.pathname === '/profiles' ||
+    location.pathname === '/account' ||
+    location.pathname.startsWith('/account/');
+  const privateGuest = account.privateSite === true && !account.account;
+  // Until the session check succeeds, a private deployment has not yet told
+  // the client whether browse controls may be exposed. Avoid a public-nav flash.
+  const hideBrowseControls = !account.ready || Boolean(account.loadError) || privateGuest;
   return (
-    <div className="site-shell">
-      <a className="skip-link" href="#main">Skip to content</a>
+    <div
+      className={`site-shell discovery-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}${privateGuest ? ' site-shell--private-guest' : ''}`}
+    >
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <header className="masthead">
-        <Link className="wordmark" to="/" aria-label="Sol Anime home">
-          <Mark />
-          <span><strong>sol</strong><em>anime</em></span>
+        <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Sol Anime sign in' : 'Sol Anime home'}>
+          <SolanimeBrand
+            variant="compact"
+            motion="static"
+            theme={theme}
+            decorative
+          />
         </Link>
+        {hideBrowseControls ? (
+          privateGuest && location.pathname !== '/login' && <Link className="private-guest-signin" to="/login">Sign in</Link>
+        ) : <div className="navigation-dock">
         <nav className="main-nav" aria-label="Primary navigation">
-          <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/catalogue" aria-current={catalogueActive ? 'page' : undefined}>Catalogue</NavLink>
-          <NavLink to="/library">My list <small>{watchlist.ids.length}</small></NavLink>
+          <NavLink to="/" end aria-label="Home">
+            <Icon name="home" />
+            <span>Home</span>
+          </NavLink>
+          <Link
+            to="/catalogue?scope=anime"
+            aria-label="Anime"
+            aria-current={onAnimeCatalogue ? 'page' : undefined}
+          >
+            <Icon name="browse" />
+            <span>Anime</span>
+          </Link>
+          <Link
+            className="main-nav__tv"
+            to="/catalogue?scope=tv"
+            aria-label="TV Shows"
+            aria-current={onTvCatalogue ? 'page' : undefined}
+          >
+            <Icon name="tv" />
+            <span>TV</span>
+          </Link>
+          <CategoryNavigation />
+          <NavLink
+            to="/library"
+            aria-label={`Library / My list, ${watchlist.ids.length} saved`}
+          >
+            <Icon name="bookmark" />
+            <span>My List</span>
+            {watchlist.ids.length > 0 && <small aria-hidden="true">{watchlist.ids.length}</small>}
+          </NavLink>
         </nav>
         <div className="masthead-actions">
-          <button className="theme-toggle" type="button" aria-label={`Use ${theme === 'dark' ? 'light' : 'dark'} theme`} onClick={() => setPrefs({ ...prefs, theme: theme === 'dark' ? 'light' : 'dark' })}>{theme === 'dark' ? '☼' : '◐'}</button>
-          <Link className="search-jump" to="/catalogue?focus=search" aria-label="Search catalogue"><span aria-hidden="true">⌕</span><span>Search</span></Link>
+          <HeaderSearch />
+          <Link
+            to="/settings"
+            className="theme-toggle appearance-jump"
+            aria-label="Settings"
+          >
+            <Icon name="palette" />
+            <span>Settings</span>
+          </Link>
+          {account.account ? (
+            <Link className="account-jump" to="/profiles" aria-label="Switch profile">
+              <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'violet' }} small />
+              <span>{account.profile?.name ?? 'Choose profile'}</span>
+              <Icon name="right" />
+            </Link>
+          ) : (
+            <Link className="account-jump" to="/login" aria-label="Sign in">
+              <Icon name="person" />
+              <span>Sign in</span>
+            </Link>
+          )}
         </div>
+        </div>}
       </header>
-      <main id="main" ref={main} tabIndex={-1}>{children}</main>
-      <footer className="site-footer">
-        <p><strong>Sol Anime</strong> / independent catalogue interface</p>
-        <p>Public records are synchronized from their cited sources. Availability can change. <Link to="/admin">Import diagnostics</Link></p>
-      </footer>
+      <div className="content-shell">
+        {account.loadError && accountServiceSurface && (
+          <div className="account-service-notice" role="status">
+            {account.privateSite ? 'Account service unavailable. Sign-in cannot be checked.' : 'Account service unavailable. Browsing remains available.'}{' '}
+            <button className="text-button" onClick={() => void account.refresh()}>
+              Reconnect
+            </button>
+          </div>
+        )}
+        {account.account && !account.profile && !focused && location.pathname !== '/account' && (
+          <div className="account-service-notice">
+            Choose a profile to save your list and progress.{' '}
+            <Link to="/profiles">Choose profile</Link>
+          </div>
+        )}
+        {account.syncError && (
+          <div className="account-service-notice" role="alert">
+            Profile changes are not synced: {account.syncError}
+          </div>
+        )}
+        <main id="main" ref={main} tabIndex={-1}>
+          {children}
+        </main>
+        <footer className="site-footer">
+          <p>
+            Solanime{' '}
+            <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
+              v{RELEASE}
+            </span>
+          </p>
+          {!hideBrowseControls && <nav aria-label="Footer navigation">
+            <Link to="/catalogue?scope=anime">Anime</Link>
+            <Link to="/catalogue?scope=tv">TV Shows</Link>
+            <Link to="/settings">Settings</Link>
+            <Link to="/library">My List</Link>
+            {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
+          </nav>}
+        </footer>
+      </div>
+      {preview && (
+        <Suspense fallback={null}>
+          <TitlePreview title={preview} onClose={() => setPreview(null)} />
+        </Suspense>
+      )}
     </div>
   );
 }
@@ -65,7 +205,7 @@ export function StatusPanel({
 }: PropsWithChildren<{ eyebrow: string; title: string; action?: ReactNode; busy?: boolean }>) {
   return (
     <section className="status-panel" aria-live="polite" aria-busy={busy}>
-      <p className="eyebrow">{eyebrow}</p>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h1>{title}</h1>
       <div className="status-panel__copy">{children}</div>
       {action}
@@ -74,59 +214,207 @@ export function StatusPanel({
 }
 
 function displayGenres(title: TitleSummary): string[] {
-  return (title.genres ?? []).map((genre) => typeof genre === 'string' ? genre : genre.name);
+  return (title.genres ?? []).map((genre) => (typeof genre === 'string' ? genre : genre.name));
 }
 
-export function CoverArt({ title, eager = false }: { title: TitleSummary; eager?: boolean }) {
-  const src = title.imageUrl ?? title.posterUrl;
+export function CoverArt({
+  title,
+  eager = false,
+  variant = 'poster',
+}: {
+  title: TitleSummary;
+  eager?: boolean;
+  variant?: 'poster' | 'landscape';
+}) {
+  const posterSources = [title.posterUrl, title.imageUrl].filter(
+    (source, index, sources): source is string =>
+      Boolean(source) && sources.indexOf(source) === index,
+  );
+  const backdropSrc = variant === 'landscape' ? title.backdropUrl : null;
+  const [failedSources, setFailedSources] = useState<string[]>([]);
+  const [landscapeSources, setLandscapeSources] = useState<string[]>([]);
+  const usablePoster = posterSources.find((source) => !failedSources.includes(source)) ?? null;
+  const usableBackdrop = backdropSrc && !failedSources.includes(backdropSrc) ? backdropSrc : null;
+  const src = variant === 'landscape' ? usableBackdrop : usablePoster;
+  const measuredPoster = title.artwork?.poster?.url === usablePoster ? title.artwork.poster : null;
+  const posterIsLandscape = Boolean(
+    usablePoster &&
+      (landscapeSources.includes(usablePoster) ||
+        (measuredPoster && measuredPoster.width / measuredPoster.height >= 1.45)),
+  );
+  const markFailed = (failed: string) =>
+    setFailedSources((current) => (current.includes(failed) ? current : [...current, failed]));
+  const recordShape = (image: HTMLImageElement, source: string) => {
+    if (image.naturalWidth / Math.max(1, image.naturalHeight) < 1.45) return;
+    setLandscapeSources((current) =>
+      current.includes(source) ? current : [...current, source],
+    );
+  };
+  if (variant === 'landscape' && !usableBackdrop && usablePoster) {
+    if (posterIsLandscape) {
+      return (
+        <span className="cover-composition cover-composition--landscape-fallback" data-artwork-source="landscape-fallback">
+          <img
+            className="cover-composition__crop"
+            src={usablePoster}
+            alt=""
+            width="640"
+            height="360"
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
+            onError={() => markFailed(usablePoster)}
+            referrerPolicy="no-referrer"
+          />
+        </span>
+      );
+    }
+    return (
+      <span className="cover-composition cover-composition--poster-layout" data-artwork-source="poster-layout">
+        <img
+          className="cover-composition__wash"
+          src={usablePoster}
+          alt=""
+          width="640"
+          height="360"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
+          onError={() => markFailed(usablePoster)}
+          referrerPolicy="no-referrer"
+        />
+        <img
+          className="cover-composition__poster"
+          src={usablePoster}
+          alt=""
+          width="360"
+          height="510"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={(event) => recordShape(event.currentTarget, usablePoster)}
+          onError={() => markFailed(usablePoster)}
+          referrerPolicy="no-referrer"
+        />
+      </span>
+    );
+  }
   if (!src) {
-    return <div className="cover-fallback" aria-label={`No artwork available for ${title.name ?? title.title}`}>SOL<br />ARCHIVE</div>;
+    return (
+      <div
+        className="cover-fallback"
+        aria-label={`No artwork available for ${title.name ?? title.title}`}
+      >
+        <SolanimeBrand variant="emblem" motion="static" theme="dark" decorative />
+        <small>Artwork unavailable</small>
+      </div>
+    );
   }
   return (
     <img
       src={src}
       alt=""
-      width="360"
-      height="510"
+      width={variant === 'landscape' ? '640' : '360'}
+      height={variant === 'landscape' ? '360' : '510'}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
+      onError={() => markFailed(src)}
       referrerPolicy="no-referrer"
     />
   );
 }
 
-export function TitleCard({ title, index = 0 }: { title: TitleSummary; index?: number }) {
-  const { watchlist } = useAppState();
+export function TitleCard({ title, index = 0, format = 'poster' }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape' }) {
+  const { watchlist, history, preferences, setPreview } = useAppState();
+  const [preference] = preferences;
+  const navigate = useNavigate();
+  const [opening, setOpening] = useState(false);
+  const openRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => openRequest.current?.abort(), []);
+  const openWatch = async () => {
+    if (openRequest.current) return;
+    const controller = new AbortController();
+    openRequest.current = controller;
+    setOpening(true);
+    try {
+      const detail = await api.title(title.slug, controller.signal);
+      if (controller.signal.aborted) return;
+      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage);
+      navigate(entry ? watchEntryPath(title.slug, entry) : `/title/${encodeURIComponent(title.slug)}`);
+    } catch {
+      if (!controller.signal.aborted) navigate(`/title/${encodeURIComponent(title.slug)}`);
+    } finally {
+      if (!controller.signal.aborted) setOpening(false);
+      openRequest.current = null;
+    }
+  };
   const name = title.name ?? title.title ?? 'Untitled record';
   const genres = displayGenres(title);
   const isSaved = watchlist.has(title.id);
+  const facts = [title.type, title.releaseYear ?? title.year].filter(
+    (fact): fact is string | number => fact !== null && fact !== undefined && fact !== '',
+  );
+  const descriptor = genres.slice(0, 3).join(' · ') || title.status || null;
+  const languages = (title.languages ?? []).map(value => value === 'sub' ? 'Sub' : value === 'dub' ? 'Dub' : value).join(' | ');
   return (
-    <article className="title-card" style={{ '--index': Math.min(index, 8) } as CSSProperties}>
-      <Link className="title-card__art" to={`/title/${encodeURIComponent(title.slug)}`} aria-label={`Open ${name}`}>
-        <CoverArt title={{ ...title, name }} />
-        <span className="title-card__corner" aria-hidden="true">↗</span>
+    <article className={`title-card title-card--${format}`} style={{ '--index': Math.min(index, 8) } as CSSProperties}>
+      <Link
+        className="title-card__art"
+        to={`/title/${encodeURIComponent(title.slug)}`}
+        aria-label={`Open ${name}`}
+      >
+        <CoverArt title={{ ...title, name }} variant={format} />
       </Link>
       <div className="title-card__copy">
-        <div className="title-card__meta">
-          <span>{title.type ?? 'Unknown format'}</span>
-          <span>{title.releaseYear ?? title.year ?? '—'}</span>
+        <h2>
+          <Link to={`/title/${encodeURIComponent(title.slug)}`}>{name}</Link>
+        </h2>
+        <p className="title-card__availability">{languages || facts.join(' · ')}</p>
+        <div className="title-card__details">
+          {languages && facts.length > 0 && (
+            <div className="title-card__meta">
+              {facts.map((fact) => <span key={fact}>{fact}</span>)}
+            </div>
+          )}
+          {descriptor && <p>{descriptor}</p>}
+          {title.synopsis && <p className="title-card__synopsis">{title.synopsis.replace(/\s*\[more\]\s*$/i, '')}</p>}
         </div>
-        <h2><Link to={`/title/${encodeURIComponent(title.slug)}`}>{name}</Link></h2>
-        <p>{genres.slice(0, 3).join(' · ') || title.status || 'Catalogue record'}</p>
-        <button
-          className="save-button"
-          type="button"
-          aria-pressed={isSaved}
-          onClick={() => watchlist.toggle(title.id, { ...title, name })}
-        >
-          <span aria-hidden="true">{isSaved ? '−' : '+'}</span>{isSaved ? 'Saved' : 'Watchlist'}
-        </button>
+        <div className="title-card__actions">
+            <button className="card-open" type="button" aria-label={`Start or continue ${name}`} aria-busy={opening} disabled={opening} onClick={() => void openWatch()}>
+              <Icon name="play" />
+            </button>
+            <button
+              className="save-button"
+              type="button"
+              aria-pressed={isSaved}
+              aria-label={`${isSaved ? 'Remove' : 'Save'} ${name}${isSaved ? ' from your list' : ' to your list'}`}
+              onClick={() => watchlist.toggle(title.id, { ...title, name })}
+            >
+              <Icon name={isSaved ? 'check' : 'bookmark'} />
+              {isSaved ? 'Saved' : 'Save'}
+            </button>
+            <button
+              className="card-info"
+              type="button"
+              aria-label={`Quick look at ${name}`}
+              onClick={(event) => {
+                markDialogTrigger(event.currentTarget);
+                setPreview(title);
+              }}
+            >
+              <Icon name="info" />
+            </button>
+        </div>
       </div>
     </article>
   );
 }
 
-export function PageIntro({ code, title, copy, aside }: {
+export function PageIntro({
+  code,
+  title,
+  copy,
+  aside,
+}: {
   code: string;
   title: string;
   copy?: string;
@@ -135,7 +423,7 @@ export function PageIntro({ code, title, copy, aside }: {
   return (
     <header className="page-intro">
       <div>
-        <p className="eyebrow">{code}</p>
+        {code && <p className="eyebrow">{code}</p>}
         <h1>{title}</h1>
         {copy && <p className="page-intro__copy">{copy}</p>}
       </div>
@@ -144,7 +432,11 @@ export function PageIntro({ code, title, copy, aside }: {
   );
 }
 
-export function Pager({ current, pages, onPage }: {
+export function Pager({
+  current,
+  pages,
+  onPage,
+}: {
   current: number;
   pages: number;
   onPage: (page: number) => void;
@@ -154,7 +446,9 @@ export function Pager({ current, pages, onPage }: {
   const pageNumbers = Array.from({ length: Math.min(5, pages) }, (_, index) => start + index);
   return (
     <nav className="pager" aria-label="Catalogue pages">
-      <button type="button" disabled={current <= 1} onClick={() => onPage(current - 1)}>← Previous</button>
+      <button type="button" disabled={current <= 1} onClick={() => onPage(current - 1)}>
+        ← Previous
+      </button>
       <div>
         {pageNumbers.map((page) => (
           <button
@@ -162,14 +456,28 @@ export function Pager({ current, pages, onPage }: {
             key={page}
             aria-current={page === current ? 'page' : undefined}
             onClick={() => onPage(page)}
-          >{page}</button>
+          >
+            {page}
+          </button>
         ))}
       </div>
-      <button type="button" disabled={current >= pages} onClick={() => onPage(current + 1)}>Next →</button>
+      <button type="button" disabled={current >= pages} onClick={() => onPage(current + 1)}>
+        Next →
+      </button>
     </nav>
   );
 }
 
-export function InlineNotice({ tone = 'quiet', children }: PropsWithChildren<{ tone?: 'quiet' | 'warning' | 'error' }>) {
-  return <div className={`inline-notice inline-notice--${tone}`} role={tone === 'error' ? 'alert' : 'status'}>{children}</div>;
+export function InlineNotice({
+  tone = 'quiet',
+  children,
+}: PropsWithChildren<{ tone?: 'quiet' | 'warning' | 'error' }>) {
+  return (
+    <div
+      className={`inline-notice inline-notice--${tone}`}
+      role={tone === 'error' ? 'alert' : 'status'}
+    >
+      {children}
+    </div>
+  );
 }

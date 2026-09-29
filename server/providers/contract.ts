@@ -4,6 +4,8 @@ export interface StoredProviderMapping {
   mappingId: number;
   providerId: string;
   label: string;
+  /** Optional reviewed edition/audio/publisher label for distinct mappings. */
+  edition?: string | null;
   language: string;
   providerResourceId: string | null;
   canonicalEmbedUrl: string | null;
@@ -22,6 +24,19 @@ export interface ProviderCapabilities {
 }
 
 export interface ProviderResolution {
+  attribution?: { label: string; url: string; license: string };
+  mediaCrossOrigin?: 'anonymous' | 'none';
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
+  result?: import('../../shared/playback').PlaybackResult;
+  captions?: import('../../shared/playback').CaptionSource[];
+  delivery?: 'native' | 'provider';
+  allowedMediaHosts?: string[];
+  allowedEmbedHosts?: string[];
+  videoId?: string;
+  publisher?: import('../../shared/playback').OfficialYouTubePublisher;
+  capabilities?: import('../../shared/playback').NativeCapabilities | import('../../shared/playback').EmbedCapabilities;
+  iframePolicy?: import('../../shared/playback').EmbedIframePolicy;
+  messageProtocol?: import('../../shared/playback').EmbedMessageProtocol;
   mappingId: number;
   providerId: string;
   playbackType: PlaybackType;
@@ -29,8 +44,8 @@ export interface ProviderResolution {
   embedUrl?: string;
   headers?: Record<string, string>;
   expiresAt?: string;
-  status: 'resolved' | 'unavailable' | 'blocked';
-  error?: { code: string; message: string };
+  status: 'resolved' | 'unavailable' | 'blocked' | 'unsupported';
+  error?: { code: string; message: string; retryable?: boolean };
 }
 
 export interface ProviderAdapter {
@@ -40,7 +55,10 @@ export interface ProviderAdapter {
   readonly playbackType: PlaybackType;
   readonly capabilities: ProviderCapabilities;
   readonly compatibleLanguages: readonly string[] | 'all';
-  mapResource(mapping: StoredProviderMapping): { resourceId: string | null; embedUrl: string | null };
+  mapResource(mapping: StoredProviderMapping): {
+    resourceId: string | null;
+    embedUrl: string | null;
+  };
   resolve(mapping: StoredProviderMapping, signal?: AbortSignal): Promise<ProviderResolution>;
 }
 

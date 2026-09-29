@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Solanime Guard",
+  "version": "0.4.0",
+  "description": "Optional, Solanime-scoped tracker filtering and supported player theme integration.",
+  "minimum_chrome_version": "120",
+  "permissions": ["declarativeNetRequest", "scripting", "storage", "tabs", "webNavigation"],
+  "host_permissions": [
+    "https://solanime.pages.dev/*",
+    "https://*.solanime.pages.dev/*",
+    "http://127.0.0.1/*",
+    "https://megaplay.buzz/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Solanime Guard"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://solanime.pages.dev/*",
+        "https://*.solanime.pages.dev/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": ["site.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://megaplay.buzz/stream/*"],
+      "js": ["player.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  }
+}

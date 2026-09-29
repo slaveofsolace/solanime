@@ -1,0 +1,309 @@
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-200-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-300-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-400-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-500-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-600-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-700-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-800-normal.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
+:root {
+  color-scheme: dark;
+  --bg: #100f0d;
+  --surface: #191714;
+  --surface-2: #26221d;
+  --line: #3b352c;
+  --text: #f6efe3;
+  --muted: #b8ad9b;
+  --cinema: #ee791f;
+  --cinema-soft: #ffae6f;
+  --accent: #ee791f;
+  --accent-ink: #ffae6f;
+  --on-accent: #160a02;
+  --player-accent: #ffae6f;
+  --danger: #ffb6aa;
+  --warning: #ffc47d;
+  --radius-control: 5px;
+  --radius-art: 5px;
+  --radius-dialog: 10px;
+  --gutter: clamp(20px, 4vw, 64px);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --shadow-overlay: 0 28px 100px #000a;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-fast: 160ms;
+  --motion-enter: 280ms;
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5efe4;
+  --surface: #fffaf1;
+  --surface-2: #e9dece;
+  --text: #211b16;
+  --muted: #655a4d;
+  --line: #cfc1ae;
+  --cinema: #b94b09;
+  --cinema-soft: #8e3906;
+  --danger: #962b25;
+  --warning: #74410b;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: 24px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  min-width: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+input,
+select,
+textarea,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-ink);
+}
+button {
+  cursor: pointer;
+  color: inherit;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+  line-height: 1.12;
+  font-family: 'Manrope Local', 'Segoe UI', sans-serif;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+}
+h1 {
+  font-size: clamp(32px, 4.3vw, 60px);
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+button,
+input,
+select,
+textarea {
+  border-radius: var(--radius-control);
+}
+input,
+select,
+textarea {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  min-width: 0;
+  outline-offset: 3px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--accent);
+}
+button {
+  background: transparent;
+  border: 0;
+  padding: 10px 14px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.35;
+}
+button:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+button[aria-pressed='true'] {
+  color: var(--accent-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 4px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 16px;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 12px 20px;
+}
+.skip-link:focus {
+  top: 12px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) .title-card__art img {
+    transition: transform 300ms var(--motion-ease);
+  }
+  :root:not([data-motion='reduced']) .title-card__art:hover img {
+    transform: scale(1.045);
+  }
+  :root:not([data-motion='reduced']) .spotlight-scene .home-feature__copy {
+    animation: content-enter 320ms var(--motion-ease);
+  }
+  :root:not([data-motion='reduced']) .title-grid > .title-card {
+    animation: content-enter 280ms var(--motion-ease) both;
+    animation-delay: calc(min(var(--index, 0), 6) * 18ms);
+  }
+  :root:not([data-motion='reduced']) dialog[open] {
+    animation: dialog-enter 200ms var(--motion-ease);
+  }
+}
+@keyframes content-enter {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes dialog-enter {
+  from {
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root[data-motion='reduced'] *,
+:root[data-motion='reduced'] *::before,
+:root[data-motion='reduced'] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

@@ -1,18 +1,31 @@
+import type { CatalogueArtwork } from '../shared/artwork';
+
 export type AvailabilityStatus =
   | 'observed'
   | 'available'
   | 'unavailable'
   | 'blocked'
   | 'stale'
-  | 'unknown';
+  | 'unknown'
+  | 'unsupported';
 
-export type ResolutionStatus = 'resolved' | 'unavailable' | 'blocked';
+export type ResolutionStatus = 'resolved' | 'unavailable' | 'blocked' | 'unsupported';
 
-export type PlaybackType = 'iframe' | 'hls' | 'dash' | 'direct' | 'external' | 'download' | 'unknown';
+export type PlaybackType =
+  | 'iframe'
+  | 'hls'
+  | 'dash'
+  | 'direct'
+  | 'external'
+  | 'download'
+  | 'unknown'
+  | 'unsupported';
 
-export interface TitleSummary {
+export interface TitleSummary extends CatalogueArtwork {
   id: string;
+  source?: string;
   sourceId?: string;
+  canonicalUrl?: string;
   slug: string;
   name: string;
   title?: string;
@@ -50,10 +63,14 @@ export interface EpisodeVersion {
   language: string;
   label?: string;
   providerCount: number;
+  availability?: AvailabilityStatus;
 }
 
 export interface Episode {
   id: string;
+  thumbnailUrl?: string | null;
+  durationSeconds?: number | null;
+  seasonNumber?: number | null;
   sourceId?: string;
   number?: string | number | null;
   label?: string | null;
@@ -63,6 +80,7 @@ export interface Episode {
 }
 
 export interface TitleDetail extends TitleSummary {
+  collectionState?: 'complete' | 'partial' | 'pending' | 'metadata-only' | 'unknown';
   description?: string | null;
   format?: string | null;
   airedFrom?: string | null;
@@ -73,6 +91,7 @@ export interface TitleDetail extends TitleSummary {
 }
 
 export interface TitleDetailResponse {
+  collectionState?: 'complete' | 'partial' | 'pending' | 'metadata-only' | 'unknown';
   title: TitleDetail;
   aliases: TitleAlias[];
   genres: Array<string | { id?: string; name: string }>;
@@ -81,9 +100,12 @@ export interface TitleDetailResponse {
 }
 
 export interface ProviderChoice {
+  supported?: boolean;
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
   mappingId: string;
   providerId: string;
   label: string;
+  edition?: string | null;
   aliases?: string[];
   playbackType: PlaybackType;
   status: AvailabilityStatus;
@@ -91,6 +113,8 @@ export interface ProviderChoice {
   lastSuccessfulResolution?: string | null;
   lastPlaybackVerification?: string | null;
   reason?: string | null;
+  reasonCode?: string | null;
+  requiresGuard?: boolean;
 }
 
 export interface ProvidersResponse {
@@ -100,6 +124,20 @@ export interface ProvidersResponse {
 }
 
 export interface PlaybackResolution {
+  kind?: 'native' | 'official-youtube' | 'embed' | 'unsupported';
+  language?: string;
+  format?: import('../shared/playback').MediaKind | 'iframe';
+  captions?: import('../shared/playback').CaptionSource[];
+  delivery?: 'native' | 'provider';
+  mediaCrossOrigin?: 'anonymous' | 'none';
+  attribution?: { label: string; url: string; license: string };
+  allowedMediaHosts?: string[];
+  allowedEmbedHosts?: string[];
+  videoId?: string;
+  publisher?: import('../shared/playback').OfficialYouTubePublisher;
+  capabilities?: import('../shared/playback').NativeCapabilities | import('../shared/playback').EmbedCapabilities;
+  iframePolicy?: import('../shared/playback').EmbedIframePolicy;
+  messageProtocol?: import('../shared/playback').EmbedMessageProtocol;
   mappingId: string;
   providerId: string;
   playbackType: PlaybackType;
@@ -150,6 +188,8 @@ export interface WatchHistoryEntry {
   position?: number;
   duration?: number;
   watchedAt: string;
+  /** Hide this series from Continue Watching without erasing its viewing history. */
+  continueHidden?: boolean;
 }
 
 export interface EpisodeComment {
@@ -158,6 +198,25 @@ export interface EpisodeComment {
   author: string;
   body: string;
   createdAt: string;
+}
+
+export interface CommunityComment {
+  id: string;
+  episodeId: string;
+  author: { name: string; avatar: 'ruby' | 'ocean' | 'violet' | 'emerald' | 'amber' };
+  body: string;
+  revision: number;
+  createdAt: string;
+  updatedAt: string;
+  ownedByViewer: boolean;
+}
+
+export interface CommunityCommentsPage {
+  items: CommunityComment[];
+  total: number;
+  page: number;
+  pageSize: number;
+  pages: number;
 }
 
 export interface WatchedEpisode {
@@ -171,13 +230,90 @@ export interface Preferences {
   autoplayNext: boolean;
   rememberProgress: boolean;
   theme?: 'dark' | 'light';
+  accent?: string;
+  embedMode?: 'compatible' | 'restricted';
+  motion?: 'system' | 'reduced';
 }
 
 export interface ImportStatus {
-  latestRun: null | { id: number; mode: string; status: string; tasks_discovered: number; tasks_completed: number; tasks_failed: number; checkpoint_json: string; started_at?: string | null; updated_at: string };
+  runtime?: 'local' | 'cloudflare-workers';
+  backupMode?: 'local-api' | 'operator-cli';
+  syncEnabled?: boolean;
+  sourceRefreshEnabled?: boolean;
+  dispatchAllowance?: {
+    status: 'quota_paused' | 'available';
+    retryAt: string | null;
+    minimumHeadroom: {
+      writtenRows: number;
+      queueOperations: number;
+    };
+  };
+  cloudBudget?: {
+    day: string;
+    writtenRowsReserved: number;
+    queueOperationsReserved: number;
+    limits: { dailyWrittenRows: number; dailyQueueOperations: number };
+    accountScope: string;
+  };
+  snapshot?: {
+    jobs: Array<{
+      id: string;
+      runId: number;
+      taskId?: number;
+      status: string;
+      importedBatches: number;
+      totalBatches: number;
+      totalRows: number;
+      createdAt?: string;
+      availableAt?: string | null;
+      errorCode?: string | null;
+      errorMessage?: string | null;
+    }>;
+    storage?: string;
+    publicAssetServing?: boolean;
+  };
+  latestRun: null | {
+    id: number;
+    mode: string;
+    status: string;
+    tasks_discovered: number;
+    tasks_completed: number;
+    tasks_failed: number;
+    checkpoint_json: string;
+    started_at?: string | null;
+    updated_at: string;
+  };
   coverage: null | Record<string, string | number | null>;
-  counts: { titles: number; episodes: number; versions: number; mappings: number; pendingTasks: number };
-  taskStages: Array<{ taskType: string; completed: number; pending: number; failed: number; total: number }>;
-  recentErrors: Array<{ id: number; runId: number; taskKey: string; code: string; message: string; updatedAt: string }>;
-  providers: Array<{ id: string; label: string; adapterState: string; identityState: string; playbackType: string; mappingCount: number; lastSuccessfulResolution?: string | null; lastPlaybackVerification?: string | null }>;
+  counts: {
+    titles: number;
+    episodes: number;
+    versions: number;
+    mappings: number;
+    pendingTasks: number;
+  };
+  taskStages: Array<{
+    taskType: string;
+    completed: number;
+    pending: number;
+    failed: number;
+    total: number;
+  }>;
+  recentErrors: Array<{
+    id: number;
+    runId: number;
+    taskKey: string;
+    code: string;
+    message: string;
+    updatedAt: string;
+  }>;
+  providers: Array<{
+    id: string;
+    label: string;
+    adapterState: string;
+    identityState: string;
+    playbackType: string;
+    mappingCount: number;
+    lastSuccessfulResolution?: string | null;
+    lastPlaybackVerification?: string | null;
+  }>;
 }

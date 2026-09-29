@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'dev.solanime.protectedplayer'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'dev.solanime.protectedplayer'
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName '0.1-prototype'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

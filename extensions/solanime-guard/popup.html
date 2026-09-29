@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solanime Guard</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Solanime Guard</h1>
+      <p id="status" role="status">Loading settings…</p>
+      <form id="settings">
+        <label class="toggle"
+          ><span>Filtering and player themes</span><input id="enabled" type="checkbox" /></label
+        ><label class="toggle"
+          ><span>Strict network mode</span><input id="strict" type="checkbox"
+        /></label>
+        <p class="hint">
+          Strict mode also blocks unrecognized external media and may stop playback. Off by default.
+        </p>
+        <label for="hosts">Verified media hosts</label
+        ><textarea id="hosts" rows="3" placeholder="cdn.example.com" spellcheck="false"></textarea>
+        <p class="hint">
+          One hostname per line. Exceptions apply only to strict mode, not the starter tracker list.
+        </p>
+        <button type="submit">Save settings</button>
+        <p id="error" role="alert"></p>
+      </form>
+      <footer>
+        Only supported Solanime tabs and provider frames are affected. This is not a guarantee of
+        zero tracking or identical styling for every player. No browsing history, cookies, or video
+        contents are collected.
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

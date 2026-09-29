@@ -1,0 +1,690 @@
+/* Solanime viewing-room composition: cinematic imagery, dense discovery, quiet controls. */
+.masthead {
+  position: sticky;
+  z-index: 100;
+  isolation: isolate;
+  min-height: 72px;
+  padding-block: 0;
+  gap: clamp(24px, 3vw, 48px);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
+}
+
+.content-shell {
+  position: relative;
+  z-index: 0;
+}
+
+.site-shell--home .masthead,
+.site-shell:has(.title-hero) .masthead {
+  background: linear-gradient(180deg, rgb(3 5 6 / 90%) 0%, rgb(3 5 6 / 42%) 66%, transparent 100%);
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+}
+
+.wordmark {
+  width: 136px;
+  min-height: 44px;
+}
+
+.navigation-dock {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.main-nav {
+  gap: clamp(13px, 1.55vw, 25px);
+}
+
+.main-nav > a {
+  min-height: 44px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--text) 76%, transparent);
+  font-size: 13px;
+  font-weight: 550;
+  transition: none;
+}
+
+:root[data-theme='light'] .masthead .main-nav > a {
+  color: #454948;
+}
+
+.main-nav > a:hover,
+.main-nav > a[aria-current='page'] {
+  color: var(--text);
+  background: transparent;
+}
+
+.main-nav > a[aria-current='page'] {
+  font-weight: 760;
+}
+
+.main-nav .icon {
+  display: none;
+}
+
+.main-nav small {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  margin-left: -2px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.main-nav__category {
+  display: inline-flex;
+}
+
+.main-nav__movies {
+  display: inline-flex;
+}
+
+.masthead-actions {
+  gap: 3px;
+  margin-left: auto;
+  padding-left: 0;
+  border-left: 0;
+}
+
+.theme-toggle,
+.account-jump {
+  width: 40px;
+  min-height: 40px;
+  padding: 9px;
+  border-radius: 4px;
+}
+
+.theme-toggle:hover,
+.account-jump:hover {
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+.site-shell--home:has(.home-feature) .masthead,
+.site-shell:has(.title-hero) .masthead {
+  margin-bottom: -72px;
+}
+
+.spotlight-scene {
+  min-height: clamp(560px, 82svh, 880px);
+  padding: 150px var(--gutter) 124px;
+}
+
+.spotlight-art__poster {
+  inset: 0;
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+  border-radius: 0;
+  background: #070909;
+  box-shadow: none;
+}
+
+.spotlight-art__poster::before {
+  content: '';
+  position: absolute;
+  inset: -38px;
+  background: var(--spotlight-poster) 58% 36% / cover no-repeat;
+  filter: blur(26px) saturate(.86) brightness(.65);
+  transform: scale(1.08);
+}
+
+.spotlight-art__poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(4 6 7 / 82%) 0%, rgb(4 6 7 / 45%) 42%, rgb(4 6 7 / 20%) 72%),
+    linear-gradient(0deg, var(--bg) 0%, transparent 38%);
+}
+
+.spotlight-art__poster > img,
+.spotlight-art__poster > .cover-fallback {
+  position: absolute;
+  top: 14%;
+  right: 7%;
+  z-index: 1;
+  width: min(34vw, 430px);
+  height: 68%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 22px 50px rgb(0 0 0 / 48%));
+}
+
+.home-feature__copy {
+  width: min(590px, 46vw);
+}
+
+.home-feature h2 {
+  margin-bottom: 14px;
+  font-size: clamp(36px, 3.45vw, 58px);
+  letter-spacing: -.04em;
+}
+
+.home-feature .button,
+.title-hero__actions .button {
+  border-radius: 4px;
+}
+
+.home-feature .icon-button {
+  border-radius: 50%;
+}
+
+.spotlight-controls {
+  bottom: 104px;
+}
+
+.home-rail,
+.continue-section,
+.genre-section {
+  margin-bottom: 32px;
+}
+
+.home-feature + .home-rail,
+.home-feature + .continue-section {
+  margin-top: -54px;
+}
+
+/* The feature remains a dark viewing surface in both saved themes. This keeps
+   artwork, white title treatment, and the overlapping first rail legible as one
+   continuous composition instead of turning the hero into a pale card. */
+:root[data-theme='light'] .home-feature {
+  background: #070909;
+}
+
+:root[data-theme='light'] .home-feature .spotlight-art::after {
+  background:
+    linear-gradient(90deg, rgb(3 6 7 / 94%) 0%, rgb(3 6 7 / 70%) 42%, rgb(3 6 7 / 20%) 76%),
+    linear-gradient(0deg, #050809 0%, rgb(3 6 7 / 94%) 34%, transparent 62%);
+}
+
+:root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .home-feature__copy h2 {
+  color: #fff;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 55%);
+}
+
+:root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .feature-meta {
+  color: #e1e4e1;
+}
+
+:root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .feature-synopsis {
+  color: #f0f0ed;
+}
+
+:root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .button--primary {
+  background: #f6f6f2;
+  color: #141719;
+}
+
+:root[data-theme='light'] .site-shell--home .masthead {
+  color: #fff;
+}
+
+:root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead {
+  color: #fff;
+}
+
+:root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead :is(.main-nav > a, .theme-toggle, .account-jump, .header-search__trigger) {
+  color: rgb(255 255 255 / 82%);
+}
+
+:root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead .main-nav > a:hover,
+:root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead .main-nav > a[aria-current='page'] {
+  color: #fff;
+}
+
+:root[data-theme='light'] .title-hero {
+  background: #070909;
+  color: #fff;
+}
+
+:root[data-theme='light'] .title-hero .spotlight-art::after {
+  background:
+    linear-gradient(90deg, rgb(3 6 7 / 96%) 0%, rgb(3 6 7 / 78%) 44%, rgb(3 6 7 / 28%) 78%),
+    linear-gradient(0deg, var(--bg) 0%, rgb(3 6 7 / 94%) 34%, transparent 68%);
+}
+
+:root[data-theme='light'] .title-hero:has(.spotlight-art:not([data-banner='loaded'])) .title-hero__content :is(h1, .feature-meta, .title-facts dd) {
+  color: #fff;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 55%);
+}
+
+:root[data-theme='light'] .title-hero:has(.spotlight-art:not([data-banner='loaded'])) .title-hero__content :is(.title-facts dt, .title-hero__synopsis, .tag-list span) {
+  color: #e1e4e1;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 70%);
+}
+
+.home-feature + :is(.home-rail, .continue-section) :is(.rail-heading, .section-heading) {
+  color: #fff;
+}
+
+.home-feature + :is(.home-rail, .continue-section) :is(.rail-heading, .section-heading) a {
+  color: #d6d9d7;
+}
+
+.rail-track,
+.home-rail--landscape .rail-track {
+  grid-auto-columns: clamp(235px, 18.6vw, 350px);
+  gap: 8px;
+  padding-block: 4px 12px;
+}
+
+.rail-heading {
+  margin-bottom: 8px;
+}
+
+.rail-heading h2,
+.section-heading h2 {
+  font-size: 19px;
+}
+
+.title-card__art,
+.continue-card__art {
+  border-radius: 4px;
+}
+
+.title-card__copy {
+  padding-top: 8px;
+}
+
+.title-card__meta {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4px 9px;
+}
+
+.title-card__actions {
+  right: 7px;
+  bottom: calc(100% + 8px);
+}
+
+.save-button,
+.card-info {
+  min-height: 36px;
+  border-radius: 50%;
+}
+
+.save-button {
+  width: 36px;
+  padding: 8px;
+  font-size: 0;
+}
+
+.card-info {
+  width: 36px;
+}
+
+.continue-track {
+  grid-auto-columns: clamp(260px, 22vw, 380px);
+  gap: 8px;
+}
+
+.cover-fallback {
+  gap: 9px;
+  background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 38%),
+    linear-gradient(145deg, var(--surface-2), var(--surface));
+}
+
+.cover-fallback > .sol-brand {
+  width: 34px;
+  opacity: .7;
+  filter: grayscale(.15);
+}
+
+.cover-fallback small {
+  color: color-mix(in srgb, var(--muted) 82%, transparent);
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.genre-grid {
+  gap: 4px 18px;
+}
+
+.genre-grid a {
+  min-width: clamp(180px, 20vw, 300px);
+  min-height: 40px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.genre-grid small {
+  margin-left: auto;
+}
+
+.title-hero {
+  min-height: clamp(540px, 70svh, 760px);
+  padding: 132px var(--gutter) 52px;
+}
+
+.title-hero__content {
+  width: min(650px, 52vw);
+}
+
+.title-hero h1 {
+  font-size: clamp(34px, 3.5vw, 56px);
+}
+
+.title-hero__actions {
+  margin: 20px 0 16px;
+}
+
+.title-page > .episode-section,
+.title-page > .related-section,
+.title-about {
+  padding-block: 20px;
+}
+
+.title-page .episode-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 6px;
+}
+
+.episode-grid > li,
+.title-page .episode-grid > li {
+  min-height: 54px;
+  border-radius: 4px;
+}
+
+.language-tabs,
+.language-tabs button,
+.episode-current-jump {
+  border-radius: 4px;
+}
+
+.watch-page {
+  padding-top: 16px;
+}
+
+.watch-back {
+  margin-bottom: 12px;
+}
+
+.player-stage,
+.watch-selection {
+  border-radius: 0;
+}
+
+.player-stage {
+  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+.watch-selection {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-top: 0;
+}
+
+.watch-heading {
+  margin-top: 22px;
+}
+
+.watch-heading h1 {
+  font-size: clamp(25px, 2.35vw, 38px);
+}
+
+@media (max-width: 1180px) {
+  .main-nav__category {
+    display: none !important;
+  }
+
+  .title-page .episode-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1181px) {
+  .watch-page:not(.watch-page--theater) {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    column-gap: 18px;
+  }
+
+  .watch-page:not(.watch-page--theater) > .watch-episodes {
+    max-height: min(72svh, 780px);
+    padding: 0 0 0 18px;
+    border: 0;
+    border-left: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .watch-episodes .episode-grid {
+    gap: 0;
+  }
+
+  .watch-episodes .episode-grid > li {
+    min-height: 52px;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .watch-episodes .episode-grid > li:hover {
+    background: color-mix(in srgb, var(--surface-2) 52%, transparent);
+  }
+
+  .watch-episodes .episode-grid li > a {
+    min-height: 52px;
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 820px) {
+  .masthead {
+    min-height: 64px;
+    padding-block: 0;
+    /* backdrop-filter creates a containing block for fixed descendants in
+       Chromium/WebKit, which pulled the bottom navigation over header actions. */
+    backdrop-filter: none;
+  }
+
+  .wordmark {
+    width: 126px;
+  }
+
+  .navigation-dock {
+    flex: 0 0 0;
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  .masthead-actions {
+    pointer-events: auto;
+  }
+
+  .main-nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: auto;
+    border-radius: 12px;
+    pointer-events: auto;
+  }
+
+  .main-nav > a {
+    min-width: 0;
+    padding: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 10px;
+  }
+
+  .main-nav > a[aria-current='page'] {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .main-nav .icon {
+    display: block;
+  }
+
+  .main-nav__search {
+    display: flex !important;
+  }
+
+  .main-nav > .main-nav__movies {
+    display: flex !important;
+  }
+
+  :root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead .main-nav > a {
+    color: #454948;
+  }
+
+  :root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead .main-nav > a:hover,
+  :root[data-theme='light'] :is(.site-shell--home, .site-shell:has(.title-hero)) .masthead .main-nav > a[aria-current='page'] {
+    color: #141719;
+    background: #dfddd7;
+  }
+
+  .site-shell--home:has(.home-feature) .masthead,
+  .site-shell:has(.title-hero) .masthead {
+    margin-bottom: -64px;
+  }
+
+  .spotlight-scene {
+    min-height: 74svh;
+    padding-top: 124px;
+  }
+
+  .title-hero {
+    min-height: 600px;
+    padding-top: 118px;
+  }
+
+  .site-shell--watch .main-nav {
+    display: none;
+  }
+
+  .site-shell--watch .site-footer {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .spotlight-scene {
+    min-height: min(680px, 86svh);
+    padding: 300px var(--gutter) 94px;
+  }
+
+  .spotlight-art__poster > img,
+  .spotlight-art__poster > .cover-fallback {
+    top: 76px;
+    right: 50%;
+    width: min(48vw, 190px);
+    height: 240px;
+    transform: translateX(50%);
+  }
+
+  .spotlight-art__poster::after {
+    background: linear-gradient(0deg, var(--bg) 0%, rgb(5 8 9 / 88%) 42%, rgb(5 8 9 / 22%) 82%);
+  }
+
+  .home-feature h2 {
+    font-size: 31px;
+  }
+
+  .home-feature__copy,
+  .title-hero__content {
+    width: 100%;
+  }
+
+  .spotlight-controls {
+    bottom: 48px;
+  }
+
+  .home-feature + .home-rail,
+  .home-feature + .continue-section {
+    margin-top: -28px;
+  }
+
+  .rail-track,
+  .home-rail--landscape .rail-track {
+    grid-auto-columns: min(72vw, 290px);
+    gap: 7px;
+  }
+
+  .rail-heading h2 {
+    font-size: 17px;
+  }
+
+  .title-card__copy h2 {
+    font-size: 12px;
+  }
+
+  .title-hero {
+    min-height: 540px;
+    padding: 242px var(--gutter) 30px;
+  }
+
+  .title-page .episode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .genre-grid a {
+    width: 100%;
+  }
+
+  .catalogue-page .discovery-actions {
+    display: grid;
+    grid-template-columns: 78px minmax(110px, 1fr) 84px;
+    gap: 4px;
+  }
+
+  .catalogue-page .discovery-actions .filter-disclosure,
+  .catalogue-page .discovery-actions .discovery-sort,
+  .catalogue-page .discovery-actions .view-switcher {
+    grid-column: auto;
+  }
+
+  .catalogue-page .discovery-actions .view-switcher {
+    gap: 2px;
+    padding-left: 2px;
+  }
+
+  .catalogue-page .discovery-actions .view-switcher button {
+    width: 40px;
+    min-height: 44px;
+    flex: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-nav {
+    inset-inline: 8px;
+  }
+
+  .main-nav > a {
+    padding-inline: 2px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-nav > a {
+    transition: none;
+  }
+}
+
+:root[data-motion='reduced'] .main-nav > a {
+  transition: none;
+}

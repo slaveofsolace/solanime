@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solanime.local/schemas/official-youtube-discovery.schema.json",
+  "title": "Solanime official YouTube discovery sources",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "shardCount", "playbackPolicies", "sources"],
+  "properties": {
+    "version": { "const": 1 },
+    "shardCount": { "type": "integer", "minimum": 1, "maximum": 10000 },
+    "playbackPolicies": {
+      "type": "array",
+      "description": "Explicit runtime allowlist. Discovery-source additions MUST NOT add entries here without a separately implemented adapter and reviewed approval registry.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "channelId", "sourceIds", "adapter", "state", "approvalRegistry"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,80}$" },
+          "channelId": { "type": "string", "pattern": "^UC[A-Za-z0-9_-]{22}$" },
+          "sourceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+          "adapter": { "const": "youtube-official" },
+          "state": { "const": "implemented" },
+          "approvalRegistry": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Reference-only publisher inventory surfaces. Inclusion permits metadata discovery and review, never playback or automatic database approval.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "publisher", "channelId", "channelUrl", "evidenceUrls", "territoryNote", "defaultLanguage", "disposition"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,80}$" },
+          "kind": { "enum": ["channel", "playlist"] },
+          "publisher": { "type": "string", "minLength": 1 },
+          "channelId": { "type": "string", "pattern": "^UC[A-Za-z0-9_-]{22}$" },
+          "channelUrl": { "type": "string", "format": "uri", "pattern": "^https://www\\.youtube\\.com/channel/UC" },
+          "playlistId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{10,64}$" },
+          "evidenceUrls": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "format": "uri", "pattern": "^https://" } },
+          "fullEpisodeEvidenceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "territoryNote": { "type": "string", "minLength": 1 },
+          "defaultLanguage": { "type": "string", "minLength": 1 },
+          "disposition": { "const": "reference-only" },
+          "seriesHints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["aliases"],
+              "properties": {
+                "aliases": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+                "titleSourceId": { "type": "string", "minLength": 1 },
+                "episodeOffset": { "type": "integer", "minimum": -10000, "maximum": 10000 }
+              }
+            }
+          },
+          "authoritativeMappings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["videoId", "titleSourceId", "episodeSourceId", "versionSourceId", "language", "identityEvidenceUrls"],
+              "properties": {
+                "videoId": { "type": "string", "pattern": "^[A-Za-z0-9_-]{11}$" },
+                "titleSourceId": { "type": "string", "minLength": 1 },
+                "episodeSourceId": { "type": "string", "minLength": 1 },
+                "versionSourceId": { "type": "string", "minLength": 1 },
+                "language": { "type": "string", "minLength": 1 },
+                "identityEvidenceUrls": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "format": "uri", "pattern": "^https://" } }
+              }
+            }
+          }
+        },
+        "allOf": [
+          { "if": { "properties": { "kind": { "const": "playlist" } } }, "then": { "required": ["playlistId"] } }
+        ]
+      }
+    }
+  }
+}

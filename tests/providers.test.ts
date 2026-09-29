@@ -10,22 +10,65 @@ describe('provider adapters', () => {
         label: providerId,
         language: 'sub',
         providerResourceId: null,
-        canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?autostart=true',
+        canonicalEmbedUrl: providerId === 'hd-1'
+          ? 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn'
+          : providerId === 'hd-2'
+            ? 'https://megaplay.buzz/stream/s-2/123/sub?s=bcdn'
+            : 'https://megaplay.buzz/stream/s-2/123/sub',
         availability: 'observed',
         unavailableReason: null,
       });
-      expect(result).toMatchObject({ status: 'resolved', playbackType: 'iframe' });
+      expect(result).toMatchObject({
+        kind: 'embed',
+        status: 'resolved',
+        delivery: 'provider',
+        playbackType: 'iframe',
+        allowedEmbedHosts: ['megaplay.buzz'],
+        iframePolicy: {
+          sandbox: [],
+          allow: ['autoplay', 'fullscreen'],
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          requiresGuard: false,
+        },
+        messageProtocol: {
+          origin: 'https://megaplay.buzz',
+          channel: 'megacloud',
+          events: ['time', 'complete', 'error'],
+          types: ['watching-log'],
+        },
+      });
     });
   }
 
   it('does not substitute media for an unsupported provider', async () => {
-    const result = await getProviderAdapter('kiwi').resolve({ mappingId: 2, providerId: 'kiwi', label: 'Kiwi', language: 'sub', providerResourceId: null, canonicalEmbedUrl: null, availability: 'observed', unavailableReason: null });
+    const result = await getProviderAdapter('kiwi').resolve({
+      mappingId: 2,
+      providerId: 'kiwi',
+      label: 'Kiwi',
+      language: 'sub',
+      providerResourceId: null,
+      canonicalEmbedUrl: null,
+      availability: 'observed',
+      unavailableReason: null,
+    });
     expect(result.status).toBe('unavailable');
     expect(result.embedUrl).toBeUndefined();
   });
 
   it('returns a structured unavailable result for an unapproved embed host', async () => {
-    const result = await getProviderAdapter('hd-1').resolve({ mappingId: 3, providerId: 'hd-1', label: 'HD-1', language: 'sub', providerResourceId: null, canonicalEmbedUrl: 'https://example.com/not-the-player', availability: 'observed', unavailableReason: null });
-    expect(result).toMatchObject({ status: 'unavailable', error: { code: 'INVALID_PROVIDER_RESOURCE' } });
+    const result = await getProviderAdapter('hd-1').resolve({
+      mappingId: 3,
+      providerId: 'hd-1',
+      label: 'HD-1',
+      language: 'sub',
+      providerResourceId: null,
+      canonicalEmbedUrl: 'https://example.com/not-the-player',
+      availability: 'observed',
+      unavailableReason: null,
+    });
+    expect(result).toMatchObject({
+      status: 'unsupported',
+      error: { code: 'INVALID_PROVIDER_RESOURCE' },
+    });
   });
 });

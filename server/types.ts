@@ -1,8 +1,31 @@
-export type AvailabilityState = 'observed' | 'available' | 'unavailable' | 'blocked' | 'stale' | 'unknown';
+export type AvailabilityState =
+  | 'observed'
+  | 'available'
+  | 'unavailable'
+  | 'blocked'
+  | 'stale'
+  | 'unknown';
 export type PlaybackType = 'iframe' | 'hls' | 'dash' | 'direct' | 'download' | 'unknown';
-export type EvidenceClass = 'direct_observation' | 'public_response' | 'third_party_code' | 'inference' | 'unknown';
+export type EvidenceClass =
+  | 'direct_observation'
+  | 'public_response'
+  | 'third_party_code'
+  | 'inference'
+  | 'unknown';
 
 export type ApiErrorCode =
+  | 'RATE_LIMITED'
+  | 'INVALID_RESPONSE'
+  | 'INVALID_QUERY'
+  | 'INVALID_REVIEW'
+  | 'IMPORT_QUOTA_PAUSED'
+  | 'INVALID_BUDGET'
+  | 'RESERVATION_CONFLICT'
+  | 'INVALID_IMPORT'
+  | 'IMPORT_TOO_LARGE'
+  | 'IMPORT_CHECKSUM_MISMATCH'
+  | 'IMPORT_CONFLICT'
+  | 'IMPORT_IDENTITY_CONFLICT'
   | 'BAD_REQUEST'
   | 'NOT_FOUND'
   | 'UNAUTHORIZED'
@@ -43,6 +66,11 @@ export interface SnapshotEpisode {
   number: string;
   numberSort?: number | null;
   label?: string | null;
+  thumbnailUrl?: string | null;
+  thumbnailOrigin?: string | null;
+  thumbnailReuseStatus?: string | null;
+  durationSeconds?: number | null;
+  seasonNumber?: number | null;
   slug: string;
   canonicalUrl: string;
   episodeType?: string;
@@ -65,13 +93,18 @@ export interface SnapshotTitle {
   availability?: AvailabilityState;
   aliases?: Array<{ name: string; language?: string | null; type?: string }>;
   genres?: string[];
-  related?: Array<{ sourceId: string; relationshipType: string; label?: string | null; sourceUrl?: string | null }>;
+  related?: Array<{
+    sourceId: string;
+    relationshipType: string;
+    label?: string | null;
+    sourceUrl?: string | null;
+  }>;
   episodes: SnapshotEpisode[];
 }
 
 export interface CatalogueSnapshot {
   schemaVersion: 1;
-  source: 'anikoto';
+  source: 'anikoto' | 'tvmaze' | 'wikipedia-movie' | 'wikipedia-tv';
   observedAt: string;
   denominator?: { titles?: number; scope: string };
   titles: SnapshotTitle[];

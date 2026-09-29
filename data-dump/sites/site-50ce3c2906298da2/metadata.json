@@ -1,0 +1,286 @@
+{
+  "availability": {
+    "bytes_read": 638,
+    "content_type": "text/html",
+    "final_url": "https://kool.ws/",
+    "hash_scope": "response_body",
+    "headers": {
+      "content-type": "text/html"
+    },
+    "http_status": 200,
+    "observed_at": "2026-09-12T07:31:37.648543+00:00",
+    "redirects": [
+      {
+        "http_status": 302,
+        "location": "https://kool.ws/",
+        "url": "https://kool.to/"
+      }
+    ],
+    "request_kind": "page",
+    "sha256": "22cef6be4c6713debe1e0349aaf8d7206e17495396d1bcf2402b556957cf69fc",
+    "status": "reachable",
+    "truncated": false,
+    "url": "https://kool.to/"
+  },
+  "categories": [
+    [
+      "Live TV / Sports",
+      "Live TV"
+    ]
+  ],
+  "depth": {
+    "followups_http_reachable": 1,
+    "linked_scripts_discovered": 1,
+    "playback_chain_verified": false,
+    "repositories_checked": false,
+    "runtime_network_checked": false,
+    "script_limit": 2
+  },
+  "domain_ids": [
+    "domain-b2b46f25bd5c0b1b",
+    "domain-fbddfcee16a27c61",
+    "domain-1a2e36cc692d119d",
+    "domain-bb3e4bfe40af9b89"
+  ],
+  "endpoint_ids": [],
+  "entry_ids": [
+    "entry-c29e398db996fb17"
+  ],
+  "frameworks": [
+    {
+      "attribution": "bundle_signature_may_describe_a_dependency_or_upstream_site",
+      "confidence": "unknown",
+      "evidence_type": "source_signature",
+      "name": "HLS.js",
+      "source_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "verification_scope": "signature_present_only"
+    }
+  ],
+  "id": "site-50ce3c2906298da2",
+  "limitations": [
+    "Static public HTTP inspection; reachability is not proof of functional or authorized playback."
+  ],
+  "name": "kool.to",
+  "observations": [
+    {
+      "bytes_read": 638,
+      "content_type": "text/html",
+      "final_url": "https://kool.ws/",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "text/html"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "redirects": [
+        {
+          "http_status": 302,
+          "location": "https://kool.ws/",
+          "url": "https://kool.to/"
+        }
+      ],
+      "request_kind": "page",
+      "sha256": "22cef6be4c6713debe1e0349aaf8d7206e17495396d1bcf2402b556957cf69fc",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kool.to/"
+    },
+    {
+      "bytes_read": 456590,
+      "content_type": "application/javascript",
+      "final_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "hash_scope": "response_body",
+      "headers": {
+        "content-type": "application/javascript"
+      },
+      "http_status": 200,
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "redirects": [],
+      "request_kind": "linked_javascript_or_documentation",
+      "sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "status": "reachable",
+      "truncated": false,
+      "url": "https://kool.ws/assets/index-Bn_iz2lX.js"
+    }
+  ],
+  "observed_at": "2026-09-12T07:31:37.648543+00:00",
+  "provider_ids": [],
+  "references": [
+    {
+      "confidence": "verified",
+      "evidence_sha256": "22cef6be4c6713debe1e0349aaf8d7206e17495396d1bcf2402b556957cf69fc",
+      "evidence_url": "https://kool.ws/",
+      "kind": "script",
+      "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "22cef6be4c6713debe1e0349aaf8d7206e17495396d1bcf2402b556957cf69fc",
+      "evidence_url": "https://kool.ws/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://kool.ws/assets/favicon-DFLhnyu-.ico",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "22cef6be4c6713debe1e0349aaf8d7206e17495396d1bcf2402b556957cf69fc",
+      "evidence_url": "https://kool.ws/",
+      "kind": "asset-link",
+      "observed_at": "2026-09-12T07:31:37.648543+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://kool.ws/assets/index-in684hpW.css",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${t}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${n}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${e.logo}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${i}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${e.icon}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "image",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${yt(n,300)}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${e}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${e.url}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "link",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "url-template",
+      "url": "https://kool.ws/assets/${e.url||e.src}",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/2000/svg",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1998/Math/MathML",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/1999/xhtml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "concrete-url-reference",
+      "url": "https://aomedia.org/emsg/ID3",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    },
+    {
+      "confidence": "verified",
+      "evidence_sha256": "94a9ae10ff661a531d23ab9d9a374c1b474b1bc20292db7f12ce2cb7156eb693",
+      "evidence_url": "https://kool.ws/assets/index-Bn_iz2lX.js",
+      "kind": "source-literal",
+      "observed_at": "2026-09-12T07:31:39.968948+00:00",
+      "reference_class": "schema-or-standard-reference",
+      "url": "http://www.w3.org/ns/ttml",
+      "verification_scope": "public_source_reference_not_runtime_use"
+    }
+  ],
+  "repository_ids": [],
+  "research_status": "infrastructure_partially_mapped",
+  "roles": [
+    "primary"
+  ],
+  "url": "https://kool.to/"
+}
