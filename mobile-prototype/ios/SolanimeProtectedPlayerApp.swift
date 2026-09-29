@@ -70,6 +70,11 @@ struct ProtectedSiteView: UIViewRepresentable {
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = false
         // No WKScriptMessageHandler or native bridge is exposed to provider frames.
         let view = WKWebView(frame: .zero, configuration: configuration)
+#if DEBUG
+        if #available(iOS 16.4, *) {
+            view.isInspectable = true
+        }
+#endif
         view.navigationDelegate = context.coordinator
         view.uiDelegate = context.coordinator
         view.allowsBackForwardNavigationGestures = true
@@ -79,7 +84,7 @@ struct ProtectedSiteView: UIViewRepresentable {
         // Block all popup resources before WebKit creates them, then reject any
         // remaining createWebView request in the UI delegate. Media hosts are not
         // blanket-blocked. The second rule is one observed ad destination.
-        let rules = #"[{"trigger":{"url-filter":".*","resource-type":["popup"]},"action":{"type":"block"}},{"trigger":{"url-filter":"^https?://([a-z0-9-]+[.])*wuytg[.]com([:/]|$)"},"action":{"type":"block"}}]"#
+        let rules = #"[{"trigger":{"url-filter":".*","resource-type":["popup"]},"action":{"type":"block"}},{"trigger":{"url-filter":"^https?://([a-z0-9-]+[.])*wuytg[.]com[/:]"},"action":{"type":"block"}}]"#
         WKContentRuleListStore.default().compileContentRuleList(
             forIdentifier: "solanime-native-guard-20260929",
             encodedContentRuleList: rules

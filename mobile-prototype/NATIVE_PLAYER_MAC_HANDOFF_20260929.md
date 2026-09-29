@@ -8,6 +8,30 @@ The Windows Electron host has one bounded combined result: on 2026-09-29 mapping
 
 The Mac package target exists but **did not produce a bundle on Windows**: Electron Packager reported that Windows symlink privileges were unavailable. `package:mac` now fails nonzero in that case rather than silently reporting success. The iOS Xcode project and shared scheme are source-complete but cannot be compiled or run on this Windows host. Static source-contract tests are not a substitute for Xcode or device acceptance.
 
+## Mac continuation started 2026-09-29 at 13:31 CDT
+
+The clean working checkout is `~/Developer/solanime-native-player`, branch `sol/native-protected-player-mac-iphone`, based on `main` commit `e2f4361903f708b05d4c60fa708d3688ca226c77`. The original checkout under the cloud-managed Documents folder was abandoned after macOS made `.git/HEAD` dataless; no pre-existing checkout was reset or cleaned. The Mac is Apple Silicon (`arm64`) on macOS 27.0 (26A5416b); desktop package version is `0.1.0`. Node is 24.16.0 and pnpm is 11.19.0.
+
+Commands and bounded results from the clean checkout:
+
+```sh
+pnpm --dir desktop-prototype install --frozen-lockfile # passed
+pnpm --dir desktop-prototype test                    # 4/4 passed
+node --test mobile-prototype/ios/source-contract.test.cjs # 2/2 passed
+pnpm --dir desktop-prototype smoke                   # passed; 0 new windows, Solanime route stable
+pnpm --dir desktop-prototype smoke:playback          # first run failed: provider frame detached
+pnpm --dir desktop-prototype smoke:playback          # rerun exited 0, but screenshot showed Vidstream-2 fallback
+pnpm --dir desktop-prototype package:mac             # produced unsigned arm64 .app
+SOLANIME_PREVIEW_EXE='<app>/Contents/MacOS/Solanime Preview' SOLANIME_ARTIFACTS_DIR='<checkout>/build/desktop-preview/packaged-test' pnpm --dir desktop-prototype smoke # passed
+SOLANIME_PREVIEW_EXE='<app>/Contents/MacOS/Solanime Preview' SOLANIME_ARTIFACTS_DIR='<checkout>/build/desktop-preview/packaged-test' pnpm --dir desktop-prototype smoke:playback # exited 0
+```
+
+The package is at `build/desktop-preview/solanime-mac-preview-ZCUJVn/Solanime Preview-darwin-arm64/Solanime Preview.app`. In its popup/navigation smoke, there were zero new windows and the top-level route remained `https://solanime.pages.dev/`. In its playback smoke, the requested route was Unlimited Psychic Squad episode `124554`, subtitled, `server=384944`; the iframe origin was `https://megaplay.buzz`, observed media time advanced from 0 to 6.234 seconds, decoded frames from 0 to 108 at 1920×1080, and a clicked `window.open` inside the provider frame returned denied with zero new windows. The screenshot showed visible video and the `HD-1` source label. The live providers API maps `384944` to `HD-1` and `384943` to `Vidstream-2`. However, the smoke script checked only the route path, not the final `server` query or selected `<select>` value. The first source rerun ended on `Vidstream-2`, demonstrating that a provider error can auto-switch mappings while still making the current script exit zero. Therefore these runs are **preliminary Mac evidence**, not a verified per-mapping acceptance result. The ignored local screenshots are `build/desktop-preview/desktop-real-playback-smoke.png` and `build/desktop-preview/packaged-test/desktop-real-playback-smoke.png`; neither contains account credentials. Additional mapping, seek, fullscreen, episode/source-switch, restart, and adversarial navigation tests remain.
+
+The iOS project was opened with `open -a Xcode mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj`, but that command failed because Xcode was not installed on this Mac; the exact `xcodebuild -project ... -scheme SolanimeProtectedPlayer -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build` command failed because only Command Line Tools were active. No physical iPhone was detected over USB at that check. The owner is arranging a data-capable cable, and the official App Store Xcode 27 redownload was started; the App Store showed 7.5% loaded, not installed. `mas install 497799835` failed because it requested a terminal sudo password, which was not entered. `swiftc -frontend -parse mobile-prototype/ios/SolanimeProtectedPlayerApp.swift`, `plutil -lint` on the project, and `xmllint --noout` on the shared scheme passed, but none is an iOS build or device run. The Mac WebKit compiler initially rejected the iOS ad rule with `Disjunctions are not supported yet`; the rule now uses a WebKit-supported host boundary, and `swift mobile-prototype/ios/validate-content-rules.swift` reports `WebKit content rules compiled successfully.` The source still fails closed if rule compilation fails at runtime. Debug-only Web Inspector access and app version `0.1.0 (1)` were added for device diagnostics. `.github/workflows/protected-player-ios.yml` will build the shared scheme on a macOS runner without signing after this branch is pushed; that remains compile-only evidence. The iPhone `102630` outcome remains unknown.
+
+**Release state: blocked.** The protected iPhone app has not been built or tested on a physical device, and the Mac mapping-level acceptance matrix is incomplete. No signed/notarized Mac distribution, signed iPhone distribution, or protected download route should be offered yet.
+
 ## Source map
 
 - `desktop-prototype/main.cjs`: Electron host. Renderer sandbox, no Node integration, no preload/native bridge, no webview tag; rejects all new windows, downloads, non-fullscreen permissions, and disallowed frame navigations. A network-stage rule independently blocks disallowed document loads while leaving unrelated media, captions, manifests, and scripts alone.
@@ -18,6 +42,7 @@ The Mac package target exists but **did not produce a bundle on Windows**: Elect
 - `mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj`: iPhone app project and shared scheme; no signing team or secret committed.
 - `mobile-prototype/ios/SolanimeProtectedPlayerApp.swift`: WKWebView host; denies nil-target navigations and `createWebViewWith`, checks navigation actions and redirected document responses, compiles content rules before loading, blocks all `popup`-typed loads plus the single observed `wuytg.com` ad host, and shows Retry if rule compilation fails. No native bridge is exposed.
 - `mobile-prototype/ios/source-contract.test.cjs`: source-level checks only.
+- `mobile-prototype/ios/validate-content-rules.swift`: compiles the iPhone source's actual content-rule JSON with macOS WebKit for a rule-syntax preflight; does not replace the Xcode or physical-device run.
 - `mobile-prototype/android/`: earlier Android WebView experiment, not part of this Mac/iPhone acceptance claim.
 
 The website still mounts a provider iframe without HTML sandbox for compatibility. Do not “fix” this by claiming a parent-page userscript can control a cross-origin frame, or by automatically relaxing native protection when playback fails. The native app, not the PWA, is the intended container.

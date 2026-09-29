@@ -9,12 +9,17 @@ const swift = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayerApp.s
 const project = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayer.xcodeproj', 'project.pbxproj'), 'utf8');
 const scheme = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayer.xcodeproj', 'xcshareddata', 'xcschemes', 'SolanimeProtectedPlayer.xcscheme'), 'utf8');
 
-test('the iPhone app compiles protection rules before loading the site', () => {
+test('the iPhone app installs protection rules before loading the site', () => {
   const match = swift.match(/let rules = #"(.*)"#/);
   assert.ok(match, 'content rules must be present');
   const rules = JSON.parse(match[1]);
   assert.deepEqual(rules[0].trigger['resource-type'], ['popup']);
   assert.equal(rules[0].action.type, 'block');
+  const adFilter = new RegExp(rules[1].trigger['url-filter']);
+  assert.match('https://wuytg.com/', adFilter);
+  assert.match('https://ads.wuytg.com/path', adFilter);
+  assert.doesNotMatch('https://wuytg.com.evil.example/', adFilter);
+  assert.doesNotMatch('https://notwuytg.com/', adFilter);
   assert.match(swift, /guard let rule, error == nil else/);
   assert.ok(swift.indexOf('userContentController.add(rule)') < swift.indexOf('view.load(URLRequest'));
   assert.match(swift, /createWebViewWith[\s\S]*?return nil/);
