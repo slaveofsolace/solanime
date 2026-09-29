@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { fixtureArt, noOverflow } from './helpers';
+import { accountFixture } from './account-fixture';
 
 test.beforeEach(async ({ page }) => { await fixtureArt(page); await page.emulateMedia({ reducedMotion: 'reduce' }); });
 
@@ -19,7 +20,7 @@ test('browse keeps discovery controls compact and adjacent to the artwork', asyn
   const filters = await page.locator('.filter-disclosure > summary').boundingBox();
   const sort = await page.locator('.discovery-sort').boundingBox();
   const firstCard = await page.locator('.title-grid .title-card').first().boundingBox();
-  expect(heading!.height).toBeLessThanOrEqual(76);
+  expect(heading!.height).toBeLessThanOrEqual(125);
   expect(Math.abs(search!.y - filters!.y)).toBeLessThanOrEqual(1);
   expect(Math.abs(search!.y - sort!.y)).toBeLessThanOrEqual(1);
   expect(firstCard!.y - (search!.y + search!.height)).toBeLessThanOrEqual(58);
@@ -35,7 +36,7 @@ test('applied filters are removable without losing sort or density', async ({ pa
   await expect(filters.getByRole('button', { name: /Remove Format filter: Movie/i })).toBeVisible();
   await expect(page.locator('.filter-disclosure')).not.toHaveAttribute('open', '');
   await expect(page.getByRole('combobox', { name: 'Sort titles' })).toHaveValue('title');
-  await expect(page.getByRole('button', { name: 'Compact' })).toHaveAttribute(
+  await expect(page.getByRole('button', { name: 'Compact', includeHidden: true })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
@@ -56,18 +57,14 @@ test('320px discovery controls remain readable and contained', async ({ page }) 
   const filters = await page.locator('.filter-disclosure > summary').boundingBox();
   const sort = await page.locator('.discovery-sort').boundingBox();
   const sortSelect = await page.getByRole('combobox', { name: 'Sort titles' }).boundingBox();
-  const view = await page.locator('.view-switcher').boundingBox();
   expect(search!.width).toBeGreaterThanOrEqual(280);
   expect(filters!.height).toBeGreaterThanOrEqual(44);
   expect(sort!.height).toBeGreaterThanOrEqual(43.9);
   expect(Math.abs(filters!.y - sort!.y)).toBeLessThanOrEqual(1);
-  expect(Math.abs(sort!.y - view!.y)).toBeLessThanOrEqual(1);
   expect(sortSelect!.width).toBeGreaterThanOrEqual(110);
-  expect(view!.width).toBeGreaterThanOrEqual(80);
-  const densityButtons = await page.locator('.view-switcher button').all();
-  for (const button of densityButtons) {
-    expect((await button.boundingBox())!.width).toBeGreaterThanOrEqual(38);
-  }
+  // A single two-column density at phone widths avoids duplicating display
+  // controls. The URL retains the desktop preference for wider screens.
+  await expect(page.locator('.view-switcher')).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
     await page.evaluate(() => document.documentElement.clientWidth),
   );
@@ -76,4 +73,59 @@ test('320px discovery controls remain readable and contained', async ({ page }) 
   expect(
     (await page.getByRole('combobox', { name: 'Sort titles' }).boundingBox())!.width,
   ).toBeGreaterThanOrEqual(150);
+});
+
+test('filters and navigation stay inside tablet and phone viewports', async ({ page }) => {
+  for (const width of [820, 390, 320]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto('/catalogue?scope=anime');
+    await expect(page.locator('.title-card').first()).toBeVisible();
+    const masthead = await page.locator('.masthead').boundingBox();
+    expect(masthead!.height).toBeLessThanOrEqual(106);
+    await page.locator('.filter-disclosure > summary').click();
+    const filters = await page.locator('.filter-grid').boundingBox();
+    expect(filters!.x).toBeGreaterThanOrEqual(0);
+    expect(filters!.x + filters!.width).toBeLessThanOrEqual(width);
+    await expect(page.getByRole('combobox', { name: 'Genre', exact: true })).toBeVisible();
+    await page.locator('.filter-disclosure > summary').click();
+    await page.getByRole('button', { name: 'Search all titles', exact: true }).click();
+    const search = page.getByRole('searchbox', { name: 'Find titles' });
+    await expect(search).toBeFocused();
+    const field = await search.boundingBox();
+    expect(field!.x).toBeGreaterThanOrEqual(0);
+    expect(field!.x + field!.width).toBeLessThanOrEqual(width);
+    await page.keyboard.press('Escape');
+    await noOverflow(page);
+  }
+});
+
+test('the phone title poster is fully contained and centered', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 820 });
+  await page.goto('/title/paper-lantern');
+  await expect(page.locator('#title-name')).toBeVisible();
+  const poster = page.locator('.title-hero .spotlight-art__poster > img');
+  await expect(poster).toBeVisible();
+  const box = await poster.boundingBox();
+  expect(box!.x).toBeGreaterThanOrEqual(0);
+  expect(box!.x + box!.width).toBeLessThanOrEqual(320);
+  expect(Math.abs(box!.x + box!.width / 2 - 160)).toBeLessThan(1);
+});
+
+test('returning viewers keep a readable Home tab and an unobscured history heading', async ({ page }) => {
+  await page.setViewportSize({ width: 936, height: 900 });
+  await accountFixture(page, { history: [{
+    titleId: '1', slug: 'paper-lantern', title: 'Paper Lantern', episodeId: '1',
+    episodeLabel: 'Episode 1', language: 'sub', watchedAt: '2026-01-01T00:00:00Z',
+    position: 25, duration: 100,
+  }], preferences: { theme: 'light', preferredLanguage: 'sub', rememberProgress: true, autoplayNext: false } });
+  await page.goto('/');
+  await expect(page.locator('#featured-title')).toBeVisible();
+  await expect(page.locator('.sol-brand-readiness')).toHaveCount(0);
+  const home = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true });
+  await expect(home).toHaveCSS('color', 'rgb(27, 28, 34)');
+  const hero = await page.locator('.home-feature').boundingBox();
+  const heading = await page.getByRole('heading', { name: 'Continue watching', exact: true }).boundingBox();
+  expect(heading!.y).toBeGreaterThanOrEqual(hero!.y + hero!.height);
+  await expect(page.getByRole('progressbar', { name: 'Paper Lantern viewing progress' })).toHaveAttribute('aria-valuenow', '25');
+  await noOverflow(page);
 });

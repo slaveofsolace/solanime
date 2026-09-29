@@ -1,4 +1,4 @@
-import { request } from '../lib/api';
+import { ApiError, request } from '../lib/api';
 import type { CommunityComment, CommunityCommentsPage } from '../types';
 let csrf: string | null = null;
 export function setAccountCsrf(value: string | null) {
@@ -15,7 +15,14 @@ export async function accountRequest<T>(path: string, body?: unknown, signal?: A
           headers: { 'x-solanime-intent': 'account', ...(csrf ? { 'x-csrf-token': csrf } : {}) },
           body: JSON.stringify(body),
         },
-  );
+  ).catch(error => {
+    if (error instanceof ApiError && error.problem.status === 401 &&
+      !['login', 'register', 'recover'].includes(path) &&
+      (error.problem.details as { reason?: string } | undefined)?.reason !== 'PASSWORD_PROOF_FAILED') {
+      window.dispatchEvent(new Event('solanime:session-expired'));
+    }
+    throw error;
+  });
   const data = result as Record<string, unknown>;
   const object = (value: unknown): value is Record<string, unknown> =>
     value !== null && typeof value === 'object' && !Array.isArray(value);

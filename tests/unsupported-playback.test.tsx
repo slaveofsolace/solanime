@@ -30,7 +30,7 @@ describe('unsupported playback state', () => {
     render(<UnsupportedPlayback providers={providers} />);
 
     expect(screen.getByRole('heading', { name: 'No in-player stream' })).toBeTruthy();
-    expect(screen.getByText('2 sources mapped · 0 native streams')).toBeTruthy();
+    expect(screen.getByText('2 sources mapped · no native streams')).toBeTruthy();
     expect(screen.getByText(/None of the mapped providers currently returns/i)).toBeTruthy();
     expect(screen.getByText('Why each source is unavailable')).toBeTruthy();
     expect(screen.getByRole('list', { name: 'Observed playback sources' })).toBeTruthy();

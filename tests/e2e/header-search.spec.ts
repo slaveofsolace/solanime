@@ -48,13 +48,13 @@ test('compact desktop search focuses, escapes, submits, and follows browser hist
 test('320px navigation retains a directly usable search entry without a hidden form taking space', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 760 });
   await page.goto('/');
-  await expect(page.getByRole('button', { name: 'Search all titles', exact: true })).toBeHidden();
-  const entry = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Search', exact: true });
+  const entry = page.getByRole('button', { name: 'Search all titles', exact: true });
   await expect(entry).toBeVisible();
   await expect(entry.locator('.icon')).toBeVisible();
+  await expect(page.getByRole('searchbox', { name: 'Find titles' })).toHaveCount(0);
   await entry.click();
-  const input = page.getByRole('searchbox', { name: 'Search catalogue' });
-  await expect(input).toBeVisible();
+  const input = page.getByRole('searchbox', { name: 'Find titles' });
+  await expect(input).toBeFocused();
   await input.fill('Paper');
   await input.press('Enter');
   await expect(page).toHaveURL(/\/search\?q=Paper$/);

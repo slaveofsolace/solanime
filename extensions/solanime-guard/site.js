@@ -12,6 +12,8 @@
   if (!allowed) return;
   let timer;
   let last = '';
+  let retryTimer;
+  let retries = 0;
   const markGuard = (active, version = '') => {
     const root = document.documentElement;
     if (!root) return;
@@ -32,13 +34,21 @@
     if (signature === last) return;
     last = signature;
     chrome.runtime.sendMessage({ type: 'theme', value }).then((response) => {
+      clearTimeout(retryTimer);
+      retries = 0;
       const guard = response?.guard;
       markGuard(guard?.enabled === true && guard?.navigationBlock === true, guard?.version);
     }).catch(() => {
       last = '';
       markGuard(false);
+      if (retries < 3) retryTimer = setTimeout(publish, 250 * 2 ** retries++);
     });
   };
+  chrome.runtime.onMessage.addListener((message, sender) => {
+    if (sender.id !== chrome.runtime.id || message?.type !== 'guard-status') return;
+    const guard = message.guard;
+    markGuard(guard?.enabled === true && guard?.navigationBlock === true, guard?.version);
+  });
   const observe = () => {
     const root = document.documentElement;
     if (!root) return;
@@ -51,6 +61,8 @@
   if (document.documentElement) observe();
   else document.addEventListener('DOMContentLoaded', observe, { once: true });
   window.addEventListener('pageshow', () => {
+    clearTimeout(retryTimer);
+    retries = 0;
     last = '';
     publish();
   });

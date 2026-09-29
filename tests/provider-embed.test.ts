@@ -7,6 +7,8 @@ import {
 } from '../server/providers/embed';
 import { legacyResolution } from '../server/providers/native';
 import { enforcePlaybackResolution } from '../server/providers/playbackPolicy';
+import { resolveApprovedPlayback } from '../server/providers/native-registry';
+import { providerEmbedUrl } from '../src/lib/providerEmbedPolicy';
 import type { StoredProviderMapping } from '../server/providers/contract';
 
 const mapping = (patch: Partial<StoredProviderMapping> = {}): StoredProviderMapping => ({
@@ -22,6 +24,43 @@ const mapping = (patch: Partial<StoredProviderMapping> = {}): StoredProviderMapp
 });
 
 describe('MegaPlay provider embed resolution', () => {
+  it.each([
+    ['vidstream-2', ''], ['hd-1', '?s=tcdn'], ['hd-2', '?s=bcdn'],
+  ])('routes resource-only %s mappings through the shared cloud resolver, preserving hard-sub identity', async (providerId, selector) => {
+    const stored = mapping({ providerId, language: 'hsub' });
+    const embedUrl = `https://megaplay.buzz/stream/s-2/498175/hsub${selector}`;
+    const fetcher = vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(Response.json({ status: 200, result: { url: embedUrl } }));
+    try {
+      expect(hasSupportedMegaPlayEmbed(stored)).toBe(true);
+      const resolved = await resolveApprovedPlayback(stored, null);
+      expect(fetcher).toHaveBeenCalledTimes(1);
+      expect(resolved).toMatchObject({ kind: 'embed', language: 'hsub', embedUrl });
+      const result = enforcePlaybackResolution(stored, legacyResolution(resolved));
+      expect(result).toMatchObject({ status: 'resolved', kind: 'embed' });
+      const apiResult = { ...result, mappingId: String(result.mappingId) };
+      expect(providerEmbedUrl(apiResult, 'hsub')).toBe(embedUrl);
+      expect(providerEmbedUrl(apiResult, 'sub')).toBeNull();
+      expect(() => validateMegaPlayEmbedUrl(embedUrl, 'sub', providerId)).toThrow('INVALID_PROVIDER_RESOURCE');
+    } finally {
+      fetcher.mockRestore();
+    }
+  });
+
+  it('preserves resolver errors for resource-only mappings and never resolves a blocked canonical mapping', async () => {
+    const fetcher = vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(new Response(null, { status: 429 }));
+    try {
+      expect(await resolveApprovedPlayback(mapping(), null)).toMatchObject({
+        kind: 'unsupported', error: { code: 'UPSTREAM_RATE_LIMIT', retryable: true },
+      });
+      expect(await resolveApprovedPlayback(mapping({ availability: 'blocked', canonicalEmbedUrl: 'https://megaplay.buzz/stream/s-2/12/sub?s=tcdn' }), null)).toMatchObject({
+        kind: 'unsupported', error: { code: 'PROVIDER_BLOCKED' },
+      });
+      expect(fetcher).toHaveBeenCalledTimes(1);
+    } finally {
+      fetcher.mockRestore();
+    }
+  });
+
   it('resolves the stored opaque reference without forged browser context', async () => {
     const fetcher = vi.fn<typeof fetch>(async (input, init) => {
       const url = new URL(String(input));
@@ -63,7 +102,7 @@ describe('MegaPlay provider embed resolution', () => {
         sandbox: [],
         allow: ['autoplay', 'fullscreen'],
         referrerPolicy: 'strict-origin-when-cross-origin',
-        requiresGuard: true,
+        requiresGuard: false,
       },
       messageProtocol: {
         origin: 'https://megaplay.buzz',
@@ -181,7 +220,7 @@ describe('MegaPlay provider embed resolution', () => {
       iframePolicy: {
         sandbox: [],
         referrerPolicy: 'strict-origin-when-cross-origin',
-        requiresGuard: true,
+        requiresGuard: false,
       },
     });
     expect(

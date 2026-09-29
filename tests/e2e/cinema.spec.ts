@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { accountFixture } from './account-fixture';
 const image =
   '<svg xmlns="http://www.w3.org/2000/svg" width="360" height="510"><rect width="360" height="510" fill="#253744"/><circle cx="180" cy="180" r="85" fill="#efb083"/><path d="M0 460 150 250 280 400 360 285V510H0Z" fill="#476570"/></svg>';
 test.beforeEach(async ({ page }) => {
@@ -7,21 +8,19 @@ test.beforeEach(async ({ page }) => {
     route.fulfill({ contentType: 'image/svg+xml', body: image }),
   );
 });
-async function getEpisode(page: Page) {
-  return (await (await page.request.get('/api/titles/paper-lantern')).json()).episodes[0];
-}
 async function appearance(page: Page) {
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
-  return page.getByRole('dialog', { name: 'Make it yours', exact: true });
+  await page.getByRole('banner').getByRole('link', { name: 'Settings', exact: true }).click();
+  return page.locator('#appearance');
 }
 async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
     true,
   );
 }
-test('preset and custom accents persist, validate input, and restore focus', async ({
+test('profile appearance presets and custom accents persist and validate input', async ({
   page,
 }, info) => {
+  await accountFixture(page);
   await page.goto('/');
   const dialog = await appearance(page);
   await dialog.getByRole('button', { name: 'Violet', exact: true }).click();
@@ -38,26 +37,33 @@ test('preset and custom accents persist, validate input, and restore focus', asy
     .analyze();
   expect(results.violations).toEqual([]);
   await page.screenshot({ path: info.outputPath('appearance-custom.png'), fullPage: true });
-  await page.keyboard.press('Escape');
-  await expect(dialog).not.toBeVisible();
-  await expect(page.getByRole('button', { name: 'Customize appearance' })).toBeFocused();
+  await page.getByRole('banner').getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+  await expect(page).toHaveURL('/');
+  await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toHaveCount(0);
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#00AA88');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await appearance(page);
-  await page.getByRole('dialog').getByRole('button', { name: 'Reset accent' }).click();
+  await page.locator('#appearance').getByRole('button', { name: 'Reset accent' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
   await noOverflow(page);
 });
 test('quick-look details preserve the originating route, focus and saved state', async ({ page, isMobile }, info) => {
-  // Touch cards open the title; their preview entry is the featured More info
-  // control. Desktop cards reveal quick look on pointer or keyboard intent.
-  await page.goto(isMobile ? '/' : '/catalogue?q=Paper');
+  await accountFixture(page);
+  // Touch cards use direct series navigation; desktop retains the focus-restoring dialog.
+  await page.goto('/catalogue?q=Paper');
   let title = 'Paper Lantern';
   if (isMobile) {
-    await expect(page.locator('#featured-title')).toBeVisible();
-    title = await page.locator('#featured-title').innerText();
+    await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
+    await expect(page.locator('#title-name')).toHaveText(title);
+    await page.locator('.title-hero__actions').getByRole('button', { name: 'My List', exact: true }).click();
+    await page.goBack();
+    await expect(page).toHaveURL(/\/catalogue\?q=Paper$/);
+    await page.goto('/library');
+    await expect(page.getByRole('link', { name: `Open ${title}`, exact: true })).toBeVisible();
+    return;
   } else {
+    await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
     await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).focus();
   }
   const trigger = page.getByRole('button', {
@@ -89,9 +95,10 @@ test('rails expose keyboard-accessible scrolling without expanding the page', as
   await expect(region.locator('.title-card').first()).toBeVisible();
   const track = region.locator('.rail-track');
   const before = await track.evaluate((el) => el.scrollLeft);
-  await region.getByRole('button', { name: 'Next Recent updates' }).click();
+  await track.focus();
+  await track.press('ArrowRight');
   await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBeGreaterThan(before);
-  await region.getByRole('button', { name: 'Previous Recent updates' }).click();
+  await track.press('Home');
   await expect.poll(() => track.evaluate((el) => el.scrollLeft)).toBe(0);
   await noOverflow(page);
 });
@@ -108,14 +115,16 @@ test('catalogue format and language controls return matching imported records', 
   };
 
   await page.goto('/catalogue');
+  await expect(page.locator('.title-card').first()).toBeVisible();
   await revealActiveFacet();
   await page.getByRole('combobox', { name: 'Format' }).selectOption('tv');
   await expect(page).toHaveURL(/type=tv/);
   await expect(page.getByRole('combobox', { name: 'Format' })).toHaveValue('tv');
   await expect(page.locator('.title-card')).toHaveCount(24);
-  await expect(page.locator('.title-card__meta > span:first-child')).toHaveText(
-    Array.from({ length: 24 }, () => 'TV'),
-  );
+  const tv = await (await page.request.get('/api/titles?type=tv&pageSize=24&sort=updated')).json();
+  expect(tv.items).toHaveLength(24);
+  expect(tv.items.every((item: { type: string }) => item.type === 'TV')).toBe(true);
+  await expect(page.locator('.title-card__copy h2')).toHaveText(tv.items.map((item: { name: string }) => item.name));
 
   await page.getByRole('combobox', { name: 'Format' }).selectOption('movie');
   await expect(page).toHaveURL(/type=movie/);
@@ -124,9 +133,9 @@ test('catalogue format and language controls return matching imported records', 
   await expect(movieCards.first()).toBeVisible();
   const movieCount = await movieCards.count();
   expect(movieCount).toBeGreaterThan(0);
-  await expect(page.locator('.title-card__meta > span:first-child')).toHaveText(
-    Array.from({ length: movieCount }, () => 'Movie'),
-  );
+  const movies = await (await page.request.get('/api/titles?type=movie&pageSize=24&sort=updated')).json();
+  expect(movies.items.every((item: { type: string }) => item.type === 'Movie')).toBe(true);
+  await expect(page.locator('.title-card__copy h2')).toHaveText(movies.items.map((item: { name: string }) => item.name));
 
   await page.getByRole('combobox', { name: 'Format' }).selectOption('');
   await page.getByRole('combobox', { name: 'Language' }).selectOption('dub');

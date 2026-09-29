@@ -38,3 +38,4 @@
 .sol-brand-readiness[data-readiness="ready"] { pointer-events: none; animation: sol-brand-dismiss 180ms ease-out both; }
 @keyframes sol-brand-dismiss { to { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .sol-brand-readiness[data-readiness="ready"] { animation-duration: 80ms; } }
+.application-content[inert] { visibility: hidden; }

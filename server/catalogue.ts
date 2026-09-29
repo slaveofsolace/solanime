@@ -187,7 +187,7 @@ export function getTitle(db: SqliteDatabase, slug: string) {
     .all(id);
   const episodes = db
     .prepare(
-      'SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,number_text AS number,label,slug,episode_type AS type,availability_state AS availability FROM episodes WHERE title_id=? ORDER BY number_sort IS NULL,number_sort,number_text',
+      'SELECT CAST(id AS TEXT) AS id,source_id AS sourceId,number_text AS number,label,slug,episode_type AS type,availability_state AS availability,thumbnail_url AS thumbnailUrl,thumbnail_origin AS thumbnailOrigin,thumbnail_reuse_status AS thumbnailReuseStatus,duration_seconds AS durationSeconds,season_number AS seasonNumber FROM episodes WHERE title_id=? ORDER BY number_sort IS NULL,number_sort,number_text',
     )
     .all(id) as Array<Record<string, unknown>>;
   const versions = db

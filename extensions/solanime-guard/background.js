@@ -41,6 +41,37 @@ async function topIsProject(tabId) {
 async function setFrameTheme(tabId, frame, value) {
   if (!frame.documentId || !isProviderUrl(frame.url) || !(await topIsProject(tabId))) return;
   const options = await currentOptions();
+  // Run in the provider's main world so page scripts see the same window.open.
+  // This is deliberately scoped to a verified player frame, not every website.
+  await chrome.scripting.executeScript({
+    target: { tabId, documentIds: [frame.documentId] },
+    world: 'MAIN',
+    args: [options.enabled],
+    func: (enabled) => {
+      const key = '__solanimePopupGate';
+      const existing = window[key];
+      if (existing) { existing.set(enabled); return; }
+      const original = window.open;
+      let active = enabled;
+      const gate = function (url, target, features) {
+        if (!active) return original.call(window, url, target, features);
+        // A same-frame stream route is ordinary player navigation. New windows,
+        // top-frame targets and opaque about:blank popunders are not required.
+        try {
+          const destination = new URL(String(url ?? ''), location.href);
+          if (target === '_self' && destination.origin === location.origin &&
+              destination.pathname.startsWith('/stream/')) {
+            return original.call(window, url, target, features);
+          }
+        } catch { /* Invalid destinations are not opened. */ }
+        return null;
+      };
+      Object.defineProperty(window, key, {
+        value: { set(value) { active = Boolean(value); } }, configurable: false,
+      });
+      window.open = gate;
+    },
+  }).catch(() => { /* A frame may have navigated before injection. */ });
   const key = `css:${tabId}:${frame.documentId}`;
   const previous = (await chrome.storage.session.get(key))[key];
   const css = options.enabled ? playerCss(value) : null;
@@ -131,7 +162,19 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
         };
         await chrome.storage.local.set({ options });
         await refreshRules();
-        for (const tabId of await projectTabs()) await applyToTab(tabId);
+        for (const tabId of await projectTabs()) {
+          await applyToTab(tabId);
+          // The site reflects Guard state, but compatible provider playback
+          // remains an unsandboxed frame even when this optional extension is off.
+          await chrome.tabs.sendMessage(tabId, {
+            type: 'guard-status',
+            guard: {
+              version: chrome.runtime.getManifest().version,
+              enabled: options.enabled,
+              navigationBlock: options.enabled,
+            },
+          }, { frameId: 0 }).catch(() => {});
+        }
         return { options };
       }
     }
@@ -160,7 +203,7 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
       if (frame?.documentId !== sender.documentId) throw new Error('Stale frame.');
       const value = (await chrome.storage.session.get(`theme:${tabId}`))[`theme:${tabId}`];
       await setFrameTheme(tabId, frame, value);
-      return { ok: true };
+      return { ok: true, enabled: (await currentOptions()).enabled };
     }
     throw new Error('Unsupported message.');
   }).then(

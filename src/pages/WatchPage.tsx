@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
+import { useInitialReadiness } from '../branding/ApplicationReadiness';
 import { mediaIsSupported } from '../lib/playerPolicy';
 import type { PlaybackResolution, ProviderChoice, TitleDetailResponse } from '../types';
 import { useAppState } from '../state';
+import { useAccount } from '../account/AccountProvider';
 import PlayerSurface, { PlayerMessage } from '../components/PlayerSurface';
 import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
@@ -14,6 +16,7 @@ import ProviderPlayer from '../components/ProviderPlayer';
 import { isProviderEmbedResolution } from '../lib/providerEmbedPolicy';
 import YouTubeOfficialPlayer from '../components/YouTubeOfficialPlayer';
 import { isOfficialYouTubeResolution } from '../lib/youtubeOfficialPolicy';
+import { prioritizePlaybackSources } from '../lib/providerPriority';
 
 function safeAttributionUrl(value: string) {
   try {
@@ -30,6 +33,7 @@ export default function WatchPage() {
   return <WatchSession key={`${slug}:${episodeId}:${params.get('language') ?? ''}`} />;
 }
 function WatchSession() {
+  const { profile } = useAccount();
   const { slug = '', episodeId = '' } = useParams();
   const [params, setParams] = useSearchParams();
   const navigate = useNavigate();
@@ -44,6 +48,7 @@ function WatchSession() {
   } = useAppState();
   const [detail, setDetail] = useState<TitleDetailResponse | null>(null),
     [titleError, setTitleError] = useState<string | null>(null);
+  useInitialReadiness(Boolean(detail), titleError);
   const [providers, setProviders] = useState<ProviderChoice[]>([]),
     [loadingSources, setLoadingSources] = useState(true);
   const [resolution, setResolution] = useState<PlaybackResolution | null>(null),
@@ -53,6 +58,7 @@ function WatchSession() {
     [unsupported, setUnsupported] = useState(false),
     [providerRetry, setProviderRetry] = useState(0),
     [resolutionRetry, setResolutionRetry] = useState(0);
+  const [failedProviderMappings, setFailedProviderMappings] = useState<Set<string>>(() => new Set());
   const [note, setNote] = useState('');
   const carriedProgress = useRef<{ position: number; duration: number } | null>(null);
   const episode = detail?.episodes.find((item) => item.id === episodeId);
@@ -71,12 +77,13 @@ function WatchSession() {
   const requestedProvider = requestedMapping
     ? providers.find((p) => p.mappingId === requestedMapping)
     : undefined;
-  const playableProviders = providers.filter(
+  const playableProviders = prioritizePlaybackSources(providers.filter(
     (provider) =>
       (provider.kind === 'native' || provider.kind === 'official-youtube' || provider.kind === 'embed') &&
       provider.supported === true &&
-      provider.status === 'available',
-  );
+      provider.status === 'available' &&
+      !failedProviderMappings.has(provider.mappingId),
+  ));
   const candidate = requestedMapping
     ? playableProviders.find((p) => p.mappingId === requestedMapping)
     : playableProviders[0];
@@ -94,6 +101,7 @@ function WatchSession() {
   }, [slug]);
   useEffect(() => {
     if (!episode?.id || !language) return;
+    setFailedProviderMappings(new Set());
     const abort = new AbortController();
     setLoadingSources(true);
     setProviders([]);
@@ -232,6 +240,41 @@ function WatchSession() {
       watchedAt: new Date().toISOString(),
     });
   };
+  const handleProviderFailure = (message: string) => {
+    const failedMappingId = candidate?.mappingId;
+    if (failedMappingId) {
+      const failed = new Set(failedProviderMappings);
+      failed.add(failedMappingId);
+      setFailedProviderMappings(failed);
+      const allPlayable = prioritizePlaybackSources(providers.filter(
+        (provider) =>
+          (provider.kind === 'native' || provider.kind === 'official-youtube' || provider.kind === 'embed') &&
+          provider.supported === true &&
+          provider.status === 'available' &&
+          provider.mappingId !== failedMappingId &&
+          !failed.has(provider.mappingId),
+      ));
+      const nextProvider = allPlayable[0];
+      if (nextProvider) {
+        setFailure(null);
+        setFailureStage(null);
+        setResolution(null);
+        setParams(
+          (current) => {
+            const update = new URLSearchParams(current);
+            update.set('server', nextProvider.mappingId);
+            update.set('language', language);
+            return update;
+          },
+          { replace: true },
+        );
+        return;
+      }
+    }
+    setFailure(message);
+    setFailureStage('resolution');
+    setResolution(null);
+  };
   return (
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
       <Link className="watch-back" to={`/title/${encodeURIComponent(slug)}`}>
@@ -267,7 +310,7 @@ function WatchSession() {
                 if (preferences.rememberProgress) remember(position, duration);
               }}
               onEnded={() => {
-                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
                 if (preferences.autoplayNext && next) go(next.id);
               }}
             />
@@ -282,14 +325,13 @@ function WatchSession() {
                 if (preferences.rememberProgress) remember(position, duration);
               }}
               onEnded={() => {
-                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
                 if (preferences.autoplayNext && next) go(next.id);
               }}
               onError={(message) => {
-                setFailure(message);
-                setFailureStage('resolution');
-                setResolution(null);
+                handleProviderFailure(message);
               }}
+              onRefresh={() => setResolutionRetry((value) => value + 1)}
             />
           ) : (
             <PlayerSurface
@@ -312,7 +354,7 @@ function WatchSession() {
                 if (preferences.rememberProgress) remember(position, duration);
               }}
               onEnded={() => {
-                if (!watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
                 if (preferences.autoplayNext && next) go(next.id);
               }}
             />
@@ -466,6 +508,7 @@ function WatchSession() {
           language={language}
           slug={slug}
           currentId={episode.id}
+          title={title}
           compactHeading
         />
       </details>
@@ -493,7 +536,7 @@ function WatchSession() {
               onChange={(e) => setNote(e.target.value)}
             />
             <div>
-              <small>Private to your current profile or device.</small>
+              <small>Private to your selected profile.</small>
               <button type="submit" className="button button--primary" disabled={!note.trim()}>
                 Save note
               </button>
@@ -503,7 +546,7 @@ function WatchSession() {
             {localNotes.length === 0 ? (
               <li className="comment-list__empty">
                 <strong>No private notes yet</strong>
-                <p>Notes you save here stay with this profile or device.</p>
+                <p>Notes you save here stay with your selected profile.</p>
               </li>
             ) : localNotes.map((n) => (
                 <li key={n.id}>

@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
+import { useInitialReadiness } from '../branding/ApplicationReadiness';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
 import { Pager, StatusPanel, TitleCard } from '../components/ui';
 import Icon from '../components/Icon';
@@ -32,7 +33,7 @@ function FilterSelect({
   return (
     <label className="filter-field">
       <span>{label}</span>
-      <select name={name} value={value} onChange={(event) => onChange(event.target.value)}>
+      <select aria-label={label} name={name} value={value} onChange={(event) => onChange(event.target.value)}>
         <option value="">All {label.toLowerCase()}</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -58,7 +59,7 @@ export default function CataloguePage() {
   const queryStatus = params.get('status') ?? undefined;
   const queryLanguage = params.get('language') ?? undefined;
   const requestedScope = params.get('scope');
-  const queryScope = isCatalogueScope(requestedScope) ? requestedScope : undefined;
+  const queryScope = requestedScope === 'movies' ? 'tv' : isCatalogueScope(requestedScope) ? requestedScope : undefined;
   const querySort = params.get('sort') ?? 'updated';
   const searchInput = useRef<HTMLInputElement>(null);
   const [draftQuery, setDraftQuery] = useState(params.get('q') ?? '');
@@ -67,6 +68,7 @@ export default function CataloguePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
+  useInitialReadiness(!loading && !error, error, () => setRetry(value => value + 1));
   const rawPage = Number(params.get('page') ?? 1);
   const page = Number.isSafeInteger(rawPage) && rawPage >= 1 && rawPage <= 1_000_000 ? rawPage : 1;
 
@@ -82,8 +84,16 @@ export default function CataloguePage() {
       page,
       pageSize: 24,
     }),
-    [queryText, queryGenre, queryType, queryStatus, queryLanguage, queryScope, querySort, page],
+    [queryText, queryGenre, queryType, queryStatus, queryLanguage, queryScope, querySort, page, searchView],
   );
+
+  useEffect(() => {
+    if (requestedScope !== 'movies') return;
+    const next = new URLSearchParams(params);
+    next.set('scope', 'tv');
+    next.delete('page');
+    setParams(next, { replace: true });
+  }, [requestedScope, params, setParams]);
 
   useEffect(() => {
     if (searchView || params.get('focus') === 'search') searchInput.current?.focus();
@@ -172,8 +182,6 @@ export default function CataloguePage() {
   const view = params.get('view') === 'compact' ? 'compact' : 'standard';
   const pageTitle = searchView
     ? 'Search'
-    : queryScope === 'movies'
-      ? 'Movies'
     : queryScope === 'tv'
       ? 'TV Shows'
       : queryScope === 'anime' && params.get('type')?.toLowerCase() === 'movie'
@@ -229,7 +237,6 @@ export default function CataloguePage() {
             <button type="button" aria-pressed onClick={() => changeCollection('')}>All</button>
             <button type="button" aria-pressed={false} onClick={() => changeCollection('anime')}>Anime</button>
             <button type="button" aria-pressed={false} onClick={() => changeCollection('tv')}>TV Shows</button>
-            <button type="button" aria-pressed={false} onClick={() => changeCollection('movies')}>Movies</button>
           </div>
         )}
       </div>
@@ -269,7 +276,7 @@ export default function CataloguePage() {
           </label>
 
           <div className="discovery-actions">
-            <details className="filter-disclosure">
+            <details className="filter-disclosure" open={params.get('filters') === 'genres' || undefined}>
               <summary>
                 <span>Filters</span>
                 {advancedFilters > 0 && <span>{advancedFilters} active</span>}

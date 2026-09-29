@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { openDatabase, migrate, type SqliteDatabase } from '../server/db.ts';
 import { isNonAnimeTvShow, syncTvMaze, tvMazeTitle, type TvMazeEpisode, type TvMazeShow } from '../server/ingestion/tvmaze.ts';
+import { importSnapshot } from '../server/ingestion/snapshot.ts';
+import { getTitle } from '../server/catalogue.ts';
 
 const show: TvMazeShow = {
   id: 42,
@@ -23,6 +25,7 @@ const episodes: TvMazeEpisode[] = [
     season: 1,
     number: 1,
     airdate: '2014-01-02',
+    runtime: 42,
     image: { original: 'https://static.tvmaze.com/uploads/images/original_untouched/3/4.jpg' },
   },
 ];
@@ -54,8 +57,26 @@ describe('TVmaze catalogue ingestion', () => {
       sourceId: '4201',
       number: 'S1 E1',
       label: 'Pilot',
+      thumbnailUrl: episodes[0].image?.original,
+      durationSeconds: 2520,
+      seasonNumber: 1,
       versions: [{ language: 'original', label: 'English', providers: [] }],
     });
+  });
+
+  it('persists episode metadata for the UI and preserves it across incomplete refreshes', () => {
+    db = openDatabase(':memory:'); migrate(db);
+    const title = tvMazeTitle(show, episodes);
+    const snapshot = { schemaVersion: 1, source: 'tvmaze', observedAt: new Date().toISOString(), titles: [title] };
+    importSnapshot(db, snapshot);
+    const metadata = { thumbnailUrl: episodes[0].image?.original, durationSeconds: 2520, seasonNumber: 1 };
+    expect(getTitle(db, title.slug).episodes[0]).toMatchObject(metadata);
+    const sparse = tvMazeTitle(show, [{ ...episodes[0], image: null, runtime: null, season: null }]);
+    importSnapshot(db, { ...snapshot, titles: [sparse] });
+    expect(getTitle(db, title.slug).episodes[0]).toMatchObject(metadata);
+    title.episodes[0].durationSeconds = -1;
+    expect(() => importSnapshot(db!, snapshot)).toThrow(/durationSeconds/);
+    expect(getTitle(db, title.slug).episodes[0]).toMatchObject(metadata);
   });
 
   it('imports a resumable page, skips animation, and preserves source isolation', async () => {

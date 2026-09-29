@@ -6,7 +6,7 @@ and Firebase Spark email/password authentication. Node/SQLite remains supported
 locally. No paid service or always-on personal computer is required by the hosted
 application.
 
-Current integration: **0.8.0-alpha**, based on `feat/studio-v05@632a82a`, with only
+Current integration: **0.8.4-alpha**, based on `feat/studio-v05@632a82a`, with only
 `data-dump/` imported from `data-dump/fmhy-video@3e53fb2`. Historical branches and
 the original catalogue checkpoint are preserved.
 
@@ -41,9 +41,10 @@ See the [dated review status](docs/RELEASE_STATUS.md) for current cloud counts,
 verified functionality and remaining blockers; local and hosted coverage differ.
 
 **Imported or resolved does not mean playback verified.** HD-1, HD-2, and
-Vidstream-2 use their canonical provider player only when the companion Solanime
-Guard extension proves that its popup/navigation containment is active. Without
-that handshake Solanime does not create the provider iframe. This path does not
+Vidstream-2 may load their canonical provider iframe in compatible mode. The
+optional desktop Guard extension provides additional filtering when active;
+the ordinary website and installable web app cannot promise popup containment
+inside that cross-origin player. This path does not
 extract, proxy, re-host, or label the provider page as native media. Approved
 native connections for *The Dull Sword* use documented metadata APIs and
 ordinary MP4/WebM delivery; that restored edition is distinct from the original
@@ -100,10 +101,10 @@ Browser fixtures test direct/HLS/DASH behavior and failure handling; they are no
 production catalogue records or evidence of a live provider. Browsers without a
 delivery capability must show a useful unavailable state, not simulated playback.
 
-Provider-embed testing additionally requires loading
-`extensions/solanime-guard` as an unpacked Chromium extension. The Guard is a
-narrow companion for the private provider-player path; it is not a general ad
-blocker and its presence is mandatory before Solanime inserts a provider iframe.
+Provider-embed testing should cover both ordinary browser mode and the optional
+`extensions/solanime-guard` Chromium extension. The Guard is a narrow desktop
+companion, not a general ad blocker or a requirement for the compatible iframe.
+For Mac and iPhone web-app installation, see [install steps](docs/WEB_APP_INSTALL.md).
 
 ```sh
 pnpm backup /absolute/private/catalogue-backups
@@ -119,6 +120,14 @@ See [cloud deployment, rollback and operation](docs/CLOUD_RELEASE.md),
 Cloud sign-in keeps the existing interface and recovery-code flow; this release
 does not send password-reset or verification email. Missing legacy private data
 is not treated as a completed account migration.
+
+The private-site candidate adds an approval gate for *new* accounts. When
+`SOLANIME_PRIVATE_SITE=true`, catalogue and watch APIs require an approved
+session; when `SOLANIME_APPROVAL_REQUIRED=true`, registration creates a pending
+account and does not sign it in. The operator reviews requests in `/admin`.
+FormSubmit is configured to send an owner notification and, after approval, an applicant copy;
+delivery is a separate verification step and neither email nor a frontend flag
+grants access. See the [approval operating notes](docs/CLOUD_RELEASE.md#private-account-approval).
 
 Production promotion requires real catalogue playback on the deployed origin,
 current integrated tests, and per-enabled-provider evidence. A successful build,

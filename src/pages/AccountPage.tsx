@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { safeReturnTo, withReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import type { SessionResponse } from '../account/types';
 import RecoveryCard from '../account/RecoveryCard';
-import AppearanceSettings from '../components/AppearanceSettings';
 import Avatar from '../account/Avatar';
 type Device = { id: string; current: boolean; createdAt: number; lastSeen: number; device: string };
 export default function AccountPage({ recovery = false }: { recovery?: boolean }) {
   const auth = useAccount(),
     navigate = useNavigate();
+  const [params] = useSearchParams();
   const [devices, setDevices] = useState<Device[]>([]),
     [password, setPassword] = useState(''),
     [next, setNext] = useState(''),
@@ -33,7 +34,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
         code={auth.recoveryCode}
         onDone={() => {
           auth.setRecoveryCode(null);
-          navigate('/profiles', { replace: true });
+          navigate(withReturnTo('/profiles', safeReturnTo(params.get('returnTo'))), { replace: true });
         }}
       />
     );
@@ -278,14 +279,8 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
         </div>
         <aside>
           <section className="account-section">
-            <h2>{auth.profile ? `${auth.profile.name}’s appearance` : 'Appearance'}</h2>
-            {auth.profile ? (
-              <AppearanceSettings />
-            ) : (
-              <p>
-                <Link to="/profiles">Choose a profile</Link> to personalize its appearance.
-              </p>
-            )}
+            <h2>Viewing preferences</h2>
+            <p><Link to="/settings">Open Settings</Link> to change playback, language, and appearance for your profile.</p>
           </section>
           <section className="account-section">
             <h2>Your data</h2>

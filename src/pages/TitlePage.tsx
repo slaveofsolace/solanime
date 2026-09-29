@@ -7,6 +7,8 @@ import { api, errorMessage } from '../lib/api';
 import type { Episode, RelatedTitle, TitleDetail, TitleSummary } from '../types';
 import { InlineNotice, StatusPanel, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
+import { useInitialReadiness } from '../branding/ApplicationReadiness';
+import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
 
 function isLinkedRelated(
   item: RelatedTitle,
@@ -78,6 +80,7 @@ function TitleSession() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
+  useInitialReadiness(!loading && !error, error, () => setRetry(value => value + 1));
 
   useEffect(() => {
     const controller = new AbortController();
@@ -117,14 +120,6 @@ function TitleSession() {
       ),
     [episodes],
   );
-  const languageEpisodes = useMemo(
-    () =>
-      episodes.filter(
-        (episode) => !language || episode.versions.some((version) => version.language === language),
-      ),
-    [episodes, language],
-  );
-
   if (loading)
     return (
       <StatusPanel eyebrow="" title="Loading title…" busy>
@@ -154,27 +149,13 @@ function TitleSession() {
   const saved = watchlist.has(title.id);
   const linkedRelated = related.filter(isLinkedRelated);
   const unresolvedRelated = related.filter((item) => !isLinkedRelated(item));
-  const recent = history.entries.find(
-    (entry) =>
-      entry.titleId === title.id &&
-      entry.language === language &&
-      episodes.some((item) => item.id === entry.episodeId),
-  );
-  const firstPlayableEpisode = languageEpisodes.find((episode) =>
-    episode.versions.some(
-      (version) =>
-        version.language === language &&
-        version.providerCount > 0 &&
-        version.availability === 'available',
-    ),
-  );
-  const firstEpisode = languageEpisodes[0];
+  const primaryEntry = chooseWatchEntry(title.id, episodes, history.entries, language);
   const episodeInventoryPending =
     episodes.length === 0 && title.collectionState !== 'complete';
-  const synopsis = title.synopsis ?? title.description;
+  const synopsis = (title.synopsis ?? title.description)?.replace(/\s*\[more\]\s*$/i, '');
 
   return (
-    <div className="title-page">
+    <div className={`title-page series-page${title.backdropUrl ? ' series-page--backdrop' : ' series-page--poster'}`}>
       <section className="title-hero" aria-labelledby="title-name">
         <SpotlightArtwork title={{ ...title, name }} className="title-hero__art" />
         <div className="title-hero__content">
@@ -190,24 +171,14 @@ function TitleSession() {
             )}
           </div>
           <div className="title-hero__actions">
-            {recent ? (
+            {primaryEntry ? (
               <Link
                 className="button button--primary"
-                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(recent.episodeId)}?language=${encodeURIComponent(recent.language)}`}
+                to={watchEntryPath(slug, primaryEntry)}
+                aria-label={`${primaryEntry.label}: ${primaryEntry.episode.title || primaryEntry.episode.label || `Episode ${primaryEntry.episode.number ?? 1}`}`}
               >
-                Continue {recent.episodeLabel} <Icon name="play" />
+                {primaryEntry.label} <Icon name="play" />
               </Link>
-            ) : firstPlayableEpisode ? (
-              <Link
-                className="button button--primary"
-                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(firstPlayableEpisode.id)}?language=${encodeURIComponent(language)}`}
-              >
-                Open first episode <Icon name="right" />
-              </Link>
-            ) : firstEpisode ? (
-              <a className="button button--primary" href="#episodes-title">
-                Choose episode <Icon name="arrow" />
-              </a>
             ) : null}
             <button
               className="button button--outline"
@@ -283,7 +254,7 @@ function TitleSession() {
             remains available while synchronization continues.
           </InlineNotice>
         ) : (
-          <EpisodeBrowser episodes={episodes} slug={slug} language={language} compactHeading />
+          <EpisodeBrowser episodes={episodes} slug={slug} language={language} title={title} compactHeading />
         )}
       </section>
 

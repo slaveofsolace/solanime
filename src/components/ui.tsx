@@ -1,6 +1,6 @@
 import { useAccount } from '../account/AccountProvider';
 import Avatar from '../account/Avatar';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   useEffect,
   useLayoutEffect,
@@ -16,12 +16,14 @@ import type { TitleSummary } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
 import { applyTheme } from '../lib/theme';
-import AppearanceSettings from './AppearanceSettings';
 import HeaderSearch from './HeaderSearch';
-import Dialog, { markDialogTrigger } from './Dialog';
+import CategoryNavigation from './CategoryNavigation';
+import { markDialogTrigger } from './Dialog';
 import { useRouteMotion } from '../lib/motion';
 import { RELEASE } from '../../shared/release';
 import { SolanimeBrand } from '../branding';
+import { api } from '../lib/api';
+import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
 const TitlePreview = lazy(() => import('./TitlePreview'));
 
 export function Layout({ children }: PropsWithChildren) {
@@ -30,7 +32,6 @@ export function Layout({ children }: PropsWithChildren) {
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(location.pathname);
   const { watchlist, preferences, preview, setPreview } = useAppState();
-  const [appearanceOpen, setAppearanceOpen] = useState(false);
   const [prefs] = preferences;
   const theme = prefs.theme ?? 'dark';
   useRouteMotion(main, location.pathname);
@@ -43,7 +44,6 @@ export function Layout({ children }: PropsWithChildren) {
   useEffect(() => {
     if (previousPath.current === location.pathname) return;
     previousPath.current = location.pathname;
-    setAppearanceOpen(false);
     setPreview(null);
     main.current?.focus({ preventScroll: true });
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -56,13 +56,11 @@ export function Layout({ children }: PropsWithChildren) {
     location.pathname.startsWith('/admin/');
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
-  const artworkHeader = home || location.pathname.startsWith('/title/');
   const catalogueQuery = new URLSearchParams(location.search);
   const catalogueScope = catalogueQuery.get('scope');
   const onAnimeCatalogue =
     location.pathname === '/catalogue' && catalogueScope === 'anime';
   const onTvCatalogue = location.pathname === '/catalogue' && catalogueScope === 'tv';
-  const onMovieCatalogue = location.pathname === '/catalogue' && catalogueScope === 'movies';
   const accountServiceSurface =
     location.pathname === '/login' ||
     location.pathname === '/register' ||
@@ -70,23 +68,29 @@ export function Layout({ children }: PropsWithChildren) {
     location.pathname === '/profiles' ||
     location.pathname === '/account' ||
     location.pathname.startsWith('/account/');
+  const privateGuest = account.privateSite === true && !account.account;
+  // Until the session check succeeds, a private deployment has not yet told
+  // the client whether browse controls may be exposed. Avoid a public-nav flash.
+  const hideBrowseControls = !account.ready || Boolean(account.loadError) || privateGuest;
   return (
     <div
-      className={`site-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}`}
+      className={`site-shell discovery-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}${privateGuest ? ' site-shell--private-guest' : ''}`}
     >
       <a className="skip-link" href="#main">
         Skip to content
       </a>
       <header className="masthead">
-        <Link className="wordmark" to="/" aria-label="Sol Anime home">
+        <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Sol Anime sign in' : 'Sol Anime home'}>
           <SolanimeBrand
             variant="compact"
             motion="static"
-            theme={artworkHeader ? 'dark' : theme}
+            theme={theme}
             decorative
           />
         </Link>
-        <div className="navigation-dock">
+        {hideBrowseControls ? (
+          privateGuest && location.pathname !== '/login' && <Link className="private-guest-signin" to="/login">Sign in</Link>
+        ) : <div className="navigation-dock">
         <nav className="main-nav" aria-label="Primary navigation">
           <NavLink to="/" end aria-label="Home">
             <Icon name="home" />
@@ -109,22 +113,7 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="tv" />
             <span>TV</span>
           </Link>
-          <NavLink className="main-nav__search" to="/search" aria-label="Search">
-            <Icon name="search" />
-            <span>Search</span>
-          </NavLink>
-          <Link
-            className="main-nav__movies"
-            to="/catalogue?scope=movies"
-            aria-label="Movies"
-            aria-current={onMovieCatalogue ? 'page' : undefined}
-          >
-            <Icon name="theater" />
-            <span>Movies</span>
-          </Link>
-          <Link className="main-nav__category" to="/catalogue?language=dub">
-            Dubbed
-          </Link>
+          <CategoryNavigation />
           <NavLink
             to="/library"
             aria-label={`Library / My list, ${watchlist.ids.length} saved`}
@@ -136,18 +125,14 @@ export function Layout({ children }: PropsWithChildren) {
         </nav>
         <div className="masthead-actions">
           <HeaderSearch />
-          <button
-            type="button"
+          <Link
+            to="/settings"
             className="theme-toggle appearance-jump"
-            aria-label="Customize appearance"
-            onClick={(event) => {
-              markDialogTrigger(event.currentTarget);
-              setAppearanceOpen(true);
-            }}
+            aria-label="Settings"
           >
             <Icon name="palette" />
-            <span>Appearance</span>
-          </button>
+            <span>Settings</span>
+          </Link>
           {account.account ? (
             <Link className="account-jump" to="/profiles" aria-label="Switch profile">
               <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'violet' }} small />
@@ -161,12 +146,12 @@ export function Layout({ children }: PropsWithChildren) {
             </Link>
           )}
         </div>
-        </div>
+        </div>}
       </header>
       <div className="content-shell">
         {account.loadError && accountServiceSurface && (
           <div className="account-service-notice" role="status">
-            Account service unavailable. Browsing remains available.{' '}
+            {account.privateSite ? 'Account service unavailable. Sign-in cannot be checked.' : 'Account service unavailable. Browsing remains available.'}{' '}
             <button className="text-button" onClick={() => void account.refresh()}>
               Reconnect
             </button>
@@ -193,20 +178,15 @@ export function Layout({ children }: PropsWithChildren) {
               v{RELEASE}
             </span>
           </p>
-          <nav aria-label="Footer navigation">
+          {!hideBrowseControls && <nav aria-label="Footer navigation">
             <Link to="/catalogue?scope=anime">Anime</Link>
             <Link to="/catalogue?scope=tv">TV Shows</Link>
-            <Link to="/catalogue?scope=movies">Movies</Link>
+            <Link to="/settings">Settings</Link>
             <Link to="/library">My List</Link>
             {account.account ? <Link to="/profiles">Profiles</Link> : <Link to="/login">Sign in</Link>}
-          </nav>
+          </nav>}
         </footer>
       </div>
-      {appearanceOpen && (
-        <Dialog title="Make it yours" onClose={() => setAppearanceOpen(false)}>
-          <AppearanceSettings />
-        </Dialog>
-      )}
       {preview && (
         <Suspense fallback={null}>
           <TitlePreview title={preview} onClose={() => setPreview(null)} />
@@ -344,7 +324,29 @@ export function CoverArt({
 }
 
 export function TitleCard({ title, index = 0, format = 'poster' }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape' }) {
-  const { watchlist, setPreview } = useAppState();
+  const { watchlist, history, preferences, setPreview } = useAppState();
+  const [preference] = preferences;
+  const navigate = useNavigate();
+  const [opening, setOpening] = useState(false);
+  const openRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => openRequest.current?.abort(), []);
+  const openWatch = async () => {
+    if (openRequest.current) return;
+    const controller = new AbortController();
+    openRequest.current = controller;
+    setOpening(true);
+    try {
+      const detail = await api.title(title.slug, controller.signal);
+      if (controller.signal.aborted) return;
+      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage);
+      navigate(entry ? watchEntryPath(title.slug, entry) : `/title/${encodeURIComponent(title.slug)}`);
+    } catch {
+      if (!controller.signal.aborted) navigate(`/title/${encodeURIComponent(title.slug)}`);
+    } finally {
+      if (!controller.signal.aborted) setOpening(false);
+      openRequest.current = null;
+    }
+  };
   const name = title.name ?? title.title ?? 'Untitled record';
   const genres = displayGenres(title);
   const isSaved = watchlist.has(title.id);
@@ -352,6 +354,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
     (fact): fact is string | number => fact !== null && fact !== undefined && fact !== '',
   );
   const descriptor = genres.slice(0, 3).join(' · ') || title.status || null;
+  const languages = (title.languages ?? []).map(value => value === 'sub' ? 'Sub' : value === 'dub' ? 'Dub' : value).join(' | ');
   return (
     <article className={`title-card title-card--${format}`} style={{ '--index': Math.min(index, 8) } as CSSProperties}>
       <Link
@@ -365,14 +368,20 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
         <h2>
           <Link to={`/title/${encodeURIComponent(title.slug)}`}>{name}</Link>
         </h2>
+        <p className="title-card__availability">{languages || facts.join(' · ')}</p>
         <div className="title-card__details">
-          {facts.length > 0 && (
+          {languages && facts.length > 0 && (
             <div className="title-card__meta">
               {facts.map((fact) => <span key={fact}>{fact}</span>)}
             </div>
           )}
           {descriptor && <p>{descriptor}</p>}
-          <div className="title-card__actions">
+          {title.synopsis && <p className="title-card__synopsis">{title.synopsis.replace(/\s*\[more\]\s*$/i, '')}</p>}
+        </div>
+        <div className="title-card__actions">
+            <button className="card-open" type="button" aria-label={`Start or continue ${name}`} aria-busy={opening} disabled={opening} onClick={() => void openWatch()}>
+              <Icon name="play" />
+            </button>
             <button
               className="save-button"
               type="button"
@@ -394,7 +403,6 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
             >
               <Icon name="info" />
             </button>
-          </div>
         </div>
       </div>
     </article>

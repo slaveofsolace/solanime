@@ -22,6 +22,8 @@ describe('private account SQL in the actual D1 runtime', () => {
       // D1.exec treats each newline as a separate command; run complete migration statements,
       // retaining semicolons inside trigger BEGIN/END blocks as Wrangler migrations do.
       await db.batch(migration.split(/;\s*\n(?=(?:CREATE|INSERT))/).filter((sql) => sql.trim()).map((sql) => db.prepare(sql)));
+      const approval = readFileSync(new URL('../migrations/cloud/accounts/0004_private_approval.sql', import.meta.url), 'utf8');
+      await db.batch(approval.split(/;\s*\n(?=(?:ALTER|CREATE))/).filter((sql) => sql.trim()).map((sql) => db.prepare(sql)));
       const repository = new D1AccountsRepository(db);
       const now = 1800000000000;
       const { account } = await repository.ensureAccount({ uid: 'd1-contract-account', email: 'd1@example.test', emailVerified: false,
@@ -65,6 +67,8 @@ describe('private account SQL in the actual D1 runtime', () => {
       const db = await runtime.getD1Database('ACCOUNTS');
       const migration = readFileSync(new URL('../migrations/cloud/accounts/0001_accounts.sql', import.meta.url), 'utf8');
       await db.batch(migration.split(/;\s*\n(?=(?:CREATE|INSERT))/).filter(sql => sql.trim()).map(sql => db.prepare(sql)));
+      const approval = readFileSync(new URL('../migrations/cloud/accounts/0004_private_approval.sql', import.meta.url), 'utf8');
+      await db.batch(approval.split(/;\s*\n(?=(?:ALTER|CREATE))/).filter(sql => sql.trim()).map(sql => db.prepare(sql)));
       const now = 1800000000000;
       const origin = 'https://d1-auth-contract.example.test';
       const password = generatedTestPassphrase('D1 bridge');

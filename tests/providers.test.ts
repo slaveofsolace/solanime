@@ -28,7 +28,7 @@ describe('provider adapters', () => {
           sandbox: [],
           allow: ['autoplay', 'fullscreen'],
           referrerPolicy: 'strict-origin-when-cross-origin',
-          requiresGuard: true,
+          requiresGuard: false,
         },
         messageProtocol: {
           origin: 'https://megaplay.buzz',

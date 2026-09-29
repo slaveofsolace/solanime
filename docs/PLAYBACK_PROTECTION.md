@@ -1,4 +1,4 @@
-> Historical documentation. Native-player candidate 0.6 removes provider webpage playback. Follow [NATIVE_PLAYBACK.md](NATIVE_PLAYBACK.md) and [DEPLOY_NATIVE.md](DEPLOY_NATIVE.md), not the iframe/compatibility instructions below.
+> Historical design note; the iframe protection described below is not the current release behavior. See [PLAYBACK_RESTORE_20260928.md](PLAYBACK_RESTORE_20260928.md) and the current [Guard README](../extensions/solanime-guard/README.md) for the 0.8.4 compatible player and its optional browser extension.
 
 # Playback protection and styling boundaries
 

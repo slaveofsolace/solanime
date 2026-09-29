@@ -12,6 +12,8 @@ interface __BaseEnv_CloudEnv {
 	SOLANIME_APP_ORIGIN: string;
 	SOLANIME_ALLOWED_ORIGINS: string;
 	SOLANIME_REGISTRATION: string;
+	SOLANIME_PRIVATE_SITE?: string;
+	SOLANIME_APPROVAL_REQUIRED?: string;
 	FIREBASE_PROJECT_ID: string;
 	SYNC_ENABLED: string;
 	SOURCE_REFRESH_ENABLED: string;
@@ -27,6 +29,9 @@ interface __BaseEnv_CloudEnv {
 	FIREBASE_API_KEY: string;
 	FIREBASE_SERVICE_ACCOUNT_JSON: string;
 	AUTH_CREDENTIAL_KEY: string;
+	MAL_CLIENT_ID?: string;
+	MAL_CLIENT_SECRET?: string;
+	MAL_CREDENTIAL_KEY?: string;
 }
 declare namespace Cloudflare {
 	interface GlobalProps {

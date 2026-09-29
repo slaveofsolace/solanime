@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
 });
 
-test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes', async ({ page }) => {
+test('desktop navigation separates Anime and TV and retires the Movies sector', async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.goto('/catalogue?scope=tv');
 
@@ -19,10 +19,7 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
     'aria-current',
     'page',
   );
-  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveAttribute(
-    'href',
-    '/catalogue?scope=movies',
-  );
+  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveCount(0);
   await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).not.toHaveAttribute(
     'aria-current',
     'page',
@@ -33,24 +30,24 @@ test('desktop navigation exposes truthful Anime, Movies, and TV catalogue scopes
   await expect(page.getByRole('group', { name: 'Catalogue collection' })).toBeVisible();
 
   await page.goto('/catalogue?scope=movies');
-  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveAttribute(
+  await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toHaveAttribute(
     'aria-current',
     'page',
   );
-  await expect(page.getByRole('heading', { name: 'Movies', exact: true })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Open Fixture Screen Film', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'TV Shows', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open Fixture Screen Series', exact: true })).toBeVisible();
 });
 
-test('mobile bottom navigation keeps TV directly reachable without overflow', async ({ page }) => {
+test('mobile header navigation keeps collections and search directly reachable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 
   const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
-  await expect(navigation.getByRole('link', { name: 'Home', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Sol Anime home', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('link', { name: 'Search', exact: true })).toBeVisible();
+  await expect(navigation.getByRole('button', { name: 'Categories', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Search all titles', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
   await noOverflow(page);
 });

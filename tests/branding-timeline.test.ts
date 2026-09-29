@@ -8,18 +8,18 @@ describe('approved branding timeline', () => {
     expect(start.letters.every(value => value === 0)).toBe(true);
     const ribbon = sampleBrandFrame('intro', 1100);
     expect(ribbon.front).toBeGreaterThan(.8); expect(ribbon.sun).toBe(0);
-    const sunrise = sampleBrandFrame('intro', 1700);
+    const sunrise = sampleBrandFrame('intro', 1600);
     expect(sunrise.front).toBe(1); expect(sunrise.sunY).toBeGreaterThan(0);
     expect(sunrise.sun).toBe(1); expect(sunrise.letters.every(value => value === 0)).toBe(true);
     const type = sampleBrandFrame('intro', 2200);
     expect(type.letters[0]).toBeGreaterThan(type.letters[7]);
-    expect(sampleBrandFrame('intro', 2600).letters.every(value => value === 1)).toBe(true);
+    expect(sampleBrandFrame('intro', 2400).letters.every(value => value === 1)).toBe(true);
   });
   it('lands on exactly the loading-loop start without geometry or light jumps', () => {
     expect(sampleBrandFrame('intro', INTRO_MS)).toEqual(sampleBrandFrame('loading', 0));
     const before = sampleBrandFrame('intro', INTRO_MS - .001);
     const after = sampleBrandFrame('intro', INTRO_MS);
-    for (const key of ['front', 'back', 'core', 'play', 'sun', 'sunY', 'sunlight', 'flare', 'glint', 'opacity'] as const) expect(before[key]).toBeCloseTo(after[key], 5);
+    for (const key of ['front', 'back', 'core', 'play', 'sun', 'sunY', 'sunlight', 'reflection', 'playGlow', 'flare', 'glint', 'opacity'] as const) expect(before[key]).toBeCloseTo(after[key], 5);
     expect(before.letters).toEqual(after.letters);
   });
   it('has a periodic loop with invisible traveling-light wrap and fixed geometry', () => {
@@ -40,6 +40,25 @@ describe('approved branding timeline', () => {
       expect({ ...exiting, opacity: 1 }).toEqual({ ...frame, opacity: 1 });
       expect(exiting.opacity).toBeGreaterThan(0); expect(exiting.opacity).toBeLessThan(1);
       expect(sampleBrandExit(frame, EXIT_MS).opacity).toBe(0);
+    }
+  });
+  it('has the complete readable identity before the existing readiness minimum', () => {
+    const frame = sampleBrandFrame('intro', 2400);
+    expect([frame.front, frame.back, frame.core, frame.play, frame.sun, ...frame.letters]).toEqual(Array(13).fill(1));
+    expect(frame.sunY).toBe(0);
+    expect(INTRO_MS).toBeGreaterThanOrEqual(2500);
+    expect(INTRO_MS).toBeLessThanOrEqual(3500);
+  });
+  it('keeps animated light bounded and has no lighting seam on loop wrap', () => {
+    for (let time = 0; time <= INTRO_MS + LOOP_MS; time += 16) {
+      const frame = sampleBrandFrame('intro', time);
+      for (const light of [frame.sunlight, frame.reflection, frame.playGlow, frame.glint]) {
+        expect(light).toBeGreaterThanOrEqual(0);
+        expect(light).toBeLessThanOrEqual(.5);
+      }
+    }
+    for (const key of ['sunlight', 'reflection', 'playGlow', 'glint', 'flare'] as const) {
+      expect(sampleBrandFrame('loading', LOOP_MS - .01)[key]).toBeCloseTo(sampleBrandFrame('loading', 0)[key], 7);
     }
   });
   it('never moves the ribbon or sun when reduced motion is requested', () => {

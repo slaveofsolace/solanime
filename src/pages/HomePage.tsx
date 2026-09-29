@@ -7,7 +7,8 @@ import Icon from '../components/Icon';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
 import type { CatalogueFacets, TitleSummary } from '../types';
-import { BrandReadiness, isBrandSessionResolved } from '../branding';
+import { useInitialReadiness } from '../branding/ApplicationReadiness';
+import { useContinueWatching } from '../lib/useContinueWatching';
 
 function progress(entry: { position?: number; duration?: number }) {
   if (!Number.isFinite(entry.duration) || !Number.isFinite(entry.position) || !entry.duration || !entry.position) return 0;
@@ -46,22 +47,20 @@ function artworkFidelity(title: TitleSummary) {
 export default function HomePage() {
   const { history, watchlist, preferences } = useAppState();
   const [prefs] = preferences;
-  const [bootDismissed, setBootDismissed] = useState(() => isBrandSessionResolved('solanime-home-boot'));
   const [latest, setLatest] = useState<TitleSummary[]>([]);
-  const [animeMovies, setAnimeMovies] = useState<TitleSummary[]>([]);
-  const [screenMovies, setScreenMovies] = useState<TitleSummary[]>([]);
   const [tvShows, setTvShows] = useState<TitleSummary[]>([]);
   const [facets, setFacets] = useState<CatalogueFacets>({});
   const [collections, setCollections] = useState<Array<{ label: string; genre: string; items: TitleSummary[] }>>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
+  useInitialReadiness(!loading && !error, error, () => setRetry(value => value + 1));
   useEffect(() => {
     const controller = new AbortController();
     setLoading(latest.length === 0);
     setError(null);
     void api
-      .catalogue({ scope: 'anime', sort: 'updated', pageSize: 13 }, controller.signal)
+      .catalogue({ scope: 'anime', sort: 'updated', pageSize: 48 }, controller.signal)
       .then((recent) => {
         if (!controller.signal.aborted) setLatest(recent.items);
       })
@@ -71,18 +70,6 @@ export default function HomePage() {
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
       });
-    void api
-      .catalogue({ scope: 'anime', type: 'movie', sort: 'year_desc', pageSize: 12 }, controller.signal)
-      .then((films) => {
-        if (!controller.signal.aborted) setAnimeMovies(films.items);
-      })
-      .catch(() => undefined);
-    void api
-      .catalogue({ scope: 'movies', sort: 'year_desc', pageSize: 12 }, controller.signal)
-      .then((films) => {
-        if (!controller.signal.aborted) setScreenMovies(films.items);
-      })
-      .catch(() => undefined);
     void api
       .catalogue({ scope: 'tv', sort: 'updated', pageSize: 12 }, controller.signal)
       .then((shows) => {
@@ -113,22 +100,11 @@ export default function HomePage() {
   const spotlightItems = [...latest].sort((a, b) => artworkFidelity(b) - artworkFidelity(a));
   const featured =
     spotlightItems.find((item) => item.synopsis && (item.imageUrl || item.posterUrl)) ?? spotlightItems[0];
-  const continuing = history.entries.filter(
-    (entry) => !entry.duration || !entry.position || entry.position / entry.duration < 0.95,
-  );
+  const continuing = useContinueWatching(history.entries);
   return (
     <div className={`home-page${continuing.length > 0 ? ' home-page--returning' : ''}`}>
-      <BrandReadiness
-        ready={!loading && !error}
-        error={error}
-        onRetry={() => setRetry(value => value + 1)}
-        onDismiss={() => setBootDismissed(true)}
-        reducedMotion={prefs.motion === 'reduced'}
-        theme={prefs.theme ?? 'dark'}
-        sessionKey="solanime-home-boot"
-      />
       <h1 className="sr-only">Explore anime</h1>
-      {error && bootDismissed && (
+      {error && (
         <InlineNotice tone="error">
           <strong>Catalogue unavailable.</strong> {error}
           <button
@@ -157,7 +133,7 @@ export default function HomePage() {
           <header className="rail-heading">
             <div className="rail-heading__title">
               <h2 id="continue-title">Continue watching</h2>
-              <Link to="/library">
+              <Link to="/library#history-title">
                 Full history <Icon name="arrow" />
               </Link>
             </div>
@@ -188,7 +164,7 @@ export default function HomePage() {
                     <span className="continue-card__copy">
                       <strong>{entry.title}</strong>
                       <small>
-                        {entry.episodeLabel} · {entry.language.toUpperCase()}
+                        {entry.nextUp ? 'Up next · ' : ''}{entry.episodeLabel} · {entry.language.toUpperCase()}
                       </small>
                       {percent > 0 && <span
                         className="continue-progress"
@@ -206,8 +182,8 @@ export default function HomePage() {
                   <button
                     type="button"
                     className="continue-remove"
-                    aria-label={`Remove ${entry.title} ${entry.episodeLabel} from history`}
-                    onClick={() => history.remove(entry.episodeId, entry.language)}
+                    aria-label={`Remove ${entry.title} from Continue watching`}
+                    onClick={() => history.dismissSeries(entry.titleId)}
                   >
                     Remove
                   </button>
@@ -220,15 +196,14 @@ export default function HomePage() {
       <Rail
         title="Recent updates"
         to="/catalogue?scope=anime&sort=updated"
-        items={latest.filter((item) => item.id !== featured?.id)}
-        format="landscape"
+        items={latest.filter((item) => item.id !== featured?.id).slice(0, 18)}
       />
-      <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} format="landscape" />
-      <Rail title="Movies" to="/catalogue?scope=movies&sort=year_desc" items={screenMovies} format="landscape" />
-      <Rail title="TV shows" to="/catalogue?scope=tv&sort=updated" items={tvShows} format="landscape" />
-      <Rail title="Anime films" to="/catalogue?scope=anime&type=movie&sort=year_desc" items={animeMovies} format="landscape" />
+      <Rail title="Saved for later" to="/library" items={watchlist.items.slice(0, 12)} />
       {collections.map(row => <Rail key={row.genre} title={row.label}
-        to={`/catalogue?scope=anime&genre=${encodeURIComponent(row.genre)}`} items={row.items} format="landscape" />)}
+        to={`/catalogue?scope=anime&genre=${encodeURIComponent(row.genre)}`} items={row.items} />)}
+      {tvShows.length > 0 && <section className="screen-collection" aria-label="Television">
+        <Rail title="TV shows" to="/catalogue?scope=tv&sort=updated" items={tvShows} />
+      </section>}
       {(facets.genres?.length ?? 0) > 0 && (
         <section className="genre-section" aria-labelledby="genres-title">
           <header className="rail-heading">

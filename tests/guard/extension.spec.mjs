@@ -24,7 +24,7 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
   await page.route('https://megaplay.buzz/**', (route) =>
     route.fulfill({
       contentType: 'text/html',
-      body: '<!doctype html><html><head><title>Provider fixture</title><style>.jw-progress{height:10px;background:blue}</style></head><body><div class="jwplayer"><div class="jw-slider-horizontal"><div class="jw-progress"></div></div><button class="jw-icon">Play</button><button id="popup" onclick="window.open(\'https://popads.net/guard-popup\')">Popup</button></div></body></html>',
+      body: `<!doctype html><html><head><title>Provider fixture</title><style>.jw-progress{height:10px;background:blue}</style></head><body><div class="jwplayer"><div class="jw-slider-horizontal"><div class="jw-progress"></div></div><button class="jw-icon">Play</button><button id="popup" onclick="document.body.dataset.popupResult = window.open('https://popads.net/guard-popup') ? 'opened' : 'blocked'">Popup</button><button id="blank" onclick="document.body.dataset.blankResult = window.open('about:blank') ? 'opened' : 'blocked'">Blank popup</button><a id="skip" href="javascript:;" onclick="document.body.dataset.skip = 'worked'">Skip Intro</a><a id="external" target="_blank" href="https://popads.net/guard-link">Ad link</a></div></body></html>`,
     }),
   );
   await page.goto('http://127.0.0.1:18787/__guard');
@@ -79,6 +79,13 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
   await frame.locator('#popup').click();
   await expect.poll(() => context.pages().length).toBe(pagesBeforePopup);
   expect(context.pages().some((candidate) => candidate.url().includes('popads.net'))).toBe(false);
+  await expect(frame.locator('body')).toHaveAttribute('data-popup-result', 'blocked');
+  await frame.locator('#blank').click();
+  await expect(frame.locator('body')).toHaveAttribute('data-blank-result', 'blocked');
+  await frame.locator('#skip').click();
+  await expect(frame.locator('body')).toHaveAttribute('data-skip', 'worked');
+  await frame.locator('#external').click();
+  await expect.poll(() => context.pages().length).toBe(pagesBeforePopup);
   await page.evaluate(() => {
     document.documentElement.dataset.accent = '#A78BFA';
     document.documentElement.style.setProperty('--player-accent', '#A78BFA');
@@ -95,6 +102,11 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
     .poll(() => worker.evaluate(() => chrome.declarativeNetRequest.getSessionRules()))
     .toEqual([]);
   await expect(frame.locator('.jw-progress')).toHaveCSS('background-color', 'rgb(0, 0, 255)');
+  await expect(page.locator('html')).toHaveAttribute('data-solanime-guard', 'inactive');
+  await frame.locator('#blank').click();
+  await expect(frame.locator('body')).toHaveAttribute('data-blank-result', 'opened');
+  const opened = context.pages().find((candidate) => candidate !== page && candidate !== popup);
+  await opened?.close();
   await popup.locator('#enabled').check();
   await popup.locator('#strict').check();
   await popup.locator('#hosts').fill('cdn.example.com');
@@ -104,6 +116,7 @@ test('unpacked Guard scopes DNR rules, styles a foreign frame, syncs accents and
       worker.evaluate(async () => (await chrome.declarativeNetRequest.getSessionRules()).length),
     )
     .toBe(4);
+  await expect(page.locator('html')).toHaveAttribute('data-solanime-guard', 'active');
   const strict = await worker.evaluate(
     async ({ tabId }) =>
       chrome.declarativeNetRequest.testMatchOutcome({

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PlaybackResolution } from '../types';
 import {
   PROVIDER_EMBED_ALLOW,
@@ -10,6 +10,7 @@ import {
   type ProviderEmbedResolution,
 } from '../lib/providerEmbedPolicy';
 import Icon from './Icon';
+import './ProviderPlayer.css';
 
 interface ProviderPlayerProps {
   resolution: PlaybackResolution | ProviderEmbedResolution;
@@ -18,6 +19,7 @@ interface ProviderPlayerProps {
   onOpen?: () => void;
   onEnded?: () => void;
   onError?: (message: string) => void;
+  onRefresh?: () => void;
   activityTimeoutMs?: number;
 }
 
@@ -62,6 +64,7 @@ export default function ProviderPlayer({
   onOpen,
   onEnded,
   onError,
+  onRefresh,
   activityTimeoutMs = 12_000,
 }: ProviderPlayerProps) {
   const iframe = useRef<HTMLIFrameElement>(null);
@@ -74,26 +77,50 @@ export default function ProviderPlayer({
   const [metrics, setMetrics] = useState<{ position: number; duration: number } | null>(null);
   const [reload, setReload] = useState(0);
   const [guardActive, setGuardActive] = useState(() => solanimeGuardActive());
-  const source = providerEmbedUrl(resolution, language);
+  // Expiry controls whether a newly resolved embed may be opened. Once the
+  // iframe is mounted, a parent progress update must not eject its live player
+  // merely because the resolution timestamp passed during playback.
+  const source = useMemo(() => providerEmbedUrl(resolution, language), [resolution, language]);
+  const guardMode = guardActive ? 'extension' : 'browser';
+  const reloadPlayer = () => {
+    const expiresAt = resolution.expiresAt ? Date.parse(resolution.expiresAt) : NaN;
+    if (onRefresh && Number.isFinite(expiresAt) && expiresAt <= Date.now()) {
+      onRefresh();
+    } else {
+      setReload((value) => value + 1);
+    }
+  };
 
   useEffect(() => {
     const update = () => setGuardActive(solanimeGuardActive());
     window.addEventListener(SOLANIME_GUARD_EVENT, update);
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-solanime-guard'] });
     update();
-    return () => window.removeEventListener(SOLANIME_GUARD_EVENT, update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener(SOLANIME_GUARD_EVENT, update);
+    };
   }, []);
 
   useEffect(() => {
     const frame = iframe.current;
-    if (!frame || !source || !guardActive) return;
+    if (!frame || !source) return;
     opened.current = false;
     setActivity('loading');
     setFrameLoaded(false);
     setMetrics(null);
     setProviderError(null);
-    const timeout = window.setTimeout(() => setActivity('timeout'), activityTimeoutMs);
+    let previousPosition: number | null = null;
+    let failed = false;
+    const timeout = window.setTimeout(() => {
+      // Silence does not mean failure: autoplay may require a user gesture,
+      // or this cross-origin player may not publish its progress yet. Keep
+      // this frame and its source choice available for a manual Play/reload.
+      setActivity('timeout');
+    }, activityTimeoutMs);
     const receive = (event: MessageEvent) => {
-      if (event.origin !== PROVIDER_EMBED_ORIGIN || event.source !== frame.contentWindow) return;
+      if (failed || event.origin !== PROVIDER_EMBED_ORIGIN || event.source !== frame.contentWindow) return;
       const data = providerMessage(event.data);
       if (!data) return;
       const eventName = typeof data.event === 'string' ? data.event : null;
@@ -104,6 +131,11 @@ export default function ProviderPlayer({
       if (eventName === 'time' || watchingLog) {
         const metrics = playbackMetrics(data);
         if (metrics) {
+          const advanced = previousPosition !== null && metrics.position > previousPosition + 0.1;
+          previousPosition = metrics.position;
+          // A loaded/paused player can repeatedly report the same time. Do
+          // not add it to history or claim playback until time has advanced.
+          if (!opened.current && !advanced) return;
           window.clearTimeout(timeout);
           setActivity('ready');
           setMetrics(metrics);
@@ -115,13 +147,15 @@ export default function ProviderPlayer({
         }
         return;
       }
-      if (eventName === 'complete') {
+      if (eventName === 'complete' && opened.current) {
         window.clearTimeout(timeout);
         setActivity('ready');
         handlers.current.onEnded?.();
         return;
       }
       if (eventName === 'error') {
+        failed = true;
+        window.clearTimeout(timeout);
         const message = 'The provider player reported a playback error.';
         setProviderError(message);
         handlers.current.onError?.(message);
@@ -132,7 +166,7 @@ export default function ProviderPlayer({
       window.clearTimeout(timeout);
       window.removeEventListener('message', receive);
     };
-  }, [activityTimeoutMs, guardActive, reload, source]);
+  }, [activityTimeoutMs, guardMode, reload, source]);
 
   if (!source) {
     return (
@@ -146,28 +180,17 @@ export default function ProviderPlayer({
     );
   }
 
-  if (!guardActive) {
-    return (
-      <div className="provider-player provider-player--rejected" role="alert">
-        <Icon name="shield" />
-        <div>
-          <h2>Solanime Guard required</h2>
-          <p>This provider rejects browser sandboxing. Enable Solanime Guard, then reload this source.</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
-      className="provider-player"
+      className={`provider-player provider-player--framed provider-player--${guardMode}`}
       data-provider={resolution.providerId}
+      data-guard-mode={guardMode}
       data-playback-position={metrics?.position}
       data-playback-duration={metrics?.duration}
     >
       <iframe
         ref={iframe}
-        key={`${source}:${reload}`}
+        key={`${source}:${guardMode}:${reload}`}
         src={source}
         title="MegaPlay provider player"
         allow={PROVIDER_EMBED_ALLOW}
@@ -175,17 +198,28 @@ export default function ProviderPlayer({
         referrerPolicy={PROVIDER_EMBED_REFERRER_POLICY}
         onLoad={() => setFrameLoaded(true)}
       />
-      <p className="provider-player__label">
+      <div className="provider-player__footer">
+      <p className="provider-player__label" aria-live="polite">
         {activity === 'ready'
-          ? 'Provider playback · MegaPlay'
+          ? `Provider playback · MegaPlay${guardActive ? ' · Desktop Guard' : ''}`
           : frameLoaded
             ? 'Provider frame loaded · Waiting for playback'
-            : 'Opening provider player · MegaPlay'}
+            : `Opening provider player · MegaPlay${guardActive ? ' · Desktop Guard' : ''}`}
       </p>
+      {!guardActive && (
+        <details className="provider-player__notice">
+          <summary>About this player</summary>
+          <div role="status">
+            This source uses the provider’s own player. Popup and redirect blocking depends on your browser
+            {' '}or <a href="/downloads/solanime-guard.zip" download>Desktop Guard</a>, not a built-in Solanime blocker.
+          </div>
+        </details>
+      )}
+      </div>
       {activity === 'timeout' && !providerError && (
         <div className="provider-player__timeout" role="status">
-          <span>No playback activity was reported.</span>
-          <button type="button" onClick={() => setReload((value) => value + 1)}>Reload player</button>
+          <span>Press Play inside the video. If it does not start, reload or choose another source.</span>
+          <button type="button" onClick={reloadPlayer}>Reload player</button>
         </div>
       )}
       {providerError && <div className="provider-player__error" role="alert">{providerError}</div>}

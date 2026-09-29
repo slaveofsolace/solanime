@@ -12,7 +12,7 @@ export const IMPORT_TABLES: Record<string, ImportTable> = {
   title_aliases: table('catalogue', 'id title_id alias language alias_type', 'id', 2),
   title_genres: table('catalogue', 'title_id genre_id', 'title_id genre_id', 1),
   related_titles: table('catalogue', 'title_id related_title_id related_source_id relationship_type label source_url first_seen_at last_seen_at', 'title_id relationship_type related_source_id', 3, 'first_seen_at'),
-  episodes: table('catalogue', 'id title_id source_id number_text number_sort label slug canonical_url episode_type availability_state first_seen_at last_seen_at last_successful_import_at created_at updated_at', 'id', 3, 'first_seen_at created_at'),
+  episodes: table('catalogue', 'id title_id source_id number_text number_sort label slug canonical_url episode_type availability_state first_seen_at last_seen_at last_successful_import_at created_at updated_at thumbnail_url thumbnail_origin thumbnail_reuse_status duration_seconds season_number', 'id', 3, 'first_seen_at created_at'),
   episode_versions: table('catalogue', 'id episode_id source_id language version_label audio_language subtitle_language availability_state first_seen_at last_seen_at last_successful_import_at', 'id', 3, 'first_seen_at'),
   provider_aliases: table('catalogue', 'provider_id alias alias_type', 'provider_id alias', 1),
   provider_connections: table('catalogue', 'id provider_id hostname path_pattern relationship evidence_state observation_scope first_seen_at last_seen_at', 'id', 2, 'first_seen_at'),

@@ -2833,7 +2833,7 @@ Category: Specialty Streaming / Cartoon Streaming
 
 B98 - Classic / TV
 
-- [B98](https://www.b98.tv/home/)
+- [B98](https://www.b98.tv<LOCAL_HOME>
 
 ## entry-ec68a6682a041899 - ToonTales
 

@@ -26,11 +26,15 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
         <image id={`${id}-foreground`} href={BRAND_FOREGROUND} x="329" y="202" width="605" height="558" preserveAspectRatio="none" />
         <mask id={`${id}-sun-window`} maskUnits="userSpaceOnUse" x="370" y="150" width="550" height="550"><path d={SUN_WINDOW} fill="white" stroke="white" strokeWidth="2" /></mask>
         <mask id={`${id}-ribbon-reveal`} maskUnits="userSpaceOnUse" x="365" y="280" width="550" height="425">
-          <path d={FRONT_TRAVEL} pathLength="100" fill="none" stroke="white" strokeWidth="145" strokeLinecap="round" strokeDasharray="100 100" data-front-reveal />
-          <path d={BACK_TRAVEL} pathLength="100" fill="none" stroke="white" strokeWidth="160" strokeLinecap="round" strokeDasharray="100 100" data-back-reveal />
+          <g filter={url('reveal-feather')}>
+            <path d={FRONT_TRAVEL} pathLength="100" fill="none" stroke="white" strokeWidth="132" strokeLinecap="butt" strokeDasharray="100 100" data-front-reveal />
+            <path d={BACK_TRAVEL} pathLength="100" fill="none" stroke="white" strokeWidth="142" strokeLinecap="butt" strokeDasharray="100 100" data-back-reveal />
+          </g>
           <rect x="365" y="280" width="550" height="425" fill="white" data-core />
           <path d={EXTRACTED_PLAY} fill="black" />
         </mask>
+        <filter id={`${id}-reveal-feather`} x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="4" /></filter>
+        <filter id={`${id}-light-feather`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="11" /></filter>
         <mask id={`${id}-play`} maskUnits="userSpaceOnUse" x="548" y="380" width="170" height="143"><path d={EXTRACTED_PLAY} fill="white" stroke="white" strokeWidth="2" /></mask>
         <mask id={`${id}-foreground-alpha`} maskUnits="userSpaceOnUse" x="365" y="280" width="550" height="425" style={{ maskType: 'alpha' }}>{foreground}</mask>
         <filter id={`${id}-word-alpha`} colorInterpolationFilters="sRGB" x="0" y="0" width="100%" height="100%">
@@ -40,6 +44,7 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
         <linearGradient id={`${id}-warm-edge`} x1="0" x2="1" y1="0" y2="1"><stop stopColor="#fff3ba" /><stop offset=".47" stopColor="#ffd17b" /><stop offset="1" stopColor="#9a9ae9" /></linearGradient>
         <radialGradient id={`${id}-sun-glow`}><stop stopColor="#ffc26a" stopOpacity=".8" /><stop offset=".4" stopColor="#d67b25" stopOpacity=".28" /><stop offset="1" stopColor="#8b3a0a" stopOpacity="0" /></radialGradient>
         <radialGradient id={`${id}-glint`}><stop stopColor="#fffbed" /><stop offset=".18" stopColor="#ffe6a2" stopOpacity=".85" /><stop offset="1" stopColor="#f5a633" stopOpacity="0" /></radialGradient>
+        <radialGradient id={`${id}-reflected-dawn`} cx=".43" cy=".05" r=".9"><stop stopColor="#fff2b3" stopOpacity=".9" /><stop offset=".32" stopColor="#ffb34e" stopOpacity=".5" /><stop offset=".64" stopColor="#b989c6" stopOpacity=".12" /><stop offset="1" stopColor="#989eff" stopOpacity="0" /></radialGradient>
         <linearGradient id={`${id}-flare`}><stop stopColor="#c36620" stopOpacity="0" /><stop offset=".46" stopColor="#ffce7b" stopOpacity=".8" /><stop offset=".5" stopColor="#fffae9" /><stop offset=".54" stopColor="#ffce7b" stopOpacity=".8" /><stop offset="1" stopColor="#c36620" stopOpacity="0" /></linearGradient>
         <linearGradient id={`${id}-sheen`}><stop stopColor="#fff7dc" stopOpacity="0" /><stop offset=".5" stopColor="#fff7dc" /><stop offset="1" stopColor="#fff7dc" stopOpacity="0" /></linearGradient>
         {LETTERS.map((letter, i) => <clipPath id={`${id}-letter-${i}`} key={letter.glyph}><rect x={letter.x} y="701" width={letter.width} height="163" /></clipPath>)}
@@ -49,10 +54,15 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
           <ellipse cx="628" cy="344" rx="370" ry="303" fill={url('sun-glow')} data-sunlight />
           <g mask={url('sun-window')}><g data-sun-rise><image href={BRAND_SUN} x="340" y="136" width="575" height="575" /></g></g>
           <g mask={url('ribbon-reveal')}>{foreground}</g>
+          <path d={EXTRACTED_PLAY} fill="#ffcc6e" filter={url('light-feather')} data-play-aura />
           <g mask={url('play')} data-play>{foreground}</g>
-          <g mask={url('foreground-alpha')} data-rim-light><ellipse cx="565" cy="350" rx="170" ry="130" fill={url('sun-glow')} opacity=".12" /></g>
-          <g mask={url('foreground-alpha')} data-travel-light><path d={FRONT_TRAVEL} pathLength="100" fill="none" stroke={url('warm-edge')} strokeWidth="2" strokeDasharray="3 197" data-glint-path /></g>
-          <g data-leading-glint><circle r="23" fill={url('glint')} /><path d="M-22 0 H22 M0-9 V9" fill="none" stroke="#fff1c4" strokeWidth=".85" /></g>
+          <g mask={url('ribbon-reveal')}>
+            <g mask={url('foreground-alpha')}>
+              <rect x="365" y="280" width="550" height="425" fill={url('reflected-dawn')} data-rim-light />
+              <g data-travel-light><path d={FRONT_TRAVEL} pathLength="100" fill="none" stroke={url('warm-edge')} strokeWidth="48" strokeLinecap="round" strokeDasharray="8 192" filter={url('light-feather')} data-glint-path /></g>
+              <g data-leading-glint><circle r="37" fill={url('glint')} /></g>
+            </g>
+          </g>
         </g>
         {variant !== 'emblem' && <g transform={wordTransform}>
           {LETTERS.map((letter, i) => <g key={letter.glyph} clipPath={url(`letter-${i}`)}><g data-letter={i}>

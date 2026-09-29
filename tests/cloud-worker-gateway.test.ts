@@ -82,7 +82,7 @@ describe('private Pages gateway forwarding contract', () => {
     expect(assets).not.toHaveBeenCalled();
   });
 
-  it('drops user and operator credentials from public reads and upstream response cookies', async () => {
+  it('forwards only the approved-session cookie on catalogue reads, dropping other credentials and upstream cookies', async () => {
     const { env, service, externalFetch } = setup(async () => Response.json({ items: [] }, { headers: { 'set-cookie': accountCookie, 'x-private-debug': 'test-private', 'content-disposition': 'attachment; filename=private.json' } }));
     const response = await pages.fetch(new Request(origin + '/api/titles?q=literal%25&page=2', { headers: {
       cookie: `tracking=secret; __Host-solanime_session=${sessionToken}`, authorization: 'Bearer test-private-auth',
@@ -93,11 +93,23 @@ describe('private Pages gateway forwarding contract', () => {
     expect(response.status).toBe(200); expect(service).toHaveBeenCalledTimes(1); expect(externalFetch).not.toHaveBeenCalled();
     const sent = service.mock.calls[0][0];
     expect(sent.url).toBe(origin + '/api/titles?q=literal%25&page=2');
-    expect(Object.fromEntries(sent.headers)).toEqual({ accept: 'application/json', 'cf-connecting-ip': '192.0.2.5' });
+    expect(Object.fromEntries(sent.headers)).toEqual({ accept: 'application/json', 'cf-connecting-ip': '192.0.2.5',
+      cookie: '__Host-solanime_session=' + sessionToken });
     expect(response.headers.get('set-cookie')).toBeNull();
     expect(response.headers.get('x-private-debug')).toBeNull();
     expect(response.headers.get('content-disposition')).toBeNull();
     expect(response.headers.get('cache-control')).toBe('no-store');
+  });
+
+  it('forwards a single session cookie to provider resolution but not to health or operator routes', async () => {
+    const { env, service } = setup();
+    await pages.fetch(post('/api/providers/31/resolve', { language: 'sub' }, {
+      cookie: `tracking=ignore; __Host-solanime_session=${sessionToken}`, 'x-csrf-token': 'discard',
+    }), env);
+    expect(service.mock.calls[0][0].headers.get('cookie')).toBe('__Host-solanime_session=' + sessionToken);
+    expect(service.mock.calls[0][0].headers.get('x-csrf-token')).toBeNull();
+    await pages.fetch(new Request(origin + '/api/health', { headers: { cookie: '__Host-solanime_session=' + sessionToken } }), env);
+    expect(service.mock.calls[1][0].headers.get('cookie')).toBeNull();
   });
 
   it('forwards only the single valid account cookie and permitted intent headers on account routes', async () => {
@@ -143,10 +155,13 @@ describe('private Pages gateway forwarding contract', () => {
     expect((await pages.fetch(new Request(origin + '/api/episodes/152288/comments/not-a-comment'), env)).status).toBe(404);
   });
 
-  it('rejects ambiguous cookies and never forwards private response cookies from catalogue endpoints', async () => {
+  it('rejects ambiguous session cookies on both account and catalogue routes', async () => {
     const { env, service } = setup();
-    await pages.fetch(new Request(origin + '/api/account/session', { headers: { cookie: `__Host-solanime_session=${sessionToken}; solanime_session=${'x'.repeat(43)}` } }), env);
+    const ambiguous = `__Host-solanime_session=${sessionToken}; solanime_session=${'x'.repeat(43)}`;
+    await pages.fetch(new Request(origin + '/api/account/session', { headers: { cookie: ambiguous } }), env);
     expect(service.mock.calls[0][0].headers.get('cookie')).toBeNull();
+    await pages.fetch(new Request(origin + '/api/titles', { headers: { cookie: ambiguous } }), env);
+    expect(service.mock.calls[1][0].headers.get('cookie')).toBeNull();
   });
 
   it('keeps operator routes protected and strips cookies even from authorized research requests', async () => {
@@ -158,6 +173,25 @@ describe('private Pages gateway forwarding contract', () => {
     expect(service.mock.calls[0][0].headers.get('x-admin-token')).toBe('test-operator');
     expect(service.mock.calls[0][0].headers.get('cookie')).toBeNull();
     expect(service.mock.calls[0][0].headers.get('authorization')).toBeNull();
+  });
+
+  it('exposes only the exact operator account-approval routes through the gateway', async () => {
+    const { env, service } = setup();
+    const pending = '/api/admin/accounts/pending';
+    const decision = '/api/admin/accounts/account-1/decision';
+    expect((await pages.fetch(new Request(origin + pending), env)).status).toBe(401);
+    expect((await pages.fetch(post(decision, { decision: 'approved' }), env)).status).toBe(401);
+    expect(service).not.toHaveBeenCalled();
+    expect((await pages.fetch(new Request(origin + pending, {
+      headers: { 'x-admin-token': 'test-operator', cookie: '__Host-solanime_session=' + sessionToken },
+    }), env)).status).toBe(200);
+    expect((await pages.fetch(post(decision, { decision: 'approved' }, {
+      'x-admin-token': 'test-operator', cookie: '__Host-solanime_session=' + sessionToken,
+    }), env)).status).toBe(200);
+    expect(service.mock.calls[0][0].headers.get('cookie')).toBeNull();
+    expect(service.mock.calls[1][0].headers.get('cookie')).toBeNull();
+    expect((await pages.fetch(new Request(origin + '/api/admin/accounts/account-1'), env)).status).toBe(404);
+    expect((await pages.fetch(post('/api/admin/accounts/account-1/delete', {}, { 'x-admin-token': 'test-operator' }), env)).status).toBe(404);
   });
 
   it('forwards native verification only as an explicit operator mutation without account credentials', async () => {

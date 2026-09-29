@@ -419,7 +419,7 @@ describe('application HTTP API', () => {
         .get(String(mappingId)),
     ).toMatchObject({ stage: 'failed', result: 'unsupported' });
   });
-  it('advertises canonical provider embeds as Guard-required playback', async () => {
+  it('advertises canonical provider embeds with optional Desktop Guard', async () => {
     const { origin, db } = await app();
     db.prepare("UPDATE episode_provider_mappings SET canonical_embed_url=CASE provider_id WHEN 'hd-1' THEN 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn' ELSE 'https://megaplay.buzz/stream/s-2/123/sub?s=bcdn' END WHERE provider_id IN ('hd-1','hd-2')").run();
     const id = (db.prepare('SELECT id FROM episodes LIMIT 1').get() as { id: number }).id;
@@ -435,7 +435,7 @@ describe('application HTTP API', () => {
         status: embedOnly ? 'available' : 'unsupported',
         playbackType: embedOnly ? 'iframe' : 'unknown',
         reasonCode: embedOnly ? null : 'DOWNLOAD_ONLY_SOURCE',
-        requiresGuard: embedOnly,
+        requiresGuard: false,
       });
     }
     const res = await fetch(`${origin}/api/providers/${result.providers[0].mappingId}/resolve`, {
@@ -450,7 +450,7 @@ describe('application HTTP API', () => {
       status: 'resolved',
       playbackType: 'iframe',
       embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn',
-      iframePolicy: { requiresGuard: true, sandbox: [], referrerPolicy: 'strict-origin-when-cross-origin' },
+      iframePolicy: { requiresGuard: false, sandbox: [], referrerPolicy: 'strict-origin-when-cross-origin' },
     });
     expect(body).not.toHaveProperty('url');
     expect(JSON.stringify(body)).not.toContain('private-opaque-reference');

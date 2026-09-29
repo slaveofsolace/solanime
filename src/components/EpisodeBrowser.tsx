@@ -1,18 +1,28 @@
-import { useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import type { Episode } from '../types';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import type { Episode, TitleSummary } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
+import { viewingPercent } from '../lib/continueWatching';
 
 const PAGE_SIZE = 50;
 
 export const episodeName = (episode: Episode) =>
-  episode.label ||
   episode.title ||
+  episode.label ||
   (episode.number != null ? `Episode ${episode.number}` : 'Special');
 const episodeCountLabel = (count: number) => `${count} ${count === 1 ? 'episode' : 'episodes'}`;
 
+function EpisodeArtwork({ episode }: { episode: Episode }) {
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [episode.thumbnailUrl]);
+  if (episode.thumbnailUrl && !failed) return <img src={episode.thumbnailUrl} alt="" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={() => setFailed(true)} />;
+  const number = episode.number == null ? 'SP' : String(episode.number).padStart(2, '0');
+  return <span className="episode-thumbnail__fallback" aria-hidden="true"><small>{episode.number == null ? 'SPECIAL' : 'EPISODE'}</small><strong>{number}</strong></span>;
+}
+
 function episodeSeason(episode: Episode) {
+  if (Number.isInteger(episode.seasonNumber) && Number(episode.seasonNumber) >= 0) return episode.seasonNumber!;
   const candidates = [episode.number, episode.label, episode.title].filter(
     (value): value is string | number => value != null,
   );
@@ -32,6 +42,7 @@ interface EpisodeBrowserProps {
   currentId?: string;
   /** Hide the unfiltered count when a parent heading already shows it. */
   compactHeading?: boolean;
+  title?: TitleSummary;
 }
 
 export default function EpisodeBrowser(props: EpisodeBrowserProps) {
@@ -46,15 +57,20 @@ function EpisodeBrowserContent({
   currentId,
   compactHeading = false,
 }: EpisodeBrowserProps) {
-  const { watched } = useAppState();
+  const { watched, history } = useAppState();
+  const [params, setParams] = useSearchParams();
   const [query, setQuery] = useState(''),
     [page, setPage] = useState<number | null>(null),
-    [selectedSeason, setSelectedSeason] = useState<string | null>(null);
+    [selectedSeason, setSelectedSeason] = useState<string | null>(params.get('season'));
   const focusCurrentOnMount = useRef(false);
+  const routeSeason = params.get('season');
+  useEffect(() => { setSelectedSeason(routeSeason); setPage(null); }, [routeSeason]);
   const languageEpisodes = useMemo(
     () => episodes.filter((episode) => !language || episode.versions.some((version) => version.language === language)),
     [episodes, language],
   );
+  const compactWithoutStills = !currentId && languageEpisodes.length >= 6 &&
+    languageEpisodes.filter((episode) => Boolean(episode.thumbnailUrl)).length < languageEpisodes.length / 2;
   const seasonGroups = useMemo(() => {
     const parsed = languageEpisodes.map((episode) => ({ episode, season: episodeSeason(episode) }));
     const seasons = new Set(parsed.flatMap(({ season }) => (season == null ? [] : [season])));
@@ -65,7 +81,7 @@ function EpisodeBrowserContent({
       .sort((a, b) => a - b)
       .map((season) => ({
         key: `season-${season}`,
-        label: `Season ${season}`,
+        label: season === 0 ? 'Specials' : `Season ${season}`,
         episodes: parsed.filter((item) => item.season === season).map((item) => item.episode),
       }));
     const extras = parsed.filter((item) => item.season == null).map((item) => item.episode);
@@ -105,7 +121,25 @@ function EpisodeBrowserContent({
   const showToolbar = languageEpisodes.length > 1 || normalizedQuery !== '';
   const showResultCount = !compactHeading || normalizedQuery !== '';
   return (
-    <div className="episode-browser">
+    <div className={`episode-browser episode-browser--${currentId ? 'sidebar' : 'cards'}${compactWithoutStills ? ' episode-browser--compact' : ''}`}>
+      <div className="episode-controls">
+      {seasonGroups && (
+        <label className="episode-season-picker">
+          <span>Season</span>
+          <select aria-label="Season" value={activeSeason} onChange={(event) => {
+            setQuery('');
+            setSelectedSeason(event.target.value);
+            setPage(0);
+            const next = new URLSearchParams(params);
+            next.set('season', event.target.value);
+            setParams(next);
+          }}>
+            <option value="all">All episodes · {languageEpisodes.length}</option>
+            {seasonGroups.map((group) => <option key={group.key} value={group.key}>{group.label} · {group.episodes.length}</option>)}
+          </select>
+          {normalizedQuery && <small>Searching every season</small>}
+        </label>
+      )}
       {showToolbar && <div className="episode-toolbar">
         <label className="episode-search">
           <Icon name="search" />
@@ -131,34 +165,16 @@ function EpisodeBrowserContent({
               setQuery('');
               setSelectedSeason(null);
               setPage(null);
+              const next = new URLSearchParams(params);
+              next.delete('season');
+              setParams(next, { replace: true });
             }}
           >
             Current episode
           </button>
         )}
       </div>}
-      {seasonGroups && (
-        <label className="episode-season-picker">
-          <span>Season</span>
-          <select
-            aria-label="Season"
-            value={activeSeason}
-            onChange={(event) => {
-              setQuery('');
-              setSelectedSeason(event.target.value);
-              setPage(0);
-            }}
-          >
-            <option value="all">All episodes · {languageEpisodes.length}</option>
-            {seasonGroups.map((group) => (
-              <option key={group.key} value={group.key}>
-                {group.label} · {group.episodes.length}
-              </option>
-            ))}
-          </select>
-          {normalizedQuery && <small>Searching every season</small>}
-        </label>
-      )}
+      </div>
       {pages > 1 && (
         <div className="episode-ranges" role="group" aria-label="Episode range">
           {Array.from({ length: pages }, (_, i) => (
@@ -172,6 +188,12 @@ function EpisodeBrowserContent({
         <ol className="episode-grid">
           {visible.map((e) => {
             const displayName = episodeName(e);
+            const record = history?.entries.find(entry => entry.episodeId === e.id && entry.language === language);
+            const percent = record ? viewingPercent(record) : 0;
+            const seen = watched.isWatched(e.id, language) || percent >= 95;
+            const version = e.versions.find(item => item.language === language);
+            const mapped = Boolean(version?.providerCount);
+            const duration = e.durationSeconds ?? record?.duration;
             const episodeNumber = e.number == null ? null : String(e.number).trim();
             const repeatedNumber = Boolean(
               episodeNumber &&
@@ -188,13 +210,19 @@ function EpisodeBrowserContent({
                     element.focus();
                   }
                 } : undefined}
-                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}`}
+                to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}${seasonGroups && activeSeason !== 'all' ? `&season=${activeSeason}` : ''}`}
                 aria-current={e.id === currentId ? 'page' : undefined}
               >
-                {!repeatedNumber && <span className="episode-number">{e.number ?? '—'}</span>}
-                <strong>{displayName}</strong>
-                <span className="episode-play">
-                  <Icon name="play" />
+                <span className="episode-thumbnail">
+                  <EpisodeArtwork episode={e} />
+                  <span className="episode-play"><Icon name={mapped ? 'play' : 'info'} /></span>
+                  {duration != null && duration > 0 && <span className="episode-duration">{Math.ceil(duration / 60)}m</span>}
+                  {percent > 0 && <span className="episode-progress" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
+                </span>
+                <span className="episode-copy">
+                  {!repeatedNumber && <span className="episode-number">{e.number == null ? 'Special' : /^\d+(?:\.\d+)?$/.test(String(e.number)) ? `E${e.number}` : e.number}</span>}
+                  <strong>{displayName}</strong>
+                  <span className="episode-meta">{currentId === e.id ? 'Now selected' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : language === 'sub' ? 'Subtitled' : language === 'dub' ? 'Dubbed' : language}{!mapped && ' · Source unavailable'}</span>
                 </span>
               </Link>
               <button

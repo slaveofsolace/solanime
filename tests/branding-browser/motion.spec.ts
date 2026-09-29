@@ -20,15 +20,16 @@ test('normal-speed intro settles, remains geometrically stable, then exits once'
   expect(errors).toEqual([]);
 });
 
-test('actual ready removes the splash early; failure has retry and escape', async ({ page }) => {
+test('actual ready honors the existing minimum; failure has retry and escape', async ({ page }) => {
   await page.goto('/branding.html?state=static');
   await page.getByRole('button', { name: 'Test application readiness' }).click();
   const overlay = page.getByRole('region', { name: 'Solanime readiness' });
   await expect(overlay).toBeVisible();
   const start = Date.now();
   await page.getByRole('button', { name: 'Application ready', exact: true }).click();
-  await expect(overlay).toHaveCount(0, { timeout: 1200 });
-  expect(Date.now() - start).toBeLessThan(1200);
+  await expect(overlay).toHaveCount(0, { timeout: 4000 });
+  expect(Date.now() - start).toBeGreaterThan(1800);
+  expect(Date.now() - start).toBeLessThan(4000);
   await page.getByRole('button', { name: 'Replay at normal speed' }).click();
   await page.getByRole('button', { name: 'Test application readiness' }).click();
   await page.getByRole('button', { name: 'Simulate loading failure' }).click();

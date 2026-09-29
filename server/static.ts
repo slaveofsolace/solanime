@@ -15,6 +15,7 @@ const mime: Record<string, string> = {
   '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -51,7 +52,7 @@ export async function serveStatic(
   let file = resolve(root, `.${pathname}`);
   if (!inside(root, file)) return false;
   const appRoute =
-    /^\/(?:catalogue|search|library|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
+    /^\/(?:catalogue|search|library|settings(?:\/mal\/callback)?|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
       pathname,
     );
   if (appRoute) file = resolve(root, 'index.html');

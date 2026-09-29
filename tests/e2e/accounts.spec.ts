@@ -12,6 +12,7 @@ test.beforeEach(async ({ page }) => {
 async function register(page: Page) {
   const email = `test-${Date.now()}-${Math.random().toString(16).slice(2)}@example.test`;
   await page.goto('/register');
+  await expect(page.locator('.application-content')).not.toHaveAttribute('inert');
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill(password);
   await page.getByLabel('Confirm password', { exact: true }).fill(password);
@@ -73,9 +74,8 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await choose(page);
   await openPaperTitle(page);
   await page.getByRole('button', { name: 'My List', exact: true }).click();
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
-  await page.getByRole('dialog').getByRole('button', { name: 'Violet', exact: true }).click();
-  await page.keyboard.press('Escape');
+  await page.goto('/settings');
+  await page.getByRole('button', { name: 'Violet', exact: true }).click();
   await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
   await choose(page, 'Mira');
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
@@ -103,7 +103,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   const changedPassword = generatedTestPassphrase('browser recovery');
   await page.goto('/account');
   await page.getByRole('button', { name: 'Sign out', exact: true }).click();
-  await expect(page).toHaveURL(/\/login$/);
+  await expect(page).toHaveURL(/\/login(?:\?.*)?$/);
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill('wrong password');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
@@ -119,7 +119,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   await expect(page.getByRole('heading', { name: 'Save your new recovery code' })).toBeVisible();
   await page.getByLabel('I have saved my recovery code').check();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
-  await expect(page).toHaveURL(/\/login$/);
+  await expect(page).toHaveURL(/\/login(?:\?.*)?$/);
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill(changedPassword);
   const loginResponse = page.waitForResponse(
@@ -127,7 +127,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
       response.url().endsWith('/api/account/login') && response.request().method() === 'POST',
   );
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
-  await expect(page).toHaveURL(/\/profiles$/);
+  await expect(page).toHaveURL(/\/profiles(?:\?.*)?$/);
   const setCookie = (await (await loginResponse).allHeaders())['set-cookie'] ?? '';
   expect(setCookie).toMatch(/solanime_session=.*; Path=\/; HttpOnly; SameSite=Strict/i);
   const cookies = await context.cookies();
@@ -157,9 +157,10 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
   await page.goto('/login');
   await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
-  await page.getByRole('dialog').getByRole('button', { name: 'Light', exact: true }).click();
-  await page.keyboard.press('Escape');
+  await register(page);
+  await choose(page);
+  await page.goto('/settings');
+  await page.getByRole('button', { name: 'Light', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
   expect(results.violations).toEqual([]);
@@ -195,7 +196,7 @@ test('a sync conflict does not trap an authenticated session', async ({ page }) 
   await page
     .getByRole('button', { name: 'Discard unsaved changes and sign out', exact: true })
     .click();
-  await expect(page).toHaveURL(/\/login$/);
+  await expect(page).toHaveURL(/\/login(?:\?.*)?$/);
   const session = await (await page.request.get('/api/account/session')).json();
   expect(session.account).toBeNull();
 });

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { fixtureArt, episode, watch, noOverflow } from './helpers';
+import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 test('actual native controls change media state without provider requests or popups', async ({
   page,
@@ -41,8 +42,9 @@ test('actual native controls change media state without provider requests or pop
     .poll(() => video.evaluate((v: HTMLVideoElement) => v.textTracks[0]?.mode))
     .toBe('showing');
   const h = await video.elementHandle();
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
-  await page.getByRole('button', { name: 'Sky', exact: true }).click();
+  // Header controls must not remount or reset an already loaded player.
+  await page.getByRole('button', { name: 'Categories', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Categories', exact: true })).toHaveAttribute('aria-expanded', 'true');
   await page.keyboard.press('Escape');
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
@@ -99,7 +101,6 @@ test('legacy iframe responses are refused without loading their document', async
     page.getByRole('heading', { name: 'This source cannot play here', exact: true }),
   ).toBeVisible();
   await page.getByRole('heading', { name: 'This source cannot play here', exact: true }).click();
-  await page.getByRole('button', { name: 'My List', exact: true }).click();
   await expect(page.locator('iframe,video')).toHaveCount(0);
   expect(requested).toBe(0);
   expect(popups).toBe(0);
@@ -109,6 +110,8 @@ test('legacy iframe responses are refused without loading their document', async
   ).toEqual([]);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('unsupported-source.png'), fullPage: true });
+  await page.getByRole('button', { name: 'My List', exact: true }).click();
+  await expect(page).toHaveURL(/\/login\?returnTo=%2Fwatch/);
 });
 test('provider mappings without a documented embed destination remain unavailable despite legacy compatibility settings', async ({
   page,
@@ -123,23 +126,20 @@ test('provider mappings without a documented embed destination remain unavailabl
   });
   await page.goto(`/watch/fixture-title-2/${e.id}?language=sub`);
   await expect(
-    page.getByRole('heading', { name: 'No in-player stream', exact: true }),
+    page.getByRole('heading', { name: 'Video unavailable', exact: true }),
   ).toBeVisible();
+  await expect(page.getByText('The public resolver response no longer contains the documented embed destination.')).toBeVisible();
   await expect(page.locator('iframe,video')).toHaveCount(0);
-  expect(resolutions).toBe(0);
+  expect(resolutions).toBe(1);
   await expect(
     page.getByRole('button', { name: 'Provider compatibility', exact: true }),
   ).toHaveCount(0);
-  expect((await page.request.get('/')).headers()['content-security-policy']).toContain(
-    "frame-src 'none'",
-  );
+  expect((await page.request.get('/')).headers()['content-security-policy']).not.toContain('frame-src *');
 });
 test('native ended events update watched state and navigate when autoplay-next is enabled', async ({
   page,
 }) => {
-  await page.addInitScript(() =>
-    localStorage.setItem('sol-anime:preferences', '{"autoplayNext":true}'),
-  );
+  const { profile } = await accountFixture(page, { preferences: { autoplayNext: true } });
   const e = await watch(page);
   const video = page.locator('video');
   await page.getByRole('button', { name: 'Mute video', exact: true }).click();
@@ -153,11 +153,10 @@ test('native ended events update watched state and navigate when autoplay-next i
   await expect(page.locator('video')).toBeVisible();
   await expect
     .poll(() =>
-      page.evaluate(() =>
-        JSON.parse(localStorage.getItem('sol-anime:watched-episodes') ?? '[]').some(
-          (x: any) => x.episodeId,
-        ),
-      ),
+      page.request.get(`/api/account/profiles/${profile.id}/data`).then(async response => {
+        const data = await response.json();
+        return data.values['watched-episodes']?.some((item: { episodeId: string }) => item.episodeId === e.id) ?? false;
+      }),
     )
     .toBe(true);
 });

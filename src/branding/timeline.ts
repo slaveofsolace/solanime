@@ -11,6 +11,8 @@ export interface BrandFrame {
   sun: number;
   sunY: number;
   sunlight: number;
+  reflection: number;
+  playGlow: number;
   letters: readonly number[];
   wordSheenX: number;
   wordSheen: number;
@@ -26,7 +28,7 @@ const smooth = (value: number) => value * value * (3 - 2 * value);
 const sweep = (value: number) => value < 0.5 ? 4 * value ** 3 : 1 - (-2 * value + 2) ** 3 / 2;
 
 export function staticBrandFrame(): BrandFrame {
-  return { front: 1, back: 1, core: 1, play: 1, sun: 1, sunY: 0, sunlight: 0.12,
+  return { front: 1, back: 1, core: 1, play: 1, sun: 1, sunY: 0, sunlight: 0.12, reflection: 0, playGlow: 0,
     letters: Array(8).fill(1), wordSheenX: 0, wordSheen: 0, flare: 0.22,
     glint: 0, glintTravel: 0, opacity: 1 };
 }
@@ -40,24 +42,27 @@ export function sampleBrandFrame(motion: BrandMotion, elapsedMs = 0, reducedMoti
     const loopTime = motion === 'loading' ? time : time - INTRO_MS;
     const phase = ((loopTime % LOOP_MS) + LOOP_MS) % LOOP_MS / LOOP_MS;
     const pulse = Math.sin(Math.PI * phase) ** 2;
-    return { ...staticBrandFrame(), sunlight: 0.12 + pulse * 0.035, flare: 0.22 + pulse * 0.045,
-      glint: pulse * 0.32, glintTravel: phase, wordSheenX: 0, wordSheen: 0 };
+    return { ...staticBrandFrame(), sunlight: 0.12 + pulse * 0.055, flare: 0.22 + pulse * 0.045,
+      reflection: pulse * 0.07, playGlow: pulse * 0.09,
+      glint: pulse * 0.2, glintTravel: phase, wordSheenX: 0, wordSheen: 0 };
   }
-  const front = sweep(progress(time, 80, 1430));
-  const back = smooth(progress(time, 260, 1260));
-  const sunrise = smooth(progress(time, 1350, 960));
-  const letters = Array.from({ length: 8 }, (_, index) => smooth(progress(time, 1920 + index * 34, 390)));
-  const sheen = progress(time, 2400, 560);
-  const glintEnvelope = Math.sin(Math.PI * progress(time, 0, 1620)) ** 2;
-  const rimPulse = Math.sin(Math.PI * progress(time, 1510, 1150)) ** 2;
+  const front = sweep(progress(time, 30, 1370));
+  const back = smooth(progress(time, 380, 1080));
+  const sunrise = smooth(progress(time, 1180, 1140));
+  const letters = Array.from({ length: 8 }, (_, index) => smooth(progress(time, 1680 + index * 38, 390)));
+  const sheen = progress(time, 2250, 650);
+  const glintEnvelope = Math.sin(Math.PI * progress(time, 30, 1480)) ** 2;
+  const rimPulse = Math.sin(Math.PI * progress(time, 1170, 1590)) ** 2;
   return {
-    front, back, core: smooth(progress(time, 1280, 300)), play: smooth(progress(time, 1110, 340)),
-    sun: smooth(progress(time, 1350, 200)), sunY: 158 * (1 - sunrise),
-    sunlight: 0.12 * sunrise + rimPulse * 0.16,
+    front, back, core: smooth(progress(time, 1010, 460)), play: smooth(progress(time, 820, 430)),
+    sun: smooth(progress(time, 1180, 340)), sunY: 134 * (1 - sunrise),
+    sunlight: 0.12 * sunrise + rimPulse * 0.22,
+    reflection: rimPulse * 0.22,
+    playGlow: Math.sin(Math.PI * progress(time, 820, 1230)) ** 2 * 0.3,
     letters, wordSheenX: 140 + 1060 * sheen,
     wordSheen: Math.sin(Math.PI * sheen) ** 2 * 0.36,
-    flare: smooth(progress(time, 2140, 660)) * 0.22,
-    glint: glintEnvelope * 0.85, glintTravel: front, opacity: 1,
+    flare: smooth(progress(time, 1930, 770)) * 0.22,
+    glint: glintEnvelope * 0.5, glintTravel: front, opacity: 1,
   };
 }
 
@@ -71,6 +76,7 @@ export function sampleBrandExit(frame: BrandFrame, elapsedMs: number, reducedMot
 export class BrandClock {
   elapsed = 0;
   resolved = false;
+  minimumStartedAt: number | null = null;
   private last: number | null = null;
   tick(now: number, active: boolean) {
     if (active && this.last !== null) this.elapsed += Math.max(0, now - this.last);

@@ -10,7 +10,7 @@ export function solanimeGuardActive(root: HTMLElement | null = document.document
 }
 
 const PROVIDER_IDS = new Set(['vidstream-2', 'hd-1', 'hd-2']);
-const EMBED_PATH = /^\/stream\/s-2\/([1-9]\d*)\/(sub|dub)\/?$/;
+const EMBED_PATH = /^\/stream\/s-2\/([1-9]\d*)\/(sub|dub|hsub)\/?$/;
 
 function matchesProviderSelector(url: URL, providerId: string): boolean {
   if (providerId === 'hd-1') return url.search === '?s=tcdn';

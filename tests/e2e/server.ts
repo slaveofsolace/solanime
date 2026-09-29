@@ -2,6 +2,8 @@ import { resolve, extname } from 'node:path';
 import { readdirSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app';
+import { createAccounts } from '../../server/accounts/service';
+import { openAccountsDatabase } from '../../server/accounts/database';
 import { openDatabase, migrate } from '../../server/db';
 import { importSnapshot } from '../../server/ingestion/snapshot';
 import type { SnapshotTitle } from '../../server/types';
@@ -120,9 +122,16 @@ const resolveTestSource = (
   };
 };
 const server = createApp(db, {
-  staticDirectory: resolve('dist'),
+  staticDirectory: resolve(process.env.SOLANIME_E2E_DIST || 'dist'),
   resolutionCooldownMs: 0,
   nativeSources: resolveTestSource,
+  privateSite: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
+  accounts: createAccounts(openAccountsDatabase(':memory:'), {
+    privateSite: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
+    approvalRequired: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
+    // Browser fixtures must never deliver real registration emails.
+    notifyApproval: async () => true,
+  }),
 });
 // Deliver the original test clip over actual HTTP so range and seek behavior
 // exercise real media transport rather than browser-intercepted responses.
@@ -186,8 +195,9 @@ server.on('request', (request, response) => {
   });
   response.end(request.method === 'HEAD' ? undefined : clip.subarray(start, end + 1));
 });
-server.listen(18787, '127.0.0.1', () =>
-  console.log('Isolated browser fixture API on 127.0.0.1:18787'),
+const fixturePort = process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 18788 : 18787;
+server.listen(fixturePort, '127.0.0.1', () =>
+  console.log(`Isolated browser fixture API on 127.0.0.1:${fixturePort}`),
 );
 function stop() {
   server.close(() => {

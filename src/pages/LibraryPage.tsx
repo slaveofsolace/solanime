@@ -1,9 +1,9 @@
 import { useAccount } from '../account/AccountProvider';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { TitleCard } from '../components/ui';
+import MyAnimeListLibrary from '../components/MyAnimeListLibrary';
 import { useAppState } from '../state';
-import AppearanceSettings from '../components/AppearanceSettings';
 
 function progress(position?: number, duration?: number) {
   if (!duration || !position) return 0;
@@ -11,9 +11,18 @@ function progress(position?: number, duration?: number) {
 }
 
 export default function LibraryPage() {
+  const { hash } = useLocation();
+  const historyHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (hash !== '#history-title') return;
+    const frame = requestAnimationFrame(() => {
+      historyHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      historyHeading.current?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hash]);
   const { profile } = useAccount();
-  const { watchlist, history, preferences } = useAppState();
-  const [prefs, setPrefs] = preferences;
+  const { watchlist, history } = useAppState();
   const [historyQuery, setHistoryQuery] = useState('');
   const [historyLimit, setHistoryLimit] = useState(20);
   const matchingHistory = history.entries.filter(entry =>
@@ -31,7 +40,7 @@ export default function LibraryPage() {
         </div>
         <p className="library-heading__count">
           <strong>{watchlist.items.length}</strong>
-          <span>saved titles</span>
+          <span>{watchlist.items.length === 1 ? 'saved title' : 'saved titles'}</span>
         </p>
       </header>
 
@@ -60,7 +69,7 @@ export default function LibraryPage() {
       <section className="library-section" aria-labelledby="history-title">
         <header className="section-heading">
           <div>
-            <h2 id="history-title">Watch history</h2>
+            <h2 id="history-title" ref={historyHeading} tabIndex={-1} style={{ scrollMarginTop: 112 }}>Watch history</h2>
           </div>
           {history.entries.length > 0 && (
             <button className="text-button" type="button" onClick={history.clear}>
@@ -131,61 +140,7 @@ export default function LibraryPage() {
         )}
       </section>
 
-      <details className="library-settings">
-      <summary>Viewing preferences</summary>
-      <div className="library-preferences-grid">
-        <section id="appearance" className="preferences-section" aria-labelledby="appearance-title">
-          <header>
-            <h2 id="appearance-title">Appearance</h2>
-            <p className="appearance-caption">Personalize the interface.</p>
-          </header>
-          <AppearanceSettings />
-        </section>
-        <section className="preferences-section" aria-labelledby="preferences-title">
-          <header>
-            <h2 id="preferences-title">Playback defaults</h2>
-          </header>
-          <div className="preference-list">
-            <label>
-              <span>
-                <strong>Preferred version</strong>
-                <small>Used when that version exists.</small>
-              </span>
-              <select
-                value={prefs.preferredLanguage}
-                onChange={(event) => setPrefs({ ...prefs, preferredLanguage: event.target.value })}
-              >
-                <option value="sub">Sub</option>
-                <option value="dub">Dub</option>
-                <option value="raw">Raw</option>
-              </select>
-            </label>
-            <label>
-              <span>
-                <strong>Remember progress</strong>
-                <small>Supported direct players only.</small>
-              </span>
-              <input
-                type="checkbox"
-                checked={prefs.rememberProgress}
-                onChange={(event) => setPrefs({ ...prefs, rememberProgress: event.target.checked })}
-              />
-            </label>
-            <label>
-              <span>
-                <strong>Autoplay next</strong>
-                <small>Moves to the next episode when this video finishes.</small>
-              </span>
-              <input
-                type="checkbox"
-                checked={prefs.autoplayNext}
-                onChange={(event) => setPrefs({ ...prefs, autoplayNext: event.target.checked })}
-              />
-            </label>
-          </div>
-        </section>
-      </div>
-      </details>
+      <MyAnimeListLibrary />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DatabaseSync, type SQLInputValue } from 'node:sqlite';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createCloudAccounts, type CloudAccountConfig } from '../server/cloud/auth/index';
@@ -6,6 +6,7 @@ import { FirebaseAuthError } from '../server/cloud/auth/firebase';
 import { digest, encodeBytes, openCredentials, randomToken, sealCredentials } from '../server/cloud/auth/crypto';
 import type { AccountDatabase, AccountStatement, CloudProfile, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from '../server/cloud/auth/types';
 import { generatedTestPassphrase, generatedTestToken } from './helpers/auth-material';
+import { sendApprovalNotice } from '../server/cloud/auth/notifications';
 import type { CommunityComment, CommunityCommentsPage } from '../src/types';
 
 // Real SQLite executes the D1 contract SQL. Network identity is deterministic and test-only.
@@ -108,7 +109,10 @@ type Body = {
   csrfToken: string;
   recoveryCode: string;
   registrationOpen: boolean;
+  approvalRequired?: boolean;
   recoveryMethod: string;
+  pendingApproval?: boolean;
+  privateSite?: boolean;
   values: Record<string, unknown>;
   revisions: Record<string, number>;
   revision: number;
@@ -167,6 +171,43 @@ function fixture(overrides: Partial<CloudAccountConfig> = {}) {
 }
 
 describe('D1 managed account bridge', () => {
+  it('keeps new private-site accounts pending until an operator approves them, preserving existing sessions', async () => {
+    const notices: Array<{ kind: string; email: string }> = [];
+    const f = fixture({ approvalRequired: true, privateSite: true,
+      notifyApproval: async (kind, account) => { notices.push({ kind, email: account.email }); return true; } });
+    const a = f.client();
+    const registration = await a.call('register', { email: 'review@example.test', password });
+    expect(registration.response.status).toBe(202);
+    expect(registration.body).toMatchObject({ account: null, pendingApproval: true, privateSite: true, approvalRequired: true });
+    expect(registration.body.recoveryCode).toMatch(/^[\w-]{43}$/);
+    expect(a.cookie).toBe('');
+    expect((await a.call('session')).body.account).toBeNull();
+    const blocked = await a.call('login', { email: 'review@example.test', password });
+    expect(blocked.response.status).toBe(403);
+    expect(blocked.body.error.details?.reason).toBe('ACCOUNT_PENDING_APPROVAL');
+    const queue = await f.service.pendingApprovals();
+    expect(queue).toMatchObject([{ email: 'review@example.test', approval_state: 'pending', owner_notice_state: 'sent' }]);
+    const approved = await f.service.decideApproval(queue[0].id, 'approved');
+    expect(approved.applicantNotice).toBe('sent');
+    expect((await f.service.pendingApprovals())).toHaveLength(0);
+    expect((await a.call('login', { email: 'review@example.test', password })).response.status).toBe(200);
+    expect((await a.call('session')).body.account?.email).toBe('review@example.test');
+    expect(notices).toEqual([{ kind: 'request', email: 'review@example.test' },
+      { kind: 'approved', email: 'review@example.test' }]);
+  });
+  it('does not grant rejected requests access and retains failed email notices for operator retry', async () => {
+    let accepted = false;
+    const f = fixture({ approvalRequired: true,
+      notifyApproval: async () => accepted });
+    const a = f.client();
+    await a.call('register', { email: 'retry@example.test', password });
+    const queue = await f.service.pendingApprovals();
+    expect(queue[0].owner_notice_state).toBe('failed');
+    accepted = true;
+    expect(await f.service.retryNotice(queue[0].id)).toMatchObject({ notice: 'sent' });
+    expect(await f.service.decideApproval(queue[0].id, 'rejected')).toMatchObject({ decision: 'rejected' });
+    expect((await a.call('login', { email: 'retry@example.test', password })).body.error.details?.reason).toBe('ACCOUNT_REJECTED');
+  });
   it('fails closed when unconfigured while leaving other APIs unhandled', async () => {
     const f = fixture({ identity: undefined, credentialKey: undefined });
     expect(await f.service.handle(new Request(origin + '/api/titles'))).toBeNull();
@@ -179,6 +220,7 @@ describe('D1 managed account bridge', () => {
     const f = fixture(), a = f.client();
     const r = await a.call('register', { email: 'First@Example.test', password });
     expect(r.response.status).toBe(201);
+    expect(r.body.approvalRequired).toBe(false);
     expect(r.body.account?.email).toBe('first@example.test');
     expect(r.body.profiles).toHaveLength(1);
     expect(r.body.recoveryCode).toMatch(/^[\w-]{43}$/);
@@ -454,6 +496,33 @@ describe('D1 managed account bridge', () => {
       body: { profileId, body: 'Cannot unhide it', revision: 1 } })).response.status).toBe(404);
     expect((await a.community(`10/comments/${'0'.repeat(36)}`, { method: 'PATCH',
       body: { profileId, body: 'Invalid', revision: 1 } })).response.status).toBe(400);
+  });
+});
+
+describe('FormSubmit approval notifications', () => {
+  it('uses the fixed operator destination and sends no credentials', async () => {
+    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
+    const sent = await sendApprovalNotice('approved', { id: 'account-id', email: 'applicant@example.test' }, origin, outbound);
+    expect(sent).toBe(true);
+    expect(outbound).toHaveBeenCalledTimes(1);
+    const [url, options] = outbound.mock.calls[0];
+    expect(url).toBe('https://formsubmit.co/ajax/slaveofsolace@gmail.com');
+    expect(options?.headers).toMatchObject({ 'Content-Type': 'application/json', Accept: 'application/json' });
+    const value = JSON.parse(String(options?.body));
+    expect(value._cc).toBe('applicant@example.test');
+    expect(JSON.stringify(value)).not.toMatch(/password|token|recoveryCode/i);
+  });
+
+  it('accepts a valid acknowledgement even when FormSubmit labels JSON as HTML', async () => {
+    const accepted = new Response(JSON.stringify({ success: 'true' }), {
+      status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
+    });
+    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin,
+      vi.fn<typeof fetch>(async () => accepted))).toBe(true);
+    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin,
+      vi.fn<typeof fetch>(async () => new Response('<html>OK</html>', {
+        status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
+      })))).toBe(false);
   });
 });
 

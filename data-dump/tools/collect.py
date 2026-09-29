@@ -302,10 +302,10 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--seed',default='https://fmhy.net/video');p.add_argument('--root',default='data-dump');p.add_argument('--workers',type=int,default=8);p.add_argument('--seconds',type=int,default=600);p.add_argument('--max-js',type=int,default=2);p.add_argument('--site');p.add_argument('--reindex',action='store_true');args=p.parse_args()
     root=Path(args.root);root.mkdir(parents=True,exist_ok=True);fetcher=Fetcher(time.monotonic()+args.seconds)
     if args.reindex:
-        entries=json.loads((root/'indexes/entries.json').read_text());records=[json.loads(f.read_text()) for f in (root/'sites').glob('*/metadata.json')];seed=json.loads((root/'sources/seed-manifest.json').read_text())
+        entries=json.loads((root/'indexes/entries.json').read_text(encoding='utf-8'));records=[json.loads(f.read_text(encoding='utf-8')) for f in (root/'sites').glob('*/metadata.json')];seed=json.loads((root/'sources/seed-manifest.json').read_text(encoding='utf-8'))
         prior=root/'indexes/domains.json'
         if prior.exists():
-            for d in json.loads(prior.read_text()):
+            for d in json.loads(prior.read_text(encoding='utf-8')):
                 if d.get('dns'): fetcher.dns[d['hostname']]=d['dns']
         print(json.dumps(build(root,entries,records,fetcher,seed)));return
     info,text=fetcher.get(args.seed,'seed')
@@ -330,7 +330,7 @@ def main():
             dump(root/'sites'/record['id']/'metadata.json',record)
             if len(records)%25==0: print(json.dumps({'event':'progress','resources':len(records),'total':len(queue),'statuses':dict(Counter(r.get('availability',{}).get('status') for r in records))}),flush=True)
     if args.site:
-        scanned={r['id'] for r in records};records += [json.loads(f.read_text()) for f in (root/'sites').glob('*/metadata.json') if f.parent.name not in scanned]
+        scanned={r['id'] for r in records};records += [json.loads(f.read_text(encoding='utf-8')) for f in (root/'sites').glob('*/metadata.json') if f.parent.name not in scanned]
         present={r['id'] for r in records}
         records += [r for r in resources.values() if r['id'] not in present]
     records.sort(key=lambda r:r['id']);summary=build(root,entries,records,fetcher,info)

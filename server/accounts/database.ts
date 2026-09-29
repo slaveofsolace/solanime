@@ -1,5 +1,5 @@
 import { DatabaseSync } from 'node:sqlite';
-import { mkdirSync, chmodSync } from 'node:fs';
+import { mkdirSync, chmodSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { projectRoot } from '../db.ts';
 
@@ -61,5 +61,19 @@ export function openAccountsDatabase(
     INSERT OR IGNORE INTO account_schema(version) VALUES(1);
     INSERT OR IGNORE INTO account_schema(version) VALUES(2);
   `);
+  if (!db.prepare('SELECT version FROM account_schema WHERE version=3').get()) {
+    db.exec('BEGIN IMMEDIATE');
+    try {
+      db.exec(readFileSync(resolve(projectRoot, 'migrations/cloud/accounts/0003_myanimelist.sql'), 'utf8'));
+      db.exec('INSERT INTO account_schema(version) VALUES(3); COMMIT;');
+    } catch (error) { db.exec('ROLLBACK'); throw error; }
+  }
+  if (!db.prepare('SELECT version FROM account_schema WHERE version=4').get()) {
+    db.exec('BEGIN IMMEDIATE');
+    try {
+      db.exec(readFileSync(resolve(projectRoot, 'migrations/cloud/accounts/0004_private_approval.sql'), 'utf8'));
+      db.exec('INSERT INTO account_schema(version) VALUES(4); COMMIT;');
+    } catch (error) { db.exec('ROLLBACK'); throw error; }
+  }
   return db;
 }

@@ -6,15 +6,14 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
 });
 
-test('the viewing-room layout uses one header and dense landscape discovery cards', async ({ page }, info) => {
+test('discovery uses one header and consistent portrait rows', async ({ page }, info) => {
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   await expect(page.locator('.navigation-dock')).toHaveCount(1);
   await expect(page.locator('.category-nav')).toHaveCount(0);
-  expect(await page.locator('.home-rail .cover-composition').count()).toBeGreaterThan(0);
   const card = page.locator('.home-rail .title-card__art').first();
   const box = await card.boundingBox();
-  expect(box!.width / box!.height).toBeCloseTo(16 / 9, 2);
+  expect(box!.width / box!.height).toBeCloseTo(2 / 3, 2);
   const firstName = await page.locator('#featured-title').innerText();
   await page.locator('.feature-dots button').nth(1).click();
   await expect(page.locator('#featured-title')).not.toHaveText(firstName);
@@ -23,6 +22,10 @@ test('the viewing-room layout uses one header and dense landscape discovery card
   await expect(page.locator('#featured-title')).toHaveText(firstName);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-home.png'), fullPage: true });
+  const titleDestination = await card.getAttribute('href');
+  await card.click();
+  await expect(page).toHaveURL(new URL(titleDestination!, page.url()).href);
+  await expect(page.locator('#title-name')).toBeVisible();
 });
 
 test('320px controls stay on one row and episode labels remain readable', async ({ page }, info) => {
@@ -38,17 +41,18 @@ test('320px controls stay on one row and episode labels remain readable', async 
   await page.goto('/title/paper-lantern');
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
   const rows = await page.locator('.episode-grid > li').evaluateAll(items => items.map(item => item.getBoundingClientRect()));
-  expect(rows[0]!.width).toBeGreaterThan(280);
-  for (const row of rows) expect(row.height).toBeLessThanOrEqual(72);
+  expect(rows[0]!.width).toBeGreaterThanOrEqual(130);
+  expect(rows[1]!.y).toBeCloseTo(rows[0]!.y, 0);
+  for (const row of rows) expect(row.height).toBeLessThanOrEqual(240);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-title-320.png'), fullPage: true });
 
   await watch(page);
   const sourceControl = await page.locator('.source-choice').boundingBox();
   const versionControl = await page.locator('.version-choice').boundingBox();
-  expect(sourceControl!.width).toBeGreaterThan(280);
-  expect(versionControl!.width).toBeGreaterThan(280);
-  expect(versionControl!.y).toBeGreaterThan(sourceControl!.y + sourceControl!.height - 1);
+  expect(sourceControl!.width).toBeGreaterThanOrEqual(120);
+  expect(versionControl!.width).toBeGreaterThanOrEqual(120);
+  expect(versionControl!.y).toBeCloseTo(sourceControl!.y, 0);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-watch-320.png'), fullPage: true });
 });
@@ -68,16 +72,16 @@ test('desktop episodes sit alongside the native player without remounting video 
   await noOverflow(page);
 });
 
-test('the recent rail retains every non-featured record in one landscape row', async ({ page }) => {
+test('the recent rail retains the first 18 non-featured records in source order', async ({ page }) => {
   const recentResponse = await page.request.get(
-    '/api/titles?facets=false&sort=updated&pageSize=13',
+    '/api/titles?facets=false&scope=anime&sort=updated&pageSize=48',
   );
   const recent = await recentResponse.json();
   const recentCount = recent.items.length;
   await page.goto('/');
   const wide = page.getByRole('region',{name:'Recent updates',exact:true});
-  await expect(wide.locator('.title-card')).toHaveCount(recentCount - 1);
+  await expect(wide.locator('.title-card')).toHaveCount(Math.min(18, recentCount - 1));
   const box = await wide.locator('.title-card__art').first().boundingBox();
-  expect(box!.width / box!.height).toBeCloseTo(16/9,2);
+  expect(box!.width / box!.height).toBeCloseTo(2/3,2);
   await noOverflow(page);
 });

@@ -97,18 +97,22 @@ describe('brand lifecycle', () => {
 });
 
 describe('actual readiness', () => {
-  it('does not mount a splash if application data is already ready', () => {
-    const view = render(<BrandReadiness ready />);
+  it('can explicitly opt out of the minimum display time', () => {
+    const view = render(<BrandReadiness ready minimumMs={0} sessionKey="opt-out" />);
     expect(view.container.innerHTML).toBe(''); expect(frames.size).toBe(0);
   });
-  it('dismisses on ready without waiting for the three-second intro', () => {
+  it('waits for the minimum even if data resolves immediately, then exits once', () => {
+    vi.useFakeTimers({ toFake: ['Date', 'setTimeout', 'clearTimeout'] });
     const onDismiss = vi.fn();
     const view = render(<BrandReadiness ready={false} onDismiss={onDismiss} sessionKey="readiness-early" />);
     advance(180);
     view.rerender(<BrandReadiness ready onDismiss={onDismiss} sessionKey="readiness-early" />);
+    act(() => vi.advanceTimersByTime(2399));
+    expect(view.container.querySelector('[data-readiness="loading"]')).toBeTruthy();
+    act(() => vi.advanceTimersByTime(1));
     advance(190);
     expect(view.container.innerHTML).toBe(''); expect(onDismiss).toHaveBeenCalledTimes(1);
-    expect(time).toBeLessThan(500);
+    expect(onDismiss).toHaveBeenCalledTimes(1);
   });
   it('turns a timeout into retry/continue actions, without invented progress', () => {
     vi.useFakeTimers(); const retry = vi.fn(); const dismiss = vi.fn();
@@ -133,9 +137,23 @@ describe('actual readiness', () => {
     first.unmount();
     const again = render(<BrandReadiness ready={false} sessionKey="continue-persisted" />);
     expect(again.container.innerHTML).toBe(''); again.unmount();
-    const already = render(<BrandReadiness ready sessionKey="ready-first-persisted" />);
+    const already = render(<BrandReadiness ready minimumMs={0} sessionKey="ready-first-persisted" />);
     already.unmount();
     const returnHome = render(<BrandReadiness ready={false} sessionKey="ready-first-persisted" />);
     expect(returnHome.container.innerHTML).toBe('');
+  });
+  it('does not hold a reduced-motion user behind an animation minimum', () => {
+    const view = render(<BrandReadiness ready reducedMotion sessionKey="reduced-ready" />);
+    advance(80);
+    expect(view.container.innerHTML).toBe('');
+  });
+  it('recovers automatically when data arrives after the loading timeout', () => {
+    vi.useFakeTimers({ toFake: ['Date', 'setTimeout', 'clearTimeout'] });
+    const view = render(<BrandReadiness ready={false} timeoutMs={1200} sessionKey="late-ready" />);
+    act(() => vi.advanceTimersByTime(2400));
+    expect(screen.getByRole('alert')).toBeTruthy();
+    view.rerender(<BrandReadiness ready timeoutMs={1200} sessionKey="late-ready" />);
+    advance(200);
+    expect(view.container.innerHTML).toBe('');
   });
 });

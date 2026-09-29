@@ -41,6 +41,13 @@ function availability(value: unknown, field: string): AvailabilityState | undefi
   return value as AvailabilityState;
 }
 
+function optionalInteger(value: unknown, field: string, min: number, max: number): number | null | undefined {
+  if (value == null) return value as null | undefined;
+  if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < min || value > max)
+    throw new AppError(422, 'UPSTREAM_CHANGED', `Snapshot field ${field} is invalid.`);
+  return value;
+}
+
 function httpsUrl(value: unknown, field: string): string | null | undefined {
   const text = optionalString(value, field, 4096);
   if (!text) return text;
@@ -143,6 +150,11 @@ function validateTitle(raw: unknown, index: number): SnapshotTitle {
           ? (episode.numberSort as null | undefined)
           : Number(episode.numberSort),
       label: optionalString(episode.label, 'episode.label', 1024),
+      thumbnailUrl: httpsUrl(episode.thumbnailUrl, 'episode.thumbnailUrl'),
+      thumbnailOrigin: optionalString(episode.thumbnailOrigin, 'episode.thumbnailOrigin', 4096),
+      thumbnailReuseStatus: optionalString(episode.thumbnailReuseStatus, 'episode.thumbnailReuseStatus', 64),
+      durationSeconds: optionalInteger(episode.durationSeconds, 'episode.durationSeconds', 1, 86400),
+      seasonNumber: optionalInteger(episode.seasonNumber, 'episode.seasonNumber', 0, 10000),
       slug: requiredString(episode.slug, 'episode.slug', 512),
       canonicalUrl: validatePublicSourceUrl(
         requiredString(episode.canonicalUrl, 'episode.canonicalUrl', 4096),

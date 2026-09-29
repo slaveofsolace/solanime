@@ -5,6 +5,7 @@ import { CoverArt } from './ui';
 import Icon from './Icon';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
+import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
 import type { TitleSummary, TitleDetailResponse } from '../types';
 export default function TitlePreview({
   title,
@@ -13,7 +14,8 @@ export default function TitlePreview({
   title: TitleSummary;
   onClose: () => void;
 }) {
-  const { watchlist } = useAppState();
+  const { watchlist, history, preferences } = useAppState();
+  const [preference] = preferences;
   const [detail, setDetail] = useState<TitleDetailResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -30,6 +32,9 @@ export default function TitlePreview({
   }, [title.slug]);
   const item = detail?.title ?? title;
   const name = item.name ?? item.title ?? 'Untitled record';
+  const watchEntry = detail
+    ? chooseWatchEntry(item.id, detail.episodes, history.entries, preference.preferredLanguage)
+    : null;
   return (
     <Dialog title={name} onClose={onClose} className="title-preview">
       <div className="title-preview__body">
@@ -52,12 +57,23 @@ export default function TitlePreview({
           <div className="button-row">
             <Link
               className="button button--play"
-              to={`/title/${encodeURIComponent(title.slug)}`}
+              to={watchEntry
+                ? watchEntryPath(title.slug, watchEntry)
+                : `/title/${encodeURIComponent(title.slug)}`}
               onClick={onClose}
             >
               <Icon name="play" />
-              View episodes
+              {watchEntry?.label ?? 'View series'}
             </Link>
+            {watchEntry && (
+              <Link
+                className="button button--outline"
+                to={`/title/${encodeURIComponent(title.slug)}#episodes-title`}
+                onClick={onClose}
+              >
+                Episodes
+              </Link>
+            )}
             <button
               className="button button--outline"
               type="button"

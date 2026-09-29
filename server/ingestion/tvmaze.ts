@@ -32,6 +32,7 @@ export interface TvMazeEpisode {
   number?: number | null;
   type?: string | null;
   airdate?: string | null;
+  runtime?: number | null;
   image?: TvMazeImage;
 }
 
@@ -170,6 +171,13 @@ export function tvMazeTitle(show: TvMazeShow, rawEpisodes: TvMazeEpisode[]): Sna
         number,
         numberSort: episodeSort(episode),
         label,
+        thumbnailUrl: optionalImage(episode.image),
+        thumbnailOrigin: optionalImage(episode.image) ? episodeUrl : null,
+        thumbnailReuseStatus: optionalImage(episode.image) ? 'cc-by-sa' : null,
+        durationSeconds: Number.isSafeInteger(episode.runtime) && Number(episode.runtime) > 0 && Number(episode.runtime) <= 1440
+          ? Number(episode.runtime) * 60 : null,
+        seasonNumber: Number.isSafeInteger(episode.season) && Number(episode.season) >= 0 && Number(episode.season) <= 10000
+          ? Number(episode.season) : null,
         slug: `${slugify(label ?? number)}-tvmaze-${id}`,
         canonicalUrl: episodeUrl,
         episodeType: episode.number == null ? 'special' : 'regular',

@@ -1,4 +1,5 @@
 import { AppError } from '../../errors.ts';
+import { malService, type MalServiceConfig } from '../../integrations/malService.ts';
 import { COMMUNITY_PAGE_SIZE_MAX, communityCommentBody, communityPositiveInteger, communityRevision, communityUuid } from '../../community.ts';
 import { emailAddress, profileInput, validateData } from '../../accounts/validation.ts';
 import { FirebaseAuthError, FirebaseRestIdentity, type FirebaseAuthOptions } from './firebase.ts';
@@ -12,8 +13,12 @@ export type CloudAccountConfig = {
   allowedOrigins?: string[];
   secure?: boolean;
   registration?: boolean;
+  approvalRequired?: boolean;
+  privateSite?: boolean;
+  notifyApproval?: (kind: 'request' | 'approved', account: Pick<CloudAccount, 'id' | 'email'>) => Promise<boolean>;
   firebase?: FirebaseAuthOptions;
   credentialKey?: string;
+  mal?: MalServiceConfig;
   now?: () => number;
   /** Tests may inject an identity implementation. No request or environment flag enables a mock. */
   identity?: ManagedIdentity;
@@ -70,8 +75,10 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         profiles: session ? await repository.profiles(session.account_id) : [],
         csrfToken: session?.csrf ?? null,
         registrationOpen: registration,
+        approvalRequired: config.approvalRequired === true,
         recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable',
         maxProfiles: 5,
+        privateSite: config.privateSite === true,
       });
       const readSession = async (verifyRemote = false): Promise<CloudSession | undefined> => {
         const raw = cookieValue(request, name);
@@ -109,14 +116,14 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       };
       const passwordProof = async (a: CloudAccount, password: unknown) => {
         if (typeof password !== 'string' || !password || new TextEncoder().encode(password).length > 1024)
-          throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.');
+          throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.', { reason: 'PASSWORD_PROOF_FAILED' });
         let credentials: IdentityCredentials;
         try { credentials = await identity.signIn(a.email, password); }
         catch (error) {
-          if (error instanceof AppError && error.status === 401) throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.');
+          if (error instanceof AppError && error.status === 401) throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.', { reason: 'PASSWORD_PROOF_FAILED' });
           throw error;
         }
-        if (credentials.uid !== a.firebase_uid) throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.');
+        if (credentials.uid !== a.firebase_uid) throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.', { reason: 'PASSWORD_PROOF_FAILED' });
         validUser(await identity.lookup(credentials), credentials, a.email);
         return credentials;
       };
@@ -144,6 +151,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       const anonymousPaths = ['/api/account/register', '/api/account/login', '/api/account/recover'];
       // An expired existing cookie must not prevent the user signing in or recovering the account.
       const s = anonymousPaths.includes(path) ? undefined : await readSession();
+      if (commentRoute && config.privateSite && !s) throw new AppError(401, 'UNAUTHORIZED', 'Sign in to continue.');
       if (method === 'GET' && path === '/api/account/session') return accountReply(200, await sessionResponse(s));
       if (method !== 'GET') await requireMutation(request, origins, anonymousPaths.includes(path) ? undefined : s?.csrf);
       // Cloudflare sets this header at its edge; forwarded application headers are never trusted here.
@@ -192,7 +200,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (registering) {
           if (config.registration === false) throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
           if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Registration is awaiting secure recovery configuration.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
-          await rate('register:' + ip, 40, 3600000);
+          await rate('register:' + ip, config.approvalRequired ? 3 : 40, 3600000);
         }
         const password = registering ? validateManagedPassword(body.password) : body.password;
         if (typeof password !== 'string' || !password || new TextEncoder().encode(password).length > 1024)
@@ -209,8 +217,27 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           throw new AppError(403, 'BLOCKED', 'This account has not been provisioned for this deployment. Contact the operator.', { reason: 'ACCOUNT_NOT_PROVISIONED' });
         const recoveryCode = identity.recoveryAvailable ? randomToken() : undefined;
         // Idempotent completion after an interrupted signup. Never merge different Firebase UIDs by email.
-        const result = await repository.ensureAccount(user, recoveryCode ? await digest(recoveryCode) : null, now());
+        const result = await repository.ensureAccount(user, recoveryCode ? await digest(recoveryCode) : null, now(),
+          registering && config.approvalRequired === true);
         await repository.updateIdentity(result.account.id, user.emailVerified);
+        if (result.account.approval_state !== 'approved') {
+          if (result.created && result.account.approval_state === 'pending') {
+            let sent = false;
+            try { sent = await config.notifyApproval?.('request', result.account) === true; } catch { /* Retry from operator queue. */ }
+            await repository.noticeState(result.account.id, 'owner', sent ? 'sent' : 'failed');
+          }
+          if (result.account.approval_state === 'rejected')
+            throw new AppError(403, 'BLOCKED', 'This account request was declined.', { reason: 'ACCOUNT_REJECTED' });
+          if (registering && result.created) return accountReply(202, {
+            account: null, profiles: [], csrfToken: null, registrationOpen: registration,
+            recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
+            privateSite: config.privateSite === true,
+            approvalRequired: config.approvalRequired === true,
+            pendingApproval: true, ...(recoveryCode ? { recoveryCode } : {}),
+          });
+          throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. Please try signing in after you receive a confirmation.',
+            { reason: 'ACCOUNT_PENDING_APPROVAL' });
+        }
         const oldRaw = cookieValue(request, name);
         const fresh = await freshSession(result.account, credentials, body.remember === true,
           /^[\w-]{43}$/.test(oldRaw) ? await digest(oldRaw) : undefined);
@@ -235,6 +262,19 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       }
 
       const auth = required(s), a = required(await repository.account(auth.account_id));
+      const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|connect|complete|sync|update|disconnect)$/.exec(path);
+      if (malRoute) {
+        const profile = malRoute[1], action = malRoute[2];
+        await repository.ownedProfile(profile, a.id);
+        if (method !== (['status', 'list'].includes(action) ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
+        if (method === 'POST') await rate('mal:' + a.id, 30, 60000);
+        const result = await malService(db, config.mal ?? {}, fetch, now)(profile, a.id, action,
+          method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request), async () => {
+            required(await repository.session(auth.token_hash, now()));
+            await repository.ownedProfile(profile, a.id);
+          });
+        return accountReply(200, result);
+      }
       if (method === 'POST' && path === '/api/account/logout') {
         await repository.deleteSession(auth.token_hash);
         return accountReply(200, { ok: true }, { 'Set-Cookie': cookie('', 0) });
@@ -312,5 +352,36 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       throw new AppError(404, 'NOT_FOUND', 'Account route not found.');
     } catch (error) { return accountError(error); }
   }
-  return { handle, repository, name, prune: () => repository.prune(now()) };
+  const pendingApprovals = () => repository.pendingApprovals();
+  const authorize = async (request: Request) => {
+    const raw = cookieValue(request, name);
+    if (!/^[\w-]{43}$/.test(raw) || !(await repository.session(await digest(raw), now())))
+      throw new AppError(401, 'UNAUTHORIZED', 'Sign in with an approved account to continue.');
+  };
+  const decideApproval = async (id: string, decision: 'approved' | 'rejected') => {
+    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
+    const account = await repository.decideApproval(id, decision, now());
+    if (decision === 'approved') {
+      let sent = false;
+      try { sent = await config.notifyApproval?.('approved', account) === true; } catch { /* Durable failed state remains retryable. */ }
+      await repository.noticeState(id, 'applicant', sent ? 'sent' : 'failed');
+    }
+    return { id, decision, applicantNotice: decision === 'approved'
+      ? (await repository.account(id))?.applicant_notice_state : 'not_required' };
+  };
+  const retryNotice = async (id: string) => {
+    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
+    const account = required(await repository.account(id));
+    const kind = account.approval_state === 'pending' ? 'request'
+      : account.approval_state === 'approved' ? 'approved' : null;
+    if (!kind) throw new AppError(409, 'BAD_REQUEST', 'Rejected requests have no outgoing notice.');
+    const field = kind === 'request' ? account.owner_notice_state : account.applicant_notice_state;
+    if (field === 'sent') return { id, notice: 'sent' };
+    let sent = false;
+    try { sent = await config.notifyApproval?.(kind, account) === true; } catch { /* Retry remains possible. */ }
+    await repository.noticeState(id, kind === 'request' ? 'owner' : 'applicant', sent ? 'sent' : 'failed');
+    return { id, notice: sent ? 'sent' : 'failed' };
+  };
+  return { handle, repository, name, authorize, pendingApprovals, decideApproval, retryNotice,
+    prune: () => repository.prune(now()) };
 }

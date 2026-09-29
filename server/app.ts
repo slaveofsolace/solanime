@@ -33,7 +33,7 @@ import { completeTask, retryFailedTasks, setRunPaused } from './ingestion/queue.
 import { requireSafeMutation } from './security.ts';
 import type { ProviderResolution, StoredProviderMapping } from './providers/contract.ts';
 import { providerSupportDiagnostic } from './providers/support-diagnostics.ts';
-import { hasSupportedMegaPlayEmbed, megaPlayEmbedResult, resolveMegaPlayEmbed } from './providers/embed.ts';
+import { hasSupportedMegaPlayEmbed, resolveMegaPlayEmbed } from './providers/embed.ts';
 
 const MAX_BODY = 16 * 1024;
 const DEFAULT_MAX_PENDING_RESOLUTIONS = 8;
@@ -42,6 +42,7 @@ const MAX_COOLDOWN_ENTRIES = 256;
 
 interface AppOptions {
   accounts?: AccountsService;
+  privateSite?: boolean;
   nativeSources?: ReturnType<typeof nativeSourceResolver>;
   backupDirectory?: string;
   staticDirectory?: string;
@@ -154,6 +155,7 @@ function requireAdmin(request: IncomingMessage): void {
 
 export function createApp(db: DatabaseSync, options: AppOptions = {}) {
   const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'));
+  const privateSite = options.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
   const nativeSources = options.nativeSources ?? nativeSourceResolver();
   const pendingResolutions = new Map<number, PendingResolution>();
   const resolutionCooldowns = new Map<
@@ -181,9 +183,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
       const registered = nativeSources(mapping);
       if (registered) return registered;
       if (hasSupportedMegaPlayEmbed(mapping)) {
-        const result = mapping.canonicalEmbedUrl
-          ? megaPlayEmbedResult(mapping, mapping.canonicalEmbedUrl)
-          : await resolveMegaPlayEmbed(mapping, signal);
+        const result = await resolveMegaPlayEmbed(mapping, signal);
         return legacyResolution(result);
       }
       return unsupportedSource(mapping);
@@ -330,6 +330,24 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
           database: 'connected',
           now: new Date().toISOString(),
         });
+      if (method === 'GET' && url.pathname === '/api/admin/accounts/pending') {
+        requireAdmin(request);
+        return json(response, 200, { items: accounts.pendingApprovals() });
+      }
+      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(url.pathname);
+      if (method === 'POST' && approval) {
+        requireSafeMutation(request.headers, { requireJson: true });
+        requireAdmin(request);
+        const input = await readJson(request);
+        if (approval[2] === 'retry-notice') return json(response, 200, await accounts.retryNotice(approval[1]));
+        if (input.decision !== 'approved' && input.decision !== 'rejected')
+          throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
+        return json(response, 200, await accounts.decideApproval(approval[1], input.decision));
+      }
+      if (privateSite && url.pathname.startsWith('/api/') &&
+        !url.pathname.startsWith('/api/admin/') && !url.pathname.startsWith('/api/exports/') &&
+        !accounts.readSession(request))
+        throw new AppError(401, 'UNAUTHORIZED', 'Sign in with an approved account to continue.');
       if (method === 'GET' && url.pathname === '/api/titles') {
         const q = url.searchParams.get('q')?.trim();
         if (q && q.length > 200) throw new AppError(400, 'BAD_REQUEST', 'q is too long.');
@@ -411,7 +429,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
                       qualitySelection: approvedYouTube,
                     }
                   : {},
-              requiresGuard: supportedEmbed,
+              requiresGuard: false,
             };
           }),
         });

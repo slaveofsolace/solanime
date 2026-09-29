@@ -12,7 +12,9 @@ async function delayRouteChunk(page: Page, chunk: string) {
 
 test('title readiness preserves the cinematic page composition while its route loads', async ({ page }) => {
   await delayRouteChunk(page, 'TitlePage');
-  await page.goto('/title/paper-lantern', { waitUntil: 'domcontentloaded' });
+  await page.goto('/catalogue?scope=anime&q=Paper%20Lantern');
+  await expect(page.locator('.application-content')).not.toHaveAttribute('inert');
+  await page.locator('a[href="/title/paper-lantern"]').first().click();
 
   const readiness = page.locator('.route-readiness[data-route-kind="title"]');
   await expect(readiness).toBeVisible();
@@ -27,7 +29,9 @@ test('title readiness preserves the cinematic page composition while its route l
 test('watch readiness reserves a player and episode rail without overflowing', async ({ page }) => {
   const current = await episode(page);
   await delayRouteChunk(page, 'WatchPage');
-  await page.goto(`/watch/paper-lantern/${current.id}?language=sub`, { waitUntil: 'domcontentloaded' });
+  await page.goto('/title/paper-lantern');
+  await expect(page.locator('.application-content')).not.toHaveAttribute('inert');
+  await page.locator(`.episode-grid a[href="/watch/paper-lantern/${current.id}?language=sub"]`).click();
 
   const readiness = page.locator('.route-readiness[data-route-kind="watch"]');
   await expect(readiness).toBeVisible();

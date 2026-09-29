@@ -9,8 +9,11 @@ export type SessionResponse = {
   profiles: Profile[];
   csrfToken: string | null;
   registrationOpen: boolean;
+  approvalRequired?: boolean;
   recoveryMethod: string;
   maxProfiles: number;
   recoveryCode?: string;
+  privateSite?: boolean;
+  pendingApproval?: boolean;
 };
 export type ProfileData = { values: Record<string, unknown>; revisions: Record<string, number> };

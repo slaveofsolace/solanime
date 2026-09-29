@@ -3,6 +3,7 @@ import { api, errorMessage } from '../lib/api';
 import type { ImportStatus } from '../types';
 import { InlineNotice, PageIntro } from '../components/ui';
 import { Link } from 'react-router-dom';
+import PendingApprovals from '../components/PendingApprovals';
 
 export default function AdminPage() {
   const [token, setToken] = useState('');
@@ -275,6 +276,7 @@ export default function AdminPage() {
           Lock screen
         </button>
       </div>
+      <PendingApprovals token={token} />
       {error && <InlineNotice tone="error">{error}</InlineNotice>}
       {message && <InlineNotice>{message}</InlineNotice>}
       {cloud && (

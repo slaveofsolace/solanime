@@ -3,7 +3,7 @@ import type { AddressInfo } from 'node:net';
 import { createApp } from '../server/app';
 import { openDatabase, migrate } from '../server/db';
 import { openAccountsDatabase } from '../server/accounts/database';
-import { createAccounts } from '../server/accounts/service';
+import { createAccounts, type AccountConfig } from '../server/accounts/service';
 import { verifyPassword } from '../server/accounts/passwords';
 import { generatedTestPassphrase } from './helpers/auth-material';
 const cleanup: Array<() => Promise<void>> = [];
@@ -11,13 +11,13 @@ afterEach(async () => {
   for (const dispose of cleanup.splice(0)) await dispose();
 });
 const password = generatedTestPassphrase('local account');
-async function fixture(secure = false) {
+async function fixture(secure = false, config: Partial<AccountConfig> = {}) {
   const catalog = openDatabase(':memory:');
   migrate(catalog);
   const privateDb = openAccountsDatabase(':memory:');
   let currentTime = Date.now();
-  const service = createAccounts(privateDb, { secure, now: () => currentTime });
-  const server = createApp(catalog, { accounts: service });
+  const service = createAccounts(privateDb, { secure, now: () => currentTime, ...config });
+  const server = createApp(catalog, { accounts: service, privateSite: config.privateSite });
   await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
   const origin = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   cleanup.push(async () => {
@@ -93,11 +93,31 @@ async function fixture(secure = false) {
 }
 // Password tests execute real memory-hard hashes; allow several operations on shared CI CPUs.
 describe('private accounts and profile ownership', { timeout: 20000 }, () => {
+  it('blocks private local browsing until a newly registered account is approved', async () => {
+    const notices: string[] = [];
+    const f = await fixture(false, { privateSite: true, approvalRequired: true,
+      notifyApproval: async kind => { notices.push(kind); return true; } });
+    const a = f.user();
+    expect((await fetch(f.origin + '/api/titles')).status).toBe(401);
+    const registered = await a.call('register', { email: 'pending-local@example.test', password });
+    expect(registered.response.status).toBe(202);
+    expect(registered.body).toMatchObject({ account: null, pendingApproval: true, privateSite: true, approvalRequired: true });
+    expect(a.cookie).toBe('');
+    expect((await a.call('login', { email: 'pending-local@example.test', password })).body.error.details.reason)
+      .toBe('ACCOUNT_PENDING_APPROVAL');
+    const pending = f.service.pendingApprovals() as Array<{ id: string; email: string }>;
+    expect(pending).toHaveLength(1);
+    expect(await f.service.decideApproval(pending[0].id, 'approved')).toMatchObject({ applicantNotice: 'sent' });
+    expect((await a.call('login', { email: 'pending-local@example.test', password })).response.status).toBe(200);
+    expect((await fetch(f.origin + '/api/titles', { headers: { cookie: a.cookie } })).status).toBe(200);
+    expect(notices).toEqual(['request', 'approved']);
+  });
   it('creates a salted account, session and one profile without leaking secrets to the catalogue', async () => {
     const f = await fixture(),
       a = f.user();
     const r = await a.call('register', { email: ' First@Example.test ', password });
     expect(r.response.status).toBe(201);
+    expect(r.body.approvalRequired).toBe(false);
     expect(r.body.profiles).toHaveLength(1);
     expect(r.body.recoveryCode).toMatch(/^[\w-]{43}$/);
     expect(r.body.account.email).toBe('first@example.test');

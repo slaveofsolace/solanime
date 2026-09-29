@@ -1,5 +1,8 @@
 import { createContext, useContext, useState, type PropsWithChildren } from 'react';
 import type { TitleSummary } from './types';
+import { useAccount } from './account/AccountProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { withReturnTo } from './account/returnTo';
 import {
   useEpisodeComments,
   useHistory,
@@ -23,6 +26,14 @@ type AppStateValue = {
 const AppStateContext = createContext<AppStateValue | null>(null);
 
 export function AppStateProvider({ children }: PropsWithChildren) {
+  const auth = useAccount();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const requireProfile = () => {
+    if (auth.ready && auth.account && auth.profile) return true;
+    navigate(withReturnTo(auth.account ? '/profiles' : '/login', location.pathname + location.search));
+    return false;
+  };
   const [theater, setTheater] = useState(false);
   const [preview, setPreview] = useState<TitleSummary | null>(null);
   const watchlist = useWatchlist();
@@ -33,11 +44,11 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   return (
     <AppStateContext.Provider
       value={{
-        watchlist,
+        watchlist: { ...watchlist, toggle: (id, title) => { if (requireProfile()) watchlist.toggle(id, title); } },
         history,
         preferences,
-        watched,
-        comments,
+        watched: { ...watched, toggle: (id, language) => { if (requireProfile()) watched.toggle(id, language); } },
+        comments: { ...comments, add: (id, author, body) => { if (requireProfile()) comments.add(id, author, body); } },
         preview,
         setPreview,
         theater,

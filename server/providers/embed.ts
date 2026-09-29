@@ -10,6 +10,9 @@ export const MEGAPLAY_EMBED_HOST = 'megaplay.buzz' as const;
 export const MEGAPLAY_EMBED_ORIGIN = `https://${MEGAPLAY_EMBED_HOST}` as const;
 export const MEGAPLAY_EMBED_PROVIDERS = ['vidstream-2', 'hd-1', 'hd-2'] as const;
 const providerIds = new Set<string>(MEGAPLAY_EMBED_PROVIDERS);
+// The public server selector returns distinct /hsub routes; never alias these
+// hard-sub resources to /sub or silently cross language/version identities.
+const embedLanguages = new Set(['sub', 'dub', 'hsub']);
 const RESOURCE = /^[A-Za-z0-9+/_=-]{1,4096}$/;
 const MAX_RESPONSE_BYTES = 64 * 1024;
 const RESOLUTION_TTL_MS = 10 * 60_000;
@@ -28,7 +31,7 @@ export const MEGAPLAY_IFRAME_POLICY: EmbedIframePolicy = Object.freeze({
   sandbox: [] as EmbedIframePolicy['sandbox'],
   allow: ['autoplay', 'fullscreen'] as EmbedIframePolicy['allow'],
   referrerPolicy: 'strict-origin-when-cross-origin',
-  requiresGuard: true,
+  requiresGuard: false,
 });
 export const MEGAPLAY_MESSAGE_PROTOCOL: EmbedMessageProtocol = Object.freeze({
   origin: MEGAPLAY_EMBED_ORIGIN,
@@ -76,7 +79,7 @@ export function validateMegaPlayEmbedUrl(value: string, language: string, provid
   } catch {
     throw new Error('INVALID_PROVIDER_RESOURCE');
   }
-  const match = /^\/stream\/s-2\/([0-9]{1,20})\/(sub|dub)\/?$/.exec(url.pathname);
+  const match = /^\/stream\/s-2\/([0-9]{1,20})\/(sub|dub|hsub)\/?$/.exec(url.pathname);
   if (
     url.protocol !== 'https:' ||
     url.hostname !== MEGAPLAY_EMBED_HOST ||
@@ -93,7 +96,7 @@ export function validateMegaPlayEmbedUrl(value: string, language: string, provid
 }
 
 export function hasSupportedMegaPlayEmbed(mapping: EmbedMapping): boolean {
-  if (!providerIds.has(mapping.providerId) || !['sub', 'dub'].includes(mapping.language)) return false;
+  if (!providerIds.has(mapping.providerId) || !embedLanguages.has(mapping.language)) return false;
   if (mapping.canonicalEmbedUrl) {
     try {
       validateMegaPlayEmbedUrl(mapping.canonicalEmbedUrl, mapping.language, mapping.providerId);
@@ -106,7 +109,7 @@ export function hasSupportedMegaPlayEmbed(mapping: EmbedMapping): boolean {
 }
 
 export function megaPlayEmbedResult(mapping: EmbedMapping, rawUrl: string): PlaybackResult {
-  if (!providerIds.has(mapping.providerId) || !['sub', 'dub'].includes(mapping.language))
+  if (!providerIds.has(mapping.providerId) || !embedLanguages.has(mapping.language))
     throw new Error('INVALID_PROVIDER_RESOURCE');
   const url = validateMegaPlayEmbedUrl(rawUrl, mapping.language, mapping.providerId);
   return {
@@ -163,7 +166,7 @@ export async function resolveMegaPlayEmbed(
     return unsupported(mapping, 'PROVIDER_BACKEND_UNVERIFIED', 'This provider is not connected to the reviewed MegaPlay embed interface.');
   if (mapping.availability === 'blocked')
     return unsupported(mapping, 'PROVIDER_BLOCKED', mapping.unavailableReason || 'This provider mapping is blocked.');
-  if (!['sub', 'dub'].includes(mapping.language))
+  if (!embedLanguages.has(mapping.language))
     return unsupported(mapping, 'INCOMPATIBLE_VERSION', `MegaPlay embeds are not documented for the stored ${mapping.language} version.`);
   if (mapping.canonicalEmbedUrl) {
     try {

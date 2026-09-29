@@ -13,15 +13,17 @@ export default function Dialog({
   className = '',
 }: PropsWithChildren<{ title: string; onClose: () => void; className?: string }>) {
   const ref = useRef<HTMLDialogElement>(null);
+  const returnFocus = useRef<HTMLElement | null>(null);
   const callback = useRef(onClose);
   callback.current = onClose;
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
-    const previousFocus =
+    const previousFocus = returnFocus.current ?? (
       pendingReturnFocus?.isConnected === true
         ? pendingReturnFocus
-        : (document.activeElement as HTMLElement | null);
+        : (document.activeElement as HTMLElement | null));
+    returnFocus.current = previousFocus;
     pendingReturnFocus = null;
     const overflow = document.body.style.overflow;
     element.showModal();
@@ -33,7 +35,13 @@ export default function Dialog({
         // WebKit may move focus after close(); restore after its native close work. The
         // open check also avoids stealing focus during React StrictMode's effect replay.
         if (element.open) return;
-        if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+        if (previousFocus?.isConnected) {
+          // Card actions collapse while the dialog owns focus. Focus the visible
+          // card link first so :focus-within exposes the original control again.
+          if (!previousFocus.getClientRects().length)
+            previousFocus.closest('.title-card')?.querySelector<HTMLElement>('a')?.focus({ preventScroll: true });
+          previousFocus.focus({ preventScroll: true });
+        }
         else {
           // The opening control can disappear when the fifth profile replaces Add profile.
           const fallback =

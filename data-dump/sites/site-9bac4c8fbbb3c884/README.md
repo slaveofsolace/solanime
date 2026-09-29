@@ -15,7 +15,7 @@ These are source declarations or bounded homepage observations, not verified pla
 | Reference | Evidence type | Source |
 |---|---|---|
 | https://crimsonfansubs.com/_c/ns.html?id=GTM-PV2BBNN | embed | https://crimsonfansubs.com/ |
-| https://crimsonfansubs.com/platform/creators/users/auth | client-endpoint-reference | https://crimsonfansubs.com/ |
+| https://crimsonfansubs.com/platform/creators<LOCAL_HOME> | client-endpoint-reference | https://crimsonfansubs.com/ |
 
 Additional references and exact timestamps/hashes are retained in metadata.json.
 

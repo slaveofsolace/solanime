@@ -14,9 +14,15 @@ export default defineConfig(({ mode }) => {
     'Content-Security-Policy':
       "script-src 'self' https://www.youtube.com; frame-src https://www.youtube-nocookie.com https://megaplay.buzz; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
   };
+  // Vite's React refresh preamble is an inline module. Permit it only in the
+  // local development server; preview and deployed builds retain the strict CSP.
+  const developmentHeaders = {
+    ...headers,
+    'Content-Security-Policy': headers['Content-Security-Policy'].replace("script-src 'self'", "script-src 'self' 'unsafe-inline'"),
+  };
   return {
     plugins: [react()],
-    server: { host: '127.0.0.1', port: 5173, strictPort: true, proxy, headers },
+    server: { host: '127.0.0.1', port: 5173, strictPort: true, proxy, headers: developmentHeaders },
     preview: { host: '127.0.0.1', port: 4173, strictPort: true, proxy, headers },
   };
 });

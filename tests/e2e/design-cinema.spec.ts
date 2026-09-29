@@ -35,14 +35,19 @@ test('320px catalogue and watch surfaces stay usable without horizontal page ove
   const title = await (await page.request.get('/api/titles/paper-lantern')).json();
   const episode = title.episodes[0];
   await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
-  const source = page.getByLabel('Playback source');
-  const version = page.getByLabel('Episode language');
+  const source = page.getByLabel('Playback source', { exact: true });
+  const version = page.getByLabel('Episode language', { exact: true });
   await expect(source).toBeVisible();
   await expect(version).toBeVisible();
   await expect(page.locator('.source-choice').getByText('Source', { exact: true })).toBeVisible();
   await expect(page.locator('.version-choice').getByText('Version', { exact: true })).toBeVisible();
-  expect((await source.boundingBox())?.width ?? 0).toBeGreaterThanOrEqual(180);
-  expect((await version.boundingBox())?.width ?? 0).toBeGreaterThanOrEqual(180);
+  const sourceBox = (await source.boundingBox())!;
+  const versionBox = (await version.boundingBox())!;
+  expect(sourceBox.width).toBeGreaterThanOrEqual(120);
+  expect(versionBox.width).toBeGreaterThanOrEqual(120);
+  expect(sourceBox.height).toBeGreaterThanOrEqual(44);
+  expect(versionBox.height).toBeGreaterThanOrEqual(44);
+  expect(sourceBox.y).toBeCloseTo(versionBox.y, 0);
   await expectNoOverflow(page);
 });
 
@@ -50,7 +55,7 @@ test('unresolved account restoration cannot write private intent into guest stor
   page,
 }) => {
   await page.route('**/api/account/session', async (route) => {
-    await new Promise((resolve) => setTimeout(resolve, 2_000));
+    await new Promise((resolve) => setTimeout(resolve, 5_000));
     await route.continue();
   });
   await page.goto('/');

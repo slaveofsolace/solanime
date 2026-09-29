@@ -50,7 +50,7 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
     if (integrity.length !== 1 || integrity[0].integrity_check !== 'ok' || db.prepare('PRAGMA foreign_key_check').all().length) throw new Error('Source database failed integrity verification.');
     const all = (sql: string) => db.prepare(sql).all() as SqlRow[];
     const titleRows = all('SELECT id,source,source_id,slug,canonical_url,name,description,format,release_year,status,artwork_url,artwork_origin,artwork_reuse_status,availability_state,first_seen_at,last_seen_at,last_successful_import_at,updated_at FROM titles ORDER BY id');
-    const episodeRows = all('SELECT id,title_id,source_id,number_text,number_sort,label,slug,episode_type,availability_state FROM episodes ORDER BY number_sort IS NULL,number_sort,number_text,id');
+    const episodeRows = all('SELECT * FROM episodes ORDER BY number_sort IS NULL,number_sort,number_text,id');
     const versionRows = all('SELECT id,episode_id,source_id,language,version_label,availability_state FROM episode_versions ORDER BY CASE language WHEN \'sub\' THEN 0 WHEN \'dub\' THEN 1 ELSE 2 END,id');
     const mappingRows = all('SELECT m.id,m.version_id,m.provider_id,m.source_mapping_id,m.provider_resource_id,m.canonical_embed_url,m.mapping_origin,m.availability_state,m.unavailable_reason,m.first_seen_at,m.last_seen_at,m.last_successful_import_at,m.last_successful_resolution_at,m.last_playback_verification_at,p.label,p.playback_type,p.capabilities_json FROM episode_provider_mappings m JOIN providers p ON p.id=m.provider_id ORDER BY p.label,m.id');
     const resourceRows = new Map(all('SELECT mapping_id,provider_id,resource_id,language,edition,license,rights_evidence_url,identity_evidence_url,approved_at,enabled,content_sha1 FROM native_resources ORDER BY mapping_id').map(row => [String(row.mapping_id), row]));
@@ -89,7 +89,9 @@ export async function prepareBaseline(sourcePath: string, outputPath: string, op
       const apiAliases = (aliases.get(id) ?? []).map(a => ({ name: a.alias, language: a.language || null, type: a.alias_type })); const apiGenres = (genres.get(id) ?? []).map(g => ({ slug: g.slug, name: g.name }));
       const apiEpisodes: BaselineRow[] = []; const languageSet = new Set<string>();
       for (const [index, episode] of titleEpisodes.entries()) {
-        const apiEpisode: BaselineRow = { id: String(episode.id), sourceId: episode.source_id, number: episode.number_text, label: episode.label, slug: episode.slug, type: episode.episode_type, availability: episode.availability_state };
+        const apiEpisode: BaselineRow = { id: String(episode.id), sourceId: episode.source_id, number: episode.number_text, label: episode.label, slug: episode.slug, type: episode.episode_type, availability: episode.availability_state,
+          thumbnailUrl: stableUrl(episode.thumbnail_url), thumbnailOrigin: stableUrl(episode.thumbnail_origin), thumbnailReuseStatus: episode.thumbnail_reuse_status ?? null,
+          durationSeconds: episode.duration_seconds ?? null, seasonNumber: episode.season_number ?? null };
         const variants = (byEpisode.get(String(episode.id)) ?? []).map(version => {
           languageSet.add(String(version.language)); const rows = byVersion.get(String(version.id)) ?? [];
           const apiVersion = { id: String(version.id), sourceId: version.source_id, language: version.language, label: version.version_label, availability: version.availability_state, providerCount: rows.length };

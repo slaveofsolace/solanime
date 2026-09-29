@@ -18,7 +18,7 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
       .getByRole('link', { name: 'Anime', exact: true });
     await expect(browse).toHaveAttribute('aria-current', 'page');
     if (width <= 820) {
-      await expect(browse).toHaveCSS('border-radius', '8px');
+      await expect(browse).toHaveCSS('border-radius', '0px');
       const navigationGeometry = await page.locator('.main-nav > a').evaluateAll((links) =>
         links
           .filter((link) => (link as HTMLElement).offsetWidth > 0)
@@ -33,12 +33,12 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
             };
           }),
       );
-      expect(navigationGeometry).toHaveLength(6);
+      expect(navigationGeometry).toHaveLength(3);
       expect(navigationGeometry.every(({ left, right }) => left >= 0 && right <= width)).toBe(true);
       expect(navigationGeometry.every(({ height }) => height >= 44)).toBe(true);
       expect(navigationGeometry.some(({ labelClipped }) => labelClipped)).toBe(false);
     } else {
-      await expect(browse).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+      await expect(browse).toHaveCSS('background-color', 'rgb(20, 21, 25)');
       await expect(browse).toHaveCSS('border-radius', '0px');
     }
     await expect(browse).toHaveCSS('box-shadow', 'none');
@@ -54,7 +54,7 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
   }
 });
 
-test('desktop home artwork continues behind navigation without covering feature controls', async ({ page }) => {
+test('compact desktop navigation sits above artwork without covering feature controls', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
@@ -63,15 +63,15 @@ test('desktop home artwork continues behind navigation without covering feature 
   const header = await page.locator('.masthead').boundingBox();
   const copy = await page.locator('.home-feature__copy').boundingBox();
   const rail = await page.locator('.home-rail').first().boundingBox();
-  expect(scene!.y).toBeCloseTo(0, 0);
+  expect(scene!.y).toBeCloseTo(header!.height, 0);
   expect(header!.y).toBeCloseTo(0, 0);
   expect(copy!.y).toBeGreaterThan(header!.y + header!.height + 40);
   // Keep discovery visibly attached to the artwork field; this is a catalogue
   // shell, not a landing-page hero followed by content below the fold.
   expect(rail!.y).toBeGreaterThan(550);
   expect(rail!.y).toBeLessThan(690);
-  await page.getByRole('link', { name: 'View episodes', exact: true }).click();
+  await page.locator('#featured-title a').click();
   await expect(page.locator('.title-hero')).toBeVisible();
-  expect(await page.locator('.masthead').evaluate(element => getComputedStyle(element).marginBottom)).toBe('-72px');
+  expect(await page.locator('.masthead').evaluate(element => getComputedStyle(element).marginBottom)).toBe('0px');
   await noOverflow(page);
 });

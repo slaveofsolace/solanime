@@ -2,7 +2,7 @@
 
 This guide supersedes the older patch-installation instructions. Use the private
 `sol/cloud-release` integration, not an unrelated historical branch. The current
-application version is `0.8.0-alpha`; exact deployment and verification results
+application version is `0.8.4-alpha`; exact deployment and verification results
 belong in [the release record](cloud-release-checklist.md).
 
 ## Hosting and privacy
@@ -46,6 +46,52 @@ Firebase refresh credentials are encrypted; catalogue exports exclude them.
 See [managed accounts](../scripts/cloud-auth/README.md) for configuration,
 legacy standard-scrypt imports and interrupted-operation reconciliation.
 
+## Private account approval
+
+`SOLANIME_PRIVATE_SITE=true` requires an approved session for catalogue,
+metadata, title, episode, provider, watch, and community APIs. The SPA sends
+anonymous visitors to sign-in and returns them to the requested route after
+authentication. Static HTML and the sign-in assets remain public so applicants
+can request access; exports and operator routes retain their separate admin-token
+authorization. The Pages gateway forwards only one validated session cookie to
+catalogue and playback APIs; without that forwarding, approved users would be
+locked out after sign-in. Shared edge caching is disabled in private mode.
+
+`SOLANIME_APPROVAL_REQUIRED=true` makes each *new* registration pending. Existing
+account rows are marked approved by `migrations/cloud/accounts/0004_private_approval.sql`;
+verify an operator can sign in before promoting the gate. A pending or rejected
+account cannot create or use a session, even through a direct API request. A
+new applicant must save the displayed recovery code, then await approval.
+
+The owner notification uses the established FormSubmit AJAX destination
+`slaveofsolace@gmail.com`. `/admin` remains reachable before the first account
+is approved so the operator can bootstrap access; its data and actions require
+the existing operator token. Review the applicant email, then approve or
+decline. Approval changes the D1 state first and attempts a FormSubmit notice
+with the applicant as a copy recipient; a failed notification remains visible
+for retry and does not reverse the approval. The notification contains no
+password, recovery code, cookie, or operator token. `sent` means FormSubmit
+acknowledged the request, **not** that a mailbox delivery was confirmed. Test a
+real request/approval/inbox cycle before treating email as operational.
+
+On 2026-09-28, the first owner-approved synthetic request preceded FormSubmit
+activation and returned `acceptedByTransport: false`. After the owner activated
+the form and explicitly approved one fresh test, FormSubmit returned HTTP 200
+and `success: "true"` in a JSON body labeled `text/html`. The client initially
+reported false because it required a JSON content-type; it now validates the
+parsed acknowledgement instead, with a regression test. FormSubmit accepted
+the second request, and the owner confirmed that this synthetic request arrived
+at `slaveofsolace@gmail.com`. An applicant approval-notice/inbox cycle remains
+to be tested before calling the full email flow operational.
+
+Apply the account migration before deploying the Worker, confirm at least one
+approved owner account and the admin-token route, then run an anonymous API and
+browser gate check. Rolling back the feature flags to `false` reopens public
+browsing without deleting account or approval records; preserve the D1 backup
+and do not roll back the schema while newer code is live. Local Node defaults
+both flags to `false` in `.env.example` so existing local test workflows remain
+usable until explicitly enabled.
+
 ## Reproduce a preview
 
 Use the Node/pnpm versions in the [README](../README.md), an existing authorized
@@ -66,7 +112,7 @@ Prepare the complete catalogue/research snapshot and pack its immutable assets
 using [the import guide](../scripts/cloud-data/README.md). Configure
 `assets.directory` to the fully assembled ignored output and pin both the import
 and catalogue-baseline manifests. The current candidate uses
-`build/cloud-worker-assets-playback-v2`, containing the retained private import
+`build/cloud-worker-assets-promoted-20260925`, containing the retained private import
 package and the complete immutable catalogue baseline. Preserve all asset sets needed by
 unfinished jobs. Files are bounded under the
 platform's per-asset limit; they never enter the Pages `dist` directory.
@@ -141,19 +187,29 @@ episode libraries; unavailable or unimported mappings are not playable sources.
 
 ## Player acceptance
 
-### Guarded provider embeds
+### Provider embeds and optional Desktop Guard
 
 HD-1, HD-2, and Vidstream-2 mappings are eligible only when the database row has
 an exact canonical `https://megaplay.buzz/stream/s-2/...` reference. The API
 reconstructs and compares the provider, mapping identity, and resource path; it
-does not accept an arbitrary caller URL. The frontend creates that iframe only
-after the unpacked `extensions/solanime-guard` companion reports an active
-handshake. The content policy admits only YouTube's privacy-enhanced host and
-MegaPlay's exact HTTPS host.
+does not accept an arbitrary caller URL. The current compatible provider iframe
+has **no `sandbox` attribute**: the provider refused the former sandbox. A
+loaded frame does not prove video progress, and the ordinary website cannot
+block popups or redirects initiated inside that cross-origin frame. The page
+states this limitation instead of labeling the mode a built-in guard.
 
-The Guard blocks provider-origin top-level navigation and closes navigation
-targets created by the approved provider frame. It does not rewrite media,
-extract temporary URLs, proxy traffic, or make an unsafe source safe by label.
+An active `extensions/solanime-guard` handshake selects the optional desktop
+mode; changing modes remounts the frame and discards its opaque playback state.
+That extension is not available in an ordinary iPhone/Android webpage or PWA and
+does not satisfy the requested no-extension phone protection. The content policy
+admits only YouTube's privacy-enhanced host and MegaPlay's exact HTTPS host.
+See [the mobile player checkpoint](MOBILE_PLAYER_CHECKPOINT_20260928.md) for
+separate Android popup and iPhone playback observations.
+
+The optional desktop Guard blocks provider-origin top-level navigation and
+closes navigation targets created by the approved provider frame. It does not
+rewrite media, extract temporary URLs, proxy traffic, or make an unsafe source
+safe by label. Without it, do not claim popup containment on mobile or desktop.
 Run its exact Chromium acceptance before any provider claim:
 
 ```sh
@@ -162,10 +218,15 @@ pnpm test:guard
 ```
 
 For a real mapping, verify the selected database mapping and provider shown in
-the UI, a stable parent URL, no unexpected pages, and actual provider progress or
-provider progress events. An API `200`, iframe load, or Guard test by itself is
-not media-playback evidence. Keep the Guard absent/disabled state in the campaign:
-it must show an actionable Guard-required message and create no provider frame.
+the UI, a stable parent URL, no unexpected pages, and actual video progress.
+An API `200`, iframe load, or Guard test by itself is not media-playback evidence.
+Test with and without the optional desktop Guard as distinct modes. In the
+no-extension campaign, record any popup or redirect as a protection failure;
+do not claim a built-in blocker. The adversarial fixture tests exercise popup
+and navigation attempts independently of real provider playback. Test the
+frame's actual video/time progression, not only provider messages. Silence
+before a user presses Play is not a provider failure; the source must remain
+selectable after the waiting notice appears.
 
 ### Native media
 
@@ -244,6 +305,15 @@ databases and must not be used as an isolated destructive test environment.
 node scripts/deploy-pages.mjs --branch=main --promote-verified-release
 pnpm verify:deployment -- https://solanime.pages.dev
 ```
+
+To promote an already-tested build outside `dist`, add
+`--directory=/absolute/path/to/reviewed-build` to both preview and production
+commands. The helper rejects a build whose release metadata differs from
+`package.json`. Keep that exact directory unchanged between preview and promotion.
+
+The 0.8.2 account integration additionally uses optional server-only MAL settings
+and an additive accounts migration; see [MyAnimeList](MYANIMELIST.md). Missing MAL
+application registration disables connection, not ordinary Solanime sign-in.
 
 Repeat the real native playback and account smoke checks on production. Record
 the Pages deployment ID, Worker version ID, source commit and artifact hashes.

@@ -35,7 +35,7 @@ test('watch exposes truthful observed-source status without offering unsafe play
   await expect(
     page.getByRole('heading', { name: 'No in-player stream' }),
   ).toBeVisible();
-  await expect(page.getByText('2 sources mapped · 0 native streams')).toBeVisible();
+  await expect(page.getByText('2 sources mapped · no native streams')).toBeVisible();
   await page.getByText('Why each source is unavailable').click();
   await expect(page.getByRole('list', { name: 'Observed playback sources' })).toContainText(
     'Observed webpage mirror',

@@ -2,8 +2,8 @@
  * The fixed-origin mode remains available for existing self-hosted installations. */
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
 const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
-const operatorRead = /^\/api\/(?:admin\/(?:sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
-const operatorWrite = /^\/api\/admin\/(?:sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
+const operatorRead = /^\/api\/(?:admin\/(?:accounts\/pending|sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
+const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|retry-notice)|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/data)$/;
 const accountWrite =
@@ -90,12 +90,14 @@ export default {
       headers.set('x-admin-token', token);
     }
     if (bound) headers.set('cf-connecting-ip', request.headers.get('cf-connecting-ip') ?? 'unknown');
-    if (accountRoute) {
+    if (!operatorRoute && url.pathname !== '/api/health') {
       const cookies = (request.headers.get('cookie') ?? '')
         .split(';')
         .map((value) => value.trim())
         .filter((value) => /^(?:__Host-)?solanime_session=[\w-]{43}$/.test(value));
       if (cookies.length === 1) headers.set('cookie', cookies[0]);
+    }
+    if (accountRoute) {
       for (const name of ['x-csrf-token', 'x-solanime-intent']) {
         const value = request.headers.get(name);
         if (value && value.length <= 256) headers.set(name, value);

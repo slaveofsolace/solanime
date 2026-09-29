@@ -1,11 +1,14 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { safeReturnTo, withReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import RecoveryCard from '../account/RecoveryCard';
 export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'register' | 'recover' }) {
   const account = useAccount(),
     navigate = useNavigate();
+  const [params] = useSearchParams();
+  const destination = safeReturnTo(params.get('returnTo'));
   const [email, setEmail] = useState(''),
     [password, setPassword] = useState(''),
     [confirm, setConfirm] = useState(''),
@@ -15,6 +18,8 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null),
     [replacement, setReplacement] = useState<string | null>(null);
+  const [pendingCode, setPendingCode] = useState<string | null>(null),
+    [pendingSaved, setPendingSaved] = useState(false);
   const register = mode === 'register',
     recover = mode === 'recover';
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -41,8 +46,13 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
         await account.refresh();
         setReplacement(result.recoveryCode);
       } else {
-        await account.login(submittedEmail, submittedPassword, remember, register);
-        navigate(register ? '/account/recovery-code' : '/profiles', { replace: true });
+        const result = await account.login(submittedEmail, submittedPassword, remember, register);
+        if (result?.pendingApproval) {
+          setPendingCode(result.recoveryCode ?? null);
+          setPendingSaved(!result.recoveryCode);
+        } else {
+          navigate(withReturnTo(register ? '/account/recovery-code' : '/profiles', destination), { replace: true });
+        }
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Unable to sign in.');
@@ -55,11 +65,23 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
       <RecoveryCard
         code={replacement}
         onDone={() => {
-          navigate('/login', { replace: true });
+          navigate(withReturnTo('/login', destination), { replace: true });
         }}
         replacement
       />
     );
+  if (pendingCode && !pendingSaved)
+    return <section className="auth-page"><div className="auth-panel">
+      <h1>Request sent for approval</h1>
+      <p>Save your recovery code now. Your account cannot browse or sign in until the operator approves it.</p>
+      <RecoveryCard code={pendingCode} onDone={() => setPendingSaved(true)} />
+    </div></section>;
+  if (pendingSaved)
+    return <section className="auth-page"><div className="auth-panel" role="status">
+      <h1>Waiting for approval</h1>
+      <p>We’ve recorded your account request. Once approved, you should receive an email and can sign in.</p>
+      <Link className="button button--primary" to={withReturnTo('/login', destination)}>Back to sign in</Link>
+    </div></section>;
   return (
     <section className="auth-page">
       <div className="auth-copy">
@@ -89,7 +111,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             <p>
               You are signed in as <strong>{account.account.email}</strong>.
             </p>
-            <Link className="button button--primary" to="/profiles">
+            <Link className="button button--primary" to={withReturnTo('/profiles', destination)}>
               Choose a profile
             </Link>
           </>
@@ -198,8 +220,9 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             )}
             {register && (
               <p className="field-hint">
-                Next, save your private recovery code. Email delivery is not configured in this
-                version.
+                {account.approvalRequired
+                  ? 'New accounts require operator approval. Save your private recovery code after requesting access.'
+                  : 'Save the private recovery code shown after you create your account. It will not be emailed to you.'}
               </p>
             )}
           </form>
@@ -207,15 +230,14 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
         <div className="auth-links">
           {mode === 'login' ? (
             <>
-              <Link to="/recover">Forgot your password?</Link>
+              {account.recoveryMethod !== 'unavailable' && <Link to={withReturnTo('/recover', destination)}>Forgot your password?</Link>}
               <p>
-                New here? <Link to="/register">Create an account</Link>
+                New here? <Link to={withReturnTo('/register', destination)}>Create an account</Link>
               </p>
             </>
           ) : (
-            <Link to="/login">Back to sign in</Link>
+            <Link to={withReturnTo('/login', destination)}>Back to sign in</Link>
           )}
-          <Link to="/catalogue">Browse without signing in</Link>
         </div>
       </div>
     </section>

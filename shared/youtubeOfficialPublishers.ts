@@ -91,8 +91,18 @@ export const TV_TOKYO_ANIME_PUBLISHER = Object.freeze({
   handleUrl: 'https://www.youtube.com/@anitele_tx',
 }) satisfies Readonly<OfficialYouTubePublisher>;
 
+export const VIZ_MEDIA_PUBLISHER = Object.freeze({
+  label: 'VIZ Media',
+  channelId: 'UCV1da9peoqEwqr45bpTJsbQ',
+  channelUrl: 'https://www.youtube.com/channel/UCV1da9peoqEwqr45bpTJsbQ',
+  handleUrl: 'https://www.youtube.com/@vizmedia',
+}) satisfies Readonly<OfficialYouTubePublisher>;
+
 export const TV_TOKYO_ANIME_PUBLISHER_IDENTITY_URL =
   'https://www.tv-tokyo.co.jp/information/202603/5536.html';
+
+export const VIZ_MEDIA_PUBLISHER_IDENTITY_URL =
+  'https://www.viz.com/blog/posts/watch-anime-for-free-on-youtube';
 
 export const NOZOMI_PUBLISHER_IDENTITY_URL =
   'https://www.crunchyroll.com/news/announcements/2022/8/4/crunchyroll-closes-deal-to-acquire-anime-superstore-right-stuf';
@@ -164,6 +174,12 @@ export const OFFICIAL_YOUTUBE_PUBLISHER_POLICIES: readonly OfficialYouTubePublis
       publisher: NOZOMI_PUBLISHER,
       identityUrl: NOZOMI_PUBLISHER_IDENTITY_URL,
       aliases: Object.freeze(['Nozomi Entertainment', 'Right Stuf', 'Nozomi']),
+    }),
+    Object.freeze({
+      id: 'viz-media-official',
+      publisher: VIZ_MEDIA_PUBLISHER,
+      identityUrl: VIZ_MEDIA_PUBLISHER_IDENTITY_URL,
+      aliases: Object.freeze(['VIZ', 'VIZ Media LLC', 'Viz Media']),
     }),
     Object.freeze({
       id: 'tv-tokyo-anime',

@@ -121,8 +121,9 @@ export function importSnapshot(
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     ON CONFLICT(source,source_id) DO UPDATE SET slug=excluded.slug,canonical_url=excluded.canonical_url,name=excluded.name,description=COALESCE(excluded.description,titles.description),format=COALESCE(excluded.format,titles.format),release_year=COALESCE(excluded.release_year,titles.release_year),status=COALESCE(excluded.status,titles.status),artwork_url=COALESCE(excluded.artwork_url,titles.artwork_url),artwork_origin=COALESCE(excluded.artwork_origin,titles.artwork_origin),artwork_reuse_status=excluded.artwork_reuse_status,availability_state=excluded.availability_state,last_seen_at=excluded.last_seen_at,last_successful_import_at=excluded.last_successful_import_at,updated_at=excluded.updated_at`);
   const upsertEpisode =
-    db.prepare(`INSERT INTO episodes(title_id,source_id,number_text,number_sort,label,slug,canonical_url,episode_type,availability_state,first_seen_at,last_seen_at,last_successful_import_at,created_at,updated_at)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(title_id,source_id) DO UPDATE SET number_text=excluded.number_text,number_sort=COALESCE(excluded.number_sort,episodes.number_sort),label=COALESCE(excluded.label,episodes.label),slug=excluded.slug,canonical_url=excluded.canonical_url,episode_type=excluded.episode_type,availability_state=excluded.availability_state,last_seen_at=excluded.last_seen_at,last_successful_import_at=excluded.last_successful_import_at,updated_at=excluded.updated_at`);
+    db.prepare(`INSERT INTO episodes(title_id,source_id,number_text,number_sort,label,slug,canonical_url,episode_type,availability_state,first_seen_at,last_seen_at,last_successful_import_at,created_at,updated_at,thumbnail_url,thumbnail_origin,thumbnail_reuse_status,duration_seconds,season_number)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(title_id,source_id) DO UPDATE SET number_text=excluded.number_text,number_sort=COALESCE(excluded.number_sort,episodes.number_sort),label=COALESCE(excluded.label,episodes.label),slug=excluded.slug,canonical_url=excluded.canonical_url,episode_type=excluded.episode_type,availability_state=excluded.availability_state,last_seen_at=excluded.last_seen_at,last_successful_import_at=excluded.last_successful_import_at,updated_at=excluded.updated_at,
+    thumbnail_url=COALESCE(excluded.thumbnail_url,episodes.thumbnail_url),thumbnail_origin=CASE WHEN excluded.thumbnail_url IS NOT NULL THEN excluded.thumbnail_origin ELSE episodes.thumbnail_origin END,thumbnail_reuse_status=CASE WHEN excluded.thumbnail_url IS NOT NULL THEN excluded.thumbnail_reuse_status ELSE episodes.thumbnail_reuse_status END,duration_seconds=COALESCE(excluded.duration_seconds,episodes.duration_seconds),season_number=COALESCE(excluded.season_number,episodes.season_number)`);
   const findEpisode = db.prepare('SELECT id FROM episodes WHERE title_id=? AND source_id=?');
   const upsertVersion =
     db.prepare(`INSERT INTO episode_versions(episode_id,source_id,language,version_label,audio_language,subtitle_language,availability_state,first_seen_at,last_seen_at,last_successful_import_at)
@@ -223,6 +224,11 @@ export function importSnapshot(
             snapshot.observedAt,
             now,
             now,
+            episode.thumbnailUrl ?? null,
+            episode.thumbnailOrigin ?? null,
+            episode.thumbnailReuseStatus ?? null,
+            episode.durationSeconds ?? null,
+            episode.seasonNumber ?? null,
           );
         const episodeId = Number(
           currentEpisode?.id ?? (findEpisode.get(titleId, episode.sourceId) as { id: number }).id,

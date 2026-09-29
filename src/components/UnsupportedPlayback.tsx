@@ -7,7 +7,7 @@ function providerState(provider: ProviderChoice, rejectedMappingId?: string) {
   if (provider.status === 'stale') return 'Needs re-verification';
   if (provider.mappingId === rejectedMappingId) return 'Selected response rejected';
   if (provider.supported && provider.status === 'available' && provider.kind === 'native')
-    return 'Native stream available';
+    return 'Native-capable mapping · playback not verified';
   if (provider.playbackType === 'iframe') return 'Provider player blocked by safety policy';
   if (provider.playbackType === 'external') return 'Webpage-only source';
   return 'Observed, not natively playable';
@@ -26,10 +26,7 @@ export default function UnsupportedPlayback({
 }: UnsupportedPlaybackProps) {
   const selectedWasRejected =
     selected?.supported &&
-    selected.status === 'available' &&
-    selected.kind !== 'embed' &&
-    selected.playbackType !== 'iframe' &&
-    selected.playbackType !== 'external';
+    selected.status === 'available';
   const mappedCount = providers.length;
   const nativeCount = providers.filter(
     (provider) =>
@@ -38,7 +35,7 @@ export default function UnsupportedPlayback({
   const webpageOnlyCount = providers.filter(
     (provider) => provider.playbackType === 'external' || provider.playbackType === 'iframe',
   ).length;
-  const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} mapped · ${nativeCount} native streams`;
+  const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} mapped${nativeCount ? ` · ${nativeCount} native-capable mappings` : ' · no native streams'}`;
   return (
     <section
       className={`unsupported-playback${artworkUrl ? ' unsupported-playback--artwork' : ''}`}

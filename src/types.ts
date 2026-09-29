@@ -68,6 +68,9 @@ export interface EpisodeVersion {
 
 export interface Episode {
   id: string;
+  thumbnailUrl?: string | null;
+  durationSeconds?: number | null;
+  seasonNumber?: number | null;
   sourceId?: string;
   number?: string | number | null;
   label?: string | null;
@@ -185,6 +188,8 @@ export interface WatchHistoryEntry {
   position?: number;
   duration?: number;
   watchedAt: string;
+  /** Hide this series from Continue Watching without erasing its viewing history. */
+  continueHidden?: boolean;
 }
 
 export interface EpisodeComment {

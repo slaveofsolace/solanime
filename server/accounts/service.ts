@@ -3,6 +3,9 @@ import type { DatabaseSync } from 'node:sqlite';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { randomUUID } from 'node:crypto';
 import { AppError } from '../errors.ts';
+import { malService } from '../integrations/malService.ts';
+import { sqliteAccountAdapter } from '../integrations/sqliteAdapter.ts';
+import { sendApprovalNotice } from '../cloud/auth/notifications.ts';
 import {
   hashPassword,
   verifyPassword,
@@ -29,6 +32,10 @@ type Account = {
   recovery_hash: string;
   email_verified: number;
   created_at: number;
+  approval_state: 'pending' | 'approved' | 'rejected';
+  approval_requested_at: number | null;
+  owner_notice_state: 'not_required' | 'pending' | 'sent' | 'failed';
+  applicant_notice_state: 'not_required' | 'pending' | 'sent' | 'failed';
 };
 type Session = {
   token_hash: string;
@@ -44,6 +51,9 @@ export type AccountConfig = {
   secure?: boolean;
   now?: () => number;
   registration?: boolean;
+  approvalRequired?: boolean;
+  privateSite?: boolean;
+  notifyApproval?: (kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) => Promise<boolean>;
 };
 const DAY = 86400000;
 export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
@@ -56,6 +66,10 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   if (process.env.NODE_ENV === 'production' && (!origin || !secure))
     throw new Error('Production accounts require an HTTPS SOLANIME_APP_ORIGIN.');
   const registration = config.registration ?? process.env.SOLANIME_REGISTRATION !== 'closed';
+  const approvalRequired = config.approvalRequired ?? process.env.SOLANIME_APPROVAL_REQUIRED === 'true';
+  const privateSite = config.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
+  const notifyApproval = config.notifyApproval ?? ((kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) =>
+    sendApprovalNotice(kind, account, origin ?? 'http://127.0.0.1:5173'));
   const publicAccount = (a: Account) => ({
     id: a.id,
     email: a.email,
@@ -109,7 +123,8 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   function readSession(request: IncomingMessage): Session | undefined {
     const raw = cookieValue(request, name);
     if (!/^[\w-]{43}$/.test(raw)) return;
-    const row = db.prepare('SELECT * FROM sessions WHERE token_hash=?').get(digest(raw)) as
+    const row = db.prepare(`SELECT s.* FROM sessions s JOIN accounts a ON a.id=s.account_id
+      WHERE s.token_hash=? AND a.approval_state='approved'`).get(digest(raw)) as
       | Session
       | undefined;
     if (!row || row.expires_at <= now() || row.last_seen < now() - 7 * DAY) return;
@@ -133,8 +148,10 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
       profiles: s ? profiles(s.account_id) : [],
       csrfToken: s?.csrf ?? null,
       registrationOpen: registration,
+      approvalRequired,
       recoveryMethod: 'recovery-code',
       maxProfiles: 5,
+      privateSite,
     };
   }
   function newSession(
@@ -143,6 +160,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     response: ServerResponse,
     remember: boolean,
   ) {
+    if (a.approval_state !== 'approved') throw new AppError(403, 'BLOCKED', 'Account approval is required.');
     const raw = token();
     const s: Session = {
       token_hash: digest(raw),
@@ -215,7 +233,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   }
   async function passwordProof(a: Account, value: unknown) {
     if (!(await verifyPassword(value, a.password_hash)))
-      throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.');
+      throw new AppError(401, 'UNAUTHORIZED', 'The current password is incorrect.', { reason: 'PASSWORD_PROOF_FAILED' });
     if (account(a.id).password_hash !== a.password_hash)
       throw new AppError(409, 'UNAUTHORIZED', 'The account changed. Sign in again.');
   }
@@ -233,6 +251,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     if (!Number.isSafeInteger(episodeId) || episodeId < 1 || !(await episodeExists(episodeId)))
       throw new AppError(404, 'NOT_FOUND', 'Episode was not found.');
     const session = readSession(req);
+    if (privateSite && !session) throw new AppError(401, 'UNAUTHORIZED', 'Sign in to continue.');
     const requestedProfile = url.searchParams.get('profile');
     let viewerProfileId: string | undefined;
     if (requestedProfile !== null) {
@@ -346,7 +365,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
       if (path.endsWith('/register')) {
         if (!registration)
           throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
-        rate('register:' + ip, 40, 3600000);
+        rate('register:' + ip, approvalRequired ? 3 : 40, 3600000);
         const password = validatePassword(body.password),
           hash = await hashPassword(password);
         if (existing || db.prepare('SELECT id FROM accounts WHERE email=?').get(email))
@@ -360,8 +379,11 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
         db.exec('BEGIN IMMEDIATE');
         try {
           db.prepare(
-            'INSERT INTO accounts(id,email,password_hash,recovery_hash,created_at) VALUES(?,?,?,?,?)',
-          ).run(id, email, hash, digest(recoveryCode), now());
+            `INSERT INTO accounts(id,email,password_hash,recovery_hash,created_at,
+              approval_state,approval_requested_at,owner_notice_state) VALUES(?,?,?,?,?,?,?,?)`,
+          ).run(id, email, hash, digest(recoveryCode), now(),
+            approvalRequired ? 'pending' : 'approved', approvalRequired ? now() : null,
+            approvalRequired ? 'pending' : 'not_required');
           db.prepare(
             'INSERT INTO profiles(id,account_id,name,avatar,created_at) VALUES(?,?,?,?,?)',
           ).run(randomUUID(), id, 'You', 'ruby', now());
@@ -369,6 +391,14 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
         } catch (error) {
           db.exec('ROLLBACK');
           throw error;
+        }
+        if (approvalRequired) {
+          let sent = false;
+          try { sent = await notifyApproval('request', { id, email }); } catch { /* Operator may retry. */ }
+          db.prepare('UPDATE accounts SET owner_notice_state=? WHERE id=?')
+            .run(sent ? 'sent' : 'failed', id);
+          reply(res, 202, { ...responseSession(undefined), pendingApproval: true, recoveryCode });
+          return true;
         }
         const fresh = newSession(account(id), req, res, body.remember === true);
         reply(res, 201, { ...responseSession(fresh), recoveryCode });
@@ -378,6 +408,10 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
         throw new AppError(401, 'UNAUTHORIZED', 'Email or password is incorrect.');
       if (account(existing.id).password_hash !== existing.password_hash)
         throw new AppError(401, 'UNAUTHORIZED', 'Email or password is incorrect.');
+      if (existing.approval_state !== 'approved')
+        throw new AppError(403, 'BLOCKED', existing.approval_state === 'pending'
+          ? 'Your account is awaiting approval.' : 'This account request was declined.',
+          { reason: existing.approval_state === 'pending' ? 'ACCOUNT_PENDING_APPROVAL' : 'ACCOUNT_REJECTED' });
       // Never upgrade a pre-existing session: issue a new random identifier.
       if (s) db.prepare('DELETE FROM sessions WHERE token_hash=?').run(s.token_hash);
       const fresh = newSession(existing, req, res, body.remember === true);
@@ -424,6 +458,23 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     }
     const auth = requireSession(req),
       a = account(auth.account_id);
+    const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|connect|complete|sync|update|disconnect)$/.exec(path);
+    if (malRoute) {
+      const profile = malRoute[1], action = malRoute[2];
+      ownedProfile(profile, a.id);
+      if (method !== (['status', 'list'].includes(action) ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
+      if (method === 'POST') rate('mal:' + a.id, 30, 60000);
+      const service = malService(sqliteAccountAdapter(db), { clientId: process.env.MAL_CLIENT_ID,
+        clientSecret: process.env.MAL_CLIENT_SECRET, redirectUri: origin ? `${origin}/settings/mal/callback` : undefined,
+        credentialKey: process.env.MAL_CREDENTIAL_KEY }, fetch, now);
+      const result = await service(profile, a.id, action, method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await readBody(req), async () => {
+        const current = requireSession(req);
+        if (current.account_id !== a.id) throw new AppError(401, 'UNAUTHORIZED', 'Your session changed.');
+        ownedProfile(profile, a.id);
+      });
+      reply(res, 200, result);
+      return true;
+    }
     if (method === 'POST' && path === '/api/account/logout') {
       db.prepare('DELETE FROM sessions WHERE token_hash=?').run(auth.token_hash);
       res.setHeader('Set-Cookie', sessionCookie('', 0));
@@ -610,6 +661,38 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     }
     throw new AppError(404, 'NOT_FOUND', 'Account route not found.');
   }
-  return { handle, handleCommunity, db, readSession, ownedProfile, name, close: () => db.close() };
+  const pendingApprovals = () => db.prepare(`SELECT id,email,created_at,approval_requested_at,
+    approval_state,owner_notice_state,applicant_notice_state FROM accounts
+    WHERE approval_state='pending' OR (approval_state='approved' AND applicant_notice_state='failed')
+    ORDER BY CASE WHEN approval_state='pending' THEN 0 ELSE 1 END,approval_requested_at,id LIMIT 50`).all();
+  const decideApproval = async (id: string, decision: 'approved' | 'rejected') => {
+    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
+    const changed = db.prepare(`UPDATE accounts SET approval_state=?,approval_decided_at=?,
+      applicant_notice_state=CASE WHEN ?='approved' THEN 'pending' ELSE 'not_required' END
+      WHERE id=? AND approval_state='pending' RETURNING id,email`).get(decision, now(), decision, id) as Pick<Account, 'id' | 'email'> | undefined;
+    if (!changed) throw new AppError(409, 'BAD_REQUEST', 'This request is no longer pending. Refresh the queue.');
+    db.prepare('DELETE FROM sessions WHERE account_id=?').run(id);
+    if (decision === 'approved') {
+      let sent = false;
+      try { sent = await notifyApproval('approved', changed); } catch { /* Operator may retry. */ }
+      db.prepare('UPDATE accounts SET applicant_notice_state=? WHERE id=?').run(sent ? 'sent' : 'failed', id);
+    }
+    return { id, decision, applicantNotice: decision === 'approved'
+      ? (account(id).applicant_notice_state) : 'not_required' };
+  };
+  const retryNotice = async (id: string) => {
+    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
+    const a = account(id);
+    if (a.approval_state === 'rejected') throw new AppError(409, 'BAD_REQUEST', 'Rejected requests have no outgoing notice.');
+    const kind = a.approval_state === 'pending' ? 'request' : 'approved';
+    const column = kind === 'request' ? 'owner_notice_state' : 'applicant_notice_state';
+    if (a[column] === 'sent') return { id, notice: 'sent' };
+    let sent = false;
+    try { sent = await notifyApproval(kind, a); } catch { /* Operator may retry. */ }
+    db.prepare(`UPDATE accounts SET ${column}=? WHERE id=?`).run(sent ? 'sent' : 'failed', id);
+    return { id, notice: sent ? 'sent' : 'failed' };
+  };
+  return { handle, handleCommunity, db, readSession, ownedProfile, name,
+    pendingApprovals, decideApproval, retryNotice, close: () => db.close() };
 }
 export type AccountsService = ReturnType<typeof createAccounts>;

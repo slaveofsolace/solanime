@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import type { ProfileData } from './types';
 export type StorageScope = {
+  readonly?: boolean;
   read: (key: string) => unknown;
   write: (key: string, value: unknown) => void;
   subscribe: (key: string, listener: () => void) => () => void;
@@ -17,6 +18,7 @@ export const useStorageScope = () => useContext(StorageScopeContext);
  */
 export function readOnlyStorage(): StorageScope {
   return {
+    readonly: true,
     read: () => undefined,
     write: () => {},
     subscribe: () => () => {},

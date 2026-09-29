@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { fixtureArt, noOverflow } from './helpers';
+import { accountFixture } from './account-fixture';
 
 test.beforeEach(async ({ page }) => fixtureArt(page));
 
@@ -55,7 +56,7 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   expect(measurements.fontSize).toBeLessThanOrEqual(64);
   expect(measurements.posterWidth).toBeLessThan(measurements.viewport * .5);
   if (info.project.name.startsWith('desktop')) {
-    expect(measurements.copyX).toBeCloseTo(47.52, 0);
+    expect(measurements.copyX).toBeCloseTo(measurements.viewport * .046, 0);
     expect(measurements.copyRight).toBeLessThan(measurements.posterX);
     // The first content row should read as part of the feature composition and
     // remain visible in the first viewport, rather than sitting below a tall
@@ -64,9 +65,10 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
     expect(measurements.railY).toBeLessThan(690);
     expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(6);
     const quickLook = page.locator('.home-rail .card-info').first();
+    await page.locator('.home-rail .title-card__art').first().focus();
     await quickLook.focus();
-    await expect(quickLook).toHaveCSS('width', '92px');
-    expect(await quickLook.evaluate(element => getComputedStyle(element, '::after').content)).toBe('"Quick look"');
+    await expect(quickLook).toHaveCSS('width', '44px');
+    await expect(quickLook).toHaveAccessibleName(/^Quick look at /);
   } else {
     expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
     expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(2);
@@ -77,15 +79,15 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   await page.screenshot({ path: info.outputPath('home-composition.png'), fullPage: true });
 });
 
-test('a loaded wide banner fills the home and title artwork field without a second poster', async ({ page }, info) => {
+test('a short panoramic banner keeps its aspect ratio alongside a sharp poster', async ({ page }, info) => {
   const bannerUrl = 'https://images.example.test/ratio-check.svg';
   await page.route(bannerUrl, route => route.fulfill({ contentType: 'image/svg+xml', body:
     '<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="400"><rect width="1900" height="400" fill="#74746b"/></svg>',
   }));
   await fixtureBanner(page, bannerUrl);
   for (const surface of [
-    { route: '/', selector: '.home-feature', action: 'View episodes', name: 'home' },
-    { route: '/title/paper-lantern', selector: '.title-hero', action: 'Open first episode', name: 'title' },
+    { route: '/', selector: '.home-feature', action: 'Start watching', name: 'home' },
+    { route: '/title/paper-lantern', selector: '.title-hero', action: 'Start watching: Episode 1', name: 'title' },
   ]) {
     await page.goto(surface.route);
     const art = page.locator(`${surface.selector} .spotlight-art`);
@@ -98,9 +100,9 @@ test('a loaded wide banner fills the home and title artwork field without a seco
       await expect(art.locator('.spotlight-art__poster')).toBeVisible();
     } else {
       await expect(banner).toBeVisible();
-      await expect(art.locator('.spotlight-art__poster')).toBeHidden();
+      await expect(art.locator('.spotlight-art__poster')).toBeVisible();
+      await expect(banner).toHaveCSS('object-fit', 'contain');
     }
-    await expect(banner).toHaveCSS('object-fit', 'cover');
     const measurements = await banner.evaluate((image: HTMLImageElement) => {
       const imageBox = image.getBoundingClientRect();
       const field = image.parentElement!.getBoundingClientRect();
@@ -108,8 +110,10 @@ test('a loaded wide banner fills the home and title artwork field without a seco
     });
     expect(measurements.sourceRatio).toBeCloseTo(4.75, 2);
     expect(measurements.imageWidth).toBeCloseTo(measurements.fieldWidth, 1);
-    expect(measurements.imageHeight).toBeCloseTo(measurements.fieldHeight, 1);
-    expect(measurements.imageWidth / measurements.imageHeight).toBeLessThan(measurements.sourceRatio);
+    if (!narrow) {
+      expect(measurements.imageWidth / measurements.imageHeight).toBeCloseTo(measurements.sourceRatio, 2);
+      expect(measurements.imageHeight).toBeLessThan(measurements.fieldHeight);
+    }
     await expect(page.getByRole('link', { name: surface.action, exact: true })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`${surface.name}-banner-loaded.png`), fullPage: true });
@@ -148,9 +152,10 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   }));
   const before = await positions();
   const featuredTitle = await page.locator('#featured-title').innerText();
-  const openEpisodes = page.getByRole('link', { name: 'View episodes', exact: true });
+  const openEpisodes = page.getByRole('link', { name: 'Start watching', exact: true });
+  await expect(openEpisodes).toBeVisible();
   const destination = await openEpisodes.getAttribute('href');
-  expect(destination).toMatch(/^\/title\/[^/?#]+$/);
+  expect(destination).toMatch(/^\/watch\/[^/?#]+\/[^/?#]+\?language=sub$/);
   failBanner();
   await expect(art).toHaveAttribute('data-banner', 'failed');
   await expect(art.locator('.spotlight-art__banner')).toHaveCount(0);
@@ -169,7 +174,7 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   const destinationUrl = new URL(destination!, page.url()).href;
   await openEpisodes.click();
   await expect(page).toHaveURL(destinationUrl);
-  await expect(page.locator('#title-name')).toHaveText(featuredTitle);
+  await expect(page.locator('.watch-heading h1')).toHaveText(featuredTitle);
 });
 
 test('mobile title actions do not shift when the banner arrives', async ({ page }) => {
@@ -207,7 +212,7 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
       expect(Math.abs(after[index]![key] - before[index]![key])).toBeLessThanOrEqual(.001);
     }
   }
-  await expect(page.getByRole('link', { name: 'Open first episode', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
   await noOverflow(page);
 });
 
@@ -215,14 +220,13 @@ test('title keeps episode navigation close and full information available on dem
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
   const hero = await page.locator('.title-hero').boundingBox();
-  // The approved reference gives artwork most of the viewport. Episodes must
-  // begin immediately after it, rather than restoring the rejected short hero.
+  // Keep the compact hero bounded and episode navigation immediately adjacent.
   if (info.project.name.startsWith('mobile')) {
-    expect(hero!.height).toBeGreaterThanOrEqual(520);
+    expect(hero!.height).toBeGreaterThanOrEqual(480);
     expect(hero!.height).toBeLessThan(650);
   } else {
-    expect(hero!.height).toBeGreaterThanOrEqual(600);
-    expect(hero!.height).toBeLessThan(850);
+    expect(hero!.height).toBeGreaterThanOrEqual(380);
+    expect(hero!.height).toBeLessThan(460);
   }
   const episodes = await page.getByRole('heading', { name: 'Episodes', exact: true }).boundingBox();
   expect(episodes!.y - (hero!.y + hero!.height)).toBeLessThan(50);
@@ -231,7 +235,7 @@ test('title keeps episode navigation close and full information available on dem
   await expect(page.locator('.title-about')).toHaveAttribute('open');
   await expect(page.locator('.title-about__body')).toBeVisible();
   await page.locator('.title-about summary').click();
-  const openEpisode = page.getByRole('link', { name: /Open first episode/ });
+  const openEpisode = page.getByRole('link', { name: /Start watching: Episode 1/ });
   const destination = await openEpisode.getAttribute('href');
   expect(destination).toMatch(/^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
   await openEpisode.click();
@@ -258,7 +262,7 @@ test('artwork failure preserves the real title, episode inventory and navigation
   await expect(page.locator('.title-hero .cover-fallback')).toBeVisible();
   await expect(page.locator('.title-hero .spotlight-art__banner')).toHaveCount(0);
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
-  await expect(page.getByRole('link', { name: /Open first episode/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
   await noOverflow(page);
 });
 
@@ -272,10 +276,10 @@ test('a failed title request can be retried without refreshing the route', async
     }
   });
   await page.goto('/title/paper-lantern');
-  await expect(page.getByRole('heading', { name: 'Title unavailable', exact: true })).toBeVisible();
-  await expect(page.getByText('Title service temporarily unavailable.', { exact: true })).toBeVisible();
+  const boot = page.locator('.sol-brand-readiness');
+  await expect(boot.getByText('Title service temporarily unavailable.', { exact: true })).toBeVisible();
   unavailable = false;
-  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await boot.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('#title-name')).toHaveText('Paper Lantern');
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
   await expect(page).toHaveURL(/\/title\/paper-lantern$/);
@@ -286,13 +290,12 @@ test('320px home and title preserve readable controls in both themes', async ({ 
   await page.setViewportSize({ width: 320, height: 820 });
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
+  await accountFixture(page);
   for (const theme of ['Dark', 'Light']) {
-    await page.goto('/');
-    await expect(page.locator('#featured-title')).toBeVisible();
-    await page.getByRole('button', { name: 'Customize appearance' }).click();
-    await page.getByRole('dialog').getByRole('button', { name: theme, exact: true }).click();
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('link', { name: 'View episodes', exact: true })).toBeVisible();
+    await page.goto('/settings');
+    await page.locator('#appearance').getByRole('button', { name: theme, exact: true }).click();
+    await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+    await expect(page.getByRole('link', { name: 'Start watching', exact: true })).toBeVisible();
     const viewportWidth = await page.evaluate(() => innerWidth);
     const navLinks = page.locator('.main-nav > a:visible');
     await expect(page.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
@@ -305,7 +308,7 @@ test('320px home and title preserve readable controls in both themes', async ({ 
     await page.screenshot({ path: info.outputPath(`home-320-${theme.toLowerCase()}.png`), fullPage: true });
     await page.goto('/title/paper-lantern');
     await expect(page.locator('#title-name')).toBeVisible();
-    await expect(page.getByRole('link', { name: /Open first episode/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`title-320-${theme.toLowerCase()}.png`), fullPage: true });
   }

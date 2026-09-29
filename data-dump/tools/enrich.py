@@ -36,7 +36,7 @@ HOSTING = [('cloudflare-pages','Cloudflare Pages','pages.dev'),('cloudflare-work
  ('vercel','Vercel','vercel.app'),('netlify','Netlify','netlify.app'),('github-pages','GitHub Pages','github.io')]
 
 def load(path, default=None):
-    return json.loads(path.read_text()) if path.exists() else default
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
 
 def save_record(root, record): c.dump(root/'sites'/record['id']/'metadata.json',record)
 
@@ -277,7 +277,7 @@ def validate(root):
     checks['no_false_completion']=all(e.get('complete') is False for e in coverage)
     checks['all_json_parseable']=True
     try:
-        for path in root.rglob('*.json'): json.loads(path.read_text())
+        for path in root.rglob('*.json'): json.loads(path.read_text(encoding='utf-8'))
     except (ValueError,UnicodeError): checks['all_json_parseable']=False
     result={'observed_at':c.now(),'checks':checks,'passed':all(checks.values()),'evidence_scope':'data_integrity_not_live_playback','entries':len(entries),'relationships':len(edges)}
     c.dump(root/'reports/validation.json',result)

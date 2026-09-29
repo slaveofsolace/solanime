@@ -50,7 +50,7 @@ export async function inspectDeployment(address, fetcher = fetch) {
     backend: json?.release ?? null,
     checks,
     passed: Object.values(checks).every(Boolean),
-    note: 'This checks the deployed application version and exact frame-host policy; it does not certify media availability or playback. MegaPlay frames remain gated on the separately tested Solanime Guard handshake.',
+    note: 'This checks the deployed application version and exact frame-host policy; it does not certify media availability, playback, or redirect protection. Browser-only playback and optional Desktop Guard must be verified separately; the restored default has no iframe sandbox.',
   };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

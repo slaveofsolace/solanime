@@ -136,6 +136,20 @@ afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 afterAll(async () => { await runtime?.dispose(); });
 
 describe('Worker API against actual D1', () => {
+  it('locks catalogue and playback APIs behind an approved session in private mode', async () => {
+    const privateMode = { SOLANIME_PRIVATE_SITE: 'true', SOLANIME_APPROVAL_REQUIRED: 'true' };
+    expect((await request('/api/health', {}, privateMode)).status).toBe(200);
+    for (const [path, init] of [
+      ['/api/titles', {}], ['/api/meta/filters', {}], ['/api/titles/test-1', {}],
+      ['/api/episodes/10/providers', {}], ['/api/providers/30/resolve', mutation({ language: 'sub' })],
+    ] as const) {
+      const result = await request(path, init, privateMode);
+      expect(result.status).toBe(401);
+    }
+    expect((await request('/api/admin/accounts/pending', { headers: operator() }, privateMode)).status).toBe(200);
+    expect((await request('/api/admin/accounts/pending', {}, privateMode)).status).toBe(401);
+    expect((await request('/api/admin/accounts/bad/decision', mutation({ decision: 'approved' }, operator({ origin: 'https://elsewhere.example' })), privateMode)).status).toBe(403);
+  });
   it('returns versioned JSON health without waiting for unconfigured managed authentication', async () => {
     const response = await request('/api/health', { headers: { cookie: '__Host-solanime_session=' + 'a'.repeat(43), authorization: 'Bearer test-private-token' } });
     expect(response.status).toBe(200);
@@ -234,10 +248,10 @@ describe('Worker API against actual D1', () => {
     const detail = await (await request('/api/titles/test-1')).json();
     expect(detail).toMatchObject({ title: { id: '1' }, episodes: [{ id: '10', number: 'Special 0.5', versions: [{ id: '21', language: 'dub', providerCount: 1 }, { id: '20', language: 'sub', providerCount: 2 }] }] });
     const choices = await (await request('/api/episodes/10/providers?language=sub')).json();
-    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: true }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
+    expect(choices).toMatchObject({ version: { id: '20', language: 'sub' }, providers: [{ mappingId: '30', providerId: 'hd-1', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: false }, { mappingId: '31', providerId: 'internet-archive', supported: true, kind: 'native' }] });
     expect(JSON.stringify(choices)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(JSON.stringify(choices)).not.toContain('test-public-item');
-    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: true }] });
+    expect(await (await request('/api/episodes/10/providers?language=dub')).json()).toMatchObject({ providers: [{ mappingId: '32', providerId: 'hd-2', supported: true, kind: 'embed', playbackType: 'iframe', reasonCode: null, requiresGuard: false }] });
     expect((await request('/api/episodes/10/providers?language=other')).status).toBe(404);
   });
 
@@ -246,7 +260,7 @@ describe('Worker API against actual D1', () => {
       .bind('internet-archive', 'test-public-item', 'sub', 'Wrong mapping', 'Test', 'https://example.test/rights', 'https://example.test/identity', observed).run();
     try {
       const choices = await (await request('/api/episodes/10/providers?language=sub')).json() as { providers: Array<{ mappingId: string; supported: boolean; status: string }> };
-      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: true, kind: 'embed', status: 'available', playbackType: 'iframe', requiresGuard: true });
+      expect(choices.providers.find((provider: { mappingId: string }) => provider.mappingId === '30')).toMatchObject({ supported: true, kind: 'embed', status: 'available', playbackType: 'iframe', requiresGuard: false });
     } finally { await env.CATALOGUE.prepare('DELETE FROM native_resources WHERE mapping_id=30').run(); }
   });
 
@@ -294,7 +308,7 @@ describe('Worker API against actual D1', () => {
     const response = await request('/api/providers/30/resolve', mutation({ language: 'sub', url: 'http://127.0.0.1/private' }));
     expect(response.status).toBe(200);
     const result = await response.json();
-    expect(result).toMatchObject({ mappingId: '30', kind: 'embed', status: 'resolved', playbackType: 'iframe', embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn', iframePolicy: { requiresGuard: true } });
+    expect(result).toMatchObject({ mappingId: '30', kind: 'embed', status: 'resolved', playbackType: 'iframe', embedUrl: 'https://megaplay.buzz/stream/s-2/123/sub?s=tcdn', iframePolicy: { requiresGuard: false } });
     expect(JSON.stringify(result)).not.toContain('PRIVATE_STABLE_REFERENCE');
     expect(send).not.toHaveBeenCalled();
     const stored = await env.CATALOGUE.prepare('SELECT last_successful_resolution_at,last_playback_verification_at,resolution_evidence_state FROM episode_provider_mappings WHERE id=30').first();

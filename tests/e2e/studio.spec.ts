@@ -1,33 +1,35 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { fixtureArt, watch, noOverflow } from './helpers';
+import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
-test('manual feature selection updates actual title actions', async ({ page }) => {
+test('manual feature selection updates actual title actions', async ({ page, isMobile }) => {
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   const before = await page.locator('#featured-title').innerText();
-  await page.getByRole('button', { name: 'Next featured title' }).click();
+  if (isMobile) await page.locator('.feature-dots button').nth(1).click();
+  else await page.getByRole('button', { name: 'Next featured title' }).click();
   await expect(page.locator('#featured-title')).not.toHaveText(before);
-  await page.getByRole('button', { name: 'Previous featured title' }).click();
+  if (isMobile) await page.locator('.feature-dots button').first().click();
+  else await page.getByRole('button', { name: 'Previous featured title' }).click();
   await expect(page.locator('#featured-title')).toHaveText(before);
   await noOverflow(page);
 });
-test('motion preferences persist and do not remount native media', async ({ page }) => {
-  await watch(page);
-  const video = await page.locator('video').elementHandle();
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
+test('profile motion preferences persist from Settings into the player', async ({ page }) => {
+  await accountFixture(page);
+  await page.goto('/settings');
   await page.getByRole('button', { name: 'Reduce motion', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
-  await page.keyboard.press('Escape');
-  expect(await video!.evaluate((v) => v.isConnected)).toBe(true);
+  await watch(page);
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
 });
-test('operating-system reduced motion overrides animation preference', async ({ page }) => {
+test('operating-system reduced motion overrides animation preference', async ({ page, isMobile }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
-  await page.getByRole('button', { name: 'Next featured title' }).click();
+  if (isMobile) await page.locator('.feature-dots button').nth(1).click();
+  else await page.getByRole('button', { name: 'Next featured title' }).click();
   expect(
     await page.locator('.spotlight-art').evaluate((el) => getComputedStyle(el).animationDuration),
   ).toMatch(/0s|0.01ms|1e-05s/);
@@ -45,6 +47,7 @@ test('primary catalogue renders without waiting for optional home data', async (
     }
     await route.continue();
   });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible({ timeout: 1_500 });
   await expect(page.getByText('Catalogue unavailable.')).toHaveCount(0);
@@ -53,6 +56,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   page,
 }) => {
   await page.setViewportSize({ width: 768, height: 900 });
+  await accountFixture(page, { preferences: { theme: 'light', rememberProgress: true, preferredLanguage: 'sub', autoplayNext: false } });
   await watch(page);
   await page.getByRole('button', { name: 'Mute video', exact: true }).click();
   await page.getByRole('button', { name: 'Play video', exact: true }).click();
@@ -61,16 +65,12 @@ test('tablet navigation stays visible and light history follows the hero before 
     .toBeGreaterThan(0.2);
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
-  await page.getByRole('button', { name: 'Customize appearance' }).click();
-  await page.getByRole('dialog').getByRole('button', { name: 'Light', exact: true }).click();
-  await page.keyboard.press('Escape');
 
   const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
-  await expect(primaryLinks).toHaveCount(6);
+  await expect(primaryLinks).toHaveCount(3);
   for (const link of await primaryLinks.all()) {
-    expect((await link.locator('.icon').isVisible()) || (await link.locator('span').first().isVisible())).toBe(
-      true,
-    );
+    await expect(link).toBeVisible();
+    expect(await link.textContent()).toBeTruthy();
   }
   const history = page.getByRole('region', { name: 'Continue watching', exact: true });
   await expect(page.locator('.home-feature + .continue-section--home + .home-rail[aria-labelledby="rail-recent-updates"]')).toHaveCount(1);
@@ -80,31 +80,30 @@ test('tablet navigation stays visible and light history follows the hero before 
     const recent = document.querySelector('[aria-labelledby="rail-recent-updates"]')!.getBoundingClientRect();
     return { heroBottom: hero.bottom, historyTop: history.top, historyBottom: history.bottom, recentTop: recent.top };
   });
-  // The reference's first rail overlaps only the empty bottom artwork fade.
-  expect(layout.heroBottom - layout.historyTop).toBeGreaterThanOrEqual(30);
-  expect(layout.heroBottom - layout.historyTop).toBeLessThanOrEqual(65);
+  expect(layout.historyTop).toBeGreaterThanOrEqual(layout.heroBottom);
+  expect(layout.historyTop - layout.heroBottom).toBeLessThanOrEqual(48);
   expect(layout.recentTop).toBeGreaterThanOrEqual(layout.historyBottom);
   expect(layout.recentTop - layout.historyBottom).toBeLessThan(40);
-  await expect(history.getByRole('link', { name: 'Full history' })).toHaveAttribute('href', '/library');
+  await expect(history.getByRole('link', { name: 'Full history' })).toHaveAttribute('href', '/library#history-title');
   await expect(history.locator('.continue-card > a')).toHaveAttribute('href', /^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
   await expect(history.getByRole('progressbar', { name: 'Paper Lantern viewing progress' })).toBeVisible();
   expect(Number(await history.getByRole('progressbar').getAttribute('aria-valuenow'))).toBeGreaterThan(0);
-  await expect(history.getByRole('button', { name: /Remove Paper Lantern .* from history/ })).toBeVisible();
+  await expect(history.getByRole('button', { name: 'Remove Paper Lantern from Continue watching' })).toBeVisible();
   await noOverflow(page);
+  await history.getByRole('link', { name: 'Full history' }).click();
+  await expect(page.getByRole('heading', { name: 'Watch history', exact: true })).toBeFocused();
 });
 test('major screens have meaningful content, no overflow and accessible controls in both themes', async ({
   page,
 }, info) => {
   test.setTimeout(90000);
+  await accountFixture(page);
   for (const theme of ['dark', 'light']) {
-    await page.goto('/');
-    await expect(page.locator('#featured-title')).toBeVisible();
-    await page.getByRole('button', { name: 'Customize appearance' }).click();
+    await page.goto('/settings');
     await page
-      .getByRole('dialog')
+      .locator('#appearance')
       .getByRole('button', { name: theme === 'light' ? 'Light' : 'Dark', exact: true })
       .click();
-    await page.keyboard.press('Escape');
     for (const [label, path] of [
       ['home', '/'],
       ['browse', '/catalogue'],
@@ -120,6 +119,10 @@ test('major screens have meaningful content, no overflow and accessible controls
         await expect(page.locator('.title-card').first()).toBeVisible();
       else if (label === 'empty')
         await expect(page.getByRole('heading', { name: 'No titles found' })).toBeVisible();
+      else if (label === 'error') {
+        await page.getByRole('button', { name: 'Continue without waiting' }).click();
+        await expect(page.getByRole('heading', { name: 'Title unavailable' })).toBeVisible();
+      }
       else await expect(page.locator('main h1').first()).toBeVisible();
       await noOverflow(page);
       const result = await new AxeBuilder({ page })

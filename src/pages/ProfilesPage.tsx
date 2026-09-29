@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { safeReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import type { Profile } from '../account/types';
@@ -9,6 +10,8 @@ const avatars: Profile['avatar'][] = ['ruby', 'ocean', 'violet', 'emerald', 'amb
 export default function ProfilesPage() {
   const auth = useAccount(),
     navigate = useNavigate();
+  const [params] = useSearchParams();
+  const destination = safeReturnTo(params.get('returnTo'));
   const [manage, setManage] = useState(false),
     [editor, setEditor] = useState<Profile | 'new' | null>(null),
     [name, setName] = useState(''),
@@ -93,7 +96,7 @@ export default function ProfilesPage() {
               setError(null);
               void auth
                 .activate(p)
-                .then(() => navigate('/', { replace: true }))
+                .then(() => navigate(destination, { replace: true }))
                 .catch((e) => setError(e.message));
             }}
             disabled={auth.changing}

@@ -19,6 +19,11 @@ export type CloudAccount = {
   created_at: number;
   auth_revision: number;
   auth_state: 'active' | 'recovering' | 'password-changing' | 'deleting';
+  approval_state: 'pending' | 'approved' | 'rejected';
+  approval_requested_at: number | null;
+  approval_decided_at: number | null;
+  owner_notice_state: 'not_required' | 'pending' | 'sent' | 'failed';
+  applicant_notice_state: 'not_required' | 'pending' | 'sent' | 'failed';
   operation_id: string | null;
   operation_error: string | null;
 };

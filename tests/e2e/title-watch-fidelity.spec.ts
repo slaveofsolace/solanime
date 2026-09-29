@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
 });
 
-test('title fallback art reads as a full feature and episodes remain dense', async ({ page }) => {
+test('title fallback preserves poster proportions and episodes use compact landscape cards', async ({ page }, info) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
@@ -28,13 +28,19 @@ test('title fallback art reads as a full feature and episodes remain dense', asy
   });
 
   expect(layout.hero.width).toBeCloseTo(1440, 0);
-  expect(layout.art.width).toBeGreaterThan(850);
-  expect(layout.art.height).toBeCloseTo(layout.hero.height, 0);
+  expect(layout.art.width).toBeGreaterThanOrEqual(200);
+  expect(layout.art.width).toBeLessThanOrEqual(260);
+  expect(layout.art.height).toBeLessThan(layout.hero.height);
+  expect(layout.hero.height).toBeLessThanOrEqual(460);
   expect(layout.copy.right).toBeLessThan(layout.art.right);
   expect(layout.rows).toHaveLength(3);
   expect(layout.rows[1]!.x).toBeGreaterThan(layout.rows[0]!.x + 100);
-  expect(layout.rows[0]!.height).toBeLessThanOrEqual(68);
+  expect(layout.rows[0]!.height).toBeGreaterThan(140);
+  expect(layout.rows[0]!.height).toBeLessThanOrEqual(300);
+  const thumb = await page.locator('.episode-thumbnail').first().boundingBox();
+  expect(thumb!.width / thumb!.height).toBeCloseTo(16 / 9, 1);
   await noOverflow(page);
+  await page.screenshot({ path: info.outputPath('series-cards-desktop.png'), fullPage: true });
 });
 
 test('desktop watch keeps the player dominant with a bounded episode side rail', async ({ page }) => {
@@ -61,18 +67,24 @@ test('desktop watch keeps the player dominant with a bounded episode side rail',
   await noOverflow(page);
 });
 
-test('320px title and watch controls remain readable without horizontal overflow', async ({ page }) => {
+test('320px title and watch controls remain readable without horizontal overflow', async ({ page }, info) => {
   await page.setViewportSize({ width: 320, height: 820 });
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Open first episode', exact: true })).toBeVisible();
-  expect(await page.locator('.title-page .episode-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(1);
+  await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
+  expect(await page.locator('.title-page .episode-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(2);
   await noOverflow(page);
 
-  await page.getByRole('link', { name: 'Open first episode', exact: true }).click();
+  await page.getByRole('link', { name: /Start watching: Episode 1/ }).click();
   await expect(page.locator('video')).toBeVisible();
   await expect(page.getByLabel('Choose episode')).toBeVisible();
   await expect(page.getByLabel('Playback source')).toBeVisible();
   await expect(page.getByLabel('Episode language')).toBeVisible();
+  const source = await page.locator('.source-choice').boundingBox();
+  const version = await page.locator('.version-choice').boundingBox();
+  expect(source!.y).toBeCloseTo(version!.y, 0);
+  expect(version!.x).toBeGreaterThan(source!.x);
+  expect((await page.locator('.watch-selection').boundingBox())!.height).toBeLessThanOrEqual(160);
   await noOverflow(page);
+  await page.screenshot({ path: info.outputPath('watch-controls-320.png'), fullPage: true });
 });

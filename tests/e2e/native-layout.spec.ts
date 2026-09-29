@@ -23,8 +23,10 @@ test('paused Play stays at the picture centre across viewport and theater change
       expect(picture!.height).toBeLessThanOrEqual(viewport.height * (theater ? .78 : .62) + 1);
       expect(button!.width).toBeGreaterThanOrEqual(44);
       expect(await handle!.evaluate(element => element.isConnected)).toBe(true);
-      if (viewport.width <= 820) await expect(page.locator('.main-nav')).toBeHidden();
-      else await expect(page.locator('.main-nav')).toBeVisible();
+      await expect(page.locator('.main-nav')).toBeVisible();
+      // Narrow screens keep an accessible, compact second navigation row.
+      const header = await page.locator('.masthead').boundingBox();
+      expect(header!.height).toBeLessThanOrEqual(viewport.width <= 820 ? 94 : 50);
       await noOverflow(page);
       if (theater) await page.getByRole('button', { name: 'Exit theater mode', exact: true }).click();
     }

@@ -14,6 +14,8 @@ export type EvidenceClass =
   | 'unknown';
 
 export type ApiErrorCode =
+  | 'RATE_LIMITED'
+  | 'INVALID_RESPONSE'
   | 'INVALID_QUERY'
   | 'INVALID_REVIEW'
   | 'IMPORT_QUOTA_PAUSED'
@@ -64,6 +66,11 @@ export interface SnapshotEpisode {
   number: string;
   numberSort?: number | null;
   label?: string | null;
+  thumbnailUrl?: string | null;
+  thumbnailOrigin?: string | null;
+  thumbnailReuseStatus?: string | null;
+  durationSeconds?: number | null;
+  seasonNumber?: number | null;
   slug: string;
   canonicalUrl: string;
   episodeType?: string;

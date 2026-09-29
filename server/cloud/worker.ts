@@ -2,6 +2,7 @@ import { RELEASE } from '../../shared/release.ts';
 import { timingSafeEqual } from 'node:crypto';
 import { AppError, asAppError } from '../errors.ts';
 import { createCloudAccounts } from './auth/index.ts';
+import { sendApprovalNotice } from './auth/notifications.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
 import { createPrivateBaselineReader } from './data/baseline.ts';
 import { createResearchRepository } from './data/research.ts';
@@ -19,7 +20,7 @@ import {
   NATIVE_RESEARCH_RECORDS,
 } from '../providers/native-registry.ts';
 import { providerSupportDiagnostic } from '../providers/support-diagnostics.ts';
-import { hasSupportedMegaPlayEmbed, megaPlayEmbedResult } from '../providers/embed.ts';
+import { hasSupportedMegaPlayEmbed } from '../providers/embed.ts';
 import { enforcePlaybackResolution } from '../providers/playbackPolicy.ts';
 import { createArtworkSyncHandlers, startCloudArtworkRefresh } from '../artwork/cloud.ts';
 
@@ -108,7 +109,17 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
     const baseline = configuredBaseline(request, env);
     const catalogue = createCatalogueRepository(env.CATALOGUE, baseline);
-    const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), { origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean), registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY, firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON }, episodeExists: catalogue.hasEpisode });
+    const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), {
+      origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean),
+      registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY,
+      approvalRequired: env.SOLANIME_APPROVAL_REQUIRED === 'true',
+      privateSite: env.SOLANIME_PRIVATE_SITE === 'true',
+      notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN),
+      firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON },
+      mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
+        redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },
+      episodeExists: catalogue.hasEpisode,
+    });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);
     if (path.startsWith('/api/admin/') || path.startsWith('/api/exports/')) await admin(request, env);
@@ -117,6 +128,18 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const migration = await env.CATALOGUE.prepare('SELECT COUNT(*) AS count FROM d1_migrations').first<{ count: number }>();
       return json({ status: 'ok', release: RELEASE, runtime: 'cloudflare-workers', channel: env.RELEASE_CHANNEL, database: 'connected', schemaVersion: migration?.count ?? 0, titles: await catalogue.titleCount(), now: new Date().toISOString() });
     }
+    if (request.method === 'GET' && path === '/api/admin/accounts/pending')
+      return json({ items: await accounts.pendingApprovals() });
+    const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(path);
+    if (request.method === 'POST' && approval) {
+      const input = await body(request);
+      if (approval[2] === 'retry-notice') return json(await accounts.retryNotice(approval[1]));
+      if (input.decision !== 'approved' && input.decision !== 'rejected')
+        throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
+      return json(await accounts.decideApproval(approval[1], input.decision));
+    }
+    if (env.SOLANIME_PRIVATE_SITE === 'true' && !path.startsWith('/api/admin/') && !path.startsWith('/api/exports/'))
+      await accounts.authorize(request);
     if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), scope: bounded(p.get('scope')), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
     if (request.method === 'GET' && path === '/api/meta/filters') return json(await catalogue.getFilters());
     const title = /^\/api\/titles\/([^/]+)$/.exec(path);
@@ -152,7 +175,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
                 qualitySelection: officialYouTube,
               }
             : {},
-          requiresGuard: supportedEmbed,
+          requiresGuard: false,
         };
       })) });
     }
@@ -162,9 +185,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       const input = await body(request); const mapping = await catalogue.getMapping(number(resolve[1], 0, Number.MAX_SAFE_INTEGER));
       if (input.language != null && input.language !== mapping.language) throw new AppError(400, 'BAD_REQUEST', 'Language does not match this mapping.');
       const resource = await catalogue.getApprovedResource(mapping.mappingId);
-      const resolved = hasSupportedMegaPlayEmbed(mapping) && mapping.canonicalEmbedUrl
-        ? megaPlayEmbedResult(mapping, mapping.canonicalEmbedUrl)
-        : await resolveApprovedPlayback(mapping, resource, request.signal);
+      const resolved = await resolveApprovedPlayback(mapping, resource, request.signal);
       const result = enforcePlaybackResolution(mapping, legacyResolution(resolved));
       // A resolution is not playback verification. Never store temporary media URLs.
       if (!readOnlyReview && result.status === 'resolved') await env.CATALOGUE.prepare("UPDATE episode_provider_mappings SET last_successful_resolution_at=?,resolution_evidence_state='resolved' WHERE id=?").bind(new Date().toISOString(), mapping.mappingId).run();
@@ -285,7 +306,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
 
 export default {
   async fetch(request, env, ctx) {
-    if (isReadOnlyReview(env)) return handleCloudRequest(request, env);
+    if (isReadOnlyReview(env) || env.SOLANIME_PRIVATE_SITE === 'true') return handleCloudRequest(request, env);
     const url = new URL(request.url);
     // Public catalogue responses contain no account or operator information.
     // Cache only successful reads, briefly, in a release-specific namespace.

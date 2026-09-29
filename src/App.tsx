@@ -2,6 +2,9 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { AccountProvider } from './account/AccountProvider';
 import AccountBoundary from './account/AccountBoundary';
+import RequireAccount from './account/RequireAccount';
+import PrivateSiteRoute from './account/PrivateSiteRoute';
+import ApplicationReadiness from './branding/ApplicationReadiness';
 import { Layout, StatusPanel } from './components/ui';
 import PageErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
@@ -16,6 +19,8 @@ const AdminSourcesPage = lazy(() => import('./pages/AdminSourcesPage'));
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const ProfilesPage = lazy(() => import('./pages/ProfilesPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
+const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const MalCallbackPage = lazy(() => import('./components/MyAnimeListConnection').then(module => ({ default: module.MalCallbackPage })));
 function NotFound() {
   return (
     <StatusPanel
@@ -88,29 +93,33 @@ export default function App() {
   return (
     <AccountProvider>
       <AccountBoundary>
+        <ApplicationReadiness>
         <Layout>
           <PageErrorBoundary>
             <Suspense fallback={<RouteReadiness />}>
               <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/catalogue" element={<CataloguePage />} />
-                <Route path="/search" element={<CataloguePage />} />
-                <Route path="/title/:slug" element={<TitlePage />} />
-                <Route path="/watch/:slug/:episodeId" element={<WatchPage />} />
-                <Route path="/library" element={<LibraryPage />} />
+                <Route path="/" element={<PrivateSiteRoute><HomePage /></PrivateSiteRoute>} />
+                <Route path="/catalogue" element={<PrivateSiteRoute><CataloguePage /></PrivateSiteRoute>} />
+                <Route path="/search" element={<PrivateSiteRoute><CataloguePage /></PrivateSiteRoute>} />
+                <Route path="/title/:slug" element={<PrivateSiteRoute><TitlePage /></PrivateSiteRoute>} />
+                <Route path="/watch/:slug/:episodeId" element={<PrivateSiteRoute><WatchPage /></PrivateSiteRoute>} />
+                <Route path="/library" element={<RequireAccount><LibraryPage /></RequireAccount>} />
+                <Route path="/settings" element={<RequireAccount><SettingsPage /></RequireAccount>} />
+                <Route path="/settings/mal/callback" element={<MalCallbackPage />} />
                 <Route path="/login" element={<AuthPage key="login" />} />
                 <Route path="/register" element={<AuthPage key="register" mode="register" />} />
                 <Route path="/recover" element={<AuthPage key="recover" mode="recover" />} />
-                <Route path="/profiles" element={<ProfilesPage />} />
-                <Route path="/account" element={<AccountPage />} />
-                <Route path="/account/recovery-code" element={<AccountPage recovery />} />
+                <Route path="/profiles" element={<RequireAccount profile={false}><ProfilesPage /></RequireAccount>} />
+                <Route path="/account" element={<RequireAccount profile={false}><AccountPage /></RequireAccount>} />
+                <Route path="/account/recovery-code" element={<RequireAccount profile={false}><AccountPage recovery /></RequireAccount>} />
                 <Route path="/admin" element={<AdminPage />} />
-                <Route path="/admin/sources" element={<AdminSourcesPage />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/admin/sources" element={<PrivateSiteRoute><AdminSourcesPage /></PrivateSiteRoute>} />
+                <Route path="*" element={<PrivateSiteRoute><NotFound /></PrivateSiteRoute>} />
               </Routes>
             </Suspense>
           </PageErrorBoundary>
         </Layout>
+        </ApplicationReadiness>
       </AccountBoundary>
     </AccountProvider>
   );

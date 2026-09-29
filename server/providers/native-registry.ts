@@ -7,6 +7,7 @@ import {
   type ApprovedNativeResource,
 } from './native.ts';
 import { hasApprovedOfficialYouTubeResource, resolveOfficialYouTube } from './youtubeOfficial.ts';
+import { MEGAPLAY_EMBED_PROVIDERS, resolveMegaPlayEmbed } from './embed.ts';
 
 type MappingIdentity = Pick<StoredProviderMapping, 'mappingId' | 'providerId' | 'providerResourceId' | 'language'>;
 
@@ -33,6 +34,8 @@ export function hasEnabledOfficialYouTubeResource(mapping: MappingIdentity, reso
 }
 
 export async function resolveApprovedPlayback(mapping: StoredProviderMapping, resource: ApprovedNativeResource | null | undefined, signal?: AbortSignal) {
+  if ((MEGAPLAY_EMBED_PROVIDERS as readonly string[]).includes(mapping.providerId))
+    return resolveMegaPlayEmbed(mapping, signal);
   if (resource && hasApprovedOfficialYouTubeResource(mapping, resource))
     return resolveOfficialYouTube(mapping, resource);
   return resolveApprovedNative(mapping, resource, signal);

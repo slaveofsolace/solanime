@@ -18,6 +18,16 @@ const empty: SessionResponse = {
   recoveryMethod: 'recovery-code',
   maxProfiles: 5,
 };
+function anonymousFrom(session: SessionResponse): SessionResponse {
+  return {
+    ...session,
+    account: null,
+    profiles: [],
+    csrfToken: null,
+    recoveryCode: undefined,
+    pendingApproval: undefined,
+  };
+}
 function selectedId(accountId: string) {
   try {
     return sessionStorage.getItem('solanime:profile:' + accountId);
@@ -46,6 +56,8 @@ function useAccountController() {
   sessionRef.current = session;
   const generation = useRef(0),
     requestRef = useRef<AbortController | null>(null);
+  const sessionGeneration = useRef(0);
+  const sessionMutation = useRef(false);
   const accept = useCallback((result: SessionResponse) => {
     setAccountCsrf(result.csrfToken);
     sessionRef.current = result;
@@ -66,8 +78,9 @@ function useAccountController() {
   const activate = useCallback(
     async (p: Profile | null, accountId = sessionRef.current.account?.id) => {
       if (!accountId) return;
-      await scopeRef.current?.flush();
       const seq = ++generation.current;
+      await scopeRef.current?.flush();
+      if (seq !== generation.current || sessionRef.current.account?.id !== accountId) return;
       requestRef.current?.abort();
       const abort = new AbortController();
       requestRef.current = abort;
@@ -109,10 +122,15 @@ function useAccountController() {
     [],
   );
   const refresh = useCallback(async () => {
+    // Visibility/session reads must not race a cookie-changing login or logout.
+    if (sessionMutation.current) return;
+    const seq = ++sessionGeneration.current;
     setLoadError(null);
     try {
       const result = await accountRequest<SessionResponse>('session');
+      if (seq !== sessionGeneration.current) return;
       const old = sessionRef.current;
+      if (old.account?.id !== result.account?.id) clearProfile();
       accept(result);
       if (!result.account) {
         clearProfile();
@@ -131,14 +149,15 @@ function useAccountController() {
       const found = result.profiles.find((p) => p.id === wanted);
       if (found) await activate(found, result.account.id);
     } catch (e) {
-      setLoadError(e instanceof Error ? e.message : 'Account service unavailable.');
+      if (seq === sessionGeneration.current) setLoadError(e instanceof Error ? e.message : 'Account service unavailable.');
     } finally {
-      setReady(true);
+      if (seq === sessionGeneration.current) setReady(true);
     }
   }, [accept, activate, clearProfile]);
   useEffect(() => {
     void refresh();
     return () => {
+      sessionGeneration.current++;
       requestRef.current?.abort();
       scopeRef.current?.dispose();
     };
@@ -154,44 +173,61 @@ function useAccountController() {
     return () => window.removeEventListener('beforeunload', handler);
   }, []);
   useEffect(() => {
+    const expired = () => {
+      sessionGeneration.current++;
+      clearProfile();
+      accept(anonymousFrom(sessionRef.current));
+      setRecoveryCode(null);
+      setLoadError(null);
+      setReady(true);
+    };
+    window.addEventListener('solanime:session-expired', expired);
+    return () => window.removeEventListener('solanime:session-expired', expired);
+  }, [accept, clearProfile]);
+  useEffect(() => {
     const listener = () => {
       if (document.visibilityState === 'visible')
-        void accountRequest<SessionResponse>('session')
-          .then((result) => {
-            if (
-              result.account?.id !== sessionRef.current.account?.id ||
-              result.csrfToken !== sessionRef.current.csrfToken
-            ) {
-              clearProfile();
-              accept(result);
-            }
-          })
-          .catch(() => {});
+        void refresh();
     };
     document.addEventListener('visibilitychange', listener);
     return () => document.removeEventListener('visibilitychange', listener);
-  }, [accept, clearProfile]);
+  }, [refresh]);
   const login = async (email: string, password: string, remember: boolean, register = false) => {
-    await scopeRef.current?.flush();
-    const result = await accountRequest<SessionResponse>(register ? 'register' : 'login', {
-      email,
-      password,
-      remember,
-    });
-    clearProfile();
-    accept(result);
-    if (result.account) rememberProfile(result.account.id, null);
+    if (sessionMutation.current) throw new Error('An account change is already in progress. Please wait.');
+    sessionMutation.current = true;
+    const seq = ++sessionGeneration.current;
+    try {
+      await scopeRef.current?.flush();
+      if (seq !== sessionGeneration.current) return;
+      const result = await accountRequest<SessionResponse>(register ? 'register' : 'login', {
+        email, password, remember,
+      });
+      if (seq !== sessionGeneration.current) return;
+      clearProfile();
+      accept(result);
+      setLoadError(null);
+      setReady(true);
+      if (result.account) rememberProfile(result.account.id, null);
+      return result;
+    } finally { sessionMutation.current = false; }
   };
   const logout = async (discardUnsaved = false) => {
-    // Explicit discard is available when a failed sync would otherwise trap the session.
-    if (discardUnsaved) scopeRef.current?.dispose();
-    else await scopeRef.current?.flush();
-    await accountRequest('logout', {});
-    const id = sessionRef.current.account?.id;
-    if (id) rememberProfile(id, null);
-    clearProfile();
-    accept(empty);
-    setRecoveryCode(null);
+    if (sessionMutation.current) throw new Error('An account change is already in progress. Please wait.');
+    sessionMutation.current = true;
+    const seq = ++sessionGeneration.current;
+    try {
+      // Explicit discard is available when a failed sync would otherwise trap the session.
+      if (discardUnsaved) scopeRef.current?.dispose();
+      else await scopeRef.current?.flush();
+      if (seq !== sessionGeneration.current) return;
+      await accountRequest('logout', {});
+      if (seq !== sessionGeneration.current) return;
+      const id = sessionRef.current.account?.id;
+      if (id) rememberProfile(id, null);
+      clearProfile();
+      accept(anonymousFrom(sessionRef.current));
+      setRecoveryCode(null);
+    } finally { sessionMutation.current = false; }
   };
   const updateProfiles = async (result: { profiles: Profile[] }) => {
     accept({ ...sessionRef.current, profiles: result.profiles });

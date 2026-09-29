@@ -98,6 +98,7 @@ export function decodeStored<T>(key: string, value: unknown, fallback: T): T {
       )
       .map((entry) => ({
         ...entry,
+        continueHidden: entry.continueHidden === true,
         imageUrl: optionalText(entry.imageUrl),
         position:
           typeof entry.position === 'number' && Number.isFinite(entry.position) && entry.position >= 0
@@ -179,7 +180,10 @@ export function usePersistentState<T>(key: string, fallback: T) {
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, [key, scope]);
-  return [value, setValue] as const;
+  const update: typeof setValue = useCallback((next) => {
+    if (!scope?.readonly) setValue(next);
+  }, [scope]);
+  return [value, update] as const;
 }
 export function useWatchlist() {
   const [items, setItems] = usePersistentState<TitleSummary[]>('watchlist-records', []);
@@ -223,7 +227,10 @@ export function useHistory() {
     },
     [setEntries],
   );
-  return useMemo(() => ({ entries, remember, remove, clear }), [entries, remember, remove, clear]);
+  const dismissSeries = useCallback((titleId: string) => {
+    setEntries(current => current.map(entry => entry.titleId === titleId ? { ...entry, continueHidden: true } : entry));
+  }, [setEntries]);
+  return useMemo(() => ({ entries, remember, remove, clear, dismissSeries }), [entries, remember, remove, clear, dismissSeries]);
 }
 export function useWatchedEpisodes() {
   const [entries, setEntries] = usePersistentState<WatchedEpisode[]>('watched-episodes', []);

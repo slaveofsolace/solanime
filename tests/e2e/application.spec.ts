@@ -1,24 +1,17 @@
 import { test, expect } from '@playwright/test';
 import { fixtureArt, noOverflow, episode, watch } from './helpers';
+import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 
 test('browse, search, save and reopen a persistent list', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
+  await accountFixture(page);
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
-  if ((page.viewportSize()?.width ?? 0) > 820) {
     await page.getByRole('button', { name: 'Search all titles', exact: true }).click();
     await page.getByRole('searchbox', { name: 'Find titles', exact: true }).fill('Paper');
     await page.getByRole('searchbox', { name: 'Find titles', exact: true }).press('Enter');
-  } else {
-    await page
-      .getByRole('navigation', { name: 'Primary navigation' })
-      .getByRole('link', { name: 'Search', exact: true })
-      .click();
-    await page.getByRole('searchbox', { name: 'Search catalogue' }).fill('Paper');
-    await page.getByRole('searchbox', { name: 'Search catalogue' }).press('Enter');
-  }
   await expect(page).toHaveURL(/search\?q=Paper/);
   await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
   await page.getByRole('button', { name: 'My List', exact: true }).click();
@@ -55,9 +48,9 @@ test('catalogue retries HTML backend failures rather than interpreting them as d
   );
   await page.goto('/catalogue');
   await expect(
-    page.getByText('The catalogue API is not connected.', { exact: false }),
+    page.locator('.sol-brand-readiness').getByText('The catalogue API is not connected.', { exact: false }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await page.locator('.sol-brand-readiness').getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('.title-card').first()).toBeVisible();
 });
 test('large episode lists remain paginated and searchable', async ({ page }) => {
