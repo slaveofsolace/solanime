@@ -70,9 +70,8 @@ test('series cards, season changes and back navigation work at 320 and desktop w
     await expect(page).toHaveURL(/season=season-2/);
     await season.selectOption('all');
     await expect(page.locator('.episode-grid > li')).toHaveCount(3);
-    const thumbnail = page.locator('.episode-thumbnail').first();
-    const bounds = await thumbnail.boundingBox();
-    expect(bounds!.width / bounds!.height).toBeCloseTo(16 / 9, 1);
+    await expect(page.locator('.episode-browser')).toHaveClass(/episode-browser--no-stills/);
+    await expect(page.locator('.episode-thumbnail').first()).toBeHidden();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`series-${width}.png`), fullPage: true });
     await page.locator('.episode-grid li > a').first().click();

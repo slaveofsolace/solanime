@@ -5,6 +5,8 @@ evidence/playwright-results/
 evidence/playwright-report/
 playwright-report/
 test-results/
+/.playwright-cli/
+/build/
 coverage/
 .env
 .env.*
@@ -30,8 +32,15 @@ review-runtime/
 build/cloud-import-assets/
 build/cloud-worker-assets/
 build/cloud-worker-assets-*/
+build/cloud-approval-promotion/
+build/cloud-gate-dry-run/
+build/cloud-gate-version.json
 build/wrangler-*/
 build/desktop-preview/
+build/ios-device/
+build/ios-sim/
+mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj/project.xcworkspace/
+mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj/xcuserdata/
 
 # Local compiler state and non-shipping execution checkpoints.
 /tsconfig.tsbuildinfo

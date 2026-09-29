@@ -57,10 +57,11 @@ export function BrandReadiness({ ready, error, onRetry, onDismiss, reducedMotion
   if (dismissed) return null;
   return <section className={`sol-brand-readiness${inline ? ' sol-brand-readiness--inline' : ''}`} data-theme={theme} data-readiness={failure ? 'error' : canExit ? 'ready' : 'loading'} aria-busy={!canExit && !failure} aria-label="Solanime readiness">
     <SolanimeBrand variant="full" motion={failure ? 'error' : canExit ? 'ready' : 'intro'} sessionKey={sessionKey} reducedMotion={reducedMotion} theme={theme} onExitComplete={dismiss} decorative />
+    <span className="sol-brand-readiness__identity" aria-hidden="true">Solanime</span>
     {(!ready || failure) && <div className="sol-brand-readiness__status" role={failure ? 'alert' : 'status'} aria-live="polite">
       {failure ? <><p>{failure}</p><div className="sol-brand-readiness__actions">
         {onRetry && <button type="button" onClick={() => { setTimedOut(false); setAttempt(value => value + 1); onRetry(); }}>Try again</button>}
-        <button type="button" onClick={dismiss}>{onRetry ? 'Continue without waiting' : 'Continue'}</button>
+        <button type="button" onClick={dismiss}>{onRetry ? 'View page status' : 'Continue'}</button>
       </div></> : <p>Loading Solanime<span aria-hidden="true">…</span></p>}
     </div>}
   </section>;

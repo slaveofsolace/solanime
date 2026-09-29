@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import type { Episode, RelatedTitle, TitleDetail, TitleSummary } from '../types';
-import { InlineNotice, StatusPanel, TitleCard } from '../components/ui';
+import { CoverArt, InlineNotice, StatusPanel, TitleCard } from '../components/ui';
 import { useAppState } from '../state';
 import { useInitialReadiness } from '../branding/ApplicationReadiness';
 import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
@@ -160,6 +160,9 @@ function TitleSession() {
         <SpotlightArtwork title={{ ...title, name }} className="title-hero__art" />
         <div className="title-hero__content">
           <div className="title-hero__name-block">
+            <div className="title-hero__mobile-art" aria-hidden="true">
+              <CoverArt title={{ ...title, name }} eager />
+            </div>
             <p className="feature-meta">
               {[title.type ?? title.format, title.releaseYear ?? title.year]
                 .filter((value) => value !== null && value !== undefined && value !== '')
@@ -199,10 +202,6 @@ function TitleSession() {
               <div>
                 <dt>Episodes</dt>
                 <dd>{episodes.length || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
-              </div>
-              <div>
-                <dt>Versions</dt>
-                <dd>{languages.map(languageLabel).join(' / ') || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
               </div>
             </dl>
             {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}

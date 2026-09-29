@@ -268,12 +268,19 @@ export function parseEpisodeList(html: string, title: SnapshotTitle): EpisodeWor
     const baseSlug = `ep-${sourceSlug}`;
     const slug = usedSlugs.has(baseSlug) ? `${baseSlug}-${sourceId}` : baseSlug;
     usedSlugs.add(slug);
+    // The source exposes a real episode name next to its canonical data-num.
+    // Keep the number as the identity and fall back only when no name exists.
+    const sourceName = clean(anchor.find('.d-title').first().text());
+    const label = /^episode\s+\d+(?:\.\d+)?$/i.test(sourceName) &&
+      sourceName.replace(/^episode\s+/i, '') !== number
+      ? `Episode ${number}`
+      : sourceName || `Episode ${number}`;
     episodes.push({
       episode: {
         sourceId,
         number,
         numberSort: Number.isFinite(numeric) ? numeric : null,
-        label: `Episode ${number}`,
+        label,
         slug,
         canonicalUrl: `${title.canonicalUrl}/ep-${encodeURIComponent(sourceSlug)}`,
         availability: 'observed',

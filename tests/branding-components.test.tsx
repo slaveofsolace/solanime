@@ -123,7 +123,7 @@ describe('actual readiness', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Try again' }));
     expect(retry).toHaveBeenCalledTimes(1);
     act(() => vi.advanceTimersByTime(1200));
-    fireEvent.click(screen.getByRole('button', { name: 'Continue without waiting' }));
+    fireEvent.click(screen.getByRole('button', { name: 'View page status' }));
     expect(dismiss).toHaveBeenCalledTimes(1);
   });
   it('renders an explicit failure as a static identity with actionable controls', () => {

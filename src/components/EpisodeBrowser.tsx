@@ -69,8 +69,11 @@ function EpisodeBrowserContent({
     () => episodes.filter((episode) => !language || episode.versions.some((version) => version.language === language)),
     [episodes, language],
   );
-  const compactWithoutStills = !currentId && languageEpisodes.length >= 6 &&
-    languageEpisodes.filter((episode) => Boolean(episode.thumbnailUrl)).length < languageEpisodes.length / 2;
+  const stillCount = languageEpisodes.filter((episode) => Boolean(episode.thumbnailUrl)).length;
+  // A numbered text list is clearer than dozens of identical faux stills.
+  // Real episode images remain visible whenever even one is available.
+  const noEpisodeStills = languageEpisodes.length > 0 && stillCount === 0;
+  const compactWithoutStills = !currentId && noEpisodeStills;
   const seasonGroups = useMemo(() => {
     const parsed = languageEpisodes.map((episode) => ({ episode, season: episodeSeason(episode) }));
     const seasons = new Set(parsed.flatMap(({ season }) => (season == null ? [] : [season])));
@@ -121,7 +124,7 @@ function EpisodeBrowserContent({
   const showToolbar = languageEpisodes.length > 1 || normalizedQuery !== '';
   const showResultCount = !compactHeading || normalizedQuery !== '';
   return (
-    <div className={`episode-browser episode-browser--${currentId ? 'sidebar' : 'cards'}${compactWithoutStills ? ' episode-browser--compact' : ''}`}>
+    <div className={`episode-browser episode-browser--${currentId ? 'sidebar' : 'cards'}${compactWithoutStills ? ' episode-browser--compact' : ''}${noEpisodeStills ? ' episode-browser--no-stills' : ''}`}>
       <div className="episode-controls">
       {seasonGroups && (
         <label className="episode-season-picker">
@@ -217,12 +220,13 @@ function EpisodeBrowserContent({
                   <EpisodeArtwork episode={e} />
                   <span className="episode-play"><Icon name={mapped ? 'play' : 'info'} /></span>
                   {duration != null && duration > 0 && <span className="episode-duration">{Math.ceil(duration / 60)}m</span>}
-                  {percent > 0 && <span className="episode-progress" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
+                  {percent > 0 && !noEpisodeStills && <span className="episode-progress" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
                 </span>
                 <span className="episode-copy">
                   {!repeatedNumber && <span className="episode-number">{e.number == null ? 'Special' : /^\d+(?:\.\d+)?$/.test(String(e.number)) ? `E${e.number}` : e.number}</span>}
                   <strong>{displayName}</strong>
-                  <span className="episode-meta">{currentId === e.id ? 'Now selected' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : language === 'sub' ? 'Subtitled' : language === 'dub' ? 'Dubbed' : language}{!mapped && ' · Source unavailable'}</span>
+                  <span className="episode-meta">{currentId === e.id ? 'Now selected' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : language === 'sub' ? 'Subtitled' : language === 'dub' ? 'Dubbed' : language}{noEpisodeStills && duration != null && duration > 0 ? ` · ${Math.ceil(duration / 60)}m` : ''}{!mapped && ' · Source unavailable'}</span>
+                  {percent > 0 && noEpisodeStills && <span className="episode-progress episode-progress--inline" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
                 </span>
               </Link>
               <button

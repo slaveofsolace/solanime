@@ -29,7 +29,7 @@ describe('CoverArt', () => {
     expect(poster?.parentElement?.getAttribute('data-artwork-source')).toBe('poster-layout');
   });
 
-  it('tries the original thumbnail before presenting the explicit missing-art state', () => {
+  it('tries the original thumbnail before presenting a labeled title card', () => {
     const view = render(
       <CoverArt title={{ ...title, backdropUrl: null }} variant="landscape" />,
     );
@@ -40,9 +40,8 @@ describe('CoverArt', () => {
     ).toBe(title.imageUrl);
 
     fireEvent.error(view.container.querySelector('.cover-composition__poster')!);
-    expect(
-      view.getByLabelText('No artwork available for Artwork title').textContent,
-    ).toContain('Artwork unavailable');
+    const fallback = view.getByLabelText('No artwork available for Artwork title');
+    expect(fallback.querySelector('.cover-fallback__title')?.textContent).toBe('Artwork title');
   });
 
   it('uses a measured landscape fallback as full-bleed artwork', () => {

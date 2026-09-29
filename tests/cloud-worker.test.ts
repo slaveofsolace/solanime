@@ -2,7 +2,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { mkdirSync, mkdtempSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { handleCloudRequest, isReadOnlyReviewRoute } from '../server/cloud/worker';
+import { handleCloudRequest, isReadOnlyReviewRoute, requiresOwnerApproval } from '../server/cloud/worker';
 import { RELEASE } from '../shared/release';
 import { importHash } from '../server/cloud/data/import';
 import { IMPORT_TABLES } from '../server/cloud/data/import-schema';
@@ -149,6 +149,17 @@ describe('Worker API against actual D1', () => {
     expect((await request('/api/admin/accounts/pending', { headers: operator() }, privateMode)).status).toBe(200);
     expect((await request('/api/admin/accounts/pending', {}, privateMode)).status).toBe(401);
     expect((await request('/api/admin/accounts/bad/decision', mutation({ decision: 'approved' }, operator({ origin: 'https://elsewhere.example' })), privateMode)).status).toBe(403);
+  });
+  it('fails closed when only one owner-approval flag is present', async () => {
+    for (const partial of [
+      { SOLANIME_PRIVATE_SITE: 'true', SOLANIME_APPROVAL_REQUIRED: 'false' },
+      { SOLANIME_PRIVATE_SITE: 'false', SOLANIME_APPROVAL_REQUIRED: 'true' },
+    ]) {
+      const config = { ...env, ...partial };
+      expect(requiresOwnerApproval(config)).toBe(true);
+      expect((await request('/api/titles', {}, partial)).status).toBe(401);
+      expect((await request('/api/episodes/10/providers', {}, partial)).status).toBe(401);
+    }
   });
   it('returns versioned JSON health without waiting for unconfigured managed authentication', async () => {
     const response = await request('/api/health', { headers: { cookie: '__Host-solanime_session=' + 'a'.repeat(43), authorization: 'Bearer test-private-token' } });

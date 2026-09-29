@@ -110,13 +110,18 @@ export default function PlayerSurface({
       callbacks.current.onStateChange?.(next, message);
     };
     update('loading', 'Loading video…');
-    const timer = window.setTimeout(() => {
-      if (video.readyState < 2)
+    const metadataTimer = window.setTimeout(() => {
+      if (video.readyState < 1)
         update(
           'error',
           'The video is taking too long to load. Try again or choose another source.',
         );
     }, 25_000);
+    let playbackTimer: number | undefined;
+    const stopPlaybackTimer = () => {
+      if (playbackTimer !== undefined) window.clearTimeout(playbackTimer);
+      playbackTimer = undefined;
+    };
     const save = (seconds: number) => {
       if (!Number.isFinite(seconds) || seconds < 0) return;
       if (callbacks.current.rememberProgress) {
@@ -187,20 +192,39 @@ export default function PlayerSurface({
         }, 100);
       }
     };
+    const metadataReady = () => {
+      restore();
+      window.clearTimeout(metadataTimer);
+      // iOS WebKit can defer fetching decodable frames until a user presses Play.
+      // Metadata is enough to offer that action, but never proves playback.
+      if (video.paused) update('ready', '');
+    };
     const ready = () => {
       // WebKit may reset a loadedmetadata seek while finalizing a new resource; verify once at
       // canplay without rewinding media that has already advanced.
       restore();
-      clearTimeout(timer);
-      update(video.paused ? 'ready' : 'playing', '');
+      window.clearTimeout(metadataTimer);
+      if (video.paused) update('ready', '');
+    };
+    const starting = () => {
+      window.clearTimeout(metadataTimer);
+      stopPlaybackTimer();
+      update('loading', 'Starting video…');
+      playbackTimer = window.setTimeout(() => {
+        update('error', 'The video did not start. Try again or choose another source.');
+      }, 25_000);
     };
     const playing = () => {
-      clearTimeout(timer);
+      stopPlaybackTimer();
       if (!opened) {
         opened = true;
         callbacks.current.onOpen?.();
       }
       update('playing', '');
+    };
+    const paused = () => {
+      stopPlaybackTimer();
+      if (!video.ended && !video.error) update('ready', '');
     };
     const ended = () => {
       save(0);
@@ -208,8 +232,11 @@ export default function PlayerSurface({
         callbacks.current.onProgress?.(video.duration, video.duration);
       callbacks.current.onEnded?.();
     };
-    const failed = () =>
+    const failed = () => {
+      window.clearTimeout(metadataTimer);
+      stopPlaybackTimer();
       update('error', 'This video could not be played. Try again or choose another source.');
+    };
     const remember = () => {
       restore();
       if (!video.ended && Date.now() - lastProgressWrite >= 5000) {
@@ -220,9 +247,11 @@ export default function PlayerSurface({
         callbacks.current.onProgress?.(video.currentTime, video.duration);
       }
     };
-    video.addEventListener('loadedmetadata', restore);
+    video.addEventListener('loadedmetadata', metadataReady);
     video.addEventListener('canplay', ready);
+    video.addEventListener('play', starting);
     video.addEventListener('playing', playing);
+    video.addEventListener('pause', paused);
     video.addEventListener('error', failed);
     video.addEventListener('timeupdate', remember);
     video.addEventListener('ended', ended);
@@ -284,11 +313,14 @@ export default function PlayerSurface({
     return () => {
       cancelled = true;
       controller.abort();
-      clearTimeout(timer);
+      window.clearTimeout(metadataTimer);
+      stopPlaybackTimer();
       stopRestoreCheck();
-      video.removeEventListener('loadedmetadata', restore);
+      video.removeEventListener('loadedmetadata', metadataReady);
       video.removeEventListener('canplay', ready);
+      video.removeEventListener('play', starting);
       video.removeEventListener('playing', playing);
+      video.removeEventListener('pause', paused);
       video.removeEventListener('error', failed);
       video.removeEventListener('timeupdate', remember);
       video.removeEventListener('ended', ended);

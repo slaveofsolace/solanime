@@ -38,6 +38,23 @@ describe('Anikoto public response parsers', () => {
     expect(result[0].episode.versions.map((version) => version.language)).toEqual(['sub', 'dub']);
   });
 
+  it('keeps observed episode names tied to the source episode number and ID', () => {
+    const title = parseCataloguePage(
+      '<div class="ani items"><div class="item"><div class="ani poster tip" data-tip="42"><a href="/watch/test-title/ep-1"><img alt="Test Title"></a></div><a class="name d-title" href="/watch/test-title/ep-1">Test Title</a></div></div>',
+    ).titles[0];
+    const result = parseEpisodeList(
+      '<a data-id="e1" data-num="1" data-slug="1" data-sub="1"><b>1</b><span class="d-title">Paranormal Jailbreak: Schooler of Deadlock</span></a>' +
+      '<a data-id="e2" data-num="2" data-slug="2" data-sub="1"><b>2</b></a>' +
+      '<a data-id="e3" data-num="3" data-slug="3" data-sub="1"><span class="d-title">Episode 4</span></a>',
+      title,
+    );
+    expect(result.map(({ episode }) => ({ sourceId: episode.sourceId, number: episode.number, label: episode.label }))).toEqual([
+      { sourceId: 'e1', number: '1', label: 'Paranormal Jailbreak: Schooler of Deadlock' },
+      { sourceId: 'e2', number: '2', label: 'Episode 2' },
+      { sourceId: 'e3', number: '3', label: 'Episode 3' },
+    ]);
+  });
+
   it('retains duplicate upstream route slugs as distinct episode records', () => {
     const title = parseCataloguePage(
       '<div class="ani items"><div class="item"><div class="ani poster tip" data-tip="42"><a href="/watch/test-title/ep-1"><img alt="Test Title"></a></div><a class="name d-title" href="/watch/test-title/ep-1">Test Title</a></div></div>',

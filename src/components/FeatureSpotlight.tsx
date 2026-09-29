@@ -100,19 +100,26 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
       <div className="spotlight-scene" key={item.id}>
         <SpotlightArtwork title={item} />
         <div className="home-feature__copy">
-          <p className="feature-kicker">Featured anime</p>
-          <h2 id="featured-title"><Link to={`/title/${encodeURIComponent(item.slug)}`}>{item.name}</Link></h2>
-          <p className="feature-meta">
-            {[
-              (item.languages ?? []).map(value => value === 'sub' ? 'Sub' : value === 'dub' ? 'Dub' : value).join(' | ') || item.type,
-              item.releaseYear,
-              item.episodeCount
-                ? `${item.episodeCount} ${item.episodeCount === 1 ? 'episode' : 'episodes'}`
-                : null,
-            ]
-              .filter(Boolean)
-              .map((fact) => <span key={fact}>{fact}</span>)}
-          </p>
+          <div className="home-feature__intro">
+            <div className="home-feature__mobile-art" aria-hidden="true">
+              <CoverArt title={item} eager />
+            </div>
+            <div className="home-feature__intro-copy">
+              <p className="feature-kicker">Featured anime</p>
+              <h2 id="featured-title"><Link to={`/title/${encodeURIComponent(item.slug)}`}>{item.name}</Link></h2>
+              <p className="feature-meta">
+                {[
+                  (item.languages ?? []).map(value => value === 'sub' ? 'Sub' : value === 'dub' ? 'Dub' : value).join(' | ') || item.type,
+                  item.releaseYear,
+                  item.episodeCount
+                    ? `${item.episodeCount} ${item.episodeCount === 1 ? 'episode' : 'episodes'}`
+                    : null,
+                ]
+                  .filter(Boolean)
+                  .map((fact) => <span key={fact}>{fact}</span>)}
+              </p>
+            </div>
+          </div>
           {item.synopsis && <p className="feature-synopsis">{item.synopsis.replace(/\s*\[more\]\s*$/i, '')}</p>}
           <div className="button-row">
             <Link className="button button--primary" to={destination}>

@@ -92,6 +92,95 @@ and do not roll back the schema while newer code is live. Local Node defaults
 both flags to `false` in `.env.example` so existing local test workflows remain
 usable until explicitly enabled.
 
+### Existing Worker with private assets absent from the checkout
+
+`pnpm verify:private-approval -- https://solanime.pages.dev` checks the deployed
+session flags and anonymous catalogue, metadata, provider, and resolve routes.
+It must pass before describing the application as owner approved. A release
+version string alone does not establish this boundary.
+
+If the pinned `build/cloud-worker-assets-*` directory is absent, do not run
+ordinary `wrangler deploy`: it cannot safely replace the complete private asset
+set. `node scripts/cloud-approval-promotion.mjs plan` makes a read-only comparison
+of the active Worker bindings, verifies a health canary that reads the pinned
+private baseline through `IMPORT_ASSETS`, and bundles the current source locally.
+Review the ignored `build/cloud-approval-promotion/plan.json`. It contains binding
+names and a source digest, not credential values. The plan requires the latest
+uploaded Worker version to equal the active reviewed version, then uses
+Cloudflare's `keep_assets: true` with strict `latest` binding inheritance.
+The uploaded bindings are compared exactly with the reviewed version. Version
+URLs are disabled for this Worker, so the
+new version cannot be treated as tested merely because upload succeeds.
+
+After reviewing the exact plan and current branch, upload and then deploy with
+the active version ID and bundle SHA-256 printed by the plan:
+
+```sh
+node scripts/cloud-approval-promotion.mjs upload --apply --expect-current=<reviewed-version-id> --expect-bundle=<reviewed-sha256>
+node scripts/cloud-approval-promotion.mjs deploy --apply --expect-current=<reviewed-version-id> --expect-bundle=<reviewed-sha256>
+```
+
+The upload creates a version without traffic and compares its bindings and asset
+routing with the old version. Deployment runs the anonymous gate check and the
+same private baseline canary. On either failure, the script redeploys the
+previous version. An operator can also roll back explicitly with
+`pnpm exec wrangler versions deploy <previous-version-id>@100% --name solanime-api-preview --yes`.
+Keep version IDs and canary results in the release handoff; never copy Wrangler
+OAuth tokens, account emails, recovery codes, or profiles into it.
+
+**2026-09-29 15:20 CDT approval-gate repair.** Before the repair, the active
+Worker version was `9f8088b8-3619-4b13-bca1-d8c0450dd0fd`. It had 25
+bindings, lacking exactly `SOLANIME_PRIVATE_SITE` and
+`SOLANIME_APPROVAL_REQUIRED`; the deployed session response lacked both flags,
+and anonymous titles, filters, and providers all returned HTTP 200. All remote
+account migrations were applied. A read-only count found two approved account
+rows; this does not identify whether both had owner review.
+
+`node scripts/cloud-approval-promotion.mjs plan` bundled the current Worker at
+SHA-256 `df60116b5a98a160f299b20cea309c972b8a2e62a4b31653d0c9d9c18a7c6578`
+(1,049,008 bytes). The plan inherited 25 existing bindings, added the two gate
+flags as `true`, retained the private asset set, and recorded the baseline-backed
+health canary SHA-256
+`1372afce0f38b1626209d83d5fd3c3186c793e0d9549ec62c4ca8ad6a558dce7`.
+Cloudflare rejected an initial non-serving upload using explicit UUID binding
+inheritance with HTTP 400/code 10057: this API accepted only `version_id: latest`.
+After adding a guard that the latest uploaded version equaled the active reviewed
+version, these commands succeeded:
+
+```sh
+node scripts/cloud-approval-promotion.mjs upload --apply --expect-current=9f8088b8-3619-4b13-bca1-d8c0450dd0fd --expect-bundle=df60116b5a98a160f299b20cea309c972b8a2e62a4b31653d0c9d9c18a7c6578
+node scripts/cloud-approval-promotion.mjs deploy --apply --expect-current=9f8088b8-3619-4b13-bca1-d8c0450dd0fd --expect-bundle=df60116b5a98a160f299b20cea309c972b8a2e62a4b31653d0c9d9c18a7c6578
+pnpm verify:private-approval -- https://solanime.pages.dev
+```
+
+Uploaded and active Worker version: `67aa15e8-b169-40a7-b6ba-eb07e9f0617d`
+at 100%. Its 27 bindings and private asset routing matched the plan; the health
+canary digest remained unchanged. The guarded deployment reported all anonymous
+approval checks passing. One immediate independent check briefly returned HTTP
+200 for `/api/titles?pageSize=1` while the other protected routes returned 401,
+consistent with rollout propagation. Ten subsequent title requests and three
+serial checks returned HTTP 401; a fresh verifier run passed all eight checks.
+This establishes the observed anonymous gate at the tested edge, not an
+approved/pending user-cycle test or native app release. No Pages assets were
+changed by this Worker repair.
+
+**2026-09-29 15:57 CDT preview UI deployment.** After the account, mobile
+viewing, episode-label, splash, compact Library, and catalogue-filter fixes,
+`pnpm check` passed 104 test files / 886 tests, typecheck, and Vite build.
+Focused mobile WebKit account, watch, catalogue-filter, and splash recovery
+checks passed. The splash artwork no longer intercepts the recovery controls. The
+exact command `node scripts/deploy-pages.mjs --branch=cloud-release` deployed
+the revised frontend to `https://06e81bdc.solanime.pages.dev`, with stable
+alias `https://cloud-release.solanime.pages.dev`. The alias served
+`/assets/index-guQSLGhF.js` and `/assets/index-Drq2TriB.css`.
+`pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed
+the frontend/API release and frame-policy checks, and
+`pnpm verify:private-approval -- https://cloud-release.solanime.pages.dev`
+passed all eight anonymous checks. Cloudflare's first alias read briefly
+returned the previous asset hashes after deployment; a fresh request then
+returned the new hashes. No `main` Pages deployment was made. These checks
+do not establish approved-account login or physical iPhone video progress.
+
 ## Reproduce a preview
 
 Use the Node/pnpm versions in the [README](../README.md), an existing authorized

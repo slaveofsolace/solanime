@@ -304,8 +304,9 @@ export function CoverArt({
         className="cover-fallback"
         aria-label={`No artwork available for ${title.name ?? title.title}`}
       >
-        <SolanimeBrand variant="emblem" motion="static" theme="dark" decorative />
-        <small>Artwork unavailable</small>
+        <span className="cover-fallback__brand" aria-hidden="true">Solanime</span>
+        <strong className="cover-fallback__title" aria-hidden="true">{title.name ?? title.title}</strong>
+        {title.releaseYear && <small aria-hidden="true">{title.releaseYear}</small>}
       </div>
     );
   }

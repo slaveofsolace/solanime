@@ -8,12 +8,14 @@ struct SolanimeProtectedPlayerApp: App {
             ProtectedRootView()
                 .background(Color.black)
                 .ignoresSafeArea(edges: .bottom)
+                .preferredColorScheme(.dark)
         }
     }
 }
 
 private struct ProtectedRootView: View {
     @State private var failure: String?
+    @State private var loaded = false
     @State private var attempt = 0
 
     var body: some View {
@@ -26,6 +28,7 @@ private struct ProtectedRootView: View {
                         .multilineTextAlignment(.center)
                     Button("Retry") {
                         self.failure = nil
+                        loaded = false
                         attempt += 1
                     }
                     .buttonStyle(.borderedProminent)
@@ -35,15 +38,74 @@ private struct ProtectedRootView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.black)
             } else {
-                ProtectedSiteView(onFailure: { failure = $0 })
+                ZStack {
+                    ProtectedSiteView(onFailure: { failure = $0 }, onLoad: {
+                        withAnimation(.easeOut(duration: 0.2)) { loaded = true }
+                    })
                     .id(attempt)
+
+                    if !loaded {
+                        NativeLoadingView()
+                            .transition(.opacity)
+                            .allowsHitTesting(false)
+                    }
+                }
             }
         }
     }
 }
 
+private struct NativeLoadingView: View {
+    var body: some View {
+        VStack(spacing: 18) {
+            Image("SolanimeMark")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120, height: 120)
+                .accessibilityHidden(true)
+            Text("Solanime")
+                .font(.system(size: 28, weight: .semibold, design: .rounded))
+                .foregroundStyle(.white)
+            ProgressView()
+                .tint(Color(red: 1, green: 0.58, blue: 0.13))
+                .padding(.top, 8)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            ZStack {
+                Color(red: 0.027, green: 0.031, blue: 0.071)
+                RadialGradient(
+                    colors: [Color.orange.opacity(0.12), .clear],
+                    center: .center,
+                    startRadius: 20,
+                    endRadius: 270
+                )
+            }
+            .ignoresSafeArea()
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Opening Solanime")
+    }
+}
+
 private enum DocumentPolicy {
-    static let start = URL(string: "https://solanime.pages.dev/")!
+    static var start: URL {
+#if DEBUG
+        // Installed development builds open the reviewed preview UI. Release
+        // builds continue to use the canonical production origin.
+        // Device diagnostics can open an exact watch route without weakening
+        // the document policy or changing the release app's entry point.
+        let argumentPrefix = "--solanime-watch-url="
+        if let argument = ProcessInfo.processInfo.arguments.first(where: { $0.hasPrefix(argumentPrefix) }),
+           let url = URL(string: String(argument.dropFirst(argumentPrefix.count))),
+           url.path.hasPrefix("/watch/"), permits(url, mainFrame: true) {
+            return url
+        }
+        return URL(string: "https://cloud-release.solanime.pages.dev/")!
+#else
+        return URL(string: "https://solanime.pages.dev/")!
+#endif
+    }
 
     static func permits(_ url: URL?, mainFrame: Bool) -> Bool {
         guard let url else { return false }
@@ -53,6 +115,9 @@ private enum DocumentPolicy {
               url.port == nil || url.port == 443,
               let host = url.host?.lowercased() else { return false }
         if host == "solanime.pages.dev" { return true }
+#if DEBUG
+        if host == "cloud-release.solanime.pages.dev" { return true }
+#endif
         if mainFrame { return false }
         return host == "megaplay.buzz" || host == "www.youtube-nocookie.com"
     }
@@ -60,8 +125,9 @@ private enum DocumentPolicy {
 
 struct ProtectedSiteView: UIViewRepresentable {
     let onFailure: (String) -> Void
+    let onLoad: () -> Void
 
-    func makeCoordinator() -> Coordinator { Coordinator(onFailure: onFailure) }
+    func makeCoordinator() -> Coordinator { Coordinator(onFailure: onFailure, onLoad: onLoad) }
 
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
@@ -105,11 +171,17 @@ struct ProtectedSiteView: UIViewRepresentable {
 
     final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         let onFailure: (String) -> Void
+        let onLoad: () -> Void
         var initialNavigation: WKNavigation?
         private var rejectedWindowCount = 0
 
-        init(onFailure: @escaping (String) -> Void) {
+        init(onFailure: @escaping (String) -> Void, onLoad: @escaping () -> Void) {
             self.onFailure = onFailure
+            self.onLoad = onLoad
+        }
+
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            if navigation === initialNavigation { onLoad() }
         }
 
         func webView(_ webView: WKWebView,

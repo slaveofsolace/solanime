@@ -38,7 +38,7 @@ test('desktop navigation separates Anime and TV and retires the Movies sector', 
   await expect(page.getByRole('link', { name: 'Open Fixture Screen Series', exact: true })).toBeVisible();
 });
 
-test('mobile header navigation keeps collections and search directly reachable', async ({ page }) => {
+test('mobile viewing shell keeps compact header, browsing, and search reachable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 
@@ -49,5 +49,19 @@ test('mobile header navigation keeps collections and search directly reachable',
   await expect(navigation.getByRole('button', { name: 'Categories', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Search all titles', exact: true })).toBeVisible();
   await expect(navigation.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
+  const header = await page.locator('.masthead').boundingBox();
+  const tabs = await navigation.boundingBox();
+  const feature = await page.locator('.home-feature').boundingBox();
+  const rail = await page.locator('.home-rail').first().boundingBox();
+  expect(header?.height).toBeLessThanOrEqual(60);
+  expect(tabs?.y).toBeGreaterThan(760);
+  expect(feature?.height).toBeLessThan(450);
+  expect(rail?.y).toBeLessThan(560);
+  await navigation.getByRole('button', { name: 'Categories', exact: true }).click();
+  await expect(page.locator('#browse-categories')).toBeVisible();
+  const sheet = await page.locator('#browse-categories').boundingBox();
+  expect(sheet!.y + sheet!.height).toBeLessThanOrEqual(tabs!.y + 1);
+  await navigation.getByRole('button', { name: 'Categories', exact: true }).press('Escape');
+  await expect(page.locator('#browse-categories')).toHaveCount(0);
   await noOverflow(page);
 });

@@ -32,6 +32,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
     return (
       <RecoveryCard
         code={auth.recoveryCode}
+        doneLabel="Choose a profile"
         onDone={() => {
           auth.setRecoveryCode(null);
           navigate(withReturnTo('/profiles', safeReturnTo(params.get('returnTo'))), { replace: true });
@@ -39,7 +40,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
       />
     );
   if (freshCode)
-    return <RecoveryCard code={freshCode} replacement onDone={() => setFreshCode(null)} />;
+    return <RecoveryCard code={freshCode} doneLabel="Return to account" replacement onDone={() => setFreshCode(null)} />;
   if (!auth.account)
     return (
       <section className="account-empty">
@@ -249,9 +250,13 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
               </button>
             </form>
           </section>
-          <section className="account-section">
-            <div className="section-heading">
-              <h2>Active sessions</h2>
+          <details className="account-section account-disclosure">
+            <summary>
+              <span>Active sessions</span>
+              <small>Review devices signed in to your account</small>
+            </summary>
+            <div className="section-heading account-disclosure-content">
+              <p>Keep only the sessions you recognize.</p>
               <button
                 className="text-button"
                 disabled={busy}
@@ -275,15 +280,18 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
                 </li>
               ))}
             </ul>
-          </section>
+          </details>
         </div>
         <aside>
           <section className="account-section">
             <h2>Viewing preferences</h2>
             <p><Link to="/settings">Open Settings</Link> to change playback, language, and appearance for your profile.</p>
           </section>
-          <section className="account-section">
-            <h2>Your data</h2>
+          <details className="account-section account-disclosure">
+            <summary>
+              <span>Your data</span>
+              <small>Download a copy of your account information</small>
+            </summary>
             <p>
               Export your account details, profiles, saved lists, and history. Passwords and session
               secrets are excluded.
@@ -312,7 +320,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
               Email is your sign-in identifier. This version uses private recovery codes, not email
               verification or reset emails.
             </p>
-          </section>
+          </details>
         </aside>
       </div>
     </section>

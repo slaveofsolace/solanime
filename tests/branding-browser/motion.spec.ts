@@ -38,7 +38,7 @@ test('actual ready honors the existing minimum; failure has retry and escape', a
   await overlay.getByRole('button', { name: 'Try again' }).click();
   await expect(overlay).toHaveAttribute('aria-busy', 'true');
   await page.getByRole('button', { name: 'Simulate loading failure' }).click();
-  await overlay.getByRole('button', { name: 'Continue without waiting' }).click();
+  await overlay.getByRole('button', { name: 'View page status' }).click();
   await expect(overlay).toHaveCount(0);
   await page.getByRole('button', { name: 'Test application readiness' }).click();
   await expect(overlay).toHaveCount(0);

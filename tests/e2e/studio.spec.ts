@@ -120,7 +120,7 @@ test('major screens have meaningful content, no overflow and accessible controls
       else if (label === 'empty')
         await expect(page.getByRole('heading', { name: 'No titles found' })).toBeVisible();
       else if (label === 'error') {
-        await page.getByRole('button', { name: 'Continue without waiting' }).click();
+        await page.getByRole('button', { name: 'View page status' }).click();
         await expect(page.getByRole('heading', { name: 'Title unavailable' })).toBeVisible();
       }
       else await expect(page.locator('main h1').first()).toBeVisible();
