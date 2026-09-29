@@ -29,6 +29,17 @@ async function main() {
     await page.locator('#solanime-popup-guard-smoke').click();
     await page.waitForTimeout(800);
 
+    await page.evaluate(() => {
+      const link = document.createElement('a');
+      link.id = 'solanime-navigation-guard-smoke';
+      link.href = 'https://example.com/solanime-navigation-probe';
+      link.textContent = 'Navigation policy probe';
+      link.style.cssText = 'position:fixed;z-index:2147483647;top:60px;left:10px';
+      document.body.append(link);
+    });
+    await page.locator('#solanime-navigation-guard-smoke').click({ noWaitAfter: true });
+    await page.waitForTimeout(800);
+
     if (createdWindows !== 0) throw new Error(`Unexpected windows: ${createdWindows}`);
     if (new URL(page.url()).hostname !== 'solanime.pages.dev') {
       throw new Error(`Parent navigated unexpectedly: ${page.url()}`);

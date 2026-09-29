@@ -39,11 +39,30 @@ async function main() {
     const before = await sample();
     await page.waitForTimeout(3_500);
     const playing = await sample();
+    await provider.evaluate(() => {
+      const probe = document.createElement('button');
+      probe.id = 'solanime-native-popup-probe';
+      probe.textContent = 'Popup policy probe';
+      probe.style.cssText = 'position:fixed;left:8px;top:8px;z-index:2147483647';
+      probe.addEventListener('click', () => {
+        window.__solanimePopupAttempted = true;
+        window.__solanimePopupResult = window.open('https://example.com/solanime-popup-probe', '_blank') === null
+          ? 'denied' : 'opened';
+      });
+      document.body.append(probe);
+    });
+    await provider.locator('#solanime-native-popup-probe').click();
+    const popupProbe = await provider.evaluate(() => ({
+      attempted: window.__solanimePopupAttempted === true,
+      result: window.__solanimePopupResult
+    }));
+    await provider.locator('#solanime-native-popup-probe').evaluate(element => element.remove());
     const box = await frame.boundingBox();
     if (!box) throw new Error('Player not visible');
-    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+    let playInteraction = 'already-playing';
     if (await video.evaluate(element => element.paused)) {
       await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+      playInteraction = 'clicked-provider';
     }
     await page.waitForTimeout(2_000);
     const after = await sample();
@@ -51,9 +70,10 @@ async function main() {
     const parentStable = page.url().startsWith(watchUrl.split('?')[0]);
     const advanced = playing.time > before.time + 1 && after.time > playing.time + 1
       && after.frames > before.frames && after.width > 0 && after.height > 0 && after.ready >= 2;
-    const outcome = { iframeUrl, before, playing, after, createdWindows, parentStable, advanced, artifact };
+    const outcome = { iframeUrl, before, playing, after, playInteraction, popupProbe, createdWindows, parentStable, advanced, artifact };
     console.log(JSON.stringify(outcome));
-    if (!advanced || createdWindows !== 0 || !parentStable) process.exitCode = 1;
+    if (!advanced || !popupProbe.attempted || popupProbe.result !== 'denied' ||
+        createdWindows !== 0 || !parentStable) process.exitCode = 1;
   } finally {
     await preview.close();
   }

@@ -1,7 +1,7 @@
 'use strict';
 
 const { app, BrowserWindow, session } = require('electron');
-const { SITE, permittedDocument, observedAdRequest, safeHost } = require('./policy.cjs');
+const { SITE, permittedDocument, blockedRequest, safeHost } = require('./policy.cjs');
 
 app.enableSandbox();
 
@@ -15,8 +15,8 @@ function createWindow() {
     permission === 'fullscreen' && permittedDocument(requestingOrigin, false));
   profile.on('will-download', event => event.preventDefault());
   profile.webRequest.onBeforeRequest({ urls: ['<all_urls>'] }, (details, callback) => {
-    const cancel = observedAdRequest(details.url);
-    if (cancel) console.warn('Blocked observed ad request:', safeHost(details.url));
+    const cancel = blockedRequest(details.url, details.resourceType);
+    if (cancel) console.warn('Blocked request:', details.resourceType, safeHost(details.url));
     callback({ cancel });
   });
 

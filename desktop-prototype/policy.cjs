@@ -27,6 +27,15 @@ function observedAdRequest(rawUrl) {
   }
 }
 
+// Navigation is a document decision, not a blanket request allowlist. Media,
+// manifests, captions, and player scripts may use distinct delivery hosts.
+function blockedRequest(rawUrl, resourceType) {
+  if (observedAdRequest(rawUrl)) return true;
+  if (resourceType === 'mainFrame') return !permittedDocument(rawUrl, true);
+  if (resourceType === 'subFrame') return !permittedDocument(rawUrl, false);
+  return false;
+}
+
 function safeHost(rawUrl) {
   try {
     return new URL(rawUrl).hostname;
@@ -35,4 +44,4 @@ function safeHost(rawUrl) {
   }
 }
 
-module.exports = { SITE, permittedDocument, observedAdRequest, safeHost };
+module.exports = { SITE, permittedDocument, observedAdRequest, blockedRequest, safeHost };
