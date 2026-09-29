@@ -2,7 +2,7 @@
 
 const assert = require('node:assert/strict');
 const test = require('node:test');
-const { permittedDocument, observedAdRequest } = require('./policy.cjs');
+const { permittedDocument, observedAdRequest, blockedRequest } = require('./policy.cjs');
 
 test('the app site remains navigable but cannot be confused with a lookalike', () => {
   assert.equal(permittedDocument('https://solanime.pages.dev/watch/example', true), true);
@@ -26,4 +26,15 @@ test('the secondary request filter is exact-host only', () => {
   assert.equal(observedAdRequest('https://sub.wuytg.com/path'), true);
   assert.equal(observedAdRequest('https://notwuytg.com/path'), false);
   assert.equal(observedAdRequest('https://megaplay.buzz/stream'), false);
+});
+
+test('network navigation is contained without blocking unknown media delivery hosts', () => {
+  assert.equal(blockedRequest('https://solanime.pages.dev/watch/a', 'mainFrame'), false);
+  assert.equal(blockedRequest('https://megaplay.buzz/stream/s-2/20121/sub', 'subFrame'), false);
+  assert.equal(blockedRequest('https://megaplay.buzz/stream/s-2/20121/sub', 'mainFrame'), true);
+  assert.equal(blockedRequest('https://new-ad.example/landing', 'subFrame'), true);
+  assert.equal(blockedRequest('https://new-ad.example/landing', 'mainFrame'), true);
+  assert.equal(blockedRequest('https://cdn.example/video.m3u8', 'media'), false);
+  assert.equal(blockedRequest('https://cdn.example/segment.ts', 'xhr'), false);
+  assert.equal(blockedRequest('https://wuytg.com/media.ts', 'media'), true);
 });

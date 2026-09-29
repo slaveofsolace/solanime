@@ -5,9 +5,39 @@ import WebKit
 struct SolanimeProtectedPlayerApp: App {
     var body: some Scene {
         WindowGroup {
-            ProtectedSiteView()
+            ProtectedRootView()
                 .background(Color.black)
                 .ignoresSafeArea(edges: .bottom)
+        }
+    }
+}
+
+private struct ProtectedRootView: View {
+    @State private var failure: String?
+    @State private var attempt = 0
+
+    var body: some View {
+        Group {
+            if let failure {
+                VStack(spacing: 16) {
+                    Text("Solanime could not start safely")
+                        .font(.headline)
+                    Text(failure)
+                        .multilineTextAlignment(.center)
+                    Button("Retry") {
+                        self.failure = nil
+                        attempt += 1
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(32)
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.black)
+            } else {
+                ProtectedSiteView(onFailure: { failure = $0 })
+                    .id(attempt)
+            }
         }
     }
 }
@@ -29,7 +59,9 @@ private enum DocumentPolicy {
 }
 
 struct ProtectedSiteView: UIViewRepresentable {
-    func makeCoordinator() -> Coordinator { Coordinator() }
+    let onFailure: (String) -> Void
+
+    func makeCoordinator() -> Coordinator { Coordinator(onFailure: onFailure) }
 
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
@@ -44,20 +76,21 @@ struct ProtectedSiteView: UIViewRepresentable {
         view.isOpaque = false
         view.backgroundColor = .black
         view.scrollView.backgroundColor = .black
-        // Secondary, exact-host filter for the ad destination observed in the Android click trace.
-        // Compile before loading; a rule failure must not silently start an unfiltered player.
-        let rules = #"[{"trigger":{"url-filter":"^https?://([a-z0-9-]+[.])*wuytg[.]com([:/]|$)"},"action":{"type":"block"}}]"#
+        // Block all popup resources before WebKit creates them, then reject any
+        // remaining createWebView request in the UI delegate. Media hosts are not
+        // blanket-blocked. The second rule is one observed ad destination.
+        let rules = #"[{"trigger":{"url-filter":".*","resource-type":["popup"]},"action":{"type":"block"}},{"trigger":{"url-filter":"^https?://([a-z0-9-]+[.])*wuytg[.]com([:/]|$)"},"action":{"type":"block"}}]"#
         WKContentRuleListStore.default().compileContentRuleList(
-            forIdentifier: "solanime-observed-ad-20260928",
+            forIdentifier: "solanime-native-guard-20260929",
             encodedContentRuleList: rules
         ) { rule, error in
             DispatchQueue.main.async {
                 guard let rule, error == nil else {
-                    NSLog("Solanime prototype content rule failed; player remains unloaded")
+                    context.coordinator.onFailure("The protection rules did not initialize. No provider page was loaded.")
                     return
                 }
                 view.configuration.userContentController.add(rule)
-                view.load(URLRequest(url: DocumentPolicy.start))
+                context.coordinator.initialNavigation = view.load(URLRequest(url: DocumentPolicy.start))
             }
         }
         return view
@@ -66,7 +99,13 @@ struct ProtectedSiteView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 
     final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
+        let onFailure: (String) -> Void
+        var initialNavigation: WKNavigation?
         private var rejectedWindowCount = 0
+
+        init(onFailure: @escaping (String) -> Void) {
+            self.onFailure = onFailure
+        }
 
         func webView(_ webView: WKWebView,
                      decidePolicyFor action: WKNavigationAction,
@@ -105,6 +144,12 @@ struct ProtectedSiteView: UIViewRepresentable {
             rejectedWindowCount += 1
             NSLog("Solanime prototype rejected new WebView; count=%d", rejectedWindowCount)
             return nil
+        }
+
+        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+            if navigation === initialNavigation {
+                onFailure("The site did not load. Check your connection and retry.")
+            }
         }
     }
 }
