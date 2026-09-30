@@ -230,6 +230,11 @@ returning 401. The API Worker and production Pages were not changed. The paired
 iPhone became unavailable to `devicectl` after the build-7 installation, so
 the exact latest frontend and real protected video remain unverified on device.
 The release is still gated; see the newest checkpoint in the native handoff.
+At 15:38 CDT the paired iPhone reconnected and `devicectl` read back build 7.
+The protected watch page for requested mapping `384944` opened in Mirroring,
+but Play input and video-frame verification remained incomplete; the newest
+native handoff records the exact blocker. The preview deployment and release
+gate status above did not change.
 
 ## Reproduce a preview
 

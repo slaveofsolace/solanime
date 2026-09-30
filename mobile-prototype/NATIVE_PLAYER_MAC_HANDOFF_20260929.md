@@ -1,5 +1,19 @@
 # Solanime native protected-player handoff (2026-09-29)
 
+## Physical iPhone reconnection, 2026-09-30 15:38 CDT
+
+The paired iPhone 16 Pro is **connected** again. `xcrun devicectl list devices` reported it connected; `xcrun devicectl device info apps` read back `Solanime`, bundle `dev.solanime.protectedplayer.preview`, version `0.1.0`, build `7`. A normal `devicectl device process launch --terminate-existing` succeeded and Mirroring displayed the latest full-art Home layout. The Debug-only, first-party watch-route launch was then attempted with `https://cloud-release.solanime.pages.dev/watch/unlimited-psychic-squad-h8xyy/124554?language=sub&server=384944`. One launch returned CoreDevice `10004` before a process ID was determined; a retry with `--console` launched and the process remained running. Mirroring displayed the watch page with its Play triangle. This establishes a requested route and loaded player surface, **not** video playback or final source selection.
+
+Reproduction commands, omitting the paired-device identifier:
+
+```sh
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun devicectl list devices
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun devicectl device info apps --device '<connected trusted iPhone>'
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun devicectl device process launch --console --terminate-existing --device '<connected trusted iPhone>' dev.solanime.protectedplayer.preview '--solanime-watch-url=https://cloud-release.solanime.pages.dev/watch/unlimited-psychic-squad-h8xyy/124554?language=sub&server=384944'
+```
+
+Mirroring initially said **iPhone in Use** until the phone was locked, then showed the Home and watch screens. Its current computer-control screenshot is only 80×258 pixels, and attempts to click the video Play coordinate failed with `windowNotFoundAtPosition`; this is a Mirroring input failure, not evidence that Play or the video failed. A `devicectl device capture screenshot` on the locked phone returned an all-black 1206×2622 PNG, also not a video result. The owner was asked to tap Play once on the unlocked physical phone and leave it on the video for frame capture. No response or post-Play capture was available at this checkpoint. Thus no five-second visible progress, decoded-frame change, popup count, external-window result, or stable final `server=384944` observation is claimed. The protected-player release remains **unreleased**.
+
 ## iPhone UX and device checkpoint, 2026-09-30 15:18 CDT
 
 This checkpoint supersedes the build-5 installation status below. The working branch is `sol/native-protected-player-mac-iphone`, based on `main` commit `e2f4361903f708b05d4c60fa708d3688ca226c77`; the prior remote branch HEAD was `b343eccc28079fea43a2e3ba65d88bace8d58232`. All pre-existing dirty work was preserved. The owner explicitly authorized pushing this branch to the public repository. The tested source/UI commit is `93ed5a9eec0e8f00f95d95619845d4641a380db2`; its author and committer use the existing GitHub noreply identity. This documentation update follows that source commit.
