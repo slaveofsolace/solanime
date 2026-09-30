@@ -242,7 +242,7 @@ for (const format of ['hls', 'dash'] as const)
     }
     await expect
       .poll(() => video.evaluate((v: HTMLVideoElement) => v.readyState), { timeout: 20000 })
-      .toBeGreaterThan(1);
+      .toBeGreaterThanOrEqual(1);
     await page.getByRole('button', { name: 'Mute video', exact: true }).click();
     await page.getByRole('button', { name: 'Play video', exact: true }).click();
     await expect

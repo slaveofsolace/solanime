@@ -19,6 +19,14 @@ export class ApiError extends Error {
   }
 }
 
+function isViewerResource(path: string): boolean {
+  return path.startsWith('/api/titles?') ||
+    path.startsWith('/api/titles/') ||
+    path === '/api/meta/filters' ||
+    path.startsWith('/api/episodes/') ||
+    path.startsWith('/api/providers/');
+}
+
 export async function readResponse<T>(response: Response): Promise<T> {
   const contentType = response.headers.get('content-type') ?? '';
   const isJson = contentType.includes('application/json');
@@ -81,6 +89,16 @@ export async function request<T>(
       headers,
       credentials: 'same-origin',
     });
+    // A protected data read can discover an expired session before the next
+    // account refresh. Move the viewer back through the private-site gate
+    // instead of leaving each page on an unrelated catalogue error.
+    if (
+      response.status === 401 &&
+      isViewerResource(path) &&
+      typeof window !== 'undefined'
+    ) {
+      window.dispatchEvent(new Event('solanime:session-expired'));
+    }
     return await readResponse<T>(response);
   } catch (error) {
     if (options.signal?.aborted || error instanceof ApiError) throw error;

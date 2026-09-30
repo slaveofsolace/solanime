@@ -18,7 +18,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null),
     [message, setMessage] = useState(''),
-    [action, setAction] = useState<'password' | 'delete' | 'recovery'>('password'),
+    [action, setAction] = useState<'password' | 'delete' | 'recovery' | null>(null),
     [deleteChecked, setDeleteChecked] = useState(false),
     [freshCode, setFreshCode] = useState<string | null>(null);
   const refreshDevices = () =>
@@ -166,22 +166,28 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
                 <button
                   key={value}
                   type="button"
-                  aria-pressed={action === value}
+                  aria-expanded={action === value}
+                  aria-controls={action === value ? 'account-security-form' : undefined}
                   onClick={() => {
-                    setAction(value);
+                    setAction(action === value ? null : value);
                     setPassword('');
+                    setNext('');
+                    setConfirm('');
+                    setDeleteChecked(false);
                     setError(null);
                   }}
                 >
                   {value === 'password'
-                    ? 'Password'
+                    ? 'Change password'
                     : value === 'recovery'
                       ? 'Recovery code'
                       : 'Delete account'}
                 </button>
               ))}
             </div>
+            {action &&
             <form
+              id="account-security-form"
               className="account-form"
               onSubmit={(e) => {
                 e.preventDefault();
@@ -248,7 +254,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
                       ? 'Generate recovery code'
                       : 'Delete my account'}
               </button>
-            </form>
+            </form>}
           </section>
           <details className="account-section account-disclosure">
             <summary>

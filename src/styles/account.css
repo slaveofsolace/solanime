@@ -452,23 +452,44 @@
   font-size: 12px;
 }
 .security-tabs {
-  display: flex;
-  gap: 16px;
-  margin: 0 0 22px;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 0;
+  margin: -8px 0 0;
 }
 .security-tabs button {
-  padding: 10px 0;
-  min-height: 38px;
-  border-bottom: 2px solid transparent;
+  position: relative;
+  min-height: 50px;
+  padding: 12px 32px 12px 0;
+  border-bottom: 1px solid var(--line);
   border-radius: 0;
-  font-size: 12px;
+  text-align: left;
+  font-size: 14px;
 }
-.security-tabs button[aria-pressed='true'] {
-  border-color: var(--accent);
+.security-tabs button::after {
+  position: absolute;
+  right: 4px;
+  color: var(--muted);
+  content: '›';
+  font-size: 22px;
+  line-height: 1;
+}
+.security-tabs button[aria-expanded='true'] {
+  color: var(--accent-ink);
+}
+.security-tabs button[aria-expanded='true']::after {
+  color: var(--accent-ink);
+  transform: rotate(90deg);
+}
+.security-tabs button:last-child {
+  border-bottom: 0;
 }
 .account-form {
   max-width: 480px;
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
 }
 .account-form .button {
   align-self: flex-start;
@@ -731,19 +752,14 @@
     padding: 20px;
   }
   .security-tabs {
-    display: grid;
-    gap: 4px;
+    margin-top: -8px;
   }
   .security-tabs button {
-    min-height: 42px;
-    padding: 10px 12px;
-    border-bottom: 0;
-    border-left: 2px solid transparent;
-    text-align: left;
+    min-height: 50px;
+    padding: 12px 32px 12px 0;
   }
-  .security-tabs button[aria-pressed='true'] {
-    border-left-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  .account-form {
+    padding: 16px;
   }
   .avatar-options .profile-avatar {
     width: 48px;

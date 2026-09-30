@@ -7,6 +7,18 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .content-shell > main > :not(.home-page):not(.watch-page) { padding-inline: var(--gutter); }
 .home-page { overflow: clip; }
 .home-feature { position: relative; width: 100%; margin: 0; overflow: hidden; color: #fff; background: var(--bg); }
+.spotlight-exit { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.spotlight-exit .spotlight-scene { width: 100%; height: 100%; }
+.spotlight-scene--incoming { animation: spotlight-in-forward 240ms cubic-bezier(.2,.75,.2,1) both; }
+.spotlight-scene--incoming.spotlight-scene--backward { animation-name: spotlight-in-backward; }
+.spotlight-exit--forward { animation: spotlight-out-forward 240ms cubic-bezier(.2,.75,.2,1) both; }
+.spotlight-exit--backward { animation: spotlight-out-backward 240ms cubic-bezier(.2,.75,.2,1) both; }
+@keyframes spotlight-in-forward { from { opacity: .55; transform: translateX(22%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes spotlight-in-backward { from { opacity: .55; transform: translateX(-22%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes spotlight-out-forward { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-22%); } }
+@keyframes spotlight-out-backward { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(22%); } }
+@media (prefers-reduced-motion: reduce) { .spotlight-scene--incoming, .spotlight-exit { animation: none; } }
+:root[data-motion='reduced'] .spotlight-scene--incoming, :root[data-motion='reduced'] .spotlight-exit { animation: none; }
 .spotlight-scene { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(650px, 88svh, 1080px); padding: 190px var(--gutter) 140px; }
 .spotlight-art { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .spotlight-art__banner { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; visibility: hidden; }

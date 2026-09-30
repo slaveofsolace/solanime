@@ -271,8 +271,11 @@ export function parseEpisodeList(html: string, title: SnapshotTitle): EpisodeWor
     // The source exposes a real episode name next to its canonical data-num.
     // Keep the number as the identity and fall back only when no name exists.
     const sourceName = clean(anchor.find('.d-title').first().text());
-    const label = /^episode\s+\d+(?:\.\d+)?$/i.test(sourceName) &&
-      sourceName.replace(/^episode\s+/i, '') !== number
+    const qualityMarker = /^(?:(?:UHD|FHD|HD|SD)(?:[-\s]*(?:480|720|1080|2160)p)?|[48]K)$/i.test(sourceName);
+    const wholeReleaseMarker = /^full$/i.test(sourceName);
+    const mismatchedNumber = /^episode\s+\d+(?:\.\d+)?$/i.test(sourceName) &&
+      sourceName.replace(/^episode\s+/i, '') !== number;
+    const label = qualityMarker || wholeReleaseMarker || mismatchedNumber
       ? `Episode ${number}`
       : sourceName || `Episode ${number}`;
     episodes.push({

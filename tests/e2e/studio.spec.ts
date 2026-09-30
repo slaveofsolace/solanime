@@ -15,6 +15,29 @@ test('manual feature selection updates actual title actions', async ({ page, isM
   await expect(page.locator('#featured-title')).toHaveText(before);
   await noOverflow(page);
 });
+test('featured titles rotate after six seconds and pause for focus or reduced motion', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/');
+  const title = page.locator('#featured-title');
+  await expect(title).toBeVisible();
+  const first = await title.innerText();
+  await page.clock.fastForward(6_100);
+  await expect(title).not.toHaveText(first);
+  const second = await title.innerText();
+
+  await title.locator('a').focus();
+  await page.clock.fastForward(6_100);
+  await expect(title).toHaveText(second);
+  await title.locator('a').evaluate((link: HTMLAnchorElement) => link.blur());
+  await page.clock.fastForward(6_100);
+  await expect(title).not.toHaveText(second);
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(page.getByRole('button', { name: 'Pause featured rotation' })).toHaveCount(0);
+  const current = await title.innerText();
+  await page.clock.fastForward(6_100);
+  await expect(title).toHaveText(current);
+});
 test('profile motion preferences persist from Settings into the player', async ({ page }) => {
   await accountFixture(page);
   await page.goto('/settings');
@@ -67,7 +90,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
 
   const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
-  await expect(primaryLinks).toHaveCount(3);
+  await expect(primaryLinks).toHaveCount(4);
   for (const link of await primaryLinks.all()) {
     await expect(link).toBeVisible();
     expect(await link.textContent()).toBeTruthy();

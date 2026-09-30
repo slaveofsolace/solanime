@@ -142,6 +142,11 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   expect(cookies.some((c) => c.name === 'solanime_session' && c.httpOnly)).toBe(true);
   await page.goto('/account');
   await expect(page.getByRole('heading', { name: 'Security', exact: true })).toBeVisible();
+  await expect(page.getByLabel('Current password')).toBeHidden();
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page.getByLabel('Current password')).toBeVisible();
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page.getByLabel('Current password')).toBeHidden();
   await page.screenshot({ path: info.outputPath('account-settings.png'), fullPage: true });
   await overflow(page);
 });

@@ -41,9 +41,9 @@ test('320px controls stay on one row and episode labels remain readable', async 
   await page.goto('/title/paper-lantern');
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
   const rows = await page.locator('.episode-grid > li').evaluateAll(items => items.map(item => item.getBoundingClientRect()));
-  expect(rows[0]!.width).toBeGreaterThanOrEqual(130);
-  expect(rows[1]!.y).toBeCloseTo(rows[0]!.y, 0);
-  for (const row of rows) expect(row.height).toBeLessThanOrEqual(240);
+  expect(rows[0]!.width).toBeGreaterThanOrEqual(260);
+  expect(rows[1]!.y).toBeGreaterThan(rows[0]!.y + rows[0]!.height);
+  for (const row of rows) expect(row.height).toBeLessThanOrEqual(110);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-title-320.png'), fullPage: true });
 

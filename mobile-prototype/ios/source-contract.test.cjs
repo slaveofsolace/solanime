@@ -9,6 +9,7 @@ const swift = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayerApp.s
 const project = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayer.xcodeproj', 'project.pbxproj'), 'utf8');
 const scheme = fs.readFileSync(path.join(__dirname, 'SolanimeProtectedPlayer.xcodeproj', 'xcshareddata', 'xcschemes', 'SolanimeProtectedPlayer.xcscheme'), 'utf8');
 const launchScreen = fs.readFileSync(path.join(__dirname, 'LaunchScreen.storyboard'), 'utf8');
+const infoPlist = fs.readFileSync(path.join(__dirname, 'Info.plist'), 'utf8');
 
 test('the iPhone app installs protection rules before loading the site', () => {
   const match = swift.match(/let rules = #"(.*)"#/);
@@ -27,6 +28,30 @@ test('the iPhone app installs protection rules before loading the site', () => {
   assert.match(swift, /guard let frame = action.targetFrame else[\s\S]*?decisionHandler\(\.cancel\)/);
   assert.match(swift, /#if DEBUG[\s\S]*?https:\/\/cloud-release\.solanime\.pages\.dev\/[\s\S]*?#else[\s\S]*?https:\/\/solanime\.pages\.dev\//);
   assert.match(swift, /if host == "cloud-release\.solanime\.pages\.dev" \{ return true \}[\s\S]*?#endif/);
+  assert.match(swift, /solanime-native-ios/);
+  assert.match(swift, /forMainFrameOnly: true/);
+  assert.doesNotMatch(swift, /addScriptMessageHandler\(/);
+});
+
+test('iOS media configuration permits system PiP and AirPlay without autoplay or provider-frame scripting', () => {
+  assert.match(swift, /allowsPictureInPictureMediaPlayback = true/);
+  assert.match(swift, /allowsAirPlayForMediaPlayback = true/);
+  assert.match(swift, /setCategory\(\.playback, mode: \.moviePlayback\)/);
+  assert.match(swift, /mediaTypesRequiringUserActionForPlayback = \.all/);
+  assert.match(project, /INFOPLIST_FILE = Info\.plist;/);
+  assert.match(infoPlist, /<key>UIBackgroundModes<\/key>\s*<array>\s*<string>audio<\/string>\s*<\/array>/);
+  assert.match(swift, /forMainFrameOnly: true/);
+  assert.doesNotMatch(swift, /AVPictureInPictureController|evaluateJavaScript|addScriptMessageHandler\(/);
+});
+
+test('the native AirPlay picker appears only on a permitted watch route', () => {
+  assert.match(swift, /AVRoutePickerView\(\)/);
+  assert.match(swift, /prioritizesVideoDevices = true/);
+  assert.match(swift, /if loaded && onWatchRoute/);
+  assert.match(swift, /view\.observe\(\\\.url, options: \[\.initial, \.new\]/);
+  assert.match(swift, /DocumentPolicy\.permits\(webView\.url, mainFrame: true\)/);
+  assert.match(swift, /webView\.url\?\.path\.hasPrefix\("\/watch\/"\)/);
+  assert.doesNotMatch(swift, /addScriptMessageHandler\(|evaluateJavaScript/);
 });
 
 test('the Xcode project includes the app source and an iPhone target', () => {

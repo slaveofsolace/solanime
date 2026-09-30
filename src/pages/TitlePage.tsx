@@ -190,7 +190,7 @@ function TitleSession() {
               onClick={() => watchlist.toggle(title.id, { ...title, name })}
             >
               <Icon name={saved ? 'check' : 'bookmark'} />
-              {saved ? 'In My List' : 'My List'}
+              <span className="title-save-label">{saved ? 'In My List' : 'My List'}</span>
             </button>
           </div>
           <div className="title-hero__details">
@@ -201,7 +201,9 @@ function TitleSession() {
               </div>
               <div>
                 <dt>Episodes</dt>
-                <dd>{episodes.length || (episodeInventoryPending ? 'Import pending' : 'None')}</dd>
+                <dd>{episodes.length
+                  ? `${episodes.length} ${episodes.length === 1 ? 'episode' : 'episodes'}`
+                  : episodeInventoryPending ? 'Import pending' : 'None'}</dd>
               </div>
             </dl>
             {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}

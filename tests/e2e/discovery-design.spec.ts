@@ -99,16 +99,17 @@ test('filters and navigation stay inside tablet and phone viewports', async ({ p
   }
 });
 
-test('the phone title poster is fully contained and centered', async ({ page }) => {
+test('the phone title poster is contained beside the title', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 820 });
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
-  const poster = page.locator('.title-hero .spotlight-art__poster > img');
+  const poster = page.locator('.title-hero__mobile-art > img');
   await expect(poster).toBeVisible();
   const box = await poster.boundingBox();
   expect(box!.x).toBeGreaterThanOrEqual(0);
   expect(box!.x + box!.width).toBeLessThanOrEqual(320);
-  expect(Math.abs(box!.x + box!.width / 2 - 160)).toBeLessThan(1);
+  const heading = await page.locator('#title-name').boundingBox();
+  expect(heading!.x).toBeGreaterThanOrEqual(box!.x + box!.width);
 });
 
 test('returning viewers keep a readable Home tab and an unobscured history heading', async ({ page }) => {

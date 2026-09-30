@@ -82,9 +82,9 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 56px;
-    min-height: 56px;
-    padding: 0 var(--gutter);
+    height: calc(56px + env(safe-area-inset-top));
+    min-height: calc(56px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) var(--gutter) 0;
     margin-bottom: 0 !important;
     background: #23252b;
     border-bottom: 1px solid #ffffff12;
@@ -303,7 +303,7 @@
   .discovery-shell .home-feature .feature-kicker {
     display: block;
     margin: 0 0 7px;
-    color: var(--accent-ink);
+    color: #f3b887;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0;
@@ -453,6 +453,16 @@
     text-shadow: none;
   }
 
+  :root[data-theme='light'] .site-shell.discovery-shell .title-page .title-hero .title-hero__content :is(h1, .title-hero__alternate, .title-hero__synopsis) {
+    color: var(--text);
+    text-shadow: none;
+  }
+
+  :root[data-theme='light'] .site-shell.discovery-shell .title-page .title-hero .title-hero__content :is(.feature-meta, .title-facts dt, .title-facts dd, .tag-list span) {
+    color: var(--muted);
+    text-shadow: none;
+  }
+
   .discovery-shell .catalogue-page .title-card__actions {
     display: none;
   }
@@ -489,6 +499,11 @@
   .discovery-shell .watch-page .watch-selection {
     border-radius: 0;
     padding: 12px var(--gutter);
+  }
+
+  .discovery-shell .watch-page .watch-selection > :is(.source-choice, .version-choice) select {
+    height: 44px;
+    min-height: 44px;
   }
 
   .discovery-shell .watch-page .watch-heading {

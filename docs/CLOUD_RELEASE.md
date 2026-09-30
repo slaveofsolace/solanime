@@ -164,15 +164,15 @@ This establishes the observed anonymous gate at the tested edge, not an
 approved/pending user-cycle test or native app release. No Pages assets were
 changed by this Worker repair.
 
-**2026-09-29 15:57 CDT preview UI deployment.** After the account, mobile
+**2026-09-29 16:09 CDT preview UI deployment.** After the account, mobile
 viewing, episode-label, splash, compact Library, and catalogue-filter fixes,
-`pnpm check` passed 104 test files / 886 tests, typecheck, and Vite build.
+`pnpm check` passed 105 test files / 889 tests, typecheck, and Vite build.
 Focused mobile WebKit account, watch, catalogue-filter, and splash recovery
 checks passed. The splash artwork no longer intercepts the recovery controls. The
 exact command `node scripts/deploy-pages.mjs --branch=cloud-release` deployed
-the revised frontend to `https://06e81bdc.solanime.pages.dev`, with stable
+the revised frontend to `https://f923b8ce.solanime.pages.dev`, with stable
 alias `https://cloud-release.solanime.pages.dev`. The alias served
-`/assets/index-guQSLGhF.js` and `/assets/index-Drq2TriB.css`.
+`/assets/index-DZS_Ltcq.js` and `/assets/index-Drq2TriB.css`.
 `pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed
 the frontend/API release and frame-policy checks, and
 `pnpm verify:private-approval -- https://cloud-release.solanime.pages.dev`
@@ -180,6 +180,56 @@ passed all eight anonymous checks. Cloudflare's first alias read briefly
 returned the previous asset hashes after deployment; a fresh request then
 returned the new hashes. No `main` Pages deployment was made. These checks
 do not establish approved-account login or physical iPhone video progress.
+
+The restricted `/admin` console now places account requests and failed email
+notices above import diagnostics. Its pending, approval, decline, and retry UI
+passed three focused local tests. The live preview entry screen displayed the
+operator-token form; an anonymous `GET /api/admin/accounts/pending` returned
+HTTP 401. No operator token was entered during this readback, so a live
+authenticated queue action and mailbox delivery remain unverified. The
+previously requested account was approved by exact remote D1 readback as
+recorded in the native handoff; applicant notification was not verified.
+
+**2026-09-30 13:33 CDT iPhone presentation preview.** The signed iPhone host
+marks only its first-party main document with `solanime-native-ios`; the new
+stylesheet and four-destination tab bar do not activate in the website/PWA or
+provider frame. The design uses system type, safe areas, consistent grouped
+surfaces, readable controls, and a restrained Solanime accent. The updated
+native loading/error surfaces are compiled into locally signed Debug build 5.
+`pnpm check` completed with 105 files / 891 tests plus typecheck and Vite build;
+`tests/e2e/native-ios-ui.spec.ts` passed in mobile WebKit and Chromium (2/2)
+with dark/light WCAG A/AA title-screen checks. Browser screenshots and Xcode
+logs are local ignored artifacts; no account or device identifier is in Git.
+
+The exact command `node scripts/deploy-pages.mjs --branch=cloud-release`
+deployed the frontend to `https://67d2f39a.solanime.pages.dev`, alias
+`https://cloud-release.solanime.pages.dev`. Local `dist` and alias readback
+agreed on `assets/index-CTfZ1oId.js` and `assets/index-BrrNoOo3.css`.
+`pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed
+frontend/API version and frame-host checks, and
+`pnpm verify:private-approval -- https://cloud-release.solanime.pages.dev`
+passed all eight anonymous checks. The Worker gate version did not change and
+production Pages was not promoted. The app install attempt failed before
+transfer because the paired iPhone was disconnected (CoreDevice 4016); the
+candidate's on-device appearance and physical-video acceptance remain open.
+
+**2026-09-30 15:18 CDT iPhone UX preview update.** Build 7 was subsequently
+signed, installed, and launched on the iPhone 16 Pro; its verified WebKit host
+allows eligible PiP/AirPlay and retains the popup/navigation protection. The
+latest iPhone-first frontend has a shorter full-art Home hero, adjacent carousel
+indicators, lateral feature transitions, grouped Settings and profile controls,
+and a slower coordinated splash. `pnpm check` passed 106 files / 895 tests plus
+typecheck/build; `tests/e2e/native-ios-ui.spec.ts` passed mobile WebKit 1/1.
+The preview deploy command above produced immutable
+`https://e19e0c1c.solanime.pages.dev`; the stable alias and local `dist` both
+served `assets/index-DqP40ye8.js` and `assets/index-7PN-gExF.css`.
+`pnpm verify:deployment -- https://cloud-release.solanime.pages.dev` passed;
+`pnpm verify:private-approval -- https://cloud-release.solanime.pages.dev`
+passed eight anonymous checks, with catalogue, filters, providers and resolve
+returning 401. The API Worker and production Pages were not changed. The paired
+iPhone became unavailable to `devicectl` after the build-7 installation, so
+the exact latest frontend and real protected video remain unverified on device.
+The release is still gated; see the newest checkpoint in the native handoff.
 
 ## Reproduce a preview
 

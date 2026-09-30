@@ -55,6 +55,16 @@ describe('Anikoto public response parsers', () => {
     ]);
   });
 
+  it('does not present movie quality and full-release markers as episode names', () => {
+    const movie = { sourceId: '8312', slug: '100-meters-5zlwp', canonicalUrl: 'https://anikototv.to/watch/100-meters-5zlwp', name: '100 Meters', format: 'Movie', episodes: [] };
+    const result = parseEpisodeList(
+      '<a data-id="127326" data-num="1" data-slug="1" data-sub="1"><span class="d-title">HD-1080p</span></a>' +
+      '<a data-id="e2" data-num="2" data-slug="2" data-sub="1"><span class="d-title">Full</span></a>',
+      movie,
+    );
+    expect(result.map(({ episode }) => episode.label)).toEqual(['Episode 1', 'Episode 2']);
+  });
+
   it('retains duplicate upstream route slugs as distinct episode records', () => {
     const title = parseCataloguePage(
       '<div class="ani items"><div class="item"><div class="ani poster tip" data-tip="42"><a href="/watch/test-title/ep-1"><img alt="Test Title"></a></div><a class="name d-title" href="/watch/test-title/ep-1">Test Title</a></div></div>',

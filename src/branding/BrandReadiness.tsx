@@ -19,7 +19,7 @@ export interface BrandReadinessProps {
 /** The initial brand reveal has a short minimum; errors and reduced motion never wait. */
 export function BrandReadiness({ ready, error, onRetry, onDismiss, reducedMotion = false,
   theme = 'dark', sessionKey = 'solanime-boot', timeoutMs = 12000, inline = false,
-  minimumMs = 2400,
+  minimumMs = 3300,
 }: BrandReadinessProps) {
   const [dismissed, setDismissed] = useState(() => getBrandSession(sessionKey).resolved || (ready && minimumMs === 0));
   const [minimumElapsed, setMinimumElapsed] = useState(minimumMs === 0);
@@ -34,7 +34,7 @@ export function BrandReadiness({ ready, error, onRetry, onDismiss, reducedMotion
     };
     update();
     clock.minimumStartedAt ??= Date.now();
-    const remaining = Math.max(0, Math.min(3000, minimumMs) - (Date.now() - clock.minimumStartedAt));
+    const remaining = Math.max(0, Math.min(4000, minimumMs) - (Date.now() - clock.minimumStartedAt));
     const timer = window.setTimeout(() => setMinimumElapsed(true), remaining);
     media?.addEventListener('change', update);
     return () => { window.clearTimeout(timer); media?.removeEventListener('change', update); };

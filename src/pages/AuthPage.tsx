@@ -99,21 +99,20 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
           <span>Solanime</span>
         </div>
         <h1>
-          {recover ? 'Pick up where you left off.' : register ? 'Your next episode starts here.' : 'Welcome back.'}
+          {recover ? 'Recover your account' : register ? registerAction : 'Sign in to Solanime'}
         </h1>
         <p>
           {recover
-            ? 'Use your saved recovery code to get back into your account.'
+            ? 'Use your saved code to set a new password.'
             : register
-              ? 'Keep your list and watch progress together across devices.'
-              : 'Your list and watch progress are ready when you are.'}
+              ? 'Save titles and watch progress across devices.'
+              : 'Access your profiles, list, and watch history.'}
         </p>
       </div>
       <div className="auth-panel">
         <h2>{recover ? 'Recover account' : register ? registerAction : 'Sign in'}</h2>
-        {recover && <p className="auth-panel-intro">Use the recovery code you saved when you joined.</p>}
         {register && account.approvalRequired && (
-          <p className="auth-approval-note">The owner reviews new accounts. You can sign in after approval.</p>
+          <p className="auth-approval-note">Your account must be approved before you can sign in.</p>
         )}
         {account.account && !recover ? (
           <>

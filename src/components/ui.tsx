@@ -56,6 +56,8 @@ export function Layout({ children }: PropsWithChildren) {
     location.pathname.startsWith('/admin/');
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
+  const settings = location.pathname === '/settings';
+  const nativeIOS = document.documentElement.classList.contains('solanime-native-ios');
   const catalogueQuery = new URLSearchParams(location.search);
   const catalogueScope = catalogueQuery.get('scope');
   const onAnimeCatalogue =
@@ -74,7 +76,7 @@ export function Layout({ children }: PropsWithChildren) {
   const hideBrowseControls = !account.ready || Boolean(account.loadError) || privateGuest;
   return (
     <div
-      className={`site-shell discovery-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}${privateGuest ? ' site-shell--private-guest' : ''}`}
+      className={`site-shell discovery-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}${settings ? ' site-shell--settings' : ''}${privateGuest ? ' site-shell--private-guest' : ''}`}
     >
       <a className="skip-link" href="#main">
         Skip to content
@@ -82,7 +84,7 @@ export function Layout({ children }: PropsWithChildren) {
       <header className="masthead">
         <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Sol Anime sign in' : 'Sol Anime home'}>
           <SolanimeBrand
-            variant="compact"
+            variant={nativeIOS ? 'emblem' : 'compact'}
             motion="static"
             theme={theme}
             decorative
@@ -130,7 +132,7 @@ export function Layout({ children }: PropsWithChildren) {
             className="theme-toggle appearance-jump"
             aria-label="Settings"
           >
-            <Icon name="palette" />
+              <Icon name="settings" />
             <span>Settings</span>
           </Link>
           {account.account ? (
@@ -148,6 +150,32 @@ export function Layout({ children }: PropsWithChildren) {
         </div>
         </div>}
       </header>
+      {!hideBrowseControls && !focused && (
+        <nav className="native-tab-bar" aria-label="iPhone navigation">
+          <NavLink to="/" end>
+            <Icon name="home" />
+            <span>Home</span>
+          </NavLink>
+          <Link
+            to="/catalogue?scope=anime"
+            aria-current={location.pathname === '/catalogue' || location.pathname === '/search' ? 'page' : undefined}
+          >
+            <Icon name="browse" />
+            <span>Discover</span>
+          </Link>
+          <NavLink to="/library">
+            <Icon name="bookmark" />
+            <span>Library</span>
+          </NavLink>
+          <Link
+            to="/account"
+            aria-current={location.pathname.startsWith('/account') || location.pathname === '/profiles' || location.pathname === '/settings' ? 'page' : undefined}
+          >
+            <Icon name="person" />
+            <span>Account</span>
+          </Link>
+        </nav>
+      )}
       <div className="content-shell">
         {account.loadError && accountServiceSurface && (
           <div className="account-service-notice" role="status">
@@ -155,12 +183,6 @@ export function Layout({ children }: PropsWithChildren) {
             <button className="text-button" onClick={() => void account.refresh()}>
               Reconnect
             </button>
-          </div>
-        )}
-        {account.account && !account.profile && !focused && location.pathname !== '/account' && (
-          <div className="account-service-notice">
-            Choose a profile to save your list and progress.{' '}
-            <Link to="/profiles">Choose profile</Link>
           </div>
         )}
         {account.syncError && (

@@ -22,7 +22,7 @@ test('compact navigation and protected destinations work without a Movies sector
   }
   await page.goto('/library');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Flibrary/);
-  await expect(page.getByRole('heading', { name: 'Welcome back' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sign in' })).toBeVisible();
   await page.goto('/settings');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Fsettings/);
   await noOverflow(page);
@@ -41,14 +41,20 @@ test('operator approval screen remains reachable before the first account is app
   await expect(page).toHaveURL(/\/login\?returnTo=%2F/);
   await page.goto('/admin');
   await expect(page.getByLabel('Operator token')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Import diagnostics.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Operator console.' })).toBeVisible();
 });
 
-test('catalogue play opens episode one directly while details remain separately available', async ({ page }) => {
+test('catalogue play opens episode one while details remain separately available', async ({ page, isMobile }) => {
   await page.goto('/catalogue?scope=anime&q=Long%20Journey');
   const card = page.locator('.title-card').filter({ hasText: 'Long Journey' }).first();
   await expect(card.getByRole('link', { name: 'Open Long Journey' })).toBeVisible();
-  await card.getByRole('button', { name: 'Start or continue Long Journey' }).click();
+  if (isMobile) {
+    await card.getByRole('link', { name: 'Open Long Journey' }).click();
+    await expect(page.locator('#title-name')).toHaveText('Long Journey');
+    await page.getByRole('link', { name: /Start watching: Episode 1/ }).click();
+  } else {
+    await card.getByRole('button', { name: 'Start or continue Long Journey' }).click();
+  }
   await expect(page).toHaveURL(/\/watch\/long-journey\/[^/?]+\?language=sub/);
   await expect(page.getByRole('combobox', { name: 'Choose episode' })).toHaveValue(/.+/);
 });

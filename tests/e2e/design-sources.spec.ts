@@ -184,7 +184,7 @@ const cloudStatus = (jobs: unknown[] = []) => ({
 async function unlockDiagnostics(page: Page) {
   await page.goto('/admin');
   await page.getByLabel('Operator token').fill('operator-secret');
-  await page.getByRole('button', { name: 'Open diagnostics' }).click();
+  await page.getByRole('button', { name: 'Open console' }).click();
 }
 
 test('cloud diagnostics keep authorization in memory and reject a late import after lock', async ({
@@ -214,10 +214,10 @@ test('cloud diagnostics keep authorization in memory and reject a late import af
   await page.getByRole('button', { name: 'Start cloud import' }).click();
   await page.getByRole('button', { name: 'Lock screen' }).click();
   await page.waitForTimeout(650);
-  await expect(page.getByRole('button', { name: 'Open diagnostics' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open console' })).toBeVisible();
   await expect(page.getByText(/snapshot-a was queued/i)).toHaveCount(0);
   await page.reload();
-  await expect(page.getByRole('button', { name: 'Open diagnostics' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open console' })).toBeVisible();
 });
 
 test('cloud snapshot progress controls the durable run id', async ({ page }) => {

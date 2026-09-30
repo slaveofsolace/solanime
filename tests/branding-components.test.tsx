@@ -107,7 +107,7 @@ describe('actual readiness', () => {
     const view = render(<BrandReadiness ready={false} onDismiss={onDismiss} sessionKey="readiness-early" />);
     advance(180);
     view.rerender(<BrandReadiness ready onDismiss={onDismiss} sessionKey="readiness-early" />);
-    act(() => vi.advanceTimersByTime(2399));
+    act(() => vi.advanceTimersByTime(3299));
     expect(view.container.querySelector('[data-readiness="loading"]')).toBeTruthy();
     act(() => vi.advanceTimersByTime(1));
     advance(190);
@@ -153,6 +153,7 @@ describe('actual readiness', () => {
     act(() => vi.advanceTimersByTime(2400));
     expect(screen.getByRole('alert')).toBeTruthy();
     view.rerender(<BrandReadiness ready timeoutMs={1200} sessionKey="late-ready" />);
+    act(() => vi.advanceTimersByTime(900));
     advance(200);
     expect(view.container.innerHTML).toBe('');
   });
