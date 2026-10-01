@@ -36,7 +36,7 @@ export default function CategoryNavigation() {
     }}>
     <button ref={trigger} type="button" className="category-navigation__trigger"
       aria-expanded={open} aria-controls={open ? 'browse-categories' : undefined} onClick={() => setOpen(value => !value)}>
-      Categories <Icon name="right" />
+      <Icon name="browse" /> <span>Categories</span> <Icon name="right" />
     </button>
     {open && <div className="category-navigation__panel" id="browse-categories">
       <div className="category-navigation__collections">

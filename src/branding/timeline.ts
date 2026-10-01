@@ -1,5 +1,5 @@
 export type BrandMotion = 'static' | 'intro' | 'loading' | 'ready' | 'error';
-export const INTRO_MS = 3000;
+export const INTRO_MS = 3400;
 export const LOOP_MS = 4800;
 export const EXIT_MS = 180;
 
@@ -11,6 +11,7 @@ export interface BrandFrame {
   sun: number;
   sunY: number;
   sunlight: number;
+  sunRays: number;
   reflection: number;
   playGlow: number;
   letters: readonly number[];
@@ -28,7 +29,7 @@ const smooth = (value: number) => value * value * (3 - 2 * value);
 const sweep = (value: number) => value < 0.5 ? 4 * value ** 3 : 1 - (-2 * value + 2) ** 3 / 2;
 
 export function staticBrandFrame(): BrandFrame {
-  return { front: 1, back: 1, core: 1, play: 1, sun: 1, sunY: 0, sunlight: 0.12, reflection: 0, playGlow: 0,
+  return { front: 1, back: 1, core: 1, play: 1, sun: 1, sunY: 0, sunlight: 0.12, sunRays: 0.08, reflection: 0, playGlow: 0,
     letters: Array(8).fill(1), wordSheenX: 0, wordSheen: 0, flare: 0.22,
     glint: 0, glintTravel: 0, opacity: 1 };
 }
@@ -42,26 +43,29 @@ export function sampleBrandFrame(motion: BrandMotion, elapsedMs = 0, reducedMoti
     const loopTime = motion === 'loading' ? time : time - INTRO_MS;
     const phase = ((loopTime % LOOP_MS) + LOOP_MS) % LOOP_MS / LOOP_MS;
     const pulse = Math.sin(Math.PI * phase) ** 2;
-    return { ...staticBrandFrame(), sunlight: 0.12 + pulse * 0.055, flare: 0.22 + pulse * 0.045,
+    return { ...staticBrandFrame(), sunlight: 0.12 + pulse * 0.055, sunRays: 0.08 + pulse * 0.04, flare: 0.22 + pulse * 0.045,
       reflection: pulse * 0.07, playGlow: pulse * 0.09,
       glint: pulse * 0.2, glintTravel: phase, wordSheenX: 0, wordSheen: 0 };
   }
-  const front = sweep(progress(time, 30, 1370));
-  const back = smooth(progress(time, 380, 1080));
-  const sunrise = smooth(progress(time, 1180, 1140));
-  const letters = Array.from({ length: 8 }, (_, index) => smooth(progress(time, 1680 + index * 38, 390)));
-  const sheen = progress(time, 2250, 650);
-  const glintEnvelope = Math.sin(Math.PI * progress(time, 30, 1480)) ** 2;
-  const rimPulse = Math.sin(Math.PI * progress(time, 1170, 1590)) ** 2;
+  const front = sweep(progress(time, 30, 1650));
+  const back = smooth(progress(time, 380, 1420));
+  // The sun starts while the ribbon forms and moves as one slow, continuous
+  // rise. Light follows its position instead of appearing as a second burst.
+  const sunrise = smooth(progress(time, 650, 2200));
+  const letters = Array.from({ length: 8 }, (_, index) => smooth(progress(time, 2100 + index * 55, 420)));
+  const sheen = progress(time, 2650, 650);
+  const glintEnvelope = Math.sin(Math.PI * progress(time, 30, 1650)) ** 2;
+  const rimPulse = Math.sin(Math.PI * progress(time, 650, 2650)) ** 2;
   return {
-    front, back, core: smooth(progress(time, 1010, 460)), play: smooth(progress(time, 820, 430)),
-    sun: smooth(progress(time, 1180, 340)), sunY: 134 * (1 - sunrise),
-    sunlight: 0.12 * sunrise + rimPulse * 0.22,
-    reflection: rimPulse * 0.22,
-    playGlow: Math.sin(Math.PI * progress(time, 820, 1230)) ** 2 * 0.3,
+    front, back, core: smooth(progress(time, 290, 1550)), play: smooth(progress(time, 550, 1370)),
+    sun: sunrise, sunY: 134 * (1 - sunrise),
+    sunlight: 0.12 * sunrise + rimPulse * 0.15,
+    sunRays: 0.08 * sunrise + rimPulse * 0.07,
+    reflection: rimPulse * 0.16,
+    playGlow: Math.sin(Math.PI * progress(time, 820, 1400)) ** 2 * 0.24,
     letters, wordSheenX: 140 + 1060 * sheen,
     wordSheen: Math.sin(Math.PI * sheen) ** 2 * 0.36,
-    flare: smooth(progress(time, 1930, 770)) * 0.22,
+    flare: smooth(progress(time, 2600, 700)) * 0.22,
     glint: glintEnvelope * 0.5, glintTravel: front, opacity: 1,
   };
 }

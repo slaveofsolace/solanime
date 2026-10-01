@@ -4,7 +4,7 @@ import { accountFixture } from './account-fixture';
 
 test.beforeEach(async ({ page }) => { await fixtureArt(page); await page.emulateMedia({ reducedMotion: 'reduce' }); });
 
-test('desktop catalogue uses dense artwork rows with detail revealed on intent', async ({ page }, info) => {
+test('desktop catalogue uses dense artwork rows with visible detail actions', async ({ page }, info) => {
   test.skip(info.project.name.startsWith('mobile'), 'Desktop geometry contract');
   await page.goto('/catalogue');
   const cards = page.locator('.title-grid .title-card');
@@ -45,7 +45,7 @@ test('desktop catalogue uses dense artwork rows with detail revealed on intent',
   // Card actions sit below the poster and stay reachable without hover (see ux-account-refresh catalogue play).
   await expect(details).toBeVisible();
   expect((await details.boundingBox())!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
-  await card.hover();
+  await expect(details).toHaveCSS('pointer-events', 'auto');
   await expect(details).toHaveCSS('opacity', '1');
   const quickLook = card.getByRole('button', { name: /Quick look at/ });
   await expect(quickLook).toBeVisible();
@@ -67,7 +67,7 @@ test('desktop catalogue uses dense artwork rows with detail revealed on intent',
   await noOverflow(page);
 });
 
-test('catalogue utility controls remain compact and title episodes use the available width', async ({
+test('catalogue utility controls remain compact and episodes use available width', async ({
   page,
 }, info) => {
   test.skip(info.project.name.startsWith('mobile'), 'Desktop geometry contract');
@@ -82,20 +82,19 @@ test('catalogue utility controls remain compact and title episodes use the avail
   await page.goto('/title/paper-lantern');
   await expect(page.locator('.title-hero')).toHaveCSS('box-sizing', 'border-box');
   expect((await page.locator('.title-hero').boundingBox())!.height).toBeGreaterThanOrEqual(380);
-  expect((await page.locator('.title-hero').boundingBox())!.height).toBeLessThanOrEqual(460);
   const episodes = page.locator('.episode-grid > li');
   await expect(episodes).toHaveCount(3);
   const rows = await Promise.all([0, 1, 2].map((index) => episodes.nth(index).boundingBox()));
   expect(Math.abs(rows[1]!.y - rows[0]!.y)).toBeLessThanOrEqual(1);
-  expect(Math.abs(rows[2]!.y - rows[0]!.y)).toBeLessThanOrEqual(1);
-  expect(rows[2]!.x).toBeGreaterThan(rows[1]!.x + rows[1]!.width);
+  expect(rows[2]!.y).toBeGreaterThanOrEqual(rows[1]!.y + rows[1]!.height);
   expect(rows.every((row) => Math.abs(row!.width - rows[0]!.width) <= 1)).toBe(true);
   expect(rows[1]!.x).toBeGreaterThan(rows[0]!.x + rows[0]!.width);
+  expect(rows[2]!.x).toBeCloseTo(rows[0]!.x, 0);
   const grid = await page.locator('.episode-grid').boundingBox();
   expect(rows[0]!.x).toBeCloseTo(grid!.x, 0);
   const tracks = await page.locator('.episode-grid').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(' '));
-  expect(tracks).toHaveLength(4);
-  expect(rows.every((row) => row!.height >= 140 && row!.height <= 300)).toBe(true);
+  expect(tracks).toHaveLength(2);
+  expect(rows.every((row) => row!.height >= 54 && row!.height <= 110)).toBe(true);
   const detail = await (await page.request.get('/api/titles/paper-lantern')).json();
   const expectedEpisode = `/watch/paper-lantern/${encodeURIComponent(detail.episodes[1].id)}?language=sub`;
   await expect(episodes.nth(1).locator('a')).toHaveAttribute('href', expectedEpisode);
@@ -122,14 +121,14 @@ test('catalogue keeps advanced filters behind a compact, state-aware disclosure'
   await noOverflow(page);
 });
 
-test('title episode cards retain two usable columns at 320px', async ({ page }) => {
+test('title episode rows remain usable at 320px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 780 });
   await accountFixture(page);
   await page.goto('/title/paper-lantern');
   const episodes = page.locator('.episode-grid > li');
   await expect(episodes).toHaveCount(3);
   const rows = await Promise.all([0, 1, 2].map((index) => episodes.nth(index).boundingBox()));
-  expect(rows[1]!.y).toBeCloseTo(rows[0]!.y, 0);
+  expect(rows[1]!.y).toBeGreaterThan(rows[0]!.y + rows[0]!.height);
   expect(rows[2]!.x).toBeCloseTo(rows[0]!.x, 0);
   expect(rows[2]!.y).toBeGreaterThan(rows[1]!.y);
   const toggle = episodes.first().getByRole('button', { name: /Mark watched/ });
@@ -209,8 +208,8 @@ test('title defaults to a mapped version and presents one compact episode count'
     has: page.locator('dt', { hasText: /^Episodes$/ }),
   });
   await expect(episodeFact).toHaveCount(1);
-  await expect(episodeFact.locator('dd')).toHaveText('1');
-  await expect(page.getByText('1 episode', { exact: true })).toHaveCount(0);
+  await expect(episodeFact.locator('dd')).toHaveText('1 episode');
+  await expect(page.getByText('1 episode', { exact: true })).toHaveCount(1);
 });
 
 test('touch cards keep original posters and full accessible title links without text over artwork', async ({ page }, info) => {
@@ -252,9 +251,8 @@ test('touch cards keep original posters and full accessible title links without 
   expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(posterBox!.x + posterBox!.width);
   expect(titleBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   expect(artBox!.width / artBox!.height).toBeCloseTo(2 / 3, 2);
-  // Touch actions are direct buttons below the artwork, never overlaid on it.
-  const actionsBox = await card.locator('.title-card__actions').boundingBox();
-  expect(actionsBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
+  // Touch cards stay uncluttered: the artwork and full title are the direct actions.
+  await expect(card.locator('.title-card__actions')).toBeHidden();
 
   const backdropCard = page.locator('.title-card').nth(1);
   await expect(backdropCard.locator('.cover-composition')).toHaveCount(0);

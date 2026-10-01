@@ -62,7 +62,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [desktop-chromium, mobile-chromium, desktop-webkit, mobile-webkit]
+        include:
+          - project: desktop-chromium
+            browser: chromium
+          - project: mobile-chromium
+            browser: chromium
+          - project: desktop-webkit
+            browser: webkit
+          - project: mobile-webkit
+            browser: webkit
     name: browser (${{ matrix.project }})
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -75,7 +83,7 @@ jobs:
           node-version: '24'
       - run: npm install --global pnpm@11.19.0
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps ${{ contains(matrix.project, 'webkit') && 'webkit' || 'chromium' }}
+      - run: pnpm exec playwright install --with-deps ${{ matrix.browser }}
       - name: Website browser acceptance
         run: |
           set -o pipefail

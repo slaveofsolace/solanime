@@ -373,6 +373,23 @@ function WatchSession() {
           />
         )}
       </div>
+      <header className="watch-heading">
+        <div>
+          <p className="watch-heading__episode">
+            {episodeName(episode)} · {versionLabel}
+          </p>
+          <h1>{title.name}</h1>
+        </div>
+        <button
+          type="button"
+          className="button button--quiet"
+          aria-pressed={watchlist.has(title.id)}
+          onClick={() => watchlist.toggle(title.id, title)}
+        >
+          <Icon name={watchlist.has(title.id) ? 'check' : 'bookmark'} />
+          {watchlist.has(title.id) ? 'In My List' : 'My List'}
+        </button>
+      </header>
       <div className="watch-selection">
         <div className="episode-nav" role="group" aria-label="Episode navigation">
           <button
@@ -457,23 +474,6 @@ function WatchSession() {
           </select>
         </label>
       </div>
-      <header className="watch-heading">
-        <div>
-          <p className="watch-heading__episode">
-            {episodeName(episode)} · {versionLabel}
-          </p>
-          <h1>{title.name}</h1>
-        </div>
-        <button
-          type="button"
-          className="button button--quiet"
-          aria-pressed={watchlist.has(title.id)}
-          onClick={() => watchlist.toggle(title.id, title)}
-        >
-          <Icon name={watchlist.has(title.id) ? 'check' : 'bookmark'} />
-          {watchlist.has(title.id) ? 'In My List' : 'My List'}
-        </button>
-      </header>
       {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
         <p className="source-attribution">
           Playing from{' '}

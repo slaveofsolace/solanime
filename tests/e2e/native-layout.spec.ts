@@ -12,8 +12,10 @@ test('paused Play stays at the picture centre across viewport and theater change
 
   for (const viewport of [{ width: 1440, height: 1000 }, { width: 768, height: 1024 }, { width: 320, height: 720 }]) {
     await page.setViewportSize(viewport);
-    for (const theater of [false, true]) {
-      if (theater) await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
+    const theaterButton = page.getByRole('button', { name: 'Theater mode', exact: true });
+    if (viewport.width <= 720) await expect(theaterButton).toBeHidden();
+    for (const theater of viewport.width <= 720 ? [false] : [false, true]) {
+      if (theater) await theaterButton.click();
       const picture = await video.boundingBox();
       const button = await play.boundingBox();
       expect(picture).not.toBeNull();

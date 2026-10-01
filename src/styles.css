@@ -3,7 +3,6 @@
 @import './styles/components.css';
 @import './styles/catalogue.css';
 @import './styles/player.css';
-@import './styles/account.css';
 @import './styles/streaming.css';
 @import './styles/header-search.css';
 @import './styles/discovery.css';
@@ -15,3 +14,9 @@
 @import './styles/title-watch.css';
 @import './styles/discover-refresh.css';
 @import './styles/episode-browser.css';
+@import './styles/viewing-refresh.css';
+/* Keep account layouts after the older streaming layer so mobile forms and
+   recovery screens do not depend on which route was visited first. */
+@import './styles/account.css';
+@import './styles/library-refresh.css';
+@import './styles/native-ios.css';

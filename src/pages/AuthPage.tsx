@@ -22,6 +22,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     [pendingSaved, setPendingSaved] = useState(false);
   const register = mode === 'register',
     recover = mode === 'recover';
+  const registerAction = account.approvalRequired ? 'Request access' : 'Create account';
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
@@ -64,6 +65,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     return (
       <RecoveryCard
         code={replacement}
+        doneLabel="Back to sign in"
         onDone={() => {
           navigate(withReturnTo('/login', destination), { replace: true });
         }}
@@ -71,41 +73,47 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
       />
     );
   if (pendingCode && !pendingSaved)
-    return <section className="auth-page"><div className="auth-panel">
-      <h1>Request sent for approval</h1>
-      <p>Save your recovery code now. Your account cannot browse or sign in until the operator approves it.</p>
-      <RecoveryCard code={pendingCode} onDone={() => setPendingSaved(true)} />
-    </div></section>;
+    return (
+      <RecoveryCard
+        code={pendingCode}
+        doneLabel="Finish request"
+        onDone={() => setPendingSaved(true)}
+        pendingApproval
+      />
+    );
   if (pendingSaved)
-    return <section className="auth-page"><div className="auth-panel" role="status">
-      <h1>Waiting for approval</h1>
-      <p>We’ve recorded your account request. Once approved, you should receive an email and can sign in.</p>
-      <Link className="button button--primary" to={withReturnTo('/login', destination)}>Back to sign in</Link>
-    </div></section>;
+    return (
+      <section className="auth-result" role="status">
+        <h1>Waiting for approval</h1>
+        <p>Your request is recorded. The Solanime owner must approve your account before you can sign in or browse.</p>
+        <Link className="button button--primary" to={withReturnTo('/login', destination)}>
+          Back to sign in
+        </Link>
+      </section>
+    );
   return (
-    <section className="auth-page">
+    <section className={`auth-page auth-page--${mode}`}>
       <div className="auth-copy">
-        <p className="auth-wordmark">Your stories. Your space.</p>
+        <div className="auth-brand" aria-hidden="true">
+          <img src="/branding/solanime-icon-512.png" alt="" />
+          <span>Solanime</span>
+        </div>
         <h1>
-          {recover ? 'Find your way back.' : register ? 'Make room for everyone.' : 'Welcome back.'}
+          {recover ? 'Recover your account' : register ? registerAction : 'Sign in to Solanime'}
         </h1>
         <p>
           {recover
-            ? 'Use the private recovery code you saved when creating your account.'
+            ? 'Use your saved code to set a new password.'
             : register
-              ? 'One login. Up to five profiles. A watchlist and a look that belong to each of you.'
-              : 'Your list, your progress, your next episode.'}
+              ? 'Save titles and watch progress across devices.'
+              : 'Access your profiles, list, and watch history.'}
         </p>
-        <div className="auth-profile-motif" aria-hidden="true">
-          {['ruby', 'ocean', 'violet', 'emerald', 'amber'].map((color, i) => (
-            <span className={`profile-avatar profile-avatar--${color}`} key={color}>
-              {i + 1}
-            </span>
-          ))}
-        </div>
       </div>
       <div className="auth-panel">
-        <h2>{recover ? 'Recover account' : register ? 'Create account' : 'Sign in'}</h2>
+        <h2>{recover ? 'Recover account' : register ? registerAction : 'Sign in'}</h2>
+        {register && account.approvalRequired && (
+          <p className="auth-approval-note">Your account must be approved before you can sign in.</p>
+        )}
         {account.account && !recover ? (
           <>
             <p>
@@ -187,7 +195,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 />
               </>
             )}
-            {!recover && (
+            {!recover && !register && (
               <label className="check-label">
                 <input
                   type="checkbox"
@@ -212,7 +220,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 : recover
                   ? 'Reset password'
                   : register
-                    ? 'Create account'
+                    ? registerAction
                     : 'Sign in'}
             </button>
             {register && !account.registrationOpen && (
@@ -220,9 +228,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             )}
             {register && (
               <p className="field-hint">
-                {account.approvalRequired
-                  ? 'New accounts require operator approval. Save your private recovery code after requesting access.'
-                  : 'Save the private recovery code shown after you create your account. It will not be emailed to you.'}
+                Save the recovery code shown next. You’ll need it if you forget your password.
               </p>
             )}
           </form>
@@ -232,7 +238,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             <>
               {account.recoveryMethod !== 'unavailable' && <Link to={withReturnTo('/recover', destination)}>Forgot your password?</Link>}
               <p>
-                New here? <Link to={withReturnTo('/register', destination)}>Create an account</Link>
+                New here? <Link to={withReturnTo('/register', destination)}>{registerAction}</Link>
               </p>
             </>
           ) : (

@@ -129,6 +129,10 @@ const server = createApp(db, {
   accounts: createAccounts(openAccountsDatabase(':memory:'), {
     privateSite: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
     approvalRequired: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
+    // The shared in-memory browser fixture handles the entire cross-browser
+    // matrix from one loopback IP. Keep production limits intact while tests
+    // create independent accounts for each scenario.
+    registrationHourlyLimit: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 3 : 500,
     // Browser fixtures must never deliver real registration emails.
     notifyApproval: async () => true,
     // Every browser project registers from 127.0.0.1; keep the limits' shape but not the 40/hour ceiling.

@@ -9,6 +9,7 @@ export function createBrandPainter(svg: SVGSVGElement) {
   const play = node('[data-play]');
   const playAura = node('[data-play-aura]');
   const sunlight = node('[data-sunlight]');
+  const sunRays = node('[data-sun-rays]');
   const sun = node('[data-sun-rise]');
   const rim = node('[data-rim-light]');
   const travel = node('[data-travel-light]');
@@ -25,7 +26,7 @@ export function createBrandPainter(svg: SVGSVGElement) {
     back?.setAttribute('stroke-dashoffset', ((1 - frame.back) * 100).toFixed(4));
     opacity(core, frame.core); opacity(play, frame.play); opacity(sun, frame.sun);
     sun?.setAttribute('transform', `translate(0 ${frame.sunY.toFixed(3)})`);
-    opacity(sunlight, frame.sunlight); opacity(rim, frame.reflection);
+    opacity(sunlight, frame.sunlight); opacity(sunRays, frame.sunRays); opacity(rim, frame.reflection);
     opacity(playAura, frame.playGlow);
     opacity(travel, frame.glint);
     glintPath?.setAttribute('stroke-dashoffset', (-100 * frame.glintTravel).toFixed(4));

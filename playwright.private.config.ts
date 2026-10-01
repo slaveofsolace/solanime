@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const localChrome = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+  ? { launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } }
+  : {};
+
 export default defineConfig({
   testDir: './tests/private-e2e',
   timeout: 30_000,
@@ -15,8 +19,11 @@ export default defineConfig({
     timeout: 30_000,
   },
   projects: [
-    { name: 'private-desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } } },
-    { name: 'private-android', use: { ...devices['Pixel 7'] } },
+    {
+      name: 'private-desktop',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 }, ...localChrome },
+    },
+    { name: 'private-android', use: { ...devices['Pixel 7'], ...localChrome } },
     { name: 'private-iphone', use: { ...devices['iPhone 13'] } },
   ],
 });
