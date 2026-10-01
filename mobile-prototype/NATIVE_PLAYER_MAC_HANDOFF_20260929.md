@@ -1,5 +1,35 @@
 # Solanime native protected-player handoff (2026-09-29)
 
+## Main integration, production promotion, and build 8 checkpoint, 2026-10-01 00:24 CDT
+
+Pull request `#14` merged the native Mac/iPhone host and the current iPhone-first UI into `main` at commit `4c44ff906699507597b592975f2501fcfe64de99`. The final pull-request head was `d04861306370bcdce44af727e9cb83685a993d09`. All seven required checks passed at that head: the protected iOS simulator build, Ubuntu and macOS type/unit/build jobs, and desktop/mobile Chromium/WebKit browser suites. The final CI-only correction made the touch tests reflect the shipping mobile layout: touch catalogue cards hide redundant action buttons, and phone layouts hide desktop theater mode.
+
+All three remote D1 migration commands reported `No migrations to apply`. The guarded production Worker promotion retained its existing private assets and all 23 inherited bindings, changed only `SOLANIME_PRIVATE_SITE`, `SOLANIME_APPROVAL_REQUIRED`, `SOLANIME_ALLOWED_ORIGINS`, and `RELEASE_CHANNEL`, and reverified the anonymous approval boundary before deploying. Production Pages was then promoted from exact `main`; its immutable deployment was `https://f87dd6c0.solanime.pages.dev`. Production health read back channel `production`, release `0.8.4-alpha`, connected database, schema 13, and 9,185 titles. `verify:deployment` passed the exact frame-host restriction and version checks, and `verify:private-approval` passed all eight checks with HTTP 401 for anonymous catalogue, filter, provider, and resolve requests. The ordinary website/PWA still does not gain native popup containment from this deployment.
+
+The signed physical-device installation remains **Solanime 0.1.0 (8)**. Device inventory read it back while the trusted iPhone was connected. Before production promotion, Mirroring visibly showed the old production readiness screen, proving that the current native shell was still loading the stale frontend rather than the handoff UI. After production promotion, the app process was terminated for a clean restart. The Mac/device session then locked, and CoreDevice refused relaunch for that specific reason. A post-promotion physical-device visual readback is therefore still pending; build/install/route loading must not be counted as playback evidence.
+
+Exact production and package commands, with local device/signing identifiers deliberately omitted:
+
+```sh
+pnpm cloud:migrate:catalogue
+pnpm cloud:migrate:accounts
+pnpm cloud:migrate:research
+node scripts/cloud-approval-promotion.mjs plan
+node scripts/cloud-approval-promotion.mjs upload --apply --expect-current=<verified-current-version> --expect-bundle=<verified-bundle-sha256>
+node scripts/cloud-approval-promotion.mjs deploy --apply --expect-current=<verified-current-version> --expect-bundle=<verified-bundle-sha256>
+node scripts/deploy-pages.mjs --branch=main --promote-verified-release
+pnpm verify:deployment -- https://solanime.pages.dev
+pnpm verify:private-approval -- https://solanime.pages.dev
+pnpm --dir desktop-prototype test
+pnpm --dir desktop-prototype package:mac
+```
+
+From exact `main`, the desktop policy suite passed 4/4 and `package:mac` produced a fresh unsigned Apple Silicon app at `build/desktop-preview/solanime-mac-preview-qdhECU/Solanime Preview-darwin-arm64/Solanime Preview.app`. The packaged popup/navigation smoke ended on the approved-account login route with zero created windows. The packaged mapping `384944` playback smoke again timed out after 30 seconds waiting for `iframe[title="MegaPlay provider player"]`, because that fresh package had no approved account session. This is a precise login-gate blocker, not a playback pass and not evidence that the protection failed.
+
+The handoff UI now on production includes the full-art phone hero, compact logo/actions, continuous top fade, six-second feature auto-advance with a 240 ms lateral transition, compact indicators near the watch action, Continue Watching before Recent Updates when present, tighter tab-bar spacing, grouped Settings with native-sized controls, the slower coordinated splash, and configured PiP/AirPlay eligibility with a native AirPlay picker on allowed watch routes. These source and browser checks do not replace an on-device visual or protected-playback acceptance run.
+
+**Release status remains unreleased.** A signed build 8 is installed, but there is still no post-promotion physical-iPhone readback and no measured five-second video/frame advance, popup count, external-launch count, stable final mapping, Play/seek/fullscreen/source/episode/restart result, PiP/AirPlay result, or `102630` determination on that build. The current packaged Mac run is blocked by the approved-account login gate before provider playback. Keep both native protections enabled and do not publish an installable release as passing.
+
 ## Physical iPhone reconnection, 2026-09-30 15:38 CDT
 
 The paired iPhone 16 Pro is **connected** again. `xcrun devicectl list devices` reported it connected; `xcrun devicectl device info apps` read back `Solanime`, bundle `dev.solanime.protectedplayer.preview`, version `0.1.0`, build `7`. A normal `devicectl device process launch --terminate-existing` succeeded and Mirroring displayed the latest full-art Home layout. The Debug-only, first-party watch-route launch was then attempted with `https://cloud-release.solanime.pages.dev/watch/unlimited-psychic-squad-h8xyy/124554?language=sub&server=384944`. One launch returned CoreDevice `10004` before a process ID was determined; a retry with `--console` launched and the process remained running. Mirroring displayed the watch page with its Play triangle. This establishes a requested route and loaded player surface, **not** video playback or final source selection.
