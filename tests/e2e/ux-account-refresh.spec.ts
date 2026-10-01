@@ -22,7 +22,7 @@ test('compact navigation and protected destinations work without a Movies sector
   }
   await page.goto('/library');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Flibrary/);
-  await expect(page.getByRole('heading', { name: 'Sign in' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sign in', exact: true })).toBeVisible();
   await page.goto('/settings');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Fsettings/);
   await noOverflow(page);
