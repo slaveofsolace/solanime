@@ -34,6 +34,9 @@ test('featured titles rotate after six seconds and pause for focus or reduced mo
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(page.getByRole('button', { name: 'Pause featured rotation' })).toHaveCount(0);
+  // Wait until the carousel has applied reduced motion; otherwise the pending
+  // six-second timer can still fire on the next fast-forward.
+  await expect(page.locator('.feature-count')).toHaveAttribute('aria-live', 'polite');
   const current = await title.innerText();
   await page.clock.fastForward(6_100);
   await expect(title).toHaveText(current);
