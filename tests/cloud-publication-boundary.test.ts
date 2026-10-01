@@ -4,19 +4,41 @@ import { describe, expect, it } from 'vitest';
 import gateway from '../public/_worker.js';
 
 describe('private snapshot publication boundary', () => {
-  it('binds both Pages environments to the existing private API service explicitly', () => {
+  it('binds Pages production to the live API service and Pages preview to the isolated staging service', () => {
     const pages = JSON.parse(readFileSync('cloud/pages/wrangler.jsonc', 'utf8'));
     const worker = JSON.parse(readFileSync('wrangler.jsonc', 'utf8'));
     expect(pages.name).toBe('solanime');
-    for (const environment of ['preview', 'production']) {
-      expect(pages.env[environment].services).toEqual([
-        { binding: 'SOLANIME_API', service: worker.name, environment: 'production' },
-      ]);
-      expect(pages.env[environment].d1_databases).toBeUndefined();
-    }
+    expect(pages.env.production.services).toEqual([
+      { binding: 'SOLANIME_API', service: worker.name, environment: 'production' },
+    ]);
+    expect(pages.env.preview.services).toEqual([
+      { binding: 'SOLANIME_API', service: worker.env.staging.name, environment: 'production' },
+    ]);
+    for (const environment of ['preview', 'production']) expect(pages.env[environment].d1_databases).toBeUndefined();
     // Pages environments do not inherit non-inheritable service bindings.
-    // Sharing the reviewed service also avoids creating duplicate free-plan DBs.
     expect(pages.account_id).toBeUndefined();
+  });
+  it('keeps staging on its own Worker, databases, queue, limiter namespaces and origin', () => {
+    const worker = JSON.parse(readFileSync('wrangler.jsonc', 'utf8'));
+    const staging = worker.env.staging;
+    expect(staging.name).not.toBe(worker.name);
+    const ids = (config: { d1_databases: { binding: string; database_id: string; database_name: string }[] }) => config.d1_databases;
+    expect(ids(staging).map(item => item.binding)).toEqual(ids(worker).map(item => item.binding));
+    for (const database of ids(staging)) {
+      expect(ids(worker).map(item => item.database_id)).not.toContain(database.database_id);
+      expect(ids(worker).map(item => item.database_name)).not.toContain(database.database_name);
+    }
+    expect(staging.queues.producers[0].queue).not.toBe(worker.queues.producers[0].queue);
+    expect(staging.queues.consumers[0].queue).toBe(staging.queues.producers[0].queue);
+    const namespaces = worker.ratelimits.map((item: { namespace_id: string }) => item.namespace_id);
+    for (const limiter of staging.ratelimits) expect(namespaces).not.toContain(limiter.namespace_id);
+    expect(staging.vars.FIREBASE_PROJECT_ID).not.toBe(worker.vars.FIREBASE_PROJECT_ID);
+    expect(staging.vars.RELEASE_CHANNEL).toBe('staging');
+    expect(worker.vars.RELEASE_CHANNEL).toBe('production');
+    // A preview origin must never pass CSRF/origin checks on the live API.
+    expect(worker.vars.SOLANIME_ALLOWED_ORIGINS.split(',')).not.toContain(staging.vars.SOLANIME_APP_ORIGIN);
+    expect(staging.vars.SOLANIME_ALLOWED_ORIGINS.split(',')).not.toContain(worker.vars.SOLANIME_APP_ORIGIN);
+    expect(staging.secrets.required).toEqual(worker.secrets.required);
   });
   it('routes exact API and private asset paths through the rejecting Pages gateway', () => {
     const routes = JSON.parse(readFileSync('public/_routes.json', 'utf8'));

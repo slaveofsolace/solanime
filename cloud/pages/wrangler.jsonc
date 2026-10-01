@@ -6,7 +6,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "env": {
     "preview": {
-      "services": [{ "binding": "SOLANIME_API", "service": "solanime-api-preview", "environment": "production" }]
+      "services": [{ "binding": "SOLANIME_API", "service": "solanime-api-staging", "environment": "production" }]
     },
     "production": {
       "services": [{ "binding": "SOLANIME_API", "service": "solanime-api-preview", "environment": "production" }]
