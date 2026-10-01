@@ -228,9 +228,6 @@
 .discovery-shell .title-card__availability { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; white-space: normal; }
 .discovery-shell .title-card__details { display: none; }
 .discovery-shell .title-card__actions { position: static; display: flex; justify-content: flex-start; margin: auto 0 0; gap: 8px; opacity: 1; pointer-events: auto; transform: none; }
-/* Catalogue cards reveal their actions on intent; touch cards navigate directly from the poster or title. */
-.discovery-shell .catalogue-page .title-card__actions { visibility: hidden; }
-.discovery-shell .catalogue-page .title-card:is(:hover, :focus-within) .title-card__actions { visibility: visible; }
 .discovery-shell :is(.card-open, .save-button, .card-info) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; width: 44px; padding: 10px; font-size: 0; border-radius: 0; border: 0; background: transparent; color: var(--accent-ink); backdrop-filter: none; }
 .discovery-shell :is(.card-open, .save-button, .card-info) .icon { width: 22px; height: 22px; }
 .discovery-shell :is(.card-open, .save-button, .card-info):hover { background: var(--surface-2); color: var(--text); }
