@@ -4,13 +4,13 @@ import Icon from './Icon';
 function providerState(provider: ProviderChoice, rejectedMappingId?: string) {
   if (provider.status === 'blocked') return 'Blocked upstream';
   if (provider.status === 'unavailable') return 'Currently unavailable';
-  if (provider.status === 'stale') return 'Needs re-verification';
-  if (provider.mappingId === rejectedMappingId) return 'Selected response rejected';
+  if (provider.status === 'stale') return 'Being rechecked';
+  if (provider.mappingId === rejectedMappingId) return 'Could not play this video';
   if (provider.supported && provider.status === 'available' && provider.kind === 'native')
-    return 'Native-capable mapping · playback not verified';
-  if (provider.playbackType === 'iframe') return 'Provider player blocked by safety policy';
-  if (provider.playbackType === 'external') return 'Webpage-only source';
-  return 'Observed, not natively playable';
+    return 'Not tested yet';
+  if (provider.playbackType === 'iframe') return 'Blocked for your safety';
+  if (provider.playbackType === 'external') return 'Only plays on its own website';
+  return 'Cannot play in Solanime';
 }
 
 interface UnsupportedPlaybackProps {
@@ -35,7 +35,7 @@ export default function UnsupportedPlayback({
   const webpageOnlyCount = providers.filter(
     (provider) => provider.playbackType === 'external' || provider.playbackType === 'iframe',
   ).length;
-  const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} mapped${nativeCount ? ` · ${nativeCount} native-capable mappings` : ' · no native streams'}`;
+  const mappedSummary = `${mappedCount} ${mappedCount === 1 ? 'source' : 'sources'} found${nativeCount ? ` · ${nativeCount} not tested yet` : ' · none playable here'}`;
   return (
     <section
       className={`unsupported-playback${artworkUrl ? ' unsupported-playback--artwork' : ''}`}
@@ -52,29 +52,29 @@ export default function UnsupportedPlayback({
       <Icon name="unavailable" className="unsupported-playback__icon" />
       <div className="unsupported-playback__copy">
         <p className="unsupported-playback__eyebrow">
-          {mappedCount > 0 ? mappedSummary : 'No sources mapped'}
+          {mappedCount > 0 ? mappedSummary : 'No sources yet'}
         </p>
         <h2 id="unsupported-playback-title">
           {selectedWasRejected
             ? 'This source cannot play here'
             : mappedCount > 0
-              ? 'No in-player stream'
-              : 'Playback not mapped yet'}
+              ? 'Not playable here yet'
+              : 'No video for this episode yet'}
         </h2>
         <p>
           {mappedCount
             ? selectedWasRejected
-              ? 'The selected provider returned a format or origin the Solanime player cannot use. Choose another source or episode.'
+              ? 'This source sent a video Solanime can’t play. Choose another source or episode.'
               : webpageOnlyCount === mappedCount
-                ? 'These mappings lead to provider webpages or embeds that cannot meet Solanime’s in-player safety requirements. They remain recorded, but are not offered as working video sources.'
-                : 'None of the mapped providers currently returns a supported native stream. Try another episode or check again after sources are refreshed.'
-            : 'No provider mapping has been observed for this episode. Try another episode while synchronization continues.'}
+                ? 'The sources we found only play on their own websites, and we don’t open those inside Solanime for your safety.'
+                : 'None of the sources we found can play in Solanime right now. Try another episode or check back later.'
+            : 'We haven’t found a source for this episode yet. Try another episode or check back later.'}
         </p>
       </div>
       {mappedCount > 0 && (
         <details className="unsupported-playback__sources">
           <summary>Why each source is unavailable</summary>
-          <ul aria-label="Observed playback sources">
+          <ul aria-label="Sources checked for this episode">
             {providers.map((provider) => (
               <li key={provider.mappingId}>
                 <strong>{provider.label}</strong>

@@ -1164,8 +1164,48 @@
     padding: 0 var(--gutter) 62px;
   }
 
+  /* Phones open on the video: the player and its episode/source bar come
+     first, and "Back to title" sits with the title underneath. */
+  .watch-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .watch-page > .player-stage,
+  .watch-page > .watch-selection {
+    order: -1;
+  }
+
   .watch-back {
-    margin-top: 4px;
+    min-height: 36px;
+    margin: 14px 0 0;
+  }
+
+  .watch-back + .watch-heading,
+  .watch-page > .watch-heading {
+    margin-top: 0;
+  }
+
+  /* One row of player controls. Phones use hardware volume and have no
+     room for theater mode, so those two controls step aside. */
+  .media-controls__row {
+    flex-wrap: nowrap;
+  }
+
+  .media-controls .media-volume,
+  .media-controls .media-theater {
+    display: none;
+  }
+
+  .media-controls__extras {
+    flex: 0 1 auto;
+    flex-basis: auto;
+    min-width: 0;
+    margin-left: auto;
+  }
+
+  .media-controls__extras select {
+    max-width: 92px;
   }
 
   .watch-page .player-stage,

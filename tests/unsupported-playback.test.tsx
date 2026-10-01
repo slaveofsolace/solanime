@@ -29,13 +29,13 @@ describe('unsupported playback state', () => {
   it('keeps observed provider mappings visible without calling them playable', () => {
     render(<UnsupportedPlayback providers={providers} />);
 
-    expect(screen.getByRole('heading', { name: 'No in-player stream' })).toBeTruthy();
-    expect(screen.getByText('2 sources mapped · no native streams')).toBeTruthy();
-    expect(screen.getByText(/None of the mapped providers currently returns/i)).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Not playable here yet' })).toBeTruthy();
+    expect(screen.getByText('2 sources found · none playable here')).toBeTruthy();
+    expect(screen.getByText(/None of the sources we found can play/i)).toBeTruthy();
     expect(screen.getByText('Why each source is unavailable')).toBeTruthy();
-    expect(screen.getByRole('list', { name: 'Observed playback sources' })).toBeTruthy();
+    expect(screen.getByRole('list', { name: 'Sources checked for this episode' })).toBeTruthy();
     expect(screen.getByText('Web mirror')).toBeTruthy();
-    expect(screen.getByText('Provider player blocked by safety policy')).toBeTruthy();
+    expect(screen.getByText('Blocked for your safety')).toBeTruthy();
     expect(screen.getByText('Blocked upstream')).toBeTruthy();
     expect(screen.queryByText(/play now/i)).toBeNull();
   });
@@ -53,16 +53,16 @@ describe('unsupported playback state', () => {
     render(<UnsupportedPlayback providers={[selected]} selected={selected} />);
 
     expect(screen.getByRole('heading', { name: 'This source cannot play here' })).toBeTruthy();
-    expect(screen.getByText('Selected response rejected')).toBeTruthy();
-    expect(screen.getByText(/format or origin/i)).toBeTruthy();
+    expect(screen.getByText('Could not play this video')).toBeTruthy();
+    expect(screen.getByText(/sent a video Solanime can’t play/i)).toBeTruthy();
   });
 
   it('reports a genuinely empty mapping inventory without inventing sources', () => {
     render(<UnsupportedPlayback providers={[]} />);
 
-    expect(screen.getByRole('heading', { name: 'Playback not mapped yet' })).toBeTruthy();
-    expect(screen.getByText(/No provider mapping has been observed/i)).toBeTruthy();
-    expect(screen.queryByRole('list', { name: 'Observed playback sources' })).toBeNull();
+    expect(screen.getByRole('heading', { name: 'No video for this episode yet' })).toBeTruthy();
+    expect(screen.getByText(/haven’t found a source for this episode/i)).toBeTruthy();
+    expect(screen.queryByRole('list', { name: 'Sources checked for this episode' })).toBeNull();
   });
 
   it('uses title artwork as a decorative unavailable-state backdrop', () => {

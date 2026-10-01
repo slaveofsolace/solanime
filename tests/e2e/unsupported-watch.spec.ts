@@ -33,14 +33,14 @@ test('watch exposes truthful observed-source status without offering unsafe play
   await page.goto(`/watch/paper-lantern/${firstEpisode.id}?language=sub`);
 
   await expect(
-    page.getByRole('heading', { name: 'No in-player stream' }),
+    page.getByRole('heading', { name: 'Not playable here yet' }),
   ).toBeVisible();
-  await expect(page.getByText('2 sources mapped · no native streams')).toBeVisible();
+  await expect(page.getByText('2 sources found · none playable here')).toBeVisible();
   await page.getByText('Why each source is unavailable').click();
-  await expect(page.getByRole('list', { name: 'Observed playback sources' })).toContainText(
+  await expect(page.getByRole('list', { name: 'Sources checked for this episode' })).toContainText(
     'Observed webpage mirror',
   );
-  await expect(page.getByRole('list', { name: 'Observed playback sources' })).toContainText(
+  await expect(page.getByRole('list', { name: 'Sources checked for this episode' })).toContainText(
     'Blocked upstream',
   );
   await expect(page.getByRole('combobox', { name: 'Playback source' })).toBeDisabled();
@@ -56,7 +56,7 @@ test('unsupported source inventory remains usable at 320px', async ({ page }) =>
 
   await page.getByText('Why each source is unavailable').click();
   await expect(
-    page.getByRole('list', { name: 'Observed playback sources' }).getByText('Observed webpage mirror'),
+    page.getByRole('list', { name: 'Sources checked for this episode' }).getByText('Observed webpage mirror'),
   ).toBeVisible();
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth),
@@ -64,4 +64,16 @@ test('unsupported source inventory remains usable at 320px', async ({ page }) =>
   const episodeControl = page.getByRole('combobox', { name: 'Choose episode' });
   await episodeControl.focus();
   await expect(episodeControl).toBeFocused();
+});
+
+test('phones open the watch page on the player, with the way back under it', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const firstEpisode = await episode(page);
+  await page.route('**/api/episodes/*/providers*', serveUnsupportedProviders);
+
+  await page.goto(`/watch/paper-lantern/${firstEpisode.id}?language=sub`);
+
+  const player = await page.locator('.player-stage').boundingBox();
+  const back = await page.getByRole('link', { name: 'Back to title' }).boundingBox();
+  expect(player && back && player.y < back.y).toBe(true);
 });
