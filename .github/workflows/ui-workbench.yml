@@ -1,0 +1,38 @@
+name: Isolated UI workbench
+on:
+  push:
+    branches: [audit/ui-workbench-20261001]
+    paths: [.github/workflows/ui-workbench.yml]
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 0bb17b55dab7371ce996d3abf171272be51fbf8e
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - name: Build exact baseline and prepare offline tooling
+        run: |
+          set -euo pipefail
+          pnpm build
+          mkdir -p /tmp/ui-workbench/bin
+          cp "$(command -v node)" /tmp/ui-workbench/bin/node
+          git rev-parse HEAD > /tmp/ui-workbench/source-commit.txt
+          git status --porcelain > /tmp/ui-workbench/checkout-status.txt
+          tar -czf /tmp/ui-workbench/runtime.tar.gz node_modules dist
+          git archive --format=tar.gz HEAD mobile-prototype desktop-prototype > /tmp/ui-workbench/prototypes.tar.gz
+          git archive --format=tar.gz HEAD src tests scripts public package.json pnpm-lock.yaml tsconfig.json vite.config.ts vitest.config.ts playwright.config.ts > /tmp/ui-workbench/exact-client.tar.gz
+          sha256sum /tmp/ui-workbench/*.tar.gz > /tmp/ui-workbench/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: isolated-ui-workbench
+          path: /tmp/ui-workbench/
+          retention-days: 2
