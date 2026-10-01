@@ -1,4 +1,4 @@
-name: Isolated UI workbench
+name: Isolated UI refinement verification
 on:
   push:
     branches: [audit/ui-workbench-20261001]
@@ -6,33 +6,68 @@ on:
 permissions:
   contents: read
 jobs:
-  prepare:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 0bb17b55dab7371ce996d3abf171272be51fbf8e
+          ref: 1e6b5689d79ffa6c8f04d39b2fbb2ffc772d4d9b
+          path: transport
           persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 0bb17b55dab7371ce996d3abf171272be51fbf8e
+          path: repo
+          persist-credentials: false
+      - name: Verify transport before applying changes
+        run: |
+          mkdir -p /tmp/ui-review
+          python - <<'PY'
+          from pathlib import Path
+          import base64, gzip, hashlib
+          payload = Path('transport/.audit/ui-review.patch.gz.b64').read_text().strip()
+          for old, new in [('SMXNS6a6pll', 'SMXNS6pll'), ('IPC5yvF9W', 'IPC5yvX9W'), ('Gy9re+9sf', 'Gy9+x10sf')]:
+              print('Transport correction occurrences:', payload.count(old))
+              payload = payload.replace(old, new)
+          Path('/tmp/ui-review/payload.txt').write_text(payload)
+          patch = gzip.decompress(base64.b64decode(payload, validate=True))
+          digest = hashlib.sha256(patch).hexdigest()
+          print('Patch SHA256:', digest)
+          assert digest == '5cb1abd34ba1d664aa7dbda5843b0ace2f4f74e8bd62aa06c5a62629d0ab9b01'
+          Path('/tmp/ui-review/ui-review.patch').write_bytes(patch)
+          PY
+          cd repo
+          git apply --check /tmp/ui-review/ui-review.patch
+          git apply /tmp/ui-review/ui-review.patch
+          git status --short > /tmp/ui-review/changed-files.txt
+          tar -czf /tmp/ui-review/patched-client.tar.gz src tests scripts extensions
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: npm install --global pnpm@11.19.0
-      - run: pnpm install --frozen-lockfile
-      - name: Build exact baseline and prepare offline tooling
+      - name: Install and check
+        working-directory: repo
         run: |
-          set -euo pipefail
-          pnpm build
-          mkdir -p /tmp/ui-workbench/bin
-          cp "$(command -v node)" /tmp/ui-workbench/bin/node
-          git rev-parse HEAD > /tmp/ui-workbench/source-commit.txt
-          git status --porcelain > /tmp/ui-workbench/checkout-status.txt
-          tar -czf /tmp/ui-workbench/runtime.tar.gz node_modules dist
-          git archive --format=tar.gz HEAD mobile-prototype desktop-prototype > /tmp/ui-workbench/prototypes.tar.gz
-          git archive --format=tar.gz HEAD src tests scripts public package.json pnpm-lock.yaml tsconfig.json vite.config.ts vitest.config.ts playwright.config.ts > /tmp/ui-workbench/exact-client.tar.gz
-          sha256sum /tmp/ui-workbench/*.tar.gz > /tmp/ui-workbench/SHA256SUMS
+          set -o pipefail
+          npm install --global pnpm@11.19.0
+          pnpm install --frozen-lockfile
+          pnpm check 2>&1 | tee /tmp/ui-review/check.log
+          node --test mobile-prototype/ios/source-contract.test.cjs 2>&1 | tee /tmp/ui-review/native-source.log
+          pnpm --dir desktop-prototype test 2>&1 | tee /tmp/ui-review/desktop-policy.log
+      - name: Capture optional public artwork
+        working-directory: repo
+        run: node scripts/review-artwork.mjs /tmp/ui-review/public-artwork > /tmp/ui-review/artwork.log 2>&1 || true
+      - name: Render focused mobile and desktop flows
+        working-directory: repo
+        env:
+          SOLANIME_REVIEW_ARTWORK: /tmp/ui-review/public-artwork
+        run: |
+          set -o pipefail
+          pnpm exec playwright install --with-deps chromium webkit
+          pnpm exec playwright test tests/e2e/ui-polish-regressions.spec.ts tests/e2e/streaming-surface-review.spec.ts tests/e2e/shell-style.spec.ts tests/e2e/ux-account-refresh.spec.ts tests/e2e/catalogue-artwork-review.spec.ts --workers=2 --retries=0 --output=/tmp/ui-review/test-results --reporter=line 2>&1 | tee /tmp/ui-review/browser.log
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: isolated-ui-workbench
-          path: /tmp/ui-workbench/
-          retention-days: 2
+          name: ui-refinement-review
+          path: /tmp/ui-review/
+          retention-days: 5
