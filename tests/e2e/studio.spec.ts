@@ -44,7 +44,9 @@ test('featured titles rotate after six seconds and pause for focus or reduced mo
 test('profile motion preferences persist from Settings into the player', async ({ page }) => {
   await accountFixture(page);
   await page.goto('/settings');
-  await page.getByRole('button', { name: 'Reduce motion', exact: true }).click();
+  const reduceSwitch = page.getByRole('checkbox', { name: 'Reduce motion', exact: true });
+  if (await reduceSwitch.isVisible()) await reduceSwitch.check();
+  else await page.getByRole('button', { name: 'Reduce motion', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
   await watch(page);
   await page.reload();
@@ -123,7 +125,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await expect(history.locator('.continue-card > a')).toHaveAttribute('href', /^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
   await expect(history.getByRole('progressbar', { name: 'Paper Lantern viewing progress' })).toBeVisible();
   expect(Number(await history.getByRole('progressbar').getAttribute('aria-valuenow'))).toBeGreaterThan(0);
-  await expect(history.getByRole('button', { name: 'Remove Paper Lantern from Continue watching' })).toBeVisible();
+  await expect(history.getByRole('button', { name: /More options for Paper Lantern/ })).toBeVisible();
   await noOverflow(page);
   await history.getByRole('link', { name: 'Full history' }).click();
   await expect(page.getByRole('heading', { name: 'Watch history', exact: true })).toBeFocused();

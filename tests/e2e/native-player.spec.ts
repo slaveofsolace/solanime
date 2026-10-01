@@ -43,8 +43,11 @@ test('actual native controls change media state without provider requests or pop
     .toBe('showing');
   const h = await video.elementHandle();
   // Header controls must not remount or reset an already loaded player.
-  await page.getByRole('button', { name: 'Categories', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Categories', exact: true })).toHaveAttribute('aria-expanded', 'true');
+  const headerControl = info.project.name.startsWith('mobile')
+    ? page.locator('.header-search__trigger')
+    : page.getByRole('button', { name: 'Categories', exact: true });
+  await headerControl.click();
+  await expect(headerControl).toHaveAttribute('aria-expanded', 'true');
   await page.keyboard.press('Escape');
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   const theater = page.getByRole('button', { name: 'Theater mode', exact: true });

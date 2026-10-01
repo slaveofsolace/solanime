@@ -1,3 +1,4 @@
+import { expandAccent, openProfiles } from './helpers';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { generatedTestPassphrase } from '../helpers/auth-material';
@@ -81,13 +82,14 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await openPaperTitle(page);
   await page.getByRole('button', { name: 'My List', exact: true }).click();
   await page.goto('/settings');
+  await expandAccent(page);
   await page.getByRole('button', { name: 'Violet', exact: true }).click();
-  await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
+  await openProfiles(page);
   await choose(page, 'Mira');
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toHaveCount(0);
-  await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
+  await openProfiles(page);
   await choose(page);
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#A78BFA');
   await page.goto('/library');
@@ -204,7 +206,7 @@ test('a sync conflict does not trap an authenticated session', async ({ page }) 
       })
       .first(),
   ).toBeVisible();
-  await page.getByRole('link', { name: 'Switch profile', exact: true }).click();
+  await openProfiles(page);
   await page.getByRole('link', { name: 'Account settings', exact: true }).click();
   await page
     .getByRole('button', { name: 'Discard unsaved changes and sign out', exact: true })

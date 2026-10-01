@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { TitleCard } from '../components/ui';
 import Icon from '../components/Icon';
+import HistoryActions from '../components/HistoryActions';
 import MyAnimeListLibrary from '../components/MyAnimeListLibrary';
 import { useAppState } from '../state';
 
@@ -120,14 +121,7 @@ export default function LibraryPage() {
                   </span>
                   <span aria-hidden="true">{percent >= 95 ? 'Watch again' : percent > 0 ? 'Resume' : 'Open episode'} →</span>
                 </Link>
-                <button
-                  className="history-remove"
-                  type="button"
-                  aria-label={`Remove ${entry.title} ${entry.episodeLabel} from history`}
-                  onClick={() => history.remove(entry.episodeId, entry.language)}
-                >
-                  Remove
-                </button>
+                <HistoryActions entry={entry} title={watchlist.items.find(item => item.id === entry.titleId)} context="history" />
               </li>;
             })}
           </ol>
@@ -137,7 +131,7 @@ export default function LibraryPage() {
           </>
         ) : (
           <div className="library-empty">
-            <p>Episodes you open will appear here.</p>
+            <p>Episodes you watch will appear here.</p>
           </div>
         )}
       </section>

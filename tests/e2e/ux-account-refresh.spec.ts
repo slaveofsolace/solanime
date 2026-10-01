@@ -15,10 +15,21 @@ test('compact navigation and protected destinations work without a Movies sector
   await expect(page.locator('#featured-title')).toBeVisible();
   const nav = page.locator('.main-nav');
   await expect(nav.getByRole('link', { name: 'Movies', exact: true })).toHaveCount(0);
-  for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
-    await nav.getByRole('link', { name, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
-    await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('aria-current', 'page');
+  const phoneNavigation = page.getByRole('navigation', { name: 'iPhone navigation' });
+  if (await phoneNavigation.isVisible()) {
+    await phoneNavigation.getByRole('link', { name: 'Discover', exact: true }).click();
+    const collections = page.getByRole('group', { name: 'Catalogue collection' });
+    for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
+      await collections.getByRole('button', { name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
+      await expect(collections.getByRole('button', { name, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    }
+  } else {
+    for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
+      await nav.getByRole('link', { name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
+      await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('aria-current', 'page');
+    }
   }
   await page.goto('/library');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Flibrary/);
@@ -122,12 +133,19 @@ test('settings and series remain usable in both themes, narrow layout and enlarg
     await expect(page.locator('#title-name')).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`series-${theme}-320.png`), fullPage: true });
+    const search = page.getByRole('button', { name: 'Search all titles', exact: true });
+    await search.focus(); await page.keyboard.press('Enter');
+    await expect(page.getByRole('searchbox', { name: 'Find titles', exact: true })).toBeFocused();
+    await noOverflow(page);
+    const closeSearch = page.getByRole('button', { name: 'Close search', exact: true });
+    expect((await closeSearch.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+    await page.keyboard.press('Escape');
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+    await expect(search).toBeFocused();
+    await page.setViewportSize({ width: 1440, height: 960 });
     const category = page.getByRole('button', { name: 'Categories', exact: true });
     await category.focus(); await page.keyboard.press('Enter');
     await expect(category).toHaveAttribute('aria-expanded', 'true');
-    await noOverflow(page);
-    const menuTarget = await page.locator('.category-navigation__panel a').first().boundingBox();
-    expect(menuTarget?.height).toBeGreaterThanOrEqual(44);
     await page.keyboard.press('Escape');
     await expect(category).toHaveAttribute('aria-expanded', 'false');
     await expect(category).toBeFocused();

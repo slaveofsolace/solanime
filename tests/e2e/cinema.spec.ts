@@ -1,3 +1,4 @@
+import { expandAccent, openSettings } from './helpers';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { accountFixture } from './account-fixture';
@@ -9,7 +10,8 @@ test.beforeEach(async ({ page }) => {
   );
 });
 async function appearance(page: Page) {
-  await page.getByRole('banner').getByRole('link', { name: 'Settings', exact: true }).click();
+  await openSettings(page);
+  await expandAccent(page);
   return page.locator('#appearance');
 }
 async function noOverflow(page: Page) {
