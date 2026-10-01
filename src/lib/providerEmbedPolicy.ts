@@ -1,7 +1,7 @@
 import type { PlaybackResolution } from '../types';
 
 export const PROVIDER_EMBED_ORIGIN = 'https://megaplay.buzz';
-export const PROVIDER_EMBED_ALLOW = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+export const PROVIDER_EMBED_ALLOW = 'autoplay; fullscreen; picture-in-picture';
 export const PROVIDER_EMBED_REFERRER_POLICY = 'strict-origin-when-cross-origin' as const;
 export const SOLANIME_GUARD_EVENT = 'solanime-guard-status';
 

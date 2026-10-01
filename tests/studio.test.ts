@@ -50,7 +50,7 @@ describe('motion and release diagnostics', () => {
     (
       backend = RELEASE,
       frontend = RELEASE,
-      csp = "default-src 'self'; frame-src https://www.youtube-nocookie.com https://megaplay.buzz; frame-ancestors 'none'",
+      csp = "default-src 'self'; frame-src https://www.youtube-nocookie.com/embed/ https://megaplay.buzz/stream/s-2/; frame-ancestors 'none'",
     ) =>
     async (url: string) =>
       url.includes('/api/')
@@ -71,6 +71,7 @@ describe('motion and release diagnostics', () => {
     "default-src 'self'; frame-src https://www.youtube.com; frame-ancestors 'none'",
     "default-src 'self'; frame-src https://www.youtube-nocookie.com; frame-ancestors 'none'",
     "default-src 'self'; frame-src https://www.youtube-nocookie.com https://example.com; frame-ancestors 'none'",
+    "default-src 'self'; frame-src https://www.youtube-nocookie.com https://megaplay.buzz; frame-ancestors 'none'",
   ])('rejects an iframe policy outside the exact reviewed player allowlist: %s', async (csp) => {
     const result = await inspectDeployment(
       'https://app.example',
