@@ -77,7 +77,7 @@ test('quick-look details preserve the originating route, focus and saved state',
   await trigger.click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByText(title, { exact: true }).first()).toBeVisible();
-  await expect(dialog.getByRole('link', { name: 'Episodes', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('link', { name: 'View episodes', exact: true })).toBeVisible();
   await dialog.getByRole('button', { name: 'My list', exact: true }).click();
   await expect(dialog.getByRole('button', { name: 'Saved', exact: true })).toBeVisible();
   await page.screenshot({ path: info.outputPath('quick-look.png'), fullPage: true });
