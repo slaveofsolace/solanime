@@ -13,6 +13,7 @@ const output = resolve(root, 'build/cloud-approval-promotion');
 const planPath = join(output, 'plan.json');
 const config = JSON.parse(readFileSync(join(root, 'wrangler.jsonc'), 'utf8'));
 const gateFlags = ['SOLANIME_PRIVATE_SITE', 'SOLANIME_APPROVAL_REQUIRED'];
+const promotedVars = [...gateFlags, 'SOLANIME_ALLOWED_ORIGINS', 'RELEASE_CHANNEL'];
 const digest = value => createHash('sha256').update(value).digest('hex');
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
@@ -54,15 +55,18 @@ function validateCurrent(id, remote) {
   if (remote.id !== id) throw Error('Worker version identity changed.');
   const bindings = new Map(remote.resources.bindings.map(item => [item.name, item]));
   const expected = expectedBindings();
-  if (!same([...bindings.keys()].sort(), [...expected].filter(name => !gateFlags.includes(name)).sort()))
-    throw Error('Current Worker bindings differ from the reviewed configuration beyond the approval flags.');
+  if (!same([...bindings.keys()].sort(), [...expected].sort()))
+    throw Error('Current Worker bindings differ from the reviewed configuration.');
   if (bindings.get(config.assets.binding)?.type !== 'assets')
     throw Error('The existing private asset binding is absent.');
   for (const item of config.d1_databases)
     if (bindings.get(item.binding)?.type !== 'd1' || bindings.get(item.binding)?.database_id !== item.database_id)
       throw Error('A D1 binding differs from the reviewed configuration.');
+  for (const name of gateFlags)
+    if (bindings.get(name)?.type !== 'plain_text' || bindings.get(name)?.text !== 'true')
+      throw Error('A deployed approval flag is not enabled.');
   for (const [name, value] of Object.entries(config.vars)) {
-    if (gateFlags.includes(name)) continue;
+    if (promotedVars.includes(name)) continue;
     if (bindings.get(name)?.type !== 'plain_text' || bindings.get(name)?.text !== value)
       throw Error('A deployed plain-text binding differs from the reviewed configuration.');
   }
@@ -134,10 +138,11 @@ async function buildPlan() {
     compatibility_date: config.compatibility_date,
     compatibility_flags: config.compatibility_flags,
     bindings: [
-      ...[...bindings.keys()].sort().map(name => ({ name, type: 'inherit', version_id: 'latest' })),
-      ...gateFlags.map(name => ({ name, type: 'plain_text', text: 'true' })),
+      ...[...bindings.keys()].filter(name => !promotedVars.includes(name)).sort()
+        .map(name => ({ name, type: 'inherit', version_id: 'latest' })),
+      ...promotedVars.map(name => ({ name, type: 'plain_text', text: config.vars[name] })),
     ],
-    annotations: { 'workers/message': 'Enable owner-approved private access while retaining existing private assets' },
+    annotations: { 'workers/message': 'Promote verified release while retaining existing private assets' },
   };
   const plan = { previousVersion, built, metadata, expectedBindingNames: [...expectedBindings()].sort(),
     assetRouting: version(previousVersion).resources.script_runtime.assets, canary };
@@ -182,10 +187,10 @@ function validateUploaded(plan, uploadedVersion) {
   const bindings = new Map(remote.resources.bindings.map(item => [item.name, item]));
   const previous = new Map(version(plan.previousVersion).resources.bindings.map(item => [item.name, item]));
   if (!same([...bindings.keys()].sort(), plan.expectedBindingNames) ||
-      gateFlags.some(name => bindings.get(name)?.type !== 'plain_text' || bindings.get(name)?.text !== 'true') ||
+      promotedVars.some(name => bindings.get(name)?.type !== 'plain_text' || bindings.get(name)?.text !== config.vars[name]) ||
       bindings.get(config.assets.binding)?.type !== 'assets' ||
       !same(remote.resources.script_runtime.assets, plan.assetRouting) ||
-      [...previous].some(([name, old]) => !same(bindings.get(name), old)))
+      [...previous].some(([name, old]) => !promotedVars.includes(name) && !same(bindings.get(name), old)))
     throw Error('Uploaded version does not retain exact bindings and private asset routing. It was not deployed.');
 }
 async function main() {
@@ -193,8 +198,8 @@ async function main() {
   if (mode === 'plan') {
     const plan = await buildPlan();
     console.log(JSON.stringify({ mode, previousVersion: plan.previousVersion, bundleSha256: plan.built.bundleSha256,
-      bundleBytes: plan.built.bytes, inheritedBindings: plan.metadata.bindings.length - gateFlags.length,
-      newApprovalFlags: gateFlags, keepAssets: plan.metadata.keep_assets,
+      bundleBytes: plan.built.bytes, inheritedBindings: plan.metadata.bindings.length - promotedVars.length,
+      updatedPlainTextBindings: promotedVars, keepAssets: plan.metadata.keep_assets,
       assetCanary: { status: plan.canary.status, sha256: plan.canary.sha256 }, planPath }, null, 2));
     return;
   }
@@ -217,7 +222,7 @@ async function main() {
   if (!plan.uploadedVersion) throw Error('No validated uploaded version is recorded.');
   validateUploaded(plan, plan.uploadedVersion);
   wrangler(['versions', 'deploy', `${plan.uploadedVersion}@100%`, '--name', config.name,
-    '--message', 'Require owner approval for Solanime access', '--yes']);
+    '--message', 'Promote verified Solanime release with private assets', '--yes']);
   let result = { passed: false }, canary = null;
   for (let attempt = 0; attempt < 5; attempt++) {
     if (attempt) await new Promise(resolve => setTimeout(resolve, 2000));
