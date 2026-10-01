@@ -108,11 +108,14 @@
   }
 
   .site-shell.discovery-shell .catalogue-page .discovery-actions {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 9px;
-    margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
   }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure { flex: 0 1 auto; min-width: 0; }
+  .site-shell.discovery-shell .catalogue-page .discovery-sort { flex: 1 1 0; min-width: 110px; }
 
   .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary,
   .site-shell.discovery-shell .catalogue-page .discovery-sort {
@@ -124,13 +127,13 @@
     font-size: 13px;
   }
 
-  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary { padding-inline: 13px; }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary { gap: 6px; padding-inline: 8px; }
+  /* Keep the Filters label and count visible without taking the sort value's
+     reading space. The accessible name still announces the active count. */
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary::after { content: none; }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure .filter-count { min-width: 18px; padding: 2px; text-align: center; }
+  .site-shell.discovery-shell .catalogue-page .filter-count__label { display: none; }
   .site-shell.discovery-shell .catalogue-page .discovery-sort { padding-inline: 3px; }
-  .site-shell.discovery-shell .catalogue-page .discovery-sort select {
-    width: 100%;
-    min-height: 42px;
-    font-size: 13px;
-  }
 
   .site-shell.discovery-shell .catalogue-page .filter-grid {
     right: auto;
@@ -141,8 +144,6 @@
     padding: 16px;
     border-radius: 12px;
   }
-
-  .site-shell.discovery-shell .catalogue-page .filter-grid select { min-height: 44px; }
 
   .site-shell.discovery-shell .catalogue-page .title-grid,
   .site-shell.discovery-shell .catalogue-page .title-grid--compact {
@@ -302,10 +303,6 @@
     min-width: 50px;
     min-height: 50px;
     padding: 0;
-    border: 1px solid var(--accent);
-    border-radius: 10px;
-    background: #17191e;
-    color: var(--accent);
   }
 
   .site-shell.discovery-shell .title-page .title-facts {
@@ -481,7 +478,6 @@
     gap: 6px;
     min-width: 0;
     padding: 12px 0;
-    border-bottom: 1px solid var(--line);
   }
 
   .site-shell.discovery-shell .history-link { gap: 12px; }

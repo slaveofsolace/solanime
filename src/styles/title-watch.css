@@ -96,16 +96,6 @@
   font-weight: 720;
 }
 
-.title-hero__actions .button--outline {
-  background: rgb(48 50 50 / 78%);
-  border-color: transparent;
-  backdrop-filter: blur(12px);
-}
-
-.title-hero__actions .button--outline:hover {
-  background: rgb(69 72 72 / 88%);
-}
-
 .title-hero__details {
   max-width: 58ch;
 }
@@ -228,25 +218,13 @@
   margin: 0 0 10px;
 }
 
-.title-page .episode-season-picker > span,
-.watch-page .episode-season-picker > span {
+.title-page .episode-season-picker > span:not(.select-control),
+.watch-page .episode-season-picker > span:not(.select-control) {
   color: var(--muted);
   font-size: 10px;
   font-weight: 720;
   letter-spacing: .08em;
   text-transform: uppercase;
-}
-
-.title-page .episode-season-picker select,
-.watch-page .episode-season-picker select {
-  min-height: 36px;
-  padding: 7px 30px 7px 10px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  color: var(--text);
-  background: var(--surface-2);
-  font-size: 12px;
-  font-weight: 650;
 }
 
 .title-page .episode-season-picker small,
@@ -318,10 +296,6 @@
 .title-page .episode-grid .watched-toggle {
   margin-right: 4px;
   color: var(--muted);
-}
-
-.title-page .title-about {
-  padding-block: 8px;
 }
 
 .title-page .related-section {
@@ -706,24 +680,11 @@
   background: #131616;
 }
 
-.watch-selection label > span {
+.watch-selection label > span:not(.select-control) {
   color: rgb(255 255 255 / 66%);
   font-size: 9px;
   font-weight: 720;
   letter-spacing: .1em;
-}
-
-.watch-selection select {
-  min-height: 44px;
-  padding: 8px 24px 8px 7px;
-  color: #f5f5f1;
-  background-color: transparent;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.watch-selection select:disabled {
-  color: rgb(255 255 255 / 42%);
 }
 
 .watch-selection option {
@@ -783,26 +744,10 @@
   color: rgb(255 255 255 / 58%);
 }
 
-.watch-about > summary {
-  color: rgb(255 255 255 / 62%);
-  font-size: 12px;
-  font-weight: 650;
-}
-
-.watch-about > p {
-  max-width: 78ch;
-  margin-top: 7px;
-  color: rgb(255 255 255 / 72%);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.watch-chapter,
 .episode-community {
   border-top-color: rgb(255 255 255 / 11%);
 }
 
-.watch-chapter > summary,
 .episode-community__heading h2 {
   color: #f5f5f1;
   font-weight: 720;
@@ -951,11 +896,11 @@
   list-style: none;
 }
 
-.comment-list__empty {
-  min-height: 104px;
-  padding: 18px !important;
-  border: 1px dashed rgb(255 255 255 / 13%) !important;
+.comment-list .comment-list__empty {
+  padding: 0;
+  border: 0;
 }
+.comment-list__empty strong { color: var(--muted); font-weight: 400; }
 
 .source-explanation {
   color: rgb(255 255 255 / 48%);
@@ -1058,13 +1003,6 @@
     width: 100%;
     padding: 0 0 8px;
     background: #080a0a;
-  }
-
-  .watch-episodes .episode-season-picker select {
-    flex: 1;
-    color: #f5f5f1;
-    border-color: rgb(255 255 255 / 11%);
-    background: #141717;
   }
 
   .watch-episodes .episode-grid {
@@ -1204,10 +1142,6 @@
     margin-left: auto;
   }
 
-  .media-controls__extras select {
-    max-width: 92px;
-  }
-
   .watch-page .player-stage,
   .watch-page .watch-selection {
     box-sizing: border-box;
@@ -1265,12 +1199,6 @@
   .watch-selection > .source-choice,
   .watch-selection > .version-choice {
     width: 100%;
-  }
-
-  .watch-selection > :is(.source-choice, .version-choice) select {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
   }
 
   .watch-heading {
@@ -1376,12 +1304,6 @@
   .title-page .episode-season-picker,
   .watch-page .episode-season-picker {
     width: 100%;
-  }
-
-  .title-page .episode-season-picker select,
-  .watch-page .episode-season-picker select {
-    min-width: 0;
-    flex: 1;
   }
 
   .watch-selection {

@@ -85,7 +85,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     return (
       <section className="auth-result" role="status">
         <h1>Waiting for approval</h1>
-        <p>Your request is recorded. The Solanime owner must approve your account before you can sign in or browse.</p>
+        <p>The Solanime owner must approve your account before you can sign in.</p>
         <Link className="button button--primary" to={withReturnTo('/login', destination)}>
           Back to sign in
         </Link>
@@ -99,18 +99,11 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
           <span>Solanime</span>
         </div>
         <h1>
-          {recover ? 'Recover your account' : register ? registerAction : 'Sign in to Solanime'}
+          {recover ? 'Recover your account' : register ? registerAction : 'Sign in'}
         </h1>
-        <p>
-          {recover
-            ? 'Use your saved code to set a new password.'
-            : register
-              ? 'Save titles and watch progress across devices.'
-              : 'Access your profiles, list, and watch history.'}
-        </p>
+        {recover && <p>Use your recovery code to set a new password.</p>}
       </div>
       <div className="auth-panel">
-        <h2>{recover ? 'Recover account' : register ? registerAction : 'Sign in'}</h2>
         {register && account.approvalRequired && (
           <p className="auth-approval-note">Your account must be approved before you can sign in.</p>
         )}
@@ -179,7 +172,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             {(register || recover) && (
               <>
                 <p className="field-hint" id="password-help">
-                  15–128 characters. A long passphrase works well.
+                  15–128 characters.
                 </p>
                 <label htmlFor="confirm-password">Confirm password</label>
                 <input
@@ -224,11 +217,11 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                     : 'Sign in'}
             </button>
             {register && !account.registrationOpen && (
-              <p className="field-hint">Registration is closed on this deployment.</p>
+              <p className="field-hint">Registration is currently closed.</p>
             )}
             {register && (
               <p className="field-hint">
-                Save the recovery code shown next. You’ll need it if you forget your password.
+                You’ll receive a recovery code to save after signing up.
               </p>
             )}
           </form>

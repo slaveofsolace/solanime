@@ -34,7 +34,7 @@ export default function RecoveryCard({
   async function copy() {
     try {
       await navigator.clipboard.writeText(code);
-      setCopyStatus('Code copied. Store it somewhere private.');
+      setCopyStatus('Code copied.');
     } catch {
       setCopyStatus('Clipboard unavailable. Select and copy the code above.');
     }
@@ -46,10 +46,10 @@ export default function RecoveryCard({
         <h1>Save your recovery code</h1>
         <p className="recovery-intro">
           {pendingApproval
-            ? 'Your access request is recorded. Save this code before leaving; you may need it after the owner approves your account.'
+            ? 'Your request is waiting for approval. Save this code somewhere private; you’ll need it to reset your password.'
             : replacement
-              ? 'This code replaces your previous one. Keep it somewhere private so you can reset your password.'
-              : 'You’ll need this code if you forget your password. It appears only once, so save it before continuing.'}
+              ? 'Your previous code no longer works. Save this one somewhere private to reset your password.'
+              : 'Keep this code somewhere private. You’ll need it to reset your password, and it won’t be shown again.'}
         </p>
         <div className="recovery-code-panel">
           <div className="recovery-code-heading">

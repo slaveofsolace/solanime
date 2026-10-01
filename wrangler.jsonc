@@ -51,6 +51,13 @@
   "env": {
     "staging": {
       "name": "solanime-api-staging",
+      "assets": {
+        "directory": "./build/cloud-worker-assets-staging-20261001",
+        "binding": "IMPORT_ASSETS",
+        "run_worker_first": true,
+        "html_handling": "none",
+        "not_found_handling": "none"
+      },
       "triggers": { "crons": [] },
       "vars": {
         "SOLANIME_APP_ORIGIN": "https://cloud-release.solanime.pages.dev",
@@ -58,23 +65,23 @@
         "SOLANIME_REGISTRATION": "closed",
         "SOLANIME_PRIVATE_SITE": "true",
         "SOLANIME_APPROVAL_REQUIRED": "true",
-        "FIREBASE_PROJECT_ID": "REPLACE-with-staging-firebase-project-id",
+        "FIREBASE_PROJECT_ID": "solanime-staging",
         "SYNC_ENABLED": "false",
         "SOURCE_REFRESH_ENABLED": "false",
-        "IMPORT_MANIFEST_PATH": "/__private-import/d2c4b3b60ff8eb32ca2e3d24cc89ac80b40a40032897a354127ec76029f125ac/manifest.json",
-        "IMPORT_MANIFEST_SHA256": "a720a98a1455989973ef31f9e18fb194f3c102b2f5c4253520ef3b0c9074aa7a",
+        "IMPORT_MANIFEST_PATH": "/__private-import/4cb8cb046975a04e8a6f0b3befacc5990cf96610737447d7e501f1177eaf0be4/manifest.json",
+        "IMPORT_MANIFEST_SHA256": "29c20586a6a82010f14ce54022b30f1ba7087f056cadb23c9a4410f306542498",
         "CATALOGUE_BASELINE_ENABLED": "true",
-        "CATALOGUE_BASELINE_ID": "6c2ea9f2a94d3e066c19bdfa873feb1337076c0e5855fe507ba60382125c46a1",
-        "CATALOGUE_BASELINE_MANIFEST_SHA256": "74ad81762d28fd31678b02aa395e26e2db5a45ec53ab14afda4500af4ed1ca9d",
+        "CATALOGUE_BASELINE_ID": "70010385d696b0d039ab0d0bd0a24297451192bceb4861050035595bfa8ff9a6",
+        "CATALOGUE_BASELINE_MANIFEST_SHA256": "3a12f5120f6cbe4a69fcefea18a1b7ddf88a02fb4874dde430bac2c2c6791248",
         "SYNC_DAILY_WRITE_BUDGET": "5000",
         "SYNC_DAILY_QUEUE_BUDGET": "200",
         "RELEASE_CHANNEL": "staging"
       },
       "secrets": { "required": ["SOLANIME_ADMIN_TOKEN", "FIREBASE_API_KEY", "FIREBASE_SERVICE_ACCOUNT_JSON", "AUTH_CREDENTIAL_KEY"] },
       "d1_databases": [
-        { "binding": "CATALOGUE", "database_name": "solanime-catalogue-staging", "database_id": "REPLACE-with-solanime-catalogue-staging-id", "migrations_dir": "migrations/cloud/catalogue" },
-        { "binding": "ACCOUNTS", "database_name": "solanime-accounts-staging", "database_id": "REPLACE-with-solanime-accounts-staging-id", "migrations_dir": "migrations/cloud/accounts" },
-        { "binding": "RESEARCH", "database_name": "solanime-research-staging", "database_id": "REPLACE-with-solanime-research-staging-id", "migrations_dir": "migrations/cloud/research" }
+        { "binding": "CATALOGUE", "database_name": "solanime-catalogue-staging", "database_id": "67c5e3dc-8809-49ef-9b68-2321699cc500", "migrations_dir": "migrations/cloud/catalogue" },
+        { "binding": "ACCOUNTS", "database_name": "solanime-accounts-staging", "database_id": "58c89cf4-2b92-4538-8769-2d45796c5852", "migrations_dir": "migrations/cloud/accounts" },
+        { "binding": "RESEARCH", "database_name": "solanime-research-staging", "database_id": "6715c064-ec99-43f4-9c6b-10c23db2ca31", "migrations_dir": "migrations/cloud/research" }
       ],
       "queues": {
         "producers": [{ "binding": "SYNC_QUEUE", "queue": "solanime-sync-staging" }],

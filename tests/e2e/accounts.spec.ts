@@ -31,15 +31,18 @@ async function register(page: Page, info?: TestInfo) {
   await expect(page.getByRole('heading', { name: 'Who’s watching?' })).toBeVisible();
   return { email, code };
 }
-async function choose(page: Page, name = 'You') {
+async function choose(page: Page, name = 'You', destination = '/') {
   await page
     .locator('.profile-tile')
     .filter({ has: page.getByText(name, { exact: true }) })
     .click();
-  await expect(page).toHaveURL(/\/$/);
-  // A committed route is not yet a rendered/settled homepage. Wait for the UI
-  // before a hard navigation, which otherwise tears down in-flight WebKit fetches.
-  await expect(page.locator('#featured-title')).toBeVisible();
+  await expect(page).toHaveURL(new URL(destination, 'http://127.0.0.1:18787').href);
+  // Profile switching returns to its originating screen. Wait for that screen
+  // before a hard navigation so in-flight WebKit fetches can settle.
+  if (destination === '/') await expect(page.locator('#featured-title')).toBeVisible();
+  else await expect(page.getByRole('heading', {
+    name: destination.startsWith('/settings') ? 'Appearance' : 'Library', exact: true,
+  })).toBeVisible();
 }
 async function overflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(
@@ -81,16 +84,16 @@ test('five profiles keep appearance and saved lists separate across reloads', as
   await choose(page);
   await openPaperTitle(page);
   await page.getByRole('button', { name: 'My List', exact: true }).click();
-  await page.goto('/settings');
+  await page.goto('/settings?section=appearance');
   await expandAccent(page);
   await page.getByRole('button', { name: 'Violet', exact: true }).click();
   await openProfiles(page);
-  await choose(page, 'Mira');
+  await choose(page, 'Mira', '/settings?section=appearance');
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#EE791F');
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toHaveCount(0);
   await openProfiles(page);
-  await choose(page);
+  await choose(page, 'You', '/library');
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#A78BFA');
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
@@ -174,7 +177,7 @@ test('account screens retain accessible contrast, focus and mobile layout', asyn
   await page.screenshot({ path: info.outputPath('sign-in.png'), fullPage: true });
   await register(page);
   await choose(page);
-  await page.goto('/settings');
+  await page.goto('/settings?section=appearance');
   await page.getByRole('button', { name: 'Light', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();

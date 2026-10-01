@@ -10,7 +10,7 @@ test('history searches every retained entry and exposes the next page without fa
     episodeLabel:`Episode ${i+1}`,language:'sub',watchedAt:'2026-01-01T00:00:00Z',
     ...(i===0 ? {position:99,duration:100} : i===1 ? {position:25,duration:100} : {}),
   })) });
-  await page.goto('/library');
+  await page.goto('/library?view=history');
   await expect(page.getByRole('heading', {name:'Library',exact:true})).toBeVisible();
   const history = page.getByRole('region', {name:'Watch history',exact:true});
   await expect(history.locator('li')).toHaveCount(20);
@@ -31,7 +31,7 @@ test('history searches every retained entry and exposes the next page without fa
   await history.getByRole('searchbox',{name:'Find in watch history'}).fill('episode 25');
   await expect(history.locator('li')).toHaveCount(0);
   await expect(page.locator('.library-settings')).toHaveCount(0);
-  await page.goto('/settings');
+  await page.goto('/settings?section=playback');
   await expect(page.getByRole('heading',{name:'Playback', exact:true})).toBeVisible();
   await noOverflow(page);
 });
@@ -59,6 +59,6 @@ test('continue watching selects one latest episode per series and advances only 
   await page.reload();
   await expect(page.locator('#featured-title')).toBeVisible();
   await expect(continuing).toHaveCount(0);
-  await page.goto('/library');
+  await page.goto('/library?view=history');
   await expect(page.locator('.history-list > li')).toHaveCount(2);
 });

@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, type RefObject, type KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import Icon from './Icon';
+import SelectControl from './SelectControl';
+import Dialog, { markDialogTrigger } from './Dialog';
 import { createMediaSeeker } from '../lib/mediaSeek';
+import '../styles/media-options.css';
 export function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
   const whole = Math.floor(seconds),
@@ -39,6 +42,7 @@ export default function MediaControls({
     [caption, setCaption] = useState(-1);
   const [remaining, setRemaining] = useState(false);
   const [speed, setSpeed] = useState(1);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [buffering, setBuffering] = useState(false);
   const lastVolume = useRef(1);
   const seeker = useRef<ReturnType<typeof createMediaSeeker> | null>(null);
@@ -160,6 +164,7 @@ export default function MediaControls({
   };
   const key = (event: KeyboardEvent) => {
     if (
+      settingsOpen ||
       event.ctrlKey ||
       event.altKey ||
       event.metaKey ||
@@ -284,7 +289,7 @@ export default function MediaControls({
           {onPrevious && (
             <button
               type="button"
-              className="media-button"
+              className="media-button media-episode-step"
               aria-label="Previous episode"
               onClick={onPrevious}
             >
@@ -294,7 +299,7 @@ export default function MediaControls({
           {onNext && (
             <button
               type="button"
-              className="media-button"
+              className="media-button media-episode-step"
               aria-label="Next episode"
               onClick={onNext}
             >
@@ -312,39 +317,19 @@ export default function MediaControls({
               <Icon name="theater" />
             </button>
           )}
-          {tracks.length > 0 && (
-            <select
-              aria-label="Captions"
-              value={caption}
-              onChange={(event) => {
-                const index = Number(event.target.value);
-                tracks.forEach((track, i) => {
-                  track.mode = i === index ? 'showing' : 'disabled';
-                });
-                setCaption(index);
-              }}
-            >
-              <option value={-1}>Captions off</option>
-              {tracks.map((track, index) => (
-                <option value={index} key={index}>
-                  {track.label || track.language || `Track ${index + 1}`}
-                </option>
-              ))}
-            </select>
-          )}
-          <select
-            aria-label="Playback speed"
-            value={speed}
-            onChange={(event) => {
-              if (videoRef.current) videoRef.current.playbackRate = Number(event.target.value);
+          <button
+            className="media-button media-settings-trigger"
+            type="button"
+            aria-label="Playback settings"
+            aria-haspopup="dialog"
+            aria-expanded={settingsOpen}
+            onClick={(event) => {
+              markDialogTrigger(event.currentTarget);
+              setSettingsOpen(true);
             }}
           >
-            {[0.5, 0.75, 1, 1.25, 1.5, 2].map((speed) => (
-              <option key={speed} value={speed}>
-                {speed}×
-              </option>
-            ))}
-          </select>
+            <Icon name="settings" />
+          </button>
           <button
             className="media-button"
             type="button"
@@ -355,6 +340,41 @@ export default function MediaControls({
           </button>
         </div>
       </div>
+      {settingsOpen && <Dialog title="Playback settings" className="media-options-dialog" onClose={() => setSettingsOpen(false)}>
+        <div className="media-options-fields">
+          {tracks.length > 0 && <label>
+            <span>Captions</span>
+            <SelectControl
+              value={caption}
+              onChange={(event) => {
+                const index = Number(event.target.value);
+                tracks.forEach((track, i) => {
+                  track.mode = i === index ? 'showing' : 'disabled';
+                });
+                setCaption(index);
+              }}
+            >
+              <option value={-1}>Off</option>
+              {tracks.map((track, index) => <option value={index} key={index}>
+                {track.label || track.language || `Track ${index + 1}`}
+              </option>)}
+            </SelectControl>
+          </label>}
+          <label>
+            <span>Playback speed</span>
+            <SelectControl
+              value={speed}
+              onChange={(event) => {
+                if (videoRef.current) videoRef.current.playbackRate = Number(event.target.value);
+              }}
+            >
+              {[0.5, 0.75, 1, 1.25, 1.5, 2].map((value) => <option key={value} value={value}>
+                {value === 1 ? 'Normal (1×)' : `${value}×`}
+              </option>)}
+            </SelectControl>
+          </label>
+        </div>
+      </Dialog>}
       <span className="sr-only" id="player-shortcuts">
         Space or K to play or pause. Left and right arrows to seek. M to mute. F for fullscreen. T
         for theater. N and P for episodes.

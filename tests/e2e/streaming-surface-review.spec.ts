@@ -8,7 +8,7 @@ async function capture(page: Page, info: TestInfo, name: string) {
   await expect(page.locator('.application-content')).not.toHaveAttribute('inert');
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath(`${name}.png`), fullPage: true,
-    mask: [page.locator('.recovery-value'), page.locator('input[type="password"]')] });
+    maskColor: '#2d3038', mask: [page.locator('.recovery-value'), page.locator('input[type="password"]')] });
 }
 
 test('streaming product surface review across account and viewing journeys', async ({ page, context, isMobile }, info) => {
@@ -45,8 +45,15 @@ test('streaming product surface review across account and viewing journeys', asy
   await page.goto('/library');
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
   await capture(page, info, 'library-saved');
+  await page.getByRole('button', { name: 'More options for Paper Lantern', exact: true }).click();
+  await expect(page.getByRole('dialog', { name: 'Paper Lantern', exact: true })).toBeVisible();
+  await capture(page, info, 'library-actions');
+  await page.getByRole('button', { name: 'Close dialog' }).click();
   for (const [route, heading, name] of [
-    ['/settings', 'Settings', 'settings'], ['/account', 'Account', 'account'],
+    ['/settings?section=playback', 'Playback', 'settings-playback'],
+    ['/settings?section=appearance', 'Appearance', 'settings-appearance'],
+    ['/settings?section=connections', 'Connected apps', 'settings-connections'],
+    ['/account', 'Account', 'account'],
     ['/profiles', 'Who’s watching?', 'profiles'],
   ]) {
     await page.goto(route);

@@ -126,7 +126,7 @@ export default function HomePage() {
         <FeatureSpotlight items={spotlightItems} />
       ) : !error ? (
         <InlineNotice>
-          No titles have been imported yet. Saved titles remain available in your list.
+          No titles available yet. Your saved titles are in Library.
         </InlineNotice>
       ) : null}
       {continuing.length > 0 && (

@@ -26,6 +26,11 @@ export function createBrandPainter(svg: SVGSVGElement) {
     back?.setAttribute('stroke-dashoffset', ((1 - frame.back) * 100).toFixed(4));
     opacity(core, frame.core); opacity(play, frame.play); opacity(sun, frame.sun);
     sun?.setAttribute('transform', `translate(0 ${frame.sunY.toFixed(3)})`);
+    // The diffuse backlight follows the rising disc, without independent rays
+    // sliding over the mark or changing its approved contours.
+    const lightPosition = `translate(0 ${(frame.sunY * .35).toFixed(3)})`;
+    sunlight?.setAttribute('transform', lightPosition);
+    sunRays?.setAttribute('transform', lightPosition);
     opacity(sunlight, frame.sunlight); opacity(sunRays, frame.sunRays); opacity(rim, frame.reflection);
     opacity(playAura, frame.playGlow);
     opacity(travel, frame.glint);

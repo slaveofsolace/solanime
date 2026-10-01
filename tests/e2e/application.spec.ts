@@ -15,10 +15,9 @@ test('browse, search, save and reopen a persistent list', async ({ page }) => {
   await expect(page).toHaveURL(/search\?q=Paper/);
   await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
   await page.getByRole('button', { name: 'My List', exact: true }).click();
-  await page
-    .getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: /My list/ })
-    .click();
+  const phoneNavigation = page.getByRole('navigation', { name: 'iPhone navigation' });
+  if (await phoneNavigation.isVisible()) await phoneNavigation.getByRole('link', { name: 'Library', exact: true }).click();
+  else await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: /My list/ }).click();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
   await page.reload();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();

@@ -31,7 +31,7 @@ export default function TitlePreview({
     return () => controller.abort();
   }, [title.slug]);
   const item = detail?.title ?? title;
-  const name = item.name ?? item.title ?? 'Untitled record';
+  const name = item.name ?? item.title ?? 'Untitled';
   const watchEntry = detail
     ? chooseWatchEntry(item.id, detail.episodes, history.entries, preference.preferredLanguage)
     : null;
@@ -46,11 +46,11 @@ export default function TitlePreview({
           <p className="preview-meta">
             {[item.type, item.releaseYear, item.status].filter(Boolean).join(' · ')}
           </p>
-          <p>{item.synopsis || 'Details will be available on the title page.'}</p>
+          {item.synopsis && <p>{item.synopsis}</p>}
           {detail && (
             <p className="preview-episodes">
               {detail.episodes.length.toLocaleString()}{' '}
-              {detail.episodes.length === 1 ? 'episode' : 'episodes'} in the catalogue
+              {detail.episodes.length === 1 ? 'episode' : 'episodes'}
             </p>
           )}
           {error && <p className="inline-notice">{error}</p>}

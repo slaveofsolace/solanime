@@ -237,18 +237,9 @@
   flex-direction: column;
   gap: 8px;
 }
-.filter-field > span {
+.filter-field > span:not(.select-control) {
   color: var(--muted);
   font-size: 11px;
-}
-.filter-field select {
-  width: 100%;
-  padding: 10px 10px 10px 0;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
-  font-size: 12px;
 }
 .control-foot {
   display: flex;
@@ -447,7 +438,6 @@
   align-items: center;
   gap: 22px;
   padding: 18px 0;
-  border-bottom: 1px solid var(--line);
 }
 .history-link {
   display: flex;
@@ -506,33 +496,6 @@
 }
 .preferences-section > header p {
   margin-top: 10px;
-}
-.preference-list {
-  display: grid;
-  gap: 0;
-}
-.preference-list label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-}
-.preference-list label:first-child {
-  padding-top: 0;
-}
-.preference-list strong {
-  font-size: 14px;
-}
-.preference-list small {
-  display: block;
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 6px;
-}
-.preference-list select {
-  max-width: 150px;
 }
 @media (max-width: 1200px) {
   .title-grid {

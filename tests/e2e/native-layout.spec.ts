@@ -25,8 +25,8 @@ test('paused Play stays at the picture centre across viewport and theater change
       expect(picture!.height).toBeLessThanOrEqual(viewport.height * (theater ? .78 : .62) + 1);
       expect(button!.width).toBeGreaterThanOrEqual(44);
       expect(await handle!.evaluate(element => element.isConnected)).toBe(true);
-      await expect(page.locator(viewport.width <= 600 ? '.native-tab-bar' : '.main-nav')).toBeVisible();
-      // Phones keep their bottom destinations; larger viewports retain desktop navigation.
+      await expect(page.locator(viewport.width <= 820 ? '.native-tab-bar' : '.main-nav')).toBeVisible();
+      // Phones and compact tablets share tabs; wider viewports retain desktop navigation.
       const header = await page.locator('.masthead').boundingBox();
       expect(header!.height).toBeLessThanOrEqual(viewport.width <= 820 ? 94 : 50);
       await noOverflow(page);

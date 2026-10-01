@@ -63,12 +63,16 @@ test('episode action sheet preserves history while hiding a continuing series', 
   await expect(continuing).toHaveCount(0);
   await page.goto('/library#history-title');
   await expect(page.locator('.history-list > li')).toHaveCount(1);
+  const libraryViews = page.getByRole('navigation', { name: 'Library views' });
+  await libraryViews.getByRole('link', { name: 'My List', exact: true }).click();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
+  await libraryViews.getByRole('link', { name: 'History', exact: true }).click();
   await page.getByRole('button', { name: 'More options for Paper Lantern Episode 1', exact: true }).click();
   await sheet.getByRole('button', { name: 'Remove from History', exact: true }).click();
   await expect(page.locator('.history-list > li')).toHaveCount(0);
   await page.reload();
   await expect(page.getByText('Episodes you watch will appear here.', { exact: true })).toBeVisible();
+  await libraryViews.getByRole('link', { name: 'My List', exact: true }).click();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
   await noOverflow(page);
 });

@@ -27,13 +27,13 @@ test('branding follows primary readiness and does not replay after route navigat
     if (query.get('scope') === 'anime' && query.get('pageSize') === '48') await new Promise(resolve => setTimeout(resolve, 500));
     await route.continue();
   });
-  const began = Date.now();
   await page.goto('/');
   const readiness = page.locator('.sol-brand-readiness');
   await expect(readiness).toBeVisible();
   await expect(page.locator('.application-content')).toHaveAttribute('inert');
-  await expect(readiness).toHaveCount(0, { timeout: 6000 });
-  expect(Date.now() - began).toBeGreaterThanOrEqual(2300);
+  // Readiness releases the page after the 500ms data delay and brief exit;
+  // it must not wait for the full 3.4s decorative intro.
+  await expect(readiness).toHaveCount(0, { timeout: 2000 });
   await expect(page.locator('#featured-title')).toBeVisible();
   const compactBrand = page.locator('.masthead .wordmark__compact');
   const emblemBrand = page.locator('.masthead .wordmark__emblem');
@@ -49,7 +49,7 @@ test('branding follows primary readiness and does not replay after route navigat
       .getByRole('link', { name: 'Anime', exact: true }).click();
   }
   await expect(page).toHaveURL('/catalogue?scope=anime');
-  await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+  await page.getByRole('link', { name: 'Solanime home', exact: true }).click();
   await expect(page).toHaveURL('/');
   await expect(readiness).toHaveCount(0);
   await expect(page.locator('#featured-title')).toBeVisible();

@@ -86,6 +86,7 @@
 }
 
 .discovery-actions {
+  position: relative;
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
@@ -93,8 +94,10 @@
   margin-left: auto;
 }
 
+/* The panel aligns to the whole control row so its edge remains in the
+   viewport when the Filters trigger sits near the middle of a tablet. */
 .catalogue-page .filter-disclosure {
-  position: relative;
+  position: static;
   width: auto;
 }
 
@@ -177,23 +180,12 @@
   bottom: 8px;
 }
 
-.catalogue-page .filter-field > span {
+.catalogue-page .filter-field > span:not(.select-control) {
   color: var(--muted);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-}
-
-.catalogue-page .filter-grid select {
-  width: 100%;
-  min-height: 40px;
-  padding: 7px 28px 7px 10px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 12px;
 }
 
 .discovery-sort {
@@ -206,16 +198,6 @@
   color: var(--muted);
   font-size: 11px;
   white-space: nowrap;
-}
-
-.discovery-sort select {
-  width: 150px;
-  min-height: 42px;
-  padding: 8px 26px 8px 7px;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  font-size: 12px;
 }
 
 .catalogue-page .view-switcher {
@@ -340,10 +322,6 @@
   .catalogue-page .title-grid--compact {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
-
-  .discovery-sort select {
-    width: 132px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -409,7 +387,7 @@
     padding-left: 0;
   }
 
-  .discovery-sort > span {
+  .discovery-sort > span:not(.select-control) {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -419,11 +397,6 @@
 
   .catalogue-page .filter-disclosure {
     grid-column: 1 / -1;
-  }
-
-  .discovery-sort select {
-    width: 100%;
-    min-height: 44px;
   }
 
   .catalogue-page .view-switcher {

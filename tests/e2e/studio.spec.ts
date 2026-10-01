@@ -43,10 +43,10 @@ test('featured titles rotate after six seconds and pause for focus or reduced mo
 });
 test('profile motion preferences persist from Settings into the player', async ({ page }) => {
   await accountFixture(page);
-  await page.goto('/settings');
+  await page.goto('/settings?section=appearance');
+  await expect(page.getByRole('heading', { name: 'Appearance', exact: true })).toBeVisible();
   const reduceSwitch = page.getByRole('checkbox', { name: 'Reduce motion', exact: true });
-  if (await reduceSwitch.isVisible()) await reduceSwitch.check();
-  else await page.getByRole('button', { name: 'Reduce motion', exact: true }).click();
+  await reduceSwitch.check();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
   await watch(page);
   await page.reload();
@@ -103,7 +103,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
 
-  const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
+  const primaryLinks = page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link');
   await expect(primaryLinks).toHaveCount(4);
   for (const link of await primaryLinks.all()) {
     await expect(link).toBeVisible();
@@ -136,7 +136,7 @@ test('major screens have meaningful content, no overflow and accessible controls
   test.setTimeout(90000);
   await accountFixture(page);
   for (const theme of ['dark', 'light']) {
-    await page.goto('/settings');
+    await page.goto('/settings?section=appearance');
     await page
       .locator('#appearance')
       .getByRole('button', { name: theme === 'light' ? 'Light' : 'Dark', exact: true })

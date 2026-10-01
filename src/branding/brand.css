@@ -24,10 +24,10 @@
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   min-width: 0; padding: clamp(1rem, 4vw, 3rem);
   color: #f3eee6;
-  background: radial-gradient(circle at 50% 42%, #3a211a 0, #151016 29%, #070708 70%);
+  background: radial-gradient(ellipse at 50% 42%, #201812 0, #0e0d0f 36%, #090a0c 72%);
 }
 .sol-brand-readiness[data-theme="light"] { color: #27242a; background: #f6f4ee; }
-.sol-brand-readiness .sol-brand { width: min(540px, 86vw, 64vh); flex: 0 0 auto; pointer-events: none; }
+.sol-brand-readiness .sol-brand { width: min(400px, 76vw, 52svh); flex: 0 0 auto; pointer-events: none; }
 .sol-brand-readiness--inline { position: relative; min-height: min(520px, 75vh); z-index: auto; }
 .sol-brand-readiness__status { width: min(29rem, 100%); min-height: 5.25rem; text-align: center; font: inherit; }
 .sol-brand-readiness__status p { margin: 1rem 0; font-size: .8125rem; line-height: 1.6; letter-spacing: .025em; opacity: .8; }

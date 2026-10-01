@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Dialog, { markDialogTrigger } from './Dialog';
 import Icon from './Icon';
@@ -15,24 +15,41 @@ export default function HistoryActions({ entry, title, context }: {
   const { watchlist, watched, history } = useAppState();
   const [open, setOpen] = useState(false);
   const [notice, setNotice] = useState('');
-  useEffect(() => { setOpen(false); setNotice(''); }, [profile?.id]);
+  const [sharing, setSharing] = useState(false);
+  const shareRequest = useRef(0);
+  const dismiss = () => {
+    shareRequest.current++;
+    setOpen(false);
+    setNotice('');
+    setSharing(false);
+  };
+  useEffect(() => {
+    dismiss();
+    return () => { shareRequest.current++; };
+  }, [profile?.id, entry.titleId, entry.episodeId, entry.language, context]);
   const watchPath = `/watch/${encodeURIComponent(entry.slug)}/${encodeURIComponent(entry.episodeId)}?language=${encodeURIComponent(entry.language)}`;
   const saved = watchlist.has(entry.titleId);
   const seen = watched.isWatched(entry.episodeId, entry.language);
   const summary: TitleSummary = title ?? {
     id: entry.titleId, slug: entry.slug, name: entry.title, imageUrl: entry.imageUrl,
   };
-  const dismiss = () => { setOpen(false); setNotice(''); };
   async function share() {
+    if (sharing) return;
+    const request = ++shareRequest.current;
+    const isCurrent = () => request === shareRequest.current;
+    setSharing(true);
+    setNotice('');
     const url = new URL(watchPath, window.location.origin).href;
     try {
       if (navigator.share) await navigator.share({ title: `${entry.title} — ${entry.episodeLabel}`, url });
       else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(url);
-        setNotice('Episode link copied.');
-      } else setNotice('Sharing is unavailable in this browser. Open the episode to copy its address.');
+        if (isCurrent()) setNotice('Episode link copied.');
+      } else if (isCurrent()) setNotice('Sharing is unavailable in this browser. Open the episode to copy its address.');
     } catch (error) {
-      if (!(error instanceof DOMException && error.name === 'AbortError')) setNotice('The link could not be shared. Please try again.');
+      if (isCurrent() && !(error instanceof DOMException && error.name === 'AbortError')) setNotice('The link could not be shared. Please try again.');
+    } finally {
+      if (isCurrent()) setSharing(false);
     }
   }
   return <>
@@ -55,7 +72,7 @@ export default function HistoryActions({ entry, title, context }: {
         <button type="button" onClick={() => watched.toggle(entry.episodeId, entry.language)}>
           <Icon name="check"/>{seen ? 'Mark as unwatched' : 'Mark as watched'}
         </button>
-        <button type="button" onClick={() => void share()}><Icon name="arrow"/>Share episode</button>
+        <button type="button" disabled={sharing} aria-busy={sharing} onClick={() => void share()}><Icon name="arrow"/>Share episode</button>
         <button className="history-actions-dismiss" type="button" onClick={() => {
           dismiss();
           if (context === 'continue') history.dismissSeries(entry.titleId);

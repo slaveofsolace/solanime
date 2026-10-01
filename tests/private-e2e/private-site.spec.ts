@@ -77,7 +77,8 @@ test('private browsing requires an approved account and survives a reload', asyn
   await expect(page).toHaveURL(/\/profiles(?:\?.*)?$/);
   await page.locator('.profile-tile').first().click();
   await expect(page.locator('#featured-title')).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible();
+  const navigation = page.getByRole('navigation', { name: page.viewportSize()!.width <= 820 ? 'iPhone navigation' : 'Primary navigation' });
+  await expect(navigation).toBeVisible();
   await page.screenshot({ path: info.outputPath('private-home.png'), fullPage: true });
   expect((await page.request.get('/api/titles?pageSize=1')).status()).toBe(200);
 
@@ -86,7 +87,7 @@ test('private browsing requires an approved account and survives a reload', asyn
   await page.goto('/account');
   await page.getByRole('button', { name: 'Sign out', exact: true }).click();
   await expect(page).toHaveURL(/\/login(?:\?.*)?$/);
-  await expect(page.getByRole('link', { name: 'Sol Anime sign in' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Solanime sign in' })).toBeVisible();
   await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toHaveCount(0);
   expect((await page.request.get('/api/titles?pageSize=1')).status()).toBe(401);
 });

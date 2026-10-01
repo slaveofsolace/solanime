@@ -9,7 +9,6 @@
   --muted: #a6a8b1;
   --gutter: clamp(20px, 4.6vw, 80px);
   --radius-art: 0px;
-  --radius-control: 2px;
   background: var(--bg);
 }
 :root[data-theme='light'] .discovery-shell:not(.site-shell--watch) {
@@ -180,14 +179,10 @@
 .discovery-shell .home-feature .button-row .icon-button {
   width: 46px;
   min-height: 46px;
-  border: 2px solid var(--accent);
-  border-radius: 2px;
-  background: transparent;
-  color: #ffbb80;
 }
 .discovery-shell .home-feature .spotlight-controls { left: var(--gutter); right: auto; bottom: 64px; }
 .discovery-shell .home-feature .feature-arrows { padding: 0; gap: 12px; background: none; border: 0; border-radius: 0; backdrop-filter: none; }
-.discovery-shell .home-feature .feature-arrows > .icon-button { width: 36px; min-height: 44px; padding: 10px; background: none; border: 0; border-radius: 0; color: #fff; }
+.discovery-shell .home-feature .feature-arrows > .icon-button { width: 36px; min-height: 44px; padding: 10px; }
 .discovery-shell .home-feature .feature-dots { gap: 4px; }
 .discovery-shell .home-feature .feature-dots button { width: 30px; min-height: 44px; padding: 8px 0; background: none; }
 .discovery-shell .home-feature .feature-dots span { width: 28px; height: 6px; background: #ffffff5c; border-radius: 4px; }
@@ -274,18 +269,14 @@
 .discovery-shell .catalogue-summary { font-size: 13px; }
 .discovery-shell .catalogue-page .catalogue-controls { margin-bottom: 30px; }
 .discovery-shell .catalogue-page .discovery-toolbar { gap: 20px; }
-.discovery-shell .catalogue-page .discovery-actions { position: relative; }
-.discovery-shell .catalogue-page .filter-disclosure { position: static; }
 .discovery-shell .catalogue-page .search-field { max-width: 480px; }
 .discovery-shell .catalogue-page .search-field input { height: 46px; padding: 10px 14px; border: 1px solid var(--line); border-right: 0; border-radius: 0; background: var(--surface); }
 .discovery-shell .catalogue-page .search-field button { height: 46px; min-width: 46px; padding: 10px; border-radius: 0; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-left: 0; }
 .discovery-shell .catalogue-page .search-field button > span { display: none; }
 .discovery-shell .catalogue-page :is(.filter-disclosure > summary, .discovery-sort) { min-height: 46px; border-radius: 0; background: transparent; font-size: 13px; }
 .discovery-shell .catalogue-page .filter-grid { left: auto; right: 0; border-radius: 0; padding: 22px; gap: 20px; }
-.discovery-shell .catalogue-page .filter-field > span { font-size: 12px; }
-.discovery-shell .catalogue-page .filter-grid select { min-height: 44px; font-size: 13px; border-radius: 0; }
+.discovery-shell .catalogue-page .filter-field > span:not(.select-control) { font-size: 12px; }
 .discovery-shell .catalogue-page .filter-field:last-child { grid-column: auto; }
-.discovery-shell .catalogue-page .discovery-sort select { width: 172px; min-height: 46px; font-size: 13px; }
 .discovery-shell .catalogue-page .view-switcher { background: transparent; }
 .discovery-shell .catalogue-page .view-switcher button { min-height: 44px; min-width: 44px; }
 .discovery-shell .catalogue-page .title-grid { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 30px 20px; }
@@ -299,7 +290,7 @@
 .discovery-shell .title-page .title-hero__synopsis { color: #dedfe4; font-size: 15px; line-height: 1.65; }
 .discovery-shell .title-page .title-hero :is(.feature-meta, .title-facts dt, .title-facts dd, .tag-list span) { color: #d4d5db; text-shadow: none; font-size: 12px; }
 .discovery-shell .title-page .title-hero .tag-list { margin-top: 18px; }
-.discovery-shell .title-page .title-hero__actions .button--outline { min-height: 46px; background: transparent; border: 2px solid #ffffff70; border-radius: 2px; backdrop-filter: none; }
+.discovery-shell .title-page .title-hero__actions .button--outline { min-height: 46px; }
 .discovery-shell .title-page .episode-section { max-width: none; padding-block: 36px; }
 .discovery-shell .title-page .section-heading h2 { font-size: 26px; }
 .discovery-shell .title-page .language-tabs { padding: 0; border: 0; border-radius: 0; gap: 8px; }
@@ -409,7 +400,6 @@
   .discovery-shell .catalogue-page .catalogue-controls { margin-bottom: 24px; }
   .discovery-shell .catalogue-page .discovery-toolbar { gap: 8px; }
   .discovery-shell .catalogue-page .discovery-actions { display: flex; justify-content: space-between; gap: 12px; }
-  .discovery-shell .catalogue-page .discovery-sort select { width: 162px; }
   .discovery-shell .catalogue-page .view-switcher { display: none; }
   .discovery-shell .catalogue-page .filter-grid { width: calc(100vw - 40px); grid-template-columns: 1fr; max-height: 65svh; overflow: auto; }
   .discovery-shell .catalogue-page .title-grid, .discovery-shell .catalogue-page .title-grid--compact { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 14px; }

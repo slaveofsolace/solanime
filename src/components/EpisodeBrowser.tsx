@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import type { Episode, TitleSummary } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
+import SelectControl from './SelectControl';
 import { viewingPercent } from '../lib/continueWatching';
 
 const PAGE_SIZE = 50;
@@ -129,7 +130,7 @@ function EpisodeBrowserContent({
       {seasonGroups && (
         <label className="episode-season-picker">
           <span>Season</span>
-          <select aria-label="Season" value={activeSeason} onChange={(event) => {
+          <SelectControl aria-label="Season" value={activeSeason} onChange={(event) => {
             setQuery('');
             setSelectedSeason(event.target.value);
             setPage(0);
@@ -139,7 +140,7 @@ function EpisodeBrowserContent({
           }}>
             <option value="all">All episodes · {languageEpisodes.length}</option>
             {seasonGroups.map((group) => <option key={group.key} value={group.key}>{group.label} · {group.episodes.length}</option>)}
-          </select>
+          </SelectControl>
           {normalizedQuery && <small>Searching every season</small>}
         </label>
       )}

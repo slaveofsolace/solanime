@@ -44,7 +44,7 @@ test('mobile viewing shell keeps emblem, four destinations, and search reachable
   await page.goto('/');
 
   const navigation = page.getByRole('navigation', { name: 'iPhone navigation' });
-  await expect(page.getByRole('link', { name: 'Sol Anime home', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Solanime home', exact: true })).toBeVisible();
   await expect(page.locator('.masthead .wordmark__emblem')).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'Home' })).toBeVisible();
   await expect(navigation.getByRole('link', { name: 'Discover' })).toBeVisible();

@@ -322,15 +322,15 @@ test('a failed title request can be retried without refreshing the route', async
   await noOverflow(page);
 });
 
-test('320px home and title preserve readable controls in both themes', async ({ page }, info) => {
-  await page.setViewportSize({ width: 320, height: 820 });
-  const errors: string[] = [];
-  page.on('pageerror', error => errors.push(error.message));
-  await accountFixture(page);
-  for (const theme of ['Dark', 'Light']) {
-    await page.goto('/settings');
+for (const theme of ['Dark', 'Light']) {
+  test(`320px home and title preserve readable controls in ${theme.toLowerCase()} theme`, async ({ page }, info) => {
+    await page.setViewportSize({ width: 320, height: 820 });
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await accountFixture(page);
+    await page.goto('/settings?section=appearance');
     await page.locator('#appearance').getByRole('button', { name: theme, exact: true }).click();
-    await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+    await page.getByRole('link', { name: 'Solanime home', exact: true }).click();
     await expect(page.getByRole('link', { name: 'Start watching', exact: true })).toBeVisible();
     const viewportWidth = await page.evaluate(() => innerWidth);
     const navLinks = page.locator('.native-tab-bar > a:visible');
@@ -349,6 +349,6 @@ test('320px home and title preserve readable controls in both themes', async ({ 
     await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`title-320-${theme.toLowerCase()}.png`), fullPage: true });
-  }
-  expect(errors).toEqual([]);
-});
+    expect(errors).toEqual([]);
+  });
+}

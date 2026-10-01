@@ -1,5 +1,42 @@
 # Solanime native protected-player handoff (2026-09-29)
 
+## Authenticated build 10 and iPhone UI redesign, 2026-10-01
+
+The signed, unmodified **Release** build 10 remains installed on the physical iPhone 16 Pro and is authenticated as an approved ordinary test account. A private, temporary Debug-only bootstrap signed in through the production account endpoint with the normal persistent-session option. Restoring and launching the exact Release app **without credentials or Debug launch variables** retained the session and displayed Home (`/tmp/solanime-release-remember-iphone-wireless.png`). The temporary bootstrap source stayed in `/tmp`, was not copied into the repository, and was not installed as the final app. The mode-0600 credential file remains outside Git; never place its contents in tests, screenshots, logs, or this handoff.
+
+The web UI loaded by the protected native host now has a four-destination phone tab bar, an emblem-only masthead, full-bleed Home and title art with readable fades, Continue Watching before Recent Updates, simplified Discover search and filters, less cluttered Library, and grouped Settings and Account controls. Mobile access and profile screens receive the same visual treatment. These UI changes do not alter the iOS content rules, popup handling, navigation policy, provider source resolution, or app bundle. The installed website/PWA remains outside the native protection claim. Screenshots made from test fixtures are for layout review and are not evidence of real provider video.
+
+The physical Release screenshot verifies authenticated Home only. iPhone Mirroring currently captures the screen but `cua_repl` content clicks return `noWindowsAvailable`; therefore physical Play, seek, fullscreen, episode/source switching, restart, and five-second moving frames were **not** verified in this run. The simulator XCUITest smoke and Chromium route audits check UI navigation and sign-in flow, not provider video. A live provider iframe reported `ReferenceError: urlParams is not defined` from `megaplay.buzz` during the browser audit; investigate this before treating source playback as working. No release or distribution claim follows from this UI work.
+
+## Build 10, single-wordmark launch, and approved test sign-in, 2026-10-01
+
+The source change is `c480d3b03fdbe8ebfc28a35982c5a78657fdeac3` on `sol/ios-build9-deploy-checkpoint` (pull request `#17`). It removes the redundant native launch/loading wordmark and the web splash's duplicate static identity label. The iOS launch image and SwiftUI loading mark now use the same 68-point size on black; the web animation supplies the single visible wordmark. The Xcode project sets `CURRENT_PROJECT_VERSION = 10` in both configurations. No popup, navigation, or provider rule was weakened. After a fresh app launch, iPhone Mirroring visibly showed **one** animated Solanime wordmark, followed by the sign-in page. A `devicectl` screenshot taken while Mirroring controlled the locked device was all black, so it is not used as visual evidence; the Mirroring observation is the visual readback.
+
+The shared Release scheme built with locally managed signing (`build/ios-device-main-10-build.log` ends `** BUILD SUCCEEDED **`), `codesign --verify --deep --strict` passed, and `Info.plist` read `CFBundleVersion=10`. `node --test mobile-prototype/ios/source-contract.test.cjs` passed 4/4; `swift mobile-prototype/ios/validate-content-rules.swift` compiled the rules; `pnpm exec vitest run tests/branding-components.test.tsx` passed 13/13; `pnpm build` passed. `devicectl` installed and launched the signed app on the connected physical iPhone 16 Pro; app inventory read **Solanime 0.1.0 (10)**. The sign-in form appears in Mirroring, but no credential was entered in the physical app during this run.
+
+A dedicated test account was registered through the production account API, then the exact newly created private record was approved without changing the approval policy. A subsequent production password login, authenticated session, private catalogue request, profile request, and logout all succeeded. Credentials and recovery code live only in a mode-0600 file outside Git, delivered locally to the owner; neither is in this handoff or any commit. Both registration and approval email attempts failed, so no email delivery is claimed. The separate `/admin` operator-token boundary remains intact; this test account has ordinary approved-user access.
+
+The refreshed site was deployed to production with immutable Pages URL `https://e3dd2abb.solanime.pages.dev`. The canonical `https://solanime.pages.dev/` serves the same `assets/index-CmHAF1tX.js` and `assets/index-BquKmA28.css` hashes as the local build. `pnpm verify:deployment -- https://solanime.pages.dev` passed five checks. `pnpm verify:private-approval -- https://solanime.pages.dev` passed eight checks, including HTTP 401 for anonymous catalogue, filters, provider list, and source resolution. A preview attempt with `--branch=cloud-release` failed at publish time because its `SOLANIME_API` binding refers to missing `solanime-api-staging` environment `production`; this did not affect the successful production deploy.
+
+Exact reproducible commands, with the local team and device values omitted:
+
+```sh
+node --test mobile-prototype/ios/source-contract.test.cjs
+swift mobile-prototype/ios/validate-content-rules.swift
+pnpm exec vitest run tests/branding-components.test.tsx
+pnpm build
+xcodebuild -project mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj -scheme SolanimeProtectedPlayer -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build/ios-device-main-10 -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=<locally selected team> build
+codesign --verify --deep --strict build/ios-device-main-10/Build/Products/Release-iphoneos/Solanime.app
+xcrun devicectl device install app --device '<connected trusted iPhone>' build/ios-device-main-10/Build/Products/Release-iphoneos/Solanime.app
+xcrun devicectl device info apps --device '<connected trusted iPhone>'
+xcrun devicectl device process launch --terminate-existing --device '<connected trusted iPhone>' dev.solanime.protectedplayer.preview
+node scripts/deploy-pages.mjs --branch=main --promote-verified-release
+pnpm verify:deployment -- https://solanime.pages.dev
+pnpm verify:private-approval -- https://solanime.pages.dev
+```
+
+**Native release remains unreleased.** Build 10 has not yet shown five seconds of advancing video, measured changed frames, zero unwanted provider windows/external launches, or the requested Play/seek/fullscreen/episode/source/restart sequence. The packaged Mac real-playback acceptance also remains unverified behind an authenticated session. The owner's earlier playback observation belongs to an older build and is not transferred to build 10.
+
 ## Signed physical iPhone build 9 and refreshed production site, 2026-10-01 06:50 CDT
 
 At the start of this run, GitHub `main` was `237e61c1e0e28b204799950c7158f11f3c8bb62b` and the checkout was clean. The paired physical iPhone 16 Pro was connected with **Solanime 0.1.0 (8)** installed. The project now sets `CURRENT_PROJECT_VERSION = 9` in both Xcode configurations at source commit `d4781365c65e6002fb5574816d747f38e594f182`, so the installed build number can be reproduced from GitHub without a command-line version override. The Release shared scheme built successfully for generic iOS using the owner's locally managed automatic signing. `codesign --verify --deep --strict` passed, the built `Info.plist` read `CFBundleVersion=9` and display name `Solanime`, the source-contract tests passed 4/4, and the WebKit content rules compiled. No team identifier, profile, credential, or device identifier was added to source.
@@ -287,3 +324,42 @@ Acceptance requires **visible video progress and zero unwanted windows/escapes i
 - Do not disable the iframe/document policy to convert a failure into an apparent pass. If a provider requires an unwanted popup, record that as a compatibility blocker for that provider and retain its catalogue mapping.
 
 Official platform references: [Electron window-open and navigation events](https://www.electronjs.org/docs/latest/api/web-contents), [Electron request interception](https://www.electronjs.org/docs/latest/api/web-request), [Electron macOS signing](https://www.electronjs.org/docs/latest/tutorial/code-signing), [Apple content-rule syntax](https://developer.apple.com/documentation/safariservices/creating-a-content-blocker), [Apple physical-device run/signing](https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices).
+
+## UI candidate integration and native compile checkpoint, 2026-10-01
+
+Continued on `sol/ios-build9-deploy-checkpoint` from `0bb17b55dab7371ce996d3abf171272be51fbf8e`, preserving both newer branch commits and the owner's previously uncommitted build-10 records above. The corrected 20-file candidate was recovered from run `36884734914`; its SHA-256 matched `2455c256082d66c3bec3501c2a67f481398a2b979a7e65f8b160f23d63bd719c` before it was applied. The helper branch was not merged.
+
+The additional review fixes shared controls, spacing, redundant copy, sign-in/recovery layout, Settings and Account hierarchy, Library menus, profile-bound async actions, launch readiness, and the HTML player's compact transport/settings controls. The existing native document/popup rules and approval backend are unchanged. Exact changes, commands, test counts, artifact identities and limitations are in [`docs/UI_REVIEW_20261001.md`](../docs/UI_REVIEW_20261001.md). The integration commit and subsequent CI are recorded on [PR #17](https://github.com/slaveofsolace/solanime/pull/17); this checkpoint does not merge that PR.
+
+Xcode 27.0 (27A266a) compiled the shared scheme for iPhone 17 Pro / iOS 26.5 Simulator with signing disabled, and for generic physical iOS with the existing locally managed automatic signing. Both built Solanime 0.1.0 (10); strict code-signature verification passed. The first device compile ran out of disk space; after preserving artifacts and removing only that attempt's generated caches, the single-job retry passed. Source contracts passed 4/4, desktop policy tests 4/4, and the actual embedded WebKit content rules compiled. Sanitized logs and app products are retained under `/tmp/solanime-ui-resume-20261001/native/`. No local signing identifier, profile, credential or device ID was committed.
+
+**No new installation, deployment or native release is claimed.** This host fetches the website: its Release URL remains production and its Debug URL remains the `cloud-release` alias. The current UI therefore requires a verified frontend deployment before a reinstall can show it. Read-only deployment checks found that the configured staging Worker `solanime-api-staging` does not exist, its dedicated database/queue/Firebase setup is incomplete, and the stale preview still reports production. Production was left unchanged. Do not repoint staging to production databases or weaken approval to clear this blocker.
+
+The earlier authenticated physical-iPhone Home observation remains dated historical evidence. Browser UI tests, public artwork captures and fixture media are not a new provider-video result. Current authenticated packaged-Mac and physical-iPhone acceptance still requires mapping 384944 followed by additional mappings, five seconds of visible advancing video/frame changes, control/switch/restart tests, popup-attempt and actual-window counts, stable routes and external-launch observations together. PiP/AirPlay and error 102630 remain separate device checks. Keep both protections enabled and keep native distribution unreleased until these gates pass.
+
+
+## Isolated staging and signed preview build — 2026-10-01 19:47 UTC
+
+The owner enabled Workers Paid. Production D1 exports were preserved privately
+before creating three separate staging databases, queue and Firebase project.
+The staging Worker deployed as `5a07a1bb-2eb6-4af4-bfa3-9ae1e9afc6d7`;
+registration is closed and both private-site and approval flags remain enabled.
+This supersedes the earlier staging-absent observation. Its verified older local
+catalogue baseline lacks mapping 384944 and is not production parity.
+
+A fresh **Debug** device build of Solanime 0.1.0 (10) compiled with the existing
+local signing profile, and strict code-signature verification passed. The Debug
+binary contains the exact `cloud-release` origin; native source and project
+hashes are unchanged. No new installation or physical-device launch occurred.
+The current local profile expires 2026-10-06 19:32:11 UTC. App and private logs
+are retained outside Git under the local staging setup's `native-debug-build10/`.
+
+```sh
+xcodebuild -project mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj -scheme SolanimeProtectedPlayer -configuration Debug -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath <private-staging-setup>/native-debug-build10/DerivedData -jobs 1 CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=<existing local team> build
+codesign --verify --deep --strict <private-staging-setup>/native-debug-build10/DerivedData/Build/Products/Debug-iphoneos/Solanime.app
+```
+
+The owner explicitly authorized one staging request notice and one approval
+notice for a single disposable account. Execution requires the deployed staging
+channel, exact frontend asset hash and both account gates; no notice has been
+sent at this checkpoint. The protected native release gates above remain open.
