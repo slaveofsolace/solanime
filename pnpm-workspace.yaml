@@ -12,3 +12,7 @@ minimumReleaseAgeExclude:
   - react-dom@19.3.0
   - react@19.3.0
   - scheduler@0.28.0
+overrides:
+  # Patched transitive dev tooling (wrangler/miniflare); GHSA advisories for undici <7.29.1 and sharp <0.35.4.
+  undici@>=7.0.0 <7.29.1: 7.29.1
+  sharp@<0.35.4: 0.35.4

@@ -165,6 +165,9 @@ describe('Guard permissions and scoped policy', () => {
     const manifest = JSON.parse(readFileSync('extensions/solanime-guard/manifest.json', 'utf8'));
     expect(manifest.manifest_version).toBe(3);
     expect(manifest.permissions).not.toContain('cookies');
+    // Project tabs are matched through host permissions; the broad "tabs"
+    // permission would expose every tab's URL and title.
+    expect(manifest.permissions).not.toContain('tabs');
     expect(manifest.host_permissions).not.toContain('<all_urls>');
     expect(manifest).not.toHaveProperty('externally_connectable');
   });
