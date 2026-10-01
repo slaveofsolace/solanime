@@ -38,7 +38,7 @@ export default function Dialog({
         if (previousFocus?.isConnected) {
           // Card actions collapse while the dialog owns focus. Focus the visible
           // card link first so :focus-within exposes the original control again.
-          if (!previousFocus.getClientRects().length)
+          if (!previousFocus.getClientRects().length || getComputedStyle(previousFocus).visibility === 'hidden')
             previousFocus.closest('.title-card')?.querySelector<HTMLElement>('a')?.focus({ preventScroll: true });
           previousFocus.focus({ preventScroll: true });
         }

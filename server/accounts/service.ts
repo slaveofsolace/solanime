@@ -54,6 +54,8 @@ export type AccountConfig = {
   approvalRequired?: boolean;
   privateSite?: boolean;
   notifyApproval?: (kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) => Promise<boolean>;
+  /** Test servers only: multiplies every per-key attempt limit (browser suites share one loopback IP). */
+  rateLimitScale?: number;
 };
 const DAY = 86400000;
 export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
@@ -100,7 +102,9 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
       throw error;
     }
   }
-  function rate(key: string, max: number, windowMs: number) {
+  const rateLimitScale = Math.max(1, Math.floor(config.rateLimitScale ?? 1));
+  function rate(key: string, limit: number, windowMs: number) {
+    const max = limit * rateLimitScale;
     const hash = digest(key);
     const row = db
       .prepare('SELECT count,expires_at FROM account_rate_limits WHERE key=?')

@@ -346,6 +346,15 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
     expect(Number(r.response.headers.get('retry-after'))).toBeGreaterThan(0);
   }, 15000);
 
+  it('scales attempt limits only when a test server asks for it', async () => {
+    const f = await fixture(false, { rateLimitScale: 2 }),
+      a = f.user();
+    const rejectedPassword = generatedTestPassphrase('unregistered identity');
+    for (let i = 0; i < 24; i++)
+      expect((await a.call('login', { email: 'scaled@example.test', password: rejectedPassword })).response.status).toBe(401);
+    expect((await a.call('login', { email: 'scaled@example.test', password: rejectedPassword })).response.status).toBe(429);
+  }, 30000);
+
   it('serves the same profile-owned, revision-safe episode community contract locally', async () => {
     const f = await fixture(), owner = f.user(), other = f.user(), guest = f.user();
     const observed = new Date().toISOString();

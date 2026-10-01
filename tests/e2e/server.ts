@@ -131,6 +131,8 @@ const server = createApp(db, {
     approvalRequired: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
     // Browser fixtures must never deliver real registration emails.
     notifyApproval: async () => true,
+    // Every browser project registers from 127.0.0.1; keep the limits' shape but not the 40/hour ceiling.
+    rateLimitScale: 100,
   }),
 });
 // Deliver the original test clip over actual HTTP so range and seek behavior
