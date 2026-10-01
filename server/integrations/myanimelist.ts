@@ -18,8 +18,13 @@ export class MalClient {
   }
   private async send(url: string, init: RequestInit) {
     let response: Response;
-    try { response = await this.fetcher(url, { ...init, redirect: 'error', signal: AbortSignal.timeout(15000) }); }
+    // workerd rejects redirect:'error'. Use manual and refuse redirects so tokens never reach another host.
+    try { response = await this.fetcher(url, { ...init, redirect: 'manual', signal: AbortSignal.timeout(15000) }); }
     catch { throw new AppError(502, 'UNAVAILABLE', 'MyAnimeList could not be reached. Your imported list has not been changed.'); }
+    if (response.status >= 300 && response.status < 400) {
+      await response.body?.cancel();
+      throw new AppError(502, 'UNAVAILABLE', 'MyAnimeList returned an unexpected redirect. Your imported list has not been changed.');
+    }
     if (response.status === 429) {
       const seconds = Number(response.headers.get('retry-after'));
       throw new AppError(429, 'RATE_LIMITED', 'MyAnimeList is rate limiting requests. Try again later.',

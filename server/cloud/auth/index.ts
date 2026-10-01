@@ -217,8 +217,9 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           throw new AppError(403, 'BLOCKED', 'This account has not been provisioned for this deployment. Contact the operator.', { reason: 'ACCOUNT_NOT_PROVISIONED' });
         const recoveryCode = identity.recoveryAvailable ? randomToken() : undefined;
         // Idempotent completion after an interrupted signup. Never merge different Firebase UIDs by email.
+        // A sign-in that completes an interrupted signup must still wait for approval.
         const result = await repository.ensureAccount(user, recoveryCode ? await digest(recoveryCode) : null, now(),
-          registering && config.approvalRequired === true);
+          config.approvalRequired === true);
         await repository.updateIdentity(result.account.id, user.emailVerified);
         if (result.account.approval_state !== 'approved') {
           if (result.created && result.account.approval_state === 'pending') {
@@ -228,7 +229,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           }
           if (result.account.approval_state === 'rejected')
             throw new AppError(403, 'BLOCKED', 'This account request was declined.', { reason: 'ACCOUNT_REJECTED' });
-          if (registering && result.created) return accountReply(202, {
+          if (result.created) return accountReply(202, {
             account: null, profiles: [], csrfToken: null, registrationOpen: registration,
             recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
             privateSite: config.privateSite === true,

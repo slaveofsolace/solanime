@@ -2,7 +2,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { mkdirSync, mkdtempSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { handleCloudRequest, isReadOnlyReviewRoute } from '../server/cloud/worker';
+import worker, { handleCloudRequest, isReadOnlyReviewRoute } from '../server/cloud/worker';
 import { RELEASE } from '../shared/release';
 import { importHash } from '../server/cloud/data/import';
 import { IMPORT_TABLES } from '../server/cloud/data/import-schema';
@@ -222,6 +222,8 @@ describe('Worker API against actual D1', () => {
     expect(await (await request('/api/titles?page=3&pageSize=1')).json()).toMatchObject({ total: 2, items: [] });
     expect(await (await request('/api/meta/filters')).json()).toMatchObject({ genres: [{ value: 'test-genre', count: 1 }], languages: [{ value: 'dub' }, { value: 'sub' }] });
     expect(await (await request('/api/titles?q=' + encodeURIComponent("' OR 1=1 --"))).json()).toMatchObject({ total: 0, items: [] });
+    for (const sort of ['constructor', 'toString', '__proto__'])
+      expect((await request('/api/titles?facets=false&sort=' + sort)).status).toBe(200);
   });
 
   it('uses only the configured private asset binding for an enabled catalogue baseline', async () => {
@@ -710,6 +712,29 @@ describe('Worker API against actual D1', () => {
       await env.CATALOGUE.prepare('DELETE FROM cloud_import_receipts WHERE id=?').bind(batch.id).run();
       await env.CATALOGUE.prepare('DELETE FROM episode_versions WHERE id=22').run();
       await env.CATALOGUE.prepare('DELETE FROM episodes WHERE id=11').run();
+    }
+  });
+
+  it('prunes expired sessions and stale MyAnimeList sign-in states on the scheduled run', async () => {
+    const now = Date.parse('2026-09-30T12:00:00Z');
+    const accounts = env.ACCOUNTS as D1Database;
+    await accounts.prepare(`INSERT INTO accounts(id,firebase_uid,email,created_at,approval_state,owner_notice_state)
+      VALUES('prune-account','prune-account','prune@example.test',?,'approved','not_required')`).bind(now).run();
+    await accounts.prepare(`INSERT INTO profiles(id,account_id,name,avatar,created_at) VALUES('prune-profile','prune-account','You','ruby',?)`).bind(now).run();
+    const session = (hash: string, expires: number) => accounts.prepare(`INSERT INTO sessions
+      (token_hash,account_id,csrf,created_at,last_seen,expires_at,device,auth_revision,credential_cipher,checked_at)
+      VALUES(?,'prune-account','csrf',?,?,?,'test',1,'v1.test',?)`).bind(hash, now - 1000, now - 1000, expires, now - 1000).run();
+    await session('a'.repeat(64), now - 1);
+    await session('b'.repeat(64), now + 60_000);
+    await accounts.prepare(`INSERT INTO mal_oauth_states(state_hash,profile_id,account_id,verifier_cipher,expires_at)
+      VALUES('stale-state','prune-profile','prune-account','v1.test',?)`).bind(now - 1).run();
+    try {
+      await worker.scheduled!({ scheduledTime: now, cron: '* * * * *', noRetry() {} } as ScheduledController, env);
+      const left = await accounts.prepare("SELECT token_hash FROM sessions WHERE account_id='prune-account'").all<{ token_hash: string }>();
+      expect(left.results.map(row => row.token_hash)).toEqual(['b'.repeat(64)]);
+      expect(await accounts.prepare("SELECT 1 FROM mal_oauth_states WHERE state_hash='stale-state'").first()).toBeNull();
+    } finally {
+      await accounts.prepare("DELETE FROM accounts WHERE id='prune-account'").run();
     }
   });
 });

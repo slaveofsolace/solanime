@@ -56,13 +56,22 @@ test('tablet navigation stays visible and light history follows the hero before 
   page,
 }) => {
   await page.setViewportSize({ width: 768, height: 900 });
-  await accountFixture(page, { preferences: { theme: 'light', rememberProgress: true, preferredLanguage: 'sub', autoplayNext: false } });
+  const { profile } = await accountFixture(page, { preferences: { theme: 'light', rememberProgress: true, preferredLanguage: 'sub', autoplayNext: false } });
   await watch(page);
   await page.getByRole('button', { name: 'Mute video', exact: true }).click();
   await page.getByRole('button', { name: 'Play video', exact: true }).click();
   await expect
     .poll(() => page.locator('video').evaluate((video: HTMLVideoElement) => video.currentTime))
     .toBeGreaterThan(0.2);
+  await page.getByRole('button', { name: 'Pause video', exact: true }).click();
+  await expect
+    .poll(() =>
+      page.request.get(`/api/account/profiles/${profile.id}/data`).then(async response => {
+        const data = await response.json();
+        return data.values.history?.[0]?.position ?? 0;
+      }),
+    )
+    .toBeGreaterThan(0);
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
 

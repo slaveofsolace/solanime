@@ -2,6 +2,7 @@ import { RELEASE } from '../../shared/release.ts';
 import { timingSafeEqual } from 'node:crypto';
 import { AppError, asAppError } from '../errors.ts';
 import { createCloudAccounts } from './auth/index.ts';
+import { D1AccountsRepository } from './auth/repository.ts';
 import { sendApprovalNotice } from './auth/notifications.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
 import { createPrivateBaselineReader } from './data/baseline.ts';
@@ -338,6 +339,9 @@ export default {
       try { await createAnikotoRefreshRepository(env.CATALOGUE, budgetFor(env)).ensure(); }
       catch (error) { if (!(error instanceof QuotaExhaustedError)) throw error; }
     }
+    // Expired sessions still hold encrypted identity refresh credentials; remove them in bounded batches.
+    try { await new D1AccountsRepository(env.ACCOUNTS).prune(controller.scheduledTime); }
+    catch (error) { console.error('Account pruning failed', error instanceof Error ? error.message : error); }
     await dispatch(env);
   },
   async queue(batch, env) {

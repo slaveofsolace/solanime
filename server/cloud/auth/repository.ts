@@ -137,6 +137,7 @@ export class D1AccountsRepository {
     await this.db.batch([
       this.db.prepare('DELETE FROM sessions WHERE token_hash IN (SELECT token_hash FROM sessions WHERE expires_at<=? LIMIT 100)').bind(now),
       this.db.prepare('DELETE FROM account_rate_limits WHERE key IN (SELECT key FROM account_rate_limits WHERE expires_at<=? LIMIT 100)').bind(now),
+      this.db.prepare('DELETE FROM mal_oauth_states WHERE state_hash IN (SELECT state_hash FROM mal_oauth_states WHERE expires_at<=? LIMIT 100)').bind(now),
     ]);
   }
   async rate(hash: string, max: number, windowMs: number, now: number) {

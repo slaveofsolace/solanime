@@ -71,7 +71,7 @@ export default function TitlePreview({
                 to={`/title/${encodeURIComponent(title.slug)}#episodes-title`}
                 onClick={onClose}
               >
-                Episodes
+                View episodes
               </Link>
             )}
             <button

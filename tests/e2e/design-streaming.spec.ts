@@ -42,7 +42,9 @@ test('desktop catalogue uses dense artwork rows with detail revealed on intent',
   expect(titleBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(artBox!.x + artBox!.width);
   await expect(card.locator('.title-card__copy h2')).toHaveCSS('white-space', 'normal');
-  await expect(details).not.toBeVisible();
+  // Card actions sit below the poster and stay reachable without hover (see ux-account-refresh catalogue play).
+  await expect(details).toBeVisible();
+  expect((await details.boundingBox())!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   await card.hover();
   await expect(details).toHaveCSS('opacity', '1');
   const quickLook = card.getByRole('button', { name: /Quick look at/ });
@@ -241,7 +243,6 @@ test('touch cards keep original posters and full accessible title links without 
   await expect(art).toBeVisible();
   await expect(poster).toBeVisible();
   await expect(title).toHaveCSS('white-space', 'normal');
-  await expect(card.locator('.title-card__actions')).toBeHidden();
   await expect(art).toHaveAttribute('aria-label', `Open ${longName}`);
   const artBox = await art.boundingBox();
   const titleBox = await title.boundingBox();
@@ -251,6 +252,9 @@ test('touch cards keep original posters and full accessible title links without 
   expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(posterBox!.x + posterBox!.width);
   expect(titleBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   expect(artBox!.width / artBox!.height).toBeCloseTo(2 / 3, 2);
+  // Touch actions are direct buttons below the artwork, never overlaid on it.
+  const actionsBox = await card.locator('.title-card__actions').boundingBox();
+  expect(actionsBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
 
   const backdropCard = page.locator('.title-card').nth(1);
   await expect(backdropCard.locator('.cover-composition')).toHaveCount(0);

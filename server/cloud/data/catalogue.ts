@@ -106,7 +106,7 @@ export function createCatalogueRepository(db: CatalogueDatabase, baseline?: Retu
     const from = `FROM titles t WHERE ${where.join(' AND ')}`;
     const result = await db.batch<Row>([
       db.prepare(`SELECT COUNT(*) AS count ${from}`).bind(...values),
-      db.prepare(`${titleSelect} ${from} ORDER BY ${orders[params.sort] ?? orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, limit, offset),
+      db.prepare(`${titleSelect} ${from} ORDER BY ${Object.hasOwn(orders, params.sort) ? orders[params.sort] : orders.name},t.id ASC LIMIT ? OFFSET ?`).bind(...values, limit, offset),
     ]);
     const total = Number(result[0].results[0].count);
     return {

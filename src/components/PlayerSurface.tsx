@@ -220,8 +220,17 @@ export default function PlayerSurface({
         callbacks.current.onProgress?.(video.currentTime, video.duration);
       }
     };
+    // Throttled timeupdate writes can lag up to 5 s, so flush on pause and before the page goes away.
+    const flush = () => {
+      if (!video.ended && video.currentTime > 0) {
+        lastProgressWrite = Date.now();
+        save(video.currentTime);
+      }
+    };
     video.addEventListener('loadedmetadata', restore);
     video.addEventListener('canplay', ready);
+    video.addEventListener('pause', flush);
+    window.addEventListener('pagehide', flush);
     video.addEventListener('playing', playing);
     video.addEventListener('error', failed);
     video.addEventListener('timeupdate', remember);
@@ -292,6 +301,8 @@ export default function PlayerSurface({
       video.removeEventListener('error', failed);
       video.removeEventListener('timeupdate', remember);
       video.removeEventListener('ended', ended);
+      video.removeEventListener('pause', flush);
+      window.removeEventListener('pagehide', flush);
       if (!video.ended && video.currentTime > 0) save(video.currentTime);
       hls?.destroy();
       dash?.reset();
