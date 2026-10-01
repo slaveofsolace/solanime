@@ -175,6 +175,26 @@ describe('private Pages gateway forwarding contract', () => {
     expect(service.mock.calls[0][0].headers.get('authorization')).toBeNull();
   });
 
+  it('forwards MyAnimeList profile routes as account routes and nothing broader', async () => {
+    const { env, service } = setup();
+    const profile = '/api/account/profiles/00000000-0000-4000-8000-000000000000/mal/';
+    const headers = { cookie: '__Host-solanime_session=' + sessionToken, 'x-csrf-token': 'test-csrf', 'x-solanime-intent': 'mutate' };
+    for (const action of ['status', 'list'])
+      expect((await pages.fetch(new Request(origin + profile + action, { headers }), env)).status).toBe(200);
+    for (const action of ['connect', 'complete', 'sync', 'update', 'disconnect'])
+      expect((await pages.fetch(post(profile + action, {}, headers), env)).status).toBe(200);
+    expect(service).toHaveBeenCalledTimes(7);
+    expect(service.mock.calls[0][0].headers.get('cookie')).toBe('__Host-solanime_session=' + sessionToken);
+    expect((await pages.fetch(new Request(origin + profile + 'tokens', { headers }), env)).status).toBe(404);
+    expect((await pages.fetch(post(profile + 'status', {}, headers), env)).status).toBe(404);
+  });
+
+  it('forwards the operator artwork refresh route', async () => {
+    const { env, service } = setup();
+    expect((await pages.fetch(post('/api/admin/artwork/refresh', {}, { 'x-admin-token': 'test-operator' }), env)).status).toBe(200);
+    expect(service).toHaveBeenCalledTimes(1);
+  });
+
   it('exposes only the exact operator account-approval routes through the gateway', async () => {
     const { env, service } = setup();
     const pending = '/api/admin/accounts/pending';

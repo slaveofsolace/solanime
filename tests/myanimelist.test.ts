@@ -48,7 +48,12 @@ describe('official MAL client', () => {
     expect(url.searchParams.get('redirect_uri')).toBe(config.redirectUri);
     await expect(client.list('token')).rejects.toMatchObject({ status: 502, code: 'INVALID_RESPONSE' });
     expect(fetcher).toHaveBeenCalledTimes(1);
-    expect(fetcher.mock.calls[0][1]?.redirect).toBe('error');
+    expect(fetcher.mock.calls[0][1]?.redirect).toBe('manual');
+  });
+  it('refuses MAL redirects instead of following them with credentials', async () => {
+    const fetcher = vi.fn<typeof fetch>(async () => new Response(null, { status: 302, headers: { location: 'https://other.example.test/' } }));
+    await expect(new MalClient(config, fetcher).list('token')).rejects.toMatchObject({ status: 502, code: 'UNAVAILABLE' });
+    expect(fetcher).toHaveBeenCalledTimes(1);
   });
   it.each(['not a URL', 'https://api.myanimelist.net/v2/users/@me/animelist?offset=0'])('rejects malformed or stalled paging: %s', async next => {
     const client = new MalClient(config, async () => json({ data: [entry(1)], paging: { next } }));

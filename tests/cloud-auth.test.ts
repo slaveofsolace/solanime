@@ -208,6 +208,20 @@ describe('D1 managed account bridge', () => {
     expect(await f.service.decideApproval(queue[0].id, 'rejected')).toMatchObject({ decision: 'rejected' });
     expect((await a.call('login', { email: 'retry@example.test', password })).body.error.details?.reason).toBe('ACCOUNT_REJECTED');
   });
+  it('keeps an interrupted signup pending when the applicant signs in instead', async () => {
+    const f = fixture({ approvalRequired: true, privateSite: true, notifyApproval: async () => true });
+    // Firebase created the user but the account row was never written.
+    await f.identity.signUp('interrupted@example.test', password);
+    const a = f.client();
+    const r = await a.call('login', { email: 'interrupted@example.test', password });
+    expect(r.response.status).toBe(202);
+    expect(r.body).toMatchObject({ account: null, pendingApproval: true });
+    expect(a.cookie).toBe('');
+    expect(await f.service.pendingApprovals()).toMatchObject([{ email: 'interrupted@example.test', approval_state: 'pending' }]);
+    const again = await a.call('login', { email: 'interrupted@example.test', password });
+    expect(again.response.status).toBe(403);
+    expect(again.body.error.details?.reason).toBe('ACCOUNT_PENDING_APPROVAL');
+  });
   it('fails closed when unconfigured while leaving other APIs unhandled', async () => {
     const f = fixture({ identity: undefined, credentialKey: undefined });
     expect(await f.service.handle(new Request(origin + '/api/titles'))).toBeNull();
