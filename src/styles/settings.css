@@ -14,6 +14,12 @@
 .settings-page .preference-list label:has(input[type='checkbox']) { flex-wrap: nowrap; }
 .settings-page .preference-list label:has(input[type='checkbox']) > span { min-width: 0; flex: 1; }
 .settings-page .preference-list input[type='checkbox'] { flex-shrink: 0; }
+.accent-disclosure { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; padding: 0; color: var(--text); background: transparent; font-size: 16px; font-weight: 650; text-align: start; }
+.accent-disclosure .icon { width: 18px; height: 18px; color: var(--muted); transition: transform 180ms ease; }
+.accent-disclosure[aria-expanded='true'] .icon { transform: rotate(90deg); }
+.accent-options { display: grid; gap: 20px; }
+.accent-options[hidden] { display: none; }
+.native-motion-toggle { display: none; }
 @media (max-width: 480px) {
   .settings-page .preference-list label { flex-wrap: wrap; gap: 12px; }
   .settings-page .preference-list select { width: 100%; max-width: none; }

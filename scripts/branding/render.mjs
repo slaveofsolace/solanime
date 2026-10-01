@@ -15,10 +15,12 @@ const web = path.resolve('public/branding');
 const ffmpeg = value('ffmpeg', 'ffmpeg');
 const browserDirectory = value('browser-dir');
 if (browserDirectory) process.env.PLAYWRIGHT_BROWSERS_PATH = path.resolve(browserDirectory);
+// Keep this export duration aligned with src/branding/timeline.ts.
+const INTRO_MS = 3400;
 const { chromium } = await import('@playwright/test');
 await mkdir(output, { recursive: true });
 await mkdir(web, { recursive: true });
-const report = { schemaVersion: 1, renderer: 'The application BrandArtwork and sampleBrandFrame timeline', framesPerSecond: 25, introMilliseconds: 3000, loopMilliseconds: 4800, outputs: [], sourceInputs: [] };
+const report = { schemaVersion: 1, renderer: 'The application BrandArtwork and sampleBrandFrame timeline', framesPerSecond: 25, introMilliseconds: INTRO_MS, loopMilliseconds: 4800, outputs: [], sourceInputs: [] };
 for (const file of ['src/branding/geometry.ts', 'src/branding/timeline.ts', 'src/branding/BrandArtwork.tsx', 'src/branding/dom.ts', 'src/branding/SolanimeBrand.tsx', 'public/branding/solanime-approved-master.png', 'public/branding/sun-cloudscape-source.png', 'public/branding/ribbon-foreground-source.png']) {
   const bytes = await readFile(file);
   report.sourceInputs.push({ file, sha256: createHash('sha256').update(bytes).digest('hex') });
@@ -60,7 +62,7 @@ try {
   for (const theme of ['dark', 'light']) {
     for (const [variant, width, height] of [['full', 960, 850], ['compact', 660, 132], ['emblem', 256, 256]]) {
       await page.setViewportSize({ width, height });
-      await page.goto(url({ variant, theme, time: 3000 }), { waitUntil: 'networkidle' });
+      await page.goto(url({ variant, theme, time: INTRO_MS }), { waitUntil: 'networkidle' });
       await ready();
       const png = path.join(output, `solanime-${variant}-${theme}.png`);
       await page.screenshot({ path: png, omitBackground: true });
@@ -81,18 +83,18 @@ try {
   }
   for (const size of [32, 192, 512]) {
     await page.setViewportSize({ width: size, height: size });
-    await page.goto(url({ variant: 'emblem', theme: 'dark', time: 3000 }), { waitUntil: 'networkidle' });
+    await page.goto(url({ variant: 'emblem', theme: 'dark', time: INTRO_MS }), { waitUntil: 'networkidle' });
     await ready();
     const icon = path.join(web, `solanime-icon-${size}.png`);
     await page.screenshot({ path: icon, omitBackground: true }); await record(icon);
   }
   await page.setViewportSize({ width: 960, height: 850 });
-  for (const [state, duration] of [['intro', 3240], ['loading', 4800]]) {
+  for (const [state, duration] of [['intro', INTRO_MS + 240], ['loading', 4800]]) {
     const frames = path.join(output, `frames-${state}`);
     await mkdir(frames, { recursive: true });
     await page.goto(url({ state, time: 0, opaque: 1 }), { waitUntil: 'networkidle' }); await ready();
     for (let frame = 0; frame < duration / 40; frame++) {
-      const time = state === 'intro' ? Math.min(3000, frame * 40) : frame * 40;
+      const time = state === 'intro' ? Math.min(INTRO_MS, frame * 40) : frame * 40;
       await page.evaluate(time => document.dispatchEvent(new CustomEvent('solanime-brand-sample', { detail: { time } })), time);
       await page.locator(`[data-sampled-ms="${time}"]`).waitFor();
       await page.screenshot({ path: path.join(frames, `${String(frame).padStart(4, '0')}.png`) });

@@ -56,6 +56,23 @@ describe('episode browser current-range navigation', () => {
     expect(screen.queryByRole('searchbox', { name: 'Find an episode' })).toBeNull();
   });
 
+  it('uses a text list when a full inventory has no episode stills, while retaining real stills', () => {
+    const subset = episodes.slice(0, 12);
+    const view = setup({ episodes: subset, currentId: undefined });
+    expect(document.querySelector('.episode-browser--no-stills')).not.toBeNull();
+    expect(document.querySelector('.episode-browser--compact')).not.toBeNull();
+    view.rerender({ episodes: subset.map((episode, index) => index === 0 ? { ...episode, thumbnailUrl: 'https://example.com/episode-1.jpg' } : episode) });
+    expect(document.querySelector('.episode-browser--no-stills')).toBeNull();
+    expect(document.querySelector('img[src="https://example.com/episode-1.jpg"]')).not.toBeNull();
+  });
+
+  it('does not invent episode art for a short series without stills', () => {
+    setup({ episodes: episodes.slice(0, 3), currentId: undefined });
+    expect(document.querySelector('.episode-browser--no-stills')).not.toBeNull();
+    expect(document.querySelector('.episode-browser--compact')).not.toBeNull();
+    expect(screen.getAllByRole('link', { name: /Episode [123]/ })).toHaveLength(3);
+  });
+
   it('initially opens episode 1177 in the final bounded range and preserves its watch route', () => {
     setup();
     expect(range('1151–1177').getAttribute('aria-pressed')).toBe('true');

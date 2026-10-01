@@ -209,8 +209,10 @@ button {
   font-weight: 550;
   line-height: 1.35;
 }
-button:hover:not(:disabled) {
-  background: var(--surface-2);
+@media (hover: hover) {
+  button:hover:not(:disabled) {
+    background: var(--surface-2);
+  }
 }
 button[aria-pressed='true'] {
   color: var(--accent-ink);

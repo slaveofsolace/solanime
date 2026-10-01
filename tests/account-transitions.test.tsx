@@ -19,6 +19,34 @@ beforeEach(() => { mocks.request.mockReset(); mocks.csrf.mockReset(); sessionSto
 afterEach(cleanup);
 
 describe('account transition ordering', () => {
+  it('restores the sole profile after a fresh app launch', async () => {
+    const onlyProfile = { id: 'profile-a', name: 'You', avatar: 'violet' as const };
+    mocks.request.mockImplementation((path: string) =>
+      Promise.resolve(path === 'session'
+        ? { ...signedIn, profiles: [onlyProfile] }
+        : { values: {}, revisions: {} }),
+    );
+    render(<AccountProvider><Probe /></AccountProvider>);
+    await waitFor(() => expect(account.profile?.id).toBe(onlyProfile.id));
+    expect(sessionStorage.getItem('solanime:profile:account-a')).toBe(onlyProfile.id);
+    expect(mocks.request).toHaveBeenCalledWith('profiles/profile-a/data', undefined, expect.any(AbortSignal));
+    sessionStorage.removeItem('solanime:profile:account-a');
+    await act(async () => { await account.refresh(); });
+    expect(account.profile?.id).toBe(onlyProfile.id);
+    expect(sessionStorage.getItem('solanime:profile:account-a')).toBe(onlyProfile.id);
+  });
+
+  it('leaves multiple profiles unselected until the viewer chooses one', async () => {
+    mocks.request.mockResolvedValue({ ...signedIn, profiles: [
+      { id: 'profile-a', name: 'You', avatar: 'violet' },
+      { id: 'profile-b', name: 'Family', avatar: 'amber' },
+    ] });
+    render(<AccountProvider><Probe /></AccountProvider>);
+    await waitFor(() => expect(account.ready).toBe(true));
+    expect(account.profile).toBeNull();
+    expect(mocks.request.mock.calls.map(([path]) => path)).toEqual(['session']);
+  });
+
   it('does not start a visibility refresh that can overwrite an in-flight sign-in', async () => {
     const login = deferred<SessionResponse>();
     mocks.request.mockImplementation((path: string) => path === 'login' ? login.promise : Promise.resolve(anonymous));

@@ -59,11 +59,11 @@ overlay is visible; it does not create or restart a brand session.
 
 `timeline.ts` is the shared, deterministic timeline. `BrandArtwork.tsx` holds fixed contours, clipping, texture placement and letter masks. `dom.ts` applies a sampled frame without rendering the React tree at animation-frame frequency.
 
-The opening is 3 seconds when actual readiness lasts that long:
+The opening settles over 3.4 seconds when actual readiness lasts that long:
 
-1. The warm ribbon tip appears, followed by front and rear path reveals. Fixed texture and overlapping masks retain dimensional depth.
-2. The central triangle settles crisply; the sun rises behind the solid foreground, revealing the illustrated clouds through an occluded aperture.
-3. The original eight letter silhouettes reveal with a short 34ms stagger. One restrained sheen and a thin lower flare connect the wordmark to the sunrise.
+1. The warm ribbon tip appears, followed by front and rear path reveals. The center and play triangle brighten over the same interval so the top edge does not appear in a separate burst.
+2. The sun starts rising while the ribbon forms and travels on one eased 2.2-second curve. Broad, blurred atmospheric light stays centered on the sun; hard triangular streaks were removed. The illustrated clouds remain behind the ribbon.
+3. The original eight letter silhouettes reveal with a short 55ms stagger. One restrained sheen and a thin lower flare connect the wordmark to the sunrise.
 4. The completed composition continues into a 4.8-second quiet light cycle. Geometry, letter positions and triangle proportions remain fixed. The wrapping travel highlight has zero opacity at the seam.
 
 The intro never repeats while waiting. Hidden tabs and offscreen marks stop their animation-frame scheduler and resume from the same visible time. Static/reduced-motion marks schedule no ongoing animation. Unmounting cancels the frame, observer, media-query listener and visibility listener. Assets are preloaded together so a missing layer does not create a partially assembled moving logo.

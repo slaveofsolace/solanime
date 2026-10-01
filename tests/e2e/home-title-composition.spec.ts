@@ -97,7 +97,7 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
     if (narrow) {
       await expect(art).toHaveAttribute('data-mobile-art', 'poster');
       await expect(banner).toBeHidden();
-      await expect(art.locator('.spotlight-art__poster')).toBeVisible();
+      await expect(page.locator(`${surface.selector} ${surface.name === 'home' ? '.home-feature__mobile-art' : '.title-hero__mobile-art'} img`)).toBeVisible();
     } else {
       await expect(banner).toBeVisible();
       await expect(art.locator('.spotlight-art__poster')).toBeVisible();
@@ -137,10 +137,12 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   const art = page.locator('.home-feature .spotlight-art');
   const poster = art.locator('.spotlight-art__poster');
+  const narrow = (page.viewportSize()?.width ?? 0) <= 600;
+  const visiblePoster = narrow ? page.locator('.home-feature__mobile-art') : poster;
   await expect(art).toHaveAttribute('data-banner', 'loading');
-  await expect(poster).toBeVisible();
+  await expect(visiblePoster).toBeVisible();
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
-  await expect.poll(() => poster.locator('img').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  await expect.poll(() => visiblePoster.locator('img').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.locator('.sol-brand-readiness')).toHaveCount(0);
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('.home-page')).toHaveCSS('transform', 'none');
@@ -159,7 +161,7 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   failBanner();
   await expect(art).toHaveAttribute('data-banner', 'failed');
   await expect(art.locator('.spotlight-art__banner')).toHaveCount(0);
-  await expect(poster).toBeVisible();
+  await expect(visiblePoster).toBeVisible();
   const after = await positions();
   for (const [index, rect] of after.entries()) {
     for (const coordinate of ['x', 'y', 'width', 'height'] as const) {
@@ -199,12 +201,12 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
     return { x, y, width, height };
   }));
   const before = await measure();
-  const poster = await art.locator('.spotlight-art__poster > img').boundingBox();
+  const poster = await page.locator('.title-hero__mobile-art img').boundingBox();
   expect(poster!.y + poster!.height).toBeLessThanOrEqual(before[0]!.y);
   deliverBanner();
   await expect(art).toHaveAttribute('data-banner', 'loaded');
   await expect(art).toHaveAttribute('data-mobile-art', 'poster');
-  await expect(art.locator('.spotlight-art__poster')).toBeVisible();
+  await expect(page.locator('.title-hero__mobile-art img')).toBeVisible();
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
   const after = await measure();
   for (let index = 0; index < before.length; index++) {
@@ -222,8 +224,8 @@ test('title keeps episode navigation close and full information available on dem
   const hero = await page.locator('.title-hero').boundingBox();
   // Keep the compact hero bounded and episode navigation immediately adjacent.
   if (info.project.name.startsWith('mobile')) {
-    expect(hero!.height).toBeGreaterThanOrEqual(480);
-    expect(hero!.height).toBeLessThan(650);
+    expect(hero!.height).toBeGreaterThanOrEqual(300);
+    expect(hero!.height).toBeLessThan(450);
   } else {
     expect(hero!.height).toBeGreaterThanOrEqual(380);
     expect(hero!.height).toBeLessThan(460);
@@ -258,8 +260,12 @@ test('artwork failure preserves the real title, episode inventory and navigation
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toHaveText('Paper Lantern');
   await expect(page.locator('.title-hero .spotlight-art')).toHaveAttribute('data-banner', 'failed');
-  await expect(page.locator('.title-hero .spotlight-art__poster')).toBeVisible();
-  await expect(page.locator('.title-hero .cover-fallback')).toBeVisible();
+  const narrow = (page.viewportSize()?.width ?? 0) <= 600;
+  const visiblePoster = narrow
+    ? page.locator('.title-hero__mobile-art')
+    : page.locator('.title-hero .spotlight-art__poster');
+  await expect(visiblePoster).toBeVisible();
+  await expect(visiblePoster.locator('.cover-fallback')).toBeVisible();
   await expect(page.locator('.title-hero .spotlight-art__banner')).toHaveCount(0);
   await expect(page.locator('.episode-grid > li')).toHaveCount(3);
   await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();

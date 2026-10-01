@@ -62,7 +62,7 @@ test('failed primary loading presents one actionable error and can recover witho
   await page.goto('/');
   await expect(page.locator('.sol-brand-readiness')).toHaveAttribute('data-readiness', 'error');
   await expect(page.getByRole('button', { name: 'Try again', exact: true })).toHaveCount(1);
-  await page.getByRole('button', { name: 'Continue without waiting', exact: true }).click();
+  await page.getByRole('button', { name: 'View page status', exact: true }).click();
   await expect(page.locator('.sol-brand-readiness')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Try again', exact: true })).toHaveCount(1);
   failPrimary = false;

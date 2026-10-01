@@ -35,6 +35,7 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
         </mask>
         <filter id={`${id}-reveal-feather`} x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="4" /></filter>
         <filter id={`${id}-light-feather`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="11" /></filter>
+        <filter id={`${id}-atmosphere-blur`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24" /></filter>
         <mask id={`${id}-play`} maskUnits="userSpaceOnUse" x="548" y="380" width="170" height="143"><path d={EXTRACTED_PLAY} fill="white" stroke="white" strokeWidth="2" /></mask>
         <mask id={`${id}-foreground-alpha`} maskUnits="userSpaceOnUse" x="365" y="280" width="550" height="425" style={{ maskType: 'alpha' }}>{foreground}</mask>
         <filter id={`${id}-word-alpha`} colorInterpolationFilters="sRGB" x="0" y="0" width="100%" height="100%">
@@ -43,6 +44,7 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
         <mask id={`${id}-word-mask`} maskUnits="userSpaceOnUse" x="180" y="700" width="895" height="165" style={{ maskType: 'alpha' }}><g filter={url('word-alpha')}>{master}</g></mask>
         <linearGradient id={`${id}-warm-edge`} x1="0" x2="1" y1="0" y2="1"><stop stopColor="#fff3ba" /><stop offset=".47" stopColor="#ffd17b" /><stop offset="1" stopColor="#9a9ae9" /></linearGradient>
         <radialGradient id={`${id}-sun-glow`}><stop stopColor="#ffc26a" stopOpacity=".8" /><stop offset=".4" stopColor="#d67b25" stopOpacity=".28" /><stop offset="1" stopColor="#8b3a0a" stopOpacity="0" /></radialGradient>
+        <radialGradient id={`${id}-ray-glow`}><stop stopColor="#fff2cf" stopOpacity=".56" /><stop offset=".34" stopColor="#ffd38b" stopOpacity=".22" /><stop offset="1" stopColor="#d67b25" stopOpacity="0" /></radialGradient>
         <radialGradient id={`${id}-glint`}><stop stopColor="#fffbed" /><stop offset=".18" stopColor="#ffe6a2" stopOpacity=".85" /><stop offset="1" stopColor="#f5a633" stopOpacity="0" /></radialGradient>
         <radialGradient id={`${id}-reflected-dawn`} cx=".43" cy=".05" r=".9"><stop stopColor="#fff2b3" stopOpacity=".9" /><stop offset=".32" stopColor="#ffb34e" stopOpacity=".5" /><stop offset=".64" stopColor="#b989c6" stopOpacity=".12" /><stop offset="1" stopColor="#989eff" stopOpacity="0" /></radialGradient>
         <linearGradient id={`${id}-flare`}><stop stopColor="#c36620" stopOpacity="0" /><stop offset=".46" stopColor="#ffce7b" stopOpacity=".8" /><stop offset=".5" stopColor="#fffae9" /><stop offset=".54" stopColor="#ffce7b" stopOpacity=".8" /><stop offset="1" stopColor="#c36620" stopOpacity="0" /></linearGradient>
@@ -51,6 +53,10 @@ const BrandArtwork = memo(forwardRef<SVGSVGElement, BrandArtworkProps>(function 
       </defs>
       <g data-brand-composition>
         <g transform={emblemTransform}>
+          <g data-sun-rays fill={url('ray-glow')} filter={url('atmosphere-blur')}>
+            <ellipse cx="628" cy="338" rx="395" ry="242" />
+            <ellipse cx="628" cy="345" rx="480" ry="96" opacity=".35" />
+          </g>
           <ellipse cx="628" cy="344" rx="370" ry="303" fill={url('sun-glow')} data-sunlight />
           <g mask={url('sun-window')}><g data-sun-rise><image href={BRAND_SUN} x="340" y="136" width="575" height="575" /></g></g>
           <g mask={url('ribbon-reveal')}>{foreground}</g>

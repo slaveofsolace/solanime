@@ -60,7 +60,7 @@ export function BrandDemo() {
         <div><span>Emblem — 40px</span><SolanimeBrand variant="emblem" motion="static" theme={theme} style={{ width: 40 }} /></div>
         <div><span>Loading — 40px</span><SolanimeBrand variant="emblem" motion="loading" theme={theme} reducedMotion={reduced} style={{ width: 40 }} /></div>
       </section>
-      <footer className="sol-brand-demo__footer">One stable master. One shared timeline. Readiness always wins.</footer>
+      <footer className="sol-brand-demo__footer">Preview of the logo animation used when Solanime opens.</footer>
     </>}
     {boot && <><BrandReadiness ready={boot === 'ready'} error={boot === 'error' ? 'The catalogue could not be loaded.' : null} onRetry={() => setBoot('loading')} onDismiss={() => setBoot(null)} reducedMotion={reduced} theme={theme} sessionKey={`demo-boot-${instance}`} />
       <div className="sol-brand-demo__readiness-tools"><button onClick={() => setBoot('ready')}>Application ready</button><button onClick={() => setBoot('error')}>Simulate loading failure</button></div>

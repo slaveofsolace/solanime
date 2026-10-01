@@ -139,6 +139,7 @@ function useAccountController() {
       if (old.account?.id === result.account.id && scopeRef.current) {
         const current = result.profiles.find((p) => p.id === selectedId(result.account!.id));
         if (current) setProfile(current);
+        else if (result.profiles.length === 1) await activate(result.profiles[0], result.account.id);
         else {
           clearProfile();
           rememberProfile(result.account.id, null);
@@ -146,7 +147,10 @@ function useAccountController() {
         return;
       }
       const wanted = selectedId(result.account.id);
-      const found = result.profiles.find((p) => p.id === wanted);
+      // A single profile needs no selection screen on a returning device. With
+      // multiple profiles, keep the explicit choice and its storage isolation.
+      const found = result.profiles.find((p) => p.id === wanted) ??
+        (result.profiles.length === 1 ? result.profiles[0] : null);
       if (found) await activate(found, result.account.id);
     } catch (e) {
       if (seq === sessionGeneration.current) setLoadError(e instanceof Error ? e.message : 'Account service unavailable.');

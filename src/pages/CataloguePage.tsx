@@ -38,7 +38,6 @@ function FilterSelect({
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
-            {option.count !== undefined ? ` (${option.count})` : ''}
           </option>
         ))}
       </select>
@@ -225,9 +224,7 @@ export default function CataloguePage() {
             <p className="catalogue-summary" aria-live="polite">
               {loading
                 ? 'Loading titles…'
-                : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}${
-                    catalogue.pages > 1 ? ` · Page ${catalogue.page} of ${catalogue.pages}` : ''
-                  }`}
+                : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}`}
             </p>
           </div>
         </header>
@@ -266,7 +263,7 @@ export default function CataloguePage() {
                   event.currentTarget.form?.requestSubmit();
                 }
               }}
-              placeholder="Titles, aliases, keywords"
+              placeholder={searchView ? 'Search all titles' : queryScope === 'anime' ? 'Search anime' : queryScope === 'tv' ? 'Search TV shows' : 'Search titles'}
               autoComplete="off"
             />
             <button type="submit" aria-label="Search catalogue">
