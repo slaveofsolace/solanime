@@ -63,6 +63,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await expect
     .poll(() => page.locator('video').evaluate((video: HTMLVideoElement) => video.currentTime))
     .toBeGreaterThan(0.2);
+  await page.getByRole('button', { name: 'Pause video', exact: true }).click();
   await expect
     .poll(() =>
       page.request.get(`/api/account/profiles/${profile.id}/data`).then(async response => {
