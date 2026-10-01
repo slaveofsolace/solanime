@@ -73,7 +73,10 @@ test('phones open the watch page on the player, with the way back under it', asy
 
   await page.goto(`/watch/paper-lantern/${firstEpisode.id}?language=sub`);
 
-  const player = await page.locator('.player-stage').boundingBox();
-  const back = await page.getByRole('link', { name: 'Back to title' }).boundingBox();
-  expect(player && back && player.y < back.y).toBe(true);
+  const back = page.getByRole('link', { name: 'Back to title' });
+  await expect(page.getByRole('heading', { name: 'Not playable here yet' })).toBeVisible();
+  await expect(back).toBeVisible();
+  const playerBox = await page.locator('.player-stage').boundingBox();
+  const backBox = await back.boundingBox();
+  expect(playerBox!.y + playerBox!.height).toBeLessThanOrEqual(backBox!.y);
 });
