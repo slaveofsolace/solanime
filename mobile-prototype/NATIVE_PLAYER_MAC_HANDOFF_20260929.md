@@ -1,5 +1,29 @@
 # Solanime native protected-player handoff (2026-09-29)
 
+## Signed physical iPhone build 9 and refreshed production site, 2026-10-01 06:50 CDT
+
+At the start of this run, GitHub `main` was `237e61c1e0e28b204799950c7158f11f3c8bb62b` and the checkout was clean. The paired physical iPhone 16 Pro was connected with **Solanime 0.1.0 (8)** installed. The project now sets `CURRENT_PROJECT_VERSION = 9` in both Xcode configurations at source commit `d4781365c65e6002fb5574816d747f38e594f182`, so the installed build number can be reproduced from GitHub without a command-line version override. The Release shared scheme built successfully for generic iOS using the owner's locally managed automatic signing. `codesign --verify --deep --strict` passed, the built `Info.plist` read `CFBundleVersion=9` and display name `Solanime`, the source-contract tests passed 4/4, and the WebKit content rules compiled. No team identifier, profile, credential, or device identifier was added to source.
+
+The signed source-built app was installed on the connected iPhone, and `devicectl device info apps` read back **Solanime 0.1.0 (9)**. `devicectl device process launch --terminate-existing` succeeded after iPhone Mirroring resumed. Mirroring visibly showed the new splash and then the production sign-in page with the compact logo. The credential-free sign-in screenshot is retained locally at `build/ios-device-main-9/native-sign-in.png`; the build log is `build/ios-device-main-9-source-build.log`. Both are ignored build artifacts. The app remains at sign-in, so there is no new provider/playback result to claim.
+
+The site was rebuilt from `main` and redeployed with `node scripts/deploy-pages.mjs --branch=main --promote-verified-release`. The immutable Pages deployment is `https://12242f45.solanime.pages.dev`; production `https://solanime.pages.dev/` serves the same `assets/index-CBGlHkZU.js` and `assets/index-DakG8A9w.css` hashes as the local build. `pnpm verify:deployment -- https://solanime.pages.dev` passed version and frame-host checks. `pnpm verify:private-approval -- https://solanime.pages.dev` passed all eight checks, including HTTP 401 for anonymous catalogue, filters, providers, and source resolution. `/api/health` read channel `production`, release `0.8.4-alpha`, connected database, schema 13, and 9,185 titles. This run did not change the already promoted API Worker or approval policy.
+
+Reproduction commands, with local signing data omitted:
+
+```sh
+pnpm build
+node scripts/deploy-pages.mjs --branch=main --promote-verified-release
+pnpm verify:deployment -- https://solanime.pages.dev
+pnpm verify:private-approval -- https://solanime.pages.dev
+xcodebuild -project mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj -scheme SolanimeProtectedPlayer -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build/ios-device-main-8 -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=<locally selected team> build
+codesign --verify --deep --strict build/ios-device-main-8/Build/Products/Release-iphoneos/Solanime.app
+xcrun devicectl device install app --device '<connected trusted iPhone>' build/ios-device-main-8/Build/Products/Release-iphoneos/Solanime.app
+xcrun devicectl device info apps --device '<connected trusted iPhone>'
+xcrun devicectl device process launch --terminate-existing --device '<connected trusted iPhone>' dev.solanime.protectedplayer.preview
+```
+
+**Native release remains unreleased.** Build 9 installation and the sign-in readback do not establish five seconds of visible video, advancing decoded frames, stable source mapping, zero unwanted provider windows/external launches, or Play/seek/fullscreen/switch/restart behavior. The previously documented packaged Mac playback probe also remains blocked by the approved-account login gate. Keep the native navigation and popup protections enabled for the next authenticated device run.
+
 ## Main integration, production promotion, and build 8 checkpoint, 2026-10-01 00:24 CDT
 
 Pull request `#14` merged the native Mac/iPhone host and the current iPhone-first UI into `main` at commit `4c44ff906699507597b592975f2501fcfe64de99`. The final pull-request head was `d04861306370bcdce44af727e9cb83685a993d09`. All seven required checks passed at that head: the protected iOS simulator build, Ubuntu and macOS type/unit/build jobs, and desktop/mobile Chromium/WebKit browser suites. The final CI-only correction made the touch tests reflect the shipping mobile layout: touch catalogue cards hide redundant action buttons, and phone layouts hide desktop theater mode.

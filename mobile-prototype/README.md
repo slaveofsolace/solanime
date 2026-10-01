@@ -1,6 +1,6 @@
 # Solanime protected-player prototype
 
-This is an **isolated native experiment**, not a released mobile app or proof that every provider plays safely. It loads Solanime in an app-owned WebView without a native JavaScript bridge. Android source is a minimal Gradle project. The iOS Xcode project and shared scheme compile and a locally signed `Solanime 0.1.0 (3)` development build is installed on an iPhone 16 Pro. The owner reported seeing playback on an earlier build; five-second video progress, changed frames, and zero unwanted windows have not yet been measured together on the physical phone. The native release gate remains open.
+This is an **isolated native experiment**, not a released mobile app or proof that every provider plays safely. It loads Solanime in an app-owned WebView without a native JavaScript bridge. Android source is a minimal Gradle project. The iOS Xcode project and shared scheme compile, and a locally signed `Solanime 0.1.0 (9)` Release-configuration build is installed and launched on an iPhone 16 Pro. The owner reported seeing playback on an earlier build; five-second video progress, changed frames, and zero unwanted windows have not yet been measured together on build 9. The native release gate remains open.
 
 ## Why this exists
 
