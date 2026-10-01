@@ -87,6 +87,9 @@ test('browser-only provider mode stays compatible and discloses its actual prote
   const frame = page.locator('iframe[title="MegaPlay provider player"]');
   await expect(frame).toBeVisible();
   expect(await frame.getAttribute('sandbox')).toBeNull();
+  expect(await frame.getAttribute('allow')).toBe('autoplay; fullscreen; picture-in-picture');
+  // The path-scoped CSP frame-src must still admit the verified stream path.
+  await expect(page.frameLocator('iframe[title="MegaPlay provider player"]').getByRole('button', { name: 'Play' })).toBeVisible();
   await expect(page.locator('.provider-player')).toHaveAttribute('data-guard-mode', 'browser');
   await expect(page.getByText('Built-in Guard · On')).toHaveCount(0);
   const summary = page.getByText('About this player');

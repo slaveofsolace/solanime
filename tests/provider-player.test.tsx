@@ -32,7 +32,7 @@ describe('provider embed player', () => {
     const frame = screen.getByTitle('MegaPlay provider player') as HTMLIFrameElement;
     expect(frame.src).toBe('https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn');
     expect(frame.hasAttribute('sandbox')).toBe(false);
-    expect(frame.getAttribute('allow')).toBe('autoplay; encrypted-media; fullscreen; picture-in-picture');
+    expect(frame.getAttribute('allow')).toBe('autoplay; fullscreen; picture-in-picture');
     expect(frame.getAttribute('referrerpolicy')).toBe('strict-origin-when-cross-origin');
   });
 
