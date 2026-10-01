@@ -47,8 +47,14 @@ test('actual native controls change media state without provider requests or pop
   await expect(page.getByRole('button', { name: 'Categories', exact: true })).toHaveAttribute('aria-expanded', 'true');
   await page.keyboard.press('Escape');
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
-  await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
-  await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
+  const theater = page.getByRole('button', { name: 'Theater mode', exact: true });
+  if (info.project.name.startsWith('mobile')) {
+    await expect(theater).toBeHidden();
+    await expect(page.locator('.watch-page')).not.toHaveClass(/watch-page--theater/);
+  } else {
+    await theater.click();
+    await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
+  }
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   const controls = page.getByRole('group', { name: 'Playback controls' });
   await controls.focus();

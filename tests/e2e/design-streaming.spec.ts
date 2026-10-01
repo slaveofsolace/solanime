@@ -251,9 +251,8 @@ test('touch cards keep original posters and full accessible title links without 
   expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(posterBox!.x + posterBox!.width);
   expect(titleBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
   expect(artBox!.width / artBox!.height).toBeCloseTo(2 / 3, 2);
-  // Touch actions are direct buttons below the artwork, never overlaid on it.
-  const actionsBox = await card.locator('.title-card__actions').boundingBox();
-  expect(actionsBox!.y).toBeGreaterThanOrEqual(artBox!.y + artBox!.height);
+  // Touch cards stay uncluttered: the artwork and full title are the direct actions.
+  await expect(card.locator('.title-card__actions')).toBeHidden();
 
   const backdropCard = page.locator('.title-card').nth(1);
   await expect(backdropCard.locator('.cover-composition')).toHaveCount(0);
