@@ -24,7 +24,8 @@ test('desktop navigation separates Anime and TV and retires the Movies sector', 
     'aria-current',
     'page',
   );
-  await expect(page.getByRole('group', { name: 'Catalogue collection' })).toHaveCount(0);
+  await expect(page.getByRole('group', { name: 'Catalogue collection' })
+    .getByRole('button', { name: 'TV Shows' })).toHaveAttribute('aria-pressed', 'true');
 
   await page.goto('/catalogue');
   await expect(page.getByRole('group', { name: 'Catalogue collection' })).toBeVisible();
@@ -38,30 +39,29 @@ test('desktop navigation separates Anime and TV and retires the Movies sector', 
   await expect(page.getByRole('link', { name: 'Open Fixture Screen Series', exact: true })).toBeVisible();
 });
 
-test('mobile viewing shell keeps compact header, browsing, and search reachable', async ({ page }) => {
+test('mobile viewing shell keeps emblem, four destinations, and search reachable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 
-  const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
+  const navigation = page.getByRole('navigation', { name: 'iPhone navigation' });
   await expect(page.getByRole('link', { name: 'Sol Anime home', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('button', { name: 'Categories', exact: true })).toBeVisible();
+  await expect(page.locator('.masthead .wordmark__emblem')).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Home' })).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Discover' })).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Library' })).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Account' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Search all titles', exact: true })).toBeVisible();
-  await expect(navigation.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
   const header = await page.locator('.masthead').boundingBox();
   const tabs = await navigation.boundingBox();
   const feature = await page.locator('.home-feature').boundingBox();
   const rail = await page.locator('.home-rail').first().boundingBox();
-  expect(header?.height).toBeLessThanOrEqual(60);
+  expect(header?.height).toBeLessThanOrEqual(72);
   expect(tabs?.y).toBeGreaterThan(760);
-  expect(feature?.height).toBeLessThan(450);
-  expect(rail?.y).toBeLessThan(560);
-  await navigation.getByRole('button', { name: 'Categories', exact: true }).click();
-  await expect(page.locator('#browse-categories')).toBeVisible();
-  const sheet = await page.locator('#browse-categories').boundingBox();
-  expect(sheet!.y + sheet!.height).toBeLessThanOrEqual(tabs!.y + 1);
-  await navigation.getByRole('button', { name: 'Categories', exact: true }).press('Escape');
-  await expect(page.locator('#browse-categories')).toHaveCount(0);
+  expect(feature?.height).toBeGreaterThan(500);
+  expect(rail?.y).toBeGreaterThan(500);
+  await navigation.getByRole('link', { name: 'Discover' }).click();
+  await expect(page).toHaveURL('/catalogue?scope=anime');
+  await page.getByRole('button', { name: 'Search all titles', exact: true }).click();
+  await expect(page.locator('.header-search--open')).toBeVisible();
   await noOverflow(page);
 });

@@ -9,7 +9,8 @@ export default function AppearanceSettings() {
   const [draft, setDraft] = useState(accent);
   const [error, setError] = useState(false);
   const [showAccent, setShowAccent] = useState(
-    () => !document.documentElement.classList.contains('solanime-native-ios'),
+    () => !document.documentElement.classList.contains('solanime-native-ios') &&
+      !(typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 600px)').matches),
   );
   const id = useId();
   const choose = (value: string) => {

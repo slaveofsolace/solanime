@@ -828,3 +828,41 @@
     backdrop-filter: none;
   }
 }
+
+@media (max-width: 600px) {
+  .solanime-native-ios .site-shell.discovery-shell .masthead .appearance-jump,
+  .solanime-native-ios .site-shell.discovery-shell .site-footer { display: none; }
+
+  .solanime-native-ios .site-shell.discovery-shell.site-shell--home .masthead {
+    background: linear-gradient(180deg, #000e 0%, #000a 55%, transparent 100%);
+  }
+
+  .solanime-native-ios .site-shell.discovery-shell .native-tab-bar {
+    min-height: calc(56px + env(safe-area-inset-bottom));
+    padding-top: 1px;
+  }
+
+  .solanime-native-ios .site-shell.discovery-shell .native-tab-bar > a {
+    min-height: 50px;
+    font-size: .72rem;
+  }
+
+  .solanime-native-ios .site-shell.discovery-shell .native-tab-bar .icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .solanime-native-ios .site-shell.discovery-shell.site-shell--home .continue-card { padding-bottom: 28px; }
+  .solanime-native-ios .site-shell.discovery-shell.site-shell--home .continue-remove {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    min-height: 28px;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    opacity: 1;
+  }
+}

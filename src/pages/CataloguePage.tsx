@@ -220,6 +220,7 @@ export default function CataloguePage() {
       <div className="catalogue-topline">
         <header className="catalogue-heading">
           <div className="catalogue-heading__copy">
+            <span className="catalogue-heading__eyebrow">Discover</span>
             <h1>{pageTitle}</h1>
             <p className="catalogue-summary" aria-live="polite">
               {loading
@@ -229,11 +230,11 @@ export default function CataloguePage() {
           </div>
         </header>
 
-        {!queryScope && !searchView && (
+        {!searchView && (
           <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
-            <button type="button" aria-pressed onClick={() => changeCollection('')}>All</button>
-            <button type="button" aria-pressed={false} onClick={() => changeCollection('anime')}>Anime</button>
-            <button type="button" aria-pressed={false} onClick={() => changeCollection('tv')}>TV Shows</button>
+            <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
+            <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
+            <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
           </div>
         )}
       </div>

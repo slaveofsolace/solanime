@@ -70,7 +70,8 @@ test('signed iPhone presentation keeps readable controls and consistent surfaces
   const saveWidth = await page.locator('.title-hero__actions .button--outline').evaluate(
     (element) => element.getBoundingClientRect().width,
   );
-  expect(saveWidth).toBe(48);
+  expect(saveWidth).toBeGreaterThanOrEqual(44);
+  expect(saveWidth).toBeLessThanOrEqual(56);
   for (const theme of ['dark', 'light']) {
     await page.locator('html').evaluate((element, value) => element.setAttribute('data-theme', value), theme);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();

@@ -1,0 +1,379 @@
+/* Settings and Account share a quiet grouped-list language on compact screens.
+   This layer only affects account surfaces; discovery and playback stay intact. */
+@media (max-width: 600px) {
+  .site-shell.discovery-shell :is(.settings-page, .account-page) {
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 20px calc(100px + env(safe-area-inset-bottom));
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  }
+
+  .site-shell.discovery-shell :is(.settings-page, .account-page) :is(button, input, select) {
+    font-family: inherit;
+  }
+
+  .site-shell.discovery-shell :is(.settings-heading, .account-heading) {
+    margin: 0 0 22px;
+  }
+
+  .site-shell.discovery-shell :is(.settings-heading h1, .account-heading h1) {
+    margin: 0;
+    font-family: inherit;
+    font-size: clamp(29px, 8vw, 34px);
+    font-weight: 750;
+    line-height: 1.1;
+    letter-spacing: -.035em;
+  }
+
+  .site-shell.discovery-shell .settings-heading p { display: none; }
+  .site-shell.discovery-shell .settings-navigation { display: none; }
+
+  .site-shell.discovery-shell .settings-profile-card {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px;
+    margin: 0 0 28px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .site-shell.discovery-shell .settings-profile-card .profile-avatar { width: 44px; height: 44px; }
+  .site-shell.discovery-shell .settings-profile-card__copy { display: grid; min-width: 0; gap: 2px; }
+  .site-shell.discovery-shell .settings-profile-card__copy small {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .site-shell.discovery-shell .settings-profile-card__copy strong {
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-shell.discovery-shell .settings-profile-card__action {
+    color: var(--accent-ink);
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  .site-shell.discovery-shell .settings-section {
+    margin: 0 0 27px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    scroll-margin-top: calc(76px + env(safe-area-inset-top));
+  }
+  .site-shell.discovery-shell .settings-section--loading { display: none; }
+  .site-shell.discovery-shell .settings-section > h2,
+  .site-shell.discovery-shell .account-section > h2,
+  .site-shell.discovery-shell .account-section .section-heading h2 {
+    margin: 0 12px 9px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .site-shell.discovery-shell .settings-page .preference-list,
+  .site-shell.discovery-shell .settings-section .appearance-settings {
+    padding: 0 16px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .site-shell.discovery-shell .settings-page .preference-list label,
+  .site-shell.discovery-shell .appearance-preference,
+  .site-shell.discovery-shell .native-motion-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 64px;
+    margin: 0;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-shell.discovery-shell .settings-page .preference-list label:last-child { border-bottom: 0; }
+  .site-shell.discovery-shell .settings-page .preference-list label > span {
+    display: grid;
+    min-width: 0;
+    flex: 1 1 auto;
+    gap: 3px;
+  }
+  .site-shell.discovery-shell .settings-page .preference-list :is(strong, .appearance-preference h3),
+  .site-shell.discovery-shell :is(.native-motion-toggle > span, .accent-disclosure) {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 550;
+    line-height: 1.3;
+  }
+  .site-shell.discovery-shell .settings-page .preference-list small {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .site-shell.discovery-shell .settings-page .preference-list select {
+    flex: 0 1 132px;
+    width: 132px;
+    max-width: 132px;
+    min-height: 44px;
+    padding: 0 16px 0 0;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent-ink);
+    text-align: right;
+    text-align-last: right;
+    font-size: 14px;
+  }
+  .site-shell.discovery-shell .settings-page .preference-list label:has(select)::after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    content: '›';
+    font-size: 21px;
+    pointer-events: none;
+  }
+  .site-shell.discovery-shell .settings-page input[type='checkbox'] {
+    position: relative;
+    flex: 0 0 51px;
+    width: 51px;
+    min-width: 51px;
+    height: 31px;
+    min-height: 31px;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 18px;
+    background: #545458;
+    cursor: pointer;
+    transition: background-color 180ms ease;
+  }
+  .site-shell.discovery-shell .settings-page input[type='checkbox']::after {
+    position: absolute;
+    inset: 2px auto auto 2px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 2px #0005;
+    content: '';
+    transition: transform 180ms ease;
+  }
+  .site-shell.discovery-shell .settings-page input[type='checkbox']:checked { background: var(--accent); }
+  .site-shell.discovery-shell .settings-page input[type='checkbox']:checked::after { transform: translateX(20px); }
+  .site-shell.discovery-shell .settings-page input[type='checkbox']:focus-visible,
+  .site-shell.discovery-shell :is(.settings-profile-card, .settings-account-link .button, .security-tabs button):focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 3px;
+  }
+  .site-shell.discovery-shell .settings-playback-note {
+    margin: 8px 12px 0;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .site-shell.discovery-shell .settings-section--unavailable > p {
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .site-shell.discovery-shell .motion-preference { display: none; }
+  .site-shell.discovery-shell .appearance-preference h3 { margin: 0; }
+  .site-shell.discovery-shell .appearance-mode {
+    gap: 0;
+    padding: 3px;
+    border-radius: 9px;
+    background: var(--surface-2);
+  }
+  .site-shell.discovery-shell .appearance-mode button {
+    min-width: 58px;
+    min-height: 34px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    font-size: 13px;
+  }
+  .site-shell.discovery-shell .appearance-mode button[aria-pressed='true'] {
+    background: var(--surface);
+    box-shadow: 0 1px 4px #0003;
+  }
+  .site-shell.discovery-shell .appearance-preference h3 { font-size: 15px; font-weight: 550; }
+  .site-shell.discovery-shell .accent-disclosure { min-height: 60px; }
+  .site-shell.discovery-shell .accent-options:not([hidden]) { padding: 12px 0 16px; border-top: 1px solid var(--line); }
+  .site-shell.discovery-shell .settings-account-link > p { display: none; }
+  .site-shell.discovery-shell .settings-account-link > .button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 550;
+    text-align: left;
+  }
+  .site-shell.discovery-shell .settings-account-link > .button::after {
+    color: var(--muted);
+    content: '›';
+    font-size: 21px;
+  }
+
+  .site-shell.discovery-shell .account-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .site-shell.discovery-shell .account-heading > div { min-width: 0; }
+  .site-shell.discovery-shell .account-heading p {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  .site-shell.discovery-shell .account-heading > button {
+    flex: none;
+    min-height: 44px;
+    padding: 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .site-shell.discovery-shell .account-columns { display: block; }
+  .site-shell.discovery-shell .account-section {
+    margin: 0 0 26px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .site-shell.discovery-shell .account-section .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 36px;
+    margin: 0 0 8px;
+  }
+  .site-shell.discovery-shell .account-section .section-heading h2 { margin-bottom: 0; }
+  .site-shell.discovery-shell .account-section .section-heading a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 10px;
+    color: var(--accent-ink);
+    font-size: 13px;
+    font-weight: 650;
+  }
+  .site-shell.discovery-shell .account-profile-list,
+  .site-shell.discovery-shell .security-tabs {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0 16px;
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .site-shell.discovery-shell .account-profile-list > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 15px;
+  }
+  .site-shell.discovery-shell .account-profile-list > a:last-child { border: 0; }
+  .site-shell.discovery-shell .account-profile-list .profile-avatar { width: 38px; height: 38px; }
+  .site-shell.discovery-shell .account-profile-list small { font-size: 12px; }
+  .site-shell.discovery-shell .account-section > .field-hint {
+    margin: 8px 12px 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .site-shell.discovery-shell .security-tabs button {
+    min-height: 54px;
+    padding: 10px 28px 10px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .site-shell.discovery-shell .security-tabs button:last-child { border: 0; }
+  .site-shell.discovery-shell .security-tabs button[aria-expanded='true'] { color: var(--accent-ink); }
+  .site-shell.discovery-shell .account-form {
+    max-width: none;
+    margin: 10px 0 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .site-shell.discovery-shell .account-form :is(input:not([type='checkbox']), select) {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 9px;
+    font-size: 16px;
+  }
+  .site-shell.discovery-shell .account-form .button { min-height: 44px; margin-top: 14px; }
+  .site-shell.discovery-shell .account-section.account-disclosure {
+    overflow: hidden;
+    padding: 0 16px;
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .site-shell.discovery-shell .account-disclosure summary {
+    min-height: 68px;
+    padding: 12px 28px 12px 0;
+  }
+  .site-shell.discovery-shell .account-disclosure summary span { font-size: 15px; font-weight: 550; }
+  .site-shell.discovery-shell .account-disclosure summary small { font-size: 12px; line-height: 1.35; }
+  .site-shell.discovery-shell .account-disclosure summary::after { top: 20px; right: 0; }
+  .site-shell.discovery-shell .account-disclosure[open] summary { border-bottom: 1px solid var(--line); }
+  .site-shell.discovery-shell .account-disclosure[open] { padding-bottom: 16px; }
+  .site-shell.discovery-shell .account-disclosure .account-disclosure-content { margin: 12px 0 0; }
+  .site-shell.discovery-shell .account-disclosure .device-list { margin-top: 8px; }
+  .site-shell.discovery-shell .account-section:has(> h2) > p {
+    margin: 0;
+    padding: 16px;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .site-shell.discovery-shell .account-section:has(> h2) > p a { color: var(--accent-ink); font-weight: 650; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell.discovery-shell .settings-page input[type='checkbox'],
+  .site-shell.discovery-shell .settings-page input[type='checkbox']::after { transition: none; }
+}

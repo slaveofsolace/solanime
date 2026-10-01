@@ -33,6 +33,9 @@ export default function MyAnimeListLibrary() {
       .finally(() => { if (!abort.signal.aborted) setLoading(false); });
     return () => abort.abort();
   }, [base, page, retry]);
+  // The connection is managed in Settings. An empty import adds a dead-end
+  // section to Library, where saved titles and actual watch history matter.
+  if (page === 1 && !error && items.length === 0) return null;
   return <section id="mal-list" className="library-section" aria-labelledby="mal-list-heading">
     <header className="section-heading"><h2 id="mal-list-heading">MyAnimeList</h2><Link to="/settings#connections">Manage connection</Link></header>
     <p className="field-hint">Imported MAL records are separate from your saved Solanime titles and viewing history.</p>

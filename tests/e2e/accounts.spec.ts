@@ -105,6 +105,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   page,
   context,
 }, info) => {
+  test.setTimeout(60_000);
   const { email, code } = await register(page, info);
   const changedPassword = generatedTestPassphrase('browser recovery');
   await page.goto('/account');

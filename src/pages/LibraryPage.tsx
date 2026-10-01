@@ -2,6 +2,7 @@ import { useAccount } from '../account/AccountProvider';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { TitleCard } from '../components/ui';
+import Icon from '../components/Icon';
 import MyAnimeListLibrary from '../components/MyAnimeListLibrary';
 import { useAppState } from '../state';
 
@@ -31,11 +32,12 @@ export default function LibraryPage() {
     <div className="library-page">
       <header className="library-heading">
         <div>
+          <span className="library-heading__eyebrow">Your collection</span>
           <h1>Library</h1>
           <p>
             {profile
-              ? `Saved for ${profile.name}.`
-              : 'Saved on this device. Sign in to keep your profiles in sync.'}
+              ? `Saved for ${profile.name}`
+              : 'Your saved titles and watch history'}
           </p>
         </div>
         <p className="library-heading__count">
@@ -58,9 +60,9 @@ export default function LibraryPage() {
           </div>
         ) : (
           <div className="library-empty">
-            <p>Your watchlist is empty.</p>
+            <p>Save a title to find it here.</p>
             <Link className="button button--primary" to="/catalogue">
-              Browse catalogue
+              Explore titles
             </Link>
           </div>
         )}
@@ -97,7 +99,7 @@ export default function LibraryPage() {
                     {entry.imageUrl ? (
                       <img src={entry.imageUrl} alt="" referrerPolicy="no-referrer" />
                     ) : (
-                      <span aria-hidden="true">SOL</span>
+                      <Icon name="play" />
                     )}
                   </span>
                   <span>

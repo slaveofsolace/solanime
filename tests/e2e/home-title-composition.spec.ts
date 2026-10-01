@@ -111,7 +111,8 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
         await expect(art.locator('.spotlight-art__poster img')).toHaveCSS('object-fit', 'cover');
         await expect(page.locator('.home-feature__mobile-art')).toBeHidden();
       } else {
-        await expect(page.locator('.title-hero__mobile-art img')).toBeVisible();
+        await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
+        await expect(page.locator('.title-hero__mobile-art')).toBeHidden();
       }
     } else {
       await expect(banner).toBeVisible();
@@ -129,10 +130,14 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
       expect(measurements.imageWidth / measurements.imageHeight).toBeCloseTo(measurements.sourceRatio, 2);
       expect(measurements.imageHeight).toBeLessThan(measurements.fieldHeight);
     } else {
-      expect(measurements.imageWidth).toBe(0);
+      // A hidden banner can retain its measured box while the actual poster
+      // remains the visible art surface.
+      await expect(banner).toBeHidden();
       if (surface.name === 'home') {
         const posterWidth = await art.locator('.spotlight-art__poster').evaluate(element => element.getBoundingClientRect().width);
         expect(posterWidth).toBeCloseTo(measurements.fieldWidth, 0);
+      } else {
+        await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
       }
     }
     await expect(page.getByRole('link', { name: surface.action, exact: true })).toBeVisible();
@@ -227,12 +232,13 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
     return { x, y, width, height };
   }));
   const before = await measure();
-  const poster = await page.locator('.title-hero__mobile-art img').boundingBox();
-  expect(poster!.y + poster!.height).toBeLessThanOrEqual(before[0]!.y);
+  const poster = await art.locator('.spotlight-art__poster img').boundingBox();
+  expect(poster!.width).toBeCloseTo(320, 0);
+  expect(before[0]!.y).toBeGreaterThan(poster!.y);
   deliverBanner();
   await expect(art).toHaveAttribute('data-banner', 'loaded');
   await expect(art).toHaveAttribute('data-mobile-art', 'poster');
-  await expect(page.locator('.title-hero__mobile-art img')).toBeVisible();
+  await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
   const after = await measure();
   for (let index = 0; index < before.length; index++) {
@@ -248,10 +254,11 @@ test('title keeps episode navigation close and full information available on dem
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
   const hero = await page.locator('.title-hero').boundingBox();
-  // Keep the compact hero bounded and episode navigation immediately adjacent.
+  // The artwork-led phone hero gives the key image room while keeping episodes
+  // immediately after the detail and actions.
   if (info.project.name.startsWith('mobile')) {
-    expect(hero!.height).toBeGreaterThanOrEqual(300);
-    expect(hero!.height).toBeLessThan(450);
+    expect(hero!.height).toBeGreaterThanOrEqual(600);
+    expect(hero!.height).toBeLessThan(1050);
   } else {
     expect(hero!.height).toBeGreaterThanOrEqual(380);
     expect(hero!.height).toBeLessThan(460);
@@ -286,10 +293,7 @@ test('artwork failure preserves the real title, episode inventory and navigation
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toHaveText('Paper Lantern');
   await expect(page.locator('.title-hero .spotlight-art')).toHaveAttribute('data-banner', 'failed');
-  const narrow = (page.viewportSize()?.width ?? 0) <= 600;
-  const visiblePoster = narrow
-    ? page.locator('.title-hero__mobile-art')
-    : page.locator('.title-hero .spotlight-art__poster');
+  const visiblePoster = page.locator('.title-hero .spotlight-art__poster');
   await expect(visiblePoster).toBeVisible();
   await expect(visiblePoster.locator('.cover-fallback')).toBeVisible();
   await expect(page.locator('.title-hero .spotlight-art__banner')).toHaveCount(0);
@@ -329,8 +333,10 @@ test('320px home and title preserve readable controls in both themes', async ({ 
     await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
     await expect(page.getByRole('link', { name: 'Start watching', exact: true })).toBeVisible();
     const viewportWidth = await page.evaluate(() => innerWidth);
-    const navLinks = page.locator('.main-nav > a:visible');
-    await expect(page.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
+    const navLinks = page.locator('.native-tab-bar > a:visible');
+    await expect(page.locator('.main-nav')).toBeHidden();
+    await expect(page.locator('.native-tab-bar').getByRole('link', { name: 'Library' })).toBeVisible();
+    await expect(navLinks).toHaveCount(4);
     for (const link of await navLinks.all()) {
       const bounds = await link.boundingBox();
       expect(bounds!.x).toBeGreaterThanOrEqual(0);
