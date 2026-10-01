@@ -57,7 +57,6 @@ export function Layout({ children }: PropsWithChildren) {
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
   const settings = location.pathname === '/settings';
-  const nativeIOS = document.documentElement.classList.contains('solanime-native-ios');
   const catalogueQuery = new URLSearchParams(location.search);
   const catalogueScope = catalogueQuery.get('scope');
   const onAnimeCatalogue =
@@ -83,12 +82,8 @@ export function Layout({ children }: PropsWithChildren) {
       </a>
       <header className="masthead">
         <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Sol Anime sign in' : 'Sol Anime home'}>
-          <SolanimeBrand
-            variant={nativeIOS ? 'emblem' : 'compact'}
-            motion="static"
-            theme={theme}
-            decorative
-          />
+          <SolanimeBrand variant="compact" motion="static" theme={theme} decorative className="wordmark__compact" />
+          <SolanimeBrand variant="emblem" motion="static" theme={theme} decorative className="wordmark__emblem" />
         </Link>
         {hideBrowseControls ? (
           privateGuest && location.pathname !== '/login' && <Link className="private-guest-signin" to="/login">Sign in</Link>

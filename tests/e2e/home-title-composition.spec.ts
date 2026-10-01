@@ -21,16 +21,19 @@ async function fixtureBanner(page: Page, bannerUrl: string) {
   });
 }
 
-test('home uses the cinematic reference scale with an uncropped fallback poster', async ({ page }, info) => {
+test('home uses cinematic artwork with an uncropped desktop poster and full-bleed mobile art', async ({ page }, info) => {
+  if (info.project.name.startsWith('mobile')) await page.setViewportSize({ width: 393, height: 852 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   const image = page.locator('.home-feature .spotlight-art__poster img');
-  await expect(image).toHaveCSS('object-fit', 'contain');
+  const mobile = info.project.name.startsWith('mobile');
+  await expect(image).toHaveCSS('object-fit', mobile ? 'cover' : 'contain');
   const measurements = await page.evaluate(() => {
     const hero = document.querySelector('.home-feature')!.getBoundingClientRect();
     const copy = document.querySelector('.home-feature__copy')!.getBoundingClientRect();
     const poster = document.querySelector('.spotlight-art__poster > img')!.getBoundingClientRect();
+    const artwork = document.querySelector('.home-feature .spotlight-art')!.getBoundingClientRect();
     const rail = document.querySelector('.home-rail')!.getBoundingClientRect();
     const railTrack = document.querySelector('.home-rail .rail-track')!.getBoundingClientRect();
     const visibleRailCards = [...document.querySelectorAll('.home-rail .title-card')]
@@ -42,6 +45,7 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
       heroX: hero.x, heroWidth: hero.width, viewport: innerWidth,
       copyX: copy.x, copyY: copy.y, copyRight: copy.right,
       posterX: poster.x, posterBottom: poster.bottom, posterWidth: poster.width,
+      artWidth: artwork.width, artHeight: artwork.height,
       fontSize: parseFloat(getComputedStyle(document.querySelector('#featured-title')!).fontSize),
       railY: rail.y,
       visibleRailCards,
@@ -54,8 +58,8 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   expect(measurements.heroX).toBeCloseTo(0, 0);
   expect(measurements.heroWidth).toBeCloseTo(measurements.viewport, 0);
   expect(measurements.fontSize).toBeLessThanOrEqual(64);
-  expect(measurements.posterWidth).toBeLessThan(measurements.viewport * .5);
   if (info.project.name.startsWith('desktop')) {
+    expect(measurements.posterWidth).toBeLessThan(measurements.viewport * .5);
     expect(measurements.copyX).toBeCloseTo(measurements.viewport * .046, 0);
     expect(measurements.copyRight).toBeLessThan(measurements.posterX);
     // The first content row should read as part of the feature composition and
@@ -70,8 +74,13 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
     await expect(quickLook).toHaveCSS('width', '44px');
     await expect(quickLook).toHaveAccessibleName(/^Quick look at /);
   } else {
-    expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
+    expect(measurements.artWidth).toBeCloseTo(measurements.viewport, 0);
+    expect(measurements.artHeight).toBeGreaterThan(500);
+    expect(measurements.posterWidth).toBeCloseTo(measurements.viewport, 0);
+    expect(measurements.copyY).toBeLessThan(measurements.posterBottom);
     expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(2);
+    await expect(page.locator('.wordmark .sol-brand--emblem')).toBeVisible();
+    await expect(page.locator('.wordmark .sol-brand--compact')).toBeHidden();
   }
   expect(measurements.cardCopyTop).toBeGreaterThanOrEqual(measurements.cardTop);
   expect(measurements.cardCopyBottom).toBeLessThanOrEqual(measurements.cardBottom + .01);
@@ -97,7 +106,13 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
     if (narrow) {
       await expect(art).toHaveAttribute('data-mobile-art', 'poster');
       await expect(banner).toBeHidden();
-      await expect(page.locator(`${surface.selector} ${surface.name === 'home' ? '.home-feature__mobile-art' : '.title-hero__mobile-art'} img`)).toBeVisible();
+      if (surface.name === 'home') {
+        await expect(art.locator('.spotlight-art__poster')).toBeVisible();
+        await expect(art.locator('.spotlight-art__poster img')).toHaveCSS('object-fit', 'cover');
+        await expect(page.locator('.home-feature__mobile-art')).toBeHidden();
+      } else {
+        await expect(page.locator('.title-hero__mobile-art img')).toBeVisible();
+      }
     } else {
       await expect(banner).toBeVisible();
       await expect(art.locator('.spotlight-art__poster')).toBeVisible();
@@ -109,10 +124,16 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
       return { sourceRatio: image.naturalWidth / image.naturalHeight, imageWidth: imageBox.width, imageHeight: imageBox.height, fieldWidth: field.width, fieldHeight: field.height };
     });
     expect(measurements.sourceRatio).toBeCloseTo(4.75, 2);
-    expect(measurements.imageWidth).toBeCloseTo(measurements.fieldWidth, 1);
     if (!narrow) {
+      expect(measurements.imageWidth).toBeCloseTo(measurements.fieldWidth, 1);
       expect(measurements.imageWidth / measurements.imageHeight).toBeCloseTo(measurements.sourceRatio, 2);
       expect(measurements.imageHeight).toBeLessThan(measurements.fieldHeight);
+    } else {
+      expect(measurements.imageWidth).toBe(0);
+      if (surface.name === 'home') {
+        const posterWidth = await art.locator('.spotlight-art__poster').evaluate(element => element.getBoundingClientRect().width);
+        expect(posterWidth).toBeCloseTo(measurements.fieldWidth, 0);
+      }
     }
     await expect(page.getByRole('link', { name: surface.action, exact: true })).toBeVisible();
     await noOverflow(page);
@@ -138,9 +159,14 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   const art = page.locator('.home-feature .spotlight-art');
   const poster = art.locator('.spotlight-art__poster');
   const narrow = (page.viewportSize()?.width ?? 0) <= 600;
-  const visiblePoster = narrow ? page.locator('.home-feature__mobile-art') : poster;
+  const visiblePoster = poster;
   await expect(art).toHaveAttribute('data-banner', 'loading');
   await expect(visiblePoster).toBeVisible();
+  if (narrow) {
+    const width = await visiblePoster.evaluate(element => element.getBoundingClientRect().width);
+    expect(width).toBeCloseTo(page.viewportSize()!.width, 0);
+    await expect(page.locator('.home-feature__mobile-art')).toBeHidden();
+  }
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
   await expect.poll(() => visiblePoster.locator('img').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.locator('.sol-brand-readiness')).toHaveCount(0);
