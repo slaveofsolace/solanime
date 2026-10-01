@@ -36,8 +36,11 @@ proxy. Do not upgrade billing to clear an import quota.
 
 The checked configuration uses three separate D1 bindings, not account tables in
 the catalogue. Cloud database names initially end in `-preview`; retain their
-stable IDs during promotion instead of duplicating the imported data. A later
-separate staging environment must use separate account data and secrets.
+stable IDs during promotion instead of duplicating the imported data. The Pages
+preview (`cloud-release`) now binds a separate `solanime-api-staging` Worker with
+its own databases, queue, Firebase project and secrets; see
+[production and staging separation](CLOUD_ENVIRONMENTS.md) for the bindings and
+the migration steps.
 
 Secrets are Worker-only: `SOLANIME_ADMIN_TOKEN`, `FIREBASE_API_KEY`,
 `FIREBASE_SERVICE_ACCOUNT_JSON`, and `AUTH_CREDENTIAL_KEY`. Never use `VITE_*` for
