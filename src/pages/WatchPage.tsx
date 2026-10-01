@@ -428,9 +428,7 @@ function WatchSession() {
           >
             {!candidate && (
               <option value="">
-                {providers.length
-                  ? `0 playable sources · ${providers.length} mapped`
-                  : 'No sources available'}
+                {providers.length ? 'No playable sources' : 'No sources available'}
               </option>
             )}
             {playableProviders.map((p) => (

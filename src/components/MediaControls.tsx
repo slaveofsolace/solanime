@@ -304,7 +304,7 @@ export default function MediaControls({
           {onTheater && (
             <button
               type="button"
-              className="media-button"
+              className="media-button media-theater"
               aria-label={theater ? 'Exit theater mode' : 'Theater mode'}
               aria-pressed={theater}
               onClick={onTheater}
