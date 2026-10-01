@@ -23,8 +23,8 @@ export default function ProfilesPage() {
   if (!auth.account)
     return (
       <section className="account-empty">
-        <h1>A space for everyone</h1>
-        <p>Sign in to create up to five profiles with separate watchlists and preferences.</p>
+        <h1>Profiles</h1>
+        <p>Sign in to manage separate lists and viewing progress.</p>
         <Link className="button button--primary" to="/login">
           Sign in
         </Link>
@@ -75,12 +75,12 @@ export default function ProfilesPage() {
     <section className="profiles-page">
       <header>
         <h1 tabIndex={-1} data-dialog-fallback-focus>
-          {manage ? 'Make each space yours.' : 'Who’s watching?'}
+          {manage ? 'Manage profiles' : 'Who’s watching?'}
         </h1>
         <p>
           {manage
-            ? 'Change a name, pick a color, or add someone new.'
-            : 'Choose your profile to pick up where you left off.'}
+            ? 'Edit a profile or add another.'
+            : 'Choose a profile to continue.'}
         </p>
       </header>
       <div className="profile-grid">

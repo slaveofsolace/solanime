@@ -33,7 +33,7 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
             };
           }),
       );
-      expect(navigationGeometry).toHaveLength(3);
+      expect(navigationGeometry).toHaveLength(4);
       expect(navigationGeometry.every(({ left, right }) => left >= 0 && right <= width)).toBe(true);
       expect(navigationGeometry.every(({ height }) => height >= 44)).toBe(true);
       expect(navigationGeometry.some(({ labelClipped }) => labelClipped)).toBe(false);

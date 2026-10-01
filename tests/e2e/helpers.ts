@@ -13,9 +13,13 @@ export async function watch(page: Page) {
   const e = await episode(page);
   await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
   await expect(page.locator('video')).toBeVisible();
+  // WebKit may stop at HAVE_METADATA until the user presses Play. This helper
+  // only waits for controls to be ready; playback tests verify advancing media
+  // separately after the gesture.
   await expect
     .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
-    .toBeGreaterThan(1);
+    .toBeGreaterThanOrEqual(1);
+  await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
   return e;
 }
 export async function noOverflow(page: Page) {

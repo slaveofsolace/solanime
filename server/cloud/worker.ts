@@ -72,6 +72,10 @@ export function configuredBaseline(request: Request, env: CloudEnv) {
 const sourceTaskTypes = ['catalogue_page', 'title_detail', 'sitemap_index', 'sitemap_page', 'sitemap_title', 'title_reconcile', 'episode_servers'];
 type ReviewCloudEnv = CloudEnv & { SOLANIME_READ_ONLY_REVIEW?: string };
 export const isReadOnlyReview = (env: CloudEnv) => (env as ReviewCloudEnv).SOLANIME_READ_ONLY_REVIEW === 'true';
+// Either private-account flag must close the catalogue and require owner
+// approval. A partially applied Worker configuration must not admit applicants.
+export const requiresOwnerApproval = (env: CloudEnv) =>
+  env.SOLANIME_PRIVATE_SITE === 'true' || env.SOLANIME_APPROVAL_REQUIRED === 'true';
 export function isReadOnlyReviewRoute(method: string, path: string) {
   return (method === 'GET' && (
     path === '/api/health' ||
@@ -110,11 +114,12 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     if (!(await env.API_LIMITER.limit({ key: `api:${request.headers.get('cf-connecting-ip') ?? 'unknown'}` })).success) return json({ error: { code: 'RATE_LIMITED', message: 'Too many requests. Try again shortly.' } }, 429, { 'Retry-After': '60' });
     const baseline = configuredBaseline(request, env);
     const catalogue = createCatalogueRepository(env.CATALOGUE, baseline);
+    const privateSite = requiresOwnerApproval(env);
     const accounts = createCloudAccounts(env.ACCOUNTS.withSession('first-primary'), {
       origin: env.SOLANIME_APP_ORIGIN, allowedOrigins: env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean),
       registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY,
-      approvalRequired: env.SOLANIME_APPROVAL_REQUIRED === 'true',
-      privateSite: env.SOLANIME_PRIVATE_SITE === 'true',
+      approvalRequired: privateSite,
+      privateSite,
       notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN),
       firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON },
       mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
@@ -139,7 +144,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
         throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
       return json(await accounts.decideApproval(approval[1], input.decision));
     }
-    if (env.SOLANIME_PRIVATE_SITE === 'true' && !path.startsWith('/api/admin/') && !path.startsWith('/api/exports/'))
+    if (privateSite && !path.startsWith('/api/admin/') && !path.startsWith('/api/exports/'))
       await accounts.authorize(request);
     if (request.method === 'GET' && path === '/api/titles') return json(await catalogue.browseTitles({ q: bounded(p.get('q'))?.trim(), scope: bounded(p.get('scope')), genre: bounded(p.get('genre')), type: bounded(p.get('type')), status: bounded(p.get('status')), language: bounded(p.get('language')), page: number(p.get('page'), 1), pageSize: number(p.get('pageSize'), 24, 100), sort: bounded(p.get('sort')) ?? 'name', includeFacets: p.get('facets') !== 'false' }));
     if (request.method === 'GET' && path === '/api/meta/filters') return json(await catalogue.getFilters());
@@ -307,7 +312,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
 
 export default {
   async fetch(request, env, ctx) {
-    if (isReadOnlyReview(env) || env.SOLANIME_PRIVATE_SITE === 'true') return handleCloudRequest(request, env);
+    if (isReadOnlyReview(env) || requiresOwnerApproval(env)) return handleCloudRequest(request, env);
     const url = new URL(request.url);
     // Public catalogue responses contain no account or operator information.
     // Cache only successful reads, briefly, in a release-specific namespace.

@@ -171,8 +171,8 @@ export default function AdminPage() {
       <div className="admin-page">
         <PageIntro
           code="03 / RESTRICTED"
-          title="Import diagnostics."
-          copy="Administrative controls require the API token configured for this server."
+          title="Operator console."
+          copy="Review account requests and import health. Administrative controls require the operator token configured for this server."
         />
         <form
           className="admin-login"
@@ -196,7 +196,7 @@ export default function AdminPage() {
             <small>Kept only in memory until this screen is locked or reloaded.</small>
           </label>
           <button className="button button--primary" type="submit">
-            Open diagnostics
+            Open console
           </button>
         </form>
       </div>
@@ -206,11 +206,11 @@ export default function AdminPage() {
     <div className="admin-page">
       <PageIntro
         code="03 / RESTRICTED"
-        title="Import diagnostics."
+        title="Operator console."
         copy={
           cloud
-            ? 'Snapshot progress, provider coverage, and bounded Cloudflare import capacity.'
-            : 'Queue progress, provider coverage, and exact failure states from the persistent local database.'
+            ? 'Account requests, snapshot progress, provider coverage, and Cloudflare import capacity.'
+            : 'Account requests, queue progress, provider coverage, and import failures.'
         }
         aside={
           <>

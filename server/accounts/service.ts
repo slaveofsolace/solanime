@@ -51,6 +51,7 @@ export type AccountConfig = {
   secure?: boolean;
   now?: () => number;
   registration?: boolean;
+  registrationHourlyLimit?: number;
   approvalRequired?: boolean;
   privateSite?: boolean;
   notifyApproval?: (kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) => Promise<boolean>;
@@ -371,7 +372,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
       if (path.endsWith('/register')) {
         if (!registration)
           throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
-        rate('register:' + ip, approvalRequired ? 3 : 40, 3600000);
+        rate('register:' + ip, config.registrationHourlyLimit ?? (approvalRequired ? 3 : 40), 3600000);
         const password = validatePassword(body.password),
           hash = await hashPassword(password);
         if (existing || db.prepare('SELECT id FROM accounts WHERE email=?').get(email))

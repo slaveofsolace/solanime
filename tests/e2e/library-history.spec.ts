@@ -48,6 +48,7 @@ test('continue watching selects one latest episode per series and advances only 
   await page.goto('/');
   const continuing = page.locator('.continue-section');
   await expect(continuing.locator('.continue-card')).toHaveCount(1);
+  await expect(page.locator('.home-feature + .continue-section--home + .home-rail[aria-labelledby="rail-recent-updates"]')).toHaveCount(1);
   await expect(continuing).toContainText('Up next');
   await expect(continuing.locator('.continue-card > a')).toHaveAttribute('href', `/watch/paper-lantern/${episodes[2].id}?language=sub`);
   await expect(continuing.getByRole('progressbar')).toHaveCount(0);

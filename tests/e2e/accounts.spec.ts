@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { generatedTestPassphrase } from '../helpers/auth-material';
 const password = generatedTestPassphrase('browser account');
@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
     route.fulfill({ contentType: 'image/svg+xml', body: image }),
   );
 });
-async function register(page: Page) {
+async function register(page: Page, info?: TestInfo) {
   const email = `test-${Date.now()}-${Math.random().toString(16).slice(2)}@example.test`;
   await page.goto('/register');
   await expect(page.locator('.application-content')).not.toHaveAttribute('inert');
@@ -17,10 +17,16 @@ async function register(page: Page) {
   await page.getByLabel('Password', { exact: true }).fill(password);
   await page.getByLabel('Confirm password', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Create account', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Keep a way back in' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Save your recovery code' })).toBeVisible();
+  if (info) await page.screenshot({
+    path: info.outputPath('recovery-code-preview.png'),
+    fullPage: true,
+    mask: [page.locator('.recovery-value')],
+    maskColor: '#24211d',
+  });
   const code = await page.locator('.recovery-value').innerText();
   await page.getByLabel('I have saved my recovery code').check();
-  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.getByRole('button', { name: 'Choose a profile', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Who’s watching?' })).toBeVisible();
   return { email, code };
 }
@@ -99,7 +105,7 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   page,
   context,
 }, info) => {
-  const { email, code } = await register(page);
+  const { email, code } = await register(page, info);
   const changedPassword = generatedTestPassphrase('browser recovery');
   await page.goto('/account');
   await page.getByRole('button', { name: 'Sign out', exact: true }).click();
@@ -116,9 +122,9 @@ test('registration, sign-in and recovery work without exposing session tokens', 
     .getByLabel('Confirm password', { exact: true })
     .fill(changedPassword);
   await page.getByRole('button', { name: 'Reset password' }).click();
-  await expect(page.getByRole('heading', { name: 'Save your new recovery code' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Save your recovery code' })).toBeVisible();
   await page.getByLabel('I have saved my recovery code').check();
-  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.getByRole('button', { name: 'Back to sign in', exact: true }).click();
   await expect(page).toHaveURL(/\/login(?:\?.*)?$/);
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill(changedPassword);
@@ -136,12 +142,18 @@ test('registration, sign-in and recovery work without exposing session tokens', 
   expect(cookies.some((c) => c.name === 'solanime_session' && c.httpOnly)).toBe(true);
   await page.goto('/account');
   await expect(page.getByRole('heading', { name: 'Security', exact: true })).toBeVisible();
+  await expect(page.getByLabel('Current password')).toBeHidden();
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page.getByLabel('Current password')).toBeVisible();
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page.getByLabel('Current password')).toBeHidden();
   await page.screenshot({ path: info.outputPath('account-settings.png'), fullPage: true });
   await overflow(page);
 });
 test('account screens retain accessible contrast, focus and mobile layout', async ({
   page,
 }, info) => {
+  test.setTimeout(60_000);
   for (const path of ['/login', '/register', '/recover']) {
     await page.goto(path);
     await expect(page.getByLabel('Email address', { exact: true })).toBeVisible();

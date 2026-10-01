@@ -1,0 +1,50 @@
+name: Protected Player iOS Compile
+
+on:
+  push:
+    branches: [main, 'sol/**']
+    paths:
+      - '.github/workflows/protected-player-ios.yml'
+      - 'mobile-prototype/ios/**'
+  pull_request:
+    paths:
+      - '.github/workflows/protected-player-ios.yml'
+      - 'mobile-prototype/ios/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: protected-player-ios-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  simulator-build:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Xcode version
+        run: xcodebuild -version
+      - name: Validate WebKit content rules
+        run: swift mobile-prototype/ios/validate-content-rules.swift
+      - name: Build shared iOS scheme without signing
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project mobile-prototype/ios/SolanimeProtectedPlayer.xcodeproj \
+            -scheme SolanimeProtectedPlayer \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/solanime-ios-derived-data" \
+            CODE_SIGNING_ALLOWED=NO build 2>&1 | tee ios-build.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: protected-player-ios-build-log
+          path: ios-build.log
+          retention-days: 7

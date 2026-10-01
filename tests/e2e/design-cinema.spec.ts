@@ -49,6 +49,14 @@ test('320px catalogue and watch surfaces stay usable without horizontal page ove
   expect(versionBox.height).toBeGreaterThanOrEqual(44);
   expect(sourceBox.y).toBeCloseTo(versionBox.y, 0);
   await expectNoOverflow(page);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const masthead = (await page.locator('.masthead').boundingBox())!;
+  expect(masthead.y).toBe(0);
+  expect(masthead.height).toBeGreaterThanOrEqual(56);
+  expect((await source.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  expect((await version.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  await expectNoOverflow(page);
 });
 
 test('unresolved account restoration cannot write private intent into guest storage', async ({

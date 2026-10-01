@@ -41,7 +41,7 @@ export default function MyAnimeListConnection() {
     } catch (e) { if (active.current) setError(e instanceof Error ? e.message : 'The operation failed.'); }
     finally { if (active.current) setBusy(false); }
   }
-  return <section id="connections" className="settings-section" aria-labelledby="mal-heading">
+  return <section id="connections" className={`settings-section${!status && !error ? ' settings-section--loading' : ''}${status && !status.configured ? ' settings-section--unavailable' : ''}`} aria-labelledby="mal-heading">
     <h2 id="mal-heading">MyAnimeList</h2>
     {!status && !error && <p role="status">Checking connection…</p>}
     {status && !status.configured && <p>The operator needs to register Solanime with MyAnimeList before accounts can connect. Your MAL password is never entered here.</p>}

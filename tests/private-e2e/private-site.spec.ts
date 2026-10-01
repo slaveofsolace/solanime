@@ -37,11 +37,17 @@ test('private browsing requires an approved account and survives a reload', asyn
   await page.getByLabel('Email address', { exact: true }).fill(email);
   await page.getByLabel('Password', { exact: true }).fill(password);
   await page.getByLabel('Confirm password', { exact: true }).fill(password);
-  await page.getByRole('button', { name: 'Create account', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Keep a way back in' })).toBeVisible();
+  await page.getByRole('button', { name: 'Request access', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Save your recovery code' })).toBeVisible();
+  await page.screenshot({
+    path: info.outputPath('pending-recovery-code.png'),
+    fullPage: true,
+    mask: [page.locator('.recovery-value')],
+    maskColor: '#24211d',
+  });
   await page.getByLabel('I have saved my recovery code').check();
-  await page.getByRole('button', { name: 'Continue', exact: true }).click();
-  await expect(page.getByText('Once approved, you should receive an email')).toBeVisible();
+  await page.getByRole('button', { name: 'Finish request', exact: true }).click();
+  await expect(page.getByText('The Solanime owner must approve your account')).toBeVisible();
   expect((await page.request.get('/api/titles?pageSize=1')).status()).toBe(401);
 
   const unapproved = await page.request.post('/api/account/login', {

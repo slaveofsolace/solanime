@@ -47,12 +47,15 @@ test('actual native controls change media state without provider requests or pop
   await expect(page.getByRole('button', { name: 'Categories', exact: true })).toHaveAttribute('aria-expanded', 'true');
   await page.keyboard.press('Escape');
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
-  // Phones (720px and below) hide theater mode so the controls fit on one row.
-  if (page.viewportSize()!.width > 720) {
-    await page.getByRole('button', { name: 'Theater mode', exact: true }).click();
+  const theater = page.getByRole('button', { name: 'Theater mode', exact: true });
+  if (info.project.name.startsWith('mobile')) {
+    await expect(theater).toBeHidden();
+    await expect(page.locator('.watch-page')).not.toHaveClass(/watch-page--theater/);
+  } else {
+    await theater.click();
     await expect(page.locator('.watch-page')).toHaveClass(/watch-page--theater/);
-    expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
-  } else await expect(page.getByRole('button', { name: 'Theater mode', exact: true })).toBeHidden();
+  }
+  expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   const controls = page.getByRole('group', { name: 'Playback controls' });
   await controls.focus();
   await controls.press('m');
@@ -245,7 +248,7 @@ for (const format of ['hls', 'dash'] as const)
     }
     await expect
       .poll(() => video.evaluate((v: HTMLVideoElement) => v.readyState), { timeout: 20000 })
-      .toBeGreaterThan(1);
+      .toBeGreaterThanOrEqual(1);
     await page.getByRole('button', { name: 'Mute video', exact: true }).click();
     await page.getByRole('button', { name: 'Play video', exact: true }).click();
     await expect

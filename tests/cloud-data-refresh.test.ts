@@ -34,7 +34,7 @@ async function ready(id: number) { await db.prepare('UPDATE crawl_tasks SET avai
 async function imported(table: string, rows: ImportRow[]) { return applyImportBatch(db, db, { version: 1, id: crypto.randomUUID(), snapshotId: 'refresh-fixture', target: 'catalogue', table, rows, contentHash: await importHash(rows) }); }
 const card = '<div class="ani items"><div class="item"><div class="ani poster tip" data-tip="42"><a href="/watch/old-route"><img alt="Fixture title"></a></div><a class="name d-title" href="/watch/old-route" data-jp="Fixture alias">Fixture title</a><div class="genre"><a href="/genre/action">Action</a></div></div></div>';
 const titleHtml = '<div id="watch-main" data-id="42" data-url="/watch/new-route"><h1 class="title" data-jp="Fixture alias">Updated fixture title</h1><p class="synopsis">Observed updated description.</p><div class="bmeta"><div class="meta"><div>Type: <span>TV</span></div><div>Status: <span>Releasing</span></div></div><a href="/genre/action">Action</a></div></div>';
-const episodeHtml = (count: number) => Array.from({ length: count }, (_value, i) => `<a data-id="e${i + 1}" data-num="${i === 0 ? '12.5' : i + 1}" data-slug="${i === 0 ? 'special' : i + 1}" data-sub="1" data-dub="1" data-ids="reference-${i + 1}"></a>`).join('');
+const episodeHtml = (count: number) => Array.from({ length: count }, (_value, i) => `<a data-id="e${i + 1}" data-num="${i === 0 ? '12.5' : i + 1}" data-slug="${i === 0 ? 'special' : i + 1}" data-sub="1" data-dub="1" data-ids="reference-${i + 1}">${i === 0 ? '<span class="d-title">Verified first chapter</span>' : ''}</a>`).join('');
 function source(responses: Record<string, string | Response>) {
   let time = Date.now(); const requests: string[] = []; const bodies = new WeakMap<Response, Promise<string>>();
   return { requests, options: { now: () => time += 3000, fetch: (async input => { const url = new URL(String(input)); requests.push(url.pathname + url.search); const value = responses[url.pathname + url.search] ?? responses[url.pathname]; if (url.pathname === '/robots.txt') return new Response('User-agent: *\nAllow: /'); if (!value) throw new Error(`Unexpected source path ${url.pathname}`); if (typeof value === 'string') return new Response(value); let body = bodies.get(value); if (!body) { body = value.text(); bodies.set(value, body); } return new Response(await body, { status: value.status, headers: value.headers }); }) as typeof fetch } };
@@ -73,6 +73,7 @@ describe('complete bounded cloud source refresh', () => {
     const title = await createCatalogueRepository(db).getTitle('new-route'); expect(title.title).toMatchObject({ id: '17' }); expect(title.episodes).toHaveLength(9);
     expect(title.episodes[0]).toMatchObject({ number: '2' });
     expect((await db.prepare("SELECT number_text FROM episodes WHERE source_id='e1'").first())?.number_text).toBe('12.5');
+    expect((await db.prepare("SELECT label FROM episodes WHERE source_id='e1'").first())?.label).toBe('Verified first chapter');
     expect((await db.prepare('SELECT COUNT(*) AS count FROM episode_versions').first())?.count).toBe(18);
     expect((await db.prepare("SELECT COUNT(*) AS count FROM crawl_tasks WHERE task_type='episode_servers'").first())?.count).toBe(9);
     expect(fixture.requests).toContain('/ajax/episode/list/42?vrf=');
