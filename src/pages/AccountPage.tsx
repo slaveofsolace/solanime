@@ -82,6 +82,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
           password: next,
         });
         auth.accept(result);
+        if (result.recoveryCode) setFreshCode(result.recoveryCode);
         setMessage('Password updated. Other sessions were signed out.');
         refreshDevices();
       }

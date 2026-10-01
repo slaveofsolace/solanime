@@ -188,11 +188,11 @@ describe('application HTTP API', () => {
       error: { code: 'ADMIN_UNCONFIGURED' },
     });
     expect((await fetch(`${origin}/api/exports/catalogue.json`)).status).toBe(503);
-    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'export-test-token');
+    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'export-test-token-0123456789abcdef');
     expect((await fetch(`${origin}/api/exports/catalogue.csv`)).status).toBe(401);
     const exported = JSON.stringify(
       await fetch(`${origin}/api/exports/catalogue.json`, {
-        headers: { 'x-admin-token': 'export-test-token' },
+        headers: { 'x-admin-token': 'export-test-token-0123456789abcdef' },
       }).then((response) => response.json()),
     );
     expect(exported).toContain('safe-hash');
@@ -200,17 +200,17 @@ describe('application HTTP API', () => {
   });
 
   it('accepts the configured local admin token without exposing it in responses', async () => {
-    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'unit-test-admin-token');
+    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'unit-test-admin-token-0123456789abcdef');
     const { origin } = await app();
     const response = await fetch(`${origin}/api/admin/import/status`, {
-      headers: { 'x-admin-token': 'unit-test-admin-token' },
+      headers: { 'x-admin-token': 'unit-test-admin-token-0123456789abcdef' },
     });
     expect(response.status).toBe(200);
-    expect(JSON.stringify(await response.json())).not.toContain('unit-test-admin-token');
+    expect(JSON.stringify(await response.json())).not.toContain('unit-test-admin-token-0123456789abcdef');
   });
 
   it('rejects an incorrect token and executes authenticated queue and backup controls', async () => {
-    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'unit-test-admin-token');
+    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'unit-test-admin-token-0123456789abcdef');
     const backupDirectory = mkdtempSync(join(tmpdir(), 'solanime-api-'));
     temporaryDirectories.push(backupDirectory);
     const { origin, db } = await app({ backupDirectory });
@@ -221,7 +221,7 @@ describe('application HTTP API', () => {
 
     const runId = createRun(db, 'full');
     enqueueTask(db, runId, 'title:admin-test', 'title_detail', { sourceId: 'admin-test' });
-    const headers = { 'x-admin-token': 'unit-test-admin-token' };
+    const headers = { 'x-admin-token': 'unit-test-admin-token-0123456789abcdef' };
     const paused = await fetch(`${origin}/api/admin/import/${runId}/pause`, {
       method: 'POST',
       headers,
@@ -244,9 +244,10 @@ describe('application HTTP API', () => {
 
     const backupResponse = await fetch(`${origin}/api/admin/backup`, { method: 'POST', headers });
     expect(backupResponse.status).toBe(201);
-    const backup = (await backupResponse.json()) as { path: string; schemaVersion: number };
-    expect(resolve(backup.path).startsWith(resolve(backupDirectory))).toBe(true);
-    expect(existsSync(backup.path)).toBe(true);
+    const backup = (await backupResponse.json()) as { file: string; path?: string; schemaVersion: number };
+    expect(backup.path).toBeUndefined();
+    expect(backup.file).toMatch(/^solanime-[\w-]+\.sqlite$/);
+    expect(existsSync(join(backupDirectory, backup.file))).toBe(true);
     expect(backup.schemaVersion).toBeGreaterThan(0);
   });
 
@@ -527,5 +528,41 @@ describe('application HTTP API', () => {
     const body = await res.json();
     expect(body).toMatchObject({ delivery: 'native', playbackType: 'direct', status: 'resolved' });
     expect(body).not.toHaveProperty('embedUrl');
+  });
+
+  it('refuses admin tokens shorter than 32 characters', async () => {
+    vi.stubEnv('SOLANIME_ADMIN_TOKEN', 'admin');
+    const { origin } = await app();
+    const response = await fetch(`${origin}/api/admin/import/status`, { headers: { 'x-admin-token': 'admin' } });
+    expect(response.status).toBe(503);
+  });
+
+  it('limits provider resolutions per client address', async () => {
+    const { origin, db } = await app({
+      resolveRateLimit: 2,
+      resolutionCooldownMs: 0,
+      resolveProvider: async (mapping) => ({
+        mappingId: mapping.mappingId,
+        providerId: mapping.providerId,
+        playbackType: 'direct',
+        status: 'resolved',
+        delivery: 'native',
+        url: 'https://media.example.test/owned.mp4',
+      }),
+    });
+    const mappingId = Number(
+      (db.prepare("SELECT id FROM episode_provider_mappings WHERE source_mapping_id='safe-hash'").get() as { id: number }).id,
+    );
+    const resolveRequest = () =>
+      fetch(`${origin}/api/providers/${mappingId}/resolve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ language: 'sub' }),
+      });
+    expect((await resolveRequest()).status).toBe(200);
+    expect((await resolveRequest()).status).toBe(200);
+    const limited = await resolveRequest();
+    expect(limited.status).toBe(429);
+    expect(Number(limited.headers.get('retry-after'))).toBeGreaterThan(0);
   });
 });

@@ -114,7 +114,8 @@ export default {
       const caller = request.headers.get('origin');
       const site = request.headers.get('sec-fetch-site');
       if (
-        ((bound || accountRoute || operatorRoute) && !caller) ||
+        // Browsers always send Origin on POST, so a missing one is never a real visitor.
+        !caller ||
         (caller && caller !== url.origin) ||
         (site && site !== 'same-origin')
       )

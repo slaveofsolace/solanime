@@ -261,7 +261,7 @@ export const api = {
   },
 
   backup(token: string, signal?: AbortSignal) {
-    return request<{ path: string; schemaVersion: number }>('/api/admin/backup', {
+    return request<{ file: string; schemaVersion: number }>('/api/admin/backup', {
       method: 'POST',
       headers: { 'x-admin-token': token },
       signal,
