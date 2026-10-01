@@ -28,18 +28,22 @@ jobs:
           import base64, gzip, hashlib
           payload = Path('transport/.audit/ui-review.patch.gz.b64').read_text().strip()
           for old, new in [('SMXNS6a6pll', 'SMXNS6pll'), ('IPC5yvF9W', 'IPC5yvX9W'), ('Gy9re+9sf', 'Gy9+x10sf')]:
-              print('Transport correction occurrences:', payload.count(old))
               payload = payload.replace(old, new)
-          Path('/tmp/ui-review/payload.txt').write_text(payload)
           patch = gzip.decompress(base64.b64decode(payload, validate=True))
-          digest = hashlib.sha256(patch).hexdigest()
-          print('Patch SHA256:', digest)
-          assert digest == '5cb1abd34ba1d664aa7dbda5843b0ace2f4f74e8bd62aa06c5a62629d0ab9b01'
+          assert hashlib.sha256(patch).hexdigest() == '5cb1abd34ba1d664aa7dbda5843b0ace2f4f74e8bd62aa06c5a62629d0ab9b01'
           Path('/tmp/ui-review/ui-review.patch').write_bytes(patch)
           PY
           cd repo
           git apply --check /tmp/ui-review/ui-review.patch
           git apply /tmp/ui-review/ui-review.patch
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tests/e2e/catalogue-artwork-review.spec.ts')
+          s=p.read_text().replace('images.filter(image => image.getBoundingClientRect()', 'images.filter((image): image is HTMLImageElement => image instanceof HTMLImageElement && image.getBoundingClientRect()')
+          p.write_text(s)
+          PY
+          git add -N scripts/review-artwork.mjs src/components/SavedTitleActions.tsx tests/e2e/ui-polish-regressions.spec.ts tests/e2e/catalogue-artwork-review.spec.ts
+          git diff > /tmp/ui-review/final.patch
           git status --short > /tmp/ui-review/changed-files.txt
           tar -czf /tmp/ui-review/patched-client.tar.gz src tests scripts extensions
       - uses: actions/setup-node@v4
