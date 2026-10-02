@@ -114,7 +114,7 @@ test('long episode inventories without stills use dense rows rather than empty p
 
 test('settings and series remain usable in both themes, narrow layout and enlarged text', async ({ page }, info) => {
   test.setTimeout(60000);
-  await accountFixture(page);
+  await accountFixture(page, {}, { entryPath: '/login' });
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   for (const theme of ['Light', 'Dark']) {

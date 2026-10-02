@@ -4,7 +4,7 @@ import { fixtureArt, noOverflow, watch } from './helpers';
 
 const LONG_EPISODE_LABEL = 'Episode 1 — The remarkably long journey to the distant mountain village';
 
-async function readableSelection(field: Locator, expected: string) {
+async function readableSelection(field: Locator, expected: string, minimumHeadroom = 0) {
   await expect(field).toBeVisible();
   await expect(field.locator('option:checked')).toHaveText(expected);
   const geometry = await field.evaluate(async element => {
@@ -25,7 +25,7 @@ async function readableSelection(field: Locator, expected: string) {
       viewport: innerWidth,
     };
   });
-  expect(geometry.text, `${expected} must fit the closed field`).toBeLessThanOrEqual(geometry.available + 1);
+  expect(geometry.text + minimumHeadroom, `${expected} must fit the closed field with ${minimumHeadroom}px headroom`).toBeLessThanOrEqual(geometry.available);
   expect(geometry.height).toBeGreaterThanOrEqual(44);
   expect(geometry.left).toBeGreaterThanOrEqual(0);
   expect(geometry.right).toBeLessThanOrEqual(geometry.viewport + 1);
@@ -77,7 +77,15 @@ test('Discover shows its selected sort fully at narrow phone widths', async ({ p
     expect(panelBox!.y - triggerBox!.y - triggerBox!.height).toBeGreaterThanOrEqual(0);
     expect(panelBox!.y - triggerBox!.y - triggerBox!.height).toBeLessThanOrEqual(12);
     await page.getByRole('combobox', { name: 'Genre', exact: true }).selectOption({ index: 1 });
-    await readableSelection(sort, 'Recently updated');
+    await expect(filters).toHaveAttribute('aria-label', 'Filters, 1 active');
+    await readableSelection(sort, 'Recently updated', 8);
+    for (const name of ['Format', 'Status', 'Language'])
+      await page.getByRole('combobox', { name, exact: true }).selectOption({ index: 1 });
+    await expect(filters).toHaveAttribute('aria-label', 'Filters, 4 active');
+    for (const [value, label] of [['updated', 'Recently updated'], ['title', 'Title A–Z'], ['year_desc', 'Newest year'], ['year_asc', 'Oldest year']]) {
+      await sort.selectOption(value);
+      await readableSelection(sort, label, 8);
+    }
     await noOverflow(page);
   }
 });

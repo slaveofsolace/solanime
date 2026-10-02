@@ -2,8 +2,15 @@ import { expect, type Page } from '@playwright/test';
 import { generatedTestPassphrase } from '../helpers/auth-material';
 
 /** Local fixture server only. Other account tests exercise the visible sign-up flow. */
-export async function accountFixture(page: Page, values: Record<string, unknown> = {}) {
-  await page.goto('/');
+export async function accountFixture(
+  page: Page,
+  values: Record<string, unknown> = {},
+  options: { entryPath?: '/' | '/login' } = {},
+) {
+  // API registration only needs the local origin and an initialized document for
+  // sessionStorage. Account-only journeys may avoid mounting Home's catalogue
+  // effects immediately before their first navigation; browsing keeps Home.
+  await page.goto(options.entryPath ?? '/');
   const origin = new URL(page.url()).origin;
   if (origin !== 'http://127.0.0.1:18787') throw new Error('Account fixture must never target a deployed origin.');
   const registered = await page.request.post('/api/account/register', { headers: { origin, 'x-solanime-intent': 'account' },

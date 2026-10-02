@@ -276,7 +276,10 @@ export default function CataloguePage() {
           <div className="discovery-actions">
             <details className="filter-disclosure" open={params.get('filters') === 'genres' || undefined}>
               <summary aria-label={advancedFilters ? `Filters, ${advancedFilters} active` : 'Filters'}>
-                <span>Filters</span>
+                <span className="filter-trigger-label">Filters</span>
+                <svg className="filter-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden="true" focusable="false">
+                  <path d="M4 7h8m5 0h3M4 17h3m5 0h8" /><circle cx="14.5" cy="7" r="2.5" /><circle cx="9.5" cy="17" r="2.5" />
+                </svg>
                 {advancedFilters > 0 && <span className="filter-count">{advancedFilters}<span className="filter-count__label"> active</span></span>}
               </summary>
               <div className="filter-grid">
