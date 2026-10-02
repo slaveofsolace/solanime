@@ -33,18 +33,9 @@
 .episode-browser--cards .watched-toggle { position: absolute; right: 0; top: auto; bottom: 6px; width: 44px; min-height: 44px; margin: 0; }
 .episode-grid > li[data-current='true'] .episode-thumbnail { outline: 2px solid var(--accent); outline-offset: -2px; }
 .episode-grid > li[data-current='true'] .episode-meta { color: var(--accent-ink); }
-.episode-browser--sidebar .episode-thumbnail { flex: 0 0 96px; width: 96px; }
-.episode-browser--sidebar .episode-grid li > a { display: flex; gap: 12px; align-items: center; }
-.episode-browser--sidebar .episode-copy { padding: 0; }
-.episode-browser--sidebar .episode-thumbnail__fallback { padding: 8px; }
-.episode-browser--sidebar .episode-thumbnail__fallback small { font-size: 7px; }
-.episode-browser--sidebar .episode-thumbnail__fallback strong { font-size: 28px; }
-.discovery-shell .episode-browser--sidebar .episode-grid .episode-thumbnail__fallback strong { font-size: 28px; }
-.episode-browser--sidebar .episode-grid { gap: 4px; }
 .episode-browser--no-stills .episode-thumbnail { display: none; }
 .episode-browser--no-stills .episode-copy { min-width: 0; }
 .episode-browser--no-stills .episode-grid li > a { min-height: 62px; }
-.episode-browser--sidebar.episode-browser--no-stills .episode-grid li > a { min-height: 48px; }
 .discovery-shell .series-page .title-hero { min-height: 410px; padding-block: 42px; }
 .discovery-shell .series-page .title-hero__content { width: min(640px, 62%); }
 .discovery-shell .series-page .title-hero h1 { font-size: clamp(30px, 3vw, 46px); }

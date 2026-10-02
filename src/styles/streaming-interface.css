@@ -47,47 +47,14 @@
 }
 
 /* The same playback-first hierarchy on browser and signed-host presentations. */
-.site-shell.discovery-shell .watch-heading {
-  align-items: center; gap: 20px; padding-block: 22px 18px; background: transparent;
-}
-.site-shell.discovery-shell .watch-heading h1 { margin: 3px 0 8px; font-size: clamp(24px,3vw,34px); line-height: 1.18; letter-spacing: -.025em; }
-.site-shell.discovery-shell .watch-heading__episode { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: 0; text-transform: none; }
-.site-shell.discovery-shell .watch-selection { background: transparent; border-radius: 0; box-shadow: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .site-shell.discovery-shell :is(.library-heading__eyebrow, .catalogue-heading__eyebrow) { display: none; }
 @media (max-width: 600px) {
-  .site-shell.discovery-shell .watch-page .watch-heading { margin: 0; padding: 12px var(--gutter) 20px; background: transparent; }
-  .site-shell.discovery-shell .watch-page .watch-heading h1 { font-size: 25px; line-height: 1.2; }
-  .site-shell.discovery-shell .watch-page .watch-back { margin-top: 12px; min-height: 36px; color: var(--muted); font-size: 13px; }
   .site-shell.discovery-shell .catalogue-heading__eyebrow { display: none; }
   .site-shell.discovery-shell :is(.catalogue-heading h1,.library-heading h1) { font-size: 34px; }
   .site-shell.discovery-shell .catalogue-collections button { min-height: 44px; }
   .site-shell.discovery-shell .title-page .language-tabs button { min-height: 44px; }
   :root .site-shell.discovery-shell .title-page .title-hero__synopsis { font-size: max(14px, .9rem); }
   :root .site-shell.discovery-shell .header-search__trigger .icon { width: 22px; height: 22px; }
-}
-
-@media (max-width: 820px) {
-  :root .site-shell.discovery-shell .watch-page .watch-selection {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: end;
-    gap: var(--space-3);
-  }
-  :root .site-shell.discovery-shell .watch-selection .episode-nav {
-    grid-column: 1 / -1;
-    width: 100%;
-    min-width: 0;
-  }
-  :root .site-shell.discovery-shell .watch-selection .episode-nav label { flex: 1; min-width: 0; }
-  :root .site-shell.discovery-shell .watch-selection > :is(.source-choice, .version-choice) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-2);
-    width: 100%;
-    min-width: 0;
-  }
-  :root .site-shell.discovery-shell .watch-selection > :is(.source-choice, .version-choice) > span:not(.select-control) { display: block; }
-  :root .site-shell.discovery-shell .watch-selection .select-control { width: 100%; min-width: 0; max-width: none; }
 }
 
 /* Fix the containing-block regression: the fixed search form must not inherit
@@ -103,9 +70,6 @@
   :root[data-theme='light'] .site-shell.discovery-shell.site-shell--home .masthead { background: linear-gradient(180deg,#f7f7f8ee,#f7f7f880 65%,transparent); }
   .site-shell.discovery-shell .title-page .title-hero { padding-top: clamp(220px,34svh,330px); }
   .site-shell.discovery-shell .library-empty { padding: 24px 0; border: 0; border-radius: 0; background: transparent; }
-  .site-shell.discovery-shell .watch-page > .player-stage { order: -1; }
-  .site-shell.discovery-shell .watch-heading > div { display: flex; flex-direction: column; }
-  .site-shell.discovery-shell .watch-heading h1 { order: -1; }
 }
 /* Secondary source information remains available; don't compete with the episode. */
 .provider-player__label {

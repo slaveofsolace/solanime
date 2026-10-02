@@ -476,44 +476,4 @@
   .discovery-shell .catalogue-page .title-card__copy h2 {
     min-height: 0;
   }
-
-  .discovery-shell .watch-page {
-    padding-inline: 0;
-  }
-
-  .discovery-shell .watch-page > :is(.watch-back, .watch-heading, .source-attribution, .watch-about, .watch-chapter, .episode-community) {
-    margin-inline: var(--gutter);
-  }
-
-  .discovery-shell .watch-page .player-stage,
-  .discovery-shell .watch-page .watch-selection {
-    box-sizing: border-box;
-    width: 100%;
-    margin-inline: 0;
-  }
-
-  .discovery-shell .watch-page .player-stage {
-    border-radius: 0;
-  }
-
-  .discovery-shell .watch-page .watch-selection {
-    border-radius: 0;
-    padding: 12px var(--gutter);
-  }
-
-  .discovery-shell .watch-page .watch-heading {
-    align-items: center;
-    gap: 12px;
-    margin: 0;
-    padding: 18px var(--gutter) 16px;
-    background: var(--surface);
-  }
-
-  .discovery-shell .watch-page .watch-heading h1 {
-    font-size: clamp(22px, 6vw, 28px);
-  }
-
-  .discovery-shell .watch-page .watch-selection {
-    border-top: 1px solid var(--line);
-  }
 }

@@ -23,7 +23,9 @@ type Name =
   | 'home'
   | 'browse'
   | 'tv'
-  | 'person';
+  | 'person'
+  | 'next'
+  | 'previous';
 const paths: Record<Name, string> = {
   unavailable: 'M3 3l18 18M5 9v10h14M9 5h10v10M3 5h2m14 0h2v4',
   home: 'm3 10 9-7 9 7v11H3V10Zm6 11v-8h6v8',
@@ -50,6 +52,8 @@ const paths: Record<Name, string> = {
   bookmark: 'M6 3h12v18l-6-4-6 4V3Z',
   check: 'm5 12 4 4 10-10',
   play: 'm8 4 12 8-12 8V4Z',
+  next: 'm5 5 10 7-10 7V5Zm14 0v14',
+  previous: 'm19 5-10 7 10 7V5ZM5 5v14',
 };
 export default function Icon({ name, ...props }: SVGProps<SVGSVGElement> & { name: Name }) {
   return (

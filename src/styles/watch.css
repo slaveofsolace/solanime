@@ -1,0 +1,645 @@
+/* The watch screen has one owner. Older layered watch rules were removed from
+   the shared sheets; anything about the watch layout belongs here. The
+   `:root .site-shell` prefix matches the specificity of the shared control
+   sheets so these rules do not depend on import order alone. */
+
+:root .site-shell .watch-page {
+  --watch-aside: clamp(320px, 28vw, 400px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--watch-aside);
+  grid-template-areas:
+    'stage episodes'
+    'info episodes'
+    'extras episodes';
+  grid-template-rows: auto auto 1fr;
+  column-gap: var(--space-8);
+  align-items: start;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--space-2) var(--gutter) 0;
+}
+:root .site-shell .watch-page--theater {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'stage' 'info' 'episodes' 'extras';
+  max-width: none;
+}
+
+/* Stage: the player is the screen. */
+:root .site-shell .watch-stage {
+  grid-area: stage;
+  min-width: 0;
+}
+:root .site-shell .watch-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  margin-bottom: var(--space-3);
+}
+:root .site-shell .watch-topbar__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-3) 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+:root .site-shell .watch-topbar__back:hover {
+  color: var(--text);
+  background: var(--control-hover);
+}
+:root .site-shell .watch-topbar__back .icon { width: 18px; height: 18px; }
+/* Desktop shows the full heading below the player; the bar title is for phones. */
+:root .site-shell .watch-topbar__title { display: none; }
+
+:root .site-shell .player-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-group);
+  background: #000;
+  color: #f5f5f5;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 35%);
+}
+:root .site-shell .player-stage .player-message {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+}
+:root .site-shell .player-stage .player-video video { max-height: 70svh; }
+:root .site-shell .watch-page--theater .player-stage .player-video video { max-height: 82svh; }
+
+/* Info: what is playing, and what to do next. */
+:root .site-shell .watch-info {
+  grid-area: info;
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+  padding: var(--space-6) 0 var(--space-2);
+}
+:root .site-shell .watch-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+:root .site-shell .watch-heading__copy { min-width: 0; }
+:root .site-shell .watch-heading__episode {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-1);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+:root .site-shell .watch-heading__number {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+:root .site-shell .watch-heading h1 {
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.15;
+}
+:root .site-shell .watch-heading h1 a:hover { color: var(--accent-ink); }
+
+:root .site-shell .watch-save {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: none;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--control-fill);
+  color: var(--text);
+  font-weight: 650;
+}
+:root .site-shell .watch-save:hover:not(:disabled) { background: var(--control-hover); }
+:root .site-shell .watch-save[aria-pressed='true'] { color: var(--accent-ink); }
+:root .site-shell .watch-save .icon { width: 18px; height: 18px; }
+
+:root .site-shell .watch-steps {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-2);
+}
+:root .site-shell .watch-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 56px;
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--control-fill);
+  color: var(--text);
+  font-weight: 650;
+}
+:root .site-shell .watch-step:hover:not(:disabled) { background: var(--control-hover); }
+:root .site-shell .watch-step .icon { width: 18px; height: 18px; }
+:root .site-shell .watch-step:disabled { opacity: 0.4; }
+:root .site-shell .watch-step--next {
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-5);
+  background: var(--accent);
+  color: var(--on-accent);
+  text-align: left;
+}
+:root .site-shell .watch-step--next:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 88%, var(--text));
+}
+:root .site-shell .watch-step--next:disabled {
+  background: var(--control-fill);
+  color: var(--muted);
+  opacity: 1;
+}
+:root .site-shell .watch-step__copy { display: grid; min-width: 0; line-height: 1.25; }
+:root .site-shell .watch-step__copy small {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+:root .site-shell .watch-step__copy strong {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:root .site-shell .watch-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+}
+:root .site-shell .watch-option {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  max-width: 100%;
+}
+:root .site-shell .watch-option__label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+:root .site-shell .watch-option__empty {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 14px;
+}
+:root .site-shell .watch-option .segmented-control { max-width: 100%; }
+:root .site-shell .watch-option .segmented-control button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  color: var(--muted);
+  font-weight: 650;
+  white-space: nowrap;
+}
+:root .site-shell .watch-option .segmented-control button[aria-pressed='true'] {
+  color: var(--text);
+  background: var(--surface-2);
+}
+:root .site-shell .segmented-control--scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+:root .site-shell .segmented-control--scroll::-webkit-scrollbar { display: none; }
+:root .site-shell .watch-info .source-attribution {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+:root .site-shell .watch-info .source-attribution a { text-decoration: underline; }
+
+/* Episodes: a quiet, scrollable list with the current episode in view. */
+:root .site-shell .watch-episodes {
+  grid-area: episodes;
+  position: sticky;
+  top: calc(96px + var(--space-2));
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-height: calc(100svh - 96px - var(--space-6));
+  margin-top: calc(44px + var(--space-3));
+  padding: var(--space-4) 0 var(--space-2);
+  border-radius: var(--radius-group);
+  background: var(--surface);
+}
+:root .site-shell .watch-page--theater .watch-episodes {
+  position: static;
+  max-height: none;
+  margin-top: var(--space-6);
+}
+:root .site-shell .watch-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) var(--space-3);
+}
+:root .site-shell .watch-section-heading h2 { font-size: 18px; }
+:root .site-shell .watch-count {
+  min-width: 24px;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--control-fill);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+:root .site-shell .watch-episodes .episode-browser {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: var(--space-3);
+}
+:root .site-shell .watch-episodes :is(.episode-controls, .episode-ranges) { flex: none; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-toolbar {
+  flex: 1 1 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-search {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-search .icon {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-search input {
+  width: 100%;
+  max-width: none;
+  min-height: 40px;
+  padding: 0 var(--space-3) 0 36px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--control-fill);
+  font-size: 14px;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-current-jump {
+  flex: none;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--control-fill);
+  color: var(--accent-ink);
+  font-size: 13px;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-ranges {
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0 var(--space-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-ranges button {
+  flex: none;
+  min-height: 34px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-ranges button[aria-pressed='true'] {
+  background: var(--text);
+  color: var(--bg);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 var(--space-2) var(--space-2);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-grid > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-grid > li:hover { background: var(--control-fill); }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-grid > li[data-current='true'] {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-grid a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+  min-height: 60px;
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-thumbnail {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 112px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-inner);
+  background: var(--surface-2);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-play,
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-duration { display: none; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-progress {
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: rgb(255 255 255 / 25%);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+/* Without real stills, a numbered tile reads faster than a fake thumbnail. */
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-browser--no-stills .episode-thumbnail {
+  width: 44px;
+  aspect-ratio: 1;
+  border-radius: var(--radius-inner);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-thumbnail__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-thumbnail__fallback small { display: none; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-thumbnail__fallback strong {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+:root .site-shell .watch-episodes li[data-current='true'] .episode-thumbnail { background: var(--accent); }
+:root .site-shell .watch-episodes li[data-current='true'] .episode-thumbnail__fallback strong { color: var(--on-accent); }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-copy {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-number { display: none; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-copy strong {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:root .site-shell .watch-episodes li[data-current='true'] .episode-copy strong { color: var(--accent-ink); }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-meta {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-progress--inline {
+  position: static;
+  width: 100%;
+  max-width: 120px;
+  height: 3px;
+  margin-top: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--control-hover);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .watched-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  margin-right: var(--space-1);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: color-mix(in srgb, var(--muted) 55%, transparent);
+}
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .watched-toggle span { display: none; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .watched-toggle .icon { width: 18px; height: 18px; }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .watched-toggle:hover { color: var(--text); background: var(--control-hover); }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .watched-toggle[aria-pressed='true'] { color: var(--accent-ink); }
+:root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .library-empty { padding: var(--space-6) var(--space-4); text-align: center; }
+
+/* Extras: about, community and private notes, after the viewing essentials. */
+:root .site-shell .watch-extras {
+  grid-area: extras;
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-4) 0 var(--space-8);
+}
+:root .site-shell .watch-extras > .disclosure { margin: 0; }
+:root .site-shell .watch-extras .episode-community { margin: var(--space-4) 0; }
+
+/* The title page shares the episode list when no episode stills exist. */
+:root .site-shell .title-page .episode-browser--compact :is(.episode-controls, .episode-ranges) { padding-inline: 0; }
+:root .site-shell .title-page .episode-browser--compact .episode-grid {
+  max-height: none;
+  margin-inline: calc(-1 * var(--space-2));
+  padding: 0;
+  overflow: visible;
+}
+:root .site-shell .title-page .episode-browser--compact .episode-toolbar { max-width: 420px; }
+:root .site-shell .title-page .episode-browser--compact .episode-thumbnail { flex: 0 0 44px; width: 44px; height: 44px; aspect-ratio: 1; }
+:root .site-shell .title-page .language-tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: var(--space-1);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--control-fill);
+}
+:root .site-shell .title-page .language-tabs button {
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-inner);
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+:root .site-shell .title-page .language-tabs button[aria-pressed='true'] {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Theater widens the player and drops the episode rail beneath it. */
+@media (max-width: 1080px) {
+  :root .site-shell .watch-page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'stage' 'info' 'episodes' 'extras';
+    grid-template-rows: none;
+  }
+  :root .site-shell .watch-episodes {
+    position: static;
+    max-height: none;
+    margin-top: var(--space-4);
+    padding: var(--space-4) 0 var(--space-2);
+  }
+  :root .site-shell .watch-episodes .episode-grid { max-height: min(560px, 70svh); }
+}
+
+/* Phones: a focused, app-style screen. The player pins to the top, the site
+   chrome steps away, and every control is a thumb-sized target. */
+@media (max-width: 760px) {
+  :root .site-shell--watch :is(.masthead, .native-tab-bar, .site-footer) { display: none !important; }
+  :root .site-shell--watch main { min-height: 100svh; padding-bottom: 0 !important; }
+  :root .site-shell .watch-page { padding: 0 var(--gutter); column-gap: 0; }
+  :root .site-shell .watch-stage {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    margin: 0 calc(-1 * var(--gutter));
+    padding-top: env(safe-area-inset-top);
+    background: #000;
+  }
+  :root .site-shell .watch-topbar {
+    min-height: 48px;
+    margin: 0;
+    padding: 0 var(--space-3) 0 var(--space-1);
+    color: #f5f5f5;
+    background: #000;
+  }
+  :root .site-shell .watch-topbar__back {
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #f5f5f5;
+  }
+  :root .site-shell .watch-topbar__back:hover { background: rgb(255 255 255 / 10%); color: #fff; }
+  :root .site-shell .watch-topbar__back .icon { width: 22px; height: 22px; }
+  :root .site-shell .watch-topbar__back-label { display: none; }
+  :root .site-shell .watch-topbar__title {
+    display: grid;
+    min-width: 0;
+    margin: 0;
+    line-height: 1.2;
+  }
+  :root .site-shell .watch-topbar__title strong,
+  :root .site-shell .watch-topbar__title span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  :root .site-shell .watch-topbar__title strong { font-size: 14px; font-weight: 700; }
+  :root .site-shell .watch-topbar__title span { color: #a8a8a8; font-size: 12px; }
+  :root .site-shell .player-stage { border-radius: 0; box-shadow: none; }
+  :root .site-shell .player-stage .player-message { min-height: 0; padding: var(--space-6); }
+  :root .site-shell .player-stage .player-message h2 { font-size: 20px; }
+  :root .site-shell .player-stage .player-video video { max-height: 45svh; }
+  :root .site-shell .watch-info { gap: var(--space-4); padding-top: var(--space-5); }
+  :root .site-shell .watch-heading h1 { font-size: 22px; }
+  :root .site-shell .watch-save { width: 44px; padding: 0; justify-content: center; }
+  :root .site-shell .watch-save span { display: none; }
+  :root .site-shell .watch-step { min-height: 52px; padding: 0 var(--space-4); }
+  :root .site-shell .watch-step:not(.watch-step--next) span { display: none; }
+  :root .site-shell .watch-options { display: grid; gap: var(--space-4); }
+  :root .site-shell .watch-option .segmented-control { display: flex; }
+  :root .site-shell .watch-option .segmented-control:not(.segmented-control--scroll) button { flex: 1; }
+  :root .site-shell .watch-episodes {
+    margin: var(--space-4) calc(-1 * var(--gutter)) 0;
+    padding: var(--space-4) 0 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  :root .site-shell .watch-section-heading,
+  :root .site-shell .watch-episodes .episode-controls,
+  :root .site-shell .watch-episodes .episode-ranges { padding-inline: var(--gutter); }
+  :root .site-shell .watch-episodes .episode-grid {
+    max-height: none;
+    overflow: visible;
+    padding: 0 calc(var(--gutter) - var(--space-2));
+  }
+  :root .site-shell .watch-episodes .episode-thumbnail { width: 104px; }
+  :root .site-shell .watch-extras { padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom)); }
+}
+
+/* Title facts read as one line of metadata. */
+:root .site-shell .title-page .title-facts { display: flex; flex-wrap: wrap; align-items: center; margin-block: 0 var(--space-3); }
+:root .site-shell .title-page .title-facts > div { display: flex; align-items: center; margin: 0; padding: 0; }
+:root .site-shell .title-page .title-facts :is(dt, dd) { margin: 0; line-height: 1.35; }

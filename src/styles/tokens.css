@@ -49,12 +49,12 @@
 }
 :root {
   color-scheme: dark;
-  --bg: #100f0d;
-  --surface: #191714;
-  --surface-2: #26221d;
-  --line: #3b352c;
-  --text: #f6efe3;
-  --muted: #b8ad9b;
+  --bg: #090a0c;
+  --surface: #17191d;
+  --surface-2: #25272d;
+  --line: #36383f;
+  --text: #f6f6f7;
+  --muted: #a6a8b1;
   --cinema: #ee791f;
   --cinema-soft: #ffae6f;
   --accent: #ee791f;
@@ -64,13 +64,13 @@
   --danger: #ffb6aa;
   --warning: #ffc47d;
   --radius-control: 12px;
-  --radius-art: 5px;
+  --radius-art: 0px;
   --radius-dialog: 20px;
   --radius-group: 16px;
   --radius-inner: 8px;
   --radius-pill: 999px;
   --border-width: 1px;
-  --gutter: clamp(20px, 4vw, 64px);
+  --gutter: clamp(20px, 4.6vw, 80px);
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -94,12 +94,12 @@
 }
 :root[data-theme='light'] {
   color-scheme: light;
-  --bg: #f5efe4;
-  --surface: #fffaf1;
-  --surface-2: #e9dece;
-  --text: #211b16;
-  --muted: #655a4d;
-  --line: #cfc1ae;
+  --bg: #f7f7f8;
+  --surface: #fff;
+  --surface-2: #e9e9ee;
+  --line: #d4d5dc;
+  --text: #1b1c22;
+  --muted: #585b66;
   --cinema: #b94b09;
   --cinema-soft: #8e3906;
   --danger: #962b25;
@@ -228,6 +228,40 @@ button[aria-pressed='true'] {
 :focus-visible {
   outline: 2px solid var(--accent-ink);
   outline-offset: 4px;
+}
+/* Touch behaves like an app: no double-tap zoom delay, no text selection or
+   long-press callouts on controls, and a brief press response instead of
+   hover effects that never fire on a phone. Reading text stays selectable. */
+:where(a, button, summary, label, [role='button'], input[type='checkbox'], input[type='range']) {
+  touch-action: manipulation;
+}
+:where(button, summary, [role='button'], nav, .title-card__art, .episode-grid a) {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+@media (hover: none) and (pointer: coarse) {
+  /* iOS zooms the page when a focused field is smaller than 16px. */
+  :root .site-shell :is(input:not([type='checkbox']):not([type='range']), select, textarea) {
+    font-size: max(16px, 1em);
+  }
+  :root:not([data-motion='reduced']) :is(button, .button, summary, .title-card__art, .episode-grid a, .native-tab-bar a, .watch-topbar__back):not(:disabled) {
+    transition: transform 120ms var(--motion-ease), opacity 120ms var(--motion-ease);
+  }
+  :root:not([data-motion='reduced']) :is(button, .button, summary, .episode-grid a, .watch-topbar__back):not(:disabled):active {
+    transform: scale(0.96);
+    opacity: 0.85;
+  }
+  :root:not([data-motion='reduced']) .title-card__art:active { transform: scale(0.97); }
+  :root:not([data-motion='reduced']) .native-tab-bar a:active { transform: scale(0.9); }
+}
+/* Inside the iPhone app there is no browser page to bounce or preview. */
+:root.solanime-native-ios {
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+:root.solanime-native-ios :where(a, img) {
+  -webkit-touch-callout: none;
 }
 .icon {
   width: 20px;

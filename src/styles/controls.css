@@ -75,9 +75,6 @@
 }
 :root .site-shell.discovery-shell .category-navigation__panel a { border: 0; border-radius: var(--radius-inner); }
 :root .site-shell.discovery-shell .category-navigation__collections { border: 0; }
-:root .site-shell.discovery-shell .watch-page :is(.watch-heading, .watch-selection) { border: 0; background: transparent; }
-:root .site-shell.discovery-shell .watch-page .watch-heading { padding-bottom: 12px; }
-:root .site-shell.discovery-shell .watch-page .watch-selection { padding-block: var(--space-3) var(--space-4); }
 
 
 /* A single closed-field treatment; the operating system still provides the
@@ -126,12 +123,7 @@
 .select-control:has(select:disabled) .select-control__chevron { opacity: .5; }
 :root .site-shell.discovery-shell .filter-field:has(.select-control)::after { content: none; }
 .episode-season-picker .select-control { width: min(100%, 340px); max-width: 100%; }
-.watch-selection .select-control { flex: 1 1 auto; }
 .discovery-sort .select-control { width: 190px; }
-@media (min-width: 821px) {
-  .watch-selection :is(.source-choice, .version-choice) .select-control { width: auto; max-width: 240px; }
-  .watch-selection .episode-nav .select-control { width: 200px; }
-}
 :root .site-shell.discovery-shell .select-control select:disabled { opacity: .55; cursor: not-allowed; }
 @media (max-width: 820px) {
   .discovery-sort .select-control { width: 100%; }

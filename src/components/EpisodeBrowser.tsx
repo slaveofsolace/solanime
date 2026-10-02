@@ -64,6 +64,7 @@ function EpisodeBrowserContent({
     [page, setPage] = useState<number | null>(null),
     [selectedSeason, setSelectedSeason] = useState<string | null>(params.get('season'));
   const focusCurrentOnMount = useRef(false);
+  const list = useRef<HTMLOListElement>(null);
   const routeSeason = params.get('season');
   useEffect(() => { setSelectedSeason(routeSeason); setPage(null); }, [routeSeason]);
   const languageEpisodes = useMemo(
@@ -122,6 +123,14 @@ function EpisodeBrowserContent({
   const currentExists = languageEpisodes.some((episode) => episode.id === currentId);
   const canJumpToCurrent =
     currentExists && (normalizedQuery !== '' || !visible.some((episode) => episode.id === currentId));
+  useEffect(() => {
+    // In a scrolling episode rail, open with the current episode in view
+    // without moving the page itself.
+    const element = list.current;
+    const current = element?.querySelector<HTMLElement>('[data-current="true"]');
+    if (!element || !current || element.scrollHeight <= element.clientHeight + 1) return;
+    element.scrollTop = Math.max(0, current.offsetTop - element.clientHeight / 2 + current.offsetHeight / 2);
+  }, [currentId, active]);
   const showToolbar = languageEpisodes.length > 1 || normalizedQuery !== '';
   const showResultCount = !compactHeading || normalizedQuery !== '';
   return (
@@ -189,7 +198,7 @@ function EpisodeBrowserContent({
         </div>
       )}
       {visible.length ? (
-        <ol className="episode-grid">
+        <ol className="episode-grid" ref={list}>
           {visible.map((e) => {
             const displayName = episodeName(e);
             const record = history?.entries.find(entry => entry.episodeId === e.id && entry.language === language);

@@ -10,7 +10,6 @@ import PlayerSurface, { PlayerMessage } from '../components/PlayerSurface';
 import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
-import SelectControl from '../components/SelectControl';
 import EpisodeCommunity from '../components/EpisodeCommunity';
 import UnsupportedPlayback from '../components/UnsupportedPlayback';
 import ProviderPlayer from '../components/ProviderPlayer';
@@ -211,8 +210,6 @@ function WatchSession() {
       `/watch/${encodeURIComponent(slug)}/${encodeURIComponent(id)}?language=${encodeURIComponent(language)}`,
     );
   const localNotes = comments.forEpisode(episode.id);
-  const activeVersion = episode.versions.find((version) => version.language === language);
-  const versionLabel = activeVersion?.label?.trim() || language.toUpperCase();
   const historyEntry = history.entries.find(
     (item) => item.episodeId === episode.id && item.language === language,
   );
@@ -274,231 +271,241 @@ function WatchSession() {
     setFailureStage('resolution');
     setResolution(null);
   };
+  const chooseSource = (mappingId: string) =>
+    setParams(
+      (current) => {
+        const update = new URLSearchParams(current);
+        update.set('server', mappingId);
+        update.set('language', language);
+        return update;
+      },
+      { replace: true },
+    );
+  const sourceLabel = (p: ProviderChoice) =>
+    p.edition
+      ? p.providerId === 'youtube-official'
+        ? `YouTube · ${p.edition}`
+        : `${p.label} · ${p.edition}`
+      : p.label;
+  const titlePath = `/title/${encodeURIComponent(slug)}`;
+  const saved = watchlist.has(title.id);
   return (
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
-      <Link className="watch-back" to={`/title/${encodeURIComponent(slug)}`}>
-        <Icon name="left" />
-        Back to title
-      </Link>
-      <div className="player-stage">
-        {loadingSources || resolving ? (
-          <PlayerMessage title="Loading video" busy />
-        ) : failure ? (
-          <PlayerMessage
-            title="Video unavailable"
-            retry={() =>
-              failureStage === 'providers'
-                ? setProviderRetry((value) => value + 1)
-                : setResolutionRetry((value) => value + 1)
-            }
-          >
-            {failure}
-          </PlayerMessage>
-        ) : resolution ? (
-          isOfficialYouTubeResolution(resolution) ? (
-            <YouTubeOfficialPlayer
-              key={`${episode.id}:${resolution.mappingId}`}
-              resolution={resolution}
-              initialPosition={
-                carriedProgress.current?.position ??
-                (preferences.rememberProgress ? historyEntry?.position : undefined)
-              }
-              onOpen={() => remember()}
-              onProgress={(position, duration) => {
-                carriedProgress.current = { position, duration };
-                if (preferences.rememberProgress) remember(position, duration);
-              }}
-              onEnded={() => {
-                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
-                if (preferences.autoplayNext && next) go(next.id);
-              }}
-            />
-          ) : isProviderEmbedResolution(resolution, language) ? (
-            <ProviderPlayer
-              key={`${episode.id}:${resolution.mappingId}`}
-              resolution={resolution}
-              language={language}
-              onOpen={() => remember()}
-              onProgress={(position, duration) => {
-                carriedProgress.current = { position, duration };
-                if (preferences.rememberProgress) remember(position, duration);
-              }}
-              onEnded={() => {
-                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
-                if (preferences.autoplayNext && next) go(next.id);
-              }}
-              onError={(message) => {
-                handleProviderFailure(message);
-              }}
-              onRefresh={() => setResolutionRetry((value) => value + 1)}
-            />
-          ) : (
-            <PlayerSurface
-              key={`${episode.id}:${resolution.mappingId}`}
-              resolution={resolution}
-              episodeId={episode.id}
-              language={language}
-              rememberProgress={preferences.rememberProgress}
-              initialPosition={
-                carriedProgress.current?.position ??
-                (preferences.rememberProgress ? historyEntry?.position : undefined)
-              }
-              theater={theater}
-              onTheater={() => setTheater((value) => !value)}
-              onPrevious={previous ? () => go(previous.id) : undefined}
-              onNext={next ? () => go(next.id) : undefined}
-              onOpen={() => remember()}
-              onProgress={(position, duration) => {
-                carriedProgress.current = { position, duration };
-                if (preferences.rememberProgress) remember(position, duration);
-              }}
-              onEnded={() => {
-                if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
-                if (preferences.autoplayNext && next) go(next.id);
-              }}
-            />
-          )
-        ) : (
-          <UnsupportedPlayback
-            providers={providers}
-            selected={unsupported ? requestedProvider ?? candidate : undefined}
-            artworkUrl={
-              title.artwork?.backdrop?.url ??
-              title.backdropUrl ??
-              title.artwork?.poster?.url ??
-              title.imageUrl ??
-              title.posterUrl
-            }
-          />
-        )}
-      </div>
-      <header className="watch-heading">
-        <div>
-          <p className="watch-heading__episode">
-            {episodeName(episode)} · {versionLabel}
+      <div className="watch-stage">
+        <div className="watch-topbar">
+          <Link className="watch-topbar__back" to={titlePath} aria-label={`Back to ${title.name}`}>
+            <Icon name="left" />
+            <span className="watch-topbar__back-label">Back to title</span>
+          </Link>
+          <p className="watch-topbar__title" aria-hidden="true">
+            <strong>{title.name}</strong>
+            <span>{episodeName(episode)}</span>
           </p>
-          <h1>{title.name}</h1>
         </div>
-        <button
-          type="button"
-          className="button button--quiet"
-          aria-pressed={watchlist.has(title.id)}
-          onClick={() => watchlist.toggle(title.id, title)}
-        >
-          <Icon name={watchlist.has(title.id) ? 'check' : 'bookmark'} />
-          {watchlist.has(title.id) ? 'In My List' : 'My List'}
-        </button>
-      </header>
-      <div className="watch-selection">
-        <div className="episode-nav" role="group" aria-label="Episode navigation">
+        <div className="player-stage">
+          {loadingSources || resolving ? (
+            <PlayerMessage title="Loading video" busy />
+          ) : failure ? (
+            <PlayerMessage
+              title="Video unavailable"
+              retry={() =>
+                failureStage === 'providers'
+                  ? setProviderRetry((value) => value + 1)
+                  : setResolutionRetry((value) => value + 1)
+              }
+            >
+              {failure}
+            </PlayerMessage>
+          ) : resolution ? (
+            isOfficialYouTubeResolution(resolution) ? (
+              <YouTubeOfficialPlayer
+                key={`${episode.id}:${resolution.mappingId}`}
+                resolution={resolution}
+                initialPosition={
+                  carriedProgress.current?.position ??
+                  (preferences.rememberProgress ? historyEntry?.position : undefined)
+                }
+                onOpen={() => remember()}
+                onProgress={(position, duration) => {
+                  carriedProgress.current = { position, duration };
+                  if (preferences.rememberProgress) remember(position, duration);
+                }}
+                onEnded={() => {
+                  if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                  if (preferences.autoplayNext && next) go(next.id);
+                }}
+              />
+            ) : isProviderEmbedResolution(resolution, language) ? (
+              <ProviderPlayer
+                key={`${episode.id}:${resolution.mappingId}`}
+                resolution={resolution}
+                language={language}
+                onOpen={() => remember()}
+                onProgress={(position, duration) => {
+                  carriedProgress.current = { position, duration };
+                  if (preferences.rememberProgress) remember(position, duration);
+                }}
+                onEnded={() => {
+                  if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                  if (preferences.autoplayNext && next) go(next.id);
+                }}
+                onError={(message) => {
+                  handleProviderFailure(message);
+                }}
+                onRefresh={() => setResolutionRetry((value) => value + 1)}
+              />
+            ) : (
+              <PlayerSurface
+                key={`${episode.id}:${resolution.mappingId}`}
+                resolution={resolution}
+                episodeId={episode.id}
+                language={language}
+                rememberProgress={preferences.rememberProgress}
+                initialPosition={
+                  carriedProgress.current?.position ??
+                  (preferences.rememberProgress ? historyEntry?.position : undefined)
+                }
+                theater={theater}
+                onTheater={() => setTheater((value) => !value)}
+                onPrevious={previous ? () => go(previous.id) : undefined}
+                onNext={next ? () => go(next.id) : undefined}
+                onOpen={() => remember()}
+                onProgress={(position, duration) => {
+                  carriedProgress.current = { position, duration };
+                  if (preferences.rememberProgress) remember(position, duration);
+                }}
+                onEnded={() => {
+                  if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
+                  if (preferences.autoplayNext && next) go(next.id);
+                }}
+              />
+            )
+          ) : (
+            <UnsupportedPlayback
+              providers={providers}
+              selected={unsupported ? requestedProvider ?? candidate : undefined}
+              artworkUrl={
+                title.artwork?.backdrop?.url ??
+                title.backdropUrl ??
+                title.artwork?.poster?.url ??
+                title.imageUrl ??
+                title.posterUrl
+              }
+            />
+          )}
+        </div>
+      </div>
+      <section className="watch-info" aria-labelledby="watch-title">
+        <header className="watch-heading">
+          <div className="watch-heading__copy">
+            <p className="watch-heading__episode">
+              {episode.number != null && /^\d+(?:\.\d+)?$/.test(String(episode.number)) && (
+                <span className="watch-heading__number">E{episode.number}</span>
+              )}
+              <span>{episodeName(episode)}</span>
+            </p>
+            <h1 id="watch-title">
+              <Link to={titlePath}>{title.name}</Link>
+            </h1>
+          </div>
           <button
-            className="icon-button"
+            type="button"
+            className="watch-save"
+            aria-pressed={saved}
+            aria-label={saved ? 'In My List' : 'My List'}
+            onClick={() => watchlist.toggle(title.id, title)}
+          >
+            <Icon name={saved ? 'check' : 'bookmark'} />
+            <span>{saved ? 'In My List' : 'My List'}</span>
+          </button>
+        </header>
+        <div className="watch-steps" role="group" aria-label="Episode navigation">
+          <button
+            className="watch-step"
             type="button"
             aria-label="Previous episode"
             disabled={!previous}
             onClick={() => previous && go(previous.id)}
           >
-            <Icon name="left" />
+            <Icon name="previous" />
+            <span>Previous</span>
           </button>
-          <label>
-            <span>Episode</span>
-            <SelectControl
-              aria-label="Choose episode"
-              value={episode.id}
-              onChange={(e) => go(e.target.value)}
-            >
-              {versions.map((e) => (
-                <option key={e.id} value={e.id}>
-                  {episodeName(e)}
-                </option>
-              ))}
-            </SelectControl>
-          </label>
           <button
-            className="icon-button"
+            className="watch-step watch-step--next"
             type="button"
             aria-label="Next episode"
             disabled={!next}
             onClick={() => next && go(next.id)}
           >
-            <Icon name="right" />
+            <span className="watch-step__copy">
+              <small>{next ? 'Up next' : 'Last episode'}</small>
+              <strong>{next ? episodeName(next) : 'You’re all caught up'}</strong>
+            </span>
+            <Icon name="next" />
           </button>
         </div>
-        <label className="source-choice">
-          <span>Source</span>
-          <SelectControl
-            aria-label="Playback source"
-            value={candidate?.mappingId ?? ''}
-            disabled={loadingSources || playableProviders.length === 0}
-            onChange={(e) =>
-              setParams(
-                (current) => {
-                  const update = new URLSearchParams(current);
-                  update.set('server', e.target.value);
-                  update.set('language', language);
-                  return update;
-                },
-                { replace: true },
-              )
-            }
-          >
-            {!candidate && (
-              <option value="">
-                {providers.length ? 'No playable sources' : 'No sources available'}
-              </option>
+        <div className="watch-options">
+          {episode.versions.length > 0 && (
+            <div className="watch-option">
+              <span className="watch-option__label" id="watch-language-label">Audio</span>
+              <div className="segmented-control" role="group" aria-labelledby="watch-language-label">
+                {episode.versions.map((v) => (
+                  <button
+                    key={v.id}
+                    type="button"
+                    aria-pressed={v.language === language}
+                    onClick={() => v.language !== language && setParams({ language: v.language }, { replace: true })}
+                  >
+                    {v.label?.trim() || (v.language === 'sub' ? 'Subtitled' : v.language === 'dub' ? 'Dubbed' : v.language.toUpperCase())}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          <div className="watch-option">
+            <span className="watch-option__label" id="watch-source-label">Server</span>
+            {playableProviders.length ? (
+              <div className="segmented-control segmented-control--scroll" role="group" aria-labelledby="watch-source-label">
+                {playableProviders.map((p) => (
+                  <button
+                    key={p.mappingId}
+                    type="button"
+                    aria-pressed={p.mappingId === candidate?.mappingId}
+                    onClick={() => p.mappingId !== candidate?.mappingId && chooseSource(p.mappingId)}
+                  >
+                    {sourceLabel(p)}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <span className="watch-option__empty">
+                {loadingSources ? 'Checking servers…' : providers.length ? 'No playable servers' : 'No servers available'}
+              </span>
             )}
-            {playableProviders.map((p) => (
-              <option key={p.mappingId} value={p.mappingId}>
-                {p.edition
-                  ? p.providerId === 'youtube-official'
-                    ? `YouTube · ${p.edition}`
-                    : `${p.label} · ${p.edition}`
-                  : p.label}
-              </option>
-            ))}
-          </SelectControl>
-        </label>
-        <label className="version-choice">
-          <span>Version</span>
-          <SelectControl
-            aria-label="Episode language"
-            value={language}
-            onChange={(e) => setParams({ language: e.target.value }, { replace: true })}
-          >
-            {episode.versions.map((v) => (
-              <option key={v.id} value={v.language}>
-                {v.label?.trim() || v.language.toUpperCase()}
-              </option>
-            ))}
-          </SelectControl>
-        </label>
-      </div>
-      {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
-        <p className="source-attribution">
-          Playing from{' '}
-          <a
-            href={safeAttributionUrl(resolution.attribution.url)!}
-            target="_blank"
-            rel="noreferrer nofollow"
-          >
-            {resolution.attribution.label}
-          </a>{' '}
-          ·{' '}
-          {/public domain/i.test(resolution.attribution.license)
-            ? 'Public domain'
-            : resolution.attribution.license}
-        </p>
-      )}
-      <details className="watch-about disclosure">
-        <summary className="disclosure-trigger"><span>About this title</span><Icon name="right" /></summary>
-        <div className="disclosure-content"><p>
-          {title.synopsis || title.description || 'No description is available for this title.'}
-        </p></div>
-      </details>
-      <details className="watch-chapter watch-episodes" open>
-        <summary>
-          Episodes <span className="watch-chapter-count">{versions.length}</span>
-        </summary>
+          </div>
+        </div>
+        {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
+          <p className="source-attribution">
+            Playing from{' '}
+            <a
+              href={safeAttributionUrl(resolution.attribution.url)!}
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              {resolution.attribution.label}
+            </a>{' '}
+            ·{' '}
+            {/public domain/i.test(resolution.attribution.license)
+              ? 'Public domain'
+              : resolution.attribution.license}
+          </p>
+        )}
+      </section>
+      <section className="watch-episodes" aria-labelledby="watch-episodes-heading">
+        <header className="watch-section-heading">
+          <h2 id="watch-episodes-heading">Episodes</h2>
+          <span className="watch-count">{versions.length}</span>
+        </header>
         <EpisodeBrowser
           key={language}
           episodes={versions}
@@ -508,52 +515,60 @@ function WatchSession() {
           title={title}
           compactHeading
         />
-      </details>
-      <EpisodeCommunity episodeId={episode.id} />
-      <details className="watch-chapter watch-notes disclosure">
-        <summary className="disclosure-trigger">
-          <span>Your notes</span><span className="disclosure-accessory"><span className="watch-chapter-count">{localNotes.length}</span><Icon name="right" /></span>
-        </summary>
-        <div className="comments-layout disclosure-content">
-          <form
-            className="comment-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              comments.add(episode.id, 'You', note);
-              setNote('');
-            }}
-          >
-            <label htmlFor="episode-note">Note</label>
-            <textarea
-              id="episode-note"
-              required
-              maxLength={1000}
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-            />
-            <div>
-              <small>Private to your selected profile.</small>
-              <button type="submit" className="button button--primary" disabled={!note.trim()}>
-                Save note
-              </button>
-            </div>
-          </form>
-          <ul className="comment-list" aria-label="Saved episode notes">
-            {localNotes.length === 0 ? (
-              <li className="comment-list__empty">
-                <strong>No notes yet</strong>
-              </li>
-            ) : localNotes.map((n) => (
-                <li key={n.id}>
-                  <p>{n.body}</p>
-                  <button className="text-button" type="button" onClick={() => comments.remove(n.id)}>
-                    Delete note
-                  </button>
+      </section>
+      <div className="watch-extras">
+        <details className="watch-about disclosure">
+          <summary className="disclosure-trigger"><span>About this title</span><Icon name="right" /></summary>
+          <div className="disclosure-content"><p>
+            {title.synopsis || title.description || 'No description is available for this title.'}
+          </p></div>
+        </details>
+        <EpisodeCommunity episodeId={episode.id} />
+        <details className="watch-notes disclosure">
+          <summary className="disclosure-trigger">
+            <span>Your notes</span><span className="disclosure-accessory"><span className="watch-count">{localNotes.length}</span><Icon name="right" /></span>
+          </summary>
+          <div className="comments-layout disclosure-content">
+            <form
+              className="comment-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                comments.add(episode.id, 'You', note);
+                setNote('');
+              }}
+            >
+              <label htmlFor="episode-note">Note</label>
+              <textarea
+                id="episode-note"
+                required
+                maxLength={1000}
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+              />
+              <div>
+                <small>Private to your selected profile.</small>
+                <button type="submit" className="button button--primary" disabled={!note.trim()}>
+                  Save note
+                </button>
+              </div>
+            </form>
+            <ul className="comment-list" aria-label="Saved episode notes">
+              {localNotes.length === 0 ? (
+                <li className="comment-list__empty">
+                  <strong>No notes yet</strong>
                 </li>
-              ))}
-          </ul>
-        </div>
-      </details>
+              ) : localNotes.map((n) => (
+                  <li key={n.id}>
+                    <p>{n.body}</p>
+                    <button className="text-button" type="button" onClick={() => comments.remove(n.id)}>
+                      Delete note
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </details>
+      </div>
     </div>
   );
 }

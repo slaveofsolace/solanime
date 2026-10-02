@@ -1,24 +1,6 @@
 /* Discovery presentation. All rules are scoped to browsing or navigation;
    player, provider, resolution and watch-layout styles are deliberately external. */
-.discovery-shell:not(.site-shell--watch) {
-  --bg: #090a0c;
-  --surface: #17191d;
-  --surface-2: #25272d;
-  --line: #36383f;
-  --text: #f6f6f7;
-  --muted: #a6a8b1;
-  --gutter: clamp(20px, 4.6vw, 80px);
-  --radius-art: 0px;
-  background: var(--bg);
-}
-:root[data-theme='light'] .discovery-shell:not(.site-shell--watch) {
-  --bg: #f7f7f8;
-  --surface: #fff;
-  --surface-2: #e9e9ee;
-  --line: #d4d5dc;
-  --text: #1b1c22;
-  --muted: #585b66;
-}
+.discovery-shell { background: var(--bg); }
 .site-shell.discovery-shell .masthead {
   min-height: 48px;
   padding: 0 var(--gutter);
@@ -356,7 +338,7 @@
   .discovery-shell .title-page .title-hero { min-height: 500px; }
 }
 @media (max-width: 600px) {
-  .discovery-shell:not(.site-shell--watch) { --gutter: 20px; }
+  :root { --gutter: 20px; }
   .site-shell.discovery-shell .masthead { padding-inline: var(--gutter); }
   .discovery-shell .masthead .main-nav > a, .discovery-shell .category-navigation__trigger { padding-inline: 7px; font-size: 12px; }
   .discovery-shell .main-nav small { display: none; }
