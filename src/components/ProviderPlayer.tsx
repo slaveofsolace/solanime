@@ -198,24 +198,18 @@ export default function ProviderPlayer({
         referrerPolicy={PROVIDER_EMBED_REFERRER_POLICY}
         onLoad={() => setFrameLoaded(true)}
       />
-      <div className="provider-player__footer">
-      <p className="provider-player__label" aria-live="polite">
+      {!frameLoaded && (
+        <div className="provider-player__loading" aria-hidden="true">
+          <span className="loading-spinner" />
+        </div>
+      )}
+      <p className="provider-player__label sr-only" aria-live="polite">
         {activity === 'ready'
           ? `Provider playback · MegaPlay${guardActive ? ' · Desktop Guard' : ''}`
           : frameLoaded
             ? 'Provider frame loaded · Waiting for playback'
             : `Opening provider player · MegaPlay${guardActive ? ' · Desktop Guard' : ''}`}
       </p>
-      {!guardActive && (
-        <details className="provider-player__notice">
-          <summary>About this player</summary>
-          <div role="status">
-            This source uses the provider’s own player. Popup and redirect blocking depends on your browser
-            {' '}or <a href="/downloads/solanime-guard.zip" download>Desktop Guard</a>, not a built-in Solanime blocker.
-          </div>
-        </details>
-      )}
-      </div>
       {activity === 'timeout' && !providerError && (
         <div className="provider-player__timeout" role="status">
           <span>Press Play inside the video. If it does not start, reload or choose another source.</span>
@@ -224,5 +218,29 @@ export default function ProviderPlayer({
       )}
       {providerError && <div className="provider-player__error" role="alert">{providerError}</div>}
     </div>
+  );
+}
+
+/**
+ * The honest protection disclosure for provider-hosted players. It sits with
+ * the server choice instead of under the picture, and stays out of the iPhone
+ * app, whose host blocks popups natively.
+ */
+export function ProviderPlayerNote() {
+  const [guardActive, setGuardActive] = useState(() => solanimeGuardActive());
+  useEffect(() => {
+    const update = () => setGuardActive(solanimeGuardActive());
+    window.addEventListener(SOLANIME_GUARD_EVENT, update);
+    return () => window.removeEventListener(SOLANIME_GUARD_EVENT, update);
+  }, []);
+  if (guardActive) return null;
+  return (
+    <details className="provider-player__notice">
+      <summary>About this player</summary>
+      <div role="status">
+        This source uses the provider’s own player. Popup and redirect blocking depends on your browser
+        {' '}or <a href="/downloads/solanime-guard.zip" download>Desktop Guard</a>, not a built-in Solanime blocker.
+      </div>
+    </details>
   );
 }

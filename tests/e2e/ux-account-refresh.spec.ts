@@ -108,7 +108,7 @@ test('long episode inventories without stills use dense rows rather than empty p
   expect(first!.height).toBeLessThanOrEqual(90);
   await page.setViewportSize({ width: 320, height: 820 });
   await noOverflow(page);
-  await browser.getByRole('link', { name: /Episode 1 Subtitled/ }).first().click();
+  await browser.getByRole('link', { name: /Episode 1$/ }).first().click();
   await expect(page).toHaveURL(/\/watch\/long-journey\/[^/?]+\?language=sub/);
 });
 

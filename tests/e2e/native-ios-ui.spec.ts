@@ -74,7 +74,12 @@ test('signed iPhone presentation keeps readable controls and consistent surfaces
   expect(saveWidth).toBeGreaterThanOrEqual(44);
   expect(saveWidth).toBeLessThanOrEqual(56);
   for (const theme of ['dark', 'light']) {
-    await page.locator('html').evaluate((element, value) => element.setAttribute('data-theme', value), theme);
+    const themed = themeTokens(DEFAULT_ACCENT, theme as 'dark' | 'light');
+    await page.locator('html').evaluate((element, { value, tokens }) => {
+      element.setAttribute('data-theme', value);
+      (element as HTMLElement).style.setProperty('--accent-ink', tokens.ink);
+      (element as HTMLElement).style.setProperty('--on-accent', tokens.foreground);
+    }, { value: theme, tokens: themed });
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     const primary = await page.locator('.title-page .button--primary').evaluate((element) => {
       const style = getComputedStyle(element);

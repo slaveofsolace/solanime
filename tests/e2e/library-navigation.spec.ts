@@ -20,7 +20,7 @@ test('saved-title views retain real order, filters and the last episode resume d
   await expect(navigation.getByRole('link', { name: 'My List', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(cards).toHaveCount(2);
   await expect(cards.first().getByRole('heading')).toHaveText(paper.title.name);
-  await expect(page.locator('.library-saved-grid .title-card--landscape')).toHaveCount(2);
+  await expect(page.locator('.library-saved-grid .title-card--poster')).toHaveCount(2);
   await expect(page.locator('.history-list')).toHaveCount(0);
   const progress = page.getByRole('progressbar', { name: 'Paper Lantern Episode 1 progress', exact: true });
   await expect(progress).toHaveAttribute('aria-valuenow', '25');

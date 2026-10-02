@@ -25,6 +25,12 @@ const text = (value: unknown): value is string => typeof value === 'string';
 const fields = (value: unknown, names: string[]): value is RecordValue =>
   record(value) && names.every((name) => text(value[name]));
 const optionalText = (value: unknown): string | null => (text(value) ? value : null);
+/** Viewer-named lists: trimmed, single-line, at most 40 characters. */
+export function listLabel(value: unknown): string | null {
+  if (!text(value)) return null;
+  const label = value.replace(/\s+/g, ' ').trim().slice(0, 40);
+  return label || null;
+}
 function title(value: unknown): TitleSummary | null {
   if (!fields(value, ['id', 'slug', 'name'])) return null;
   return {
@@ -80,7 +86,8 @@ export function decodeStored<T>(key: string, value: unknown, fallback: T): T {
         const item = title(entry);
         if (!item || seen.has(item.id)) return [];
         seen.add(item.id);
-        return [item];
+        const listName = record(entry) ? listLabel(entry.listName) : null;
+        return [listName ? { ...item, listName } : item];
       })
       .slice(0, 1000) as T;
   }
@@ -202,7 +209,25 @@ export function useWatchlist() {
     },
     [setItems],
   );
-  return useMemo(() => ({ ids, items, has, toggle }), [ids, items, has, toggle]);
+  /** Move a saved title into a named list, or back to the unlabelled My List. */
+  const move = useCallback(
+    (id: string, listName: string | null) => {
+      const label = listLabel(listName);
+      setItems((current) =>
+        current.map((entry) => {
+          if (entry.id !== id) return entry;
+          const { listName: _previous, ...rest } = entry;
+          return label ? { ...rest, listName: label } : rest;
+        }),
+      );
+    },
+    [setItems],
+  );
+  const lists = useMemo(
+    () => [...new Set(items.map((item) => item.listName).filter((name): name is string => Boolean(name)))],
+    [items],
+  );
+  return useMemo(() => ({ ids, items, has, toggle, move, lists }), [ids, items, has, toggle, move, lists]);
 }
 export function useHistory() {
   const [entries, setEntries] = usePersistentState<WatchHistoryEntry[]>('history', []);

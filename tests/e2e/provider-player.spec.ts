@@ -97,7 +97,7 @@ test('browser-only provider mode stays compatible and discloses its actual prote
   await expect(page.getByText(/Popup and redirect blocking depends on your browser/)).toBeVisible();
   await expect(page.getByRole('link', { name: 'Desktop Guard' })).toHaveAttribute('download', '');
   await noOverflow(page);
-  const accessibility = await new AxeBuilder({ page }).include('.provider-player__footer').analyze();
+  const accessibility = await new AxeBuilder({ page }).include('.provider-player__notice').analyze();
   expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
   await page.screenshot({ path: testInfo.outputPath('browser-provider-mode.png'), fullPage: true });
   await page.setViewportSize({ width: 320, height: 740 });

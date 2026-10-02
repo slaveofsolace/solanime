@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
-import ProviderPlayer from '../src/components/ProviderPlayer';
+import ProviderPlayer, { ProviderPlayerNote } from '../src/components/ProviderPlayer';
 import { providerEmbedUrl } from '../src/lib/providerEmbedPolicy';
 import type { PlaybackResolution } from '../src/types';
 
@@ -38,7 +38,7 @@ describe('provider embed player', () => {
 
   it('restores the earlier compatible embed without claiming built-in redirect blocking', () => {
     delete document.documentElement.dataset.solanimeGuard;
-    render(<ProviderPlayer resolution={embed} language="sub" />);
+    render(<><ProviderPlayer resolution={embed} language="sub" /><ProviderPlayerNote /></>);
     const frame = screen.getByTitle('MegaPlay provider player') as HTMLIFrameElement;
     expect(frame.src).toBe('https://megaplay.buzz/stream/s-2/12345/sub?s=tcdn');
     expect(frame.hasAttribute('sandbox')).toBe(false);
@@ -249,7 +249,7 @@ describe('provider embed player', () => {
     const protectedFrame = screen.getByTitle('MegaPlay provider player');
     expect(protectedFrame).not.toBe(extensionFrame);
     expect(protectedFrame.hasAttribute('sandbox')).toBe(false);
-    expect(screen.getByText('About this player')).toBeTruthy();
+    expect(screen.getByText('Opening provider player · MegaPlay')).toBeTruthy();
     for (const time of [3, 4]) fireEvent(window, new MessageEvent('message', {
       origin: 'https://megaplay.buzz', source: oldWindow,
       data: { channel: 'megacloud', event: 'time', time, duration: 24 },

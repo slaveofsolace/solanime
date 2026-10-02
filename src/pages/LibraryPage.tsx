@@ -43,7 +43,11 @@ export default function LibraryPage() {
   const format = formats.includes(params.get('type') ?? '') ? params.get('type')! : '';
   const filter = ['started', 'not-started'].includes(params.get('progress') ?? '') ? params.get('progress')! : '';
   const sort = params.get('sort') === 'title' ? 'title' : 'saved';
-  const savedTitles = watchlist.items.filter(item => (!format || item.type?.trim() === format) &&
+  // '' is every saved title, '~' the unlabelled My List, anything else a named list.
+  const requestedList = params.get('list') ?? '';
+  const list = requestedList === '~' || watchlist.lists.includes(requestedList) ? requestedList : '';
+  const inList = (item: { listName?: string }) => !list || (list === '~' ? !item.listName : item.listName === list);
+  const savedTitles = watchlist.items.filter(item => inList(item) && (!format || item.type?.trim() === format) &&
     (!filter || (filter === 'started' ? startedTitles.has(item.id) : !startedTitles.has(item.id))));
   if (sort === 'title') savedTitles.sort((a, b) => (a.name ?? a.title ?? '').localeCompare(b.name ?? b.title ?? ''));
   const changeSavedFilter = (key: string, value: string) => {
@@ -70,6 +74,15 @@ export default function LibraryPage() {
         <h2 id="watchlist-title" className="sr-only">My List</h2>
         {watchlist.items.length ? (
           <>
+          {watchlist.lists.length > 0 && <div className="library-lists" role="group" aria-label="Lists">
+            {([['', 'All', watchlist.items.length], ['~', 'My List', watchlist.items.filter(item => !item.listName).length],
+              ...watchlist.lists.map(name => [name, name, watchlist.items.filter(item => item.listName === name).length])] as Array<[string, string, number]>)
+              .filter(([value, , count]) => value === '' || count > 0)
+              .map(([value, label, count]) => <button type="button" key={value || 'all'} aria-pressed={list === value}
+                onClick={() => changeSavedFilter('list', value)}>
+                {label}<span>{count}</span>
+              </button>)}
+          </div>}
           <div className="library-toolbar">
             <p className="library-result-count" aria-live="polite">{savedTitles.length} {savedTitles.length === 1 ? 'title' : 'titles'}</p>
             <div className="library-filters">
@@ -95,7 +108,7 @@ export default function LibraryPage() {
               const entry = latestHistory.get(item.id);
               const percent = entry ? viewingPercent(entry) : 0;
               return <li key={item.id} className="library-saved-item">
-                <TitleCard title={item} index={index} format="landscape" contextual />
+                <TitleCard title={item} index={index} format="poster" contextual />
                 {entry && <div className="library-saved-progress">
                   {percent > 0 && <span className="history-progress" role="progressbar"
                     aria-label={`${item.name ?? item.title ?? 'Untitled'} ${entry.episodeLabel} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}>

@@ -89,3 +89,6 @@ main:focus { outline: none; }
   .site-shell:has(.title-hero) .account-service-notice { top: 68px; }
 }
 @media (max-width: 360px) { .wordmark { width: 118px; } .masthead { padding-inline: 12px; } }
+/* macOS web app: keep the header clear of the traffic-light window controls. */
+:root.macos-web-app .site-shell.discovery-shell .masthead { padding-top: 32px; }
+:root.macos-web-app .site-shell .watch-topbar { margin-top: 0; }

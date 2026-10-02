@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { api, errorMessage } from '../lib/api';
 import { useInitialReadiness } from '../branding/ApplicationReadiness';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
@@ -397,12 +397,20 @@ export default function CataloguePage() {
           </div>
         </section>
       ) : catalogue.items.length === 0 ? (
-        <StatusPanel eyebrow="" title="No titles found">
-          <p>Try another search or remove a filter.</p>
-          <button className="button button--primary" type="button" onClick={clearFilters}>
-            Clear search and filters
-          </button>
-        </StatusPanel>
+        queryText || queryGenre || queryType || queryStatus || queryLanguage ? (
+          <StatusPanel eyebrow="" title="No matches">
+            <p>Nothing matches this search and these filters.</p>
+            <button className="button button--primary" type="button" onClick={clearFilters}>
+              Clear search and filters
+            </button>
+          </StatusPanel>
+        ) : (
+          // An empty collection is a catalogue gap, not something the viewer filtered out.
+          <StatusPanel eyebrow="" title={queryScope === 'tv' ? 'No TV shows yet' : 'Nothing here yet'}>
+            <p>{queryScope === 'tv' ? 'TV shows haven’t been added to the catalogue yet.' : 'This collection is empty for now.'}</p>
+            <Link className="button button--primary" to="/catalogue?scope=anime">Browse anime</Link>
+          </StatusPanel>
+        )
       ) : (
         <section className="results-section" aria-labelledby="results-title">
           <header className="results-heading">

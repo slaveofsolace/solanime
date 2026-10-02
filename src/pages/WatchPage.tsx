@@ -12,7 +12,7 @@ import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
 import EpisodeCommunity from '../components/EpisodeCommunity';
 import UnsupportedPlayback from '../components/UnsupportedPlayback';
-import ProviderPlayer from '../components/ProviderPlayer';
+import ProviderPlayer, { ProviderPlayerNote } from '../components/ProviderPlayer';
 import { isProviderEmbedResolution } from '../lib/providerEmbedPolicy';
 import YouTubeOfficialPlayer from '../components/YouTubeOfficialPlayer';
 import { isOfficialYouTubeResolution } from '../lib/youtubeOfficialPolicy';
@@ -288,20 +288,31 @@ function WatchSession() {
         : `${p.label} · ${p.edition}`
       : p.label;
   const titlePath = `/title/${encodeURIComponent(slug)}`;
+  // "Episode 12" once, plus the episode's own name only when it has one.
+  const numbered = episode.number != null && /^\d+(?:\.\d+)?$/.test(String(episode.number));
+  const episodeLabel = numbered ? `Episode ${episode.number}` : episodeName(episode);
+  // The source often folds the name into the label ("Episode 1 — The journey").
+  const ownTitle = (episode.title?.trim() || episodeName(episode).trim())
+    .replace(new RegExp(`^${episodeLabel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[—–:·-]?\\s*`, 'i'), '')
+    .trim();
+  const episodeTitle =
+    ownTitle && ownTitle.toLocaleLowerCase() !== episodeLabel.toLocaleLowerCase() && !/^(episode|ep)\.?\s*\d+$/i.test(ownTitle)
+      ? ownTitle
+      : null;
   const saved = watchlist.has(title.id);
   return (
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
+      <div className="watch-topbar">
+        <Link className="watch-topbar__back" to={titlePath} aria-label={`Back to ${title.name}`}>
+          <Icon name="left" />
+          <span className="watch-topbar__back-label">Back to title</span>
+        </Link>
+        <p className="watch-topbar__title" aria-hidden="true">
+          <strong>{title.name}</strong>
+          <span>{episodeLabel}</span>
+        </p>
+      </div>
       <div className="watch-stage">
-        <div className="watch-topbar">
-          <Link className="watch-topbar__back" to={titlePath} aria-label={`Back to ${title.name}`}>
-            <Icon name="left" />
-            <span className="watch-topbar__back-label">Back to title</span>
-          </Link>
-          <p className="watch-topbar__title" aria-hidden="true">
-            <strong>{title.name}</strong>
-            <span>{episodeName(episode)}</span>
-          </p>
-        </div>
         <div className="player-stage">
           {loadingSources || resolving ? (
             <PlayerMessage title="Loading video" busy />
@@ -399,53 +410,53 @@ function WatchSession() {
         <header className="watch-heading">
           <div className="watch-heading__copy">
             <p className="watch-heading__episode">
-              {episode.number != null && /^\d+(?:\.\d+)?$/.test(String(episode.number)) && (
-                <span className="watch-heading__number">E{episode.number}</span>
-              )}
-              <span>{episodeName(episode)}</span>
+              <span>{episodeLabel}</span>
+              {episodeTitle && <span className="watch-heading__title">{episodeTitle}</span>}
             </p>
             <h1 id="watch-title">
               <Link to={titlePath}>{title.name}</Link>
             </h1>
           </div>
-          <button
-            type="button"
-            className="watch-save"
-            aria-pressed={saved}
-            aria-label={saved ? 'In My List' : 'My List'}
-            onClick={() => watchlist.toggle(title.id, title)}
-          >
-            <Icon name={saved ? 'check' : 'bookmark'} />
-            <span>{saved ? 'In My List' : 'My List'}</span>
-          </button>
+          <div className="watch-actions">
+            <div className="watch-steps" role="group" aria-label="Episode navigation">
+              <button
+                className="watch-step"
+                type="button"
+                aria-label="Previous episode"
+                title={previous ? `Previous: ${episodeName(previous)}` : undefined}
+                disabled={!previous}
+                onClick={() => previous && go(previous.id)}
+              >
+                <Icon name="previous" />
+              </button>
+              <button
+                className="watch-step watch-step--next"
+                type="button"
+                aria-label="Next episode"
+                disabled={!next}
+                onClick={() => next && go(next.id)}
+              >
+                <span className="watch-step__copy">
+                  <small>{next ? 'Next' : 'Last episode'}</small>
+                  {next && <strong>{episodeName(next)}</strong>}
+                </span>
+                <Icon name="next" />
+              </button>
+            </div>
+            <button
+              type="button"
+              className="watch-save"
+              aria-pressed={saved}
+              aria-label={saved ? 'In My List' : 'My List'}
+              title={saved ? 'In My List' : 'Add to My List'}
+              onClick={() => watchlist.toggle(title.id, title)}
+            >
+              <Icon name={saved ? 'check' : 'bookmark'} />
+            </button>
+          </div>
         </header>
-        <div className="watch-steps" role="group" aria-label="Episode navigation">
-          <button
-            className="watch-step"
-            type="button"
-            aria-label="Previous episode"
-            disabled={!previous}
-            onClick={() => previous && go(previous.id)}
-          >
-            <Icon name="previous" />
-            <span>Previous</span>
-          </button>
-          <button
-            className="watch-step watch-step--next"
-            type="button"
-            aria-label="Next episode"
-            disabled={!next}
-            onClick={() => next && go(next.id)}
-          >
-            <span className="watch-step__copy">
-              <small>{next ? 'Up next' : 'Last episode'}</small>
-              <strong>{next ? episodeName(next) : 'You’re all caught up'}</strong>
-            </span>
-            <Icon name="next" />
-          </button>
-        </div>
         <div className="watch-options">
-          {episode.versions.length > 0 && (
+          {episode.versions.length > 1 && (
             <div className="watch-option">
               <span className="watch-option__label" id="watch-language-label">Audio</span>
               <div className="segmented-control" role="group" aria-labelledby="watch-language-label">
@@ -486,6 +497,7 @@ function WatchSession() {
             )}
           </div>
         </div>
+        {resolution && isProviderEmbedResolution(resolution, language) && <ProviderPlayerNote />}
         {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
           <p className="source-attribution">
             Playing from{' '}

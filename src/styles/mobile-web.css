@@ -69,14 +69,22 @@
   }
 
   :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art__poster > :is(img, .cover-fallback) {
+    /* A poster is a small image: show it as a crisp card over its own
+       blurred wash, never stretched across the screen. */
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: calc(env(safe-area-inset-top) + 72px);
+    right: 0;
+    left: 0;
+    width: min(50vw, 200px);
+    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 360 / 510;
     object-fit: cover;
-    object-position: center 14%;
-    mask-image: linear-gradient(#000 58%, transparent 99%);
-    -webkit-mask-image: linear-gradient(#000 58%, transparent 99%);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgb(0 0 0 / 55%);
+    mask-image: none;
+    -webkit-mask-image: none;
     transform: none;
   }
 

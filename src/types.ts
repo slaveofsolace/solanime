@@ -23,6 +23,8 @@ export type PlaybackType =
 
 export interface TitleSummary extends CatalogueArtwork {
   id: string;
+  /** The viewer's own list label for a saved title (My List when absent). */
+  listName?: string;
   source?: string;
   sourceId?: string;
   canonicalUrl?: string;

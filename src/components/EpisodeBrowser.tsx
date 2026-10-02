@@ -215,7 +215,7 @@ function EpisodeBrowserContent({
                   displayName.trim().toLocaleLowerCase() === `ep ${episodeNumber}`.toLocaleLowerCase() ||
                   displayName.trim().toLocaleLowerCase().startsWith(`${episodeNumber.toLocaleLowerCase()} ·`)),
             );
-            return <li key={e.id} data-current={currentId === e.id}>
+            return <li key={e.id} data-current={currentId === e.id} data-watched={seen}>
               <Link
                 ref={e.id === currentId ? (element) => {
                   if (element && focusCurrentOnMount.current) {
@@ -235,7 +235,16 @@ function EpisodeBrowserContent({
                 <span className="episode-copy">
                   {!repeatedNumber && <span className="episode-number">{e.number == null ? 'Special' : /^\d+(?:\.\d+)?$/.test(String(e.number)) ? `E${e.number}` : e.number}</span>}
                   <strong>{displayName}</strong>
-                  <span className="episode-meta">{currentId === e.id ? 'Now selected' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : language === 'sub' ? 'Subtitled' : language === 'dub' ? 'Dubbed' : language}{noEpisodeStills && duration != null && duration > 0 ? ` · ${Math.ceil(duration / 60)}m` : ''}{!mapped && ' · Source unavailable'}</span>
+                  {(() => {
+                    // Only what helps choose: playing/progress/watched, length, and a missing source.
+                    // The language is already the selected version for every row.
+                    const facts = [
+                      currentId === e.id ? 'Playing' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : null,
+                      noEpisodeStills && duration != null && duration > 0 ? `${Math.ceil(duration / 60)} min` : null,
+                      mapped ? null : 'Source unavailable',
+                    ].filter(Boolean);
+                    return facts.length ? <span className="episode-meta">{facts.join(' · ')}</span> : null;
+                  })()}
                   {percent > 0 && noEpisodeStills && <span className="episode-progress episode-progress--inline" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
                 </span>
               </Link>

@@ -21,7 +21,7 @@ async function fixtureBanner(page: Page, bannerUrl: string) {
   });
 }
 
-test('home uses cinematic artwork with an uncropped desktop poster and full-bleed mobile art', async ({ page }, info) => {
+test('home uses cinematic artwork with an uncropped desktop poster and a crisp mobile poster card', async ({ page }, info) => {
   if (info.project.name.startsWith('mobile')) await page.setViewportSize({ width: 393, height: 852 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
@@ -76,8 +76,10 @@ test('home uses cinematic artwork with an uncropped desktop poster and full-blee
   } else {
     expect(measurements.artWidth).toBeCloseTo(measurements.viewport, 0);
     expect(measurements.artHeight).toBeGreaterThan(500);
-    expect(measurements.posterWidth).toBeCloseTo(measurements.viewport, 0);
-    expect(measurements.copyY).toBeLessThan(measurements.posterBottom);
+    // Source posters are small thumbnails: show a centred card, never a full-bleed stretch.
+    expect(measurements.posterWidth).toBeLessThanOrEqual(200);
+    expect(measurements.posterX).toBeCloseTo((measurements.viewport - measurements.posterWidth) / 2, 0);
+    expect(measurements.copyY).toBeGreaterThan(measurements.posterBottom - 1);
     expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(2);
     await expect(page.locator('.wordmark .sol-brand--emblem')).toBeVisible();
     await expect(page.locator('.wordmark .sol-brand--compact')).toBeHidden();
@@ -233,7 +235,7 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
   }));
   const before = await measure();
   const poster = await art.locator('.spotlight-art__poster img').boundingBox();
-  expect(poster!.width).toBeCloseTo(320, 0);
+  expect(poster!.width).toBeLessThanOrEqual(200);
   expect(before[0]!.y).toBeGreaterThan(poster!.y);
   deliverBanner();
   await expect(art).toHaveAttribute('data-banner', 'loaded');

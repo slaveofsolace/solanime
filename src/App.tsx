@@ -10,16 +10,30 @@ import PageErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import { SolanimeBrand } from './branding';
 import { useAppState } from './state';
-const CataloguePage = lazy(() => import('./pages/CataloguePage'));
-const LibraryPage = lazy(() => import('./pages/LibraryPage'));
-const TitlePage = lazy(() => import('./pages/TitlePage'));
-const WatchPage = lazy(() => import('./pages/WatchPage'));
+const loadCatalogue = () => import('./pages/CataloguePage');
+const loadLibrary = () => import('./pages/LibraryPage');
+const loadTitle = () => import('./pages/TitlePage');
+const loadWatch = () => import('./pages/WatchPage');
+const loadSettings = () => import('./pages/SettingsPage');
+const CataloguePage = lazy(loadCatalogue);
+const LibraryPage = lazy(loadLibrary);
+const TitlePage = lazy(loadTitle);
+const WatchPage = lazy(loadWatch);
 const AdminPage = lazy(() => import('./pages/AdminPage'));
 const AdminSourcesPage = lazy(() => import('./pages/AdminSourcesPage'));
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const ProfilesPage = lazy(() => import('./pages/ProfilesPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
-const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const SettingsPage = lazy(loadSettings);
+/** Fetch the everyday screens once the app is idle, so first visits don't flash a loader. */
+function usePreloadedScreens() {
+  useEffect(() => {
+    const load = () => { for (const screen of [loadTitle, loadWatch, loadCatalogue, loadLibrary, loadSettings]) void screen().catch(() => {}); };
+    const idle = window.requestIdleCallback ?? ((callback: () => void) => window.setTimeout(callback, 1200));
+    const handle = idle(load);
+    return () => (window.cancelIdleCallback ?? window.clearTimeout)(handle as number);
+  }, []);
+}
 const MalCallbackPage = lazy(() => import('./components/MyAnimeListConnection').then(module => ({ default: module.MalCallbackPage })));
 function NotFound() {
   return (
@@ -90,6 +104,7 @@ function RouteReadiness() {
   );
 }
 export default function App() {
+  usePreloadedScreens();
   return (
     <AccountProvider>
       <AccountBoundary>

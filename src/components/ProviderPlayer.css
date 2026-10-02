@@ -7,45 +7,43 @@
   height: auto;
   aspect-ratio: 16 / 9;
 }
-.provider-player__footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px 20px;
-  padding: 10px 14px;
-  border-top: 1px solid #252525;
-  background: #101010;
-  color: #c8c8c8;
-  font-size: 12px;
+.provider-player--framed { position: relative; }
+/* A quiet spinner covers the empty frame until the provider page loads. */
+.provider-player__loading {
+  position: absolute;
+  inset: 0 0 auto;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: #000;
+  pointer-events: none;
+}
+/* The provider-player disclosure sits with the server choice on the watch page. */
+.provider-player__notice {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 13px;
   line-height: 1.5;
 }
-.provider-player--framed .provider-player__label {
-  position: static;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  letter-spacing: normal;
-}
-.provider-player__notice {
-  max-width: 50ch;
-}
 .provider-player__notice summary {
-  min-height: 32px;
-  display: list-item;
-  align-content: center;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted);
   cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--muted) 40%, transparent);
+  text-underline-offset: 3px;
 }
-.provider-player__notice[open] > div {
-  padding-top: 6px;
-}
+.provider-player__notice summary::-webkit-details-marker { display: none; }
 .provider-player__notice a {
-  color: #fff;
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+/* The iPhone app blocks popups natively, so the browser notice does not apply. */
+.solanime-native-ios .provider-player__notice { display: none; }
 .provider-player--framed .provider-player__timeout,
 .provider-player--framed .provider-player__error {
   position: static;
@@ -57,13 +55,8 @@
   min-height: 44px;
   font-size: 12px;
 }
-.provider-player__notice summary:focus-visible,
-.provider-player__notice a:focus-visible,
 .provider-player--framed .provider-player__timeout button:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 3px;
 }
-@media (max-width: 600px) {
-  .provider-player__footer { gap: 2px; }
-  .provider-player__footer > * { flex-basis: 100%; }
-}
+

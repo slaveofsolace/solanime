@@ -78,23 +78,34 @@
 .discovery-shell .category-navigation__trigger { gap: 8px; }
 .discovery-shell .category-navigation__trigger .icon { display: block; width: 12px; height: 12px; transform: rotate(90deg); }
 .discovery-shell .category-navigation__trigger[aria-expanded='true'] .icon { transform: rotate(-90deg); }
+/* The menu opens under its own button, like a native menu, not at the window edge. */
+.category-navigation { position: relative; }
 .category-navigation__panel {
   z-index: 110;
   position: absolute;
-  top: 100%;
-  right: clamp(20px, 3vw, 48px);
+  top: calc(100% + 8px);
+  left: 0;
+  right: auto;
   display: grid;
   grid-template-columns: 190px minmax(0, 1fr);
   gap: 16px;
-  max-width: 660px;
-  left: auto;
+  width: min(620px, calc(100vw - 2 * var(--gutter)));
   max-height: min(520px, calc(100svh - 140px));
   overflow: auto;
-  padding: 20px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-group);
   background: var(--surface);
   color: var(--text);
-  box-shadow: 0 20px 48px #0005;
-  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 24px 60px #0006;
+  transform-origin: top left;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion='reduced']) .category-navigation__panel { animation: menu-enter 160ms var(--motion-ease); }
+}
+@keyframes menu-enter {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: none; }
 }
 .category-navigation__collections { display: flex; flex-direction: column; border-right: 1px solid var(--line); padding-right: 24px; }
 .category-navigation__panel a { display: flex; align-items: center; min-height: 44px; padding: 8px; font-size: 14px; line-height: 1.4; }
@@ -204,16 +215,23 @@
 .discovery-shell .title-card__copy h2 { display: -webkit-box; min-height: 0; margin: 0; font-size: 14px; font-weight: 650; line-height: 1.45; white-space: normal; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .discovery-shell .title-card__availability { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; white-space: normal; }
 .discovery-shell .title-card__details { display: none; }
-.discovery-shell .title-card__actions { position: static; display: flex; justify-content: flex-start; margin: auto 0 0; gap: 8px; opacity: 1; pointer-events: auto; transform: none; }
-.discovery-shell :is(.card-open, .save-button, .card-info) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; width: 44px; padding: 10px; font-size: 0; border-radius: 0; border: 0; background: transparent; color: var(--accent-ink); backdrop-filter: none; }
-.discovery-shell :is(.card-open, .save-button, .card-info) .icon { width: 22px; height: 22px; }
-.discovery-shell :is(.card-open, .save-button, .card-info):hover { background: var(--surface-2); color: var(--text); }
+.discovery-shell .title-card { display: flex; flex-direction: column; }
+.discovery-shell .title-card__copy { display: flex; flex: 1; flex-direction: column; }
+/* Icons line up with the title's left edge (the 12px offset cancels the button inset). */
+.discovery-shell .title-card__actions { position: static; display: flex; justify-content: flex-start; margin: auto 0 0 -12px; padding-top: 4px; gap: 0; opacity: 1; pointer-events: auto; transform: none; }
+.discovery-shell :is(.card-open, .save-button, .card-info) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; width: 44px; padding: 12px; font-size: 0; border-radius: 50%; border: 0; background: transparent; color: var(--muted); backdrop-filter: none; }
+.discovery-shell :is(.card-open, .save-button, .card-info) .icon { width: 20px; height: 20px; }
+.discovery-shell :is(.card-open, .save-button, .card-info):hover { background: var(--control-hover); color: var(--text); }
+.discovery-shell .save-button[aria-pressed='true'] { color: var(--accent-ink); }
+/* Touch: the poster is the tap target; play, save and info live on the title page. */
+@media (hover: none) and (pointer: coarse) {
+  .discovery-shell :is(.catalogue-page, .home-page) .title-card__actions { display: none; }
+}
 .discovery-shell .title-card:is(:hover, :focus-within) .card-info { width: 44px; padding: 10px; }
 .discovery-shell .title-card:is(:hover, :focus-within) .card-info::after { content: none; }
 .discovery-shell .title-card { padding-bottom: 0; }
 .discovery-shell .title-card--poster .title-card__copy { position: relative; inset: auto; min-height: 0; padding: 10px 0 0; pointer-events: auto; background: transparent; }
-.discovery-shell .title-card--poster .title-card__copy h2 { min-height: 2.9em; color: var(--text); }
-.discovery-shell .title-card--poster .title-card__actions { margin-top: 7px; }
+.discovery-shell .title-card--poster .title-card__copy h2 { min-height: 0; color: var(--text); }
 .discovery-shell .title-card__copy :is(a, button) { pointer-events: auto; }
 .discovery-shell .title-card__meta { color: var(--muted); font-size: 12px; text-transform: none; letter-spacing: 0; }
 .discovery-shell .cover-fallback { background: var(--surface); }
@@ -324,7 +342,7 @@
   .discovery-shell .home-feature h2 { font-size: 34px; }
   .discovery-shell .home-feature .feature-synopsis { font-size: 14px; }
   .discovery-shell .genre-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .category-navigation__panel { left: 0; right: 0; max-width: none; grid-template-columns: 170px minmax(0,1fr); padding: 20px; gap: 16px; }
+  .category-navigation__panel { grid-template-columns: 170px minmax(0,1fr); padding: 16px; gap: 16px; }
   .category-navigation__genres > div { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .screen-collection > header { grid-template-columns: 1fr; }
 }
@@ -363,7 +381,12 @@
   .discovery-shell .home-page .rail-heading a { font-size: 11px; }
   .discovery-shell .home-page .rail-heading a .icon { width: 12px; }
   .discovery-shell .home-page .rail-arrows { display: none; }
-  .discovery-shell .home-page .rail-track { grid-auto-columns: calc((100% - 24px) / 2.25); gap: 12px; }
+  /* Three-and-a-bit posters per row: denser, and closer to the artwork's real size. */
+  .discovery-shell .home-page .rail-track { grid-auto-columns: calc((100% - 30px) / 3.3); gap: 10px; }
+  /* On phones a poster is one tap target; play, save and info live on the title page. */
+  .discovery-shell .home-page .rail-track .title-card__actions { display: none; }
+  .discovery-shell .home-page .rail-track .title-card__copy h2 { font-size: 13px; line-height: 1.25; }
+  .discovery-shell .home-page .rail-track .title-card__availability { margin: 2px 0 0; font-size: 11px; }
   .discovery-shell .category-navigation__panel { grid-template-columns: 1fr; }
   .category-navigation__collections { border: 0; border-bottom: 1px solid var(--line); padding: 0 0 14px; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
   .category-navigation__panel a { font-size: 13px; }

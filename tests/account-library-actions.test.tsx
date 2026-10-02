@@ -44,7 +44,7 @@ beforeEach(() => {
     accept: mocks.accept, refresh: mocks.refresh, clearProfile: vi.fn(), logout: vi.fn(),
   };
   mocks.state = {
-    watchlist: { items: [title], has: () => true, toggle: vi.fn() },
+    watchlist: { items: [title], lists: [], has: () => true, toggle: vi.fn(), move: vi.fn() },
     watched: { isWatched: () => false, toggle: vi.fn() },
     history: { entries: [entry], clear: mocks.clear, remove: vi.fn(), dismissSeries: vi.fn() },
   };

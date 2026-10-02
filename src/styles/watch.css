@@ -8,10 +8,11 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) var(--watch-aside);
   grid-template-areas:
+    'top top'
     'stage episodes'
     'info episodes'
     'extras episodes';
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   column-gap: var(--space-8);
   align-items: start;
   max-width: 1600px;
@@ -20,7 +21,7 @@
 }
 :root .site-shell .watch-page--theater {
   grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: 'stage' 'info' 'episodes' 'extras';
+  grid-template-areas: 'top' 'stage' 'info' 'episodes' 'extras';
   max-width: none;
 }
 
@@ -30,11 +31,12 @@
   min-width: 0;
 }
 :root .site-shell .watch-topbar {
+  grid-area: top;
   display: flex;
   align-items: center;
   gap: var(--space-2);
   min-height: 44px;
-  margin-bottom: var(--space-3);
+  margin: 0 0 var(--space-3) calc(-1 * var(--space-2));
 }
 :root .site-shell .watch-topbar__back {
   display: inline-flex;
@@ -76,6 +78,7 @@
 :root .site-shell .watch-info {
   grid-area: info;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-5);
   min-width: 0;
   padding: var(--space-6) 0 var(--space-2);
@@ -101,88 +104,81 @@
   letter-spacing: 0;
   text-transform: none;
 }
-:root .site-shell .watch-heading__number {
-  padding: 2px 7px;
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  color: var(--accent-ink);
-  font-size: 12px;
-  font-weight: 750;
-  font-variant-numeric: tabular-nums;
+:root .site-shell .watch-heading__episode span { min-width: 0; }
+:root .site-shell .watch-heading__title {
+  overflow: hidden;
+  color: var(--text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+:root .site-shell .watch-heading__title::before { content: '·'; margin-right: var(--space-2); color: var(--muted); }
 :root .site-shell .watch-heading h1 {
   font-size: clamp(24px, 2.4vw, 34px);
   line-height: 1.15;
 }
 :root .site-shell .watch-heading h1 a:hover { color: var(--accent-ink); }
 
-:root .site-shell .watch-save {
+:root .site-shell .watch-heading { align-items: center; }
+/* Previous, Next and My List form one compact cluster beside the title. */
+:root .site-shell .watch-actions {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  gap: var(--space-2);
+}
+:root .site-shell .watch-steps {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: var(--space-2);
+}
+:root .site-shell :is(.watch-step, .watch-save) {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
-  flex: none;
+  min-width: 44px;
   min-height: 44px;
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-3);
   border: 0;
   border-radius: var(--radius-pill);
   background: var(--control-fill);
   color: var(--text);
   font-weight: 650;
 }
-:root .site-shell .watch-save:hover:not(:disabled) { background: var(--control-hover); }
+:root .site-shell :is(.watch-step, .watch-save):hover:not(:disabled) { background: var(--control-hover); }
+:root .site-shell :is(.watch-step, .watch-save) .icon { width: 18px; height: 18px; }
+:root .site-shell .watch-step:disabled { opacity: 0.35; }
 :root .site-shell .watch-save[aria-pressed='true'] { color: var(--accent-ink); }
-:root .site-shell .watch-save .icon { width: 18px; height: 18px; }
-
-:root .site-shell .watch-steps {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--space-2);
-}
-:root .site-shell .watch-step {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  min-height: 56px;
-  padding: 0 var(--space-5);
-  border: 0;
-  border-radius: var(--radius-control);
-  background: var(--control-fill);
-  color: var(--text);
-  font-weight: 650;
-}
-:root .site-shell .watch-step:hover:not(:disabled) { background: var(--control-hover); }
-:root .site-shell .watch-step .icon { width: 18px; height: 18px; }
-:root .site-shell .watch-step:disabled { opacity: 0.4; }
 :root .site-shell .watch-step--next {
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-2) var(--space-5);
+  min-width: 0;
+  max-width: 280px;
+  padding: 0 var(--space-3) 0 var(--space-5);
   background: var(--accent);
   color: var(--on-accent);
-  text-align: left;
 }
 :root .site-shell .watch-step--next:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--accent) 88%, var(--text));
+  background: color-mix(in srgb, var(--accent) 86%, var(--text));
 }
 :root .site-shell .watch-step--next:disabled {
   background: var(--control-fill);
   color: var(--muted);
   opacity: 1;
 }
-:root .site-shell .watch-step__copy { display: grid; min-width: 0; line-height: 1.25; }
-:root .site-shell .watch-step__copy small {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-:root .site-shell .watch-step__copy strong {
-  overflow: hidden;
-  font-size: 15px;
-  text-overflow: ellipsis;
+:root .site-shell .watch-step__copy {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  min-width: 0;
   white-space: nowrap;
+}
+:root .site-shell .watch-step__copy small { font-size: 13px; font-weight: 600; opacity: 0.8; }
+:root .site-shell .watch-step__copy strong {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
 }
 
 :root .site-shell .watch-options {
@@ -243,7 +239,7 @@
   flex-direction: column;
   min-width: 0;
   max-height: calc(100svh - 96px - var(--space-6));
-  margin-top: calc(44px + var(--space-3));
+  margin-top: 0;
   padding: var(--space-4) 0 var(--space-2);
   border-radius: var(--radius-group);
   background: var(--surface);
@@ -553,7 +549,7 @@
 @media (max-width: 1080px) {
   :root .site-shell .watch-page {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'stage' 'info' 'episodes' 'extras';
+    grid-template-areas: 'top' 'stage' 'info' 'episodes' 'extras';
     grid-template-rows: none;
   }
   :root .site-shell .watch-episodes {
@@ -571,19 +567,24 @@
   :root .site-shell--watch :is(.masthead, .native-tab-bar, .site-footer) { display: none !important; }
   :root .site-shell--watch main { min-height: 100svh; padding-bottom: 0 !important; }
   :root .site-shell .watch-page { padding: 0 var(--gutter); column-gap: 0; }
-  :root .site-shell .watch-stage {
+  /* The top bar and the player pin together, the player directly below the bar. */
+  :root .site-shell .watch-topbar {
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 31;
+    box-sizing: content-box;
+    height: 48px;
+    min-height: 48px;
     margin: 0 calc(-1 * var(--gutter));
-    padding-top: env(safe-area-inset-top);
+    padding: env(safe-area-inset-top) var(--space-3) 0 var(--space-1);
+    color: #f5f5f5;
     background: #000;
   }
-  :root .site-shell .watch-topbar {
-    min-height: 48px;
-    margin: 0;
-    padding: 0 var(--space-3) 0 var(--space-1);
-    color: #f5f5f5;
+  :root .site-shell .watch-stage {
+    position: sticky;
+    top: calc(48px + env(safe-area-inset-top));
+    z-index: 30;
+    margin: 0 calc(-1 * var(--gutter));
     background: #000;
   }
   :root .site-shell .watch-topbar__back {
@@ -616,10 +617,12 @@
   :root .site-shell .player-stage .player-video video { max-height: 45svh; }
   :root .site-shell .watch-info { gap: var(--space-4); padding-top: var(--space-5); }
   :root .site-shell .watch-heading h1 { font-size: 22px; }
-  :root .site-shell .watch-save { width: 44px; padding: 0; justify-content: center; }
-  :root .site-shell .watch-save span { display: none; }
-  :root .site-shell .watch-step { min-height: 52px; padding: 0 var(--space-4); }
-  :root .site-shell .watch-step:not(.watch-step--next) span { display: none; }
+  :root .site-shell .watch-heading { flex-direction: column; align-items: stretch; gap: var(--space-4); }
+  :root .site-shell .watch-actions,
+  :root .site-shell .watch-steps { width: 100%; }
+  :root .site-shell .watch-steps { flex: 1; }
+  :root .site-shell .watch-step--next { flex: 1; max-width: none; min-height: 48px; }
+  :root .site-shell :is(.watch-step:not(.watch-step--next), .watch-save) { width: 48px; min-height: 48px; padding: 0; }
   :root .site-shell .watch-options { display: grid; gap: var(--space-4); }
   :root .site-shell .watch-option .segmented-control { display: flex; }
   :root .site-shell .watch-option .segmented-control:not(.segmented-control--scroll) button { flex: 1; }
@@ -654,3 +657,7 @@
 @media (max-width: 760px) {
   :root.solanime-native-ios .site-shell .watch-topbar { padding-right: 56px; }
 }
+
+/* Watched episodes recede so the next unwatched one stands out. */
+:root .site-shell .episode-grid > li[data-watched='true']:not([data-current='true']) > a { opacity: 0.5; }
+:root .site-shell .episode-grid > li[data-watched='true']:not([data-current='true']) > a:hover { opacity: 0.8; }

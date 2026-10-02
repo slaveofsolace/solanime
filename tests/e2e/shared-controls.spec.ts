@@ -106,7 +106,7 @@ test('a long native episode option does not widen the phone document', async ({ 
   await page.setViewportSize({ width: 390, height: 844 });
   await longEpisodeFixture(page);
   await watch(page);
-  await expect(page.locator('.watch-heading__episode')).toContainText(LONG_EPISODE_LABEL);
+  await expect(page.locator('.watch-heading__title')).toHaveText(LONG_EPISODE_LABEL.replace(/^Episode 1 — /, ''));
   await expect(page.locator('.watch-episodes li[data-current="true"]')).toContainText(LONG_EPISODE_LABEL);
   // Long names truncate inside the top bar and episode rail instead of widening the page.
   await noOverflow(page);

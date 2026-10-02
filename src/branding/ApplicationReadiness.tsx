@@ -22,7 +22,10 @@ export default function ApplicationReadiness({ children }: PropsWithChildren) {
   const { pathname } = useLocation();
   const auth = useAccount();
   const { preferences: [prefs] } = useAppState();
-  const [dismissed, setDismissed] = useState(() => isBrandSessionResolved(BOOT));
+  // The iPhone app shows its own native launch screen while the page loads, so a
+  // second web splash would only replay the brand; screens show their own skeletons.
+  const [dismissed, setDismissed] = useState(() =>
+    isBrandSessionResolved(BOOT) || document.documentElement.classList.contains('solanime-native-ios'));
   const [state, setState] = useState<Readiness>({ path: '', ready: false });
   const dataRoute = pathname === '/' || pathname === '/catalogue' || pathname === '/search' || /^\/(title|watch)\//.test(pathname);
   // The private-site gate can render before a data page mounts. An account

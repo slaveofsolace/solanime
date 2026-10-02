@@ -227,15 +227,22 @@
   }
 
   .site-shell.discovery-shell .title-page .title-hero .spotlight-art__poster > :is(img, .cover-fallback) {
-    top: 0;
+    /* A poster is a small image: show it as a crisp card over its own
+       blurred wash, never stretched across the screen. */
+    position: absolute;
+    top: calc(env(safe-area-inset-top) + 72px);
     right: 0;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    width: min(50vw, 200px);
+    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 360 / 510;
     object-fit: cover;
-    object-position: center 24%;
-    filter: none;
-    -webkit-mask-image: none;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgb(0 0 0 / 55%);
     mask-image: none;
+    -webkit-mask-image: none;
     transform: none;
   }
 
@@ -245,6 +252,14 @@
     background:
       linear-gradient(180deg, #000a 0%, transparent 25%),
       linear-gradient(180deg, transparent 30%, #090a0c7a 49%, #090a0ce8 67%, #090a0c 93%);
+  }
+
+  /* The phone hero is always a dark artwork stage, so its text uses dark-stage
+     tokens in either theme. */
+  .site-shell.discovery-shell .title-page .title-hero {
+    --text: #f6f6f7;
+    --muted: #c3c5cc;
+    color-scheme: dark;
   }
 
   .site-shell.discovery-shell .title-page .title-hero__content {
