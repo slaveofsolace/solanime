@@ -453,6 +453,7 @@ function WatchSession() {
                   <button
                     key={v.id}
                     type="button"
+                    data-language={v.language}
                     aria-pressed={v.language === language}
                     onClick={() => v.language !== language && setParams({ language: v.language }, { replace: true })}
                   >
@@ -470,6 +471,7 @@ function WatchSession() {
                   <button
                     key={p.mappingId}
                     type="button"
+                    data-mapping-id={p.mappingId}
                     aria-pressed={p.mappingId === candidate?.mappingId}
                     onClick={() => p.mappingId !== candidate?.mappingId && chooseSource(p.mappingId)}
                   >

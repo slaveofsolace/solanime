@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { fixtureArt, episode, watch, noOverflow } from './helpers';
+import { fixtureArt, episode, watch, noOverflow, sourceIds, chooseSource } from './helpers';
 import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 test('actual native controls change media state without provider requests or popups', async ({
@@ -49,12 +49,15 @@ test('actual native controls change media state without provider requests or pop
   await expect(page.getByRole('button', { name: 'Show elapsed time' })).toBeVisible();
   const h = await video.elementHandle();
   // Header controls must not remount or reset an already loaded player.
-  const headerControl = info.project.name.startsWith('mobile')
-    ? page.locator('.header-search__trigger')
-    : page.getByRole('button', { name: 'Categories', exact: true });
-  await headerControl.click();
-  await expect(headerControl).toHaveAttribute('aria-expanded', 'true');
-  await page.keyboard.press('Escape');
+  // Phones watch in a focused screen without the site header.
+  if (info.project.name.startsWith('mobile')) {
+    await expect(page.locator('.masthead')).toBeHidden();
+  } else {
+    const headerControl = page.getByRole('button', { name: 'Categories', exact: true });
+    await headerControl.click();
+    await expect(headerControl).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+  }
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   const theater = page.getByRole('button', { name: 'Theater mode', exact: true });
   if (info.project.name.startsWith('mobile')) {
@@ -273,10 +276,7 @@ test('failed media load offers a real retry with no iframe fallback', async ({ p
 
 test('compatible native source switching carries the current version position', async ({ page }) => {
   const e = await watch(page);
-  const source = page.getByRole('combobox', { name: 'Playback source' });
-  const options = await source.locator('option:not([disabled])').evaluateAll(options =>
-    options.map(option => (option as HTMLOptionElement).value),
-  );
+  const options = await sourceIds(page);
   expect(options.length).toBeGreaterThan(1);
   const video = page.locator('video');
   await video.evaluate((element: HTMLVideoElement) => {
@@ -294,7 +294,7 @@ test('compatible native source switching carries the current version position', 
         })
       : route.continue(),
   );
-  await source.selectOption(options[1]);
+  await chooseSource(page, options[1]);
   await expect(page.getByText('Transient source failure')).toBeVisible();
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('video')).toBeVisible();

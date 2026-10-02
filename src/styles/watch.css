@@ -40,7 +40,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 var(--space-3) 0 var(--space-2);
   border-radius: var(--radius-pill);
   color: var(--muted);
@@ -69,8 +69,8 @@
   min-height: 0;
   aspect-ratio: 16 / 9;
 }
-:root .site-shell .player-stage .player-video video { max-height: 70svh; }
-:root .site-shell .watch-page--theater .player-stage .player-video video { max-height: 82svh; }
+:root .site-shell .player-stage .player-video video { max-height: 62svh; }
+:root .site-shell .watch-page--theater .player-stage .player-video video { max-height: 78svh; }
 
 /* Info: what is playing, and what to do next. */
 :root .site-shell .watch-info {
@@ -211,7 +211,7 @@
 :root .site-shell .watch-option .segmented-control { max-width: 100%; }
 :root .site-shell .watch-option .segmented-control button {
   flex: 0 0 auto;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 var(--space-4);
   color: var(--muted);
   font-weight: 650;
@@ -316,7 +316,7 @@
 :root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-search input {
   width: 100%;
   max-width: none;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 var(--space-3) 0 36px;
   border: 0;
   border-radius: var(--radius-control);
@@ -325,7 +325,7 @@
 }
 :root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-current-jump {
   flex: none;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 var(--space-3);
   border-radius: var(--radius-control);
   background: var(--control-fill);
@@ -342,7 +342,7 @@
 }
 :root .site-shell :is(.watch-episodes, .title-page .episode-browser--compact) .episode-ranges button {
   flex: none;
-  min-height: 34px;
+  min-height: 36px;
   padding: 0 var(--space-3);
   border: 0;
   border-radius: var(--radius-pill);
@@ -485,9 +485,9 @@
   display: grid;
   place-items: center;
   flex: none;
-  width: 40px;
-  height: 40px;
-  min-height: 40px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
   margin-right: var(--space-1);
   padding: 0;
   border: 0;
@@ -515,8 +515,10 @@
 /* The title page shares the episode list when no episode stills exist. */
 :root .site-shell .title-page .episode-browser--compact :is(.episode-controls, .episode-ranges) { padding-inline: 0; }
 :root .site-shell .title-page .episode-browser--compact .episode-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-4);
   max-height: none;
-  margin-inline: calc(-1 * var(--space-2));
+  margin-inline: 0;
   padding: 0;
   overflow: visible;
 }
@@ -639,7 +641,16 @@
   :root .site-shell .watch-extras { padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom)); }
 }
 
+@media (max-width: 760px) {
+  :root .site-shell .title-page .episode-browser--compact .episode-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* Title facts read as one line of metadata. */
 :root .site-shell .title-page .title-facts { display: flex; flex-wrap: wrap; align-items: center; margin-block: 0 var(--space-3); }
 :root .site-shell .title-page .title-facts > div { display: flex; align-items: center; margin: 0; padding: 0; }
 :root .site-shell .title-page .title-facts :is(dt, dd) { margin: 0; line-height: 1.35; }
+
+/* The iPhone app places its AirPlay button in the top bar's trailing corner. */
+@media (max-width: 760px) {
+  :root.solanime-native-ios .site-shell .watch-topbar { padding-right: 56px; }
+}

@@ -35,26 +35,22 @@ test('320px catalogue and watch surfaces stay usable without horizontal page ove
   const title = await (await page.request.get('/api/titles/paper-lantern')).json();
   const episode = title.episodes[0];
   await page.goto(`/watch/paper-lantern/${episode.id}?language=sub`);
-  const source = page.getByLabel('Playback source', { exact: true });
-  const version = page.getByLabel('Episode language', { exact: true });
-  await expect(source).toBeVisible();
+  const source = page.getByRole('group', { name: 'Server', exact: true });
+  const version = page.getByRole('group', { name: 'Audio', exact: true });
+  await expect(source.getByRole('button').first()).toBeVisible();
   await expect(version).toBeVisible();
-  await expect(page.locator('.source-choice').getByText('Source', { exact: true })).toBeVisible();
-  await expect(page.locator('.version-choice').getByText('Version', { exact: true })).toBeVisible();
-  const sourceBox = (await source.boundingBox())!;
-  const versionBox = (await version.boundingBox())!;
-  expect(sourceBox.width).toBeGreaterThanOrEqual(120);
-  expect(versionBox.width).toBeGreaterThanOrEqual(120);
-  expect(sourceBox.height).toBeGreaterThanOrEqual(44);
-  expect(versionBox.height).toBeGreaterThanOrEqual(44);
-  expect(sourceBox.y).toBeCloseTo(versionBox.y, 0);
+  for (const button of [...await source.getByRole('button').all(), ...await version.getByRole('button').all()]) {
+    expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  }
   await expectNoOverflow(page);
 
+  // Phones get a focused watch screen: a top bar with the way back replaces the masthead.
   await page.setViewportSize({ width: 390, height: 844 });
-  const masthead = (await page.locator('.masthead').boundingBox())!;
-  expect(masthead.y).toBe(0);
-  expect(masthead.height).toBeGreaterThanOrEqual(56);
-  expect((await source.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  await expect(page.locator('.masthead')).toBeHidden();
+  const topbar = (await page.locator('.watch-topbar').boundingBox())!;
+  expect(topbar.y).toBe(0);
+  expect(topbar.height).toBeGreaterThanOrEqual(44);
+  expect((await source.getByRole('button').first().boundingBox())!.height).toBeGreaterThanOrEqual(44);
   expect((await version.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await expectNoOverflow(page);
 });

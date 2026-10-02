@@ -62,3 +62,20 @@ export async function expandAccent(page: Page) {
   const disclosure = page.getByRole('button', { name: 'Accent color', exact: true });
   if (await disclosure.getAttribute('aria-expanded') === 'false') await disclosure.click();
 }
+/** Watch-page server pills: one button per playable source, keyed by mapping id. */
+export const sourceButtons = (page: Page) =>
+  page.getByRole('group', { name: 'Server', exact: true }).getByRole('button');
+export async function sourceIds(page: Page) {
+  await expect(sourceButtons(page).first()).toBeVisible();
+  return sourceButtons(page).evaluateAll((buttons) =>
+    buttons.map((button) => (button as HTMLElement).dataset.mappingId ?? ''),
+  );
+}
+export const chooseSource = (page: Page, mappingId: string) =>
+  page.locator(`[data-mapping-id="${mappingId}"]`).click();
+export const selectedSource = (page: Page) =>
+  page.locator('[data-mapping-id][aria-pressed="true"]');
+export const chooseLanguage = (page: Page, language: string) =>
+  page.getByRole('group', { name: 'Audio', exact: true }).locator(`[data-language="${language}"]`).click();
+export const selectedLanguage = (page: Page) =>
+  page.getByRole('group', { name: 'Audio', exact: true }).locator('[aria-pressed="true"]');

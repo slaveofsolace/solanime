@@ -246,14 +246,15 @@ button[aria-pressed='true'] {
     font-size: max(16px, 1em);
   }
   :root:not([data-motion='reduced']) :is(button, .button, summary, .title-card__art, .episode-grid a, .native-tab-bar a, .watch-topbar__back):not(:disabled) {
-    transition: transform 120ms var(--motion-ease), opacity 120ms var(--motion-ease);
+    /* `scale` composes with any positioning transform a control already has. */
+    transition: scale 120ms var(--motion-ease), opacity 120ms var(--motion-ease);
   }
   :root:not([data-motion='reduced']) :is(button, .button, summary, .episode-grid a, .watch-topbar__back):not(:disabled):active {
-    transform: scale(0.96);
+    scale: 0.96;
     opacity: 0.85;
   }
-  :root:not([data-motion='reduced']) .title-card__art:active { transform: scale(0.97); }
-  :root:not([data-motion='reduced']) .native-tab-bar a:active { transform: scale(0.9); }
+  :root:not([data-motion='reduced']) .title-card__art:active { scale: 0.97; }
+  :root:not([data-motion='reduced']) .native-tab-bar a:active { scale: 0.9; }
 }
 /* Inside the iPhone app there is no browser page to bounce or preview. */
 :root.solanime-native-ios {

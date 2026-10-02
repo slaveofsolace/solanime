@@ -67,7 +67,7 @@ test('catalogue play opens episode one while details remain separately available
     await card.getByRole('button', { name: 'Start or continue Long Journey' }).click();
   }
   await expect(page).toHaveURL(/\/watch\/long-journey\/[^/?]+\?language=sub/);
-  await expect(page.getByRole('combobox', { name: 'Choose episode' })).toHaveValue(/.+/);
+  await expect(page.locator('.watch-episodes li[data-current="true"]')).toHaveCount(1);
 });
 
 test('series cards, season changes and back navigation work at 320 and desktop widths', async ({ page }, info) => {
@@ -88,7 +88,7 @@ test('series cards, season changes and back navigation work at 320 and desktop w
     await season.selectOption('all');
     await expect(page.locator('.episode-grid > li')).toHaveCount(3);
     await expect(page.locator('.episode-browser')).toHaveClass(/episode-browser--no-stills/);
-    await expect(page.locator('.episode-thumbnail').first()).toBeHidden();
+    expect((await page.locator('.episode-thumbnail').first().boundingBox())!.width).toBeLessThanOrEqual(48);
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`series-${width}.png`), fullPage: true });
     await page.locator('.episode-grid li > a').first().click();

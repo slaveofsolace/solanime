@@ -2,6 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { accountFixture } from './account-fixture';
 import { fixtureArt, noOverflow, watch } from './helpers';
+import { DEFAULT_ACCENT, themeTokens } from '../../src/lib/theme';
 
 test('signed iPhone presentation keeps readable controls and consistent surfaces', async ({ page }, info) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -89,7 +90,7 @@ test('signed iPhone presentation keeps readable controls and consistent surfaces
 
   await watch(page);
   await noOverflow(page);
-  const sourceHeight = await page.locator('.source-choice select').evaluate(
+  const sourceHeight = await page.locator('.watch-options [data-mapping-id]').first().evaluate(
     (element) => element.getBoundingClientRect().height,
   );
   expect(sourceHeight).toBeGreaterThanOrEqual(44);
@@ -130,7 +131,13 @@ test('signed iPhone presentation keeps readable controls and consistent surfaces
     for (const section of ['appearance', 'playback']) {
       await page.goto(`/settings?section=${section}`);
       await expect(page.locator(`#${section}`)).toBeVisible();
-      await page.locator('html').evaluate((element, value) => element.setAttribute('data-theme', value), theme);
+      // Mirror applyTheme: the theme attribute and its contrast-derived accent inks change together.
+      const tokens = themeTokens(DEFAULT_ACCENT, theme as 'dark' | 'light');
+      await page.locator('html').evaluate((element, { value, tokens }) => {
+        element.setAttribute('data-theme', value);
+        (element as HTMLElement).style.setProperty('--accent-ink', tokens.ink);
+        (element as HTMLElement).style.setProperty('--on-accent', tokens.foreground);
+      }, { value: theme, tokens });
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
       expect(results.violations.map((violation) => ({
         id: violation.id,

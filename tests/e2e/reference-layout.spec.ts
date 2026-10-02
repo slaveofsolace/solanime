@@ -48,11 +48,12 @@ test('320px controls stay on one row and episode labels remain readable', async 
   await page.screenshot({ path: info.outputPath('reference-title-320.png'), fullPage: true });
 
   await watch(page);
-  const sourceControl = await page.locator('.source-choice').boundingBox();
-  const versionControl = await page.locator('.version-choice').boundingBox();
-  expect(sourceControl!.width).toBeGreaterThanOrEqual(120);
-  expect(versionControl!.width).toBeGreaterThanOrEqual(120);
-  expect(versionControl!.y).toBeCloseTo(sourceControl!.y, 0);
+  // Audio and server choices each take the full phone width, one row each.
+  const sourceControl = await page.getByRole('group', { name: 'Server', exact: true }).boundingBox();
+  const versionControl = await page.getByRole('group', { name: 'Audio', exact: true }).boundingBox();
+  expect(sourceControl!.width).toBeGreaterThanOrEqual(260);
+  expect(versionControl!.width).toBeGreaterThanOrEqual(260);
+  expect(sourceControl!.y).toBeGreaterThan(versionControl!.y);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('reference-watch-320.png'), fullPage: true });
 });

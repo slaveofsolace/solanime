@@ -94,8 +94,11 @@ test('a long episode does not squeeze source and language at tablet width', asyn
   await page.setViewportSize({ width: 768, height: 1024 });
   await longEpisodeFixture(page);
   await watch(page);
-  await readableSelection(page.getByRole('combobox', { name: 'Playback source', exact: true }), 'HD-1');
-  await readableSelection(page.getByRole('combobox', { name: 'Episode language', exact: true }), 'SUB');
+  for (const [group, label] of [['Server', 'HD-1'], ['Audio', 'Subtitled']]) {
+    const choice = page.getByRole('group', { name: group, exact: true }).getByRole('button', { name: label, exact: true });
+    await expect(choice).toBeVisible();
+    expect(await choice.evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
+  }
   await noOverflow(page);
 });
 
@@ -103,13 +106,13 @@ test('a long native episode option does not widen the phone document', async ({ 
   await page.setViewportSize({ width: 390, height: 844 });
   await longEpisodeFixture(page);
   await watch(page);
-  const episode = page.getByRole('combobox', { name: 'Choose episode', exact: true });
-  await expect(episode.locator('option:checked')).toHaveText(LONG_EPISODE_LABEL);
-  // WebKit can keep the field's box narrow while its option widens scrollWidth.
+  await expect(page.locator('.watch-heading__episode')).toContainText(LONG_EPISODE_LABEL);
+  await expect(page.locator('.watch-episodes li[data-current="true"]')).toContainText(LONG_EPISODE_LABEL);
+  // Long names truncate inside the top bar and episode rail instead of widening the page.
   await noOverflow(page);
-  const next = await episode.locator('option').nth(1).evaluate(option => ({ value: option.getAttribute('value')!, label: option.textContent! }));
-  await episode.selectOption(next.value);
-  await expect.poll(() => new URL(page.url()).pathname).toBe(`/watch/paper-lantern/${next.value}`);
-  await expect(episode.locator('option:checked')).toHaveText(next.label);
+  const current = new URL(page.url()).pathname;
+  await page.getByRole('button', { name: 'Next episode', exact: true }).click();
+  await expect.poll(() => new URL(page.url()).pathname).not.toBe(current);
+  await expect(page.locator('.watch-episodes li[data-current="true"]')).not.toContainText(LONG_EPISODE_LABEL);
   await noOverflow(page);
 });

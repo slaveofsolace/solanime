@@ -68,11 +68,12 @@ private struct ProtectedRootView: View {
                     .id(attempt)
 
                     if loaded && onWatchRoute {
+                        // Sits in the watch screen's top bar, which reserves
+                        // this corner in the iPhone app, not over the video.
                         AirPlayRoutePicker()
                             .frame(width: 44, height: 44)
-                            .background(.ultraThinMaterial, in: Circle())
-                            .padding(.top, 68)
-                            .padding(.trailing, 16)
+                            .padding(.top, 2)
+                            .padding(.trailing, 8)
                             .accessibilityLabel("Choose AirPlay device")
                     }
 
@@ -173,7 +174,9 @@ struct ProtectedSiteView: UIViewRepresentable {
         // Style only the app's first-party main document with iOS controls and
         // spacing. Provider frames receive no script, message handler, or bridge.
         configuration.userContentController.addUserScript(WKUserScript(
-            source: "(() => { const mark = () => document.documentElement?.classList.add('solanime-native-ios'); mark(); document.addEventListener('DOMContentLoaded', mark, { once: true }); })();",
+            // The app is not a page to pinch-zoom: lock the viewport scale so
+            // taps on controls never zoom the interface.
+            source: "(() => { const mark = () => document.documentElement?.classList.add('solanime-native-ios'); const lock = () => { const meta = document.querySelector('meta[name=viewport]'); if (meta) meta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover'); }; mark(); document.addEventListener('DOMContentLoaded', () => { mark(); lock(); }, { once: true }); })();",
             injectionTime: .atDocumentStart,
             forMainFrameOnly: true
         ))
@@ -191,9 +194,20 @@ struct ProtectedSiteView: UIViewRepresentable {
                 && webView.url?.path.hasPrefix("/watch/") == true
             DispatchQueue.main.async {
                 coordinator?.onWatchRouteChange(onWatchRoute)
+                webView.scrollView.refreshControl = onWatchRoute ? nil : coordinator?.refreshControl
             }
         }
         view.allowsBackForwardNavigationGestures = true
+        // Long-pressing a title should not open a Safari link preview.
+        view.allowsLinkPreview = false
+        // Pull down to refresh, as in other iOS apps. It is removed on watch
+        // routes so a downward swipe never reloads a playing episode.
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .white
+        refresh.addTarget(context.coordinator, action: #selector(Coordinator.refresh(_:)), for: .valueChanged)
+        view.scrollView.refreshControl = refresh
+        context.coordinator.refreshControl = refresh
+        context.coordinator.webView = view
         view.isOpaque = false
         view.backgroundColor = .black
         view.scrollView.backgroundColor = .black
@@ -225,7 +239,18 @@ struct ProtectedSiteView: UIViewRepresentable {
         let onWatchRouteChange: (Bool) -> Void
         var initialNavigation: WKNavigation?
         var urlObservation: NSKeyValueObservation?
+        var refreshControl: UIRefreshControl?
         private var rejectedWindowCount = 0
+
+        weak var webView: WKWebView?
+
+        @objc func refresh(_ control: UIRefreshControl) {
+            guard let webView else {
+                control.endRefreshing()
+                return
+            }
+            webView.reload()
+        }
 
         init(onFailure: @escaping (String) -> Void,
              onLoad: @escaping () -> Void,
@@ -236,6 +261,7 @@ struct ProtectedSiteView: UIViewRepresentable {
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            refreshControl?.endRefreshing()
             if navigation === initialNavigation { onLoad() }
         }
 
@@ -279,6 +305,7 @@ struct ProtectedSiteView: UIViewRepresentable {
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+            refreshControl?.endRefreshing()
             if navigation === initialNavigation {
                 onFailure("The site did not load. Check your connection and retry.")
             }
