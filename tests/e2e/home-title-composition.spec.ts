@@ -21,14 +21,14 @@ async function fixtureBanner(page: Page, bannerUrl: string) {
   });
 }
 
-test('home uses cinematic artwork with an uncropped desktop poster and a crisp mobile poster card', async ({ page }, info) => {
+test('home uses cinematic artwork with a poster card on desktop and mobile', async ({ page }, info) => {
   if (info.project.name.startsWith('mobile')) await page.setViewportSize({ width: 393, height: 852 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   const image = page.locator('.home-feature .spotlight-art__poster img');
-  const mobile = info.project.name.startsWith('mobile');
-  await expect(image).toHaveCSS('object-fit', mobile ? 'cover' : 'contain');
+  // Both layouts show the poster as a card at its own proportions.
+  await expect(image).toHaveCSS('object-fit', 'cover');
   const measurements = await page.evaluate(() => {
     const hero = document.querySelector('.home-feature')!.getBoundingClientRect();
     const copy = document.querySelector('.home-feature__copy')!.getBoundingClientRect();

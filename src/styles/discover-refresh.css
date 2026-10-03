@@ -181,7 +181,7 @@
 .discovery-shell .home-feature .feature-dots span { width: 28px; height: 6px; background: #ffffff5c; border-radius: 4px; }
 .discovery-shell .home-feature .feature-dots [aria-pressed='true'] span { width: 28px; background: var(--accent); }
 .discovery-shell .home-feature .spotlight-art__poster { transform: none; inset: 0; }
-.discovery-shell .home-feature .spotlight-art__poster > img { top: 7%; right: 12%; width: min(32%, 340px); height: 74%; object-fit: contain; transform: none; }
+.discovery-shell .home-feature .spotlight-art__poster > img { top: 10%; right: 12%; width: min(22%, 250px); height: auto; aspect-ratio: 360 / 510; object-fit: cover; border-radius: 12px; box-shadow: 0 30px 70px rgb(0 0 0 / 55%); transform: none; }
 .discovery-shell .home-feature .spotlight-art__poster::before { filter: blur(32px) brightness(.45); }
 /* Short source banners are not tall key art. Preserve their detail as a
    panoramic backdrop and show the actual poster at its intended proportions. */
@@ -223,6 +223,12 @@
 .discovery-shell :is(.card-open, .save-button, .card-info) .icon { width: 20px; height: 20px; }
 .discovery-shell :is(.card-open, .save-button, .card-info):hover { background: var(--control-hover); color: var(--text); }
 .discovery-shell .save-button[aria-pressed='true'] { color: var(--accent-ink); }
+/* Mouse: card actions appear with the card, so rows read as artwork, not icon strips. */
+@media (hover: hover) and (pointer: fine) {
+  .discovery-shell .title-card .title-card__actions { opacity: 0; transition: opacity var(--motion-fast) ease; }
+  .discovery-shell .title-card:is(:hover, :focus-within) .title-card__actions,
+  .discovery-shell .title-card .save-button[aria-pressed='true'] { opacity: 1; }
+}
 /* Touch: the poster is the tap target; play, save and info live on the title page. */
 @media (hover: none) and (pointer: coarse) {
   .discovery-shell :is(.catalogue-page, .home-page) .title-card__actions { display: none; }
@@ -250,13 +256,13 @@
 .discovery-shell .home-page .continue-progress { position: static; height: 4px; margin: 10px 0 4px; background: var(--line); }
 .discovery-shell .home-page .continue-remove { opacity: 1; min-height: 44px; border: 0; border-radius: 2px; background: #08090cdd; }
 .discovery-shell .home-page .continue-card__art > .icon { width: 44px; height: 44px; }
-.screen-collection { padding-top: 36px; margin: 20px 0 48px; background: var(--surface); }
+.screen-collection { margin: 0; background: transparent; }
 .screen-collection > header { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; margin: 0 var(--gutter) 34px; }
 .screen-collection > header > p { grid-column: 1 / -1; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent-ink); }
 .screen-collection > header h2 { font-size: 30px; }
 .screen-collection > header nav { display: flex; gap: 24px; }
 .screen-collection > header a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; }
-.discovery-shell .screen-collection .home-rail { padding-bottom: 36px; margin-bottom: 0; }
+.discovery-shell .screen-collection .home-rail { padding-bottom: 0; }
 .discovery-shell .genre-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0 28px; }
 .discovery-shell .genre-grid a { width: auto; min-width: 0; min-height: 60px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 0; }
 .discovery-shell .genre-grid strong { font-size: 14px; }
