@@ -250,7 +250,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           if (result.account.approval_state === 'rejected')
             throw new AppError(403, 'BLOCKED', 'This account request was declined.', { reason: 'ACCOUNT_REJECTED' });
           if (result.created) return accountReply(202, pendingReply(recoveryCode));
-          throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. Please try signing in after you receive a confirmation.',
+          throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. The operator reviews requests by hand, so try signing in again later.',
             { reason: 'ACCOUNT_PENDING_APPROVAL' });
         }
         const oldRaw = cookieValue(request, name);

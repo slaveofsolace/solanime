@@ -3,6 +3,7 @@ import { DatabaseSync, type SQLInputValue } from 'node:sqlite';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createCloudAccounts, type CloudAccountConfig } from '../server/cloud/auth/index';
 import { FirebaseAuthError } from '../server/cloud/auth/firebase';
+import { humanCheckConfig } from '../server/cloud/auth/humanCheck';
 import { digest, encodeBytes, openCredentials, randomToken, sealCredentials } from '../server/cloud/auth/crypto';
 import type { AccountDatabase, AccountStatement, CloudProfile, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from '../server/cloud/auth/types';
 import { generatedTestPassphrase, generatedTestToken } from './helpers/auth-material';
@@ -236,6 +237,27 @@ describe('D1 managed account bridge', () => {
     const r = await f.client().call('register', { email: 'offline@example.test', password, humanCheck: 'token' });
     expect(r.response.status).toBe(503);
     expect(r.body.error.details?.reason).toBe('HUMAN_CHECK_UNAVAILABLE');
+  });
+  it('fails closed when Turnstile answers with an error status', async () => {
+    const f = fixture({ humanCheck: { siteKey: 'k', secret: 's', hostnames: ['preview.solanime.pages.dev'],
+      fetcher: (async () => new Response('busy', { status: 500 })) as typeof fetch } });
+    const r = await f.client().call('register', { email: 'busy@example.test', password, humanCheck: 'token' });
+    expect(r.response.status).toBe(503);
+    expect(r.body.error.details?.reason).toBe('HUMAN_CHECK_UNAVAILABLE');
+  });
+  it('refuses sign-up when only one Turnstile key is set', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    for (const keys of [['site', undefined], [undefined, 'secret']] as const) {
+      const humanCheck = humanCheckConfig(keys[0], keys[1], [origin]);
+      expect(humanCheck).toBeDefined();
+      const f = fixture({ humanCheck });
+      const r = await f.client().call('register', { email: 'half@example.test', password, humanCheck: 'token' });
+      expect(r.response.status).toBe(503);
+      expect(r.body.error.details?.reason).toBe('HUMAN_CHECK_UNAVAILABLE');
+    }
+    expect(warn).toHaveBeenCalled();
+    expect(humanCheckConfig(undefined, undefined, [origin])).toBeUndefined();
+    warn.mockRestore();
   });
   it('keeps an interrupted signup pending when the applicant signs in instead', async () => {
     const f = fixture({ approvalRequired: true, privateSite: true });

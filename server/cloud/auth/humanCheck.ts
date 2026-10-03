@@ -7,6 +7,8 @@ export type HumanCheckConfig = {
   /** Page hostnames a solved challenge may come from. */
   hostnames: string[];
   fetcher?: typeof fetch;
+  /** Only one of the two keys is set: refuse rather than run unprotected. */
+  incomplete?: boolean;
 };
 export type HumanCheckAction = 'register' | 'recover';
 
@@ -14,11 +16,17 @@ const SITEVERIFY = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const failed = () => new AppError(400, 'BAD_REQUEST', 'Complete the verification check and try again.', { reason: 'HUMAN_CHECK_FAILED' });
 
 export function humanCheckConfig(siteKey: string | undefined, secret: string | undefined, origins: string[], fetcher?: typeof fetch): HumanCheckConfig | undefined {
-  if (!siteKey || !secret) return;
+  if (!siteKey && !secret) return;
+  if (!siteKey || !secret) {
+    console.warn('Turnstile needs both TURNSTILE_SITE_KEY and TURNSTILE_SECRET_KEY; sign-up and recovery are refused until both are set.');
+    return { siteKey: '', secret: '', hostnames: [], fetcher, incomplete: true };
+  }
   return { siteKey, secret, hostnames: origins.map((origin) => new URL(origin).hostname), fetcher };
 }
 
 export async function verifyHumanCheck(config: HumanCheckConfig, token: unknown, action: HumanCheckAction, ip: string) {
+  if (config.incomplete)
+    throw new AppError(503, 'UNAVAILABLE', 'Verification is not fully configured. Contact the operator.', { reason: 'HUMAN_CHECK_UNAVAILABLE' });
   // Turnstile tokens are at most 2048 characters and valid once.
   if (typeof token !== 'string' || !token || token.length > 2048) throw failed();
   const form = new FormData();

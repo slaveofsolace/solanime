@@ -29,6 +29,7 @@ const apiHeaders = {
   'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store',
   'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer',
   'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'", 'X-Frame-Options': 'DENY',
+  'X-Robots-Tag': 'noindex, nofollow, noarchive',
 };
 const json = (body: unknown, status = 200, headers: Record<string, string> = {}) => new Response(JSON.stringify(body), { status, headers: { ...apiHeaders, ...headers } });
 const number = (value: string | null, fallback: number, max = 100_000) => {

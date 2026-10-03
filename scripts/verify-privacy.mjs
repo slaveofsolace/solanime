@@ -25,6 +25,8 @@ const checks = [
   ['source map reference', /[#@] sourceMappingURL=/g, () => true],
 ];
 
+// CI logs are public: show enough to find the match, not the value itself.
+const mask = (value) => value.length <= 4 ? '***' : `${value.slice(0, 2)}***${value.slice(-2)}`;
 const findings = [];
 const walk = (dir) => {
   for (const name of readdirSync(dir)) {
@@ -35,7 +37,7 @@ const walk = (dir) => {
     const bytes = readFileSync(path);
     const body = text.has(extname(name).toLowerCase()) ? bytes.toString('utf8') : bytes.toString('latin1');
     for (const [label, pattern, keep] of checks)
-      for (const match of body.match(pattern) ?? []) if (keep(match)) findings.push(`${file}: ${label} "${match}"`);
+      for (const match of body.match(pattern) ?? []) if (keep(match)) findings.push(`${file}: ${label} "${mask(match)}"`);
     const lower = body.toLowerCase();
     for (const term of terms) if (lower.includes(term.toLowerCase())) findings.push(`${file}: private term #${terms.indexOf(term) + 1}`);
   }

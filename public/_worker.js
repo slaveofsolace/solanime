@@ -22,6 +22,7 @@ function problem(status, code, message) {
         'X-Content-Type-Options': 'nosniff',
         'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
         'Referrer-Policy': 'no-referrer',
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
       },
     },
   );
@@ -189,6 +190,7 @@ export default {
         'x-content-type-options': 'nosniff',
         'referrer-policy': 'no-referrer',
         'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
+        'x-robots-tag': 'noindex, nofollow, noarchive',
       });
       if (accountRoute) {
         const cookies =
