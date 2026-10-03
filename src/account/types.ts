@@ -15,5 +15,7 @@ export type SessionResponse = {
   recoveryCode?: string;
   privateSite?: boolean;
   pendingApproval?: boolean;
+  /** Public Turnstile key; present when sign-up and recovery need a human check. */
+  humanCheckSiteKey?: string | null;
 };
 export type ProfileData = { values: Record<string, unknown>; revisions: Record<string, number> };

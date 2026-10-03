@@ -3,7 +3,7 @@
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
 const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
 const operatorRead = /^\/api\/(?:admin\/(?:accounts\/pending|sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
-const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|retry-notice)|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
+const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/decision|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)))$/;
 const accountWrite =

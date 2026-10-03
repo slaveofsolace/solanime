@@ -36,9 +36,11 @@ export async function inspectDeployment(address, fetcher = fetch) {
   const checks = {
     page: page.ok,
     framesRestrictedToApprovedPlayers:
-      frameSources.length === 2 &&
+      frameSources.length === 3 &&
       frameSources.includes('https://www.youtube-nocookie.com/embed/') &&
-      frameSources.includes('https://megaplay.buzz/stream/s-2/'),
+      frameSources.includes('https://megaplay.buzz/stream/s-2/') &&
+      // Cloudflare Turnstile on sign-up and recovery.
+      frameSources.includes('https://challenges.cloudflare.com'),
     frontendCurrent: frontend === release,
     apiCurrent: api.ok && json?.status === 'ok' && json?.release === release,
     noParentSandboxPolicy: !/(?:^|;)\s*sandbox(?:\s|;|$)/i.test(csp),

@@ -2,8 +2,8 @@ import { RELEASE } from '../../shared/release.ts';
 import { timingSafeEqual } from 'node:crypto';
 import { AppError, asAppError } from '../errors.ts';
 import { createCloudAccounts } from './auth/index.ts';
+import { humanCheckConfig } from './auth/humanCheck.ts';
 import { D1AccountsRepository } from './auth/repository.ts';
-import { sendApprovalNotice } from './auth/notifications.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
 import { createPrivateBaselineReader } from './data/baseline.ts';
 import { createResearchRepository } from './data/research.ts';
@@ -120,11 +120,12 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY,
       approvalRequired: privateSite,
       privateSite,
-      notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN),
       firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON },
       mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
         redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },
       episodeExists: catalogue.hasEpisode,
+      humanCheck: humanCheckConfig(env.TURNSTILE_SITE_KEY, env.TURNSTILE_SECRET_KEY,
+        [env.SOLANIME_APP_ORIGIN, ...env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean)]),
     });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);
@@ -136,10 +137,9 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
     }
     if (request.method === 'GET' && path === '/api/admin/accounts/pending')
       return json({ items: await accounts.pendingApprovals() });
-    const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(path);
+    const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/decision$/.exec(path);
     if (request.method === 'POST' && approval) {
       const input = await body(request);
-      if (approval[2] === 'retry-notice') return json(await accounts.retryNotice(approval[1]));
       if (input.decision !== 'approved' && input.decision !== 'rejected')
         throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
       return json(await accounts.decideApproval(approval[1], input.decision));

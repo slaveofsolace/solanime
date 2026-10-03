@@ -5,7 +5,6 @@ import { randomUUID } from 'node:crypto';
 import { AppError } from '../errors.ts';
 import { malService } from '../integrations/malService.ts';
 import { sqliteAccountAdapter } from '../integrations/sqliteAdapter.ts';
-import { sendApprovalNotice } from '../cloud/auth/notifications.ts';
 import {
   hashPassword,
   verifyPassword,
@@ -54,7 +53,6 @@ export type AccountConfig = {
   registrationHourlyLimit?: number;
   approvalRequired?: boolean;
   privateSite?: boolean;
-  notifyApproval?: (kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) => Promise<boolean>;
   /** Test servers only: multiplies every per-key attempt limit (browser suites share one loopback IP). */
   rateLimitScale?: number;
 };
@@ -71,8 +69,6 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   const registration = config.registration ?? process.env.SOLANIME_REGISTRATION !== 'closed';
   const approvalRequired = config.approvalRequired ?? process.env.SOLANIME_APPROVAL_REQUIRED === 'true';
   const privateSite = config.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
-  const notifyApproval = config.notifyApproval ?? ((kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) =>
-    sendApprovalNotice(kind, account, origin ?? 'http://127.0.0.1:5173'));
   const publicAccount = (a: Account) => ({
     id: a.id,
     email: a.email,
@@ -387,8 +383,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
             `INSERT INTO accounts(id,email,password_hash,recovery_hash,created_at,
               approval_state,approval_requested_at,owner_notice_state) VALUES(?,?,?,?,?,?,?,?)`,
           ).run(id, email, hash, digest(recoveryCode), now(),
-            approvalRequired ? 'pending' : 'approved', approvalRequired ? now() : null,
-            approvalRequired ? 'pending' : 'not_required');
+            approvalRequired ? 'pending' : 'approved', approvalRequired ? now() : null, 'not_required');
           db.prepare(
             'INSERT INTO profiles(id,account_id,name,avatar,created_at) VALUES(?,?,?,?,?)',
           ).run(randomUUID(), id, 'You', 'ruby', now());
@@ -398,10 +393,6 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
           throw error;
         }
         if (approvalRequired) {
-          let sent = false;
-          try { sent = await notifyApproval('request', { id, email }); } catch { /* Operator may retry. */ }
-          db.prepare('UPDATE accounts SET owner_notice_state=? WHERE id=?')
-            .run(sent ? 'sent' : 'failed', id);
           reply(res, 202, { ...responseSession(undefined), pendingApproval: true, recoveryCode });
           return true;
         }
@@ -668,36 +659,16 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   }
   const pendingApprovals = () => db.prepare(`SELECT id,email,created_at,approval_requested_at,
     approval_state,owner_notice_state,applicant_notice_state FROM accounts
-    WHERE approval_state='pending' OR (approval_state='approved' AND applicant_notice_state='failed')
-    ORDER BY CASE WHEN approval_state='pending' THEN 0 ELSE 1 END,approval_requested_at,id LIMIT 50`).all();
+    WHERE approval_state='pending' ORDER BY approval_requested_at,id LIMIT 50`).all();
   const decideApproval = async (id: string, decision: 'approved' | 'rejected') => {
     if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
-    const changed = db.prepare(`UPDATE accounts SET approval_state=?,approval_decided_at=?,
-      applicant_notice_state=CASE WHEN ?='approved' THEN 'pending' ELSE 'not_required' END
-      WHERE id=? AND approval_state='pending' RETURNING id,email`).get(decision, now(), decision, id) as Pick<Account, 'id' | 'email'> | undefined;
+    const changed = db.prepare(`UPDATE accounts SET approval_state=?,approval_decided_at=?
+      WHERE id=? AND approval_state='pending' RETURNING id`).get(decision, now(), id) as Pick<Account, 'id'> | undefined;
     if (!changed) throw new AppError(409, 'BAD_REQUEST', 'This request is no longer pending. Refresh the queue.');
     db.prepare('DELETE FROM sessions WHERE account_id=?').run(id);
-    if (decision === 'approved') {
-      let sent = false;
-      try { sent = await notifyApproval('approved', changed); } catch { /* Operator may retry. */ }
-      db.prepare('UPDATE accounts SET applicant_notice_state=? WHERE id=?').run(sent ? 'sent' : 'failed', id);
-    }
-    return { id, decision, applicantNotice: decision === 'approved'
-      ? (account(id).applicant_notice_state) : 'not_required' };
-  };
-  const retryNotice = async (id: string) => {
-    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
-    const a = account(id);
-    if (a.approval_state === 'rejected') throw new AppError(409, 'BAD_REQUEST', 'Rejected requests have no outgoing notice.');
-    const kind = a.approval_state === 'pending' ? 'request' : 'approved';
-    const column = kind === 'request' ? 'owner_notice_state' : 'applicant_notice_state';
-    if (a[column] === 'sent') return { id, notice: 'sent' };
-    let sent = false;
-    try { sent = await notifyApproval(kind, a); } catch { /* Operator may retry. */ }
-    db.prepare(`UPDATE accounts SET ${column}=? WHERE id=?`).run(sent ? 'sent' : 'failed', id);
-    return { id, notice: sent ? 'sent' : 'failed' };
+    return { id, decision };
   };
   return { handle, handleCommunity, db, readSession, ownedProfile, name,
-    pendingApprovals, decideApproval, retryNotice, close: () => db.close() };
+    pendingApprovals, decideApproval, close: () => db.close() };
 }
 export type AccountsService = ReturnType<typeof createAccounts>;
