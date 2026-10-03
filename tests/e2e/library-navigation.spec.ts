@@ -77,7 +77,9 @@ test('legacy history and imported-list links open the correct Library view', asy
   await page.goto('/library?view=history#mal-list');
   await expect(page.getByRole('navigation', { name: 'Library views' }).getByRole('link', { name: 'My List', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(page.locator('#mal-list').getByRole('link', { name: 'Imported review title', exact: true })).toBeVisible();
-  await expect(page.locator('#mal-list').getByRole('spinbutton', { name: 'Episodes watched', exact: true })).toHaveValue('3');
+  // Imported rows are read only: no MyAnimeList edits are offered.
+  await expect(page.locator('#mal-list').getByText(/Watching · 3 of 64 episodes/)).toBeVisible();
+  await expect(page.locator('#mal-list').getByRole('spinbutton')).toHaveCount(0);
   await expect(page.locator('.history-list')).toHaveCount(0);
   await noOverflow(page);
 });
