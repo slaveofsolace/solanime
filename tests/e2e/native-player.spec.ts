@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { fixtureArt, episode, watch, noOverflow, sourceIds, chooseSource } from './helpers';
+import { fixtureArt, episode, watch, noOverflow, sourceIds, chooseSource, selectedSource } from './helpers';
 import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 test('actual native controls change media state without provider requests or popups', async ({
@@ -259,18 +259,36 @@ test('native ended events update watched state and navigate when autoplay-next i
     )
     .toBe(true);
 });
-test('failed media load offers a real retry with no iframe fallback', async ({ page }) => {
+test('a failed server hands over to the next one with no iframe fallback', async ({ page }) => {
   let failures = 1;
   await page.route('**/__fixture/motion.mp4', (r) =>
     failures-- > 0 ? r.fulfill({ status: 404, body: 'Missing' }) : r.continue(),
   );
   const e = await episode(page);
   await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
+  await expect
+    .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
+    .toBeGreaterThanOrEqual(1);
+  // WebKit can wait at metadata until Play; the player must be ready to start.
+  await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
+  await expect(selectedSource(page)).not.toHaveAttribute('data-mapping-id', /hd-1$/);
+  await expect(page.locator('iframe')).toHaveCount(0);
+});
+test('when every server fails, Try again starts the server list over', async ({ page }) => {
+  let broken = true;
+  await page.route('**/__fixture/motion.mp4', (r) =>
+    broken ? r.fulfill({ status: 404, body: 'Missing' }) : r.continue(),
+  );
+  const e = await episode(page);
+  await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
   await expect(page.getByRole('heading', { name: 'Video unavailable', exact: true })).toBeVisible();
+  broken = false;
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect
     .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
-    .toBeGreaterThan(1);
+    .toBeGreaterThanOrEqual(1);
+  // WebKit can wait at metadata until Play; the player must be ready to start.
+  await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 

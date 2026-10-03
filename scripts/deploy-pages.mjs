@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
@@ -15,11 +15,20 @@ if (!html.includes(`name="solanime-release" content="${release}"`)) throw new Er
 if (!['cloud-release', 'main'].includes(branch)) throw new Error('Choose cloud-release preview or the explicitly reviewed main production branch.');
 if (branch === 'main' && !process.argv.includes('--promote-verified-release')) throw new Error('Production requires --promote-verified-release after the documented release gate.');
 if (!/^[a-f0-9]{32}$/.test(configuration.account_id)) throw new Error('The reviewed Cloudflare account is missing from Worker configuration.');
-const child = spawn(process.execPath, [resolve(root, 'node_modules/wrangler/bin/wrangler.js'), 'pages', 'deploy', directory, '--project-name', 'solanime', '--branch', branch], {
+// Every deployment must be traceable to one committed source tree.
+const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
+if (git('status', '--porcelain', '--untracked-files=no')) throw new Error('Commit or discard local changes before deploying; the deployment must match a commit.');
+const commit = git('rev-parse', 'HEAD');
+const subject = git('log', '-1', '--format=%s').slice(0, 200);
+const child = spawn(process.execPath, [resolve(root, 'node_modules/wrangler/bin/wrangler.js'), 'pages', 'deploy', directory, '--project-name', 'solanime', '--branch', branch,
+  '--commit-hash', commit, '--commit-message', subject, '--commit-dirty=false'], {
   cwd: resolve(root, 'cloud/pages'),
   env: { ...process.env, CLOUDFLARE_ACCOUNT_ID: configuration.account_id },
   stdio: 'inherit',
   windowsHide: true,
 });
 child.once('error', () => { console.error('The Pages deployment process could not start.'); process.exitCode = 1; });
-child.once('exit', code => { process.exitCode = code ?? 1; });
+child.once('exit', code => {
+  process.exitCode = code ?? 1;
+  if (code === 0) console.log(`Deployed commit ${commit} to ${branch}.`);
+});

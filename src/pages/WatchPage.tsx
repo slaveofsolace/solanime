@@ -357,11 +357,27 @@ function WatchSession() {
           ) : failure ? (
             <PlayerMessage
               title="Video unavailable"
-              retry={() =>
-                failureStage === 'providers'
-                  ? setProviderRetry((value) => value + 1)
-                  : setResolutionRetry((value) => value + 1)
-              }
+              retry={() => {
+                if (failureStage === 'providers') {
+                  setProviderRetry((value) => value + 1);
+                  return;
+                }
+                // After every server failed over, Retry starts the server list again
+                // from the top instead of re-asking the one that just failed.
+                setFailedProviderMappings(new Set());
+                setFailure(null);
+                setFailureStage(null);
+                setParams(
+                  (current) => {
+                    const update = new URLSearchParams(current);
+                    update.delete('server');
+                    update.set('language', language);
+                    return update;
+                  },
+                  { replace: true },
+                );
+                setResolutionRetry((value) => value + 1);
+              }}
             >
               {failure}
             </PlayerMessage>
@@ -383,6 +399,7 @@ function WatchSession() {
                   if (profile && !watched.isWatched(episode.id, language)) watched.toggle(episode.id, language);
                   if (preferences.autoplayNext && next) go(next.id);
                 }}
+                onError={handleProviderFailure}
               />
             ) : isProviderEmbedResolution(resolution, language) ? (
               <ProviderPlayer
@@ -416,6 +433,10 @@ function WatchSession() {
                 }
                 theater={theater}
                 onTheater={() => setTheater((value) => !value)}
+                onStateChange={(state, detail) => {
+                  // A server whose media fails to load hands over to the next one.
+                  if (state === 'error') handleProviderFailure(detail ?? 'This video could not be played.');
+                }}
                 onPrevious={previous ? () => go(previous.id) : undefined}
                 onNext={next ? () => go(next.id) : undefined}
                 onOpen={() => remember()}
