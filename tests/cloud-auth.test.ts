@@ -556,3 +556,57 @@ describe('credential envelope', () => {
 });
 
 export { SQLiteD1 };
+
+describe('account abuse and leak hardening', () => {
+  it('answers a repeat registration exactly like a new request when approval is on', async () => {
+    const f = fixture({ approvalRequired: true });
+    const first = await f.client().call('register', { email: 'twice@example.test', password });
+    const second = await f.client().call('register', { email: 'twice@example.test', password });
+    expect(second.response.status).toBe(first.response.status);
+    const { recoveryCode: _code, ...shape } = first.body;
+    expect(second.body).toEqual(shape);
+    expect(await f.service.pendingApprovals()).toHaveLength(1);
+  });
+  it('limits sign-up requests across all addresses and pauses them while the queue is full', async () => {
+    const f = fixture({ approvalRequired: true });
+    for (let index = 0; index < 20; index++) {
+      const r = await f.client().call('register', { email: `flood${index}@example.test`, password }, { 'cf-connecting-ip': `203.0.113.${index}` });
+      expect(r.response.status).toBe(202);
+    }
+    const limited = await f.client().call('register', { email: 'flood20@example.test', password }, { 'cf-connecting-ip': '203.0.113.200' });
+    expect(limited.response.status).toBe(429);
+    const g = fixture({ approvalRequired: true });
+    g.service.repository.pendingCount = async () => 200;
+    const full = await g.client().call('register', { email: 'queued@example.test', password });
+    expect(full.response.status).toBe(429);
+    expect(full.body.error.details?.reason).toBe('APPROVAL_QUEUE_FULL');
+  });
+  it('re-checks the identity provider before letting a session browse a private site', async () => {
+    const f = fixture({ privateSite: true }), a = f.client();
+    await a.call('register', { email: 'browse@example.test', password });
+    const browse = () => f.service.authorize(new Request(origin + '/api/titles', { headers: { cookie: a.cookie } }));
+    await expect(browse()).resolves.toBeUndefined();
+    for (const user of f.identity.users.values()) user.disabled = true;
+    f.advance(6 * 60000);
+    await expect(browse()).rejects.toMatchObject({ status: 401 });
+  });
+  it('does not send stored session hashes to the browser', async () => {
+    const f = fixture(), a = f.client();
+    await a.call('register', { email: 'devices@example.test', password });
+    const listed = await a.call('sessions');
+    const hashes = f.db.raw.prepare('SELECT token_hash FROM sessions').all().map((row) => row.token_hash);
+    expect(listed.body.items).toHaveLength(1);
+    expect(listed.body.items[0].id).toMatch(/^[\w-]{16}$/);
+    expect(hashes).not.toContain(listed.body.items[0].id);
+  });
+  it('replaces the recovery code when the password changes', async () => {
+    const f = fixture(), a = f.client();
+    const registered = await a.call('register', { email: 'rotate@example.test', password });
+    const changed = await a.call('password', { currentPassword: password, password: generatedTestPassphrase('rotated') });
+    expect(changed.body.recoveryCode).toMatch(/^[\w-]{43}$/);
+    expect(changed.body.recoveryCode).not.toBe(registered.body.recoveryCode);
+    const stale = await f.client().call('recover', { email: 'rotate@example.test', recoveryCode: registered.body.recoveryCode,
+      password: generatedTestPassphrase('stale code') });
+    expect(stale.response.status).toBe(400);
+  });
+});

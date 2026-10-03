@@ -1,12 +1,12 @@
 import { existsSync, mkdirSync, renameSync, rmSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { backup, DatabaseSync } from 'node:sqlite';
-import { bundledSchemaVersions } from '../server/db.ts';
+import { bundledSchemaVersions, projectRoot } from '../server/db.ts';
 
 const argumentsWithoutSeparator = process.argv.slice(2).filter((argument) => argument !== '--');
 const sourceArgument = argumentsWithoutSeparator.find((argument) => !argument.startsWith('--'));
 const sourcePath = sourceArgument ? resolve(sourceArgument) : '';
-const targetPath = resolve(process.env.SOLANIME_DB_PATH ?? 'data/solanime.sqlite');
+const targetPath = resolve(projectRoot, process.env.SOLANIME_DB_PATH ?? 'data/solanime.sqlite');
 const replace = argumentsWithoutSeparator.includes('--replace');
 if (!sourcePath) throw new Error('Usage: pnpm tsx scripts/restore.ts <backup.sqlite> [--replace]');
 if (!existsSync(sourcePath)) throw new Error(`Backup does not exist: ${sourcePath}`);
