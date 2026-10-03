@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useAccount } from '../account/AccountProvider';
 import { useAppState } from '../state';
 import { markDialogTrigger } from '../components/Dialog';
@@ -35,12 +35,10 @@ function SignalLine({ signals }: { signals: ExploreSignalSummary }) {
     <div className="explore-signals">
       <p>
         <strong>MyAnimeList</strong>{' '}
-        {mal === 'none' && <>not connected. <Link to="/settings#connections">Connect in Settings</Link> to use your ratings. It’s optional.</>}
+        {mal === 'none' && <>list not imported. <Link to="/settings#connections">Import it in Settings</Link> with your username or export file to use your ratings. It’s optional.</>}
         {mal === 'unavailable' && <>couldn’t be checked right now. Explore will use your Solanime activity.</>}
-        {mal === 'syncing' && <>connected, first import still running. <Link to="/settings#connections">Resume it in Settings</Link>.</>}
-        {mal === 'connected' && <>connected as {signals.malUsername}, {imported}: {matched}{unmatched}.</>}
-        {mal === 'stale' && <>connected as {signals.malUsername}, {imported}: {matched}{unmatched}. <Link to="/settings#connections">Sync for newer ratings</Link>.</>}
-        {mal === 'partial' && <>a newer import is incomplete, so Explore uses the last complete one ({imported}): {matched}{unmatched}. It may not list everything you’ve watched.</>}
+        {mal === 'connected' && <>list imported {signals.malUsername ? `from ${signals.malUsername}, ` : ''}{imported}: {matched}{unmatched}.</>}
+        {mal === 'stale' && <>list imported {signals.malUsername ? `from ${signals.malUsername}, ` : ''}{imported}: {matched}{unmatched}. <Link to="/settings#connections">Re-import for newer ratings</Link>.</>}
       </p>
       <p className="field-hint">
         Also using {signals.history.toLocaleString()} {signals.history === 1 ? 'title' : 'titles'} from your watch history, {signals.watchlist.toLocaleString()} on My List
@@ -74,7 +72,13 @@ function ExploreForProfile({ profileId }: { profileId: string }) {
   const controller = useExploreSession(profileId);
   const { setPreview } = useAppState();
   const { status, session } = controller;
-  const [view, setView] = useState<View | null>(null);
+  const [params, setParams] = useSearchParams();
+  const [view, setViewState] = useState<View | null>(null);
+  // The current screen is deep-linkable (?view=deck|results) and survives reloads.
+  const setView = (next: View) => {
+    setViewState(next);
+    setParams(current => { const copy = new URLSearchParams(current); if (next === 'intro') copy.delete('view'); else copy.set('view', next); return copy; }, { replace: true });
+  };
   const [size, setSize] = useState<number>(EXPLORE_CONFIG.defaultDeckSize);
   const [filters, setFilters] = useState<ExploreFilters>(DEFAULT_EXPLORE_FILTERS);
   const [save, setSave] = useState(false);
@@ -85,7 +89,12 @@ function ExploreForProfile({ profileId }: { profileId: string }) {
   useEffect(() => {
     if (!status) return;
     if (status.saved) setFilters(current => ({ ...current, ...status.saved }));
-    if (view === null) setView(status.session && status.session.status === 'active' ? 'intro' : status.session?.results ? 'results' : 'intro');
+    if (view === null) {
+      const requested = params.get('view');
+      const session = status.session;
+      setView(requested === 'deck' && session?.status === 'active' ? 'deck' : requested === 'results' && session?.results ? 'results'
+        : session && session.status !== 'active' && session.results ? 'results' : 'intro');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 

@@ -7,11 +7,12 @@ const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|ret
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)|explore\/status))$/;
 const accountWrite =
-  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:connect|complete|sync|update|disconnect)|explore\/(?:start|feedback|undo|results|preferences|reset)))?)?)$/;
+  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:import-username|import-file|remove)|explore\/(?:start|feedback|undo|results|preferences|reset)))?)?)$/;
 const communityRead = /^\/api\/episodes\/\d+\/comments$/;
 const communityCreate = /^\/api\/episodes\/\d+\/comments$/;
 const communityItem = /^\/api\/episodes\/\d+\/comments\/[0-9a-f-]{36}$/i;
 const limit = 256 * 1024;
+const importLimit = 3 * 1024 * 1024;
 function problem(status, code, message) {
   return Response.json(
     { error: { code, message } },
@@ -108,7 +109,7 @@ export default {
         headers.set('x-solanime-client-ip', request.headers.get('cf-connecting-ip') ?? '');
       }
     }
-    const bodyLimit = accountRoute ? limit : operatorRoute ? 60_000 : 16 * 1024;
+    const bodyLimit = /\/mal\/import-file$/.test(url.pathname) ? importLimit : accountRoute ? limit : operatorRoute ? 60_000 : 16 * 1024;
     let body;
     if (mutation) {
       const caller = request.headers.get('origin');

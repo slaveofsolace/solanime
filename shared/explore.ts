@@ -150,7 +150,8 @@ export interface ExploreDecision {
   at: number;
 }
 
-export type ExploreMalState = 'connected' | 'partial' | 'stale' | 'syncing' | 'none' | 'unavailable';
+/** 'connected' means a list is imported; no MyAnimeList login exists. */
+export type ExploreMalState = 'connected' | 'stale' | 'none' | 'unavailable';
 export interface ExploreSignalSummary {
   mal: ExploreMalState;
   malUsername: string | null;

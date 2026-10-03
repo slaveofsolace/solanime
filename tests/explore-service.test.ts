@@ -186,14 +186,11 @@ describe('personas and MAL', { timeout: 30_000 }, () => {
     expect(resultsA.recommended.some(item => ratedIds.has(item.titleId))).toBe(false);
   });
 
-  it('labels sparse, partial, stale and unavailable connections truthfully', async () => {
+  it('labels sparse, stale and unavailable imports truthfully', async () => {
     const sparse = setup();
     sparse.connectMal('p', [{ id: mystery[0].malId!, score: 0, status: 'plan_to_watch' }, { id: 424242, score: 8, status: 'completed' }]);
     const status = await sparse.call('status') as ExploreStatus;
     expect(status.signals).toMatchObject({ mal: 'connected', malMatched: 1, malUnmatched: 1, malScored: 0 });
-    const partial = setup();
-    partial.connectMal('p', [{ id: mystery[0].malId!, score: 8, status: 'completed' }], { partial: true });
-    expect((await partial.call('status') as ExploreStatus).signals.mal).toBe('partial');
     const stale = setup();
     stale.connectMal('p', [{ id: mystery[0].malId!, score: 8, status: 'completed' }], { importedAt: 1_900_000_000_000 - 60 * 86_400_000 });
     expect((await stale.call('status') as ExploreStatus).signals.mal).toBe('stale');

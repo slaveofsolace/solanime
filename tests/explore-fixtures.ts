@@ -59,9 +59,9 @@ export function accountsFixture() {
   raw.exec("INSERT INTO accounts VALUES('a'); INSERT INTO profiles VALUES('p'),('q');");
   raw.exec(readFileSync(new URL('../migrations/cloud/accounts/0003_myanimelist.sql', import.meta.url), 'utf8'));
   const db = sqliteAccountAdapter(raw);
-  function connectMal(profile: string, entries: Array<{ id: number; score: number; status: string; title?: string }>, options: { partial?: boolean; importedAt?: number } = {}) {
+  function connectMal(profile: string, entries: Array<{ id: number; score: number; status: string; title?: string }>, options: { importedAt?: number } = {}) {
     raw.prepare('INSERT OR REPLACE INTO mal_connections(profile_id,username,credential_cipher,committed_generation,imported_at,sync_generation) VALUES(?,?,?,?,?,?)')
-      .run(profile, 'member', 'sealed', 'gen1', options.importedAt ?? 1_900_000_000_000 - 86_400_000, options.partial ? 'gen2' : null);
+      .run(profile, 'member', null, 'gen1', options.importedAt ?? 1_900_000_000_000 - 86_400_000, null);
     for (const entry of entries)
       raw.prepare('INSERT INTO mal_list_items(profile_id,generation,mal_id,value) VALUES(?,?,?,?)').run(profile, 'gen1', entry.id,
         JSON.stringify({ id: entry.id, title: entry.title ?? `MAL ${entry.id}`, status: entry.status, watchedEpisodes: 0, totalEpisodes: 12, score: entry.score, updatedAt: null }));

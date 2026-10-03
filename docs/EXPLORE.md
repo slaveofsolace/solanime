@@ -13,7 +13,7 @@ Discover stays the catalogue browser; Explore is guided discovery.
    genres to enjoy, genres to never show, series length, audio, catalogue scope,
    mode, and two list toggles. Genres, exclusions, length and audio are saved for
    future rounds only when the person ticks the save option. The entry screen
-   states what is known about the profile: MyAnimeList connection, import age,
+   states what is known about the profile: whether a MyAnimeList list is imported (by username or export file, no MAL sign-in), import age,
    how many imported entries match catalogue titles and how many do not, and how
    much Solanime history and My List exist. With no signals at all it offers up to
    three optional genres and otherwise starts a varied introductory deck that is
@@ -109,7 +109,7 @@ The browser advances optimistically, saves in order, shows Saved / Saving… /
 Not saved with Retry, and reloads the server state when another tab replaced
 the round. Explore reads MAL imports, history and My List but never writes
 them, never calls MAL per swipe and never contacts third-party AI or analytics.
-Disconnecting MAL or re-importing changes the committed generation, which
+Removing the imported MAL list or re-importing changes the committed generation, which
 rebuilds MAL-derived taste on the next action; Explore choices remain until
 **Reset Explore preferences**, which removes only Explore data.
 
@@ -136,8 +136,8 @@ Fixtures prove mechanics only; they are not catalogue or live-provider evidence.
 - `tests/explore-service.test.ts` (19): 10/20/30 bounds, honest short decks,
   no repeats or re-ordering, idempotent and conflicting submissions, concurrent
   writers, undo, reload/resume, profile isolation, picks vs recommendations,
-  all-skipped and all-passed rounds, refinements, substantial/sparse/partial/
-  stale/failed/absent MAL, MAL disconnect, no writes to history/My List/MAL,
+  all-skipped and all-passed rounds, refinements, substantial/sparse/
+  stale/failed/absent MAL imports, MAL list removal, no writes to history/My List/MAL,
   reset scope, saved-preference rules, bounded catalogue reads.
 - `tests/explore-catalogue.test.ts`: the committed 8,949-title snapshot yields
   5,771 franchise entry points with no sequel-marked entries. Local timings on
@@ -158,8 +158,8 @@ Fixtures prove mechanics only; they are not catalogue or live-provider evidence.
 
 ### Not verified / blockers
 
-- No real MAL account has been connected (no registered MAL application on any
-  deployment), so MAL personas are fixtures.
+- No live username import has run (no MAL client ID registered yet); export-file
+  import and MAL personas are tested with fixtures.
 - Workers/D1 + baseline path is type-checked and shares the tested service, but
   has not been exercised against a deployed preview yet.
 - Most catalogue artwork is 265×370 source thumbnails; cards display them near

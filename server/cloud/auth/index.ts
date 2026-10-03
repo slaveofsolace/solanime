@@ -267,14 +267,14 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       }
 
       const auth = required(s), a = required(await repository.account(auth.account_id));
-      const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|connect|complete|sync|update|disconnect)$/.exec(path);
+      const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|import-username|import-file|remove)$/.exec(path);
       if (malRoute) {
         const profile = malRoute[1], action = malRoute[2];
         await repository.ownedProfile(profile, a.id);
         if (method !== (['status', 'list'].includes(action) ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
         if (method === 'POST') await rate('mal:' + a.id, 30, 60000);
         const result = await malService(db, config.mal ?? {}, fetch, now)(profile, a.id, action,
-          method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request), async () => {
+          method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request, action === 'import-file' ? 3 * 1024 * 1024 : undefined), async () => {
             required(await repository.session(auth.token_hash, now()));
             await repository.ownedProfile(profile, a.id);
           });

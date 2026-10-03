@@ -13,7 +13,7 @@ type Item = ExploreCard | ExploreRecommendation;
 
 const BASIS: Record<NonNullable<ExploreSessionView['results']>['basis'], string> = {
   personal: 'Ranked from your own history and ratings, then adjusted by this round.',
-  session: 'Ranked from your choices in this round. Connect MyAnimeList or watch a few titles for longer-term taste.',
+  session: 'Ranked from your choices in this round. Import your MyAnimeList list in Settings or watch a few titles for longer-term taste.',
   explicit: 'Ranked from the genres and mood you chose.',
   fallback: 'Explore has no taste signals for this profile yet, so these are a varied mix. Add preferences or swipe a round to personalize them.',
 };

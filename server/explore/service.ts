@@ -154,16 +154,13 @@ export function exploreService(db: AccountDatabase, catalogue: ExploreCatalogue 
     let mal: { state: ExploreMalState; username: string | null; importedAt: number | null; generation: string | null; entries: MalEntry[] } =
       { state: 'none', username: null, importedAt: null, generation: null, entries: [] };
     try {
-      const connection = await db.prepare('SELECT username,credential_cipher IS NOT NULL AS connected,committed_generation,imported_at,sync_generation FROM mal_connections WHERE profile_id=?')
-        .bind(profile).first<{ username: string | null; connected: number; committed_generation: string | null; imported_at: number | null; sync_generation: string | null }>();
-      if (connection?.connected) {
-        const entries = connection.committed_generation
-          ? (await db.prepare('SELECT value FROM mal_list_items WHERE profile_id=? AND generation=? LIMIT 20000').bind(profile, connection.committed_generation).all<{ value: string }>())
-            .results.flatMap(row => { try { return [JSON.parse(row.value) as MalEntry]; } catch { return []; } })
-          : [];
-        const state: ExploreMalState = !connection.committed_generation ? (connection.sync_generation ? 'syncing' : 'connected')
-          : connection.sync_generation ? 'partial'
-            : connection.imported_at && now() - connection.imported_at > EXPLORE_CONFIG.malStaleDays * DAY ? 'stale' : 'connected';
+      // An imported list (by public username or export file). Imports are atomic, so there is no partial state.
+      const connection = await db.prepare('SELECT username,committed_generation,imported_at FROM mal_connections WHERE profile_id=? AND committed_generation IS NOT NULL')
+        .bind(profile).first<{ username: string | null; committed_generation: string; imported_at: number | null }>();
+      if (connection) {
+        const entries = (await db.prepare('SELECT value FROM mal_list_items WHERE profile_id=? AND generation=? LIMIT 20000').bind(profile, connection.committed_generation).all<{ value: string }>())
+          .results.flatMap(row => { try { return [JSON.parse(row.value) as MalEntry]; } catch { return []; } });
+        const state: ExploreMalState = connection.imported_at && now() - connection.imported_at > EXPLORE_CONFIG.malStaleDays * DAY ? 'stale' : 'connected';
         mal = { state, username: connection.username, importedAt: connection.imported_at, generation: connection.committed_generation, entries };
       }
     } catch { mal = { ...mal, state: 'unavailable' }; }
@@ -322,7 +319,7 @@ export function exploreService(db: AccountDatabase, catalogue: ExploreCatalogue 
 
   /** Rebuild long-term taste when the MAL import it came from changed or was removed. */
   async function refreshTaste(profile: string, session: StoredSession, index: ExploreFeatureIndex) {
-    const connection = await db.prepare('SELECT committed_generation FROM mal_connections WHERE profile_id=? AND credential_cipher IS NOT NULL').bind(profile).first<{ committed_generation: string | null }>().catch(() => null);
+    const connection = await db.prepare('SELECT committed_generation FROM mal_connections WHERE profile_id=? AND committed_generation IS NOT NULL').bind(profile).first<{ committed_generation: string | null }>().catch(() => null);
     const source = connection?.committed_generation ?? 'none';
     if (source === session.tasteSource) return null;
     const personal = await personalData(profile, index);

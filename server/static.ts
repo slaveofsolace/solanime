@@ -52,7 +52,7 @@ export async function serveStatic(
   let file = resolve(root, `.${pathname}`);
   if (!inside(root, file)) return false;
   const appRoute =
-    /^\/(?:catalogue|search|library|explore|settings(?:\/mal\/callback)?|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
+    /^\/(?:catalogue|search|library|explore|settings|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
       pathname,
     );
   if (appRoute) file = resolve(root, 'index.html');

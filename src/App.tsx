@@ -35,7 +35,6 @@ function usePreloadedScreens() {
     return () => (window.cancelIdleCallback ?? window.clearTimeout)(handle as number);
   }, []);
 }
-const MalCallbackPage = lazy(() => import('./components/MyAnimeListConnection').then(module => ({ default: module.MalCallbackPage })));
 function NotFound() {
   return (
     <StatusPanel
@@ -124,7 +123,6 @@ export default function App() {
                 <Route path="/library" element={<RequireAccount><LibraryPage /></RequireAccount>} />
                 <Route path="/explore" element={<RequireAccount><ExplorePage /></RequireAccount>} />
                 <Route path="/settings" element={<RequireAccount><SettingsPage /></RequireAccount>} />
-                <Route path="/settings/mal/callback" element={<MalCallbackPage />} />
                 <Route path="/login" element={<AuthPage key="login" />} />
                 <Route path="/register" element={<AuthPage key="register" mode="register" />} />
                 <Route path="/recover" element={<AuthPage key="recover" mode="recover" />} />

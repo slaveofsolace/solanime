@@ -467,16 +467,14 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
     }
     const auth = requireSession(req),
       a = account(auth.account_id);
-    const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|connect|complete|sync|update|disconnect)$/.exec(path);
+    const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|import-username|import-file|remove)$/.exec(path);
     if (malRoute) {
       const profile = malRoute[1], action = malRoute[2];
       ownedProfile(profile, a.id);
       if (method !== (['status', 'list'].includes(action) ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
       if (method === 'POST') rate('mal:' + a.id, 30, 60000);
-      const service = malService(sqliteAccountAdapter(db), { clientId: process.env.MAL_CLIENT_ID,
-        clientSecret: process.env.MAL_CLIENT_SECRET, redirectUri: origin ? `${origin}/settings/mal/callback` : undefined,
-        credentialKey: process.env.MAL_CREDENTIAL_KEY }, fetch, now);
-      const result = await service(profile, a.id, action, method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await readBody(req), async () => {
+      const service = malService(sqliteAccountAdapter(db), { clientId: process.env.MAL_CLIENT_ID }, fetch, now);
+      const result = await service(profile, a.id, action, method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await readBody(req, action === 'import-file' ? 3 * 1024 * 1024 : undefined), async () => {
         const current = requireSession(req);
         if (current.account_id !== a.id) throw new AppError(401, 'UNAUTHORIZED', 'Your session changed.');
         ownedProfile(profile, a.id);

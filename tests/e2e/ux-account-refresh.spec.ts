@@ -127,7 +127,7 @@ test('settings and series remain usable in both themes, narrow layout and enlarg
         await page.goto(`/settings?section=${section}`);
         if (section !== 'connections') await expect(page.locator(`#${section}`)).toBeVisible();
         if (section === 'connections')
-          await expect(page.getByText('MyAnimeList connections are unavailable.', { exact: true })).toBeVisible();
+          await expect(page.getByLabel('Import your export file')).toBeVisible();
         await noOverflow(page);
         const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
         expect(results.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? '')).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([]);

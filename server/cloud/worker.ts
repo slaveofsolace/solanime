@@ -123,8 +123,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       privateSite,
       notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN),
       firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON },
-      mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
-        redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },
+      mal: { clientId: env.MAL_CLIENT_ID },
       episodeExists: catalogue.hasEpisode,
       explore: cloudExploreCatalogue(env.CATALOGUE, baseline, env.CATALOGUE_BASELINE_ENABLED === 'true' ? { id: env.CATALOGUE_BASELINE_ID, manifestSha256: env.CATALOGUE_BASELINE_MANIFEST_SHA256 } : undefined),
     });

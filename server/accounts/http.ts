@@ -1,11 +1,11 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { AppError } from '../errors.ts';
-export async function readBody(request: IncomingMessage) {
+export async function readBody(request: IncomingMessage, maxBytes = 256 * 1024) {
   let size = 0;
   const chunks: Buffer[] = [];
   for await (const chunk of request) {
     size += chunk.length;
-    if (size > 256 * 1024) throw new AppError(413, 'BAD_REQUEST', 'Request body is too large.');
+    if (size > maxBytes) throw new AppError(413, 'BAD_REQUEST', 'Request body is too large.');
     chunks.push(Buffer.from(chunk));
   }
   try {
