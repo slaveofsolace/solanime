@@ -72,7 +72,7 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   const approvalRequired = config.approvalRequired ?? process.env.SOLANIME_APPROVAL_REQUIRED === 'true';
   const privateSite = config.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
   const notifyApproval = config.notifyApproval ?? ((kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) =>
-    sendApprovalNotice(kind, account, origin ?? 'http://127.0.0.1:5173'));
+    sendApprovalNotice(kind, account, origin ?? 'http://127.0.0.1:5173', process.env.OPERATOR_NOTICE_ADDRESS));
   const publicAccount = (a: Account) => ({
     id: a.id,
     email: a.email,

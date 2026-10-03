@@ -120,7 +120,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       registration: env.SOLANIME_REGISTRATION === 'open', credentialKey: env.AUTH_CREDENTIAL_KEY,
       approvalRequired: privateSite,
       privateSite,
-      notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN),
+      notifyApproval: (kind, account) => sendApprovalNotice(kind, account, env.SOLANIME_APP_ORIGIN, env.OPERATOR_NOTICE_ADDRESS),
       firebase: { apiKey: env.FIREBASE_API_KEY, projectId: env.FIREBASE_PROJECT_ID, serviceAccountJson: env.FIREBASE_SERVICE_ACCOUNT_JSON },
       mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
         redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },

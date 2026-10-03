@@ -514,26 +514,43 @@ describe('D1 managed account bridge', () => {
 });
 
 describe('FormSubmit approval notifications', () => {
-  it('uses the fixed operator destination and sends no credentials', async () => {
+  it('uses the configured operator destination and sends no credentials', async () => {
     const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
-    const sent = await sendApprovalNotice('approved', { id: 'account-id', email: 'applicant@example.test' }, origin, outbound);
+    const sent = await sendApprovalNotice('approved', { id: 'account-id', email: 'applicant@example.test' }, origin,
+      'operator@example.test', outbound);
     expect(sent).toBe(true);
     expect(outbound).toHaveBeenCalledTimes(1);
     const [url, options] = outbound.mock.calls[0];
-    expect(url).toBe('https://formsubmit.co/ajax/slaveofsolace@gmail.com');
+    expect(url).toBe('https://formsubmit.co/ajax/operator%40example.test');
     expect(options?.headers).toMatchObject({ 'Content-Type': 'application/json', Accept: 'application/json' });
     const value = JSON.parse(String(options?.body));
     expect(value._cc).toBe('applicant@example.test');
+    expect(value).not.toHaveProperty('email');
     expect(JSON.stringify(value)).not.toMatch(/password|token|recoveryCode/i);
+  });
+
+  it('keeps applicant details out of the operator notice', async () => {
+    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
+    await sendApprovalNotice('request', { id: 'account-id', email: 'applicant@example.test' }, origin, 'a1b2c3d4e5', outbound);
+    const [url, options] = outbound.mock.calls[0];
+    expect(url).toBe('https://formsubmit.co/ajax/a1b2c3d4e5');
+    expect(String(options?.body)).not.toMatch(/applicant@example\.test|account-id/);
+  });
+
+  it('sends nothing when no destination is configured', async () => {
+    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
+    for (const destination of [undefined, '', '   ', 'x/../evil', 'a?b'])
+      expect(await sendApprovalNotice('request', { id: 'id', email: 'applicant@example.test' }, origin, destination, outbound)).toBe(false);
+    expect(outbound).not.toHaveBeenCalled();
   });
 
   it('accepts a valid acknowledgement even when FormSubmit labels JSON as HTML', async () => {
     const accepted = new Response(JSON.stringify({ success: 'true' }), {
       status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
     });
-    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin,
+    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin, 'operator@example.test',
       vi.fn<typeof fetch>(async () => accepted))).toBe(true);
-    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin,
+    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin, 'operator@example.test',
       vi.fn<typeof fetch>(async () => new Response('<html>OK</html>', {
         status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
       })))).toBe(false);

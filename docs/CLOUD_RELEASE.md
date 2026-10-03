@@ -99,8 +99,13 @@ verify an operator can sign in before promoting the gate. A pending or rejected
 account cannot create or use a session, even through a direct API request. A
 new applicant must save the displayed recovery code, then await approval.
 
-The owner notification uses the established FormSubmit AJAX destination
-`slaveofsolace@gmail.com`. `/admin` remains reachable before the first account
+The owner notification uses FormSubmit AJAX. Its destination is the
+`OPERATOR_NOTICE_ADDRESS` Worker secret (`wrangler secret put
+OPERATOR_NOTICE_ADDRESS`): use an alias inbox or FormSubmit's random form ID,
+never a personal address, because approved applicants receive a copy and can
+see the recipient. Without the secret, no notice leaves the deployment and the
+admin queue shows it as failed. The owner notice names no applicant; review
+details only on the admin screen. `/admin` remains reachable before the first account
 is approved so the operator can bootstrap access; its data and actions require
 the existing operator token. Review the applicant email, then approve or
 decline. Approval changes the D1 state first and attempts a FormSubmit notice
@@ -117,7 +122,7 @@ and `success: "true"` in a JSON body labeled `text/html`. The client initially
 reported false because it required a JSON content-type; it now validates the
 parsed acknowledgement instead, with a regression test. FormSubmit accepted
 the second request, and the owner confirmed that this synthetic request arrived
-at `slaveofsolace@gmail.com`. An applicant approval-notice/inbox cycle remains
+in the operator inbox. An applicant approval-notice/inbox cycle remains
 to be tested before calling the full email flow operational.
 
 Apply the account migration before deploying the Worker, confirm at least one

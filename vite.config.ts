@@ -1,5 +1,27 @@
-import { defineConfig, loadEnv } from 'vite';
+import { rm } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+
+// Full-resolution brand sources stay in the repository for the branding scripts;
+// the site only references the derived WebP/PNG files, so the sources are not published.
+const UNPUBLISHED_BRAND_SOURCES = [
+  'branding/solanime-approved-master.png',
+  'branding/sun-cloudscape-source.png',
+  'branding/ribbon-foreground-source.png',
+  'branding/provenance.json',
+];
+function omitBrandSources(): Plugin {
+  let outDir = 'dist';
+  return {
+    name: 'solanime-omit-brand-sources',
+    apply: 'build',
+    configResolved(config) { outDir = resolve(config.root, config.build.outDir); },
+    async closeBundle() {
+      await Promise.all(UNPUBLISHED_BRAND_SOURCES.map((file) => rm(resolve(outDir, file), { force: true })));
+    },
+  };
+}
 export default defineConfig(({ mode }) => {
   const env = { ...loadEnv(mode, process.cwd(), ''), ...process.env };
   const port = Number(env.PORT || 8787);
@@ -21,7 +43,7 @@ export default defineConfig(({ mode }) => {
     'Content-Security-Policy': headers['Content-Security-Policy'].replace("script-src 'self'", "script-src 'self' 'unsafe-inline'"),
   };
   return {
-    plugins: [react()],
+    plugins: [react(), omitBrandSources()],
     server: { host: '127.0.0.1', port: 5173, strictPort: true, proxy, headers: developmentHeaders },
     preview: { host: '127.0.0.1', port: 4173, strictPort: true, proxy, headers },
   };
