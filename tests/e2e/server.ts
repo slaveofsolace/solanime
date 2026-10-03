@@ -124,6 +124,8 @@ const resolveTestSource = (
 const server = createApp(db, {
   staticDirectory: resolve(process.env.SOLANIME_E2E_DIST || 'dist'),
   resolutionCooldownMs: 0,
+  // Every browser project shares 127.0.0.1.
+  resolveRateLimit: 100_000,
   nativeSources: resolveTestSource,
   privateSite: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
   accounts: createAccounts(openAccountsDatabase(':memory:'), {

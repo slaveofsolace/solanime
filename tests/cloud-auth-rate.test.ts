@@ -48,22 +48,23 @@ describe('bounded expired account-rate reclamation in actual D1', () => {
       .toEqual({ count: 1, expires_at: now + 60000 });
   });
 
-  it('retains the cap when all buckets are active without blocking an existing-key rate check', async () => {
+  it('makes room by dropping the soonest-expiring buckets when every bucket is still active', async () => {
     await fill(0);
-    await expect(repository.rate('new-key', 2, 60000, now)).rejects.toMatchObject({ status: 503, details: { reason: 'AUTH_RATE_STORAGE_FULL' } });
-    expect(await counts()).toEqual({ total: 10000, expired: 0, unchangedActive: 10000 });
-    await expect(repository.rate('bucket-1', 5, 60000, now)).resolves.toBeUndefined();
-    await expect(repository.rate('bucket-1', 5, 60000, now)).rejects.toMatchObject({ status: 429, details: { retryAfterSeconds: 60 } });
-    expect((await counts())?.total).toBe(10000);
+    await db.prepare("UPDATE account_rate_limits SET expires_at=? WHERE key='bucket-9999'").bind(now + 1000).run();
+    // A flood of live buckets must not lock every visitor out of sign-in.
+    await expect(repository.rate('new-key', 2, 60000, now)).resolves.toBeUndefined();
+    expect(await counts()).toEqual({ total: 9901, expired: 0, unchangedActive: 9900 });
+    expect(await db.prepare("SELECT 1 FROM account_rate_limits WHERE key='bucket-9999'").first()).toBeNull();
+    await expect(repository.rate('bucket-500', 5, 60000, now)).resolves.toBeUndefined();
+    await expect(repository.rate('bucket-500', 5, 60000, now)).rejects.toMatchObject({ status: 429, details: { retryAfterSeconds: 60 } });
+    expect((await counts())?.total).toBe(9901);
   });
 
-  it('keeps only one new winner when concurrent requests compete for one expired slot', async () => {
+  it('never grows past the cap when concurrent new keys compete for one expired slot', async () => {
     await fill(1);
     const results = await Promise.allSettled(Array.from({ length: 6 }, (_, index) => repository.rate(`candidate-${index}`, 2, 60000, now)));
-    expect(results.filter(result => result.status === 'fulfilled')).toHaveLength(1);
-    expect(results.filter(result => result.status === 'rejected')).toHaveLength(5);
-    expect(results.filter(result => result.status === 'rejected').every(result => result.reason.status === 503)).toBe(true);
-    expect(await counts()).toEqual({ total: 10000, expired: 0, unchangedActive: 9999 });
+    expect(results.filter(result => result.status === 'fulfilled')).toHaveLength(6);
+    expect((await counts())?.total).toBeLessThanOrEqual(10000);
   });
 
   it('keeps the per-key attempt limit atomic while a full table is reclaimed concurrently', async () => {

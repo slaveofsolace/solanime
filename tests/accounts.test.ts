@@ -388,4 +388,18 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
     expect((await guest.community('10/comments')).body.total).toBe(0);
     expect((await guest.community('999/comments')).response.status).toBe(404);
   });
+
+  it('refuses a private site that anyone could join', () => {
+    expect(() => createAccounts(openAccountsDatabase(':memory:'), { privateSite: true, registration: true, approvalRequired: false }))
+      .toThrow(/private site/i);
+  });
+  it('queues a few slow password checks instead of refusing them', async () => {
+    const f = await fixture();
+    const attempts = await Promise.all([1, 2, 3].map(() => fetch(`${f.origin}/api/account/login`, {
+      method: 'POST',
+      headers: { origin: f.origin, 'content-type': 'application/json', 'x-solanime-intent': 'account', 'sec-fetch-site': 'same-origin' },
+      body: JSON.stringify({ email: 'nobody@example.test', password: 'wrong-password-value' }),
+    })));
+    expect(attempts.map((response) => response.status)).toEqual([401, 401, 401]);
+  });
 });
