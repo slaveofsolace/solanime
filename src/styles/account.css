@@ -463,3 +463,10 @@
   :root .site-shell.discovery-shell .app-dialog.profile-menu-panel { inset: auto 12px max(12px, env(safe-area-inset-bottom)) 12px; width: auto; max-height: calc(100svh - 32px - env(safe-area-inset-top)); margin: 0; border-radius: var(--radius-dialog); }
   .profile-menu-panel::backdrop { background: #0008; }
 }
+
+/* MyAnimeList list import (Settings → MyAnimeList). */
+.mal-import { display: grid; gap: var(--space-2); margin-block: var(--space-4); min-width: 0; }
+.mal-import label { font-weight: 650; }
+.mal-import > *, .mal-import input { min-width: 0; max-width: 100%; }
+.mal-import .button-row { flex-wrap: wrap; }
+.mal-import input:not([type='file']) { min-height: 44px; flex: 1 1 180px; }

@@ -12,7 +12,7 @@ export async function accountFixture(
   // effects immediately before their first navigation; browsing keeps Home.
   await page.goto(options.entryPath ?? '/');
   const origin = new URL(page.url()).origin;
-  if (origin !== 'http://127.0.0.1:18787') throw new Error('Account fixture must never target a deployed origin.');
+  if (origin !== `http://127.0.0.1:${Number(process.env.SOLANIME_E2E_PORT) || 18787}`) throw new Error('Account fixture must never target a deployed origin.');
   const registered = await page.request.post('/api/account/register', { headers: { origin, 'x-solanime-intent': 'account' },
     data: { email: `fixture-${crypto.randomUUID()}@example.test`, password: generatedTestPassphrase('ui fixture'), remember: false } });
   expect(registered.ok()).toBe(true);

@@ -74,7 +74,12 @@ test('a full round: swipe, keyboard, skip, undo, early results and resume', asyn
   await expect(page.locator('.explore-sync')).toHaveText('Saved');
 
   // Reload resumes the same round and position.
+  // The deck is deep-linked (?view=deck): a reload lands on the same card.
+  await expect(page).toHaveURL(/\/explore\?view=deck$/);
   await page.reload();
+  await expect(progress(page)).toHaveText('6 of 10');
+  // Opening Explore fresh offers to resume the same round.
+  await page.goto('/explore');
   await expect(page.getByText('You have a round in progress: 5 of 10 done.')).toBeVisible();
   await page.getByRole('button', { name: 'Resume round' }).click();
   await expect(progress(page)).toHaveText('6 of 10');

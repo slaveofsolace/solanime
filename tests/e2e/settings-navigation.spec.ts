@@ -31,5 +31,5 @@ test('Settings sections have direct destinations, working back navigation and ac
   // Old connection bookmarks continue to open the actual connection screen.
   await page.goto('/settings#connections');
   await expect(page.getByRole('heading', { name: 'Connected apps', exact: true })).toBeVisible();
-  await expect(page.getByLabel('Import your export file')).toBeVisible();
+  await expect(page.getByText('Import your export file', { exact: true })).toBeVisible();
 });

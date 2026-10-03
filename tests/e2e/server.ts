@@ -203,7 +203,8 @@ server.on('request', (request, response) => {
   });
   response.end(request.method === 'HEAD' ? undefined : clip.subarray(start, end + 1));
 });
-const fixturePort = process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 18788 : 18787;
+// SOLANIME_E2E_PORT lets parallel checkouts on one machine run suites without colliding.
+const fixturePort = Number(process.env.SOLANIME_E2E_PORT) || (process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 18788 : 18787);
 server.listen(fixturePort, '127.0.0.1', () =>
   console.log(`Isolated browser fixture API on 127.0.0.1:${fixturePort}`),
 );

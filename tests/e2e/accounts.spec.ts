@@ -36,7 +36,7 @@ async function choose(page: Page, name = 'You', destination = '/') {
     .locator('.profile-tile')
     .filter({ has: page.getByText(name, { exact: true }) })
     .click();
-  await expect(page).toHaveURL(new URL(destination, 'http://127.0.0.1:18787').href);
+  await expect(page).toHaveURL(new URL(destination, `http://127.0.0.1:${Number(process.env.SOLANIME_E2E_PORT) || 18787}`).href);
   // Profile switching returns to its originating screen. Wait for that screen
   // before a hard navigation so in-flight WebKit fetches can settle.
   if (destination === '/') await expect(page.locator('#featured-title')).toBeVisible();
