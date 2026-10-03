@@ -11,6 +11,8 @@ export function openAccountsDatabase(
   if (path !== ':memory:') {
     path = resolve(projectRoot, path);
     mkdirSync(dirname(path), { recursive: true, mode: 0o700 });
+    // mkdir's mode only applies to new folders; tighten one that already existed.
+    try { chmodSync(dirname(path), 0o700); } catch { /* Windows has no POSIX modes. */ }
   }
   const db = new DatabaseSync(path);
   if (path !== ':memory:') chmodSync(path, 0o600);

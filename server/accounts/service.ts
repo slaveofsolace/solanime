@@ -71,6 +71,8 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
   const registration = config.registration ?? process.env.SOLANIME_REGISTRATION !== 'closed';
   const approvalRequired = config.approvalRequired ?? process.env.SOLANIME_APPROVAL_REQUIRED === 'true';
   const privateSite = config.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
+  if (privateSite && registration && !approvalRequired)
+    throw new Error('A private site needs SOLANIME_APPROVAL_REQUIRED=true or SOLANIME_REGISTRATION=closed.');
   const notifyApproval = config.notifyApproval ?? ((kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) =>
     sendApprovalNotice(kind, account, origin ?? 'http://127.0.0.1:5173'));
   const publicAccount = (a: Account) => ({

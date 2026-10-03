@@ -4,10 +4,13 @@ const N = 131072,
   R = 8,
   P = 1;
 let inFlight = 0;
-/** Bound memory use; reject excess work rather than queuing unbounded password hashes. */
+const waiting: (() => void)[] = [];
+/** Bound memory use: two hashes run at once, up to 16 more wait their turn, anything beyond is refused. */
 async function derive(password: string, salt: Buffer): Promise<Buffer> {
-  if (inFlight >= 2) throw new AppError(503, 'UNAVAILABLE', 'Sign-in is busy. Try again shortly.');
-  inFlight++;
+  if (inFlight >= 2) {
+    if (waiting.length >= 16) throw new AppError(503, 'UNAVAILABLE', 'Sign-in is busy. Try again shortly.');
+    await new Promise<void>((resolve) => waiting.push(resolve));
+  } else inFlight++;
   try {
     return await new Promise<Buffer>((resolve, reject) =>
       scrypt(password, salt, 64, { N, r: R, p: P, maxmem: 160 * 1024 * 1024 }, (error, result) =>
@@ -15,7 +18,10 @@ async function derive(password: string, salt: Buffer): Promise<Buffer> {
       ),
     );
   } finally {
-    inFlight--;
+    // Hand the slot straight to the next waiter so a newcomer cannot jump the queue.
+    const next = waiting.shift();
+    if (next) next();
+    else inFlight--;
   }
 }
 export function validatePassword(value: unknown): string {

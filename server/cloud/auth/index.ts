@@ -62,6 +62,32 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       throw new AppError(503, 'UNAVAILABLE', 'Email/password accounts are not configured on this deployment yet.', { reason: 'AUTH_NOT_CONFIGURED' });
     }
   }
+  async function readSessionFrom(request: Request, identity: ManagedIdentity, key: string, verifyRemote = false): Promise<CloudSession | undefined> {
+    const raw = cookieValue(request, name);
+    if (!/^[\w-]{43}$/.test(raw)) return;
+    const s = await repository.session(await digest(raw), now());
+    if (!s) return;
+    if (verifyRemote || now() - s.checked_at >= REMOTE_CHECK_INTERVAL) {
+      try {
+        let credentials = await openCredentials(s.credential_cipher, key, `${s.account_id}:${s.token_hash}`);
+        if (credentials.expiresAt <= now() + 60000) credentials = await identity.refresh(credentials);
+        const a = required(await repository.account(s.account_id));
+        const user = await identity.lookup(credentials);
+        validUser(user, credentials, a.email);
+        if (user.uid !== a.firebase_uid) throw new AppError(401, 'UNAUTHORIZED', 'The session identity changed. Sign in again.');
+        await repository.updateIdentity(a.id, user.emailVerified);
+        await repository.touchSession(s, now(), await sealCredentials(credentials, key, `${s.account_id}:${s.token_hash}`));
+        // A logout, password change, or another tab may have revoked this session while Google replied.
+        return (await repository.session(s.token_hash, now())) ?? undefined;
+      } catch (error) {
+        if (error instanceof AppError && error.status === 401) { await repository.deleteSession(s.token_hash); return; }
+        throw error; // An upstream outage is not a logout and must not erase good account data.
+      }
+    }
+    if (now() - s.last_seen > 60000) await repository.touchSession(s, now());
+    return s;
+  }
+
   async function handle(request: Request): Promise<Response | null> {
     const url = new URL(request.url);
     const commentRoute = /^\/api\/episodes\/(\d+)\/comments(?:\/([0-9a-f-]{36}))?$/.exec(url.pathname);
@@ -80,31 +106,14 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         maxProfiles: 5,
         privateSite: config.privateSite === true,
       });
-      const readSession = async (verifyRemote = false): Promise<CloudSession | undefined> => {
-        const raw = cookieValue(request, name);
-        if (!/^[\w-]{43}$/.test(raw)) return;
-        const s = await repository.session(await digest(raw), now());
-        if (!s) return;
-        if (verifyRemote || now() - s.checked_at >= REMOTE_CHECK_INTERVAL) {
-          try {
-            let credentials = await openCredentials(s.credential_cipher, key, `${s.account_id}:${s.token_hash}`);
-            if (credentials.expiresAt <= now() + 60000) credentials = await identity.refresh(credentials);
-            const a = required(await repository.account(s.account_id));
-            const user = await identity.lookup(credentials);
-            validUser(user, credentials, a.email);
-            if (user.uid !== a.firebase_uid) throw new AppError(401, 'UNAUTHORIZED', 'The session identity changed. Sign in again.');
-            await repository.updateIdentity(a.id, user.emailVerified);
-            await repository.touchSession(s, now(), await sealCredentials(credentials, key, `${s.account_id}:${s.token_hash}`));
-            // A logout, password change, or another tab may have revoked this session while Google replied.
-            return (await repository.session(s.token_hash, now())) ?? undefined;
-          } catch (error) {
-            if (error instanceof AppError && error.status === 401) { await repository.deleteSession(s.token_hash); return; }
-            throw error; // An upstream outage is not a logout and must not erase good account data.
-          }
-        }
-        if (now() - s.last_seen > 60000) await repository.touchSession(s, now());
-        return s;
-      };
+      const pendingReply = (recoveryCode?: string) => ({
+        account: null, profiles: [], csrfToken: null, registrationOpen: registration,
+        recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
+        privateSite: config.privateSite === true,
+        approvalRequired: config.approvalRequired === true,
+        pendingApproval: true, ...(recoveryCode ? { recoveryCode } : {}),
+      });
+      const readSession = (verifyRemote = false) => readSessionFrom(request, identity, key, verifyRemote);
       const freshSession = async (a: CloudAccount, credentials: IdentityCredentials, remember: boolean, replacedHash?: string) => {
         const raw = randomToken(), hash = await digest(raw);
         const s: CloudSession = { token_hash: hash, account_id: a.id, csrf: randomToken(), created_at: now(), last_seen: now(),
@@ -201,6 +210,13 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           if (config.registration === false) throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
           if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Registration is awaiting secure recovery configuration.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
           await rate('register:' + ip, config.approvalRequired ? 3 : 40, 3600000);
+          if (config.approvalRequired) {
+            // Many addresses together must not flood the operator queue or inbox.
+            await rate('register:global', 20, 3600000);
+            if (await repository.pendingCount() >= 200)
+              throw new AppError(429, 'UNAVAILABLE', 'New account requests are paused while existing ones are reviewed. Try again later.',
+                { reason: 'APPROVAL_QUEUE_FULL', retryAfterSeconds: 3600 });
+          }
         }
         const password = registering ? validateManagedPassword(body.password) : body.password;
         if (typeof password !== 'string' || !password || new TextEncoder().encode(password).length > 1024)
@@ -209,6 +225,9 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         try { credentials = registering ? await identity.signUp(email, password) : await identity.signIn(email, password); }
         catch (error) {
           if (error instanceof AppError && error.status === 401) throw new AppError(401, 'UNAUTHORIZED', 'Email or password is incorrect.');
+          // With approval on, a new request also gets a 202, so an existing email must not be distinguishable.
+          if (registering && config.approvalRequired && error instanceof AppError && error.details?.reason === 'AUTH_EMAIL_EXISTS')
+            return accountReply(202, pendingReply());
           throw error;
         }
         const user = await identity.lookup(credentials);
@@ -229,13 +248,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           }
           if (result.account.approval_state === 'rejected')
             throw new AppError(403, 'BLOCKED', 'This account request was declined.', { reason: 'ACCOUNT_REJECTED' });
-          if (result.created) return accountReply(202, {
-            account: null, profiles: [], csrfToken: null, registrationOpen: registration,
-            recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
-            privateSite: config.privateSite === true,
-            approvalRequired: config.approvalRequired === true,
-            pendingApproval: true, ...(recoveryCode ? { recoveryCode } : {}),
-          });
+          if (result.created) return accountReply(202, pendingReply(recoveryCode));
           throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. Please try signing in after you receive a confirmation.',
             { reason: 'ACCOUNT_PENDING_APPROVAL' });
         }
@@ -281,8 +294,10 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         return accountReply(200, { ok: true }, { 'Set-Cookie': cookie('', 0) });
       }
       if (method === 'GET' && path === '/api/account/sessions') return accountReply(200, {
-        items: (await repository.sessions(a.id, now())).map((x) => ({ id: x.token_hash, current: x.token_hash === auth.token_hash,
-          createdAt: x.created_at, lastSeen: x.last_seen, expiresAt: x.expires_at, device: x.device })),
+        // Ids are derived from the token hash so the stored lookup key never leaves the server.
+        items: await Promise.all((await repository.sessions(a.id, now())).map(async (x) => ({
+          id: (await digest('sid:' + x.token_hash)).slice(0, 16), current: x.token_hash === auth.token_hash,
+          createdAt: x.created_at, lastSeen: x.last_seen, expiresAt: x.expires_at, device: x.device }))),
       });
       if (method === 'POST' && path === '/api/account/revoke-other-sessions') {
         required(await readSession(true));
@@ -317,9 +332,12 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         }
         const operationId = await repository.startOperation(a, 'password-changing', now(), auth);
         const credentials = await remoteOperation(a, operationId, () => identity.changePassword(proof, required(password)));
-        await completeOperation(() => repository.finishOperation(a.id, operationId), operationId);
+        // Anyone who learned the old password may also hold the old recovery code, so replace it too.
+        const recoveryCode = identity.recoveryAvailable ? randomToken() : undefined;
+        const recoveryHash = recoveryCode ? await digest(recoveryCode) : undefined;
+        await completeOperation(() => repository.finishOperation(a.id, operationId, recoveryHash), operationId);
         const fresh = await freshSession(required(await repository.account(a.id)), credentials, false);
-        return accountReply(200, await sessionResponse(fresh.s), fresh.header);
+        return accountReply(200, { ...await sessionResponse(fresh.s), ...(recoveryCode ? { recoveryCode } : {}) }, fresh.header);
       }
       if (method === 'POST' && path === '/api/account/profiles') {
         const profile = await repository.createProfile(auth, profileInput(await boundedJson(request)), now());
@@ -358,6 +376,10 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
     const raw = cookieValue(request, name);
     if (!/^[\w-]{43}$/.test(raw) || !(await repository.session(await digest(raw), now())))
       throw new AppError(401, 'UNAUTHORIZED', 'Sign in with an approved account to continue.');
+    // Same periodic identity re-check as account routes, so a disabled user loses catalogue access too.
+    const { identity, key } = configuration();
+    if (!(await readSessionFrom(request, identity, key)))
+      throw new AppError(401, 'UNAUTHORIZED', 'Sign in with an approved account to continue.');
   };
   const decideApproval = async (id: string, decision: 'approved' | 'rejected') => {
     if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
@@ -372,7 +394,8 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
   };
   const retryNotice = async (id: string) => {
     if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
-    const account = required(await repository.account(id));
+    const account = await repository.account(id);
+    if (!account) throw new AppError(404, 'NOT_FOUND', 'Account request was not found.');
     const kind = account.approval_state === 'pending' ? 'request'
       : account.approval_state === 'approved' ? 'approved' : null;
     if (!kind) throw new AppError(409, 'BAD_REQUEST', 'Rejected requests have no outgoing notice.');

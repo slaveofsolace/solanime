@@ -67,6 +67,9 @@ export class D1AccountsRepository {
     await this.db.prepare('UPDATE accounts SET email_verified=? WHERE id=? AND email_verified<>?')
       .bind(emailVerified ? 1 : 0, id, emailVerified ? 1 : 0).run();
   }
+  async pendingCount() {
+    return (await this.db.prepare(`SELECT count(*) AS n FROM accounts WHERE approval_state='pending'`).first<{ n: number }>())?.n ?? 0;
+  }
   async pendingApprovals(limit = 50) {
     return (await this.db.prepare(`SELECT id,email,created_at,approval_requested_at,approval_state,
       owner_notice_state,applicant_notice_state FROM accounts
@@ -158,6 +161,13 @@ export class D1AccountsRepository {
       await this.db.prepare(`DELETE FROM account_rate_limits WHERE key IN
         (SELECT key FROM account_rate_limits WHERE expires_at<=? ORDER BY expires_at,key LIMIT 100)`)
         .bind(now).run();
+      row = await attempt();
+    }
+    if (!row) {
+      // Still full of live buckets: drop the ones closest to expiry rather than refusing every
+      // account action for everyone until the flood ages out.
+      await this.db.prepare(`DELETE FROM account_rate_limits WHERE key IN
+        (SELECT key FROM account_rate_limits ORDER BY expires_at,key LIMIT 100)`).run();
       row = await attempt();
     }
     if (!row) throw new AppError(503, 'UNAVAILABLE', 'Sign-in is busy. Try again shortly.', { reason: 'AUTH_RATE_STORAGE_FULL' });

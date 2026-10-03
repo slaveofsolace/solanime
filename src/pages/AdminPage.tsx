@@ -87,7 +87,7 @@ export default function AdminPage() {
     try {
       const result = await api.backup(token, controller.signal);
       if (controller.signal.aborted || generation !== authorizationGeneration.current) return;
-      setMessage(`Database backup created at ${result.path} (schema ${result.schemaVersion}).`);
+      setMessage(`Database backup ${result.file} created (schema ${result.schemaVersion}).`);
     } catch (cause) {
       if (!controller.signal.aborted && generation === authorizationGeneration.current)
         setError(errorMessage(cause));
