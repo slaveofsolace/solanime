@@ -238,7 +238,7 @@ export default function YouTubeOfficialPlayer({
         ref={iframe}
         key={`${source}:${attempt}`}
         src={source}
-        title={`Official YouTube player — ${officialResolution.publisher.label}`}
+        title={`Official YouTube player: ${officialResolution.publisher.label}`}
         sandbox={YOUTUBE_IFRAME_SANDBOX}
         allow={YOUTUBE_IFRAME_ALLOW}
         allowFullScreen

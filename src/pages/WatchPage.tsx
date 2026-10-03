@@ -195,9 +195,21 @@ function WatchSession() {
     );
   if (!detail)
     return (
-      <div className="watch-page">
-        <div className="player-stage">
-          <PlayerMessage title="Loading episode" busy />
+      // A skeleton in the watch screen's own shape, so nothing jumps when it loads.
+      <div className="watch-page watch-page--loading" aria-busy="true">
+        <div className="watch-topbar" aria-hidden="true"><span className="watch-skeleton watch-skeleton--back" /></div>
+        <div className="watch-stage">
+          <div className="player-stage">
+            <PlayerMessage title="Loading episode" busy />
+          </div>
+        </div>
+        <div className="watch-info" aria-hidden="true">
+          <span className="watch-skeleton watch-skeleton--label" />
+          <span className="watch-skeleton watch-skeleton--title" />
+          <span className="watch-skeleton watch-skeleton--actions" />
+        </div>
+        <div className="watch-episodes" aria-hidden="true">
+          {Array.from({ length: 6 }, (_, index) => <span className="watch-skeleton watch-skeleton--row" key={index} />)}
         </div>
       </div>
     );

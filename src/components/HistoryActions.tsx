@@ -41,7 +41,7 @@ export default function HistoryActions({ entry, title, context }: {
     setNotice('');
     const url = new URL(watchPath, window.location.origin).href;
     try {
-      if (navigator.share) await navigator.share({ title: `${entry.title} — ${entry.episodeLabel}`, url });
+      if (navigator.share) await navigator.share({ title: `${entry.title}: ${entry.episodeLabel}`, url });
       else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(url);
         if (isCurrent()) setNotice('Episode link copied.');

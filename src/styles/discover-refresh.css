@@ -110,7 +110,7 @@
 .category-navigation__collections { display: flex; flex-direction: column; border-right: 1px solid var(--line); padding-right: 24px; }
 .category-navigation__panel a { display: flex; align-items: center; min-height: 44px; padding: 8px; font-size: 14px; line-height: 1.4; }
 .category-navigation__panel a:hover { background: var(--surface-2); color: var(--text); }
-.category-navigation__genres > p { margin: 0 8px 10px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .07em; }
+.category-navigation__genres > p { margin: 0 8px 10px; color: var(--muted); font-size: 12px; text-transform: none; }
 .category-navigation__genres > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; }
 .category-navigation__all { margin-top: 12px; gap: 12px; border-top: 1px solid var(--line); }
 .category-navigation__genres > span { font-size: 14px; color: var(--muted); }
@@ -135,8 +135,8 @@
   color: #e9b37e;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .discovery-shell .home-feature h2 {
   max-width: 19ch;
@@ -164,8 +164,8 @@
   box-shadow: none;
   font-size: 13px;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .015em;
+  text-transform: none;
+  letter-spacing: 0;
 }
 .discovery-shell .home-feature .button--primary:hover,
 .discovery-shell .title-hero__actions .button--primary:hover { filter: brightness(1.1); }
@@ -258,7 +258,7 @@
 .discovery-shell .home-page .continue-card__art > .icon { width: 44px; height: 44px; }
 .screen-collection { margin: 0; background: transparent; }
 .screen-collection > header { display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; margin: 0 var(--gutter) 34px; }
-.screen-collection > header > p { grid-column: 1 / -1; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent-ink); }
+.screen-collection > header > p { grid-column: 1 / -1; font-size: 12px; text-transform: none; color: var(--accent-ink); }
 .screen-collection > header h2 { font-size: 30px; }
 .screen-collection > header nav { display: flex; gap: 24px; }
 .screen-collection > header a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; }

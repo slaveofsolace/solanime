@@ -214,7 +214,7 @@ export default function AdminPage() {
         }
         aside={
           <>
-            <strong>{status?.counts.pendingTasks ?? '—'}</strong>
+            <strong>{status?.counts.pendingTasks ?? 'None'}</strong>
             <span>pending tasks</span>
           </>
         }
@@ -392,7 +392,7 @@ export default function AdminPage() {
               <div>
                 <p className="eyebrow">LATEST CRAWL RUN</p>
                 <h2>
-                  Run {activeRunId ?? '—'} /{' '}
+                  Run {activeRunId ?? 'none'} /{' '}
                   {cloud ? snapshotJobs[0]?.status ?? 'none' : status.latestRun?.status ?? 'none'}
                 </h2>
               </div>
