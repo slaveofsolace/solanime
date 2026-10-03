@@ -125,6 +125,8 @@ const resolveTestSource = (
 const server = createApp(db, {
   staticDirectory: resolve(process.env.SOLANIME_E2E_DIST || 'dist'),
   resolutionCooldownMs: 0,
+  // Every browser project shares 127.0.0.1.
+  resolveRateLimit: 100_000,
   nativeSources: resolveTestSource,
   privateSite: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true',
   accounts: createAccounts(openAccountsDatabase(':memory:'), {
@@ -134,8 +136,6 @@ const server = createApp(db, {
     // matrix from one loopback IP. Keep production limits intact while tests
     // create independent accounts for each scenario.
     registrationHourlyLimit: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 3 : 500,
-    // Browser fixtures must never deliver real registration emails.
-    notifyApproval: async () => true,
     // Every browser project registers from 127.0.0.1; keep the limits' shape but not the 40/hour ceiling.
     rateLimitScale: 100,
     explore: sqliteExploreCatalogue(db),

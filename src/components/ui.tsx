@@ -21,7 +21,6 @@ import CategoryNavigation from './CategoryNavigation';
 import SavedTitleActions from './SavedTitleActions';
 import { markDialogTrigger } from './Dialog';
 import { useRouteMotion } from '../lib/motion';
-import { RELEASE } from '../../shared/release';
 import { SolanimeBrand } from '../branding';
 import { api } from '../lib/api';
 import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
@@ -194,12 +193,8 @@ export function Layout({ children }: PropsWithChildren) {
           {children}
         </main>
         <footer className="site-footer">
-          <p>
-            Solanime{' '}
-            <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
-              v{RELEASE}
-            </span>
-          </p>
+          {/* The release stays in the page's solanime-release meta tag for support, not the footer. */}
+          <p>Solanime</p>
           {!hideBrowseControls && <nav aria-label="Footer navigation">
             <Link to="/catalogue?scope=anime">Anime</Link>
             <Link to="/catalogue?scope=tv">TV Shows</Link>

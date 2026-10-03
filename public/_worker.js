@@ -3,7 +3,7 @@
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
 const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
 const operatorRead = /^\/api\/(?:admin\/(?:accounts\/pending|sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
-const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|retry-notice)|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
+const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/decision|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
 const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)|explore\/status))$/;
 const accountWrite =
@@ -23,6 +23,7 @@ function problem(status, code, message) {
         'X-Content-Type-Options': 'nosniff',
         'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
         'Referrer-Policy': 'no-referrer',
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
       },
     },
   );
@@ -115,7 +116,8 @@ export default {
       const caller = request.headers.get('origin');
       const site = request.headers.get('sec-fetch-site');
       if (
-        ((bound || accountRoute || operatorRoute) && !caller) ||
+        // Browsers always send Origin on POST, so a missing one is never a real visitor.
+        !caller ||
         (caller && caller !== url.origin) ||
         (site && site !== 'same-origin')
       )
@@ -189,6 +191,7 @@ export default {
         'x-content-type-options': 'nosniff',
         'referrer-policy': 'no-referrer',
         'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
+        'x-robots-tag': 'noindex, nofollow, noarchive',
       });
       if (accountRoute) {
         const cookies =

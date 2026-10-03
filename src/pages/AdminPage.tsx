@@ -87,7 +87,7 @@ export default function AdminPage() {
     try {
       const result = await api.backup(token, controller.signal);
       if (controller.signal.aborted || generation !== authorizationGeneration.current) return;
-      setMessage(`Database backup created at ${result.path} (schema ${result.schemaVersion}).`);
+      setMessage(`Database backup ${result.file} created (schema ${result.schemaVersion}).`);
     } catch (cause) {
       if (!controller.signal.aborted && generation === authorizationGeneration.current)
         setError(errorMessage(cause));
@@ -214,7 +214,7 @@ export default function AdminPage() {
         }
         aside={
           <>
-            <strong>{status?.counts.pendingTasks ?? '—'}</strong>
+            <strong>{status?.counts.pendingTasks ?? 'None'}</strong>
             <span>pending tasks</span>
           </>
         }
@@ -392,7 +392,7 @@ export default function AdminPage() {
               <div>
                 <p className="eyebrow">LATEST CRAWL RUN</p>
                 <h2>
-                  Run {activeRunId ?? '—'} /{' '}
+                  Run {activeRunId ?? 'none'} /{' '}
                   {cloud ? snapshotJobs[0]?.status ?? 'none' : status.latestRun?.status ?? 'none'}
                 </h2>
               </div>

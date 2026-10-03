@@ -99,26 +99,33 @@ verify an operator can sign in before promoting the gate. A pending or rejected
 account cannot create or use a session, even through a direct API request. A
 new applicant must save the displayed recovery code, then await approval.
 
-The owner notification uses the established FormSubmit AJAX destination
-`slaveofsolace@gmail.com`. `/admin` remains reachable before the first account
-is approved so the operator can bootstrap access; its data and actions require
-the existing operator token. Review the applicant email, then approve or
-decline. Approval changes the D1 state first and attempts a FormSubmit notice
-with the applicant as a copy recipient; a failed notification remains visible
-for retry and does not reverse the approval. The notification contains no
-password, recovery code, cookie, or operator token. `sent` means FormSubmit
-acknowledged the request, **not** that a mailbox delivery was confirmed. Test a
-real request/approval/inbox cycle before treating email as operational.
+No email is sent for account requests or decisions, so no third-party mail
+relay receives applicant addresses. `/admin` lists pending requests; it remains
+reachable before the first account is approved so the operator can bootstrap
+access, and its data and actions require the existing operator token. Review
+the applicant email, then approve or decline. An approved applicant finds out
+by signing in. (Earlier releases relayed notices through FormSubmit; that path
+was removed on 2026-10-03.)
 
-On 2026-09-28, the first owner-approved synthetic request preceded FormSubmit
-activation and returned `acceptedByTransport: false`. After the owner activated
-the form and explicitly approved one fresh test, FormSubmit returned HTTP 200
-and `success: "true"` in a JSON body labeled `text/html`. The client initially
-reported false because it required a JSON content-type; it now validates the
-parsed acknowledgement instead, with a regression test. FormSubmit accepted
-the second request, and the owner confirmed that this synthetic request arrived
-at `slaveofsolace@gmail.com`. An applicant approval-notice/inbox cycle remains
-to be tested before calling the full email flow operational.
+### Sign-up verification (Cloudflare Turnstile)
+
+When the Worker has both `TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`,
+registration and recovery-code resets require a solved Turnstile challenge.
+The server checks the token with Cloudflare's siteverify endpoint and rejects
+it unless it was solved for the same action (`register` or `recover`) on one
+of the configured app origins. A check fails closed: if siteverify cannot be
+reached, the request is refused. Without both values the check is off.
+
+1. Cloudflare dashboard → Turnstile → Add widget. Hostnames:
+   `solanime.pages.dev` (and `cloud-release.solanime.pages.dev` for staging).
+   Widget mode: Managed.
+2. From the repo on the operator Mac, for each Worker environment:
+   `npx wrangler secret put TURNSTILE_SITE_KEY` then
+   `npx wrangler secret put TURNSTILE_SECRET_KEY` (add `--env <name>` for
+   staging). Both are secrets so a deploy never overwrites them.
+3. Redeploy the Pages build so the CSP admits `challenges.cloudflare.com`.
+4. Open `/register` in a private window: the button reads "Checking your
+   browser…" briefly, then the request goes through.
 
 Apply the account migration before deploying the Worker, confirm at least one
 approved owner account and the admin-token route, then run an anonymous API and

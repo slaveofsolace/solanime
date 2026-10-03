@@ -94,9 +94,7 @@ async function fixture(secure = false, config: Partial<AccountConfig> = {}) {
 // Password tests execute real memory-hard hashes; allow several operations on shared CI CPUs.
 describe('private accounts and profile ownership', { timeout: 20000 }, () => {
   it('blocks private local browsing until a newly registered account is approved', async () => {
-    const notices: string[] = [];
-    const f = await fixture(false, { privateSite: true, approvalRequired: true,
-      notifyApproval: async kind => { notices.push(kind); return true; } });
+    const f = await fixture(false, { privateSite: true, approvalRequired: true });
     const a = f.user();
     expect((await fetch(f.origin + '/api/titles')).status).toBe(401);
     const registered = await a.call('register', { email: 'pending-local@example.test', password });
@@ -107,10 +105,9 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
       .toBe('ACCOUNT_PENDING_APPROVAL');
     const pending = f.service.pendingApprovals() as Array<{ id: string; email: string }>;
     expect(pending).toHaveLength(1);
-    expect(await f.service.decideApproval(pending[0].id, 'approved')).toMatchObject({ applicantNotice: 'sent' });
+    expect(await f.service.decideApproval(pending[0].id, 'approved')).toEqual({ id: pending[0].id, decision: 'approved' });
     expect((await a.call('login', { email: 'pending-local@example.test', password })).response.status).toBe(200);
     expect((await fetch(f.origin + '/api/titles', { headers: { cookie: a.cookie } })).status).toBe(200);
-    expect(notices).toEqual(['request', 'approved']);
   });
   it('creates a salted account, session and one profile without leaking secrets to the catalogue', async () => {
     const f = await fixture(),
@@ -387,5 +384,19 @@ describe('private accounts and profile ownership', { timeout: 20000 }, () => {
       body: { profileId, revision: 2 } })).response.status).toBe(200);
     expect((await guest.community('10/comments')).body.total).toBe(0);
     expect((await guest.community('999/comments')).response.status).toBe(404);
+  });
+
+  it('refuses a private site that anyone could join', () => {
+    expect(() => createAccounts(openAccountsDatabase(':memory:'), { privateSite: true, registration: true, approvalRequired: false }))
+      .toThrow(/private site/i);
+  });
+  it('queues a few slow password checks instead of refusing them', async () => {
+    const f = await fixture();
+    const attempts = await Promise.all([1, 2, 3].map(() => fetch(`${f.origin}/api/account/login`, {
+      method: 'POST',
+      headers: { origin: f.origin, 'content-type': 'application/json', 'x-solanime-intent': 'account', 'sec-fetch-site': 'same-origin' },
+      body: JSON.stringify({ email: 'nobody@example.test', password: 'wrong-password-value' }),
+    })));
+    expect(attempts.map((response) => response.status)).toEqual([401, 401, 401]);
   });
 });

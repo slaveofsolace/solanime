@@ -11,7 +11,7 @@ import {
 } from './providers/native-registry.ts';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { backup, type DatabaseSync } from 'node:sqlite';
-import { resolve } from 'node:path';
+import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdirSync, existsSync } from 'node:fs';
 import { serveStatic } from './static.ts';
@@ -49,6 +49,8 @@ interface AppOptions {
   staticDirectory?: string;
   maxPendingResolutions?: number;
   resolutionCooldownMs?: number;
+  /** Provider resolutions per client address per minute (default 30). */
+  resolveRateLimit?: number;
   resolveProvider?: (
     mapping: StoredProviderMapping,
     signal: AbortSignal,
@@ -137,11 +139,12 @@ function json(
 
 function requireAdmin(request: IncomingMessage): void {
   const expected = process.env.SOLANIME_ADMIN_TOKEN;
-  if (!expected)
+  // A short token can be guessed, so it counts as not configured.
+  if (!expected || expected.length < 32)
     throw new AppError(
       503,
       'ADMIN_UNCONFIGURED',
-      'Administrative actions are disabled until SOLANIME_ADMIN_TOKEN is configured.',
+      'Administrative actions are disabled until SOLANIME_ADMIN_TOKEN is set to at least 32 characters.',
     );
   const supplied = request.headers['x-admin-token'];
   const candidate = typeof supplied === 'string' ? supplied : '';
@@ -171,7 +174,20 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
     0,
     options.resolutionCooldownMs ?? DEFAULT_RESOLUTION_COOLDOWN_MS,
   );
-  const backupDirectory = resolve(options.backupDirectory ?? resolve('data', 'backups'));
+  const backupDirectory = resolve(options.backupDirectory ?? resolve(projectRoot, 'data', 'backups'));
+  const resolveRateLimit = Math.max(1, options.resolveRateLimit ?? 30);
+  const resolveAttempts = new Map<string, { count: number; resetAt: number }>();
+  const limitResolve = (request: IncomingMessage) => {
+    const key = request.socket.remoteAddress ?? 'unknown', now = Date.now();
+    if (resolveAttempts.size > 10_000)
+      for (const [address, entry] of resolveAttempts) if (entry.resetAt <= now) resolveAttempts.delete(address);
+    const entry = resolveAttempts.get(key);
+    if (!entry || entry.resetAt <= now) return void resolveAttempts.set(key, { count: 1, resetAt: now + 60_000 });
+    if (++entry.count > resolveRateLimit)
+      throw new AppError(429, 'UNAVAILABLE', 'Too many playback requests. Try again shortly.', {
+        retryAfterSeconds: Math.max(1, Math.ceil((entry.resetAt - now) / 1000)),
+      });
+  };
   const executeResolution =
     options.resolveProvider ??
     (async (mapping: StoredProviderMapping, signal: AbortSignal) => {
@@ -335,12 +351,11 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         requireAdmin(request);
         return json(response, 200, { items: accounts.pendingApprovals() });
       }
-      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(url.pathname);
+      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/decision$/.exec(url.pathname);
       if (method === 'POST' && approval) {
         requireSafeMutation(request.headers, { requireJson: true });
         requireAdmin(request);
         const input = await readJson(request);
-        if (approval[2] === 'retry-notice') return json(response, 200, await accounts.retryNotice(approval[1]));
         if (input.decision !== 'approved' && input.decision !== 'rejected')
           throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
         return json(response, 200, await accounts.decideApproval(approval[1], input.decision));
@@ -438,6 +453,7 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
       const resolveMatch = /^\/api\/providers\/(\d+)\/resolve$/.exec(url.pathname);
       if (method === 'POST' && resolveMatch) {
         requireSafeMutation(request.headers, { requireJson: true });
+        limitResolve(request);
         const body = await readJson(request);
         const mapping = getMapping(db, pathIdentifier(resolveMatch[1], 'mapping ID'));
         if (
@@ -489,7 +505,8 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
           `solanime-${new Date().toISOString().replace(/[:.]/g, '-')}.sqlite`,
         );
         await backup(db, path);
-        return json(response, 201, { path, schemaVersion: currentSchemaVersion(db) });
+        // The file name is enough for the operator; the full disk path stays on the server.
+        return json(response, 201, { file: basename(path), schemaVersion: currentSchemaVersion(db) });
       }
       if (
         options.staticDirectory &&

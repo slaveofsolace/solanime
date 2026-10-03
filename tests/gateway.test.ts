@@ -71,12 +71,25 @@ describe('optional Pages gateway', () => {
           new Request('https://solanime.example/api/providers/1/resolve', {
             method: 'POST',
             body: 'x'.repeat(20000),
-            headers: { 'content-type': 'application/json' },
+            headers: { origin: 'https://solanime.example', 'content-type': 'application/json' },
           }),
           env,
         )
       ).status,
     ).toBe(413);
+    // A POST without Origin is never a browser visitor, in either gateway mode.
+    expect(
+      (
+        await worker.fetch(
+          new Request('https://solanime.example/api/providers/1/resolve', {
+            method: 'POST',
+            body: '{}',
+            headers: { 'content-type': 'application/json' },
+          }),
+          env,
+        )
+      ).status,
+    ).toBe(403);
   });
   it('does not pass HTML backend failures off as data', async () => {
     vi.stubGlobal(

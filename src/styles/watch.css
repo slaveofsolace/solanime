@@ -63,7 +63,7 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--radius-group);
-  background: #000;
+  background: var(--stage);
   color: #f5f5f5;
   box-shadow: 0 24px 60px rgb(0 0 0 / 35%);
 }
@@ -578,14 +578,14 @@
     margin: 0 calc(-1 * var(--gutter));
     padding: env(safe-area-inset-top) var(--space-3) 0 var(--space-1);
     color: #f5f5f5;
-    background: #000;
+    background: var(--stage);
   }
   :root .site-shell .watch-stage {
     position: sticky;
     top: calc(48px + env(safe-area-inset-top));
     z-index: 30;
     margin: 0 calc(-1 * var(--gutter));
-    background: #000;
+    background: var(--stage);
   }
   :root .site-shell .watch-topbar__back {
     justify-content: center;
@@ -661,3 +661,18 @@
 /* Watched episodes recede so the next unwatched one stands out. */
 :root .site-shell .episode-grid > li[data-watched='true']:not([data-current='true']) > a { opacity: 0.5; }
 :root .site-shell .episode-grid > li[data-watched='true']:not([data-current='true']) > a:hover { opacity: 0.8; }
+
+/* Loading: shapes of the real screen, with a slow shimmer (none under reduced motion). */
+:root .site-shell .player-message--busy { display: grid; place-items: center; aspect-ratio: 16 / 9; min-height: 0; padding: 0; }
+:root .site-shell .watch-skeleton {
+  display: block;
+  border-radius: var(--radius-inner);
+  background: linear-gradient(90deg, var(--control-fill) 0%, var(--control-hover) 50%, var(--control-fill) 100%) 0 0 / 200% 100%;
+}
+:root:not([data-motion='reduced']) .site-shell .watch-skeleton { animation: shimmer 1.4s linear infinite; }
+:root .site-shell .watch-skeleton--back { width: 120px; height: 20px; }
+:root .site-shell .watch-skeleton--label { width: 90px; height: 14px; }
+:root .site-shell .watch-skeleton--title { width: min(60%, 360px); height: 30px; }
+:root .site-shell .watch-skeleton--actions { width: 220px; height: 44px; border-radius: var(--radius-pill); }
+:root .site-shell .watch-page--loading .watch-episodes { gap: var(--space-2); padding: var(--space-4); }
+:root .site-shell .watch-skeleton--row { height: 52px; }

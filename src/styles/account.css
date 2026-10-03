@@ -464,6 +464,9 @@
   .profile-menu-panel::backdrop { background: #0008; }
 }
 
+/* Turnstile stays out of sight unless Cloudflare asks for an interaction. */
+.human-check { display: flex; justify-content: center; }
+
 /* MyAnimeList list import (Settings → MyAnimeList). */
 .mal-import { display: grid; gap: var(--space-2); margin-block: var(--space-4); min-width: 0; }
 .mal-import label { font-weight: 650; }

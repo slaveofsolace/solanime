@@ -44,8 +44,7 @@ export class D1AccountsRepository {
           approval_state,approval_requested_at,owner_notice_state)
           VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(firebase_uid) DO NOTHING`)
           .bind(user.uid, user.uid, user.email, recoveryHash, user.emailVerified ? 1 : 0, user.createdAt || now,
-            approvalRequired ? 'pending' : 'approved', approvalRequired ? now : null,
-            approvalRequired ? 'pending' : 'not_required'),
+            approvalRequired ? 'pending' : 'approved', approvalRequired ? now : null, 'not_required'),
         this.db.prepare(`INSERT INTO profiles(id,account_id,name,avatar,created_at)
           SELECT ?,id,'You','ruby',? FROM accounts WHERE firebase_uid=?
           AND NOT EXISTS(SELECT 1 FROM profiles WHERE account_id=accounts.id)`)
@@ -67,29 +66,26 @@ export class D1AccountsRepository {
     await this.db.prepare('UPDATE accounts SET email_verified=? WHERE id=? AND email_verified<>?')
       .bind(emailVerified ? 1 : 0, id, emailVerified ? 1 : 0).run();
   }
+  async pendingCount() {
+    return (await this.db.prepare(`SELECT count(*) AS n FROM accounts WHERE approval_state='pending'`).first<{ n: number }>())?.n ?? 0;
+  }
   async pendingApprovals(limit = 50) {
     return (await this.db.prepare(`SELECT id,email,created_at,approval_requested_at,approval_state,
       owner_notice_state,applicant_notice_state FROM accounts
-      WHERE approval_state='pending' OR (approval_state='approved' AND applicant_notice_state='failed')
-      ORDER BY CASE WHEN approval_state='pending' THEN 0 ELSE 1 END,approval_requested_at,id LIMIT ?`)
+      WHERE approval_state='pending' ORDER BY approval_requested_at,id LIMIT ?`)
       .bind(Math.min(50, Math.max(1, limit))).all<Pick<CloudAccount,
         'id' | 'email' | 'created_at' | 'approval_requested_at' | 'approval_state' |
         'owner_notice_state' | 'applicant_notice_state'>>()).results;
   }
   async decideApproval(id: string, decision: 'approved' | 'rejected', now: number) {
     const row = await this.db.prepare(`UPDATE accounts SET approval_state=?,approval_decided_at=?,
-      applicant_notice_state=CASE WHEN ?='approved' THEN 'pending' ELSE 'not_required' END,
       auth_revision=auth_revision+1 WHERE id=? AND approval_state='pending' RETURNING *`)
-      .bind(decision, now, decision, id).first<CloudAccount>();
+      .bind(decision, now, id).first<CloudAccount>();
     if (!row) throw new AppError(409, 'BAD_REQUEST', 'This request is no longer pending. Refresh the queue.');
     await this.db.prepare('DELETE FROM sessions WHERE account_id=?').bind(id).run();
     return row;
   }
-  async noticeState(id: string, kind: 'owner' | 'applicant', state: 'sent' | 'failed') {
-    const column = kind === 'owner' ? 'owner_notice_state' : 'applicant_notice_state';
-    await this.db.prepare(`UPDATE accounts SET ${column}=? WHERE id=? AND ${column} IN ('pending','failed')`)
-      .bind(state, id).run();
-  }
+
   session(hash: string, now: number) {
     return this.db.prepare(`SELECT s.* FROM sessions s JOIN accounts a ON a.id=s.account_id
       WHERE s.token_hash=? AND s.expires_at>? AND s.last_seen>=?
@@ -158,6 +154,13 @@ export class D1AccountsRepository {
       await this.db.prepare(`DELETE FROM account_rate_limits WHERE key IN
         (SELECT key FROM account_rate_limits WHERE expires_at<=? ORDER BY expires_at,key LIMIT 100)`)
         .bind(now).run();
+      row = await attempt();
+    }
+    if (!row) {
+      // Still full of live buckets: drop the ones closest to expiry rather than refusing every
+      // account action for everyone until the flood ages out.
+      await this.db.prepare(`DELETE FROM account_rate_limits WHERE key IN
+        (SELECT key FROM account_rate_limits ORDER BY expires_at,key LIMIT 100)`).run();
       row = await attempt();
     }
     if (!row) throw new AppError(503, 'UNAVAILABLE', 'Sign-in is busy. Try again shortly.', { reason: 'AUTH_RATE_STORAGE_FULL' });

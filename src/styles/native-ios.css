@@ -7,7 +7,7 @@
 
 :root.solanime-native-ios {
   font: -apple-system-body;
-  --bg: #000;
+  --bg: #08080a;
   --surface: #1c1c1e;
   --surface-2: #2c2c2e;
   --line: #38383a;
@@ -262,7 +262,7 @@
   }
 
   .solanime-native-ios .site-shell.discovery-shell.site-shell--home .home-feature {
-    background: #000;
+    background: var(--bg);
     color: #fff;
     border: 0;
   }
@@ -341,8 +341,8 @@
   .solanime-native-ios .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art[data-banner='loaded']::after {
     display: block;
     background:
-      linear-gradient(0deg, #000 0%, #000 12%, rgb(0 0 0 / 92%) 29%, rgb(0 0 0 / 42%) 57%, transparent 82%),
-      linear-gradient(180deg, #000 0%, rgb(0 0 0 / 86%) 10%, rgb(0 0 0 / 60%) 21%, rgb(0 0 0 / 22%) 34%, transparent 46%);
+      linear-gradient(0deg, #08080a 0%, #08080a 12%, rgb(8 8 10 / 92%) 29%, rgb(8 8 10 / 42%) 57%, transparent 82%),
+      linear-gradient(180deg, #08080a 0%, rgb(8 8 10 / 86%) 10%, rgb(8 8 10 / 60%) 21%, rgb(8 8 10 / 22%) 34%, transparent 46%);
   }
 
   .solanime-native-ios .site-shell.discovery-shell.site-shell--home .home-feature .home-feature__copy {
