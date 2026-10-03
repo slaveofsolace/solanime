@@ -74,7 +74,7 @@ export function SpotlightArtwork({ title, className = '' }: { title: TitleSummar
 }
 
 export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
-  const { watchlist, history, preferences } = useAppState();
+  const { watchlist, history, watched, preferences } = useAppState();
   const [prefs] = preferences;
   const [detail, setDetail] = useState<TitleDetailResponse | null>(null);
   const [index, setIndex] = useState(0);
@@ -93,7 +93,7 @@ export default function FeatureSpotlight({ items }: { items: TitleSummary[] }) {
   const selected = index % Math.max(choices.length, 1),
     item = choices[selected];
   const watchEntry = item && detail?.title.id === item.id
-    ? chooseWatchEntry(item.id, detail.episodes, history.entries, prefs.preferredLanguage)
+    ? chooseWatchEntry(item.id, detail.episodes, history.entries, prefs.preferredLanguage, watched.isWatched)
     : null;
   const destination = item
     ? watchEntry ? watchEntryPath(item.slug, watchEntry) : `/title/${encodeURIComponent(item.slug)}`

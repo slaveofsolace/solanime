@@ -170,6 +170,15 @@ function WatchSession() {
     loadingSources,
     resolutionRetry,
   ]);
+  // Some provider players never report progress. Staying on a playable episode
+  // for a little while still counts as watching it, so Continue Watching and
+  // the Library resume link pick it up.
+  const rememberLatest = useRef<() => void>(() => {});
+  useEffect(() => {
+    if (!resolution) return;
+    const timer = window.setTimeout(() => rememberLatest.current(), 15_000);
+    return () => window.clearTimeout(timer);
+  }, [resolution]);
   if (titleError)
     return (
       <StatusPanel
@@ -205,9 +214,12 @@ function WatchSession() {
       />
     );
   const title = detail.title;
+  // Moving between episodes replaces the entry, so Back leaves the watch screen
+  // instead of stepping back through every episode watched.
   const go = (id: string) =>
     navigate(
       `/watch/${encodeURIComponent(slug)}/${encodeURIComponent(id)}?language=${encodeURIComponent(language)}`,
+      { replace: true },
     );
   const localNotes = comments.forEpisode(episode.id);
   const historyEntry = history.entries.find(
@@ -236,6 +248,7 @@ function WatchSession() {
       watchedAt: new Date().toISOString(),
     });
   };
+  rememberLatest.current = () => remember();
   const handleProviderFailure = (message: string) => {
     const failedMappingId = candidate?.mappingId;
     if (failedMappingId) {
@@ -303,7 +316,20 @@ function WatchSession() {
   return (
     <div className={`watch-page${theater ? ' watch-page--theater' : ''}`}>
       <div className="watch-topbar">
-        <Link className="watch-topbar__back" to={titlePath} aria-label={`Back to ${title.name}`}>
+        <Link
+          className="watch-topbar__back"
+          to={titlePath}
+          aria-label={`Back to ${title.name}`}
+          onClick={(event) => {
+            // Return to wherever the viewer came from (Home, Library, search),
+            // and to the title page only when the episode was opened directly.
+            const index = (window.history.state as { idx?: number } | null)?.idx ?? 0;
+            if (index > 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
+              event.preventDefault();
+              navigate(-1);
+            }
+          }}
+        >
           <Icon name="left" />
           <span className="watch-topbar__back-label">Back to title</span>
         </Link>

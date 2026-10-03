@@ -67,7 +67,7 @@ export default function TitlePage() {
 
 function TitleSession() {
   const { slug = '' } = useParams();
-  const { watchlist, history, preferences } = useAppState();
+  const { watchlist, history, watched, preferences } = useAppState();
   const [preference] = preferences;
   const [title, setTitle] = useState<TitleDetail | null>(null);
   const [episodes, setEpisodes] = useState<Episode[]>([]);
@@ -148,7 +148,7 @@ function TitleSession() {
   const saved = watchlist.has(title.id);
   const linkedRelated = related.filter(isLinkedRelated);
   const unresolvedRelated = related.filter((item) => !isLinkedRelated(item));
-  const primaryEntry = chooseWatchEntry(title.id, episodes, history.entries, language);
+  const primaryEntry = chooseWatchEntry(title.id, episodes, history.entries, language, watched.isWatched);
   const episodeInventoryPending =
     episodes.length === 0 && title.collectionState !== 'complete';
   const synopsis = (title.synopsis ?? title.description)?.replace(/\s*\[more\]\s*$/i, '');

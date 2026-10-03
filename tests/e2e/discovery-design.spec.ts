@@ -32,7 +32,8 @@ test('applied filters are removable without losing sort or density', async ({ pa
   await expect(page.locator('.title-card').first()).toBeVisible();
 
   const filters = page.getByLabel('Applied catalogue filters');
-  await expect(filters.getByRole('button', { name: /Remove Search filter: Paper/i })).toBeVisible();
+  await expect(filters.getByRole('button', { name: /Remove Search filter/i })).toHaveCount(0);
+  await expect(page.getByRole('searchbox').first()).toHaveValue('Paper');
   await expect(filters.getByRole('button', { name: /Remove Format filter: Movie/i })).toBeVisible();
   await expect(page.locator('.filter-disclosure')).not.toHaveAttribute('open', '');
   await expect(page.getByRole('combobox', { name: 'Sort titles' })).toHaveValue('title');

@@ -14,7 +14,7 @@ export default function TitlePreview({
   title: TitleSummary;
   onClose: () => void;
 }) {
-  const { watchlist, history, preferences } = useAppState();
+  const { watchlist, history, watched, preferences } = useAppState();
   const [preference] = preferences;
   const [detail, setDetail] = useState<TitleDetailResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -33,7 +33,7 @@ export default function TitlePreview({
   const item = detail?.title ?? title;
   const name = item.name ?? item.title ?? 'Untitled';
   const watchEntry = detail
-    ? chooseWatchEntry(item.id, detail.episodes, history.entries, preference.preferredLanguage)
+    ? chooseWatchEntry(item.id, detail.episodes, history.entries, preference.preferredLanguage, watched.isWatched)
     : null;
   return (
     <Dialog title={name} onClose={onClose} className="title-preview">

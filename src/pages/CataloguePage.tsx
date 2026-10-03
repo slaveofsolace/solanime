@@ -195,8 +195,8 @@ export default function CataloguePage() {
         : params.get('language')?.toLowerCase() === 'dub'
           ? 'Dubbed Anime'
           : 'Browse';
+  // The search box already shows (and clears) the query, so only filters get chips.
   const appliedFilters = [
-    queryText ? { key: 'q', name: 'Search', value: queryText } : null,
     queryGenre
       ? { key: 'genre', name: 'Genre', value: optionLabel(facets.genres, queryGenre) }
       : null,

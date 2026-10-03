@@ -223,6 +223,7 @@ function EpisodeBrowserContent({
                     element.focus();
                   }
                 } : undefined}
+                replace={Boolean(currentId)}
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}${seasonGroups && activeSeason !== 'all' ? `&season=${activeSeason}` : ''}`}
                 aria-current={e.id === currentId ? 'page' : undefined}
               >

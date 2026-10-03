@@ -59,6 +59,12 @@
 }
 :root .site-shell.discovery-shell .catalogue-page .search-field input { border-radius: var(--radius-control) 0 0 var(--radius-control); }
 :root .site-shell.discovery-shell .catalogue-page .search-field button { border-radius: 0 var(--radius-control) var(--radius-control) 0; }
+:root .site-shell.discovery-shell .catalogue-page .search-field input:focus-visible { outline: none; }
+/* The whole search surface shows focus, so the ring matches its rounded shape. */
+:root .site-shell.discovery-shell .catalogue-page .search-field:focus-within {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--accent-ink);
+}
 :root .site-shell.discovery-shell .catalogue-page .discovery-sort { padding: 0; border: 0; background: transparent; }
 
 :root .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary {

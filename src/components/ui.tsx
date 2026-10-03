@@ -339,7 +339,7 @@ export function CoverArt({
 }
 
 export function TitleCard({ title, index = 0, format = 'poster', contextual = false }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape'; contextual?: boolean }) {
-  const { watchlist, history, preferences, setPreview } = useAppState();
+  const { watchlist, history, watched, preferences, setPreview } = useAppState();
   const [preference] = preferences;
   const navigate = useNavigate();
   const [opening, setOpening] = useState(false);
@@ -353,7 +353,7 @@ export function TitleCard({ title, index = 0, format = 'poster', contextual = fa
     try {
       const detail = await api.title(title.slug, controller.signal);
       if (controller.signal.aborted) return;
-      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage);
+      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage, watched.isWatched);
       navigate(entry ? watchEntryPath(title.slug, entry) : `/title/${encodeURIComponent(title.slug)}`);
     } catch {
       if (!controller.signal.aborted) navigate(`/title/${encodeURIComponent(title.slug)}`);
