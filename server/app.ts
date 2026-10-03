@@ -334,12 +334,11 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         requireAdmin(request);
         return json(response, 200, { items: accounts.pendingApprovals() });
       }
-      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(url.pathname);
+      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/decision$/.exec(url.pathname);
       if (method === 'POST' && approval) {
         requireSafeMutation(request.headers, { requireJson: true });
         requireAdmin(request);
         const input = await readJson(request);
-        if (approval[2] === 'retry-notice') return json(response, 200, await accounts.retryNotice(approval[1]));
         if (input.decision !== 'approved' && input.decision !== 'rejected')
           throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
         return json(response, 200, await accounts.decideApproval(approval[1], input.decision));

@@ -6,7 +6,6 @@ import { FirebaseAuthError } from '../server/cloud/auth/firebase';
 import { digest, encodeBytes, openCredentials, randomToken, sealCredentials } from '../server/cloud/auth/crypto';
 import type { AccountDatabase, AccountStatement, CloudProfile, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from '../server/cloud/auth/types';
 import { generatedTestPassphrase, generatedTestToken } from './helpers/auth-material';
-import { sendApprovalNotice } from '../server/cloud/auth/notifications';
 import type { CommunityComment, CommunityCommentsPage } from '../src/types';
 
 // Real SQLite executes the D1 contract SQL. Network identity is deterministic and test-only.
@@ -172,9 +171,7 @@ function fixture(overrides: Partial<CloudAccountConfig> = {}) {
 
 describe('D1 managed account bridge', () => {
   it('keeps new private-site accounts pending until an operator approves them, preserving existing sessions', async () => {
-    const notices: Array<{ kind: string; email: string }> = [];
-    const f = fixture({ approvalRequired: true, privateSite: true,
-      notifyApproval: async (kind, account) => { notices.push({ kind, email: account.email }); return true; } });
+    const f = fixture({ approvalRequired: true, privateSite: true });
     const a = f.client();
     const registration = await a.call('register', { email: 'review@example.test', password });
     expect(registration.response.status).toBe(202);
@@ -186,30 +183,23 @@ describe('D1 managed account bridge', () => {
     expect(blocked.response.status).toBe(403);
     expect(blocked.body.error.details?.reason).toBe('ACCOUNT_PENDING_APPROVAL');
     const queue = await f.service.pendingApprovals();
-    expect(queue).toMatchObject([{ email: 'review@example.test', approval_state: 'pending', owner_notice_state: 'sent' }]);
-    const approved = await f.service.decideApproval(queue[0].id, 'approved');
-    expect(approved.applicantNotice).toBe('sent');
+    expect(queue).toMatchObject([{ email: 'review@example.test', approval_state: 'pending' }]);
+    expect(await f.service.decideApproval(queue[0].id, 'approved')).toEqual({ id: queue[0].id, decision: 'approved' });
     expect((await f.service.pendingApprovals())).toHaveLength(0);
     expect((await a.call('login', { email: 'review@example.test', password })).response.status).toBe(200);
     expect((await a.call('session')).body.account?.email).toBe('review@example.test');
-    expect(notices).toEqual([{ kind: 'request', email: 'review@example.test' },
-      { kind: 'approved', email: 'review@example.test' }]);
   });
-  it('does not grant rejected requests access and retains failed email notices for operator retry', async () => {
-    let accepted = false;
-    const f = fixture({ approvalRequired: true,
-      notifyApproval: async () => accepted });
+  it('does not grant rejected requests access and drops them from the queue', async () => {
+    const f = fixture({ approvalRequired: true });
     const a = f.client();
     await a.call('register', { email: 'retry@example.test', password });
     const queue = await f.service.pendingApprovals();
-    expect(queue[0].owner_notice_state).toBe('failed');
-    accepted = true;
-    expect(await f.service.retryNotice(queue[0].id)).toMatchObject({ notice: 'sent' });
     expect(await f.service.decideApproval(queue[0].id, 'rejected')).toMatchObject({ decision: 'rejected' });
     expect((await a.call('login', { email: 'retry@example.test', password })).body.error.details?.reason).toBe('ACCOUNT_REJECTED');
+    expect(await f.service.pendingApprovals()).toHaveLength(0);
   });
   it('keeps an interrupted signup pending when the applicant signs in instead', async () => {
-    const f = fixture({ approvalRequired: true, privateSite: true, notifyApproval: async () => true });
+    const f = fixture({ approvalRequired: true, privateSite: true });
     // Firebase created the user but the account row was never written.
     await f.identity.signUp('interrupted@example.test', password);
     const a = f.client();
@@ -513,49 +503,6 @@ describe('D1 managed account bridge', () => {
   });
 });
 
-describe('FormSubmit approval notifications', () => {
-  it('uses the configured operator destination and sends no credentials', async () => {
-    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
-    const sent = await sendApprovalNotice('approved', { id: 'account-id', email: 'applicant@example.test' }, origin,
-      'operator@example.test', outbound);
-    expect(sent).toBe(true);
-    expect(outbound).toHaveBeenCalledTimes(1);
-    const [url, options] = outbound.mock.calls[0];
-    expect(url).toBe('https://formsubmit.co/ajax/operator%40example.test');
-    expect(options?.headers).toMatchObject({ 'Content-Type': 'application/json', Accept: 'application/json' });
-    const value = JSON.parse(String(options?.body));
-    expect(value._cc).toBe('applicant@example.test');
-    expect(value).not.toHaveProperty('email');
-    expect(JSON.stringify(value)).not.toMatch(/password|token|recoveryCode/i);
-  });
-
-  it('keeps applicant details out of the operator notice', async () => {
-    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
-    await sendApprovalNotice('request', { id: 'account-id', email: 'applicant@example.test' }, origin, 'a1b2c3d4e5', outbound);
-    const [url, options] = outbound.mock.calls[0];
-    expect(url).toBe('https://formsubmit.co/ajax/a1b2c3d4e5');
-    expect(String(options?.body)).not.toMatch(/applicant@example\.test|account-id/);
-  });
-
-  it('sends nothing when no destination is configured', async () => {
-    const outbound = vi.fn<typeof fetch>(async () => Response.json({ success: 'true' }));
-    for (const destination of [undefined, '', '   ', 'x/../evil', 'a?b'])
-      expect(await sendApprovalNotice('request', { id: 'id', email: 'applicant@example.test' }, origin, destination, outbound)).toBe(false);
-    expect(outbound).not.toHaveBeenCalled();
-  });
-
-  it('accepts a valid acknowledgement even when FormSubmit labels JSON as HTML', async () => {
-    const accepted = new Response(JSON.stringify({ success: 'true' }), {
-      status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
-    });
-    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin, 'operator@example.test',
-      vi.fn<typeof fetch>(async () => accepted))).toBe(true);
-    expect(await sendApprovalNotice('request', { id: 'test-id', email: 'applicant@example.test' }, origin, 'operator@example.test',
-      vi.fn<typeof fetch>(async () => new Response('<html>OK</html>', {
-        status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' },
-      })))).toBe(false);
-  });
-});
 
 describe('credential envelope', () => {
   it('authenticates ciphertext, owning account and session; rotation invalidates prior keys', async () => {

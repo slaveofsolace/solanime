@@ -5,10 +5,8 @@ import '../styles/admin-approvals.css';
 type RequestRow = {
   id: string;
   email: string;
-  approval_state: 'pending' | 'approved';
+  approval_state: 'pending';
   approval_requested_at: number | null;
-  owner_notice_state: string;
-  applicant_notice_state: string;
 };
 
 type Decision = 'approved' | 'rejected';
@@ -17,13 +15,6 @@ function requestedAt(value: number | null) {
   if (!value) return 'Request time unavailable';
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? 'Request time unavailable' : date.toLocaleString();
-}
-
-function noticeFor(item: RequestRow) {
-  if (item.approval_state === 'approved') return 'Approval saved · applicant email failed';
-  if (item.owner_notice_state === 'failed') return 'Owner email failed · request remains pending';
-  if (item.owner_notice_state === 'sent') return 'Owner notified';
-  return 'Owner email pending';
 }
 
 export default function PendingApprovals({ token }: { token: string }) {
@@ -66,7 +57,7 @@ export default function PendingApprovals({ token }: { token: string }) {
     };
   }, [load]);
 
-  async function action(item: RequestRow, kind: Decision | 'retry-notice') {
+  async function action(item: RequestRow, kind: Decision) {
     if (busy) return;
     loadController.current?.abort();
     actionController.current?.abort();
@@ -77,24 +68,18 @@ export default function PendingApprovals({ token }: { token: string }) {
     setError(null);
     setNotice(null);
     try {
-      const result = await request<{ applicantNotice?: string; notice?: string }>(
-        `/api/admin/accounts/${encodeURIComponent(item.id)}/${kind === 'retry-notice' ? 'retry-notice' : 'decision'}`,
+      await request<{ decision?: string }>(
+        `/api/admin/accounts/${encodeURIComponent(item.id)}/decision`,
         {
           method: 'POST', headers: { 'x-admin-token': token },
-          body: JSON.stringify(kind === 'retry-notice' ? {} : { decision: kind }),
+          body: JSON.stringify({ decision: kind }),
           signal: controller.signal,
         },
       );
       if (controller.signal.aborted) return;
       setNotice(kind === 'approved'
-        ? result.applicantNotice === 'sent'
-          ? 'Account approved. The applicant email was accepted.'
-          : 'Account approved. The applicant email failed; the account can still sign in.'
-        : kind === 'rejected'
-          ? 'Request declined. No email was sent.'
-          : result.notice === 'sent'
-            ? 'Email accepted.'
-            : 'Email failed again. The request remains in this queue.');
+        ? 'Account approved. They can sign in now.'
+        : 'Request declined.');
       await load();
     } catch (cause) {
       if (!controller.signal.aborted) setError(errorMessage(cause));
@@ -103,33 +88,28 @@ export default function PendingApprovals({ token }: { token: string }) {
     }
   }
 
-  const pendingCount = items.filter((item) => item.approval_state === 'pending').length;
-  const failedCount = items.filter((item) => item.approval_state === 'approved').length;
-
   return <section className="admin-run approval-queue" aria-labelledby="pending-approvals-title">
     <header className="approval-queue__heading">
       <div>
         <p className="eyebrow">PRIVATE ACCESS</p>
         <h2 id="pending-approvals-title">Account requests</h2>
-        <p>Review requests here. A failed email does not change an account’s approval state.</p>
+        <p>Review requests here. Approved people can sign in right away.</p>
       </div>
       <button className="button button--outline" type="button" disabled={loading || busy !== null}
         onClick={() => void load()}>Refresh requests</button>
     </header>
 
     {!loading && !error && items.length > 0 && <p className="approval-queue__summary">
-      {pendingCount} awaiting decision{failedCount > 0 ? ` · ${failedCount} approved with failed email` : ''}
+      {items.length} awaiting decision
     </p>}
     {error && <p role="alert" className="approval-queue__error">{error}</p>}
     {notice && <p role="status" className="approval-queue__notice">{notice}</p>}
     {loading && <p role="status" className="approval-queue__empty">Loading account requests…</p>}
     {!loading && !error && items.length === 0 &&
-      <p className="approval-queue__empty">You’re caught up. No requests need a decision or email retry.</p>}
+      <p className="approval-queue__empty">You’re caught up. No requests need a decision.</p>}
 
     {!loading && items.length > 0 && <ul className="approval-queue__list">
       {items.map((item) => {
-        const pending = item.approval_state === 'pending';
-        const failed = pending ? item.owner_notice_state === 'failed' : item.applicant_notice_state === 'failed';
         const selected = confirm?.id === item.id ? confirm.decision : null;
         return <li className="approval-queue__item" key={item.id}>
           <div className="approval-queue__identity">
@@ -137,16 +117,13 @@ export default function PendingApprovals({ token }: { token: string }) {
             <span>Requested {requestedAt(item.approval_requested_at)}</span>
           </div>
           <div className="approval-queue__state">
-            <span className={`approval-queue__badge${pending ? '' : ' approval-queue__badge--approved'}`}>
-              {pending ? 'Awaiting decision' : 'Approved'}
-            </span>
-            <span className={failed ? 'approval-queue__failure' : undefined}>{noticeFor(item)}</span>
+            <span className="approval-queue__badge">Awaiting decision</span>
           </div>
           {selected ? <div className="approval-queue__confirm">
             <p><strong>{selected === 'approved' ? 'Approve this account?' : 'Decline this request?'}</strong>{' '}
               {selected === 'approved'
-                ? 'This grants app access immediately. The applicant email may fail.'
-                : 'This keeps the account from accessing the app. No decline email is sent.'}</p>
+                ? 'This grants app access immediately.'
+                : 'This keeps the account from accessing the app.'}</p>
             <div className="approval-queue__actions">
               <button className={selected === 'approved' ? 'button button--primary' : 'button button--outline'}
                 type="button" disabled={busy !== null} onClick={() => void action(item, selected)}>
@@ -156,16 +133,10 @@ export default function PendingApprovals({ token }: { token: string }) {
                 onClick={() => setConfirm(null)}>Cancel</button>
             </div>
           </div> : <div className="approval-queue__actions">
-            {pending && <>
-              <button className="button button--primary" type="button" disabled={busy !== null}
-                onClick={() => setConfirm({ id: item.id, decision: 'approved' })}>Approve</button>
-              <button className="button button--outline" type="button" disabled={busy !== null}
-                onClick={() => setConfirm({ id: item.id, decision: 'rejected' })}>Decline</button>
-            </>}
-            {failed && <button className="button button--outline" type="button" disabled={busy !== null}
-              onClick={() => void action(item, 'retry-notice')}>
-              Retry {pending ? 'owner' : 'applicant'} email
-            </button>}
+            <button className="button button--primary" type="button" disabled={busy !== null}
+              onClick={() => setConfirm({ id: item.id, decision: 'approved' })}>Approve</button>
+            <button className="button button--outline" type="button" disabled={busy !== null}
+              onClick={() => setConfirm({ id: item.id, decision: 'rejected' })}>Decline</button>
           </div>}
           {busy === item.id && <span className="approval-queue__working" role="status">Saving…</span>}
         </li>;

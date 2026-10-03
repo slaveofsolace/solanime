@@ -30,7 +30,6 @@ interface __BaseEnv_CloudEnv {
 	FIREBASE_SERVICE_ACCOUNT_JSON: string;
 	AUTH_CREDENTIAL_KEY: string;
 	MAL_CLIENT_ID?: string;
-	OPERATOR_NOTICE_ADDRESS?: string;
 	MAL_CLIENT_SECRET?: string;
 	MAL_CREDENTIAL_KEY?: string;
 }

@@ -99,31 +99,13 @@ verify an operator can sign in before promoting the gate. A pending or rejected
 account cannot create or use a session, even through a direct API request. A
 new applicant must save the displayed recovery code, then await approval.
 
-The owner notification uses FormSubmit AJAX. Its destination is the
-`OPERATOR_NOTICE_ADDRESS` Worker secret (`wrangler secret put
-OPERATOR_NOTICE_ADDRESS`): use an alias inbox or FormSubmit's random form ID,
-never a personal address, because approved applicants receive a copy and can
-see the recipient. Without the secret, no notice leaves the deployment and the
-admin queue shows it as failed. The owner notice names no applicant; review
-details only on the admin screen. `/admin` remains reachable before the first account
-is approved so the operator can bootstrap access; its data and actions require
-the existing operator token. Review the applicant email, then approve or
-decline. Approval changes the D1 state first and attempts a FormSubmit notice
-with the applicant as a copy recipient; a failed notification remains visible
-for retry and does not reverse the approval. The notification contains no
-password, recovery code, cookie, or operator token. `sent` means FormSubmit
-acknowledged the request, **not** that a mailbox delivery was confirmed. Test a
-real request/approval/inbox cycle before treating email as operational.
-
-On 2026-09-28, the first owner-approved synthetic request preceded FormSubmit
-activation and returned `acceptedByTransport: false`. After the owner activated
-the form and explicitly approved one fresh test, FormSubmit returned HTTP 200
-and `success: "true"` in a JSON body labeled `text/html`. The client initially
-reported false because it required a JSON content-type; it now validates the
-parsed acknowledgement instead, with a regression test. FormSubmit accepted
-the second request, and the owner confirmed that this synthetic request arrived
-in the operator inbox. An applicant approval-notice/inbox cycle remains
-to be tested before calling the full email flow operational.
+No email is sent for account requests or decisions, so no third-party mail
+relay receives applicant addresses. `/admin` lists pending requests; it remains
+reachable before the first account is approved so the operator can bootstrap
+access, and its data and actions require the existing operator token. Review
+the applicant email, then approve or decline. An approved applicant finds out
+by signing in. (Earlier releases relayed notices through FormSubmit; that path
+was removed on 2026-10-03.)
 
 Apply the account migration before deploying the Worker, confirm at least one
 approved owner account and the admin-token route, then run an anonymous API and
