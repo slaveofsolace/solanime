@@ -27,3 +27,38 @@ export async function noOverflow(page: Page) {
     true,
   );
 }
+
+/** The website and signed-style phone shell use an Account tab instead of desktop chrome. */
+export async function openSettings(page: Page, section?: 'playback' | 'appearance' | 'connections') {
+  await expect(page.locator('.masthead')).toBeVisible();
+  const direct = page.getByRole('banner').getByRole('link', { name: 'Settings', exact: true });
+  if (await direct.isVisible()) await direct.click();
+  else {
+    await page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link', { name: 'Account', exact: true }).click();
+    await page.locator('.settings-back').getByText('Settings', { exact: true }).click();
+  }
+  await expect(page).toHaveURL(/\/settings(?:\?|$)/);
+  if (section) {
+    await page.locator(`a[href="/settings?section=${section}"]:visible`).click();
+    await expect(page).toHaveURL(new RegExp(`/settings\\?section=${section}$`));
+  }
+}
+export async function openProfiles(page: Page) {
+  await expect(page.locator('.masthead')).toBeVisible();
+  const profileMenu = page.getByRole('button', { name: 'Open profile menu', exact: true });
+  const direct = page.getByRole('link', { name: 'Switch profile', exact: true });
+  if (await profileMenu.isVisible()) {
+    await profileMenu.click();
+    await page.getByRole('dialog', { name: 'Profile', exact: true })
+      .getByRole('link', { name: 'Switch profile', exact: true }).click();
+  } else if (await direct.isVisible()) await direct.click();
+  else {
+    await page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link', { name: 'Account', exact: true }).click();
+    await page.getByRole('link', { name: 'Manage', exact: true }).click();
+  }
+  await expect(page.getByRole('heading', { name: 'Who’s watching?', exact: true })).toBeVisible();
+}
+export async function expandAccent(page: Page) {
+  const disclosure = page.getByRole('button', { name: 'Accent color', exact: true });
+  if (await disclosure.getAttribute('aria-expanded') === 'false') await disclosure.click();
+}

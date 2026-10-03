@@ -57,7 +57,7 @@ export function sampleBrandFrame(motion: BrandMotion, elapsedMs = 0, reducedMoti
   const glintEnvelope = Math.sin(Math.PI * progress(time, 30, 1650)) ** 2;
   const rimPulse = Math.sin(Math.PI * progress(time, 650, 2650)) ** 2;
   return {
-    front, back, core: smooth(progress(time, 290, 1550)), play: smooth(progress(time, 550, 1370)),
+    front, back, core: smooth(progress(time, 290, 1550)), play: smooth(progress(time, 290, 1550)),
     sun: sunrise, sunY: 134 * (1 - sunrise),
     sunlight: 0.12 * sunrise + rimPulse * 0.15,
     sunRays: 0.08 * sunrise + rimPulse * 0.07,
@@ -80,7 +80,6 @@ export function sampleBrandExit(frame: BrandFrame, elapsedMs: number, reducedMot
 export class BrandClock {
   elapsed = 0;
   resolved = false;
-  minimumStartedAt: number | null = null;
   private last: number | null = null;
   tick(now: number, active: boolean) {
     if (active && this.last !== null) this.elapsed += Math.max(0, now - this.last);

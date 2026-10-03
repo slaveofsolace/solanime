@@ -1,0 +1,223 @@
+/* Mobile browser presentation. The native host keeps its own controls and
+   spacing in native-ios.css; these rules only cover the regular website. */
+.wordmark__emblem { display: none; }
+
+@media (max-width: 600px) {
+  .site-shell.discovery-shell .wordmark__compact { display: none; }
+  .site-shell.discovery-shell .wordmark__emblem { display: block; width: 44px; }
+  .site-shell.discovery-shell .wordmark { width: 44px; min-height: 44px; }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .masthead {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 50;
+    min-height: 64px;
+    background: linear-gradient(180deg, #000e, #0009 45%, transparent);
+    border: 0;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .wordmark,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .masthead-actions {
+    filter: drop-shadow(0 2px 8px #000b);
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature {
+    background: #08090b;
+    color: #fff;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-scene {
+    display: flex;
+    min-height: clamp(570px, 76svh, 710px);
+    padding: 88px var(--gutter) 72px;
+    align-items: flex-end;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art {
+    display: block;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art__banner {
+    inset: 0;
+    width: 100%;
+    height: 78%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art__poster,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art[data-banner='loaded'][data-mobile-art='poster'] .spotlight-art__poster {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: #131318;
+    box-shadow: none;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art__poster::before {
+    position: absolute;
+    inset: -18%;
+    display: block;
+    background: #16171b var(--spotlight-poster) center / cover no-repeat;
+    filter: blur(26px) brightness(.6) saturate(1.2);
+    content: '';
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art__poster > :is(img, .cover-fallback) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 14%;
+    mask-image: linear-gradient(#000 58%, transparent 99%);
+    -webkit-mask-image: linear-gradient(#000 58%, transparent 99%);
+    transform: none;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art[data-banner='loaded'][data-mobile-art='banner'] .spotlight-art__poster,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art[data-mobile-art='poster'] .spotlight-art__banner {
+    display: none;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art::after,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-art[data-banner='loaded']::after {
+    background:
+      linear-gradient(0deg, #08090b 0%, #08090b 7%, #08090be8 22%, #08090b66 53%, transparent 80%),
+      linear-gradient(180deg, #000e 0%, #000b 10%, #0007 22%, #0003 35%, transparent 46%);
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature__copy {
+    width: 100%;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature__intro {
+    display: block;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature__mobile-art { display: none; }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature h2 {
+    max-width: 18ch;
+    margin-bottom: 9px;
+    font-size: clamp(29px, 8vw, 38px);
+    line-height: 1.07;
+    text-shadow: 0 2px 14px #000a;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .feature-meta {
+    margin-bottom: 8px;
+    color: #e5e5e7;
+    font-size: 12px;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .feature-synopsis {
+    margin-bottom: 15px;
+    color: #e5e5e7;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .button-row { gap: 8px; }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .button--primary {
+    flex: 1 1 auto;
+    min-height: 48px;
+    border-radius: 9px;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .button-row .icon-button {
+    width: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-feature .spotlight-controls {
+    left: var(--gutter);
+    right: auto;
+    bottom: 13px;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .home-page > .home-feature + :is(.home-rail, .continue-section) {
+    margin-top: 0;
+    padding-top: 18px;
+  }
+
+
+}
+
+@media (max-width: 820px) {
+  .solanime-native-ios .site-shell.discovery-shell .wordmark__compact { display: none; }
+  .solanime-native-ios .site-shell.discovery-shell .wordmark__emblem { display: block; width: 44px; }
+}
+
+/* The browser and installed iPhone app share one simple four-destination
+   navigation model. Keep account and settings actions inside Account. */
+@media (max-width: 820px) {
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .navigation-dock {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .main-nav,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .masthead .appearance-jump,
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .masthead .account-jump {
+    display: none;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .masthead-actions {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .native-tab-bar {
+    position: fixed;
+    z-index: 90;
+    inset: auto 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-height: calc(54px + env(safe-area-inset-bottom));
+    padding: 2px 8px env(safe-area-inset-bottom);
+    border-top: 1px solid #ffffff24;
+    background: #1c1c1ef5;
+    -webkit-backdrop-filter: saturate(1.4) blur(24px);
+    backdrop-filter: saturate(1.4) blur(24px);
+  }
+  :root:not(.solanime-native-ios)[data-theme='light'] .site-shell.discovery-shell .native-tab-bar {
+    border-top-color: #0002;
+    background: #ffffffef;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .native-tab-bar > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 50px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .native-tab-bar > a[aria-current='page'] { color: var(--accent-ink); }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .native-tab-bar .icon { width: 23px; height: 23px; }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell main { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell .site-footer { display: none; }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .feature-kicker { display: none; }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .continue-card { padding-bottom: 28px; }
+  :root:not(.solanime-native-ios) .site-shell.discovery-shell.site-shell--home .continue-remove {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    min-height: 28px;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    opacity: 1;
+  }
+}

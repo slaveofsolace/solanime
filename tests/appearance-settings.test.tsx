@@ -6,6 +6,7 @@ import AppearanceSettings from '../src/components/AppearanceSettings';
 type TestPreferences = {
   accent?: string;
   theme?: 'dark' | 'light';
+  motion?: 'system' | 'reduced';
 };
 
 const state = vi.hoisted(() => ({
@@ -35,6 +36,7 @@ describe('AppearanceSettings', () => {
   it('does not overwrite a typed draft after a preset preference rerender', () => {
     const view = render(<AppearanceSettings />);
 
+    fireEvent.click(screen.getByRole('button', { name: 'Accent color' }));
     fireEvent.click(screen.getByRole('button', { name: 'Violet' }));
     view.rerender(<AppearanceSettings />);
 
@@ -55,6 +57,7 @@ describe('AppearanceSettings', () => {
   it('normalizes an accepted custom accent in both draft and preferences', () => {
     render(<AppearanceSettings />);
 
+    fireEvent.click(screen.getByRole('button', { name: 'Accent color' }));
     const customHex = screen.getByRole('textbox', { name: 'Custom hex' });
     fireEvent.change(customHex, { target: { value: '#00aa88' } });
     fireEvent.click(screen.getByRole('button', { name: 'Apply' }));
@@ -62,5 +65,22 @@ describe('AppearanceSettings', () => {
     expect((customHex as HTMLInputElement).value).toBe('#00AA88');
     expect(state.preferences.accent).toBe('#00AA88');
     expect(screen.queryByRole('alert')).toBeNull();
+  });
+
+  it('offers one motion switch and restores the device preference when turned off', () => {
+    const view = render(<AppearanceSettings />);
+    const motion = screen.getByRole('checkbox', { name: 'Reduce motion' }) as HTMLInputElement;
+    expect(motion.checked).toBe(false);
+    expect(screen.queryByRole('button', { name: 'Reduce motion' })).toBeNull();
+
+    fireEvent.click(motion);
+    expect(state.preferences.motion).toBe('reduced');
+    view.rerender(<AppearanceSettings />);
+    expect(motion.checked).toBe(true);
+
+    fireEvent.click(motion);
+    expect(state.preferences.motion).toBe('system');
+    view.rerender(<AppearanceSettings />);
+    expect(motion.checked).toBe(false);
   });
 });

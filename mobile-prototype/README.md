@@ -1,6 +1,13 @@
 # Solanime protected-player prototype
 
-This is an **isolated native experiment**, not a released mobile app or proof that every provider plays safely. It loads Solanime in an app-owned WebView without a native JavaScript bridge. Android source is a minimal Gradle project. The iOS Xcode project and shared scheme compile and a locally signed `Solanime 0.1.0 (3)` development build is installed on an iPhone 16 Pro. The owner reported seeing playback on an earlier build; five-second video progress, changed frames, and zero unwanted windows have not yet been measured together on the physical phone. The native release gate remains open.
+This is an **isolated native experiment**, not a released mobile app or proof that every provider plays safely. It loads Solanime in an app-owned WebView without a native JavaScript bridge. Android source is a minimal Gradle project. The iOS Xcode project and shared scheme compile, and a locally signed `Solanime 0.1.0 (10)` Release-configuration build is installed and launched on an iPhone 16 Pro. The owner reported seeing playback on an earlier build; five-second video progress, changed frames, and zero unwanted windows have not yet been measured together on build 10. The native release gate remains open.
+
+The installation above is the earlier 2026-10-01 handoff observation. The later
+[UI integration review](../docs/UI_REVIEW_20261001.md) recompiled the unchanged
+native host but did not install a new app or deploy its frontend. The configured
+staging backend is still missing. Record the website's source/asset identity as
+well as the native build number on the next physical test; this host fetches the
+site and does not embed the React bundle.
 
 ## Why this exists
 

@@ -21,16 +21,19 @@ async function fixtureBanner(page: Page, bannerUrl: string) {
   });
 }
 
-test('home uses the cinematic reference scale with an uncropped fallback poster', async ({ page }, info) => {
+test('home uses cinematic artwork with an uncropped desktop poster and full-bleed mobile art', async ({ page }, info) => {
+  if (info.project.name.startsWith('mobile')) await page.setViewportSize({ width: 393, height: 852 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#featured-title')).toBeVisible();
   const image = page.locator('.home-feature .spotlight-art__poster img');
-  await expect(image).toHaveCSS('object-fit', 'contain');
+  const mobile = info.project.name.startsWith('mobile');
+  await expect(image).toHaveCSS('object-fit', mobile ? 'cover' : 'contain');
   const measurements = await page.evaluate(() => {
     const hero = document.querySelector('.home-feature')!.getBoundingClientRect();
     const copy = document.querySelector('.home-feature__copy')!.getBoundingClientRect();
     const poster = document.querySelector('.spotlight-art__poster > img')!.getBoundingClientRect();
+    const artwork = document.querySelector('.home-feature .spotlight-art')!.getBoundingClientRect();
     const rail = document.querySelector('.home-rail')!.getBoundingClientRect();
     const railTrack = document.querySelector('.home-rail .rail-track')!.getBoundingClientRect();
     const visibleRailCards = [...document.querySelectorAll('.home-rail .title-card')]
@@ -42,6 +45,7 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
       heroX: hero.x, heroWidth: hero.width, viewport: innerWidth,
       copyX: copy.x, copyY: copy.y, copyRight: copy.right,
       posterX: poster.x, posterBottom: poster.bottom, posterWidth: poster.width,
+      artWidth: artwork.width, artHeight: artwork.height,
       fontSize: parseFloat(getComputedStyle(document.querySelector('#featured-title')!).fontSize),
       railY: rail.y,
       visibleRailCards,
@@ -54,8 +58,8 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
   expect(measurements.heroX).toBeCloseTo(0, 0);
   expect(measurements.heroWidth).toBeCloseTo(measurements.viewport, 0);
   expect(measurements.fontSize).toBeLessThanOrEqual(64);
-  expect(measurements.posterWidth).toBeLessThan(measurements.viewport * .5);
   if (info.project.name.startsWith('desktop')) {
+    expect(measurements.posterWidth).toBeLessThan(measurements.viewport * .5);
     expect(measurements.copyX).toBeCloseTo(measurements.viewport * .046, 0);
     expect(measurements.copyRight).toBeLessThan(measurements.posterX);
     // The first content row should read as part of the feature composition and
@@ -70,8 +74,13 @@ test('home uses the cinematic reference scale with an uncropped fallback poster'
     await expect(quickLook).toHaveCSS('width', '44px');
     await expect(quickLook).toHaveAccessibleName(/^Quick look at /);
   } else {
-    expect(measurements.copyY).toBeGreaterThanOrEqual(measurements.posterBottom);
+    expect(measurements.artWidth).toBeCloseTo(measurements.viewport, 0);
+    expect(measurements.artHeight).toBeGreaterThan(500);
+    expect(measurements.posterWidth).toBeCloseTo(measurements.viewport, 0);
+    expect(measurements.copyY).toBeLessThan(measurements.posterBottom);
     expect(measurements.visibleRailCards).toBeGreaterThanOrEqual(2);
+    await expect(page.locator('.wordmark .sol-brand--emblem')).toBeVisible();
+    await expect(page.locator('.wordmark .sol-brand--compact')).toBeHidden();
   }
   expect(measurements.cardCopyTop).toBeGreaterThanOrEqual(measurements.cardTop);
   expect(measurements.cardCopyBottom).toBeLessThanOrEqual(measurements.cardBottom + .01);
@@ -97,7 +106,14 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
     if (narrow) {
       await expect(art).toHaveAttribute('data-mobile-art', 'poster');
       await expect(banner).toBeHidden();
-      await expect(page.locator(`${surface.selector} ${surface.name === 'home' ? '.home-feature__mobile-art' : '.title-hero__mobile-art'} img`)).toBeVisible();
+      if (surface.name === 'home') {
+        await expect(art.locator('.spotlight-art__poster')).toBeVisible();
+        await expect(art.locator('.spotlight-art__poster img')).toHaveCSS('object-fit', 'cover');
+        await expect(page.locator('.home-feature__mobile-art')).toBeHidden();
+      } else {
+        await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
+        await expect(page.locator('.title-hero__mobile-art')).toBeHidden();
+      }
     } else {
       await expect(banner).toBeVisible();
       await expect(art.locator('.spotlight-art__poster')).toBeVisible();
@@ -109,10 +125,20 @@ test('a short panoramic banner keeps its aspect ratio alongside a sharp poster',
       return { sourceRatio: image.naturalWidth / image.naturalHeight, imageWidth: imageBox.width, imageHeight: imageBox.height, fieldWidth: field.width, fieldHeight: field.height };
     });
     expect(measurements.sourceRatio).toBeCloseTo(4.75, 2);
-    expect(measurements.imageWidth).toBeCloseTo(measurements.fieldWidth, 1);
     if (!narrow) {
+      expect(measurements.imageWidth).toBeCloseTo(measurements.fieldWidth, 1);
       expect(measurements.imageWidth / measurements.imageHeight).toBeCloseTo(measurements.sourceRatio, 2);
       expect(measurements.imageHeight).toBeLessThan(measurements.fieldHeight);
+    } else {
+      // A hidden banner can retain its measured box while the actual poster
+      // remains the visible art surface.
+      await expect(banner).toBeHidden();
+      if (surface.name === 'home') {
+        const posterWidth = await art.locator('.spotlight-art__poster').evaluate(element => element.getBoundingClientRect().width);
+        expect(posterWidth).toBeCloseTo(measurements.fieldWidth, 0);
+      } else {
+        await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
+      }
     }
     await expect(page.getByRole('link', { name: surface.action, exact: true })).toBeVisible();
     await noOverflow(page);
@@ -138,9 +164,14 @@ test('a delayed then failed banner keeps the poster and stable home geometry', a
   const art = page.locator('.home-feature .spotlight-art');
   const poster = art.locator('.spotlight-art__poster');
   const narrow = (page.viewportSize()?.width ?? 0) <= 600;
-  const visiblePoster = narrow ? page.locator('.home-feature__mobile-art') : poster;
+  const visiblePoster = poster;
   await expect(art).toHaveAttribute('data-banner', 'loading');
   await expect(visiblePoster).toBeVisible();
+  if (narrow) {
+    const width = await visiblePoster.evaluate(element => element.getBoundingClientRect().width);
+    expect(width).toBeCloseTo(page.viewportSize()!.width, 0);
+    await expect(page.locator('.home-feature__mobile-art')).toBeHidden();
+  }
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
   await expect.poll(() => visiblePoster.locator('img').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   await expect(page.locator('.sol-brand-readiness')).toHaveCount(0);
@@ -201,12 +232,13 @@ test('mobile title actions do not shift when the banner arrives', async ({ page 
     return { x, y, width, height };
   }));
   const before = await measure();
-  const poster = await page.locator('.title-hero__mobile-art img').boundingBox();
-  expect(poster!.y + poster!.height).toBeLessThanOrEqual(before[0]!.y);
+  const poster = await art.locator('.spotlight-art__poster img').boundingBox();
+  expect(poster!.width).toBeCloseTo(320, 0);
+  expect(before[0]!.y).toBeGreaterThan(poster!.y);
   deliverBanner();
   await expect(art).toHaveAttribute('data-banner', 'loaded');
   await expect(art).toHaveAttribute('data-mobile-art', 'poster');
-  await expect(page.locator('.title-hero__mobile-art img')).toBeVisible();
+  await expect(art.locator('.spotlight-art__poster img')).toBeVisible();
   await expect(art.locator('.spotlight-art__banner')).toBeHidden();
   const after = await measure();
   for (let index = 0; index < before.length; index++) {
@@ -222,10 +254,11 @@ test('title keeps episode navigation close and full information available on dem
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
   const hero = await page.locator('.title-hero').boundingBox();
-  // Keep the compact hero bounded and episode navigation immediately adjacent.
+  // The artwork-led phone hero gives the key image room while keeping episodes
+  // immediately after the detail and actions.
   if (info.project.name.startsWith('mobile')) {
-    expect(hero!.height).toBeGreaterThanOrEqual(300);
-    expect(hero!.height).toBeLessThan(450);
+    expect(hero!.height).toBeGreaterThanOrEqual(600);
+    expect(hero!.height).toBeLessThan(1050);
   } else {
     expect(hero!.height).toBeGreaterThanOrEqual(380);
     expect(hero!.height).toBeLessThan(460);
@@ -260,10 +293,7 @@ test('artwork failure preserves the real title, episode inventory and navigation
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toHaveText('Paper Lantern');
   await expect(page.locator('.title-hero .spotlight-art')).toHaveAttribute('data-banner', 'failed');
-  const narrow = (page.viewportSize()?.width ?? 0) <= 600;
-  const visiblePoster = narrow
-    ? page.locator('.title-hero__mobile-art')
-    : page.locator('.title-hero .spotlight-art__poster');
+  const visiblePoster = page.locator('.title-hero .spotlight-art__poster');
   await expect(visiblePoster).toBeVisible();
   await expect(visiblePoster.locator('.cover-fallback')).toBeVisible();
   await expect(page.locator('.title-hero .spotlight-art__banner')).toHaveCount(0);
@@ -292,19 +322,21 @@ test('a failed title request can be retried without refreshing the route', async
   await noOverflow(page);
 });
 
-test('320px home and title preserve readable controls in both themes', async ({ page }, info) => {
-  await page.setViewportSize({ width: 320, height: 820 });
-  const errors: string[] = [];
-  page.on('pageerror', error => errors.push(error.message));
-  await accountFixture(page);
-  for (const theme of ['Dark', 'Light']) {
-    await page.goto('/settings');
+for (const theme of ['Dark', 'Light']) {
+  test(`320px home and title preserve readable controls in ${theme.toLowerCase()} theme`, async ({ page }, info) => {
+    await page.setViewportSize({ width: 320, height: 820 });
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await accountFixture(page);
+    await page.goto('/settings?section=appearance');
     await page.locator('#appearance').getByRole('button', { name: theme, exact: true }).click();
-    await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+    await page.getByRole('link', { name: 'Solanime home', exact: true }).click();
     await expect(page.getByRole('link', { name: 'Start watching', exact: true })).toBeVisible();
     const viewportWidth = await page.evaluate(() => innerWidth);
-    const navLinks = page.locator('.main-nav > a:visible');
-    await expect(page.getByRole('link', { name: /Library \/ My list/ })).toBeVisible();
+    const navLinks = page.locator('.native-tab-bar > a:visible');
+    await expect(page.locator('.main-nav')).toBeHidden();
+    await expect(page.locator('.native-tab-bar').getByRole('link', { name: 'Library' })).toBeVisible();
+    await expect(navLinks).toHaveCount(4);
     for (const link of await navLinks.all()) {
       const bounds = await link.boundingBox();
       expect(bounds!.x).toBeGreaterThanOrEqual(0);
@@ -317,6 +349,6 @@ test('320px home and title preserve readable controls in both themes', async ({ 
     await expect(page.getByRole('link', { name: /Start watching: Episode 1/ })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`title-320-${theme.toLowerCase()}.png`), fullPage: true });
-  }
-  expect(errors).toEqual([]);
-});
+    expect(errors).toEqual([]);
+  });
+}

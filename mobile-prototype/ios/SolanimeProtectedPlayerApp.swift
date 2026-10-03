@@ -102,18 +102,15 @@ private struct AirPlayRoutePicker: UIViewRepresentable {
 
 private struct NativeLoadingView: View {
     var body: some View {
-        VStack(spacing: 14) {
+        ZStack {
             Image("SolanimeMark")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 68, height: 68)
                 .accessibilityHidden(true)
-            Text("Solanime")
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.white)
             ProgressView()
                 .tint(Color(red: 1, green: 0.58, blue: 0.13))
-                .padding(.top, 6)
+                .offset(y: 68)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)

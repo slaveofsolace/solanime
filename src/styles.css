@@ -15,8 +15,11 @@
 @import './styles/discover-refresh.css';
 @import './styles/episode-browser.css';
 @import './styles/viewing-refresh.css';
-/* Keep account layouts after the older streaming layer so mobile forms and
-   recovery screens do not depend on which route was visited first. */
-@import './styles/account.css';
 @import './styles/library-refresh.css';
 @import './styles/native-ios.css';
+@import './styles/mobile-web.css';
+@import './styles/mobile-discovery-revamp.css';
+@import './styles/streaming-interface.css';
+/* Geometry and consumer form layouts have one owner across web and iOS. */
+@import './styles/controls.css';
+@import './styles/account.css';

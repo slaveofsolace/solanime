@@ -14,15 +14,15 @@ test('catalogue collection controls send a shareable source scope', async ({ pag
   await page.goto('/catalogue?scope=tv');
   await tvRequest;
   await expect(page.getByRole('heading', { name: 'TV Shows', exact: true })).toBeVisible();
-  const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
-  await expect(navigation.getByRole('link', { name: 'TV Shows', exact: true })).toHaveAttribute('aria-current', 'page');
+  const collections = page.getByRole('group', { name: 'Catalogue collection' });
+  await expect(collections.getByRole('button', { name: 'TV Shows', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
-  await navigation.getByRole('link', { name: 'Anime', exact: true }).click();
+  await collections.getByRole('button', { name: 'Anime', exact: true }).click();
   await expect(page).toHaveURL(/scope=anime/);
-  await expect(navigation.getByRole('link', { name: 'Anime', exact: true })).toHaveAttribute('aria-current', 'page');
+  await expect(collections.getByRole('button', { name: 'Anime', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('.title-card').first()).toBeVisible();
 
-  await expect(navigation.getByRole('link', { name: 'Movies', exact: true })).toHaveCount(0);
+  await expect(collections.getByRole('button', { name: 'Movies', exact: true })).toHaveCount(0);
   await page.goto('/catalogue?scope=movies');
   await expect(page).toHaveURL(/scope=tv/);
   await expect(page.getByRole('heading', { name: 'TV Shows', exact: true })).toBeVisible();

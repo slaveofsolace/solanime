@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Rail from '../components/CatalogueRail';
 import { CoverArt, InlineNotice } from '../components/ui';
 import Icon from '../components/Icon';
+import HistoryActions from '../components/HistoryActions';
 import { api, errorMessage } from '../lib/api';
 import { useAppState } from '../state';
 import type { CatalogueFacets, TitleSummary } from '../types';
@@ -125,7 +126,7 @@ export default function HomePage() {
         <FeatureSpotlight items={spotlightItems} />
       ) : !error ? (
         <InlineNotice>
-          No titles have been imported yet. Saved titles remain available in your list.
+          No titles available yet. Your saved titles are in Library.
         </InlineNotice>
       ) : null}
       {continuing.length > 0 && (
@@ -179,14 +180,7 @@ export default function HomePage() {
                       {timeRemaining && <small className="continue-remaining">{timeRemaining}</small>}
                     </span>
                   </Link>
-                  <button
-                    type="button"
-                    className="continue-remove"
-                    aria-label={`Remove ${entry.title} from Continue watching`}
-                    onClick={() => history.dismissSeries(entry.titleId)}
-                  >
-                    Remove
-                  </button>
+                  <HistoryActions entry={entry} title={knownTitle} context="continue" />
                 </article>
               );
             })}

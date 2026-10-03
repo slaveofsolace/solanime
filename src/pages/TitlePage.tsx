@@ -123,7 +123,6 @@ function TitleSession() {
   if (loading)
     return (
       <StatusPanel eyebrow="" title="Loading title…" busy>
-        <p>Retrieving episodes and language versions.</p>
       </StatusPanel>
     );
   if (error || !title)
@@ -138,11 +137,11 @@ function TitleSession() {
           </div>
         }
       >
-        <p>{error ?? 'The title was not found in the synchronized catalogue.'}</p>
+        <p>{error ?? 'This title could not be found.'}</p>
       </StatusPanel>
     );
 
-  const name = title.name ?? title.title ?? 'Untitled record';
+  const name = title.name ?? title.title ?? 'Untitled';
   const genres = (title.genres ?? []).map((genre) =>
     typeof genre === 'string' ? genre : genre.name,
   );
@@ -195,15 +194,15 @@ function TitleSession() {
           </div>
           <div className="title-hero__details">
             <dl className="title-facts">
-              <div>
+              {title.status && title.status !== 'Unknown' && <div>
                 <dt>Status</dt>
-                <dd>{title.status ?? 'Unknown'}</dd>
-              </div>
+                <dd>{title.status}</dd>
+              </div>}
               <div>
-                <dt>Episodes</dt>
+                <dt className="sr-only">Episodes</dt>
                 <dd>{episodes.length
                   ? `${episodes.length} ${episodes.length === 1 ? 'episode' : 'episodes'}`
-                  : episodeInventoryPending ? 'Import pending' : 'None'}</dd>
+                  : 'Episodes unavailable'}</dd>
               </div>
             </dl>
             {synopsis && <p className="title-hero__synopsis">{synopsis}</p>}
@@ -251,8 +250,7 @@ function TitleSession() {
         </header>
         {episodeInventoryPending ? (
           <InlineNotice>
-            Episode inventory has not been collected for this metadata-only title yet. The record
-            remains available while synchronization continues.
+            No episodes available yet.
           </InlineNotice>
         ) : (
           <EpisodeBrowser episodes={episodes} slug={slug} language={language} title={title} compactHeading />
@@ -260,9 +258,9 @@ function TitleSession() {
       </section>
 
       {(synopsis || aliases.length > 0) && (
-        <details className="title-about">
-          <summary>About this title <Icon name="right" /></summary>
-          <div className="title-about__body">
+        <details className="title-about disclosure">
+          <summary className="disclosure-trigger"><span>About this title</span><Icon name="right" /></summary>
+          <div className="title-about__body disclosure-content">
             {synopsis && <p>{synopsis}</p>}
             {aliases.length > 0 && <p className="aliases">
               <strong>Also known as</strong>{' '}

@@ -1,0 +1,63 @@
+/* Secondary choices live in one readable sheet, leaving the transport row
+   free for playback. Keep this scoped to Solanime's HTML media controls. */
+.media-controls .media-button {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+}
+.media-controls .media-controls__row > .media-time {
+  flex-shrink: 0;
+  min-height: 44px;
+  font-size: 12px;
+}
+.media-controls .media-controls__extras {
+  flex-shrink: 0;
+}
+:root .site-shell.discovery-shell dialog.media-options-dialog {
+  width: min(420px, calc(100% - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 20px;
+}
+.media-options-dialog .dialog-topline {
+  gap: 12px;
+  margin: 0 0 20px;
+}
+.media-options-dialog .dialog-topline h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
+}
+.media-options-fields {
+  display: grid;
+  gap: 20px;
+}
+.media-options-fields > label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 550;
+}
+@media (max-width: 720px) {
+  .media-controls .media-controls__row {
+    flex-wrap: nowrap;
+    gap: 2px;
+  }
+  .media-controls .media-controls__extras {
+    flex-basis: auto;
+    gap: 2px;
+  }
+  .media-controls .media-controls__row > .media-time {
+    padding-inline: 4px;
+    margin-left: 0;
+  }
+  :root .site-shell.discovery-shell dialog.media-options-dialog {
+    margin: auto 12px max(12px, env(safe-area-inset-bottom));
+  }
+}
+@media (max-width: 480px) {
+  /* Episode navigation is already directly below the player on phones. */
+  .media-controls .media-episode-step {
+    display: none;
+  }
+}

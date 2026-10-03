@@ -5,6 +5,7 @@ import { useInitialReadiness } from '../branding/ApplicationReadiness';
 import type { CatalogueFacets, CatalogueResponse, FacetOption } from '../types';
 import { Pager, StatusPanel, TitleCard } from '../components/ui';
 import Icon from '../components/Icon';
+import SelectControl from '../components/SelectControl';
 import { isCatalogueScope, type CatalogueScope } from '../../shared/catalogue-scope';
 
 const EMPTY_RESULT: CatalogueResponse = { items: [], total: 0, page: 1, pageSize: 24, pages: 0 };
@@ -33,14 +34,14 @@ function FilterSelect({
   return (
     <label className="filter-field">
       <span>{label}</span>
-      <select aria-label={label} name={name} value={value} onChange={(event) => onChange(event.target.value)}>
-        <option value="">All {label.toLowerCase()}</option>
+      <SelectControl aria-label={label} name={name} value={value} onChange={(event) => onChange(event.target.value)}>
+        <option value="">All</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
-      </select>
+      </SelectControl>
     </label>
   );
 }
@@ -221,19 +222,19 @@ export default function CataloguePage() {
         <header className="catalogue-heading">
           <div className="catalogue-heading__copy">
             <h1>{pageTitle}</h1>
-            <p className="catalogue-summary" aria-live="polite">
+            {!error && <p className="catalogue-summary" aria-live="polite">
               {loading
                 ? 'Loading titles…'
                 : `${catalogue.total.toLocaleString()} ${catalogue.total === 1 ? 'title' : 'titles'}`}
-            </p>
+            </p>}
           </div>
         </header>
 
-        {!queryScope && !searchView && (
+        {!searchView && (
           <div className="catalogue-collections" role="group" aria-label="Catalogue collection">
-            <button type="button" aria-pressed onClick={() => changeCollection('')}>All</button>
-            <button type="button" aria-pressed={false} onClick={() => changeCollection('anime')}>Anime</button>
-            <button type="button" aria-pressed={false} onClick={() => changeCollection('tv')}>TV Shows</button>
+            <button type="button" aria-pressed={!queryScope} onClick={() => changeCollection('')}>All</button>
+            <button type="button" aria-pressed={queryScope === 'anime'} onClick={() => changeCollection('anime')}>Anime</button>
+            <button type="button" aria-pressed={queryScope === 'tv'} onClick={() => changeCollection('tv')}>TV Shows</button>
           </div>
         )}
       </div>
@@ -274,9 +275,9 @@ export default function CataloguePage() {
 
           <div className="discovery-actions">
             <details className="filter-disclosure" open={params.get('filters') === 'genres' || undefined}>
-              <summary>
+              <summary aria-label={advancedFilters ? `Filters, ${advancedFilters} active` : 'Filters'}>
                 <span>Filters</span>
-                {advancedFilters > 0 && <span>{advancedFilters} active</span>}
+                {advancedFilters > 0 && <span className="filter-count">{advancedFilters}<span className="filter-count__label"> active</span></span>}
               </summary>
               <div className="filter-grid">
                 <FilterSelect
@@ -312,7 +313,7 @@ export default function CataloguePage() {
 
             <label className="discovery-sort">
               <span className="sr-only">Sort</span>
-              <select
+              <SelectControl
                 aria-label="Sort titles"
                 value={params.get('sort') ?? 'updated'}
                 onChange={(event) => updateParam('sort', event.target.value)}
@@ -321,7 +322,7 @@ export default function CataloguePage() {
                 <option value="title">Title A–Z</option>
                 <option value="year_desc">Newest year</option>
                 <option value="year_asc">Oldest year</option>
-              </select>
+              </SelectControl>
             </label>
 
             <div className="view-switcher" role="group" aria-label="Catalogue view">
@@ -369,7 +370,7 @@ export default function CataloguePage() {
 
       {error ? (
         <StatusPanel
-          eyebrow="CATALOGUE UNAVAILABLE"
+          eyebrow=""
           title="Could not load the catalogue"
           action={
             <button
@@ -382,13 +383,10 @@ export default function CataloguePage() {
           }
         >
           <p>{error}</p>
-          <p>Your saved library and history are still available on this device.</p>
+          <p>Your saved titles and history are still in Library.</p>
         </StatusPanel>
       ) : loading ? (
         <section className="results-section" aria-busy="true" aria-live="polite">
-          <header className="results-heading">
-            <p>Loading catalogue…</p>
-          </header>
           <div className="title-grid skeleton-grid" aria-hidden="true">
             {Array.from({ length: 12 }, (_, index) => (
               <div className="skeleton-card" key={index} />
@@ -396,10 +394,10 @@ export default function CataloguePage() {
           </div>
         </section>
       ) : catalogue.items.length === 0 ? (
-        <StatusPanel eyebrow="0 RECORDS" title="No titles found">
-          <p>Try a broader title, remove a filter, or clear the current search.</p>
+        <StatusPanel eyebrow="" title="No titles found">
+          <p>Try another search or remove a filter.</p>
           <button className="button button--primary" type="button" onClick={clearFilters}>
-            Reset catalogue
+            Clear search and filters
           </button>
         </StatusPanel>
       ) : (

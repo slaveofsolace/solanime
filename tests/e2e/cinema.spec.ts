@@ -1,3 +1,4 @@
+import { expandAccent, openSettings } from './helpers';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { accountFixture } from './account-fixture';
@@ -9,7 +10,8 @@ test.beforeEach(async ({ page }) => {
   );
 });
 async function appearance(page: Page) {
-  await page.getByRole('banner').getByRole('link', { name: 'Settings', exact: true }).click();
+  await openSettings(page, 'appearance');
+  await expandAccent(page);
   return page.locator('#appearance');
 }
 async function noOverflow(page: Page) {
@@ -37,9 +39,9 @@ test('profile appearance presets and custom accents persist and validate input',
     .analyze();
   expect(results.violations).toEqual([]);
   await page.screenshot({ path: info.outputPath('appearance-custom.png'), fullPage: true });
-  await page.getByRole('banner').getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+  await page.getByRole('banner').getByRole('link', { name: 'Solanime home', exact: true }).click();
   await expect(page).toHaveURL('/');
-  await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Appearance', exact: true })).toHaveCount(0);
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-accent', '#00AA88');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');

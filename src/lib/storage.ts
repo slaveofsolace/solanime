@@ -33,6 +33,7 @@ function title(value: unknown): TitleSummary | null {
     name: value.name as string,
     imageUrl: optionalText(value.imageUrl),
     posterUrl: optionalText(value.posterUrl),
+    backdropUrl: optionalText(value.backdropUrl),
     synopsis: optionalText(value.synopsis),
     type: optionalText(value.type),
     status: optionalText(value.status),

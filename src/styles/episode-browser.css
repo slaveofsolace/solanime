@@ -4,9 +4,7 @@
 .episode-browser .episode-season-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 0; border: 0; margin: 0; }
 .episode-controls .episode-toolbar { flex: 1 1 240px; border: 0; padding: 0; }
 .episode-controls .episode-search { margin-left: auto; }
-.episode-season-picker > span { color: var(--muted); font-size: 13px; }
-.episode-season-picker select { min-height: 44px; width: min(100%, 340px); max-width: 100%; padding: 10px 36px 10px 12px; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 2px; font-size: 15px; font-weight: 600; }
-.episode-season-picker select:hover { border-color: var(--accent); }
+.episode-season-picker > span:not(.select-control) { color: var(--muted); font-size: 13px; }
 .episode-season-picker small { color: var(--muted); }
 .discovery-shell .series-page .episode-browser--cards .episode-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 20px; }
 .discovery-shell .series-page .episode-browser--cards .episode-grid > li { display: block; position: relative; padding: 0; border: 0; background: none; min-height: 0; }

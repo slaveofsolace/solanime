@@ -10,6 +10,7 @@ import PlayerSurface, { PlayerMessage } from '../components/PlayerSurface';
 import EpisodeBrowser, { episodeName } from '../components/EpisodeBrowser';
 import { StatusPanel } from '../components/ui';
 import Icon from '../components/Icon';
+import SelectControl from '../components/SelectControl';
 import EpisodeCommunity from '../components/EpisodeCommunity';
 import UnsupportedPlayback from '../components/UnsupportedPlayback';
 import ProviderPlayer from '../components/ProviderPlayer';
@@ -202,9 +203,7 @@ function WatchSession() {
             View episodes
           </Link>
         }
-      >
-        <p>This episode is not in the title’s catalogue.</p>
-      </StatusPanel>
+      />
     );
   const title = detail.title;
   const go = (id: string) =>
@@ -403,7 +402,7 @@ function WatchSession() {
           </button>
           <label>
             <span>Episode</span>
-            <select
+            <SelectControl
               aria-label="Choose episode"
               value={episode.id}
               onChange={(e) => go(e.target.value)}
@@ -413,7 +412,7 @@ function WatchSession() {
                   {episodeName(e)}
                 </option>
               ))}
-            </select>
+            </SelectControl>
           </label>
           <button
             className="icon-button"
@@ -427,7 +426,7 @@ function WatchSession() {
         </div>
         <label className="source-choice">
           <span>Source</span>
-          <select
+          <SelectControl
             aria-label="Playback source"
             value={candidate?.mappingId ?? ''}
             disabled={loadingSources || playableProviders.length === 0}
@@ -457,11 +456,11 @@ function WatchSession() {
                   : p.label}
               </option>
             ))}
-          </select>
+          </SelectControl>
         </label>
         <label className="version-choice">
           <span>Version</span>
-          <select
+          <SelectControl
             aria-label="Episode language"
             value={language}
             onChange={(e) => setParams({ language: e.target.value }, { replace: true })}
@@ -471,7 +470,7 @@ function WatchSession() {
                 {v.label?.trim() || v.language.toUpperCase()}
               </option>
             ))}
-          </select>
+          </SelectControl>
         </label>
       </div>
       {resolution?.attribution && safeAttributionUrl(resolution.attribution.url) && (
@@ -490,15 +489,15 @@ function WatchSession() {
             : resolution.attribution.license}
         </p>
       )}
-      <details className="watch-about">
-        <summary>About this title</summary>
-        <p>
+      <details className="watch-about disclosure">
+        <summary className="disclosure-trigger"><span>About this title</span><Icon name="right" /></summary>
+        <div className="disclosure-content"><p>
           {title.synopsis || title.description || 'No description is available for this title.'}
-        </p>
+        </p></div>
       </details>
       <details className="watch-chapter watch-episodes" open>
         <summary>
-          Episodes <span>{versions.length}</span>
+          Episodes <span className="watch-chapter-count">{versions.length}</span>
         </summary>
         <EpisodeBrowser
           key={language}
@@ -511,11 +510,11 @@ function WatchSession() {
         />
       </details>
       <EpisodeCommunity episodeId={episode.id} />
-      <details className="watch-chapter">
-        <summary>
-          Your notes <span>{localNotes.length}</span>
+      <details className="watch-chapter watch-notes disclosure">
+        <summary className="disclosure-trigger">
+          <span>Your notes</span><span className="disclosure-accessory"><span className="watch-chapter-count">{localNotes.length}</span><Icon name="right" /></span>
         </summary>
-        <div className="comments-layout">
+        <div className="comments-layout disclosure-content">
           <form
             className="comment-form"
             onSubmit={(e) => {
@@ -529,7 +528,6 @@ function WatchSession() {
               id="episode-note"
               required
               maxLength={1000}
-              placeholder="Something to remember about this episode…"
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
@@ -543,8 +541,7 @@ function WatchSession() {
           <ul className="comment-list" aria-label="Saved episode notes">
             {localNotes.length === 0 ? (
               <li className="comment-list__empty">
-                <strong>No private notes yet</strong>
-                <p>Notes you save here stay with your selected profile.</p>
+                <strong>No notes yet</strong>
               </li>
             ) : localNotes.map((n) => (
                 <li key={n.id}>

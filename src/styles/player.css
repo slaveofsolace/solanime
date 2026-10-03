@@ -177,15 +177,6 @@
   gap: 6px;
   margin-left: auto;
 }
-.media-controls__extras select {
-  max-width: 150px;
-  padding: 8px;
-  color: #f5f5fa;
-  background: #12131a;
-  border: 0;
-  font-size: 11px;
-  cursor: pointer;
-}
 .media-center-play {
   position: absolute;
   left: 50%;
@@ -276,21 +267,11 @@
   gap: 10px;
   min-width: 0;
 }
-.watch-selection label > span {
+.watch-selection label > span:not(.select-control) {
   color: var(--muted);
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-.watch-selection select {
-  background: transparent;
-  border: 0;
-  max-width: 215px;
-  font-size: 13px;
-  padding: 10px 6px;
-}
-.episode-nav select {
-  width: 180px;
 }
 .watch-selection .icon-button {
   width: 36px;
@@ -332,19 +313,18 @@
   letter-spacing: -0.02em;
   cursor: pointer;
 }
-.watch-chapter > summary span {
+.watch-chapter-count {
   font-size: 12px;
   font-weight: 400;
   color: var(--muted);
-  margin-left: 12px;
 }
 .watch-chapter[open] > summary {
   margin-bottom: 24px;
 }
 .comments-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
 }
 .episode-community {
   padding: 38px 0;
@@ -505,6 +485,7 @@
 }
 .comment-form > div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
@@ -545,10 +526,7 @@
   .watch-selection {
     gap: 16px;
   }
-  .episode-nav select {
-    width: 140px;
-  }
-  .watch-selection label > span {
+  .watch-selection label > span:not(.select-control) {
     display: none;
   }
   .media-volume {
@@ -592,16 +570,8 @@
   .episode-nav label {
     flex: 1;
   }
-  .episode-nav select {
-    width: 100%;
-    max-width: none;
-  }
   .source-choice {
     flex: 1;
-  }
-  .source-choice select {
-    max-width: 100%;
-    width: 100%;
   }
   .watch-heading {
     margin-top: 20px;
@@ -634,10 +604,6 @@
     gap: 4px;
     flex-basis: 100%;
     justify-content: flex-end;
-  }
-  .media-controls__extras select {
-    max-width: 104px;
-    padding: 8px 2px;
   }
   .media-time {
     padding-inline: 4px;
