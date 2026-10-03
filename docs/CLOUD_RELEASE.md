@@ -107,6 +107,26 @@ the applicant email, then approve or decline. An approved applicant finds out
 by signing in. (Earlier releases relayed notices through FormSubmit; that path
 was removed on 2026-10-03.)
 
+### Sign-up verification (Cloudflare Turnstile)
+
+When the Worker has both `TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`,
+registration and recovery-code resets require a solved Turnstile challenge.
+The server checks the token with Cloudflare's siteverify endpoint and rejects
+it unless it was solved for the same action (`register` or `recover`) on one
+of the configured app origins. A check fails closed: if siteverify cannot be
+reached, the request is refused. Without both values the check is off.
+
+1. Cloudflare dashboard → Turnstile → Add widget. Hostnames:
+   `solanime.pages.dev` (and `cloud-release.solanime.pages.dev` for staging).
+   Widget mode: Managed.
+2. From the repo on the operator Mac, for each Worker environment:
+   `npx wrangler secret put TURNSTILE_SITE_KEY` then
+   `npx wrangler secret put TURNSTILE_SECRET_KEY` (add `--env <name>` for
+   staging). Both are secrets so a deploy never overwrites them.
+3. Redeploy the Pages build so the CSP admits `challenges.cloudflare.com`.
+4. Open `/register` in a private window: the button reads "Checking your
+   browser…" briefly, then the request goes through.
+
 Apply the account migration before deploying the Worker, confirm at least one
 approved owner account and the admin-token route, then run an anonymous API and
 browser gate check. Rolling back the feature flags to `false` reopens public

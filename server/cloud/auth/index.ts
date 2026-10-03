@@ -6,6 +6,7 @@ import { FirebaseAuthError, FirebaseRestIdentity, type FirebaseAuthOptions } fro
 import { digest, equalToken, openCredentials, randomToken, sealCredentials, validCredentialKey } from './crypto.ts';
 import { accountError, accountReply, boundedJson, cookieValue, requireMutation, validateManagedPassword } from './http.ts';
 import { D1AccountsRepository } from './repository.ts';
+import { verifyHumanCheck, type HumanCheckConfig } from './humanCheck.ts';
 import type { AccountDatabase, CloudAccount, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from './types.ts';
 
 export type CloudAccountConfig = {
@@ -18,6 +19,8 @@ export type CloudAccountConfig = {
   firebase?: FirebaseAuthOptions;
   credentialKey?: string;
   mal?: MalServiceConfig;
+  /** When set, sign-up and recovery require a solved Turnstile challenge. */
+  humanCheck?: HumanCheckConfig;
   now?: () => number;
   /** Tests may inject an identity implementation. No request or environment flag enables a mock. */
   identity?: ManagedIdentity;
@@ -78,6 +81,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable',
         maxProfiles: 5,
         privateSite: config.privateSite === true,
+        humanCheckSiteKey: config.humanCheck?.siteKey ?? null,
       });
       const readSession = async (verifyRemote = false): Promise<CloudSession | undefined> => {
         const raw = cookieValue(request, name);
@@ -199,6 +203,8 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (registering) {
           if (config.registration === false) throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
           if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Registration is awaiting secure recovery configuration.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
+          // Check first so a failed challenge doesn't spend the strict per-IP sign-up allowance.
+          if (config.humanCheck) await verifyHumanCheck(config.humanCheck, body.humanCheck, 'register', ip);
           await rate('register:' + ip, config.approvalRequired ? 3 : 40, 3600000);
         }
         const password = registering ? validateManagedPassword(body.password) : body.password;
@@ -228,6 +234,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
             recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
             privateSite: config.privateSite === true,
             approvalRequired: config.approvalRequired === true,
+            humanCheckSiteKey: config.humanCheck?.siteKey ?? null,
             pendingApproval: true, ...(recoveryCode ? { recoveryCode } : {}),
           });
           throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. Please try signing in after you receive a confirmation.',
@@ -244,6 +251,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Recovery-code sign-in is not configured. Contact the operator.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
         const body = await boundedJson(request), email = emailAddress(body.email);
         await rate('recovery:' + email + ':' + ip, 5, 15 * 60000);
+        if (config.humanCheck) await verifyHumanCheck(config.humanCheck, body.humanCheck, 'recover', ip);
         const a = await repository.accountByEmail(email);
         const supplied = typeof body.recoveryCode === 'string' && /^[\w-]{43}$/.test(body.recoveryCode) ? body.recoveryCode : '';
         const matches = await equalToken(await digest(supplied), a?.recovery_hash ?? '0'.repeat(64));

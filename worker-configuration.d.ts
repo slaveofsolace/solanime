@@ -29,6 +29,8 @@ interface __BaseEnv_CloudEnv {
 	FIREBASE_API_KEY: string;
 	FIREBASE_SERVICE_ACCOUNT_JSON: string;
 	AUTH_CREDENTIAL_KEY: string;
+	TURNSTILE_SITE_KEY?: string;
+	TURNSTILE_SECRET_KEY?: string;
 	MAL_CLIENT_ID?: string;
 	MAL_CLIENT_SECRET?: string;
 	MAL_CREDENTIAL_KEY?: string;

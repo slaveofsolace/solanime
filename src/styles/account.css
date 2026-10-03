@@ -463,3 +463,6 @@
   :root .site-shell.discovery-shell .app-dialog.profile-menu-panel { inset: auto 12px max(12px, env(safe-area-inset-bottom)) 12px; width: auto; max-height: calc(100svh - 32px - env(safe-area-inset-top)); margin: 0; border-radius: var(--radius-dialog); }
   .profile-menu-panel::backdrop { background: #0008; }
 }
+
+/* Turnstile stays out of sight unless Cloudflare asks for an interaction. */
+.human-check { display: flex; justify-content: center; }

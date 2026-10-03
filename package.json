@@ -46,6 +46,7 @@
     "check": "pnpm typecheck && pnpm test && pnpm build",
     "doctor": "node --env-file-if-exists=.env --import tsx scripts/doctor.ts",
     "test:guard": "pnpm build && playwright test --config playwright.guard.config.ts",
+    "verify:privacy": "node scripts/verify-privacy.mjs dist",
     "verify:provider-playback": "node scripts/verify-provider-playback.mjs",
     "backup:accounts": "node --env-file-if-exists=.env --import tsx scripts/backup-accounts.ts",
     "verify:deployment": "node scripts/verify-deployment.mjs",

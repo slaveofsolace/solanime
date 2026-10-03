@@ -2,6 +2,7 @@ import { RELEASE } from '../../shared/release.ts';
 import { timingSafeEqual } from 'node:crypto';
 import { AppError, asAppError } from '../errors.ts';
 import { createCloudAccounts } from './auth/index.ts';
+import { humanCheckConfig } from './auth/humanCheck.ts';
 import { D1AccountsRepository } from './auth/repository.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
 import { createPrivateBaselineReader } from './data/baseline.ts';
@@ -123,6 +124,8 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
         redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },
       episodeExists: catalogue.hasEpisode,
+      humanCheck: humanCheckConfig(env.TURNSTILE_SITE_KEY, env.TURNSTILE_SECRET_KEY,
+        [env.SOLANIME_APP_ORIGIN, ...env.SOLANIME_ALLOWED_ORIGINS.split(',').filter(Boolean)]),
     });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);

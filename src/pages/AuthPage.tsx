@@ -4,6 +4,7 @@ import { safeReturnTo, withReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import RecoveryCard from '../account/RecoveryCard';
+import HumanCheck from '../account/HumanCheck';
 export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'register' | 'recover' }) {
   const account = useAccount(),
     navigate = useNavigate();
@@ -23,6 +24,9 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
   const register = mode === 'register',
     recover = mode === 'recover';
   const registerAction = account.approvalRequired ? 'Request access' : 'Create account';
+  const [humanToken, setHumanToken] = useState<string | null>(null),
+    [humanReset, setHumanReset] = useState(0);
+  const humanCheck = (register || recover) && account.humanCheckSiteKey ? account.humanCheckSiteKey : null;
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
@@ -42,12 +46,14 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
           email: submittedEmail,
           password: submittedPassword,
           recoveryCode: submittedCode,
+          ...(humanToken ? { humanCheck: humanToken } : {}),
         });
         account.clearProfile();
         await account.refresh();
         setReplacement(result.recoveryCode);
       } else {
-        const result = await account.login(submittedEmail, submittedPassword, remember, register);
+        const result = await account.login(submittedEmail, submittedPassword, remember, register,
+          register ? humanToken ?? undefined : undefined);
         if (result?.pendingApproval) {
           setPendingCode(result.recoveryCode ?? null);
           setPendingSaved(!result.recoveryCode);
@@ -57,6 +63,8 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Unable to sign in.');
+      // Turnstile tokens are single-use; get a fresh one for the next attempt.
+      if (humanCheck) setHumanReset((n) => n + 1);
     } finally {
       setBusy(false);
     }
@@ -198,6 +206,10 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 Keep me signed in on this device
               </label>
             )}
+            {humanCheck && (
+              <HumanCheck siteKey={humanCheck} action={recover ? 'recover' : 'register'} resetKey={humanReset}
+                onToken={setHumanToken} onError={setError} />
+            )}
             {error && (
               <p className="form-error" role="alert">
                 {error}
@@ -205,16 +217,18 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             )}
             <button
               className="button button--primary auth-submit"
-              disabled={busy || (register && !account.registrationOpen)}
+              disabled={busy || (register && !account.registrationOpen) || (!!humanCheck && !humanToken)}
               type="submit"
             >
               {busy
                 ? 'Working…'
-                : recover
-                  ? 'Reset password'
-                  : register
-                    ? registerAction
-                    : 'Sign in'}
+                : humanCheck && !humanToken
+                  ? 'Checking your browser…'
+                  : recover
+                    ? 'Reset password'
+                    : register
+                      ? registerAction
+                      : 'Sign in'}
             </button>
             {register && !account.registrationOpen && (
               <p className="field-hint">Registration is currently closed.</p>

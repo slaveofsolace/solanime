@@ -112,6 +112,7 @@ type Body = {
   recoveryMethod: string;
   pendingApproval?: boolean;
   privateSite?: boolean;
+  humanCheckSiteKey?: string | null;
   values: Record<string, unknown>;
   revisions: Record<string, number>;
   revision: number;
@@ -197,6 +198,44 @@ describe('D1 managed account bridge', () => {
     expect(await f.service.decideApproval(queue[0].id, 'rejected')).toMatchObject({ decision: 'rejected' });
     expect((await a.call('login', { email: 'retry@example.test', password })).body.error.details?.reason).toBe('ACCOUNT_REJECTED');
     expect(await f.service.pendingApprovals()).toHaveLength(0);
+  });
+  it('requires a solved Turnstile check for sign-up and recovery when one is configured', async () => {
+    const seen: Array<Record<string, string>> = [];
+    const verdicts: Record<string, { success: boolean; action?: string; hostname?: string }> = {
+      good: { success: true, action: 'register', hostname: 'preview.solanime.pages.dev' },
+      recover: { success: true, action: 'recover', hostname: 'preview.solanime.pages.dev' },
+      'wrong-site': { success: true, action: 'register', hostname: 'evil.example' },
+    };
+    const fetcher = (async (_url: string, init: RequestInit) => {
+      const form = Object.fromEntries(init.body as FormData) as Record<string, string>;
+      seen.push(form);
+      return Response.json(verdicts[form.response] ?? { success: false });
+    }) as typeof fetch;
+    const f = fixture({ approvalRequired: true,
+      humanCheck: { siteKey: 'site-key', secret: 'secret-key', hostnames: ['preview.solanime.pages.dev'], fetcher } });
+    const a = f.client();
+    expect((await a.call('session')).body.humanCheckSiteKey).toBe('site-key');
+    for (const humanCheck of [undefined, 'bad', 'wrong-site', 'recover']) {
+      const r = await a.call('register', { email: 'human@example.test', password, humanCheck });
+      expect(r.response.status).toBe(400);
+      expect(r.body.error.details?.reason).toBe('HUMAN_CHECK_FAILED');
+    }
+    expect(await f.service.pendingApprovals()).toHaveLength(0);
+    const r = await a.call('register', { email: 'human@example.test', password, humanCheck: 'good' });
+    expect(r.response.status).toBe(202);
+    expect(seen.at(-1)).toMatchObject({ secret: 'secret-key', response: 'good' });
+    const code = r.body.recoveryCode;
+    const noCheck = await a.call('recover', { email: 'human@example.test', recoveryCode: code, password });
+    expect(noCheck.body.error.details?.reason).toBe('HUMAN_CHECK_FAILED');
+    expect((await a.call('recover', { email: 'human@example.test', recoveryCode: code, password, humanCheck: 'recover' }))
+      .response.status).toBe(200);
+  });
+  it('fails closed when Turnstile cannot be reached', async () => {
+    const f = fixture({ humanCheck: { siteKey: 'k', secret: 's', hostnames: ['preview.solanime.pages.dev'],
+      fetcher: (async () => { throw new TypeError('offline'); }) as typeof fetch } });
+    const r = await f.client().call('register', { email: 'offline@example.test', password, humanCheck: 'token' });
+    expect(r.response.status).toBe(503);
+    expect(r.body.error.details?.reason).toBe('HUMAN_CHECK_UNAVAILABLE');
   });
   it('keeps an interrupted signup pending when the applicant signs in instead', async () => {
     const f = fixture({ approvalRequired: true, privateSite: true });

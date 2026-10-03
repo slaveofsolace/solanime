@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
     'X-Frame-Options': 'DENY',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Content-Security-Policy':
-      "script-src 'self' https://www.youtube.com; frame-src https://www.youtube-nocookie.com/embed/ https://megaplay.buzz/stream/s-2/; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
+      "script-src 'self' https://www.youtube.com https://challenges.cloudflare.com; frame-src https://www.youtube-nocookie.com/embed/ https://megaplay.buzz/stream/s-2/ https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
   };
   // Vite's React refresh preamble is an inline module. Permit it only in the
   // local development server; preview and deployed builds retain the strict CSP.
