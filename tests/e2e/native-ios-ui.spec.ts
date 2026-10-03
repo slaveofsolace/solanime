@@ -40,7 +40,7 @@ test('signed iPhone presentation keeps readable controls and consistent surfaces
   expect(home.heroHeight).toBeGreaterThanOrEqual(550);
   expect(home.heroHeight).toBeLessThanOrEqual(670);
   expect(home.tabHeight).toBeGreaterThanOrEqual(56);
-  expect(home.tabs).toEqual(['Home', 'Discover', 'Library', 'Account']);
+  expect(home.tabs).toEqual(['Home', 'Discover', 'Explore', 'Library', 'Account']);
   expect(home.websiteNavHidden).toBe(true);
   expect(home.actionToDots).toBeGreaterThanOrEqual(0);
   expect(home.actionToDots).toBeLessThanOrEqual(28);

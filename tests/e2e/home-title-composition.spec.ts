@@ -338,7 +338,7 @@ for (const theme of ['Dark', 'Light']) {
     const navLinks = page.locator('.native-tab-bar > a:visible');
     await expect(page.locator('.main-nav')).toBeHidden();
     await expect(page.locator('.native-tab-bar').getByRole('link', { name: 'Library' })).toBeVisible();
-    await expect(navLinks).toHaveCount(4);
+    await expect(navLinks).toHaveCount(5);
     for (const link of await navLinks.all()) {
       const bounds = await link.boundingBox();
       expect(bounds!.x).toBeGreaterThanOrEqual(0);

@@ -4,6 +4,8 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { randomUUID } from 'node:crypto';
 import { AppError } from '../errors.ts';
 import { malService } from '../integrations/malService.ts';
+import { exploreService } from '../explore/service.ts';
+import type { ExploreCatalogue } from '../explore/catalogue.ts';
 import { sqliteAccountAdapter } from '../integrations/sqliteAdapter.ts';
 import { sendApprovalNotice } from '../cloud/auth/notifications.ts';
 import {
@@ -55,6 +57,8 @@ export type AccountConfig = {
   approvalRequired?: boolean;
   privateSite?: boolean;
   notifyApproval?: (kind: 'request' | 'approved', account: Pick<Account, 'id' | 'email'>) => Promise<boolean>;
+  /** Read-only catalogue facts for Explore; Explore is unavailable without it. */
+  explore?: ExploreCatalogue;
   /** Test servers only: multiplies every per-key attempt limit (browser suites share one loopback IP). */
   rateLimitScale?: number;
 };
@@ -477,6 +481,21 @@ export function createAccounts(db: DatabaseSync, config: AccountConfig = {}) {
         if (current.account_id !== a.id) throw new AppError(401, 'UNAUTHORIZED', 'Your session changed.');
         ownedProfile(profile, a.id);
       });
+      reply(res, 200, result);
+      return true;
+    }
+    const exploreRoute = /^\/api\/account\/profiles\/([\w-]{36})\/explore\/(status|start|feedback|undo|results|preferences|reset)$/.exec(path);
+    if (exploreRoute) {
+      const profile = exploreRoute[1], action = exploreRoute[2];
+      ownedProfile(profile, a.id);
+      if (method !== (action === 'status' ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
+      if (method === 'POST') rate('explore:' + a.id, 240, 60000);
+      const result = await exploreService(sqliteAccountAdapter(db), config.explore, { now })(profile, action,
+        method === 'GET' ? {} : await readBody(req), async () => {
+          const current = requireSession(req);
+          if (current.account_id !== a.id) throw new AppError(401, 'UNAUTHORIZED', 'Your session changed.');
+          ownedProfile(profile, a.id);
+        });
       reply(res, 200, result);
       return true;
     }

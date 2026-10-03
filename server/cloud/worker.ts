@@ -5,6 +5,7 @@ import { createCloudAccounts } from './auth/index.ts';
 import { D1AccountsRepository } from './auth/repository.ts';
 import { sendApprovalNotice } from './auth/notifications.ts';
 import { createCatalogueRepository } from './data/catalogue.ts';
+import { cloudExploreCatalogue } from '../explore/catalogue.ts';
 import { createPrivateBaselineReader } from './data/baseline.ts';
 import { createResearchRepository } from './data/research.ts';
 import { applyImportBatch, validateImportBatch } from './data/import.ts';
@@ -125,6 +126,7 @@ export async function handleCloudRequest(request: Request, env: CloudEnv): Promi
       mal: { clientId: env.MAL_CLIENT_ID, clientSecret: env.MAL_CLIENT_SECRET, credentialKey: env.MAL_CREDENTIAL_KEY,
         redirectUri: `${env.SOLANIME_APP_ORIGIN}/settings/mal/callback` },
       episodeExists: catalogue.hasEpisode,
+      explore: cloudExploreCatalogue(env.CATALOGUE, baseline, env.CATALOGUE_BASELINE_ENABLED === 'true' ? { id: env.CATALOGUE_BASELINE_ID, manifestSha256: env.CATALOGUE_BASELINE_MANIFEST_SHA256 } : undefined),
     });
     const accountResponse = await accounts.handle(request); if (accountResponse) return accountResponse;
     const research = createResearchRepository(env.RESEARCH);

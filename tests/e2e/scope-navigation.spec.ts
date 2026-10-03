@@ -39,7 +39,7 @@ test('desktop navigation separates Anime and TV and retires the Movies sector', 
   await expect(page.getByRole('link', { name: 'Open Fixture Screen Series', exact: true })).toBeVisible();
 });
 
-test('mobile viewing shell keeps emblem, four destinations, and search reachable', async ({ page }) => {
+test('mobile viewing shell keeps emblem, five destinations, and search reachable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 

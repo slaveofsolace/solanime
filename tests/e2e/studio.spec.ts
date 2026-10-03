@@ -104,7 +104,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
 
   const primaryLinks = page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link');
-  await expect(primaryLinks).toHaveCount(4);
+  await expect(primaryLinks).toHaveCount(5);
   for (const link of await primaryLinks.all()) {
     await expect(link).toBeVisible();
     expect(await link.textContent()).toBeTruthy();

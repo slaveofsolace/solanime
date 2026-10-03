@@ -17,7 +17,7 @@ Canonical tokens are in `src/styles/tokens.css`, the single palette for every ro
 
 ## Navigation and responsive behavior
 
-The desktop shell uses a translucent horizontal masthead with primary destinations, Series/Films/Dubbed shortcuts, compact global search, appearance, and profile access. At 1180px category shortcuts collapse; at 820px primary labels become icons. At 760px and below the established four-destination bottom navigation remains, while focused watch/auth/profile/operator routes omit audience navigation. At 360px gutters reduce to 12px. The supported minimum viewport is 320px, validated against the document client width so a classic scrollbar gutter cannot hide overflow.
+The desktop shell uses a translucent horizontal masthead with primary destinations, Series/Films/Dubbed shortcuts, compact global search, appearance, and profile access. At 1180px category shortcuts collapse; at 820px primary labels become icons. At 760px and below the bottom navigation has five destinations (Home, Discover, Explore, Library, Account), while focused watch/auth/profile/operator routes omit audience navigation. At 360px gutters reduce to 12px. The supported minimum viewport is 320px, validated against the document client width so a classic scrollbar gutter cannot hide overflow.
 
 ## Product surfaces
 

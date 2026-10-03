@@ -70,5 +70,9 @@ episode offsets. Imported MAL rows are usable and editable independently of that
 matching. An imported list entry is not represented as a playable Solanime title
 merely because its text resembles one.
 
+[Explore](EXPLORE.md) reads the committed import (scores and statuses) read-only,
+joined to catalogue titles only through exact reviewed MAL IDs. It never writes
+to MAL. Disconnecting or re-importing rebuilds its MAL-derived taste.
+
 Official references: [authorization](https://myanimelist.net/apiconfig/references/authorization)
 and [API v2](https://myanimelist.net/apiconfig/references/api/v2).

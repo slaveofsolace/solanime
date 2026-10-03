@@ -1,5 +1,7 @@
 import { AppError } from '../../errors.ts';
 import { malService, type MalServiceConfig } from '../../integrations/malService.ts';
+import { exploreService } from '../../explore/service.ts';
+import type { ExploreCatalogue } from '../../explore/catalogue.ts';
 import { COMMUNITY_PAGE_SIZE_MAX, communityCommentBody, communityPositiveInteger, communityRevision, communityUuid } from '../../community.ts';
 import { emailAddress, profileInput, validateData } from '../../accounts/validation.ts';
 import { FirebaseAuthError, FirebaseRestIdentity, type FirebaseAuthOptions } from './firebase.ts';
@@ -24,6 +26,8 @@ export type CloudAccountConfig = {
   identity?: ManagedIdentity;
   /** Cross-database existence proof supplied by the catalogue repository. */
   episodeExists?: (episodeId: number) => Promise<boolean>;
+  /** Read-only catalogue facts for Explore, supplied by the Worker. */
+  explore?: ExploreCatalogue;
 };
 const DAY = 86400000;
 const REMOTE_CHECK_INTERVAL = 5 * 60000;
@@ -271,6 +275,19 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (method === 'POST') await rate('mal:' + a.id, 30, 60000);
         const result = await malService(db, config.mal ?? {}, fetch, now)(profile, a.id, action,
           method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request), async () => {
+            required(await repository.session(auth.token_hash, now()));
+            await repository.ownedProfile(profile, a.id);
+          });
+        return accountReply(200, result);
+      }
+      const exploreRoute = /^\/api\/account\/profiles\/([\w-]{36})\/explore\/(status|start|feedback|undo|results|preferences|reset)$/.exec(path);
+      if (exploreRoute) {
+        const profile = exploreRoute[1], action = exploreRoute[2];
+        await repository.ownedProfile(profile, a.id);
+        if (method !== (action === 'status' ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
+        if (method === 'POST') await rate('explore:' + a.id, 240, 60000);
+        const result = await exploreService(db, config.explore, { now })(profile, action,
+          method === 'GET' ? {} : await boundedJson(request), async () => {
             required(await repository.session(auth.token_hash, now()));
             await repository.ownedProfile(profile, a.id);
           });

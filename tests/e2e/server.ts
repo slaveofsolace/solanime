@@ -3,6 +3,7 @@ import { readdirSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app';
 import { createAccounts } from '../../server/accounts/service';
+import { sqliteExploreCatalogue } from '../../server/explore/catalogue';
 import { openAccountsDatabase } from '../../server/accounts/database';
 import { openDatabase, migrate } from '../../server/db';
 import { importSnapshot } from '../../server/ingestion/snapshot';
@@ -137,6 +138,7 @@ const server = createApp(db, {
     notifyApproval: async () => true,
     // Every browser project registers from 127.0.0.1; keep the limits' shape but not the 40/hour ceiling.
     rateLimitScale: 100,
+    explore: sqliteExploreCatalogue(db),
   }),
 });
 // Deliver the original test clip over actual HTTP so range and seek behavior

@@ -5,9 +5,9 @@ const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\
 const operatorRead = /^\/api\/(?:admin\/(?:accounts\/pending|sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
 const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|retry-notice)|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
-const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)))$/;
+const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)|explore\/status))$/;
 const accountWrite =
-  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:connect|complete|sync|update|disconnect)))?)?)$/;
+  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:connect|complete|sync|update|disconnect)|explore\/(?:start|feedback|undo|results|preferences|reset)))?)?)$/;
 const communityRead = /^\/api\/episodes\/\d+\/comments$/;
 const communityCreate = /^\/api\/episodes\/\d+\/comments$/;
 const communityItem = /^\/api\/episodes\/\d+\/comments\/[0-9a-f-]{36}$/i;

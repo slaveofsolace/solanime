@@ -102,6 +102,10 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="browse" />
             <span>Anime</span>
           </Link>
+          <NavLink to="/explore" aria-label="Explore">
+            <Icon name="compass" />
+            <span>Explore</span>
+          </NavLink>
           <Link
             className="main-nav__tv"
             to="/catalogue?scope=tv"
@@ -155,6 +159,10 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="browse" />
             <span>Discover</span>
           </Link>
+          <NavLink to="/explore">
+            <Icon name="compass" />
+            <span>Explore</span>
+          </NavLink>
           <NavLink to="/library">
             <Icon name="bookmark" />
             <span>Library</span>

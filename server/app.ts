@@ -1,5 +1,6 @@
 import { RELEASE } from '../shared/release.ts';
 import { createAccounts, type AccountsService } from './accounts/service.ts';
+import { sqliteExploreCatalogue } from './explore/catalogue.ts';
 import { openAccountsDatabase } from './accounts/database.ts';
 import { nativeSourceResolver } from './providers/nativeSources.ts';
 import { legacyResolution, type ApprovedNativeResource } from './providers/native.ts';
@@ -154,7 +155,7 @@ function requireAdmin(request: IncomingMessage): void {
 }
 
 export function createApp(db: DatabaseSync, options: AppOptions = {}) {
-  const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'));
+  const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'), { explore: sqliteExploreCatalogue(db) });
   const privateSite = options.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
   const nativeSources = options.nativeSources ?? nativeSourceResolver();
   const pendingResolutions = new Map<number, PendingResolution>();
@@ -534,7 +535,7 @@ export function startServer() {
   migrate(db);
   const port = integer(process.env.PORT ?? null, 'PORT', 8787, 1, 65535);
   const host = process.env.HOST || '127.0.0.1';
-  const accounts = createAccounts(openAccountsDatabase());
+  const accounts = createAccounts(openAccountsDatabase(), { explore: sqliteExploreCatalogue(db) });
   const server = createApp(db, { staticDirectory, accounts });
   server.requestTimeout = 30_000;
   server.headersTimeout = 15_000;

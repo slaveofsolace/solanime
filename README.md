@@ -15,6 +15,9 @@ the original catalogue checkpoint are preserved.
 - Search, filters, title/episode/version navigation, watchlist, Continue Watching,
   real playback progress where the selected source exposes it, private episode
   notes, and up to five profiles.
+- [Explore](docs/EXPLORE.md): a 10/20/30-card swipe round that learns from the
+  profile’s MyAnimeList ratings, history and choices, then recommends a varied
+  set of titles with stated reasons.
 - Charcoal and warm-ivory themes, an orange default accent, locally hosted fonts,
   responsive navigation, keyboard controls, and reduced-motion support. Existing
   saved themes and custom accents are retained.

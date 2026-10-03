@@ -25,6 +25,7 @@ const AuthPage = lazy(() => import('./pages/AuthPage'));
 const ProfilesPage = lazy(() => import('./pages/ProfilesPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
 const SettingsPage = lazy(loadSettings);
+const ExplorePage = lazy(() => import('./pages/ExplorePage'));
 /** Fetch the everyday screens once the app is idle, so first visits don't flash a loader. */
 function usePreloadedScreens() {
   useEffect(() => {
@@ -63,12 +64,14 @@ function RouteReadiness() {
   const kind = pathname.startsWith('/watch/') ? 'watch'
     : pathname.startsWith('/title/') ? 'title'
       : pathname === '/library' ? 'library'
+        : pathname === '/explore' ? 'explore'
         : ['/catalogue', '/search'].includes(pathname) ? 'catalogue'
           : pathname.startsWith('/account') || pathname === '/profiles' ? 'account'
             : 'default';
   const label = kind === 'watch' ? 'Preparing this episode…'
     : kind === 'title' ? 'Opening title…'
       : kind === 'library' ? 'Opening your library…'
+        : kind === 'explore' ? 'Opening Explore…'
         : kind === 'catalogue' ? 'Loading catalogue…'
           : kind === 'account' ? 'Opening your profile…'
             : 'Loading this view…';
@@ -119,6 +122,7 @@ export default function App() {
                 <Route path="/title/:slug" element={<PrivateSiteRoute><TitlePage /></PrivateSiteRoute>} />
                 <Route path="/watch/:slug/:episodeId" element={<PrivateSiteRoute><WatchPage /></PrivateSiteRoute>} />
                 <Route path="/library" element={<RequireAccount><LibraryPage /></RequireAccount>} />
+                <Route path="/explore" element={<RequireAccount><ExplorePage /></RequireAccount>} />
                 <Route path="/settings" element={<RequireAccount><SettingsPage /></RequireAccount>} />
                 <Route path="/settings/mal/callback" element={<MalCallbackPage />} />
                 <Route path="/login" element={<AuthPage key="login" />} />
