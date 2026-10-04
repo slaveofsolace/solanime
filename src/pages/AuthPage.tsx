@@ -4,6 +4,7 @@ import { safeReturnTo, withReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import RecoveryCard from '../account/RecoveryCard';
+import HumanCheck from '../account/HumanCheck';
 export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'register' | 'recover' }) {
   const account = useAccount(),
     navigate = useNavigate();
@@ -23,6 +24,9 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
   const register = mode === 'register',
     recover = mode === 'recover';
   const registerAction = account.approvalRequired ? 'Request access' : 'Create account';
+  const [humanToken, setHumanToken] = useState<string | null>(null),
+    [humanReset, setHumanReset] = useState(0);
+  const humanCheck = (register || recover) && account.humanCheckSiteKey ? account.humanCheckSiteKey : null;
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
@@ -42,12 +46,14 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
           email: submittedEmail,
           password: submittedPassword,
           recoveryCode: submittedCode,
+          ...(humanToken ? { humanCheck: humanToken } : {}),
         });
         account.clearProfile();
         await account.refresh();
         setReplacement(result.recoveryCode);
       } else {
-        const result = await account.login(submittedEmail, submittedPassword, remember, register);
+        const result = await account.login(submittedEmail, submittedPassword, remember, register,
+          register ? humanToken ?? undefined : undefined);
         if (result?.pendingApproval) {
           setPendingCode(result.recoveryCode ?? null);
           setPendingSaved(!result.recoveryCode);
@@ -57,6 +63,8 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Unable to sign in.');
+      // Turnstile tokens are single-use; get a fresh one for the next attempt.
+      if (humanCheck) setHumanReset((n) => n + 1);
     } finally {
       setBusy(false);
     }
@@ -85,7 +93,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
     return (
       <section className="auth-result" role="status">
         <h1>Waiting for approval</h1>
-        <p>Your request is recorded. The Solanime owner must approve your account before you can sign in or browse.</p>
+        <p>The Solanime owner must approve your account before you can sign in.</p>
         <Link className="button button--primary" to={withReturnTo('/login', destination)}>
           Back to sign in
         </Link>
@@ -99,18 +107,11 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
           <span>Solanime</span>
         </div>
         <h1>
-          {recover ? 'Recover your account' : register ? registerAction : 'Sign in to Solanime'}
+          {recover ? 'Recover your account' : register ? registerAction : 'Sign in'}
         </h1>
-        <p>
-          {recover
-            ? 'Use your saved code to set a new password.'
-            : register
-              ? 'Save titles and watch progress across devices.'
-              : 'Access your profiles, list, and watch history.'}
-        </p>
+        {recover && <p>Use your recovery code to set a new password.</p>}
       </div>
       <div className="auth-panel">
-        <h2>{recover ? 'Recover account' : register ? registerAction : 'Sign in'}</h2>
         {register && account.approvalRequired && (
           <p className="auth-approval-note">Your account must be approved before you can sign in.</p>
         )}
@@ -179,7 +180,7 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             {(register || recover) && (
               <>
                 <p className="field-hint" id="password-help">
-                  15–128 characters. A long passphrase works well.
+                  15–128 characters.
                 </p>
                 <label htmlFor="confirm-password">Confirm password</label>
                 <input
@@ -205,6 +206,10 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
                 Keep me signed in on this device
               </label>
             )}
+            {humanCheck && (
+              <HumanCheck siteKey={humanCheck} action={recover ? 'recover' : 'register'} resetKey={humanReset}
+                onToken={setHumanToken} onError={setError} />
+            )}
             {error && (
               <p className="form-error" role="alert">
                 {error}
@@ -212,23 +217,25 @@ export default function AuthPage({ mode = 'login' }: { mode?: 'login' | 'registe
             )}
             <button
               className="button button--primary auth-submit"
-              disabled={busy || (register && !account.registrationOpen)}
+              disabled={busy || (register && !account.registrationOpen) || (!!humanCheck && !humanToken)}
               type="submit"
             >
               {busy
                 ? 'Working…'
-                : recover
-                  ? 'Reset password'
-                  : register
-                    ? registerAction
-                    : 'Sign in'}
+                : humanCheck && !humanToken
+                  ? 'Checking your browser…'
+                  : recover
+                    ? 'Reset password'
+                    : register
+                      ? registerAction
+                      : 'Sign in'}
             </button>
             {register && !account.registrationOpen && (
-              <p className="field-hint">Registration is closed on this deployment.</p>
+              <p className="field-hint">Registration is currently closed.</p>
             )}
             {register && (
               <p className="field-hint">
-                Save the recovery code shown next. You’ll need it if you forget your password.
+                You’ll receive a recovery code to save after signing up.
               </p>
             )}
           </form>

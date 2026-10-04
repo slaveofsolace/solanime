@@ -38,7 +38,9 @@ test('title fallback preserves poster proportions and unsourced episodes use com
   expect(layout.rows[0]!.height).toBeGreaterThanOrEqual(60);
   expect(layout.rows[0]!.height).toBeLessThanOrEqual(100);
   await expect(page.locator('.title-page .episode-browser')).toHaveClass(/episode-browser--no-stills/);
-  await expect(page.locator('.title-page .episode-thumbnail').first()).toBeHidden();
+  // Without stills each row leads with a small number tile, never a fake thumbnail.
+  const tile = await page.locator('.title-page .episode-thumbnail').first().boundingBox();
+  expect(tile!.width).toBeLessThanOrEqual(48);
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('series-cards-desktop.png'), fullPage: true });
 });
@@ -77,14 +79,12 @@ test('320px title and watch controls remain readable without horizontal overflow
 
   await page.getByRole('link', { name: /Start watching: Episode 1/ }).click();
   await expect(page.locator('video')).toBeVisible();
-  await expect(page.getByLabel('Choose episode')).toBeVisible();
-  await expect(page.getByLabel('Playback source')).toBeVisible();
-  await expect(page.getByLabel('Episode language')).toBeVisible();
-  const source = await page.locator('.source-choice').boundingBox();
-  const version = await page.locator('.version-choice').boundingBox();
-  expect(source!.y).toBeCloseTo(version!.y, 0);
-  expect(version!.x).toBeGreaterThan(source!.x);
-  expect((await page.locator('.watch-selection').boundingBox())!.height).toBeLessThanOrEqual(160);
+  await expect(page.getByRole('button', { name: 'Next episode', exact: true })).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Server', exact: true })).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Audio', exact: true })).toBeVisible();
+  for (const button of await page.locator('.watch-options button').all()) {
+    expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  }
   await noOverflow(page);
   await page.screenshot({ path: info.outputPath('watch-controls-320.png'), fullPage: true });
 });

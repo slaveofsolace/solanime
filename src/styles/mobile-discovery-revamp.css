@@ -1,0 +1,564 @@
+/* The iPhone catalogue, title, and library share one quiet content language.
+   Artwork provides the color; controls and reading surfaces stay predictable. */
+.filter-trigger-icon { display: none; }
+@media (max-width: 600px) {
+  .site-shell.discovery-shell :is(.catalogue-page, .library-page) {
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  }
+
+  .site-shell.discovery-shell .catalogue-topline {
+    border-bottom: 0;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .catalogue-heading {
+    padding: 25px 0 15px;
+  }
+
+  .site-shell.discovery-shell .catalogue-heading__copy {
+    display: grid;
+    gap: 3px;
+  }
+
+  .site-shell.discovery-shell .catalogue-heading__eyebrow,
+  .site-shell.discovery-shell .library-heading__eyebrow {
+    color: var(--accent-ink);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: .09em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .catalogue-heading h1,
+  .site-shell.discovery-shell .library-heading h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(32px, 9vw, 39px);
+    font-weight: 790;
+    letter-spacing: -.045em;
+    line-height: 1.08;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .catalogue-summary {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .site-shell.discovery-shell .catalogue-collections {
+    display: flex;
+    gap: 7px;
+    margin: 1px calc(-1 * var(--gutter)) 0;
+    padding: 3px var(--gutter) 11px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-shell.discovery-shell .catalogue-collections::-webkit-scrollbar { display: none; }
+
+  .site-shell.discovery-shell .catalogue-collections button {
+    flex: none;
+    min-height: 38px;
+    padding: 8px 15px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  .site-shell.discovery-shell .catalogue-collections button[aria-pressed='true'] {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .site-shell.discovery-shell .catalogue-collections button::after { content: none; }
+
+  .site-shell.discovery-shell .catalogue-page .catalogue-controls {
+    margin: 0 0 18px;
+    padding: 0;
+    border: 0;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .search-field {
+    margin: 0;
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .site-shell.discovery-shell .catalogue-page .search-field input {
+    height: 48px;
+    min-height: 48px;
+    border: 1px solid var(--line);
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+    background: var(--surface);
+    font-size: 16px;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .search-field button {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    border: 1px solid var(--line);
+    border-left: 0;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .discovery-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure { flex: 0 1 auto; min-width: 0; }
+  .site-shell.discovery-shell .catalogue-page .discovery-sort { flex: 1 1 0; min-width: 110px; }
+
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary,
+  .site-shell.discovery-shell .catalogue-page .discovery-sort {
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary { gap: 6px; padding-inline: 8px; }
+  /* Keep the Filters label and count visible without taking the sort value's
+     reading space. The accessible name still announces the active count. */
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary::after { content: none; }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure .filter-count { min-width: 18px; padding: 2px; text-align: center; }
+  .site-shell.discovery-shell .catalogue-page .filter-count__label { display: none; }
+  .site-shell.discovery-shell .catalogue-page .discovery-sort { padding-inline: 3px; }
+
+  .site-shell.discovery-shell .catalogue-page .filter-grid {
+    right: auto;
+    left: 0;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: min(340px, calc(100vw - 2 * var(--gutter)));
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .title-grid,
+  .site-shell.discovery-shell .catalogue-page .title-grid--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px 12px;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .title-card__art,
+  .site-shell.discovery-shell .library-page .title-card__art {
+    overflow: hidden;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .title-card__copy,
+  .site-shell.discovery-shell .library-page .title-card__copy { padding: 9px 0 0; }
+
+  .site-shell.discovery-shell .catalogue-page .title-card__copy h2,
+  .site-shell.discovery-shell .library-page .title-card__copy h2 {
+    min-height: 0;
+    font-size: 14px;
+    font-weight: 680;
+    letter-spacing: -.01em;
+    line-height: 1.32;
+  }
+
+  .site-shell.discovery-shell .catalogue-page .title-card__availability,
+  .site-shell.discovery-shell .library-page .title-card__availability {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: calc(100% + 2 * var(--gutter));
+    min-height: 0;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: clamp(340px, 53svh, 480px) var(--gutter) 26px;
+    overflow: hidden;
+    background: #090a0c;
+    color: #fff;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art {
+    display: block;
+    inset: 0;
+    height: 100%;
+    background: #090a0c;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art__banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 27%;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art[data-mobile-art='poster'] .spotlight-art__banner {
+    visibility: hidden;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art[data-banner='loaded'][data-mobile-art='poster'] .spotlight-art__poster {
+    display: block;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art__poster {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #17151a;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art__poster::before {
+    inset: -28px;
+    background-position: center 27%;
+    filter: blur(25px) brightness(.55) saturate(1.1);
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art__poster > :is(img, .cover-fallback) {
+    /* A poster is a small image: show it as a crisp card over its own
+       blurred wash, never stretched across the screen. */
+    position: absolute;
+    top: calc(env(safe-area-inset-top) + 72px);
+    right: 0;
+    left: 0;
+    width: min(50vw, 200px);
+    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 360 / 510;
+    object-fit: cover;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgb(0 0 0 / 55%);
+    mask-image: none;
+    -webkit-mask-image: none;
+    transform: none;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art::after,
+  .site-shell.discovery-shell .title-page .title-hero .spotlight-art[data-banner='loaded']::after {
+    z-index: 2;
+    background:
+      linear-gradient(180deg, #000a 0%, transparent 25%),
+      linear-gradient(180deg, transparent 30%, #090a0c7a 49%, #090a0ce8 67%, #090a0c 93%);
+  }
+
+  /* The phone hero is always a dark artwork stage, so its text uses dark-stage
+     tokens in either theme. */
+  .site-shell.discovery-shell .title-page .title-hero {
+    --text: #f6f6f7;
+    --muted: #c3c5cc;
+    color-scheme: dark;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__name-block {
+    display: block;
+    min-height: 0;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__mobile-art { display: none; }
+
+  .site-shell.discovery-shell .title-page .title-hero .feature-meta {
+    margin-bottom: 9px;
+    color: #dedee2;
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero h1 {
+    max-width: 17ch;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(29px, 8.5vw, 39px);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.06;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__alternate {
+    margin-top: 7px;
+    color: #d0d0d4;
+    font-size: 13px;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__actions {
+    gap: 9px;
+    margin: 20px 0 18px;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__actions .button--primary {
+    flex: 1 1 auto;
+    min-height: 50px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 760;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__actions .button--outline {
+    flex: 0 0 50px;
+    width: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    padding: 0;
+  }
+
+  .site-shell.discovery-shell .title-page .title-facts {
+    gap: 8px 22px;
+    margin-bottom: 12px;
+  }
+
+  .site-shell.discovery-shell .title-page .title-facts :is(dt, dd) {
+    color: #d7d7db;
+    font-size: 12px;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero__synopsis {
+    color: #e0e0e4;
+    font-size: 14px;
+    line-height: 1.52;
+  }
+
+  .site-shell.discovery-shell .title-page .title-hero .tag-list span { color: #d5d5d9; }
+
+  .site-shell.discovery-shell .title-page > .episode-section {
+    margin-top: 0;
+    padding-top: 28px;
+  }
+
+  .site-shell.discovery-shell .title-page .episode-section .section-heading {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 17px;
+  }
+
+  .site-shell.discovery-shell .title-page .episode-section .section-heading h2 {
+    font-size: 24px;
+    letter-spacing: -.025em;
+  }
+
+  .site-shell.discovery-shell .title-page .language-tabs {
+    display: flex;
+    gap: 3px;
+    padding: 3px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--surface-2);
+  }
+
+  .site-shell.discovery-shell .title-page .language-tabs button {
+    flex: 1;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .site-shell.discovery-shell .title-page .language-tabs button[aria-pressed='true'] {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 4px #0003;
+  }
+
+  .site-shell.discovery-shell .library-heading {
+    min-height: 0;
+    align-items: end;
+    gap: 12px;
+    padding: 25px 0 13px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-shell.discovery-shell .library-heading > div { min-width: 0; }
+
+  .site-shell.discovery-shell .library-heading > div > p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .site-shell.discovery-shell .library-heading__count {
+    flex: none;
+    display: grid;
+    gap: 2px;
+    margin-bottom: 2px;
+    text-align: right;
+  }
+
+  .site-shell.discovery-shell .library-heading__count strong {
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 780;
+    line-height: 1;
+  }
+
+  .site-shell.discovery-shell .library-heading__count span { max-width: 70px; line-height: 1.2; }
+
+  .site-shell.discovery-shell .library-page .library-section { margin: 25px 0 34px; }
+  .site-shell.discovery-shell .library-page .library-section .section-heading { margin-bottom: 14px; }
+
+  .site-shell.discovery-shell .library-page .title-grid--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .site-shell.discovery-shell .library-page .title-card__actions {
+    justify-content: flex-start;
+    margin-top: 3px;
+  }
+
+  .site-shell.discovery-shell .library-page .title-card__actions :is(.card-open, .card-info) {
+    display: none;
+  }
+
+  .site-shell.discovery-shell .library-page .title-card__actions .save-button {
+    width: auto;
+    min-height: 44px;
+    padding: 0;
+    color: var(--muted);
+    font-size: 0;
+  }
+
+  .site-shell.discovery-shell .library-page .title-card__actions .save-button .icon { display: none; }
+  .site-shell.discovery-shell .library-page .title-card__actions .save-button::after {
+    content: 'Remove from My List';
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .site-shell.discovery-shell .library-empty {
+    padding: 22px 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .site-shell.discovery-shell .library-empty p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .site-shell.discovery-shell .library-empty .button {
+    min-height: 44px;
+    margin-top: 14px;
+    border-radius: 9px;
+    font-size: 13px;
+  }
+
+  .site-shell.discovery-shell .history-search {
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  .site-shell.discovery-shell .history-search input {
+    width: 100%;
+    min-height: 46px;
+    border: 0;
+    font-size: 14px;
+  }
+
+  .site-shell.discovery-shell .history-search > span:last-child {
+    flex: none;
+    font-size: 11px;
+  }
+
+  .site-shell.discovery-shell .history-list { gap: 0; }
+
+  .site-shell.discovery-shell .history-list li {
+    gap: 6px;
+    min-width: 0;
+    padding: 12px 0;
+  }
+
+  .site-shell.discovery-shell .history-link { gap: 12px; }
+
+  .site-shell.discovery-shell .history-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 82px;
+    overflow: hidden;
+    border-radius: 7px;
+    background: var(--surface-2);
+    color: var(--muted);
+  }
+
+  .site-shell.discovery-shell .history-art .icon { width: 20px; height: 20px; }
+
+  .site-shell.discovery-shell .history-link strong {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.3;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .site-shell.discovery-shell .history-link small { margin-top: 5px; font-size: 12px; }
+
+  .site-shell.discovery-shell .history-link > span:last-child {
+    flex: none;
+    max-width: 66px;
+    color: var(--accent-ink);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: right;
+  }
+
+  .site-shell.discovery-shell .history-remove {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    color: var(--muted);
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure { flex: 0 0 48px; }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure > summary {
+    position: relative;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+  }
+  .site-shell.discovery-shell .catalogue-page .filter-trigger-icon { display: block; width: 22px; height: 22px; flex: none; }
+  .site-shell.discovery-shell .catalogue-page .filter-trigger-label {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+  .site-shell.discovery-shell .catalogue-page .filter-disclosure .filter-count {
+    position: absolute; top: 2px; right: 2px;
+    min-width: 16px; height: 16px; padding: 1px 2px; line-height: 14px;
+  }
+  .site-shell.discovery-shell .history-link > span:last-child { display: none; }
+}

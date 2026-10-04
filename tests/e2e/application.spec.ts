@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { fixtureArt, noOverflow, episode, watch } from './helpers';
+import { fixtureArt, noOverflow, episode, watch, sourceIds, chooseSource, selectedSource, chooseLanguage, selectedLanguage } from './helpers';
 import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 
@@ -15,10 +15,9 @@ test('browse, search, save and reopen a persistent list', async ({ page }) => {
   await expect(page).toHaveURL(/search\?q=Paper/);
   await page.getByRole('link', { name: 'Open Paper Lantern', exact: true }).click();
   await page.getByRole('button', { name: 'My List', exact: true }).click();
-  await page
-    .getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: /My list/ })
-    .click();
+  const phoneNavigation = page.getByRole('navigation', { name: 'iPhone navigation' });
+  if (await phoneNavigation.isVisible()) await phoneNavigation.getByRole('link', { name: 'Library', exact: true }).click();
+  else await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: /My list/ }).click();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
   await page.reload();
   await expect(page.getByRole('link', { name: 'Open Paper Lantern', exact: true })).toBeVisible();
@@ -73,10 +72,7 @@ test('source switching replaces the media element, preserves language and handle
 }) => {
   const e = await watch(page);
   const first = await page.locator('video').elementHandle();
-  const options = await page
-    .getByRole('combobox', { name: 'Playback source' })
-    .locator('option:not([disabled])')
-    .evaluateAll((os) => os.map((o) => (o as HTMLOptionElement).value));
+  const options = await sourceIds(page);
   expect(options.length).toBeGreaterThan(1);
   await page.route('**/api/providers/*/resolve', (route) =>
     route.fulfill({
@@ -85,14 +81,14 @@ test('source switching replaces the media element, preserves language and handle
       body: '{"error":{"code":"UNAVAILABLE","message":"Controlled media failure"}}',
     }),
   );
-  await page.getByRole('combobox', { name: 'Playback source' }).selectOption(options[1]);
+  await chooseSource(page, options[1]);
   await expect(page.getByText('Controlled media failure')).toBeVisible();
   expect(await first!.evaluate((el) => el.isConnected)).toBe(false);
   await expect(page.locator('video,iframe')).toHaveCount(0);
   await page.unroute('**/api/providers/*/resolve');
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('video')).toBeVisible();
-  await page.getByRole('combobox', { name: 'Episode language' }).selectOption('dub');
+  await chooseLanguage(page, 'dub');
   await expect(page.locator('video')).toBeVisible();
   await expect(page).toHaveURL(/language=dub/);
   await page
@@ -101,7 +97,7 @@ test('source switching replaces the media element, preserves language and handle
     .click();
   await expect(page.locator('video')).toBeVisible();
   expect(new URL(page.url()).pathname).not.toBe(`/watch/paper-lantern/${e.id}`);
-  await expect(page.getByRole('combobox', { name: 'Episode language' })).toHaveValue('dub');
+  await expect(selectedLanguage(page)).toHaveAttribute('data-language', 'dub');
   await noOverflow(page);
 });
 test('unavailable source lists retry without losing the episode', async ({ page }) => {
@@ -137,14 +133,10 @@ test('late resolutions cannot overwrite a newer native source', async ({ page })
   });
   const e = await episode(page);
   await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
-  const select = page.getByRole('combobox', { name: 'Playback source' });
-  await expect(select).toBeEnabled();
-  const values = await select
-    .locator('option:not([disabled])')
-    .evaluateAll((os) => os.map((o) => (o as HTMLOptionElement).value));
-  await select.selectOption(values[1]);
+  const values = await sourceIds(page);
+  await chooseSource(page, values[1]);
   await expect(page.locator('video')).toBeVisible();
   await page.waitForTimeout(650);
-  await expect(select).toHaveValue(values[1]);
+  await expect(selectedSource(page)).toHaveAttribute('data-mapping-id', values[1]);
   await expect(page.locator('video')).toHaveCount(1);
 });

@@ -260,5 +260,23 @@ export function createPrivateBaselineReader(assets: BaselineAssets, pin: Baselin
     }
     return { ids: selected, episodeCounts, total, page: params.page, pageSize: params.pageSize, pages: Math.ceil(total / params.pageSize), facets: scopedFacets, sourceNames };
   }
-  return { manifest, titleById, titleBySlug, episodePage, episode, mapping, browseRow, browseIds, diagnostics: () => ({ reads, bytesRead }) };
+  /** Checksummed facet postings, for whole-catalogue features (Explore ranking). */
+  async function postingsIndex(): Promise<BaselinePostings> {
+    const info = await manifest(); const ref = validRef(info.postings, baselinePath(pin.id, 'indexes/postings.json'), BASELINE_MAX_INDEX_BYTES);
+    const value = await read(ref.path, ref.sha256, BASELINE_MAX_INDEX_BYTES, ref.bytes);
+    if (!record(value) || !record(value.episodeCounts)) throw changed();
+    for (const kind of ['genres', 'languages', 'types', 'statuses'] as const) {
+      const group = own(value, kind);
+      if (!record(group) || Object.values(group).some(ids => !Array.isArray(ids) || ids.some(id => typeof id !== 'string'))) throw changed();
+    }
+    return value as unknown as BaselinePostings;
+  }
+  /** Checksummed [id, lower-cased name and aliases] rows. */
+  async function searchIndex(): Promise<Array<[string, string]>> {
+    const info = await manifest(); const ref = validRef(info.search, baselinePath(pin.id, 'indexes/search.json'), BASELINE_MAX_INDEX_BYTES);
+    const value = await read(ref.path, ref.sha256, BASELINE_MAX_INDEX_BYTES, ref.bytes);
+    if (!Array.isArray(value) || value.some(row => !Array.isArray(row) || row.length !== 2 || typeof row[0] !== 'string' || typeof row[1] !== 'string')) throw changed();
+    return value as Array<[string, string]>;
+  }
+  return { manifest, titleById, titleBySlug, episodePage, episode, mapping, browseRow, browseIds, postingsIndex, searchIndex, diagnostics: () => ({ reads, bytesRead }) };
 }

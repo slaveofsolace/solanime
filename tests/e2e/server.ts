@@ -3,6 +3,7 @@ import { readdirSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app';
 import { createAccounts } from '../../server/accounts/service';
+import { sqliteExploreCatalogue } from '../../server/explore/catalogue';
 import { openAccountsDatabase } from '../../server/accounts/database';
 import { openDatabase, migrate } from '../../server/db';
 import { importSnapshot } from '../../server/ingestion/snapshot';
@@ -135,10 +136,9 @@ const server = createApp(db, {
     // matrix from one loopback IP. Keep production limits intact while tests
     // create independent accounts for each scenario.
     registrationHourlyLimit: process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 3 : 500,
-    // Browser fixtures must never deliver real registration emails.
-    notifyApproval: async () => true,
     // Every browser project registers from 127.0.0.1; keep the limits' shape but not the 40/hour ceiling.
     rateLimitScale: 100,
+    explore: sqliteExploreCatalogue(db),
   }),
 });
 // Deliver the original test clip over actual HTTP so range and seek behavior
@@ -203,7 +203,8 @@ server.on('request', (request, response) => {
   });
   response.end(request.method === 'HEAD' ? undefined : clip.subarray(start, end + 1));
 });
-const fixturePort = process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 18788 : 18787;
+// SOLANIME_E2E_PORT lets parallel checkouts on one machine run suites without colliding.
+const fixturePort = Number(process.env.SOLANIME_E2E_PORT) || (process.env.SOLANIME_E2E_PRIVATE_SITE === 'true' ? 18788 : 18787);
 server.listen(fixturePort, '127.0.0.1', () =>
   console.log(`Isolated browser fixture API on 127.0.0.1:${fixturePort}`),
 );

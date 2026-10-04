@@ -102,6 +102,8 @@ interface Props {
   onOpen?: () => void;
   onProgress?: (position: number, duration: number) => void;
   onEnded?: () => void;
+  /** Lets the watch page move on to the next server when this upload cannot play. */
+  onError?: (message: string) => void;
 }
 
 export default function YouTubeOfficialPlayer({
@@ -110,10 +112,11 @@ export default function YouTubeOfficialPlayer({
   onOpen,
   onProgress,
   onEnded,
+  onError,
 }: Props) {
   const iframe = useRef<HTMLIFrameElement>(null);
-  const callbacks = useRef({ onOpen, onProgress, onEnded });
-  callbacks.current = { onOpen, onProgress, onEnded };
+  const callbacks = useRef({ onOpen, onProgress, onEnded, onError });
+  callbacks.current = { onOpen, onProgress, onEnded, onError };
   const opened = useRef(false);
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<'loading' | 'ready' | 'playing' | 'error'>('loading');
@@ -195,8 +198,10 @@ export default function YouTubeOfficialPlayer({
           onError(event) {
             if (cancelled) return;
             stopSampling();
-            setError(officialYouTubeError(event.data));
+            const failure = officialYouTubeError(event.data);
+            setError(failure);
             setState('error');
+            callbacks.current.onError?.(failure.message);
           },
         },
       });
@@ -238,7 +243,7 @@ export default function YouTubeOfficialPlayer({
         ref={iframe}
         key={`${source}:${attempt}`}
         src={source}
-        title={`Official YouTube player — ${officialResolution.publisher.label}`}
+        title={`Official YouTube player: ${officialResolution.publisher.label}`}
         sandbox={YOUTUBE_IFRAME_SANDBOX}
         allow={YOUTUBE_IFRAME_ALLOW}
         allowFullScreen

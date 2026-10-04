@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { api, ApiError, readResponse } from '../src/lib/api';
 import { decodeStored } from '../src/lib/storage';
+import type { TitleSummary } from '../src/types';
 afterEach(() => vi.unstubAllGlobals());
 describe('API contracts', () => {
   it('rejects static-host HTML instead of rendering it as catalogue data', async () => {
@@ -71,6 +72,24 @@ describe('saved browser data', () => {
     );
     expect(result).toHaveLength(1);
     expect(result[0]).toMatchObject({ id: '1', name: 'A title', genres: ['Drama'] });
+  });
+  it('retains saved landscape artwork on reload while rejecting malformed optional backdrops', () => {
+    const saved = {
+      id: 'saved-landscape', slug: 'saved-landscape', name: 'Saved title',
+      imageUrl: 'https://images.example.test/original.jpg',
+      posterUrl: 'https://images.example.test/poster.jpg',
+      backdropUrl: 'https://images.example.test/backdrop.jpg',
+    };
+    const serialized = JSON.parse(JSON.stringify([
+      saved,
+      { id: 'legacy', slug: 'legacy', name: 'Older saved title' },
+      { id: 'malformed', slug: 'malformed', name: 'Malformed artwork', backdropUrl: { url: saved.backdropUrl } },
+    ]));
+    const restored = decodeStored<TitleSummary[]>('watchlist-records', serialized, []);
+    expect(restored).toHaveLength(3);
+    expect(restored[0]).toMatchObject(saved);
+    expect(restored[1]).toMatchObject({ id: 'legacy', backdropUrl: null });
+    expect(restored[2]).toMatchObject({ id: 'malformed', backdropUrl: null });
   });
   it('merges valid legacy preferences with safe defaults', () => {
     expect(

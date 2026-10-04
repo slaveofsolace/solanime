@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import Disclosure from '../components/Disclosure';
+import Icon from '../components/Icon';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { safeReturnTo, withReturnTo } from '../account/returnTo';
 import { useAccount } from '../account/AccountProvider';
 import { accountRequest } from '../account/api';
 import type { SessionResponse } from '../account/types';
 import RecoveryCard from '../account/RecoveryCard';
 import Avatar from '../account/Avatar';
+import SettingsFrame, { SettingsBack } from '../components/SettingsFrame';
 type Device = { id: string; current: boolean; createdAt: number; lastSeen: number; device: string };
 export default function AccountPage({ recovery = false }: { recovery?: boolean }) {
   const auth = useAccount(),
     navigate = useNavigate();
   const [params] = useSearchParams();
+  const { hash } = useLocation();
   const [devices, setDevices] = useState<Device[]>([]),
     [password, setPassword] = useState(''),
+    [showPassword, setShowPassword] = useState(false),
     [next, setNext] = useState(''),
     [confirm, setConfirm] = useState(''),
     [busy, setBusy] = useState(false),
@@ -20,14 +25,62 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
     [message, setMessage] = useState(''),
     [action, setAction] = useState<'password' | 'delete' | 'recovery' | null>(null),
     [deleteChecked, setDeleteChecked] = useState(false),
-    [freshCode, setFreshCode] = useState<string | null>(null);
-  const refreshDevices = () =>
-    void accountRequest<{ items: Device[] }>('sessions')
-      .then((r) => setDevices(r.items))
-      .catch(() => {});
+    [freshCode, setFreshCode] = useState<{ accountId: string; code: string } | null>(null);
+  const accountId = auth.account?.id;
+  const currentAccountId = useRef(accountId);
+  currentAccountId.current = accountId;
+  const feedbackRef = useRef<HTMLParagraphElement | null>(null);
+  const [feedbackTarget, setFeedbackTarget] = useState<'account' | 'security'>('account');
   useEffect(() => {
-    if (auth.account) refreshDevices();
-  }, [auth.account?.id]);
+    if (!error && !message) return;
+    // Feedback must be visible after a submission near the bottom of the page.
+    // Keep security errors beside the form; other actions use the page notice.
+    if (error) feedbackRef.current?.focus({ preventScroll: true });
+    feedbackRef.current?.scrollIntoView?.({ block: 'nearest' });
+  }, [error, message]);
+  const actionGeneration = useRef(0);
+  const actionPending = useRef(false);
+  useEffect(() => {
+    actionGeneration.current++;
+    actionPending.current = false;
+    setBusy(false);
+    setPassword('');
+    setShowPassword(false);
+    setNext('');
+    setConfirm('');
+    setAction(null);
+    setDeleteChecked(false);
+    setFreshCode(null);
+    setError(null);
+    setMessage('');
+    return () => { actionGeneration.current++; actionPending.current = false; };
+  }, [accountId]);
+  const deviceRequest = useRef<AbortController | null>(null);
+  const [devicesLoading, setDevicesLoading] = useState(false);
+  const [devicesError, setDevicesError] = useState(false);
+  const refreshDevices = useCallback(() => {
+    deviceRequest.current?.abort();
+    if (!accountId) {
+      deviceRequest.current = null;
+      setDevices([]);
+      setDevicesLoading(false);
+      setDevicesError(false);
+      return;
+    }
+    const controller = new AbortController();
+    deviceRequest.current = controller;
+    setDevicesLoading(true);
+    setDevicesError(false);
+    void accountRequest<{ items: Device[] }>('sessions', undefined, controller.signal)
+      .then(result => { if (!controller.signal.aborted) setDevices(result.items); })
+      .catch(() => { if (!controller.signal.aborted) { setDevices([]); setDevicesError(true); } })
+      .finally(() => { if (!controller.signal.aborted) setDevicesLoading(false); });
+  }, [accountId]);
+  useEffect(() => {
+    setDevices([]);
+    refreshDevices();
+    return () => deviceRequest.current?.abort();
+  }, [refreshDevices]);
   if (recovery && auth.recoveryCode)
     return (
       <RecoveryCard
@@ -39,36 +92,42 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
         }}
       />
     );
-  if (freshCode)
-    return <RecoveryCard code={freshCode} doneLabel="Return to account" replacement onDone={() => setFreshCode(null)} />;
+  if (freshCode && freshCode.accountId === accountId)
+    return <RecoveryCard code={freshCode.code} doneLabel="Return to account" replacement onDone={() => setFreshCode(null)} />;
   if (!auth.account)
     return (
       <section className="account-empty">
         <h1>Your account</h1>
-        <p>Sign in to keep your profiles and lists together.</p>
+        <p>Sign in to manage your account.</p>
         <Link className="button button--primary" to="/login">
           Sign in
         </Link>
       </section>
     );
-  const perform = async (task: () => Promise<void>) => {
+  const perform = async (task: (isCurrent: () => boolean) => Promise<void>, target: 'account' | 'security' = 'account') => {
+    if (actionPending.current) return;
+    actionPending.current = true;
+    const generation = ++actionGeneration.current;
+    const isCurrent = () => generation === actionGeneration.current && currentAccountId.current === accountId;
     setBusy(true);
     setError(null);
     setMessage('');
+    setFeedbackTarget(target);
     try {
-      await task();
+      await task(isCurrent);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'This action could not be completed.');
+      if (isCurrent()) setError(e instanceof Error ? e.message : 'This action could not be completed.');
     } finally {
-      setBusy(false);
+      if (isCurrent()) { actionPending.current = false; setBusy(false); }
     }
   };
   const submit = () =>
-    perform(async () => {
+    perform(async isCurrent => {
       if (action === 'password' && next !== confirm) throw Error('Passwords do not match.');
       if (action === 'delete') {
         if (!deleteChecked) throw Error('Confirm account deletion first.');
         await accountRequest('delete', { currentPassword: password });
+        if (!isCurrent()) return;
         auth.clearProfile();
         await auth.refresh();
         navigate('/login', { replace: true });
@@ -76,23 +135,118 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
         const result = await accountRequest<{ recoveryCode: string }>('recovery-code', {
           currentPassword: password,
         });
-        setFreshCode(result.recoveryCode);
+        if (!isCurrent()) return;
+        setFreshCode({ accountId: accountId!, code: result.recoveryCode });
       } else {
         const result = await accountRequest<SessionResponse>('password', {
           currentPassword: password,
           password: next,
         });
+        if (!isCurrent()) {
+          // Password changes rotate the session. Re-read the cookie-backed session
+          // if this page closed, rather than accepting an obsolete response.
+          void auth.refresh();
+          return;
+        }
         auth.accept(result);
-        if (result.recoveryCode) setFreshCode(result.recoveryCode);
+        if (result.recoveryCode) setFreshCode({ accountId: accountId!, code: result.recoveryCode });
         setMessage('Password updated. Other sessions were signed out.');
         refreshDevices();
       }
       setPassword('');
       setNext('');
       setConfirm('');
-    });
+    }, 'security');
+  const feedback = error ? <p ref={feedbackRef} className="form-error" role="alert" tabIndex={-1}>{error}</p>
+    : message ? <p ref={feedbackRef} className="inline-notice" role="status">{message}</p> : null;
+  const securityForm = action && (
+    <form
+      id="account-security-form"
+      className="account-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        void submit();
+      }}
+    >
+      <label htmlFor="current-password">Current password</label>
+      <div className="password-input">
+      <input
+        id="current-password"
+        name="currentPassword"
+        type={showPassword ? 'text' : 'password'}
+        autoComplete="current-password"
+        required
+        disabled={busy}
+        value={password}
+        maxLength={128}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="button" disabled={busy}
+        aria-label={showPassword ? 'Hide passwords' : 'Show passwords'}
+        onClick={() => setShowPassword(value => !value)}>{showPassword ? 'Hide' : 'Show'}</button>
+      </div>
+      {action === 'password' && (
+        <>
+          <label htmlFor="new-password">New password</label>
+          <input
+            id="new-password"
+            name="newPassword"
+            type={showPassword ? 'text' : 'password'}
+            autoComplete="new-password"
+            required
+            disabled={busy}
+            minLength={15}
+            maxLength={128}
+            value={next}
+            onChange={(e) => setNext(e.target.value)}
+          />
+          <label htmlFor="repeat-password">Confirm new password</label>
+          <input
+            id="repeat-password"
+            name="confirmPassword"
+            type={showPassword ? 'text' : 'password'}
+            autoComplete="new-password"
+            required
+            disabled={busy}
+            value={confirm}
+            maxLength={128}
+            onChange={(e) => setConfirm(e.target.value)}
+          />
+        </>
+      )}
+      {action === 'recovery' && (
+        <p className="field-hint">
+          Your old code will stop working. Password resets use this code; Solanime doesn’t send reset emails.
+        </p>
+      )}
+      {action === 'delete' && (
+        <label className="check-label">
+          <input
+            type="checkbox"
+            required
+            disabled={busy}
+            checked={deleteChecked}
+            onChange={(e) => setDeleteChecked(e.target.checked)}
+          />
+          Permanently delete my account, all profiles, and saved data.
+        </label>
+      )}
+      {feedbackTarget === 'security' && feedback}
+      <button className="button button--primary" disabled={busy}>
+        {busy
+          ? 'Working…'
+          : action === 'password'
+            ? 'Update password'
+            : action === 'recovery'
+              ? 'Generate recovery code'
+              : 'Delete my account'}
+      </button>
+    </form>
+  );
   return (
+    <SettingsFrame active={['#security', '#devices', '#privacy'].includes(hash) ? hash.slice(1) : 'account'}>
     <section className="account-page">
+      <SettingsBack />
       <header className="account-heading">
         <div>
           <h1>Account</h1>
@@ -130,16 +284,7 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
           </button>
         </div>
       )}
-      {error && (
-        <p className="form-error" role="alert">
-          {error}
-        </p>
-      )}
-      {message && (
-        <p className="inline-notice" role="status">
-          {message}
-        </p>
-      )}
+      {(feedbackTarget === 'account' || !action) && feedback}
       <div className="account-columns">
         <div>
           <section className="account-section">
@@ -160,176 +305,104 @@ export default function AccountPage({ recovery = false }: { recovery?: boolean }
             </div>
             <p className="field-hint">{auth.profiles.length} of 5 profiles</p>
           </section>
-          <section className="account-section">
+          <section id="security" className="account-section">
             <h2>Security</h2>
-            <div className="security-tabs" role="group" aria-label="Security action">
-              {(['password', 'recovery', 'delete'] as const).map((value) => (
-                <button
-                  key={value}
-                  type="button"
-                  aria-expanded={action === value}
-                  aria-controls={action === value ? 'account-security-form' : undefined}
-                  onClick={() => {
+            <div className="security-tabs disclosure-group" role="group" aria-label="Security action">
+              {(['password', 'recovery', 'delete'] as const).map(value => (
+                <Disclosure key={value}
+                  title={value === 'password' ? 'Change password' : value === 'recovery' ? 'Recovery code' : 'Delete account'}
+                  expanded={action === value} disabled={busy}
+                  onToggle={() => {
                     setAction(action === value ? null : value);
                     setPassword('');
+                    setShowPassword(false);
                     setNext('');
                     setConfirm('');
                     setDeleteChecked(false);
                     setError(null);
-                  }}
-                >
-                  {value === 'password'
-                    ? 'Change password'
-                    : value === 'recovery'
-                      ? 'Recovery code'
-                      : 'Delete account'}
-                </button>
+                    setMessage('');
+                  }}>
+                  {action === value && securityForm}
+                </Disclosure>
               ))}
             </div>
-            {action &&
-            <form
-              id="account-security-form"
-              className="account-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                void submit();
-              }}
-            >
-              <label htmlFor="current-password">Current password</label>
-              <input
-                id="current-password"
-                type="password"
-                autoComplete="current-password"
-                required
-                value={password}
-                maxLength={128}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {action === 'password' && (
-                <>
-                  <label htmlFor="new-password">New password</label>
-                  <input
-                    id="new-password"
-                    type="password"
-                    autoComplete="new-password"
-                    required
-                    minLength={15}
-                    maxLength={128}
-                    value={next}
-                    onChange={(e) => setNext(e.target.value)}
-                  />
-                  <label htmlFor="repeat-password">Confirm new password</label>
-                  <input
-                    id="repeat-password"
-                    type="password"
-                    autoComplete="new-password"
-                    required
-                    value={confirm}
-                    maxLength={128}
-                    onChange={(e) => setConfirm(e.target.value)}
-                  />
-                </>
-              )}
-              {action === 'recovery' && (
-                <p className="field-hint">
-                  Generate a new recovery code. Your old code will stop working.
-                </p>
-              )}
-              {action === 'delete' && (
-                <label className="check-label">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={deleteChecked}
-                    onChange={(e) => setDeleteChecked(e.target.checked)}
-                  />
-                  Permanently delete my account, all profiles, and saved data.
-                </label>
-              )}
-              <button className="button button--primary" disabled={busy}>
-                {busy
-                  ? 'Working…'
-                  : action === 'password'
-                    ? 'Update password'
-                    : action === 'recovery'
-                      ? 'Generate recovery code'
-                      : 'Delete my account'}
-              </button>
-            </form>}
+
           </section>
-          <details className="account-section account-disclosure">
-            <summary>
-              <span>Active sessions</span>
-              <small>Review devices signed in to your account</small>
-            </summary>
-            <div className="section-heading account-disclosure-content">
-              <p>Keep only the sessions you recognize.</p>
-              <button
-                className="text-button"
-                disabled={busy}
-                onClick={() =>
-                  void perform(async () => {
-                    await accountRequest('revoke-other-sessions', {});
-                    setMessage('Other sessions signed out.');
-                    refreshDevices();
-                  })
-                }
-              >
-                Sign out other devices
-              </button>
+          <details id="devices" className="account-section account-disclosure disclosure">
+            <summary className="disclosure-trigger"><span>Active sessions</span><Icon name="right" /></summary>
+            <div className="disclosure-content">
+              <div className="section-heading account-disclosure-content">
+                <button
+                  className="text-button"
+                  disabled={busy}
+                  onClick={() =>
+                    void perform(async isCurrent => {
+                      await accountRequest('revoke-other-sessions', {});
+                      if (!isCurrent()) return;
+                      setMessage('Other sessions signed out.');
+                      refreshDevices();
+                    })
+                  }
+                >
+                  Sign out other devices
+                </button>
+              </div>
+              {devicesLoading && <p role="status">Loading signed-in devices…</p>}
+              {devicesError && <div className="account-session-error" role="status">
+                <p>Signed-in devices could not be loaded.</p>
+                <button type="button" className="text-button" onClick={refreshDevices}>Retry devices</button>
+              </div>}
+              {!devicesLoading && !devicesError && devices.length === 0 && <p>No session details are available.</p>}
+              <ul className="device-list" aria-busy={devicesLoading}>
+                {devices.map((d) => (
+                  <li key={d.id}>
+                    <strong>{d.current ? 'This browser' : 'Another browser'}</strong>
+                    <p title={d.device}>{d.device}</p>
+                    <small>Last active {new Date(d.lastSeen).toLocaleDateString()}</small>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="device-list">
-              {devices.map((d) => (
-                <li key={d.id}>
-                  <strong>{d.current ? 'This browser' : 'Another browser'}</strong>
-                  <p title={d.device}>{d.device}</p>
-                  <small>Last active {new Date(d.lastSeen).toLocaleDateString()}</small>
-                </li>
-              ))}
-            </ul>
           </details>
         </div>
         <aside>
           <section className="account-section">
             <h2>Viewing preferences</h2>
-            <p><Link to="/settings">Open Settings</Link> to change playback, language, and appearance for your profile.</p>
+            <p><Link to="/settings?section=playback">Playback &amp; language</Link> · <Link to="/settings?section=appearance">Appearance</Link></p>
           </section>
-          <details className="account-section account-disclosure">
-            <summary>
-              <span>Your data</span>
-              <small>Download a copy of your account information</small>
-            </summary>
-            <p>
-              Export your account details, profiles, saved lists, and history. Passwords and session
-              secrets are excluded.
-            </p>
-            <button
-              type="button"
-              className="button button--outline"
-              disabled={busy}
-              onClick={() =>
-                void perform(async () => {
-                  const result = await accountRequest('export');
-                  const url = URL.createObjectURL(
-                    new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }),
-                  );
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = 'solanime-account.json';
-                  a.click();
-                  setTimeout(() => URL.revokeObjectURL(url), 1000);
-                })
-              }
-            >
-              Export my data
-            </button>
-            <p className="field-hint">
-              Email is your sign-in identifier. This version uses private recovery codes, not email
-              verification or reset emails.
-            </p>
+          <details id="privacy" className="account-section account-disclosure disclosure">
+            <summary className="disclosure-trigger"><span>Your data</span><Icon name="right" /></summary>
+            <div className="disclosure-content">
+              <p>
+                Download your account details, profiles, lists, and history. Passwords and session
+                tokens are excluded.
+              </p>
+              <button
+                type="button"
+                className="button button--outline"
+                disabled={busy}
+                onClick={() =>
+                  void perform(async isCurrent => {
+                    const result = await accountRequest('export');
+                    if (!isCurrent()) return;
+                    const url = URL.createObjectURL(
+                      new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }),
+                    );
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'solanime-account.json';
+                    a.click();
+                    setTimeout(() => URL.revokeObjectURL(url), 1000);
+                  })
+                }
+              >
+                Export my data
+              </button>
+            </div>
           </details>
         </aside>
       </div>
     </section>
+    </SettingsFrame>
   );
 }

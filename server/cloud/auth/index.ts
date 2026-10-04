@@ -1,11 +1,14 @@
 import { AppError } from '../../errors.ts';
 import { malService, type MalServiceConfig } from '../../integrations/malService.ts';
+import { exploreService } from '../../explore/service.ts';
+import type { ExploreCatalogue } from '../../explore/catalogue.ts';
 import { COMMUNITY_PAGE_SIZE_MAX, communityCommentBody, communityPositiveInteger, communityRevision, communityUuid } from '../../community.ts';
 import { emailAddress, profileInput, validateData } from '../../accounts/validation.ts';
 import { FirebaseAuthError, FirebaseRestIdentity, type FirebaseAuthOptions } from './firebase.ts';
 import { digest, equalToken, openCredentials, randomToken, sealCredentials, validCredentialKey } from './crypto.ts';
 import { accountError, accountReply, boundedJson, cookieValue, requireMutation, validateManagedPassword } from './http.ts';
 import { D1AccountsRepository } from './repository.ts';
+import { verifyHumanCheck, type HumanCheckConfig } from './humanCheck.ts';
 import type { AccountDatabase, CloudAccount, CloudSession, IdentityCredentials, IdentityUser, ManagedIdentity } from './types.ts';
 
 export type CloudAccountConfig = {
@@ -15,15 +18,18 @@ export type CloudAccountConfig = {
   registration?: boolean;
   approvalRequired?: boolean;
   privateSite?: boolean;
-  notifyApproval?: (kind: 'request' | 'approved', account: Pick<CloudAccount, 'id' | 'email'>) => Promise<boolean>;
   firebase?: FirebaseAuthOptions;
   credentialKey?: string;
   mal?: MalServiceConfig;
+  /** When set, sign-up and recovery require a solved Turnstile challenge. */
+  humanCheck?: HumanCheckConfig;
   now?: () => number;
   /** Tests may inject an identity implementation. No request or environment flag enables a mock. */
   identity?: ManagedIdentity;
   /** Cross-database existence proof supplied by the catalogue repository. */
   episodeExists?: (episodeId: number) => Promise<boolean>;
+  /** Read-only catalogue facts for Explore, supplied by the Worker. */
+  explore?: ExploreCatalogue;
 };
 const DAY = 86400000;
 const REMOTE_CHECK_INTERVAL = 5 * 60000;
@@ -105,12 +111,14 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable',
         maxProfiles: 5,
         privateSite: config.privateSite === true,
+        humanCheckSiteKey: config.humanCheck?.siteKey ?? null,
       });
       const pendingReply = (recoveryCode?: string) => ({
         account: null, profiles: [], csrfToken: null, registrationOpen: registration,
         recoveryMethod: identity.recoveryAvailable ? 'recovery-code' : 'unavailable', maxProfiles: 5,
         privateSite: config.privateSite === true,
         approvalRequired: config.approvalRequired === true,
+        humanCheckSiteKey: config.humanCheck?.siteKey ?? null,
         pendingApproval: true, ...(recoveryCode ? { recoveryCode } : {}),
       });
       const readSession = (verifyRemote = false) => readSessionFrom(request, identity, key, verifyRemote);
@@ -209,6 +217,8 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (registering) {
           if (config.registration === false) throw new AppError(403, 'BLOCKED', 'New registration is currently closed.');
           if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Registration is awaiting secure recovery configuration.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
+          // Check first so a failed challenge doesn't spend the strict per-IP sign-up allowance.
+          if (config.humanCheck) await verifyHumanCheck(config.humanCheck, body.humanCheck, 'register', ip);
           await rate('register:' + ip, config.approvalRequired ? 3 : 40, 3600000);
           if (config.approvalRequired) {
             // Many addresses together must not flood the operator queue or inbox.
@@ -241,15 +251,10 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
           config.approvalRequired === true);
         await repository.updateIdentity(result.account.id, user.emailVerified);
         if (result.account.approval_state !== 'approved') {
-          if (result.created && result.account.approval_state === 'pending') {
-            let sent = false;
-            try { sent = await config.notifyApproval?.('request', result.account) === true; } catch { /* Retry from operator queue. */ }
-            await repository.noticeState(result.account.id, 'owner', sent ? 'sent' : 'failed');
-          }
           if (result.account.approval_state === 'rejected')
             throw new AppError(403, 'BLOCKED', 'This account request was declined.', { reason: 'ACCOUNT_REJECTED' });
           if (result.created) return accountReply(202, pendingReply(recoveryCode));
-          throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. Please try signing in after you receive a confirmation.',
+          throw new AppError(403, 'BLOCKED', 'Your account is awaiting approval. The operator reviews requests by hand, so try signing in again later.',
             { reason: 'ACCOUNT_PENDING_APPROVAL' });
         }
         const oldRaw = cookieValue(request, name);
@@ -263,6 +268,7 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
         if (!identity.recoveryAvailable) throw new AppError(503, 'UNAVAILABLE', 'Recovery-code sign-in is not configured. Contact the operator.', { reason: 'AUTH_RECOVERY_NOT_CONFIGURED' });
         const body = await boundedJson(request), email = emailAddress(body.email);
         await rate('recovery:' + email + ':' + ip, 5, 15 * 60000);
+        if (config.humanCheck) await verifyHumanCheck(config.humanCheck, body.humanCheck, 'recover', ip);
         const a = await repository.accountByEmail(email);
         const supplied = typeof body.recoveryCode === 'string' && /^[\w-]{43}$/.test(body.recoveryCode) ? body.recoveryCode : '';
         const matches = await equalToken(await digest(supplied), a?.recovery_hash ?? '0'.repeat(64));
@@ -276,14 +282,27 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
       }
 
       const auth = required(s), a = required(await repository.account(auth.account_id));
-      const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|connect|complete|sync|update|disconnect)$/.exec(path);
+      const malRoute = /^\/api\/account\/profiles\/([\w-]{36})\/mal\/(status|list|import-username|import-file|remove)$/.exec(path);
       if (malRoute) {
         const profile = malRoute[1], action = malRoute[2];
         await repository.ownedProfile(profile, a.id);
         if (method !== (['status', 'list'].includes(action) ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
         if (method === 'POST') await rate('mal:' + a.id, 30, 60000);
         const result = await malService(db, config.mal ?? {}, fetch, now)(profile, a.id, action,
-          method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request), async () => {
+          method === 'GET' ? { page: url.searchParams.get('page') ?? 1 } : await boundedJson(request, action === 'import-file' ? 3 * 1024 * 1024 : undefined), async () => {
+            required(await repository.session(auth.token_hash, now()));
+            await repository.ownedProfile(profile, a.id);
+          });
+        return accountReply(200, result);
+      }
+      const exploreRoute = /^\/api\/account\/profiles\/([\w-]{36})\/explore\/(status|start|feedback|undo|results|preferences|reset)$/.exec(path);
+      if (exploreRoute) {
+        const profile = exploreRoute[1], action = exploreRoute[2];
+        await repository.ownedProfile(profile, a.id);
+        if (method !== (action === 'status' ? 'GET' : 'POST')) throw new AppError(405, 'BAD_REQUEST', 'Unsupported method.');
+        if (method === 'POST') await rate('explore:' + a.id, 240, 60000);
+        const result = await exploreService(db, config.explore, { now })(profile, action,
+          method === 'GET' ? {} : await boundedJson(request), async () => {
             required(await repository.session(auth.token_hash, now()));
             await repository.ownedProfile(profile, a.id);
           });
@@ -383,29 +402,11 @@ export function createCloudAccounts(db: AccountDatabase, config: CloudAccountCon
   };
   const decideApproval = async (id: string, decision: 'approved' | 'rejected') => {
     if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
-    const account = await repository.decideApproval(id, decision, now());
-    if (decision === 'approved') {
-      let sent = false;
-      try { sent = await config.notifyApproval?.('approved', account) === true; } catch { /* Durable failed state remains retryable. */ }
-      await repository.noticeState(id, 'applicant', sent ? 'sent' : 'failed');
-    }
-    return { id, decision, applicantNotice: decision === 'approved'
-      ? (await repository.account(id))?.applicant_notice_state : 'not_required' };
+    // No email is sent: the operator queue is the only notification surface, so no third party
+    // receives applicant addresses. Approved applicants find out by signing in.
+    await repository.decideApproval(id, decision, now());
+    return { id, decision };
   };
-  const retryNotice = async (id: string) => {
-    if (!/^[\w-]{1,128}$/.test(id)) throw new AppError(400, 'BAD_REQUEST', 'Invalid account identifier.');
-    const account = await repository.account(id);
-    if (!account) throw new AppError(404, 'NOT_FOUND', 'Account request was not found.');
-    const kind = account.approval_state === 'pending' ? 'request'
-      : account.approval_state === 'approved' ? 'approved' : null;
-    if (!kind) throw new AppError(409, 'BAD_REQUEST', 'Rejected requests have no outgoing notice.');
-    const field = kind === 'request' ? account.owner_notice_state : account.applicant_notice_state;
-    if (field === 'sent') return { id, notice: 'sent' };
-    let sent = false;
-    try { sent = await config.notifyApproval?.(kind, account) === true; } catch { /* Retry remains possible. */ }
-    await repository.noticeState(id, kind === 'request' ? 'owner' : 'applicant', sent ? 'sent' : 'failed');
-    return { id, notice: sent ? 'sent' : 'failed' };
-  };
-  return { handle, repository, name, authorize, pendingApprovals, decideApproval, retryNotice,
+  return { handle, repository, name, authorize, pendingApprovals, decideApproval,
     prune: () => repository.prune(now()) };
 }

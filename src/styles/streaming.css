@@ -1,10 +1,9 @@
 /* Reference contract: large uninterrupted artwork, one navigation dock,
    uniform image rails, and compact controls. Posters are not fake banners. */
-:root { --bg: #080a0b; --surface: #151819; --surface-2: #25292a; --line: #303537; --text: #f5f5f1; --muted: #a9afb0; --cinema: var(--accent); --cinema-soft: var(--accent-ink); --radius-art: 10px; --radius-control: 8px; --radius-dialog: 16px; --gutter: clamp(16px, 3.3vw, 84px); --shadow-overlay: 0 22px 80px #000b; font-family: 'Manrope Local', 'Segoe UI', sans-serif; }
-:root[data-theme='light'] { --bg: #f4f3ef; --surface: #fff; --surface-2: #e7e5e0; --line: #d1d0c9; --text: #191c1c; --muted: #606768; }
+:root { --cinema: var(--accent); --cinema-soft: var(--accent-ink); --shadow-overlay: 0 22px 80px #000b; }
 body { background: var(--bg); font-size: 14px; }
 h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', sans-serif; font-weight: 700; letter-spacing: -.025em; }
-.content-shell > main > :not(.home-page):not(.watch-page) { padding-inline: var(--gutter); }
+:where(.content-shell > main) > :where(:not(.home-page):not(.watch-page)) { padding-inline: var(--gutter); }
 .home-page { overflow: clip; }
 .home-feature { position: relative; width: 100%; margin: 0; overflow: hidden; color: #fff; background: var(--bg); }
 .spotlight-exit { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
@@ -30,14 +29,14 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .spotlight-art[data-banner='loaded']::after { background: linear-gradient(90deg, #030607b8 0%, #03060772 23%, transparent 66%), linear-gradient(0deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 8%, transparent 35%), linear-gradient(180deg, #0005, transparent 24%); }
 .home-feature__copy { position: relative; z-index: 2; width: min(600px, 43vw); min-width: 0; }
 .home-feature h2 { max-width: 20ch; margin: 0 0 20px; color: #fff; font-size: clamp(38px, 3.7vw, 64px); font-weight: 800; letter-spacing: -.045em; line-height: 1.06; text-wrap: balance; text-shadow: 0 2px 24px #0006; }
-.feature-meta { margin: 0 0 14px; color: #e1e4e1; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.feature-meta { margin: 0 0 14px; color: #e1e4e1; font-size: 13px; font-weight: 600; }
 .feature-synopsis { max-width: 48ch; margin: 16px 0 26px; color: #f0f0ed; font-size: clamp(14px, 1.12vw, 18px); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .home-feature .button-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .home-feature .button { min-height: 50px; padding: 0 24px; border: 0; border-radius: 99px; font-size: 14px; font-weight: 750; }
 .home-feature .button--primary { background: #f6f6f2; color: #141719; }
 .home-feature .button--primary:hover { background: #ddd; }
 .home-feature .button--quiet { background: #252b2bd9; color: #fff; backdrop-filter: blur(10px); }
-.home-feature .icon-button { width: 50px; min-height: 50px; border: 1px solid #ffffff65; background: #252b2b9c; color: #fff; border-radius: 50%; }
+.home-feature .icon-button { width: 50px; min-height: 50px; }
 .spotlight-controls { position: absolute; right: var(--gutter); bottom: 118px; z-index: 3; }
 .feature-arrows { display: flex; align-items: center; gap: 4px; }
 .feature-arrows > .icon-button { width: 44px; min-height: 44px; border: 0; background: transparent; }
@@ -116,7 +115,6 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .title-hero__actions .button { min-height: 48px; padding: 0 22px; border-radius: 99px; font-size: 13px; }
 .title-hero__actions .button--primary { color: #111; background: #f5f5f1; border-color: transparent; }
 .title-hero__actions .button--primary:hover { background: #ddd; }
-.title-hero__actions .button--outline { color: #fff; background: #252b2bce; border: 1px solid #ffffff45; }
 .title-facts { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 0 0 16px; }
 .title-facts > div { display: flex; gap: 6px; align-items: baseline; }
 .title-facts dt { color: #bec5c5; font-size: 11px; }
@@ -126,12 +124,7 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .title-hero .tag-list span { color: #ddd; font-size: 11px; }
 .title-page > .episode-section, .title-page > .related-section, .title-about { max-width: 1500px; margin: 0 auto; padding-block: 24px; }
 .title-page .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-.title-about { border-block: 1px solid var(--line); }
-.title-about summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; font-size: 14px; font-weight: 650; cursor: pointer; list-style: none; }
-.title-about summary::-webkit-details-marker { display: none; }
-.title-about summary .icon { width: 16px; }
-.title-about[open] summary .icon { transform: rotate(90deg); }
-.title-about__body { max-width: 850px; padding: 12px 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.title-about__body { max-width: 850px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .aliases { margin-top: 16px; font-size: 12px; }
 .language-tabs { display: flex; gap: 4px; overflow-x: auto; padding: 3px; margin: 0; border: 1px solid var(--line); border-radius: 99px; }
 .language-tabs button { min-height: 38px; padding: 8px 18px; border: 0; border-radius: 99px; background: transparent; font-size: 12px; }
@@ -155,60 +148,14 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
 .history-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .history-link { min-width: 0; }
 .history-search { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 18px; }
-.history-search input { width: min(420px, 75%); min-height: 44px; background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding-inline: 0; }
+.history-search input { width: min(420px, 75%); }
 .history-search > span:last-child { color: var(--muted); font-size: 12px; }
 .history-more { margin-top: 20px; }
 .history-no-match { padding-block: 24px; color: var(--muted); }
 .library-settings { margin-top: 36px; border-top: 1px solid var(--line); }
 .library-settings > summary { cursor: pointer; padding-block: 22px; min-height: 44px; color: var(--muted); font-size: 14px; }
 .library-settings .library-preferences-grid { margin-top: 0; }
-.watch-page { max-width: 1800px; padding: 4px var(--gutter) 50px; }
-.watch-page--theater { max-width: none; }
-.player-stage { border: 0; border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: none; }
-.watch-selection { border: 0; border-radius: 0 0 12px 12px; background: var(--surface); }
 .media-controls { background: #111; }
-.watch-heading h1 { font-size: clamp(26px, 2.5vw, 40px); }
-.watch-about { max-width: 780px; }
-.watch-about > summary { cursor: pointer; color: var(--muted); min-height: 44px; display: flex; align-items: center; }
-.watch-about > p { padding-bottom: 16px; }
-.watch-episodes { margin: 0; }
-@media (min-width: 1181px) {
-  .watch-page:not(.watch-page--theater) { display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 24px; align-items: start; }
-  .watch-page:not(.watch-page--theater) > * { grid-column: 1; }
-  .watch-page:not(.watch-page--theater) > .watch-episodes { grid-column: 2; grid-row: 2 / span 5; max-height: 780px; overflow-y: auto; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-  .watch-episodes .episode-grid > li { background: var(--bg); }
-  .watch-episodes .episode-toolbar { gap: 8px; }
-}
-/* Account surfaces use the same viewing-room language as the catalogue. */
-.auth-page {
-  min-height: calc(100svh - 140px);
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: clamp(34px, 8vw, 110px) 0;
-  gap: clamp(40px, 9vw, 150px);
-}
-.auth-copy h1 { max-width: 11ch; font-size: clamp(44px, 6vw, 76px); font-weight: 800; }
-.auth-panel {
-  padding: clamp(26px, 4vw, 48px);
-  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
-  box-shadow: 0 30px 80px rgb(0 0 0 / 35%);
-}
-.auth-panel h2 { font-size: 30px; }
-.profile-avatar,
-.profile-tile--add > span { border-radius: 5px; }
-.profile-avatar { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 12%); }
-.profile-tile:hover .profile-avatar,
-.profile-tile:focus-visible .profile-avatar { outline: 3px solid var(--text); outline-offset: 3px; }
-.profiles-page { min-height: calc(100svh - 170px); display: grid; align-content: center; margin-block: 0; padding-block: 60px; }
-.profiles-page h1 { font-weight: 750; }
-.profile-tile strong { font-weight: 650; }
-.profile-tile small { color: var(--muted); }
-.account-section,
-.preferences-section { background: color-mix(in srgb, var(--surface) 68%, transparent); padding: 24px; border: 1px solid var(--line); border-radius: 5px; }
-
-
 @media (max-width: 820px) {
   .spotlight-scene { min-height: 78svh; padding-top: 180px; padding-bottom: 110px; }
   .home-feature__copy { width: min(540px, 75%); }
@@ -267,23 +214,11 @@ h1, h2, h3, .route-readiness strong { font-family: 'Manrope Local', 'Segoe UI', 
   .title-page .episode-grid li > a { padding: 8px; gap: 6px; }
   .title-page .section-heading h2 { font-size: 20px; }
   .language-tabs button { padding-inline: 14px; min-height: 38px; }
-  .watch-page { padding-inline: 12px; }
-  .watch-page .player-stage { width: 100%; margin: 0; }
-  .watch-page .watch-selection { width: 100%; margin-inline: 0; flex-wrap: wrap; gap: 8px; padding: 12px; }
-  .watch-selection > .source-choice, .watch-selection > .version-choice { display: grid; grid-template-columns: 54px minmax(0, 1fr); width: 100%; flex: 1 0 100%; align-items: center; }
-  .watch-selection > .source-choice select, .watch-selection > .version-choice select { width: 100%; min-width: 0; max-width: none; }
-  .watch-selection > .source-choice > span, .watch-selection > .version-choice > span { display: block; }
-  .watch-heading { flex-wrap: wrap; gap: 12px; }
-  .watch-heading h1 { font-size: 26px; }
-  .auth-page { padding: 22px 0 50px; gap: 22px; }
-  .auth-copy h1 { font-size: 38px; }
-  .auth-panel { padding: 24px 20px; }
 }
 @media (max-width: 360px) { :root { --gutter: 12px; } }
 :root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) :is(h2, .feature-meta, .feature-synopsis),
 :root[data-theme='light'] .title-hero:has(.spotlight-art:not([data-banner='loaded'])) :is(h1, .feature-meta, .title-hero__synopsis, .title-facts dt, .title-facts dd, .tag-list span) { color: var(--text); text-shadow: none; }
 :root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .button--primary { background: var(--text); color: var(--bg); }
-:root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .feature-arrows > .icon-button { color: var(--text); }
 :root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .feature-dots span { background: var(--muted); }
 :root[data-theme='light'] .home-feature:has(.spotlight-art:not([data-banner='loaded'])) .feature-dots [aria-pressed='true'] span { background: var(--text); }
 @media (prefers-reduced-motion: reduce) { .title-card__art, .title-card__actions, .feature-dots span { transition: none; } }

@@ -44,8 +44,12 @@ function mix(color: string, target: string, amount: number): string {
 /** Keep the exact chosen fill. Derive readable text/focus colors separately. */
 export function themeTokens(accent: unknown, mode: 'dark' | 'light') {
   const fill = normalizeAccent(accent);
+  // Every surface the ink can sit on: the shared tokens, the control hover
+  // fill (controls.css) and the iPhone app's system colours (native-ios.css).
   const surfaces =
-    mode === 'dark' ? ['#100F0D', '#191714', '#26221D'] : ['#F5EFE4', '#FFFAF1', '#E9DECE'];
+    mode === 'dark'
+      ? ['#090A0C', '#17191D', '#25272D', '#232426', '#000000', '#1C1C1E', '#2C2C2E']
+      : ['#F7F7F8', '#FFFFFF', '#E9E9EE', '#E1E1E3', '#F2F2F7', '#E8E8ED'];
   let ink = fill;
   for (let step = 0; step <= 100; step++) {
     ink = mix(fill, mode === 'dark' ? '#FFFFFF' : '#000000', step / 100);

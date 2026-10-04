@@ -1,13 +1,14 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
+import { useMasthead } from '../lib/useMasthead';
 
 /** The compact header keeps search one click away without covering the catalogue. */
 export default function HeaderSearch() {
   const location = useLocation();
   const navigate = useNavigate();
   const formId = useId();
-  const root = useRef<HTMLDivElement>(null);
+  const root = useMasthead(location.pathname === '/');
   const trigger = useRef<HTMLButtonElement>(null);
   const input = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);

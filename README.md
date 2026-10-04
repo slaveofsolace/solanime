@@ -15,6 +15,9 @@ the original catalogue checkpoint are preserved.
 - Search, filters, title/episode/version navigation, watchlist, Continue Watching,
   real playback progress where the selected source exposes it, private episode
   notes, and up to five profiles.
+- [Explore](docs/EXPLORE.md): a 10/20/30-card swipe round that learns from the
+  profile’s MyAnimeList ratings, history and choices, then recommends a varied
+  set of titles with stated reasons.
 - Charcoal and warm-ivory themes, an orange default accent, locally hosted fonts,
   responsive navigation, keyboard controls, and reduced-motion support. Existing
   saved themes and custom accents are retained.
@@ -125,9 +128,8 @@ The private-site candidate adds an approval gate for *new* accounts. When
 `SOLANIME_PRIVATE_SITE=true`, catalogue and watch APIs require an approved
 session; when `SOLANIME_APPROVAL_REQUIRED=true`, registration creates a pending
 account and does not sign it in. The operator reviews requests in `/admin`.
-FormSubmit is configured to send an owner notification and, after approval, an applicant copy;
-delivery is a separate verification step and neither email nor a frontend flag
-grants access. See the [approval operating notes](docs/CLOUD_RELEASE.md#private-account-approval).
+No email is sent for requests or decisions; the `/admin` queue is the only
+notification surface, and no frontend flag grants access. See the [approval operating notes](docs/CLOUD_RELEASE.md#private-account-approval).
 
 Production promotion requires real catalogue playback on the deployed origin,
 current integrated tests, and per-enabled-provider evidence. A successful build,

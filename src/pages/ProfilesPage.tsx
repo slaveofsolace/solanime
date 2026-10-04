@@ -12,7 +12,7 @@ export default function ProfilesPage() {
     navigate = useNavigate();
   const [params] = useSearchParams();
   const destination = safeReturnTo(params.get('returnTo'));
-  const [manage, setManage] = useState(false),
+  const [manage, setManage] = useState(() => params.get('manage') === '1'),
     [editor, setEditor] = useState<Profile | 'new' | null>(null),
     [name, setName] = useState(''),
     [avatar, setAvatar] = useState<Profile['avatar']>('ruby'),
@@ -24,7 +24,7 @@ export default function ProfilesPage() {
     return (
       <section className="account-empty">
         <h1>Profiles</h1>
-        <p>Sign in to manage separate lists and viewing progress.</p>
+        <p>Sign in to choose a profile.</p>
         <Link className="button button--primary" to="/login">
           Sign in
         </Link>
@@ -77,11 +77,6 @@ export default function ProfilesPage() {
         <h1 tabIndex={-1} data-dialog-fallback-focus>
           {manage ? 'Manage profiles' : 'Who’s watching?'}
         </h1>
-        <p>
-          {manage
-            ? 'Edit a profile or add another.'
-            : 'Choose a profile to continue.'}
-        </p>
       </header>
       <div className="profile-grid">
         {auth.profiles.map((p) => (
@@ -103,20 +98,15 @@ export default function ProfilesPage() {
           >
             <Avatar profile={p} />
             <strong>{p.name}</strong>
-            <small>
-              {manage
-                ? 'Edit profile'
-                : auth.profile?.id === p.id
-                  ? 'Current profile'
-                  : 'Open profile'}
-            </small>
+            {(manage || auth.profile?.id === p.id) && (
+              <small>{manage ? 'Edit profile' : 'Current profile'}</small>
+            )}
           </button>
         ))}
         {auth.profiles.length < 5 && (
           <button className="profile-tile profile-tile--add" onClick={() => open('new')}>
             <span aria-hidden="true">+</span>
             <strong>Add profile</strong>
-            <small>{5 - auth.profiles.length} spaces available</small>
           </button>
         )}
       </div>
@@ -136,7 +126,7 @@ export default function ProfilesPage() {
         <Link to="/account">Account settings</Link>
       </div>
       <p className="profiles-note">
-        Profiles share one account login. They are not separate passwords or parental controls.
+        Profiles share a sign-in and don’t have separate passwords or parental controls.
       </p>
       {editor && (
         <Dialog

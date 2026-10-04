@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { fixtureArt, episode, watch, noOverflow } from './helpers';
+import { fixtureArt, episode, watch, noOverflow, sourceIds, chooseSource, selectedSource } from './helpers';
 import { accountFixture } from './account-fixture';
 test.beforeEach(async ({ page }) => fixtureArt(page));
 test('actual native controls change media state without provider requests or popups', async ({
@@ -26,8 +26,18 @@ test('actual native controls change media state without provider requests or pop
     .toBeGreaterThan(0.2);
   await page.getByRole('button', { name: 'Pause video', exact: true }).click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
-  await page.getByRole('combobox', { name: 'Playback speed' }).selectOption('1.5');
+  const settings = page.getByRole('button', { name: 'Playback settings', exact: true });
+  await settings.click();
+  const options = page.getByRole('dialog', { name: 'Playback settings', exact: true });
+  await options.getByRole('combobox', { name: 'Playback speed' }).selectOption('1.5');
   expect(await video.evaluate((v: HTMLVideoElement) => v.playbackRate)).toBe(1.5);
+  await options.getByRole('combobox', { name: 'Captions', exact: true }).selectOption('0');
+  await expect
+    .poll(() => video.evaluate((v: HTMLVideoElement) => v.textTracks[0]?.mode))
+    .toBe('showing');
+  await page.keyboard.press('Escape');
+  await expect(options).toHaveCount(0);
+  await expect(settings).toBeFocused();
   const slider = page.getByRole('slider', { name: 'Seek video' });
   await slider.focus();
   await slider.press('Home');
@@ -37,15 +47,17 @@ test('actual native controls change media state without provider requests or pop
     .toBeCloseTo(0.1, 1);
   await page.getByRole('button', { name: 'Show remaining time' }).click();
   await expect(page.getByRole('button', { name: 'Show elapsed time' })).toBeVisible();
-  await page.getByRole('combobox', { name: 'Captions', exact: true }).selectOption('0');
-  await expect
-    .poll(() => video.evaluate((v: HTMLVideoElement) => v.textTracks[0]?.mode))
-    .toBe('showing');
   const h = await video.elementHandle();
   // Header controls must not remount or reset an already loaded player.
-  await page.getByRole('button', { name: 'Categories', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Categories', exact: true })).toHaveAttribute('aria-expanded', 'true');
-  await page.keyboard.press('Escape');
+  // Phones watch in a focused screen without the site header.
+  if (info.project.name.startsWith('mobile')) {
+    await expect(page.locator('.masthead')).toBeHidden();
+  } else {
+    const headerControl = page.getByRole('button', { name: 'Categories', exact: true });
+    await headerControl.click();
+    await expect(headerControl).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+  }
   expect(await h!.evaluate((e) => e.isConnected)).toBe(true);
   const theater = page.getByRole('button', { name: 'Theater mode', exact: true });
   if (info.project.name.startsWith('mobile')) {
@@ -74,6 +86,49 @@ test('actual native controls change media state without provider requests or pop
   expect(a11y.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) }))).toEqual(
     [],
   );
+});
+
+test('playback settings and transport controls fit phone and landscape layouts', async ({ page }, info) => {
+  await watch(page);
+  const video = await page.locator('video').elementHandle();
+  for (const viewport of [{ width: 320, height: 720 }, { width: 390, height: 844 }, { width: 844, height: 390 }]) {
+    await page.setViewportSize(viewport);
+    const toolbar = page.locator('.media-controls__row');
+    await toolbar.scrollIntoViewIfNeeded();
+    const controls = await toolbar.getByRole('button').evaluateAll(buttons => buttons
+      .filter(button => button.getClientRects().length > 0)
+      .map(button => {
+        const box = button.getBoundingClientRect();
+        return { name: button.getAttribute('aria-label'), x: box.x, right: box.right, width: box.width, height: box.height };
+      }));
+    expect(controls.length).toBeGreaterThanOrEqual(5);
+    for (const control of controls) {
+      expect(control.width, `${control.name} width at ${viewport.width}`).toBeGreaterThanOrEqual(44);
+      expect(control.height, `${control.name} height at ${viewport.width}`).toBeGreaterThanOrEqual(44);
+      expect(control.x).toBeGreaterThanOrEqual(0);
+      expect(control.right).toBeLessThanOrEqual(viewport.width);
+    }
+    await expect(toolbar.getByRole('combobox')).toHaveCount(0);
+    const trigger = toolbar.getByRole('button', { name: 'Playback settings', exact: true });
+    await trigger.click();
+    const dialog = page.getByRole('dialog', { name: 'Playback settings', exact: true });
+    await expect(dialog).toBeVisible();
+    for (const name of ['Captions', 'Playback speed']) {
+      const field = dialog.getByRole('combobox', { name, exact: true });
+      await expect(field).toBeVisible();
+      const box = await field.boundingBox();
+      expect(box!.width).toBeGreaterThanOrEqual(200);
+      expect(box!.height).toBeGreaterThanOrEqual(44);
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width);
+    }
+    await page.screenshot({ path: info.outputPath(`playback-settings-${viewport.width}.png`) });
+    await dialog.getByRole('button', { name: 'Close dialog' }).click();
+    await expect(dialog).toHaveCount(0);
+    await expect(trigger).toBeFocused();
+    expect(await video!.evaluate(element => element.isConnected)).toBe(true);
+    await noOverflow(page);
+  }
 });
 test('legacy iframe responses are refused without loading their document', async ({
   page,
@@ -121,22 +176,60 @@ test('legacy iframe responses are refused without loading their document', async
 });
 test('provider mappings without a documented embed destination remain unavailable despite legacy compatibility settings', async ({
   page,
+  context,
 }) => {
   await page.addInitScript(() =>
     localStorage.setItem('sol-anime:preferences', '{"embedMode":"compatible"}'),
   );
   const e = await episode(page, 'fixture-title-2');
   let resolutions = 0;
+  const external: string[] = [];
+  const popups: string[] = [];
+  page.on('popup', popup => popups.push(popup.url()));
   page.on('request', (r) => {
     if (r.url().includes('/resolve')) resolutions++;
+    if (/megaplay|unwanted\.example|advert/.test(r.url())) external.push(r.url());
+  });
+  // Exercise this explicit resolver outcome without depending on a live provider's
+  // availability or schema. Provider parsing has separate contract coverage.
+  await page.route('**/api/providers/*/resolve', route => {
+    const result = {
+      kind: 'unsupported',
+      mappingId: route.request().url().split('/').at(-2),
+      providerId: 'hd-1',
+      language: 'sub',
+      error: {
+        code: 'UPSTREAM_SCHEMA_CHANGED',
+        message: 'The public resolver response no longer contains the documented embed destination.',
+        retryable: false,
+      },
+    };
+    return route.fulfill({
+      status: 422,
+      contentType: 'application/json',
+      json: {
+        mappingId: result.mappingId,
+        providerId: result.providerId,
+        kind: result.kind,
+        status: 'unsupported',
+        playbackType: 'unknown',
+        error: result.error,
+        result,
+      },
+    });
   });
   await page.goto(`/watch/fixture-title-2/${e.id}?language=sub`);
+  const initialUrl = page.url();
   await expect(
     page.getByRole('heading', { name: 'Video unavailable', exact: true }),
   ).toBeVisible();
   await expect(page.getByText('The public resolver response no longer contains the documented embed destination.')).toBeVisible();
   await expect(page.locator('iframe,video')).toHaveCount(0);
   expect(resolutions).toBe(1);
+  expect(external).toEqual([]);
+  expect(popups).toEqual([]);
+  expect(context.pages()).toHaveLength(1);
+  expect(page.url()).toBe(initialUrl);
   await expect(
     page.getByRole('button', { name: 'Provider compatibility', exact: true }),
   ).toHaveCount(0);
@@ -166,27 +259,42 @@ test('native ended events update watched state and navigate when autoplay-next i
     )
     .toBe(true);
 });
-test('failed media load offers a real retry with no iframe fallback', async ({ page }) => {
+test('a failed server hands over to the next one with no iframe fallback', async ({ page }) => {
   let failures = 1;
   await page.route('**/__fixture/motion.mp4', (r) =>
     failures-- > 0 ? r.fulfill({ status: 404, body: 'Missing' }) : r.continue(),
   );
   const e = await episode(page);
   await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
+  await expect
+    .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
+    .toBeGreaterThanOrEqual(1);
+  // WebKit can wait at metadata until Play; the player must be ready to start.
+  await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
+  await expect(selectedSource(page)).not.toHaveAttribute('data-mapping-id', /hd-1$/);
+  await expect(page.locator('iframe')).toHaveCount(0);
+});
+test('when every server fails, Try again starts the server list over', async ({ page }) => {
+  let broken = true;
+  await page.route('**/__fixture/motion.mp4', (r) =>
+    broken ? r.fulfill({ status: 404, body: 'Missing' }) : r.continue(),
+  );
+  const e = await episode(page);
+  await page.goto(`/watch/paper-lantern/${e.id}?language=sub`);
   await expect(page.getByRole('heading', { name: 'Video unavailable', exact: true })).toBeVisible();
+  broken = false;
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect
     .poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => v.readyState))
-    .toBeGreaterThan(1);
+    .toBeGreaterThanOrEqual(1);
+  // WebKit can wait at metadata until Play; the player must be ready to start.
+  await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 
 test('compatible native source switching carries the current version position', async ({ page }) => {
   const e = await watch(page);
-  const source = page.getByRole('combobox', { name: 'Playback source' });
-  const options = await source.locator('option:not([disabled])').evaluateAll(options =>
-    options.map(option => (option as HTMLOptionElement).value),
-  );
+  const options = await sourceIds(page);
   expect(options.length).toBeGreaterThan(1);
   const video = page.locator('video');
   await video.evaluate((element: HTMLVideoElement) => {
@@ -204,7 +312,7 @@ test('compatible native source switching carries the current version position', 
         })
       : route.continue(),
   );
-  await source.selectOption(options[1]);
+  await chooseSource(page, options[1]);
   await expect(page.getByText('Transient source failure')).toBeVisible();
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('video')).toBeVisible();

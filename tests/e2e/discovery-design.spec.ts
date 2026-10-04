@@ -32,7 +32,8 @@ test('applied filters are removable without losing sort or density', async ({ pa
   await expect(page.locator('.title-card').first()).toBeVisible();
 
   const filters = page.getByLabel('Applied catalogue filters');
-  await expect(filters.getByRole('button', { name: /Remove Search filter: Paper/i })).toBeVisible();
+  await expect(filters.getByRole('button', { name: /Remove Search filter/i })).toHaveCount(0);
+  await expect(page.getByRole('searchbox').first()).toHaveValue('Paper');
   await expect(filters.getByRole('button', { name: /Remove Format filter: Movie/i })).toBeVisible();
   await expect(page.locator('.filter-disclosure')).not.toHaveAttribute('open', '');
   await expect(page.getByRole('combobox', { name: 'Sort titles' })).toHaveValue('title');
@@ -99,17 +100,19 @@ test('filters and navigation stay inside tablet and phone viewports', async ({ p
   }
 });
 
-test('the phone title poster is contained beside the title', async ({ page }) => {
+test('the phone title artwork leads into readable title and actions', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 820 });
   await page.goto('/title/paper-lantern');
   await expect(page.locator('#title-name')).toBeVisible();
-  const poster = page.locator('.title-hero__mobile-art > img');
+  const poster = page.locator('.title-hero .spotlight-art__poster > img');
   await expect(poster).toBeVisible();
   const box = await poster.boundingBox();
   expect(box!.x).toBeGreaterThanOrEqual(0);
   expect(box!.x + box!.width).toBeLessThanOrEqual(320);
   const heading = await page.locator('#title-name').boundingBox();
-  expect(heading!.x).toBeGreaterThanOrEqual(box!.x + box!.width);
+  expect(heading!.y).toBeGreaterThan(box!.y);
+  await expect(page.locator('.title-hero__actions .button--primary')).toBeVisible();
+  await noOverflow(page);
 });
 
 test('returning viewers keep a readable Home tab and an unobscured history heading', async ({ page }) => {

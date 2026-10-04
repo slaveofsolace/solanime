@@ -44,7 +44,7 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   return (
     <AppStateContext.Provider
       value={{
-        watchlist: { ...watchlist, toggle: (id, title) => { if (requireProfile()) watchlist.toggle(id, title); } },
+        watchlist: { ...watchlist, toggle: (id, title) => { if (requireProfile()) watchlist.toggle(id, title); }, move: (id, listName) => { if (requireProfile()) watchlist.move(id, listName); } },
         history,
         preferences,
         watched: { ...watched, toggle: (id, language) => { if (requireProfile()) watched.toggle(id, language); } },

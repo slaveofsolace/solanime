@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { episode, fixtureArt, noOverflow } from './helpers';
+import { sourceIds, chooseSource, selectedSource } from './helpers';
 
 test.beforeEach(async ({ page }) => {
   await fixtureArt(page);
@@ -34,13 +35,10 @@ test('mobile WebKit offers Play after metadata, then plays and switches protecte
     await page.getByRole('button', { name: 'Start playback' }).click();
     await expect.poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime))
       .toBeGreaterThan(0.2);
-    const source = page.getByRole('combobox', { name: 'Playback source' });
-    const values = await source.locator('option').evaluateAll(options =>
-      options.map(option => (option as HTMLOptionElement).value),
-    );
+    const values = await sourceIds(page);
     expect(values.length).toBeGreaterThan(1);
-    await source.selectOption(values[1]!);
-    await expect(source).toHaveValue(values[1]!);
+    await chooseSource(page, values[1]!);
+    await expect(selectedSource(page)).toHaveAttribute('data-mapping-id', values[1]!);
     await expect(page).toHaveURL(new RegExp(`/watch/paper-lantern/${first.id}\\?`));
     await expect(page.getByRole('button', { name: 'Start playback' })).toBeVisible();
     await page.getByRole('button', { name: 'Start playback' }).click();

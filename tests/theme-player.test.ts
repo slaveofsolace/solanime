@@ -38,7 +38,9 @@ describe('cinema accent tokens', () => {
       for (let i = 0; i < 256; i++)
         colors.push('#' + ((i * 65793 * 71) % 16777216).toString(16).padStart(6, '0'));
       const surfaces =
-        mode === 'dark' ? ['#100F0D', '#191714', '#26221D'] : ['#F5EFE4', '#FFFAF1', '#E9DECE'];
+        mode === 'dark'
+          ? ['#090A0C', '#17191D', '#25272D', '#232426', '#000000', '#1C1C1E', '#2C2C2E']
+          : ['#F7F7F8', '#FFFFFF', '#E9E9EE', '#E1E1E3', '#F2F2F7', '#E8E8ED'];
       for (const color of colors) {
         const t = themeTokens(color, mode);
         expect(t.accent).toBe(color.toUpperCase());

@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+const port = Number(process.env.SOLANIME_E2E_PORT) || 18787;
 export default defineConfig({
   testDir: './tests/e2e',
   testMatch: '**/*.spec.ts',
@@ -10,13 +11,13 @@ export default defineConfig({
   outputDir: './test-results',
   reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:18787',
+    baseURL: `http://127.0.0.1:${port}`,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
   webServer: {
     command: 'node --import tsx tests/e2e/server.ts',
-    url: 'http://127.0.0.1:18787/api/health',
+    url: `http://127.0.0.1:${port}/api/health`,
     reuseExistingServer: process.env.PLAYWRIGHT_REUSE_SERVER === '1',
     timeout: 30000,
   },

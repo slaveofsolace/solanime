@@ -27,23 +27,29 @@ test('branding follows primary readiness and does not replay after route navigat
     if (query.get('scope') === 'anime' && query.get('pageSize') === '48') await new Promise(resolve => setTimeout(resolve, 500));
     await route.continue();
   });
-  const began = Date.now();
   await page.goto('/');
   const readiness = page.locator('.sol-brand-readiness');
   await expect(readiness).toBeVisible();
   await expect(page.locator('.application-content')).toHaveAttribute('inert');
-  await expect(readiness).toHaveCount(0, { timeout: 6000 });
-  expect(Date.now() - began).toBeGreaterThanOrEqual(2300);
+  // Readiness releases the page after the 500ms data delay and brief exit;
+  // it must not wait for the full 3.4s decorative intro.
+  await expect(readiness).toHaveCount(0, { timeout: 2000 });
   await expect(page.locator('#featured-title')).toBeVisible();
-  const navBrand = page.locator('.masthead .sol-brand');
+  const compactBrand = page.locator('.masthead .wordmark__compact');
+  const emblemBrand = page.locator('.masthead .wordmark__emblem');
+  const navBrand = page.viewportSize()!.width <= 600 ? emblemBrand : compactBrand;
   await expect(navBrand).toHaveAttribute('data-animation', 'static');
-  await expect(navBrand.locator('img')).toHaveAttribute('src', '/branding/solanime-compact-dark.webp');
+  await expect(navBrand.locator('img')).toHaveAttribute('src', `/branding/solanime-${page.viewportSize()!.width <= 600 ? 'emblem' : 'compact'}-dark.webp`);
   await expect(navBrand.locator('svg')).toHaveCount(0);
 
-  await page.getByRole('navigation', { name: 'Primary navigation' })
-    .getByRole('link', { name: 'Anime', exact: true }).click();
+  if (page.viewportSize()!.width <= 600) {
+    await page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link', { name: 'Discover' }).click();
+  } else {
+    await page.getByRole('navigation', { name: 'Primary navigation' })
+      .getByRole('link', { name: 'Anime', exact: true }).click();
+  }
   await expect(page).toHaveURL('/catalogue?scope=anime');
-  await page.getByRole('link', { name: 'Sol Anime home', exact: true }).click();
+  await page.getByRole('link', { name: 'Solanime home', exact: true }).click();
   await expect(page).toHaveURL('/');
   await expect(readiness).toHaveCount(0);
   await expect(page.locator('#featured-title')).toBeVisible();

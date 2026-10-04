@@ -43,8 +43,10 @@ test('featured titles rotate after six seconds and pause for focus or reduced mo
 });
 test('profile motion preferences persist from Settings into the player', async ({ page }) => {
   await accountFixture(page);
-  await page.goto('/settings');
-  await page.getByRole('button', { name: 'Reduce motion', exact: true }).click();
+  await page.goto('/settings?section=appearance');
+  await expect(page.getByRole('heading', { name: 'Appearance', exact: true })).toBeVisible();
+  const reduceSwitch = page.getByRole('checkbox', { name: 'Reduce motion', exact: true });
+  await reduceSwitch.check();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
   await watch(page);
   await page.reload();
@@ -101,8 +103,8 @@ test('tablet navigation stays visible and light history follows the hero before 
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Continue watching' })).toBeVisible();
 
-  const primaryLinks = page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link');
-  await expect(primaryLinks).toHaveCount(4);
+  const primaryLinks = page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link');
+  await expect(primaryLinks).toHaveCount(5);
   for (const link of await primaryLinks.all()) {
     await expect(link).toBeVisible();
     expect(await link.textContent()).toBeTruthy();
@@ -123,7 +125,7 @@ test('tablet navigation stays visible and light history follows the hero before 
   await expect(history.locator('.continue-card > a')).toHaveAttribute('href', /^\/watch\/paper-lantern\/[^?]+\?language=sub$/);
   await expect(history.getByRole('progressbar', { name: 'Paper Lantern viewing progress' })).toBeVisible();
   expect(Number(await history.getByRole('progressbar').getAttribute('aria-valuenow'))).toBeGreaterThan(0);
-  await expect(history.getByRole('button', { name: 'Remove Paper Lantern from Continue watching' })).toBeVisible();
+  await expect(history.getByRole('button', { name: /More options for Paper Lantern/ })).toBeVisible();
   await noOverflow(page);
   await history.getByRole('link', { name: 'Full history' }).click();
   await expect(page.getByRole('heading', { name: 'Watch history', exact: true })).toBeFocused();
@@ -134,7 +136,7 @@ test('major screens have meaningful content, no overflow and accessible controls
   test.setTimeout(90000);
   await accountFixture(page);
   for (const theme of ['dark', 'light']) {
-    await page.goto('/settings');
+    await page.goto('/settings?section=appearance');
     await page
       .locator('#appearance')
       .getByRole('button', { name: theme === 'light' ? 'Light' : 'Dark', exact: true })
@@ -153,7 +155,7 @@ test('major screens have meaningful content, no overflow and accessible controls
       else if (['browse', 'search'].includes(label))
         await expect(page.locator('.title-card').first()).toBeVisible();
       else if (label === 'empty')
-        await expect(page.getByRole('heading', { name: 'No titles found' })).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'No matches' })).toBeVisible();
       else if (label === 'error') {
         await page.getByRole('button', { name: 'View page status' }).click();
         await expect(page.getByRole('heading', { name: 'Title unavailable' })).toBeVisible();

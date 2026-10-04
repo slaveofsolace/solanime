@@ -11,7 +11,7 @@ export default defineConfig({
   webServer: {
     command: 'node --import tsx tests/e2e/server.ts',
     url: 'http://127.0.0.1:18787/api/health',
-    reuseExistingServer: false,
+    reuseExistingServer: process.env.PLAYWRIGHT_REUSE_SERVER === '1',
     timeout: 30000,
   },
 });

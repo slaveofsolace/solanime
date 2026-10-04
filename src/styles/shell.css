@@ -22,7 +22,7 @@ main { min-height: 68svh; max-width: none; margin: 0 auto; padding: 0 0 48px; }
 main:focus { outline: none; }
 .site-shell--home:has(.home-feature) .masthead,
 .site-shell:has(.title-hero) .masthead { margin-bottom: -96px; }
-.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 24px var(--gutter) 0; padding: 24px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 24px var(--gutter) 0; padding: 24px 0 32px; border: 0; color: var(--muted); font-size: 12px; }
 .site-footer p, .site-footer nav { display: flex; gap: 16px; }
 .release-tag { font-variant-numeric: tabular-nums; }
 .account-service-notice {
@@ -89,3 +89,6 @@ main:focus { outline: none; }
   .site-shell:has(.title-hero) .account-service-notice { top: 68px; }
 }
 @media (max-width: 360px) { .wordmark { width: 118px; } .masthead { padding-inline: 12px; } }
+/* macOS web app: keep the header clear of the traffic-light window controls. */
+:root.macos-web-app .site-shell.discovery-shell .masthead { padding-top: 32px; }
+:root.macos-web-app .site-shell .watch-topbar { margin-top: 0; }

@@ -1,5 +1,5 @@
 import { useAccount } from '../account/AccountProvider';
-import Avatar from '../account/Avatar';
+import ProfileMenu from './ProfileMenu';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   useEffect,
@@ -18,9 +18,9 @@ import Icon from './Icon';
 import { applyTheme } from '../lib/theme';
 import HeaderSearch from './HeaderSearch';
 import CategoryNavigation from './CategoryNavigation';
+import SavedTitleActions from './SavedTitleActions';
 import { markDialogTrigger } from './Dialog';
 import { useRouteMotion } from '../lib/motion';
-import { RELEASE } from '../../shared/release';
 import { SolanimeBrand } from '../branding';
 import { api } from '../lib/api';
 import { chooseWatchEntry, watchEntryPath } from '../lib/watchEntry';
@@ -57,7 +57,6 @@ export function Layout({ children }: PropsWithChildren) {
   const watching = location.pathname.startsWith('/watch/');
   const home = location.pathname === '/';
   const settings = location.pathname === '/settings';
-  const nativeIOS = document.documentElement.classList.contains('solanime-native-ios');
   const catalogueQuery = new URLSearchParams(location.search);
   const catalogueScope = catalogueQuery.get('scope');
   const onAnimeCatalogue =
@@ -73,7 +72,7 @@ export function Layout({ children }: PropsWithChildren) {
   const privateGuest = account.privateSite === true && !account.account;
   // Until the session check succeeds, a private deployment has not yet told
   // the client whether browse controls may be exposed. Avoid a public-nav flash.
-  const hideBrowseControls = !account.ready || Boolean(account.loadError) || privateGuest;
+  const hideBrowseControls = !account.ready || Boolean(account.loadError) || privateGuest || focused;
   return (
     <div
       className={`site-shell discovery-shell${focused ? ' site-shell--focused' : ''}${watching ? ' site-shell--watch' : ''}${home ? ' site-shell--home' : ''}${settings ? ' site-shell--settings' : ''}${privateGuest ? ' site-shell--private-guest' : ''}`}
@@ -82,13 +81,9 @@ export function Layout({ children }: PropsWithChildren) {
         Skip to content
       </a>
       <header className="masthead">
-        <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Sol Anime sign in' : 'Sol Anime home'}>
-          <SolanimeBrand
-            variant={nativeIOS ? 'emblem' : 'compact'}
-            motion="static"
-            theme={theme}
-            decorative
-          />
+        <Link className="wordmark" to={privateGuest ? '/login' : '/'} aria-label={privateGuest ? 'Solanime sign in' : 'Solanime home'}>
+          <SolanimeBrand variant="compact" motion="static" theme={theme} decorative className="wordmark__compact" />
+          <SolanimeBrand variant="emblem" motion="static" theme={theme} decorative className="wordmark__emblem" />
         </Link>
         {hideBrowseControls ? (
           privateGuest && location.pathname !== '/login' && <Link className="private-guest-signin" to="/login">Sign in</Link>
@@ -106,6 +101,10 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="browse" />
             <span>Anime</span>
           </Link>
+          <NavLink to="/explore" aria-label="Explore">
+            <Icon name="compass" />
+            <span>Explore</span>
+          </NavLink>
           <Link
             className="main-nav__tv"
             to="/catalogue?scope=tv"
@@ -136,11 +135,7 @@ export function Layout({ children }: PropsWithChildren) {
             <span>Settings</span>
           </Link>
           {account.account ? (
-            <Link className="account-jump" to="/profiles" aria-label="Switch profile">
-              <Avatar profile={account.profile ?? { name: 'Profile', avatar: 'violet' }} small />
-              <span>{account.profile?.name ?? 'Choose profile'}</span>
-              <Icon name="right" />
-            </Link>
+            <ProfileMenu />
           ) : (
             <Link className="account-jump" to="/login" aria-label="Sign in">
               <Icon name="person" />
@@ -163,6 +158,10 @@ export function Layout({ children }: PropsWithChildren) {
             <Icon name="browse" />
             <span>Discover</span>
           </Link>
+          <NavLink to="/explore">
+            <Icon name="compass" />
+            <span>Explore</span>
+          </NavLink>
           <NavLink to="/library">
             <Icon name="bookmark" />
             <span>Library</span>
@@ -179,27 +178,23 @@ export function Layout({ children }: PropsWithChildren) {
       <div className="content-shell">
         {account.loadError && accountServiceSurface && (
           <div className="account-service-notice" role="status">
-            {account.privateSite ? 'Account service unavailable. Sign-in cannot be checked.' : 'Account service unavailable. Browsing remains available.'}{' '}
+            {account.privateSite ? 'Couldn’t check your sign-in.' : 'Sign-in is unavailable. You can still browse.'}{' '}
             <button className="text-button" onClick={() => void account.refresh()}>
-              Reconnect
+              Retry
             </button>
           </div>
         )}
         {account.syncError && (
           <div className="account-service-notice" role="alert">
-            Profile changes are not synced: {account.syncError}
+            Couldn’t save your profile changes: {account.syncError}
           </div>
         )}
         <main id="main" ref={main} tabIndex={-1}>
           {children}
         </main>
         <footer className="site-footer">
-          <p>
-            Solanime{' '}
-            <span className="release-tag" aria-label={`Solanime version ${RELEASE}`}>
-              v{RELEASE}
-            </span>
-          </p>
+          {/* The release stays in the page's solanime-release meta tag for support, not the footer. */}
+          <p>Solanime</p>
           {!hideBrowseControls && <nav aria-label="Footer navigation">
             <Link to="/catalogue?scope=anime">Anime</Link>
             <Link to="/catalogue?scope=tv">TV Shows</Link>
@@ -346,8 +341,8 @@ export function CoverArt({
   );
 }
 
-export function TitleCard({ title, index = 0, format = 'poster' }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape' }) {
-  const { watchlist, history, preferences, setPreview } = useAppState();
+export function TitleCard({ title, index = 0, format = 'poster', contextual = false }: { title: TitleSummary; index?: number; format?: 'poster' | 'landscape'; contextual?: boolean }) {
+  const { watchlist, history, watched, preferences, setPreview } = useAppState();
   const [preference] = preferences;
   const navigate = useNavigate();
   const [opening, setOpening] = useState(false);
@@ -361,7 +356,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
     try {
       const detail = await api.title(title.slug, controller.signal);
       if (controller.signal.aborted) return;
-      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage);
+      const entry = chooseWatchEntry(title.id, detail.episodes, history.entries, preference.preferredLanguage, watched.isWatched);
       navigate(entry ? watchEntryPath(title.slug, entry) : `/title/${encodeURIComponent(title.slug)}`);
     } catch {
       if (!controller.signal.aborted) navigate(`/title/${encodeURIComponent(title.slug)}`);
@@ -370,7 +365,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
       openRequest.current = null;
     }
   };
-  const name = title.name ?? title.title ?? 'Untitled record';
+  const name = title.name ?? title.title ?? 'Untitled';
   const genres = displayGenres(title);
   const isSaved = watchlist.has(title.id);
   const facts = [title.type, title.releaseYear ?? title.year].filter(
@@ -379,7 +374,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
   const descriptor = genres.slice(0, 3).join(' · ') || title.status || null;
   const languages = (title.languages ?? []).map(value => value === 'sub' ? 'Sub' : value === 'dub' ? 'Dub' : value).join(' | ');
   return (
-    <article className={`title-card title-card--${format}`} style={{ '--index': Math.min(index, 8) } as CSSProperties}>
+    <article className={`title-card title-card--${format}${contextual ? ' title-card--contextual' : ''}`} style={{ '--index': Math.min(index, 8) } as CSSProperties}>
       <Link
         className="title-card__art"
         to={`/title/${encodeURIComponent(title.slug)}`}
@@ -401,7 +396,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
           {descriptor && <p>{descriptor}</p>}
           {title.synopsis && <p className="title-card__synopsis">{title.synopsis.replace(/\s*\[more\]\s*$/i, '')}</p>}
         </div>
-        <div className="title-card__actions">
+        <div className="title-card__actions" hidden={contextual}>
             <button className="card-open" type="button" aria-label={`Start or continue ${name}`} aria-busy={opening} disabled={opening} onClick={() => void openWatch()}>
               <Icon name="play" />
             </button>
@@ -428,6 +423,7 @@ export function TitleCard({ title, index = 0, format = 'poster' }: { title: Titl
             </button>
         </div>
       </div>
+      {contextual && <SavedTitleActions title={title} opening={opening} onPlay={() => void openWatch()} />}
     </article>
   );
 }

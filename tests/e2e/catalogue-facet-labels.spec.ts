@@ -8,8 +8,8 @@ test('scoped catalogue filters do not show global facet counts', async ({ page }
   await page.locator('.filter-disclosure summary').click();
   const genre = page.getByRole('combobox', { name: 'Genre' });
   const format = page.getByRole('combobox', { name: 'Format' });
-  await expect(genre.locator('option')).toContainText(['All genre', 'Adventure', 'Drama']);
-  await expect(format.locator('option')).toContainText(['All format', 'Movie', 'TV']);
+  await expect(genre.locator('option')).toContainText(['All', 'Adventure', 'Drama']);
+  await expect(format.locator('option')).toContainText(['All', 'Movie', 'TV']);
   await expect(genre.locator('option', { hasText: /\(34\)/ })).toHaveCount(0);
   await expect(format.locator('option', { hasText: /\(\d+\)/ })).toHaveCount(0);
 

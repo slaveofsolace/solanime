@@ -25,10 +25,16 @@ test('paused Play stays at the picture centre across viewport and theater change
       expect(picture!.height).toBeLessThanOrEqual(viewport.height * (theater ? .78 : .62) + 1);
       expect(button!.width).toBeGreaterThanOrEqual(44);
       expect(await handle!.evaluate(element => element.isConnected)).toBe(true);
-      await expect(page.locator('.main-nav')).toBeVisible();
-      // Narrow screens keep an accessible, compact second navigation row.
-      const header = await page.locator('.masthead').boundingBox();
-      expect(header!.height).toBeLessThanOrEqual(viewport.width <= 820 ? 94 : 50);
+      if (viewport.width <= 760) {
+        // Phones watch in a focused screen: site navigation steps away for the player.
+        await expect(page.locator('.native-tab-bar')).toBeHidden();
+        await expect(page.locator('.masthead')).toBeHidden();
+        await expect(page.locator('.watch-topbar')).toBeVisible();
+      } else {
+        await expect(page.locator(viewport.width <= 820 ? '.native-tab-bar' : '.main-nav')).toBeVisible();
+        const header = await page.locator('.masthead').boundingBox();
+        expect(header!.height).toBeLessThanOrEqual(viewport.width <= 820 ? 94 : 50);
+      }
       await noOverflow(page);
       if (theater) await page.getByRole('button', { name: 'Exit theater mode', exact: true }).click();
     }

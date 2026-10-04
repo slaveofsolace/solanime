@@ -66,6 +66,14 @@ describe('private snapshot publication boundary', () => {
     expect(config.assets.run_worker_first).toBe(true);
     expect(config.assets.html_handling).toBe('none');
     expect(config.assets.not_found_handling).toBe('none');
+    // An environment-specific asset directory must retain the private routing
+    // contract instead of accidentally publishing its catalogue snapshots.
+    const stagingAssets = config.env.staging.assets ?? config.assets;
+    expect(stagingAssets.binding).toBe('IMPORT_ASSETS');
+    expect(stagingAssets.directory).toMatch(/^\.\/build\/cloud-worker-assets(?:-[a-z0-9-]+)?$/);
+    expect(stagingAssets.run_worker_first).toBe(true);
+    expect(stagingAssets.html_handling).toBe('none');
+    expect(stagingAssets.not_found_handling).toBe('none');
     expect(config.queues.consumers[0].max_batch_size).toBe(1);
     expect(config.vars.CATALOGUE_BASELINE_ENABLED).toBe('true');
     expect(config.vars.CATALOGUE_BASELINE_ID).toMatch(/^[a-f0-9]{64}$/);

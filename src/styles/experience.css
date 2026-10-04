@@ -409,37 +409,6 @@
   border-radius: 4px;
 }
 
-.watch-page {
-  padding-top: 16px;
-}
-
-.watch-back {
-  margin-bottom: 12px;
-}
-
-.player-stage,
-.watch-selection {
-  border-radius: 0;
-}
-
-.player-stage {
-  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-}
-
-.watch-selection {
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  border-top: 0;
-}
-
-.watch-heading {
-  margin-top: 22px;
-}
-
-.watch-heading h1 {
-  font-size: clamp(25px, 2.35vw, 38px);
-}
-
 @media (max-width: 1180px) {
   .main-nav__category {
     display: none !important;
@@ -447,43 +416,6 @@
 
   .title-page .episode-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1181px) {
-  .watch-page:not(.watch-page--theater) {
-    grid-template-columns: minmax(0, 1fr) 330px;
-    column-gap: 18px;
-  }
-
-  .watch-page:not(.watch-page--theater) > .watch-episodes {
-    max-height: min(72svh, 780px);
-    padding: 0 0 0 18px;
-    border: 0;
-    border-left: 1px solid var(--line);
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .watch-episodes .episode-grid {
-    gap: 0;
-  }
-
-  .watch-episodes .episode-grid > li {
-    min-height: 52px;
-    border: 0;
-    border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .watch-episodes .episode-grid > li:hover {
-    background: color-mix(in srgb, var(--surface-2) 52%, transparent);
-  }
-
-  .watch-episodes .episode-grid li > a {
-    min-height: 52px;
-    padding: 6px 4px;
   }
 }
 
@@ -569,14 +501,6 @@
   .title-hero {
     min-height: 600px;
     padding-top: 118px;
-  }
-
-  .site-shell--watch .main-nav {
-    display: none;
-  }
-
-  .site-shell--watch .site-footer {
-    margin-bottom: 0;
   }
 }
 

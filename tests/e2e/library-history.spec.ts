@@ -10,7 +10,7 @@ test('history searches every retained entry and exposes the next page without fa
     episodeLabel:`Episode ${i+1}`,language:'sub',watchedAt:'2026-01-01T00:00:00Z',
     ...(i===0 ? {position:99,duration:100} : i===1 ? {position:25,duration:100} : {}),
   })) });
-  await page.goto('/library');
+  await page.goto('/library?view=history');
   await expect(page.getByRole('heading', {name:'Library',exact:true})).toBeVisible();
   const history = page.getByRole('region', {name:'Watch history',exact:true});
   await expect(history.locator('li')).toHaveCount(20);
@@ -24,13 +24,14 @@ test('history searches every retained entry and exposes the next page without fa
   await history.getByRole('searchbox',{name:'Find in watch history'}).fill('episode 25');
   await expect(history.locator('li')).toHaveCount(1);
   await expect(history.locator('a')).toHaveAttribute('href','/watch/paper-lantern/25?language=sub');
-  await history.getByRole('button',{name:'Remove Paper Lantern Episode 25 from history'}).click();
+  await history.getByRole('button',{name:'More options for Paper Lantern Episode 25'}).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Remove from History', exact: true }).click();
   await expect(history.getByText('No episodes match this search.')).toBeVisible();
   await page.reload();
   await history.getByRole('searchbox',{name:'Find in watch history'}).fill('episode 25');
   await expect(history.locator('li')).toHaveCount(0);
   await expect(page.locator('.library-settings')).toHaveCount(0);
-  await page.goto('/settings');
+  await page.goto('/settings?section=playback');
   await expect(page.getByRole('heading',{name:'Playback', exact:true})).toBeVisible();
   await noOverflow(page);
 });
@@ -52,11 +53,12 @@ test('continue watching selects one latest episode per series and advances only 
   await expect(continuing).toContainText('Up next');
   await expect(continuing.locator('.continue-card > a')).toHaveAttribute('href', `/watch/paper-lantern/${episodes[2].id}?language=sub`);
   await expect(continuing.getByRole('progressbar')).toHaveCount(0);
-  await continuing.getByRole('button', { name: 'Remove Paper Lantern from Continue watching', exact: true }).click();
+  await continuing.getByRole('button', { name: /More options for Paper Lantern/ }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Hide from Continue Watching', exact: true }).click();
   await expect(continuing).toHaveCount(0);
   await page.reload();
   await expect(page.locator('#featured-title')).toBeVisible();
   await expect(continuing).toHaveCount(0);
-  await page.goto('/library');
+  await page.goto('/library?view=history');
   await expect(page.locator('.history-list > li')).toHaveCount(2);
 });

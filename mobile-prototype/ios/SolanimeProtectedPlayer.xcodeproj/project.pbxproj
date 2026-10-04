@@ -10,7 +10,18 @@
 		A00100000000000000000001 /* SolanimeProtectedPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00100000000000000000002 /* SolanimeProtectedPlayerApp.swift */; };
 		A00100000000000000000011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00100000000000000000010 /* Assets.xcassets */; };
 		A00100000000000000000013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00100000000000000000014 /* LaunchScreen.storyboard */; };
+		A00100000000000000000101 /* SignInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00100000000000000000102 /* SignInUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0010000000000000000010B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0010000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00100000000000000000007;
+			remoteInfo = SolanimeProtectedPlayer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A00100000000000000000002 /* SolanimeProtectedPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanimeProtectedPlayerApp.swift; sourceTree = "<group>"; };
@@ -18,10 +29,19 @@
 		A00100000000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00100000000000000000014 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A00100000000000000000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00100000000000000000102 /* SignInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUITests.swift; sourceTree = "<group>"; };
+		A00100000000000000000103 /* SolanimeProtectedPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolanimeProtectedPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A00100000000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00100000000000000000104 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +58,7 @@
 				A00100000000000000000010 /* Assets.xcassets */,
 				A00100000000000000000014 /* LaunchScreen.storyboard */,
 				A00100000000000000000015 /* Info.plist */,
+				A00100000000000000000105 /* SolanimeProtectedPlayerUITests */,
 				A00100000000000000000006 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,8 +67,17 @@
 			isa = PBXGroup;
 			children = (
 				A00100000000000000000003 /* Solanime.app */,
+				A00100000000000000000103 /* SolanimeProtectedPlayerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A00100000000000000000105 /* SolanimeProtectedPlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A00100000000000000000102 /* SignInUITests.swift */,
+			);
+			path = SolanimeProtectedPlayerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +100,23 @@
 			productReference = A00100000000000000000003 /* Solanime.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A00100000000000000000106 /* SolanimeProtectedPlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00100000000000000000107 /* Build configuration list for PBXNativeTarget "SolanimeProtectedPlayerUITests" */;
+			buildPhases = (
+				A00100000000000000000108 /* Sources */,
+				A00100000000000000000104 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0010000000000000000010C /* PBXTargetDependency */,
+			);
+			name = SolanimeProtectedPlayerUITests;
+			productName = SolanimeProtectedPlayerUITests;
+			productReference = A00100000000000000000103 /* SolanimeProtectedPlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -81,6 +128,10 @@
 				TargetAttributes = {
 					A00100000000000000000007 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					A00100000000000000000106 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = A00100000000000000000007;
 					};
 				};
 			};
@@ -98,6 +149,7 @@
 			projectRoot = "";
 			targets = (
 				A00100000000000000000007 /* SolanimeProtectedPlayer */,
+				A00100000000000000000106 /* SolanimeProtectedPlayerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +175,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A00100000000000000000108 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00100000000000000000101 /* SignInUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0010000000000000000010C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00100000000000000000007 /* SolanimeProtectedPlayer */;
+			targetProxy = A0010000000000000000010B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A0010000000000000000000C /* Debug */ = {
@@ -155,7 +223,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
@@ -179,7 +247,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Solanime;
@@ -194,6 +262,38 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A00100000000000000000109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.solanime.protectedplayer.preview.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = SolanimeProtectedPlayer;
+			};
+			name = Debug;
+		};
+		A0010000000000000000010A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.solanime.protectedplayer.preview.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = SolanimeProtectedPlayer;
 			};
 			name = Release;
 		};
@@ -214,6 +314,15 @@
 			buildConfigurations = (
 				A0010000000000000000000C /* Debug */,
 				A0010000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00100000000000000000107 /* Build configuration list for PBXNativeTarget "SolanimeProtectedPlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00100000000000000000109 /* Debug */,
+				A0010000000000000000010A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

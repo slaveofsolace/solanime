@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import type { Episode, TitleSummary } from '../types';
 import { useAppState } from '../state';
 import Icon from './Icon';
+import SelectControl from './SelectControl';
 import { viewingPercent } from '../lib/continueWatching';
 
 const PAGE_SIZE = 50;
@@ -63,6 +64,7 @@ function EpisodeBrowserContent({
     [page, setPage] = useState<number | null>(null),
     [selectedSeason, setSelectedSeason] = useState<string | null>(params.get('season'));
   const focusCurrentOnMount = useRef(false);
+  const list = useRef<HTMLOListElement>(null);
   const routeSeason = params.get('season');
   useEffect(() => { setSelectedSeason(routeSeason); setPage(null); }, [routeSeason]);
   const languageEpisodes = useMemo(
@@ -121,6 +123,14 @@ function EpisodeBrowserContent({
   const currentExists = languageEpisodes.some((episode) => episode.id === currentId);
   const canJumpToCurrent =
     currentExists && (normalizedQuery !== '' || !visible.some((episode) => episode.id === currentId));
+  useEffect(() => {
+    // In a scrolling episode rail, open with the current episode in view
+    // without moving the page itself.
+    const element = list.current;
+    const current = element?.querySelector<HTMLElement>('[data-current="true"]');
+    if (!element || !current || element.scrollHeight <= element.clientHeight + 1) return;
+    element.scrollTop = Math.max(0, current.offsetTop - element.clientHeight / 2 + current.offsetHeight / 2);
+  }, [currentId, active]);
   const showToolbar = languageEpisodes.length > 1 || normalizedQuery !== '';
   const showResultCount = !compactHeading || normalizedQuery !== '';
   return (
@@ -129,7 +139,7 @@ function EpisodeBrowserContent({
       {seasonGroups && (
         <label className="episode-season-picker">
           <span>Season</span>
-          <select aria-label="Season" value={activeSeason} onChange={(event) => {
+          <SelectControl aria-label="Season" value={activeSeason} onChange={(event) => {
             setQuery('');
             setSelectedSeason(event.target.value);
             setPage(0);
@@ -139,7 +149,7 @@ function EpisodeBrowserContent({
           }}>
             <option value="all">All episodes · {languageEpisodes.length}</option>
             {seasonGroups.map((group) => <option key={group.key} value={group.key}>{group.label} · {group.episodes.length}</option>)}
-          </select>
+          </SelectControl>
           {normalizedQuery && <small>Searching every season</small>}
         </label>
       )}
@@ -188,7 +198,7 @@ function EpisodeBrowserContent({
         </div>
       )}
       {visible.length ? (
-        <ol className="episode-grid">
+        <ol className="episode-grid" ref={list}>
           {visible.map((e) => {
             const displayName = episodeName(e);
             const record = history?.entries.find(entry => entry.episodeId === e.id && entry.language === language);
@@ -205,7 +215,7 @@ function EpisodeBrowserContent({
                   displayName.trim().toLocaleLowerCase() === `ep ${episodeNumber}`.toLocaleLowerCase() ||
                   displayName.trim().toLocaleLowerCase().startsWith(`${episodeNumber.toLocaleLowerCase()} ·`)),
             );
-            return <li key={e.id} data-current={currentId === e.id}>
+            return <li key={e.id} data-current={currentId === e.id} data-watched={seen}>
               <Link
                 ref={e.id === currentId ? (element) => {
                   if (element && focusCurrentOnMount.current) {
@@ -213,6 +223,7 @@ function EpisodeBrowserContent({
                     element.focus();
                   }
                 } : undefined}
+                replace={Boolean(currentId)}
                 to={`/watch/${encodeURIComponent(slug)}/${encodeURIComponent(e.id)}?language=${encodeURIComponent(language)}${seasonGroups && activeSeason !== 'all' ? `&season=${activeSeason}` : ''}`}
                 aria-current={e.id === currentId ? 'page' : undefined}
               >
@@ -225,7 +236,16 @@ function EpisodeBrowserContent({
                 <span className="episode-copy">
                   {!repeatedNumber && <span className="episode-number">{e.number == null ? 'Special' : /^\d+(?:\.\d+)?$/.test(String(e.number)) ? `E${e.number}` : e.number}</span>}
                   <strong>{displayName}</strong>
-                  <span className="episode-meta">{currentId === e.id ? 'Now selected' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : language === 'sub' ? 'Subtitled' : language === 'dub' ? 'Dubbed' : language}{noEpisodeStills && duration != null && duration > 0 ? ` · ${Math.ceil(duration / 60)}m` : ''}{!mapped && ' · Source unavailable'}</span>
+                  {(() => {
+                    // Only what helps choose: playing/progress/watched, length, and a missing source.
+                    // The language is already the selected version for every row.
+                    const facts = [
+                      currentId === e.id ? 'Playing' : seen ? 'Watched' : percent > 0 ? `${Math.round(percent)}% watched` : null,
+                      noEpisodeStills && duration != null && duration > 0 ? `${Math.ceil(duration / 60)} min` : null,
+                      mapped ? null : 'Source unavailable',
+                    ].filter(Boolean);
+                    return facts.length ? <span className="episode-meta">{facts.join(' · ')}</span> : null;
+                  })()}
                   {percent > 0 && noEpisodeStills && <span className="episode-progress episode-progress--inline" role="progressbar" aria-label={`${displayName} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(percent)}><span style={{ width: `${percent}%` }} /></span>}
                 </span>
               </Link>

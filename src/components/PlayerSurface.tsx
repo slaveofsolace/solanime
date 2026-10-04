@@ -18,6 +18,15 @@ export function PlayerMessage({
   busy?: boolean;
   retry?: () => void;
 }) {
+  // While loading, the stage stays a calm, picture-shaped placeholder; the
+  // label is for assistive technology only.
+  if (busy)
+    return (
+      <div className="player-message player-message--busy" role="status" aria-label={title} aria-busy>
+        <span className="loading-spinner" aria-hidden="true" />
+        <span className="sr-only">{title}</span>
+      </div>
+    );
   return (
     <div
       className="player-message"

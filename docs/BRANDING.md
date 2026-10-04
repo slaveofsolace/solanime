@@ -47,7 +47,7 @@ Do not key this component to every route, server selection or title. Do not moun
 | `elapsedMs` | Deterministic timeline sampling for the demo/export only; omit from the app |
 | `rendering="layers"` | Force SVG layers when reviewing static geometry; normal static placements use optimized images |
 
-`BrandReadiness` adds `ready`, `error`, `onRetry`, `onDismiss`, `timeoutMs` (default 12 seconds) and `inline`. Error or timeout stops animation and exposes retry/continue actions. `onDismiss` describes a visible overlay being dismissed; an already-ready or already-resolved first mount does not need that callback to render the application.
+`BrandReadiness` adds `ready`, `error`, `onRetry`, `onDismiss`, `timeoutMs` (default 12 seconds) and `inline`. Error or timeout stops animation and exposes retry/continue actions. `onDismiss` fires once per mount when the readiness gate is released, including an already-ready or previously resolved first mount. This lets the owning application release its inert content even when no overlay needed to appear.
 
 The main application connects this overlay to Home's primary catalogue request,
 uses the static compact mark in its existing home link, and shows the small
@@ -62,7 +62,7 @@ overlay is visible; it does not create or restart a brand session.
 The opening settles over 3.4 seconds when actual readiness lasts that long:
 
 1. The warm ribbon tip appears, followed by front and rear path reveals. The center and play triangle brighten over the same interval so the top edge does not appear in a separate burst.
-2. The sun starts rising while the ribbon forms and travels on one eased 2.2-second curve. Broad, blurred atmospheric light stays centered on the sun; hard triangular streaks were removed. The illustrated clouds remain behind the ribbon.
+2. The sun starts rising while the ribbon forms and travels on one eased 2.2-second curve. Broad, blurred atmospheric light follows the sunrise, moving through 35% of the sun's vertical travel; hard triangular streaks were removed. The illustrated clouds remain behind the ribbon.
 3. The original eight letter silhouettes reveal with a short 55ms stagger. One restrained sheen and a thin lower flare connect the wordmark to the sunrise.
 4. The completed composition continues into a 4.8-second quiet light cycle. Geometry, letter positions and triangle proportions remain fixed. The wrapping travel highlight has zero opacity at the seam.
 

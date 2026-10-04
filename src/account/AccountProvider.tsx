@@ -196,7 +196,7 @@ function useAccountController() {
     document.addEventListener('visibilitychange', listener);
     return () => document.removeEventListener('visibilitychange', listener);
   }, [refresh]);
-  const login = async (email: string, password: string, remember: boolean, register = false) => {
+  const login = async (email: string, password: string, remember: boolean, register = false, humanCheck?: string) => {
     if (sessionMutation.current) throw new Error('An account change is already in progress. Please wait.');
     sessionMutation.current = true;
     const seq = ++sessionGeneration.current;
@@ -204,7 +204,7 @@ function useAccountController() {
       await scopeRef.current?.flush();
       if (seq !== sessionGeneration.current) return;
       const result = await accountRequest<SessionResponse>(register ? 'register' : 'login', {
-        email, password, remember,
+        email, password, remember, ...(humanCheck ? { humanCheck } : {}),
       });
       if (seq !== sessionGeneration.current) return;
       clearProfile();

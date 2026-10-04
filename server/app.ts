@@ -1,5 +1,6 @@
 import { RELEASE } from '../shared/release.ts';
 import { createAccounts, type AccountsService } from './accounts/service.ts';
+import { sqliteExploreCatalogue } from './explore/catalogue.ts';
 import { openAccountsDatabase } from './accounts/database.ts';
 import { nativeSourceResolver } from './providers/nativeSources.ts';
 import { legacyResolution, type ApprovedNativeResource } from './providers/native.ts';
@@ -157,7 +158,7 @@ function requireAdmin(request: IncomingMessage): void {
 }
 
 export function createApp(db: DatabaseSync, options: AppOptions = {}) {
-  const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'));
+  const accounts = options.accounts ?? createAccounts(openAccountsDatabase(':memory:'), { explore: sqliteExploreCatalogue(db) });
   const privateSite = options.privateSite ?? process.env.SOLANIME_PRIVATE_SITE === 'true';
   const nativeSources = options.nativeSources ?? nativeSourceResolver();
   const pendingResolutions = new Map<number, PendingResolution>();
@@ -350,12 +351,11 @@ export function createApp(db: DatabaseSync, options: AppOptions = {}) {
         requireAdmin(request);
         return json(response, 200, { items: accounts.pendingApprovals() });
       }
-      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/(decision|retry-notice)$/.exec(url.pathname);
+      const approval = /^\/api\/admin\/accounts\/([\w-]{1,128})\/decision$/.exec(url.pathname);
       if (method === 'POST' && approval) {
         requireSafeMutation(request.headers, { requireJson: true });
         requireAdmin(request);
         const input = await readJson(request);
-        if (approval[2] === 'retry-notice') return json(response, 200, await accounts.retryNotice(approval[1]));
         if (input.decision !== 'approved' && input.decision !== 'rejected')
           throw new AppError(400, 'BAD_REQUEST', 'Choose approved or rejected.');
         return json(response, 200, await accounts.decideApproval(approval[1], input.decision));
@@ -552,7 +552,7 @@ export function startServer() {
   migrate(db);
   const port = integer(process.env.PORT ?? null, 'PORT', 8787, 1, 65535);
   const host = process.env.HOST || '127.0.0.1';
-  const accounts = createAccounts(openAccountsDatabase());
+  const accounts = createAccounts(openAccountsDatabase(), { explore: sqliteExploreCatalogue(db) });
   const server = createApp(db, { staticDirectory, accounts });
   server.requestTimeout = 30_000;
   server.headersTimeout = 15_000;

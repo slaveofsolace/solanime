@@ -10,17 +10,31 @@ import PageErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import { SolanimeBrand } from './branding';
 import { useAppState } from './state';
-const CataloguePage = lazy(() => import('./pages/CataloguePage'));
-const LibraryPage = lazy(() => import('./pages/LibraryPage'));
-const TitlePage = lazy(() => import('./pages/TitlePage'));
-const WatchPage = lazy(() => import('./pages/WatchPage'));
+const loadCatalogue = () => import('./pages/CataloguePage');
+const loadLibrary = () => import('./pages/LibraryPage');
+const loadTitle = () => import('./pages/TitlePage');
+const loadWatch = () => import('./pages/WatchPage');
+const loadSettings = () => import('./pages/SettingsPage');
+const CataloguePage = lazy(loadCatalogue);
+const LibraryPage = lazy(loadLibrary);
+const TitlePage = lazy(loadTitle);
+const WatchPage = lazy(loadWatch);
 const AdminPage = lazy(() => import('./pages/AdminPage'));
 const AdminSourcesPage = lazy(() => import('./pages/AdminSourcesPage'));
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const ProfilesPage = lazy(() => import('./pages/ProfilesPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
-const SettingsPage = lazy(() => import('./pages/SettingsPage'));
-const MalCallbackPage = lazy(() => import('./components/MyAnimeListConnection').then(module => ({ default: module.MalCallbackPage })));
+const SettingsPage = lazy(loadSettings);
+const ExplorePage = lazy(() => import('./pages/ExplorePage'));
+/** Fetch the everyday screens once the app is idle, so first visits don't flash a loader. */
+function usePreloadedScreens() {
+  useEffect(() => {
+    const load = () => { for (const screen of [loadTitle, loadWatch, loadCatalogue, loadLibrary, loadSettings]) void screen().catch(() => {}); };
+    const idle = window.requestIdleCallback ?? ((callback: () => void) => window.setTimeout(callback, 1200));
+    const handle = idle(load);
+    return () => (window.cancelIdleCallback ?? window.clearTimeout)(handle as number);
+  }, []);
+}
 function NotFound() {
   return (
     <StatusPanel
@@ -49,12 +63,14 @@ function RouteReadiness() {
   const kind = pathname.startsWith('/watch/') ? 'watch'
     : pathname.startsWith('/title/') ? 'title'
       : pathname === '/library' ? 'library'
+        : pathname === '/explore' ? 'explore'
         : ['/catalogue', '/search'].includes(pathname) ? 'catalogue'
           : pathname.startsWith('/account') || pathname === '/profiles' ? 'account'
             : 'default';
   const label = kind === 'watch' ? 'Preparing this episode…'
     : kind === 'title' ? 'Opening title…'
       : kind === 'library' ? 'Opening your library…'
+        : kind === 'explore' ? 'Opening Explore…'
         : kind === 'catalogue' ? 'Loading catalogue…'
           : kind === 'account' ? 'Opening your profile…'
             : 'Loading this view…';
@@ -90,6 +106,7 @@ function RouteReadiness() {
   );
 }
 export default function App() {
+  usePreloadedScreens();
   return (
     <AccountProvider>
       <AccountBoundary>
@@ -104,8 +121,8 @@ export default function App() {
                 <Route path="/title/:slug" element={<PrivateSiteRoute><TitlePage /></PrivateSiteRoute>} />
                 <Route path="/watch/:slug/:episodeId" element={<PrivateSiteRoute><WatchPage /></PrivateSiteRoute>} />
                 <Route path="/library" element={<RequireAccount><LibraryPage /></RequireAccount>} />
+                <Route path="/explore" element={<RequireAccount><ExplorePage /></RequireAccount>} />
                 <Route path="/settings" element={<RequireAccount><SettingsPage /></RequireAccount>} />
-                <Route path="/settings/mal/callback" element={<MalCallbackPage />} />
                 <Route path="/login" element={<AuthPage key="login" />} />
                 <Route path="/register" element={<AuthPage key="register" mode="register" />} />
                 <Route path="/recover" element={<AuthPage key="recover" mode="recover" />} />

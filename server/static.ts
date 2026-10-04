@@ -7,8 +7,9 @@ export const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+  'X-Robots-Tag': 'noindex, nofollow, noarchive',
   'Content-Security-Policy':
-    "default-src 'self'; script-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https:; media-src 'self' https: blob:; worker-src 'self' blob:; frame-src https://www.youtube-nocookie.com/embed/ https://megaplay.buzz/stream/s-2/; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
+    "default-src 'self'; script-src 'self' https://www.youtube.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https:; media-src 'self' https: blob:; worker-src 'self' blob:; frame-src https://www.youtube-nocookie.com/embed/ https://megaplay.buzz/stream/s-2/ https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
 };
 const mime: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
@@ -52,7 +53,7 @@ export async function serveStatic(
   let file = resolve(root, `.${pathname}`);
   if (!inside(root, file)) return false;
   const appRoute =
-    /^\/(?:catalogue|search|library|settings(?:\/mal\/callback)?|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
+    /^\/(?:catalogue|search|library|explore|settings|admin(?:\/sources)?|login|register|recover|profiles|account(?:\/recovery-code)?|title\/[^/]+|watch\/[^/]+\/[^/]+)?\/?$/.test(
       pathname,
     );
   if (appRoute) file = resolve(root, 'index.html');

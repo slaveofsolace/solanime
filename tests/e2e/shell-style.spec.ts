@@ -14,12 +14,13 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
     const heading = await page.locator('.catalogue-heading h1').boundingBox();
     expect(Math.abs(brand!.x - heading!.x)).toBeLessThanOrEqual(1);
 
-    const browse = page.getByRole('navigation', { name: 'Primary navigation' })
-      .getByRole('link', { name: 'Anime', exact: true });
+    const browse = width <= 820
+      ? page.getByRole('navigation', { name: 'iPhone navigation' }).getByRole('link', { name: 'Discover', exact: true })
+      : page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Anime', exact: true });
     await expect(browse).toHaveAttribute('aria-current', 'page');
     if (width <= 820) {
       await expect(browse).toHaveCSS('border-radius', '0px');
-      const navigationGeometry = await page.locator('.main-nav > a').evaluateAll((links) =>
+      const navigationGeometry = await page.locator('.native-tab-bar > a').evaluateAll((links) =>
         links
           .filter((link) => (link as HTMLElement).offsetWidth > 0)
           .map((link) => {
@@ -33,7 +34,7 @@ test('shared chrome has one gutter, one navigation state and consistent UI typog
             };
           }),
       );
-      expect(navigationGeometry).toHaveLength(4);
+      expect(navigationGeometry).toHaveLength(5);
       expect(navigationGeometry.every(({ left, right }) => left >= 0 && right <= width)).toBe(true);
       expect(navigationGeometry.every(({ height }) => height >= 44)).toBe(true);
       expect(navigationGeometry.some(({ labelClipped }) => labelClipped)).toBe(false);

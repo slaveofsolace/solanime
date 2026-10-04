@@ -4,4 +4,5 @@ export type MalEntry = { id: number; title: string; status: MalStatus; watchedEp
 export const MAL_STATUS_LABELS: Record<MalStatus, string> = {
   watching: 'Watching', completed: 'Completed', plan_to_watch: 'Plan to watch', on_hold: 'On hold', dropped: 'Dropped',
 };
-export type MalConnection = { configured: boolean; connected: boolean; username?: string; importedAt?: number | null; count: number; syncing?: boolean };
+/** An imported list. No MyAnimeList login or credential is involved. */
+export type MalConnection = { configured: boolean; usernameImport?: boolean; connected: boolean; username?: string | null; importedAt?: number | null; count: number };

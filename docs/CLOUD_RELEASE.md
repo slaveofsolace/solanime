@@ -36,11 +36,44 @@ proxy. Do not upgrade billing to clear an import quota.
 
 The checked configuration uses three separate D1 bindings, not account tables in
 the catalogue. Cloud database names initially end in `-preview`; retain their
-stable IDs during promotion instead of duplicating the imported data. The Pages
-preview (`cloud-release`) now binds a separate `solanime-api-staging` Worker with
-its own databases, queue, Firebase project and secrets; see
+stable IDs during promotion instead of duplicating the imported data. The checked-in
+Pages preview (`cloud-release`) configuration targets a separate
+`solanime-api-staging` Worker with isolated databases, queue, Firebase project and
+secrets. Provisioning that environment is incomplete; configuration alone is not
+evidence of a deployed staging service. See
 [production and staging separation](CLOUD_ENVIRONMENTS.md) for the bindings and
 the migration steps.
+
+**2026-10-01 read-only deployment checkpoint.** Production still serves the
+previous frontend from source `acbc4dd`, Pages deployment
+`453a3e2e-c212-4944-b96f-cba1568679fb`. The UI candidate extending `0bb17b5`
+has not been deployed. Production `verify:deployment` passed all five checks and
+`verify:private-approval` passed all eight anonymous checks. These checks establish
+the observed version, frame policy and anonymous account boundary, not new
+authenticated or native-playback acceptance. The active production Worker is
+`95263948-dbd5-431b-9f06-5df2a3f61525` at 100%, with both approval flags enabled
+and only `https://solanime.pages.dev` allowed as the application origin.
+
+The configured staging Worker is absent (Cloudflare error `10007`), and its D1,
+queue and Firebase setup is incomplete. The old preview alias still reports
+`channel: production`; it is not an isolated test environment. Its current
+deployment verification fails the exact frame-host check, and the anonymous
+approval verifier receives HTTP 403 rather than its expected 401 for resolve.
+Do not reconnect the preview to production to bypass staging setup. The
+production-promotion gates below remain in force; this audit made no deployment
+or data changes.
+
+**2026-10-01 isolated staging provisioning.** The owner enabled Workers Paid;
+three dedicated staging D1 databases and the staging queue were created after
+private production exports. Firebase `solanime-staging` uses Email/Password
+and a dedicated recovery identity limited to `firebaseauth.users.update`.
+The staging Worker dry-run passed, followed by deployment of
+`5a07a1bb-2eb6-4af4-bfa3-9ae1e9afc6d7`. Registration remains closed; private-site
+and approval flags remain true. Its 12,613 private assets are a verified earlier
+local catalogue snapshot, not a production clone, and lack mapping 384944.
+This supersedes the staging-absent observation above; Pages preview and live
+account acceptance are verified separately. No production promotion or native
+release follows from this provisioning result.
 
 Secrets are Worker-only: `SOLANIME_ADMIN_TOKEN`, `FIREBASE_API_KEY`,
 `FIREBASE_SERVICE_ACCOUNT_JSON`, and `AUTH_CREDENTIAL_KEY`. Never use `VITE_*` for
@@ -66,26 +99,33 @@ verify an operator can sign in before promoting the gate. A pending or rejected
 account cannot create or use a session, even through a direct API request. A
 new applicant must save the displayed recovery code, then await approval.
 
-The owner notification uses the established FormSubmit AJAX destination
-`slaveofsolace@gmail.com`. `/admin` remains reachable before the first account
-is approved so the operator can bootstrap access; its data and actions require
-the existing operator token. Review the applicant email, then approve or
-decline. Approval changes the D1 state first and attempts a FormSubmit notice
-with the applicant as a copy recipient; a failed notification remains visible
-for retry and does not reverse the approval. The notification contains no
-password, recovery code, cookie, or operator token. `sent` means FormSubmit
-acknowledged the request, **not** that a mailbox delivery was confirmed. Test a
-real request/approval/inbox cycle before treating email as operational.
+No email is sent for account requests or decisions, so no third-party mail
+relay receives applicant addresses. `/admin` lists pending requests; it remains
+reachable before the first account is approved so the operator can bootstrap
+access, and its data and actions require the existing operator token. Review
+the applicant email, then approve or decline. An approved applicant finds out
+by signing in. (Earlier releases relayed notices through FormSubmit; that path
+was removed on 2026-10-03.)
 
-On 2026-09-28, the first owner-approved synthetic request preceded FormSubmit
-activation and returned `acceptedByTransport: false`. After the owner activated
-the form and explicitly approved one fresh test, FormSubmit returned HTTP 200
-and `success: "true"` in a JSON body labeled `text/html`. The client initially
-reported false because it required a JSON content-type; it now validates the
-parsed acknowledgement instead, with a regression test. FormSubmit accepted
-the second request, and the owner confirmed that this synthetic request arrived
-at `slaveofsolace@gmail.com`. An applicant approval-notice/inbox cycle remains
-to be tested before calling the full email flow operational.
+### Sign-up verification (Cloudflare Turnstile)
+
+When the Worker has both `TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`,
+registration and recovery-code resets require a solved Turnstile challenge.
+The server checks the token with Cloudflare's siteverify endpoint and rejects
+it unless it was solved for the same action (`register` or `recover`) on one
+of the configured app origins. A check fails closed: if siteverify cannot be
+reached, the request is refused. Without both values the check is off.
+
+1. Cloudflare dashboard → Turnstile → Add widget. Hostnames:
+   `solanime.pages.dev` (and `cloud-release.solanime.pages.dev` for staging).
+   Widget mode: Managed.
+2. From the repo on the operator Mac, for each Worker environment:
+   `npx wrangler secret put TURNSTILE_SITE_KEY` then
+   `npx wrangler secret put TURNSTILE_SECRET_KEY` (add `--env <name>` for
+   staging). Both are secrets so a deploy never overwrites them.
+3. Redeploy the Pages build so the CSP admits `challenges.cloudflare.com`.
+4. Open `/register` in a private window: the button reads "Checking your
+   browser…" briefly, then the request goes through.
 
 Apply the account migration before deploying the Worker, confirm at least one
 approved owner account and the admin-token route, then run an anonymous API and
@@ -435,18 +475,22 @@ Before promotion, require all of the following:
 - Review the exact staged/outgoing source and archive contents; keep account
   data, credentials and private import assets out of the source package.
 
-Configure `env.production.services` in the Pages config to the tested API Worker,
-allow the exact production origin in the API account/origin configuration, and
-retain preview access for verification. Deploy the API first, then the same tested
-frontend artifact without rebuilding between preview and promotion:
+Configure `env.production.services` in the Pages config to the tested production
+API Worker and allow the exact production origin in that Worker's account/origin
+configuration. Keep preview verification on its separate staging Worker and
+origin. Deploy any reviewed API changes before the frontend, then promote the
+same tested frontend artifact without rebuilding between preview and promotion.
+An accepted frontend-only update does not require an unchanged API redeployment.
 
 Keep the existing Worker service name and bindings; do not create a separate
 Worker with `--env production`. Verify the Pages project's production branch is
-`main`. Set `SOLANIME_APP_ORIGIN` to `https://solanime.pages.dev` and retain only
-the exact intended branch alias in `SOLANIME_ALLOWED_ORIGINS`. Host-only cookies
+`main`. Set production `SOLANIME_APP_ORIGIN` and `SOLANIME_ALLOWED_ORIGINS` to
+`https://solanime.pages.dev`; staging uses its own exact branch origin. Host-only cookies
 require a new sign-in on the canonical origin. Guest browser state does not
-migrate across origins. After promotion the preview alias shares the production
-databases and must not be used as an isolated destructive test environment.
+migrate across origins. Historically, the promoted preview shared production
+databases; the stale preview still has that legacy binding at the 2026-10-01
+checkpoint. It must not be used for destructive testing. Completing the staging
+migration must preserve isolation during subsequent production promotions.
 
 ```sh
 node scripts/deploy-pages.mjs --branch=main --promote-verified-release

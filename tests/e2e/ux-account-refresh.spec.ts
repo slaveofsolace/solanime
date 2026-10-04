@@ -15,10 +15,21 @@ test('compact navigation and protected destinations work without a Movies sector
   await expect(page.locator('#featured-title')).toBeVisible();
   const nav = page.locator('.main-nav');
   await expect(nav.getByRole('link', { name: 'Movies', exact: true })).toHaveCount(0);
-  for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
-    await nav.getByRole('link', { name, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
-    await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('aria-current', 'page');
+  const phoneNavigation = page.getByRole('navigation', { name: 'iPhone navigation' });
+  if (await phoneNavigation.isVisible()) {
+    await phoneNavigation.getByRole('link', { name: 'Discover', exact: true }).click();
+    const collections = page.getByRole('group', { name: 'Catalogue collection' });
+    for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
+      await collections.getByRole('button', { name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
+      await expect(collections.getByRole('button', { name, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    }
+  } else {
+    for (const [name, scope] of [['Anime', 'anime'], ['TV Shows', 'tv']]) {
+      await nav.getByRole('link', { name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`scope=${scope}`));
+      await expect(nav.getByRole('link', { name, exact: true })).toHaveAttribute('aria-current', 'page');
+    }
   }
   await page.goto('/library');
   await expect(page).toHaveURL(/\/login\?returnTo=%2Flibrary/);
@@ -56,7 +67,7 @@ test('catalogue play opens episode one while details remain separately available
     await card.getByRole('button', { name: 'Start or continue Long Journey' }).click();
   }
   await expect(page).toHaveURL(/\/watch\/long-journey\/[^/?]+\?language=sub/);
-  await expect(page.getByRole('combobox', { name: 'Choose episode' })).toHaveValue(/.+/);
+  await expect(page.locator('.watch-episodes li[data-current="true"]')).toHaveCount(1);
 });
 
 test('series cards, season changes and back navigation work at 320 and desktop widths', async ({ page }, info) => {
@@ -77,7 +88,7 @@ test('series cards, season changes and back navigation work at 320 and desktop w
     await season.selectOption('all');
     await expect(page.locator('.episode-grid > li')).toHaveCount(3);
     await expect(page.locator('.episode-browser')).toHaveClass(/episode-browser--no-stills/);
-    await expect(page.locator('.episode-thumbnail').first()).toBeHidden();
+    expect((await page.locator('.episode-thumbnail').first().boundingBox())!.width).toBeLessThanOrEqual(48);
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`series-${width}.png`), fullPage: true });
     await page.locator('.episode-grid li > a').first().click();
@@ -97,44 +108,56 @@ test('long episode inventories without stills use dense rows rather than empty p
   expect(first!.height).toBeLessThanOrEqual(90);
   await page.setViewportSize({ width: 320, height: 820 });
   await noOverflow(page);
-  await browser.getByRole('link', { name: /Episode 1 Subtitled/ }).first().click();
+  await browser.getByRole('link', { name: /Episode 1$/ }).first().click();
   await expect(page).toHaveURL(/\/watch\/long-journey\/[^/?]+\?language=sub/);
 });
 
 test('settings and series remain usable in both themes, narrow layout and enlarged text', async ({ page }, info) => {
   test.setTimeout(60000);
-  await accountFixture(page);
+  await accountFixture(page, {}, { entryPath: '/login' });
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   for (const theme of ['Light', 'Dark']) {
-    await page.goto('/settings');
+    await page.goto('/settings?section=appearance');
     await page.getByRole('button', { name: theme, exact: true }).click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', theme.toLowerCase());
-    await expect(page.getByText('The operator needs to register Solanime with MyAnimeList', { exact: false })).toBeVisible();
     for (const width of [1440, 320]) {
       await page.setViewportSize({ width, height: 960 });
-      await noOverflow(page);
-      const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
-      expect(results.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? '')).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([]);
-      await page.screenshot({ path: info.outputPath(`settings-${theme}-${width}.png`), fullPage: true });
+      for (const section of ['appearance', 'playback', 'connections']) {
+        await page.goto(`/settings?section=${section}`);
+        if (section !== 'connections') await expect(page.locator(`#${section}`)).toBeVisible();
+        if (section === 'connections')
+          await expect(page.getByText('Import your export file', { exact: true })).toBeVisible();
+        await noOverflow(page);
+        const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+        expect(results.violations.filter(v => ['serious', 'critical'].includes(v.impact ?? '')).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([]);
+        await page.screenshot({ path: info.outputPath(`settings-${section}-${theme}-${width}.png`), fullPage: true });
+      }
     }
     await page.goto('/title/paper-lantern');
     await expect(page.locator('#title-name')).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: info.outputPath(`series-${theme}-320.png`), fullPage: true });
+    const search = page.getByRole('button', { name: 'Search all titles', exact: true });
+    await search.focus(); await page.keyboard.press('Enter');
+    await expect(page.getByRole('searchbox', { name: 'Find titles', exact: true })).toBeFocused();
+    await noOverflow(page);
+    const closeSearch = page.getByRole('button', { name: 'Close search', exact: true });
+    expect((await closeSearch.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+    await page.keyboard.press('Escape');
+    await expect(search).toHaveAttribute('aria-expanded', 'false');
+    await expect(search).toBeFocused();
+    await page.setViewportSize({ width: 1440, height: 960 });
     const category = page.getByRole('button', { name: 'Categories', exact: true });
     await category.focus(); await page.keyboard.press('Enter');
     await expect(category).toHaveAttribute('aria-expanded', 'true');
-    await noOverflow(page);
-    const menuTarget = await page.locator('.category-navigation__panel a').first().boundingBox();
-    expect(menuTarget?.height).toBeGreaterThanOrEqual(44);
     await page.keyboard.press('Escape');
     await expect(category).toHaveAttribute('aria-expanded', 'false');
     await expect(category).toBeFocused();
   }
   await page.setViewportSize({ width: 1440, height: 960 });
-  await page.goto('/settings');
-  await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible();
+  await page.goto('/settings?section=playback');
+  await expect(page.getByRole('heading', { name: 'Playback', exact: true })).toBeVisible();
   // CSS zoom exercises 200% reflow without depending on the test browser's UI.
   await page.evaluate(() => { document.documentElement.style.zoom = '2'; });
   await noOverflow(page);

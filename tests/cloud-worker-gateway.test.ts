@@ -181,9 +181,12 @@ describe('private Pages gateway forwarding contract', () => {
     const headers = { cookie: '__Host-solanime_session=' + sessionToken, 'x-csrf-token': 'test-csrf', 'x-solanime-intent': 'mutate' };
     for (const action of ['status', 'list'])
       expect((await pages.fetch(new Request(origin + profile + action, { headers }), env)).status).toBe(200);
-    for (const action of ['connect', 'complete', 'sync', 'update', 'disconnect'])
+    for (const action of ['import-username', 'import-file', 'remove'])
       expect((await pages.fetch(post(profile + action, {}, headers), env)).status).toBe(200);
-    expect(service).toHaveBeenCalledTimes(7);
+    expect(service).toHaveBeenCalledTimes(5);
+    // The removed MyAnimeList login routes are no longer exposed.
+    for (const action of ['connect', 'complete', 'sync', 'update', 'disconnect'])
+      expect((await pages.fetch(post(profile + action, {}, headers), env)).status).toBe(404);
     expect(service.mock.calls[0][0].headers.get('cookie')).toBe('__Host-solanime_session=' + sessionToken);
     expect((await pages.fetch(new Request(origin + profile + 'tokens', { headers }), env)).status).toBe(404);
     expect((await pages.fetch(post(profile + 'status', {}, headers), env)).status).toBe(404);

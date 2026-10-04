@@ -3,15 +3,16 @@
 const publicRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/(?:providers|comments))$/;
 const reviewRead = /^\/api\/(?:health|meta\/filters|titles(?:\/[^/]+)?|episodes\/\d+\/providers)$/;
 const operatorRead = /^\/api\/(?:admin\/(?:accounts\/pending|sources(?:\/[^/]+(?:\/(?:relationships|evidence))?)?|sources\/coverage|import\/status|sync\/status)|exports\/(?:catalogue\.json|catalogue\.csv|coverage\.csv))$/;
-const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/(?:decision|retry-notice)|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
+const operatorWrite = /^\/api\/admin\/(?:accounts\/[\w-]{1,128}\/decision|sources\/[^/]+\/review|providers\/\d+\/verification|sync\/(?:control|start)|artwork\/refresh|import\/(?:\d+\/(?:pause|resume|retry)|dispatch|batch|start))$/;
 const resolvePath = /^\/api\/providers\/\d+\/resolve$/;
-const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)))$/;
+const accountRead = /^\/api\/account\/(?:session|sessions|export|profiles\/[\w-]{36}\/(?:data|mal\/(?:status|list)|explore\/status))$/;
 const accountWrite =
-  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:connect|complete|sync|update|disconnect)))?)?)$/;
+  /^\/api\/account\/(?:register|login|logout|recover|password|recovery-code|delete|revoke-other-sessions|profiles(?:\/[\w-]{36}(?:\/(?:data|delete|mal\/(?:import-username|import-file|remove)|explore\/(?:start|feedback|undo|results|preferences|reset)))?)?)$/;
 const communityRead = /^\/api\/episodes\/\d+\/comments$/;
 const communityCreate = /^\/api\/episodes\/\d+\/comments$/;
 const communityItem = /^\/api\/episodes\/\d+\/comments\/[0-9a-f-]{36}$/i;
 const limit = 256 * 1024;
+const importLimit = 3 * 1024 * 1024;
 function problem(status, code, message) {
   return Response.json(
     { error: { code, message } },
@@ -22,6 +23,7 @@ function problem(status, code, message) {
         'X-Content-Type-Options': 'nosniff',
         'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
         'Referrer-Policy': 'no-referrer',
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
       },
     },
   );
@@ -108,7 +110,7 @@ export default {
         headers.set('x-solanime-client-ip', request.headers.get('cf-connecting-ip') ?? '');
       }
     }
-    const bodyLimit = accountRoute ? limit : operatorRoute ? 60_000 : 16 * 1024;
+    const bodyLimit = /\/mal\/import-file$/.test(url.pathname) ? importLimit : accountRoute ? limit : operatorRoute ? 60_000 : 16 * 1024;
     let body;
     if (mutation) {
       const caller = request.headers.get('origin');
@@ -189,6 +191,7 @@ export default {
         'x-content-type-options': 'nosniff',
         'referrer-policy': 'no-referrer',
         'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
+        'x-robots-tag': 'noindex, nofollow, noarchive',
       });
       if (accountRoute) {
         const cookies =

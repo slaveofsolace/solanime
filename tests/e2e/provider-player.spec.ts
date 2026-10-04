@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { episode, fixtureArt, noOverflow } from './helpers';
+import { episode, fixtureArt, noOverflow, selectedSource } from './helpers';
 
 async function serveProvider(page: Page, embedUrl: string) {
   let resolutionRequests = 0;
@@ -56,7 +56,7 @@ test('an incomplete provider embed response cannot mount a player', async ({ pag
 
   await page.goto(`/watch/paper-lantern/${first.id}?language=sub`);
   await expect(page.getByRole('heading', { name: 'This source cannot play here' })).toBeVisible();
-  await expect(page.getByRole('combobox', { name: 'Playback source' })).toHaveValue('mapping-embed');
+  await expect(selectedSource(page)).toHaveAttribute('data-mapping-id', 'mapping-embed');
   await expect(page.locator('video, iframe')).toHaveCount(0);
   expect(resolutionRequests()).toBe(1);
   expect(page.context().pages()).toHaveLength(1);
@@ -97,7 +97,7 @@ test('browser-only provider mode stays compatible and discloses its actual prote
   await expect(page.getByText(/Popup and redirect blocking depends on your browser/)).toBeVisible();
   await expect(page.getByRole('link', { name: 'Desktop Guard' })).toHaveAttribute('download', '');
   await noOverflow(page);
-  const accessibility = await new AxeBuilder({ page }).include('.provider-player__footer').analyze();
+  const accessibility = await new AxeBuilder({ page }).include('.provider-player__notice').analyze();
   expect(accessibility.violations.filter(item => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
   await page.screenshot({ path: testInfo.outputPath('browser-provider-mode.png'), fullPage: true });
   await page.setViewportSize({ width: 320, height: 740 });
@@ -158,6 +158,6 @@ test('default source favors an official publisher over an uncontained provider i
   await page.goto(`/watch/paper-lantern/${first.id}?language=sub`);
   await expect.poll(() => resolved.length).toBeGreaterThan(0);
   expect(resolved[0]).toContain('/api/providers/mapping-official/resolve');
-  await expect(page.getByRole('combobox', { name: 'Playback source' })).toHaveValue('mapping-official');
+  await expect(selectedSource(page)).toHaveAttribute('data-mapping-id', 'mapping-official');
   expect(resolved).toHaveLength(1);
 });
